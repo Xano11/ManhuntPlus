@@ -151,5 +151,5 @@
         }   
         },
         "name":"§l§nImp's Gateway",
-        "description":"Using the secondary ability key, you can teleport your entire team onto the runner. In the overworld, you'll be teleported high in the air and will descend slowly. In the Nether, you will be teleported but you will turn into a spirit, where if you get hit by the runner, you'll be teleported back to the imp's original location."
+        "description":"Using the secondary ability key, you can teleport any hunter in a 10 block radius of yourself onto the runner. In the overworld, you'll be teleported high in the air and will descend slowly. In the Nether, you will be teleported but you will turn into a spirit, where if you get hit by the runner, you'll be teleported back to the imp's original location."
     }
