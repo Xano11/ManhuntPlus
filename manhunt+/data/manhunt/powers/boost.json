@@ -1,0 +1,53 @@
+{
+	"name": "§l§nEncouraging Aura",
+	"description": "Channeling your inner powers, you release a wave of powerful energy that grants a boost to the nearby entities. Watch out; the boost may affect those unwanted. (1 minute and 30 seconds cooldown)",
+	"type": "origins:active_self",
+	"cooldown": 1800,
+	"hud_render": {
+	  "should_render":true,
+	  "sprite_location":"origins:textures/gui/community/huang/resource_bar_01.png",
+	  "bar_index": 4
+	},
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [ 		
+		{
+		  "type": "origins:execute_command",
+		  "command": "playsound minecraft:entity.evoker.cast_spell master @a[distance=..5] ~ ~ ~ 1 1",
+		  "permission_level": 4
+		},
+		{
+		  "type": "origins:execute_command",
+		  "command": "effect give @e[distance=..5] minecraft:speed 10 1 true",
+		  "permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "effect give @e[distance=..5] minecraft:strength 10 0 true",
+			"permission_level": 4
+		  },
+		  {
+			"type": "origins:execute_command",
+			"command": "effect give @e[distance=..5] minecraft:regeneration 10 1 true",
+			"permission_level": 4
+		  },
+		{
+			"type": "origins:execute_command",
+			"command": "particle minecraft:dust_color_transition 1 0.1 0.4 1 1 0.1 1 ~ ~ ~ 2 0.5 2 1 1000",
+			"permission_level": 4
+		  },
+		  {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:spore_blossom_air ~ ~ ~ 3 1 3 1 1000",
+			"permission_level": 4
+		  },
+		  {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:totem_of_undying ~ ~ ~ 2 0.5 2 0.1 200",
+			"permission_level": 4
+		  }
+	  ]
+
+	},
+		"key": "primary"	
+}

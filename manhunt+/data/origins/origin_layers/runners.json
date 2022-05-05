@@ -1,0 +1,19 @@
+{
+    "order": 2,
+    "replace": false,
+    "origins": [
+          {
+            "condition": {
+              "type": "origins:origin",
+              "origin": "manhunt:runner",
+              "layer": "origins:origin"
+          },
+              "origins": [
+                "manhunt:celeritas",
+                "manhunt:sanguis",
+                "manhunt:damned"
+              ]
+          }
+      ],
+      "name": "runner"
+}

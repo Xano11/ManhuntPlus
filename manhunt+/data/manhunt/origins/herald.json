@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"manhunt:boost",
+		"manhunt:bark_shield",
+		"origins:more_exhaustion",
+		"origins:nine_lives",
+		"manhunt:fire_weak"
+	],
+	"icon": {
+		"item": "minecraft:vine",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Herald",
+	"description": "The Herald is the leader of the group; they lead with their supportive powers to get an advantage on the runner."
+}

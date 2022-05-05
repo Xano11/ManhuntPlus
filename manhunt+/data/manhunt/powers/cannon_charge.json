@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 0
+			}
+        },
+"add_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:cannon_charge_resource",
+        "change": 1
+    },
+    "interval": 3600
+},
+    "hidden": true
+}

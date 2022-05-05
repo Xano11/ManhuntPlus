@@ -1,0 +1,19 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [{
+        "type": "origins:execute_command",
+        "command": "give @s minecraft:trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:0,Name:\"generic.attack_damage\",UUID:[I;-12241,30272,231927,-60544]}],display:{Name:'[{\"text\":\"Ol\\'reliable\",\"bold\":true,\"color\":\"dark_red\"}]'},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1"
+        }
+    ]
+},
+    "entity_action_respawned": {
+        "type": "origins:execute_command",
+        "command": "give @s minecraft:trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:0,Name:\"generic.attack_damage\",UUID:[I;-12241,30272,231927,-60544]}],display:{Name:'[{\"text\":\"Ol\\'reliable\",\"bold\":true,\"color\":\"dark_red\"}]'},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1"
+    },
+    "execute_chosen_when_orb": true,
+
+    "name": "Ol'reliable",
+    "description": "You start out with your only trusty pitchfork! (don't give this away, please)"
+}

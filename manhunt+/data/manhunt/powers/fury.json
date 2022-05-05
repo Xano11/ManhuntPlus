@@ -1,0 +1,39 @@
+{
+    "type": "origins:multiple",
+
+        "activate": {
+                "type": "origins:active_self",
+                "entity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:fury_effects"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:cloud ~ ~ ~ 1 1 1 0.5 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:dust 1 0 0 1 ~ ~1 ~ 1 0 1 0.1 2000"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 1 0.5"
+                        }
+                    ]
+                    },
+                "key": {
+                    "key": "key.origins.primary_active"
+                },
+        "cooldown": 3600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "should_render": true
+        }   
+        },
+        "name":"§l§nFury",
+        "description":"Using your primary ability key, you can go into a fury, increasing your speed (40%), attack speed (+0.2) and attack damage (+3). The fury lasts 15 seconds and every kill restarts the cooldown. Though, after the delay, you will be slower."
+    }

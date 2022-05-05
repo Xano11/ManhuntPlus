@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:runner_effects"
+	],
+	"icon": {
+		"item": "minecraft:ender_eye",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Runner",
+	"description": "Your goal is to defeat the Ender Dragon and not be killed by the Hunters."
+}

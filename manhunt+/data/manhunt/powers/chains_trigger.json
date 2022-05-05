@@ -1,0 +1,57 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:slowness",
+                    "duration": 200,
+                    "amplifier": 0
+                }
+            },
+            {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:blindness",
+                    "duration": 200,
+                    "amplifier": 0
+                }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.bell.resonate player @s ~ ~ ~ 3 1.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:soul ~ ~ ~ 1 1 1 1 1000",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @e remove whisper",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "power remove @e manhunt:tag_effects",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                    "type": "origins:execute_command",
+                    "command": "power remove @e manhunt:chains_trigger"
+                    }
+                        ]
+                }
+            }
+        ]
+    }
+}

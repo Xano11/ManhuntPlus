@@ -1,0 +1,16 @@
+{
+    "name": "Horrible Javelin Throwing",
+    "description": "You aren't so good at throwing tridents. (-3 damage)",
+    "type": "origins:multiple",
+    "damage_projectile": {
+        "type": "origins:modify_projectile_damage",
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "minecraft:trident"
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": -3
+        }
+    }
+}

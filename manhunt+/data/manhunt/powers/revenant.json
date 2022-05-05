@@ -1,0 +1,199 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 19,
+            "should_render": true
+        },  
+        "min_action": {
+            "type": "origins:and",
+            "actions": [{
+            "type": "origins:execute_command",
+            "command": "tp @s @e[tag=totem,sort=nearest,limit=1]"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "tag @s remove revenant"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.wither.hurt player @a[distance=..32] ~ ~ ~ 1 0.5"
+        },
+        {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:blindness",
+                "duration": 100,
+                "amplifier": 0
+            }
+        },
+        {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:weakness",
+                "duration": 100,
+                "amplifier": 0
+            }
+        },
+        {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:revenant"
+                }
+                    ]
+            }
+        }
+    ]
+}
+},
+"sound":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.beacon.activate player @s ~ ~ ~ 1 1.5",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+"tag":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s add revenant",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+"health":{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": -10,
+        "operation": "addition"
+    },
+    "update_health": true
+},
+"armor":{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.armor",
+        "value": -99,
+        "operation": "addition"
+    },
+    "update_health": true
+},
+"model":
+{
+    "type": "origins:model_color",
+    "red": 0.1,
+    "green": 0.1,
+    "blue": 0.1,
+    "alpha": 0.6
+},
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:revenant_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+    "overlay":
+{
+    "type": "origins:overlay",
+    "texture": "minecraft:textures/item/blaze_powder.png",
+    "strength": 0.2,
+    "red": 0.4,
+    "green": 0.5,
+    "blue": 0.1,
+    "draw_mode": "texture",
+    "draw_phase": "below_hud",
+    "hide_with_hud": false,
+    "visible_in_third_person": false
+},
+
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:campfire_cosy_smoke",
+		"frequency": 5
+	},
+    "no_death":{
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.hurt player @a[distance=..32] ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:revenant"
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 10
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:blindness",
+                        "duration": 100,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:weakness",
+                        "duration": 100,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove revenant"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                    "actions": [
+                        {
+                        "type": "origins:execute_command",
+                        "command": "tp @s @e[tag=totem,sort=nearest,limit=1]"
+                        }
+                            ]
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

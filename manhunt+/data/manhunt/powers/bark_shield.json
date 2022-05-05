@@ -1,0 +1,29 @@
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+            {
+                "type":"origins:execute_command",
+                "command":"power grant @p[distance=1..10,tag=hunter] manhunt:bark_effects",
+                "permission_level":4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.anvil.use player @a[distance=..5] ~ ~ ~ 1 0.7",
+                "permission_level": 4
+            }
+        ]
+    },
+    "cooldown": 1800,
+    "hud_render":{
+        "should_render":true,
+        "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index":8
+    },    
+    "key":{
+        "key":"key.origins.secondary_active"
+    },
+    "name":"§l§nTree Bark Shield",
+    "description":"Using the power of nature, you can give a tree bark shield that increases your teammates defense and giving them a passive health regeneration. Pressing the secondary ability key will grant it to the closest player in a 10 block radius. (5 minute cooldown)"
+}

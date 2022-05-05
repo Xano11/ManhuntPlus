@@ -1,0 +1,83 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 2
+			},
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:cannon_boom"
+                }
+                    ]
+                         }
+                    },
+                    {
+                        "type": "origins:explode",
+                        "power": 1,
+                        "destruction_type": "none",
+                        "damage_self": false,
+                        "create_fire": false
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "y": 1,
+                        "space": "local"
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "z": 10,
+                        "space": "local"
+                    }
+            ]   
+        }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:cannon_boom_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+"no_jump":{
+    "type": "origins:modify_jump",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.25
+    }
+},
+    "no_move": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Increase speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": -0.5,
+			"operation": "multiply_total"
+		}
+	},
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:flame",
+		"frequency": 1
+	},
+    "hidden": true
+}

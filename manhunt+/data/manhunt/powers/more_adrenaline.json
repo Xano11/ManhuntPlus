@@ -1,0 +1,10 @@
+{
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+        "name": "Decreased exhaustion",
+        "operation": "multiply_base",
+        "value": -0.5
+    },
+    "name":"Adrenaline",
+    "description":"Being used to running for your life at all time, you've learned how to reduce your consumption of food. (50% less exhaustion)"
+}

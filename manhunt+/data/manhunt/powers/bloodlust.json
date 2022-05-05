@@ -1,0 +1,49 @@
+{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+    "type": "origins:and",
+    "actions": [{
+        "type": "origins:apply_effect",
+        "effects": [
+            {
+                "effect": "minecraft:strength",
+                "duration": 140,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": true
+            },
+            {
+                "effect": "minecraft:regeneration",
+                "duration": 100,
+                "amplifier": 1,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": true
+                    }
+                ]
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.wither.hurt player @s ~ ~ ~ 3 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:dust 1 0 0 1 ~ ~1 ~ 0.4 0 0.4 1 100",
+                "permission_level": 4
+            }
+        ]
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+        "bar_index": 5
+    },
+    "target_condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:player"
+    },
+    "name": "Bloodlust",
+    "description": "Killing a player grants you strength I for 7 seconds and regeneration II for 5 seconds."
+}

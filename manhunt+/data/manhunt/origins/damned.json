@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:undead",
+        "manhunt:bow_start",
+        "manhunt:supernova",
+        "manhunt:arrow_tag",
+        "manhunt:chains",
+        "manhunt:bone_arms"
+	],
+	"icon": {
+		"item": "minecraft:bone",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Inmortuae",
+	"description": "A lost soul in an undead body, you have supernatural abilities allowing you to be on top of the battle field."
+}

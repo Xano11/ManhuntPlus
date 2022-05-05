@@ -1,0 +1,9 @@
+{
+  "order": 1,
+  "replace": true,
+  "origins": [
+    "manhunt:hunter",
+    "manhunt:runner"
+  ],
+  "name":"role"
+}

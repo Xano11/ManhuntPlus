@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+
+        "sprint": {
+                "type": "origins:active_self",
+                "entity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:sprint_effects"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run particle minecraft:flame ~ ~ ~ 0.2 0 0.2 0.3 200 normal"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run particle minecraft:campfire_cosy_smoke ~ ~ ~ 0.2 0.2 0.2 0.1 200 normal"
+                        }
+                    ]
+                    },
+                "key": {
+                    "key": "key.origins.primary_active"
+                },
+        "cooldown": 1800,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "should_render": true
+        }   
+        },
+        "name":"§l§nGotta Go Fast",
+        "description":"Pressing your main ability key gives you a massive speed boost, lasting for 10 seconds. But, after such a sprint, you have to take a break, reducing your speed temporarily."
+    }

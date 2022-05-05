@@ -1,0 +1,66 @@
+{
+    "type": "origins:multiple",
+
+    "resource":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 300,
+            "start_value": 300,
+            "hud_render": {
+                "should_render":true,
+                "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index":8
+            }, 
+            "min_action": {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:bark_effects"
+            }
+            
+    },
+
+    "remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:heal",
+        "amount": 1
+    },
+    "interval": 20
+},
+"regeneration": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:bark_effects_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+
+    "defense": {
+    "type": "origins:attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.armor",
+        "operation": "addition",
+        "value": 4,
+        "name": "Increased armor."
+    },
+    "tick_rate": 1
+},
+"overlay":
+{
+    "type": "origins:overlay",
+    "texture": "minecraft:textures/block/oak_log.png",
+    "strength": 0.4,
+    "red": 0.1,
+    "green": 0.8,
+    "blue": 0.1,
+    "draw_mode": "texture",
+    "draw_phase": "below_hud",
+    "hide_with_hud": false,
+    "visible_in_third_person": false
+},
+"hidden": true
+}

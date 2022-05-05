@@ -1,0 +1,40 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 1
+			},
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:fury_downside"
+    }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:fury_downside_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+    "more_speed": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Increase speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": -0.6,
+			"operation": "multiply_total"
+		}
+	},
+    "hidden": true
+}

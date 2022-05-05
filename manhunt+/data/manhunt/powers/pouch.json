@@ -1,0 +1,12 @@
+{
+    "type": "origins:inventory",
+    "drop_on_death": true,
+    "key": {
+        "key": "key.origins.primary_active"
+    },
+    "condition": {
+        "type": "origins:sneaking"
+    },
+    "name":"§l§nAdventurer's Pouch",
+    "description":"You can access a special 9 slot pouch by using your primary ability key and sneaking. Allows for more space."
+}

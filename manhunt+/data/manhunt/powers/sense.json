@@ -1,0 +1,27 @@
+{
+    "type": "origins:multiple",
+
+        "detect": {
+                "type": "origins:active_self",
+                "entity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @s run function manhunt:sense"
+                        }
+                    ]
+                    },
+                "key": {
+                    "key": "key.origins.secondary_active"
+                },
+        "cooldown": 1800,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 19,
+            "should_render": true
+        }   
+        },
+        "name":"§l§nThe Voices.",
+        "description":"Pressing your secondary ability key will detect for players around. If the closest player is too close, a message in red will appear (Distance of 30 blocks); if the message is yellow, the closest player is further than 30 blocks and if the message is green, the closest player is further than a 100 blocks away."
+    }

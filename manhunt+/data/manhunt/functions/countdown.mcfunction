@@ -1,0 +1,1 @@
+power grant @p[tag=runner] manhunt:countdown

@@ -1,0 +1,27 @@
+{
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+        "name": "Weak to cursed items",
+        "operation": "multiply_total",
+        "value": -0.9
+        },
+    "damage_condition":{
+        "type":"origins:or",
+        "conditions":[
+          {
+            "type": "origins:name",
+            "name": "explosion"
+          },
+          {
+            "type": "origins:name",
+            "name": "explosion.player"
+          },
+          {
+            "type": "origins:name",
+            "name": "fireworks"
+          }
+        ]
+      },
+      "name": "Explosion-Proof Armor",
+      "description": "Being the maniac of bombs you are, you have an innate 90% blast damage protection."
+  }

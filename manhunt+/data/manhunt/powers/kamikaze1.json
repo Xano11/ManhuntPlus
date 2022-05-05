@@ -1,0 +1,91 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 2
+			},
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:kamikaze1"
+                }
+                    ]
+                         }
+                    },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:kamikaze2",
+                    "permission_level": 4
+                }
+            ]   
+        }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:kamikaze1_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+
+"sound": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:block.note_block.bell player @a[distance=..32] ~ ~ ~ 1 1.4",
+        "permission_level": 4
+    },
+    "interval": 5
+},
+
+    "more_speed": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Increase speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": 0.6,
+			"operation": "multiply_total"
+		}
+	},
+
+	"no_attack": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.5
+		}
+	},
+
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:flame",
+		"frequency": 2
+	},
+
+    "particles1": {
+        "type": "origins:particle",
+		"particle": "minecraft:campfire_signal_smoke",
+		"frequency": 2
+	},
+    "hidden": true
+}

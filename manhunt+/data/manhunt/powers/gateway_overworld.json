@@ -1,0 +1,36 @@
+{
+    "type": "origins:multiple",
+
+    "slow": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Decrease speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": -0.6,
+			"operation": "multiply_total"
+		}
+	},
+    "landing":{
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:gateway_overworld"
+        }
+    },
+    "prevent_item": 
+    {
+        "type": "origins:prevent_item_use"
+    },
+
+    "fall":{
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false
+    },
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:flame",
+		"frequency": 1
+	},
+    "hidden": true
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Imp",
+    "description": "These natural tricksters love to mess and stalk with anyone that comes in their way",
+    "powers": [
+        "manhunt:fork",
+        "manhunt:upgrades",
+        "manhunt:flight",
+        "manhunt:naughty_pitchfork",
+        "manhunt:sneaky",
+        "manhunt:body",
+        "manhunt:bad_swimmer",
+        "manhunt:portal"
+    ],
+    "icon": {
+		"item": "minecraft:trident",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+    "impact": 0
+}

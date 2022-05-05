@@ -1,0 +1,24 @@
+{
+    "order": 2,
+    "replace": false,
+    "origins": [
+          {
+            "condition": {
+              "type": "origins:origin",
+              "origin": "manhunt:hunter",
+              "layer": "origins:origin"
+          },
+              "origins": [
+                "manhunt:lurker",
+                "manhunt:herald",
+                "manhunt:scout",
+                "manhunt:bomber",
+                "manhunt:survivalist",
+                "manhunt:guardian",
+                "manhunt:imp"
+              ]
+          }
+      ],
+      "name": "hunter"
+}
+  

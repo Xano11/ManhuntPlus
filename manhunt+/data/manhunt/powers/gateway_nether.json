@@ -1,0 +1,143 @@
+{
+    "type":"origins:multiple",
+    "resource":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 300,
+            "start_value": 300,
+            "hud_render": {
+                "should_render": false,
+                "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+                "bar_index": 3
+                },
+            "min_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:gateway_nether"
+                    }
+                },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @p[tag=runner] manhunt:stop_forceload",
+                        "permission_level": 4
+                    }
+                ]   
+            }
+    },
+    
+    "remove_resource": 
+    {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gateway_nether_resource",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "air_speed":
+    {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.40
+		},
+	"hidden": true
+},
+"cant_dealdmg":
+{
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -1
+    }
+},
+"less_speed":
+    {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Movement speed decrease",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -0.4,
+            "operation": "multiply_base"
+        }
+    },
+"remove":{
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+    "type": "origins:execute_command",
+    "command": "tp @s @e[limit=1,sort=nearest,name=imp]"
+    },
+    {
+        "type": "origins:execute_command",
+        "command": "power remove @p[tag=runner] manhunt:stop_forceload",
+        "permission_level": 4
+    },
+    {
+        "type": "origins:delay",
+        "ticks": 1,
+        "action": {
+        "type": "origins:and",
+        "actions": [
+            {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:gateway_nether"
+            }
+                ]
+        }
+    }
+]
+},
+    "cooldown": 1,
+    "damage_condition": {
+        "type": "origins:attacker",
+        "entity_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags: ['runner']}"
+        }
+    }
+},
+"blind":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "effect give @s minecraft:blindness 15 1 true",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:item.trident.thunder player @s ~ ~ ~ 1 1.5",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+"invisible": 
+    {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+"particles":
+{
+    "type": "origins:action_over_time",
+    "interval": 2,
+    "entity_action": {
+        "type": "origins:execute_command",
+        "permission_level": 4,
+        "command": "particle minecraft:flame ~ ~1 ~ 0.5 0.5 0.5 0.1 5 normal"
+    }
+},
+"hidden": true
+}

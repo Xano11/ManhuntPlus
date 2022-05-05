@@ -1,0 +1,39 @@
+{
+    "type":"origins:multiple",
+
+    "permanent":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": -0.8,
+            "name": "Decreased movement"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "sink":
+    {
+        "type": "origins:ignore_water"
+    },
+    "no_jump":{
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "addition",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "name": "Bad Swimmer",
+    "description": "You are so heavy you won't be able to swim."
+}

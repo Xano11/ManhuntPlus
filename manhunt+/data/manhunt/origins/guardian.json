@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"manhunt:totem",
+        "manhunt:savior",
+		"manhunt:slow",
+		"manhunt:shield"
+	],
+	"icon": {
+		"item": "minecraft:beacon",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Guardian",
+	"description": "The Guardian can use their abilities to keep their teammates alive and ready for combat at any time."
+}

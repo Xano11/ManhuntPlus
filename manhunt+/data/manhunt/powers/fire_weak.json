@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:fire"
+    },
+    "modifier": {
+        "name": "Weak to fire",
+        "operation": "multiply_total",
+        "value": 1
+    },
+    "name": "Burning Weakness",
+    "description": "Fire deals double damage due to your grand link to nature."
+}
