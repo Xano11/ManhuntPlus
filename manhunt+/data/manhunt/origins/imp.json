@@ -15,5 +15,5 @@
 		"item": "minecraft:trident",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
-    "impact": 0
+    "impact": 3
 }

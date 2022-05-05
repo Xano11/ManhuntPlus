@@ -11,7 +11,7 @@
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
-	"impact": 0,
+	"impact": 1,
 	"name": "Scout",
 	"description": "You have a Need For Speed. You do 1v1's with cars on the highway since you think you're so fast."
 }

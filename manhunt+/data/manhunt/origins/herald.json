@@ -11,7 +11,7 @@
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
-	"impact": 0,
+	"impact": 1,
 	"name": "Herald",
 	"description": "The Herald is the leader of the group; they lead with their supportive powers to get an advantage on the runner."
 }

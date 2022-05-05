@@ -10,7 +10,7 @@
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
-	"impact": 0,
+	"impact": 3,
 	"name": "Guardian",
 	"description": "The Guardian can use their abilities to keep their teammates alive and ready for combat at any time."
 }
