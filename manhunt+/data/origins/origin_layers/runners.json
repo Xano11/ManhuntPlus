@@ -9,6 +9,7 @@
               "layer": "origins:origin"
           },
               "origins": [
+                "manhunt:none",
                 "manhunt:celeritas",
                 "manhunt:sanguis",
                 "manhunt:damned"
