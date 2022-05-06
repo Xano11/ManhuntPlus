@@ -1,6 +1,6 @@
 {
     "name":"Upgrades",
-    "description":"You can upgrade your pitchfork, starting out you cannot deal damage with it but you can upgrade it using copper, iron and diamond (in that very order) by dragging the corresponding material on top of it and right clicking it. The damage will increase with each upgrade. Death resets the upgrade (the level of upgrade is shown by how many *'s are at the end of the name, for example if you have \"Ol'reliable *\" that means you are on the copper upgrade and must add iron to upgrade it again.)",
+    "description":"You can upgrade your pitchfork, starting out you cannot deal damage with it but you can upgrade it using copper, iron, diamond and netherite (in that very order) by dragging the corresponding material on top of it and right clicking it. The damage will increase with each upgrade. Death resets the upgrade (the level of upgrade is shown by how many ☆'s are at the end of the name, for example if you have \"Ol'reliable ★\" that means you are on the copper upgrade and must add iron to upgrade it again.)",
     "type": "origins:multiple",
     "copper":{ 
         "type": "origins:item_on_item",
@@ -24,7 +24,7 @@
         },
         "entity_action": {
                 "type": "origins:execute_command",
-                "command": "give @p minecraft:trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable *\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Copper.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
+                "command": "give @p minecraft:trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Copper.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
                 "permission_level": 4
         }
     },
@@ -33,7 +33,7 @@
         "type": "origins:item_on_item",
         "on_item_condition": {
             "type": "origins:nbt",
-            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable *\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Copper.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Copper.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
         },
         "using_item_condition": {
             "type": "origins:ingredient",
@@ -51,7 +51,7 @@
         },
         "entity_action": {
                 "type": "origins:execute_command",
-                "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:7,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable **\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
+                "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
                 "permission_level": 4
         }
     },
@@ -60,7 +60,7 @@
         "type": "origins:item_on_item",
         "on_item_condition": {
             "type": "origins:nbt",
-            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:7,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable **\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
         },
         "using_item_condition": {
             "type": "origins:ingredient",
@@ -78,7 +78,33 @@
         },
         "entity_action": {
                 "type": "origins:execute_command",
-                "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable **\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
+                "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
+                "permission_level": 4
+        }
+    },
+    "netherite":{ 
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+                "type": "origins:execute_command",
+                "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Netherite Fright.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
                 "permission_level": 4
         }
     }
