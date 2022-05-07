@@ -1,0 +1,24 @@
+{
+    "type": "origins:recipe",
+    "name":"Father's Recipe",
+	"description":"Craft a crossbow by putting a iron, sting and stick in a crafting grid",
+    "recipe": {
+    "type": "minecraft:crafting_shapeless",
+    "id": "manhunt:craftcrossbow",
+    "ingredients": [
+        {
+            "item": "minecraft:string"
+        },
+        {
+            "item": "minecraft:stick"
+        },
+        {
+            "item": "minecraft:iron_ingot"
+        }
+    ],
+    "result": {
+        "item": "minecraft:crossbow",
+        "count": 1
+        }
+    }
+}

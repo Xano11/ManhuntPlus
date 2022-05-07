@@ -1,0 +1,64 @@
+{
+    "type": "origins:multiple",
+    "slowness":{
+        "type": "origins:conditioned_attribute",
+            "modifier": {
+                    "attribute": "minecraft:generic.movement_speed",
+                        "operation": "addition",
+                        "value": -0.05,
+                        "name": "nethernerfA"
+                    },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_nether"
+        }
+    },
+
+    "weakness":{
+        "type": "origins:conditioned_attribute",
+            "modifier": {
+                    "attribute": "minecraft:generic.attack_damage",
+                        "operation": "addition",
+                        "value": -4,
+                        "name": "nethernerfB"
+                    },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_nether"
+        }
+    },
+
+    "armor":{
+        "type": "origins:conditioned_attribute",
+            "modifier": {
+                    "attribute": "minecraft:generic.armor",
+                        "operation": "addition",
+                        "value": -4,
+                        "name": "nethernerfC"
+                    },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_nether"
+        }
+    },
+
+    "food":{
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+        "name": "Increased exhaustion",
+        "operation": "multiply_base",
+        "value": 2.0
+    },
+    "condition": {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_nether"
+        }
+    },
+
+
+    "name": "No Water, No Captain",
+    "description": "In the nether the captain has increased hunger drain, slower walk speed, slower attack speed and 4 less armor points."
+}

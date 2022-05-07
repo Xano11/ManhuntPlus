@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+    "defence":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "boat bunker",
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:boat"
+                }
+            }
+        }
+    },
+    "attack":{
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "name": "boat bunker weak",
+            "operation": "multiply_base",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:boat"
+                }
+            }
+        }
+    },
+    "name": "Wooden Bunker",
+    "description": "Whilst in a boat you take 50% less damage but also deal 50% less with melee."
+}
