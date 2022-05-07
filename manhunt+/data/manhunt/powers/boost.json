@@ -23,7 +23,7 @@
 		},
 		{
 			"type": "origins:execute_command",
-			"command": "effect give @e[distance=..5] minecraft:strength 10 0 true",
+			"command": "effect give @e[distance=..5] minecraft:resistance 10 0 true",
 			"permission_level": 4
 		  },
 		  {
