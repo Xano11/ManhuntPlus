@@ -44,6 +44,10 @@
                 "type": "origins:execute_command",
                 "command": "particle minecraft:splash ~ ~2 ~ 0 0 0 10 1000 normal",
                 "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:fishing ~ ~1.3 ~ 0 0 0 0.1 1000 normal"
             }
         ]
     },
@@ -54,6 +58,10 @@
                 "type": "origins:execute_command",
                 "command": "particle minecraft:splash ~ ~2 ~ 0 0 0 0.01 1000 normal",
                 "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:fishing ~ ~1.3 ~ 0 0 0 0.1 1000 normal"
             }
         ]
     }

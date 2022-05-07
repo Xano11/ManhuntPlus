@@ -35,8 +35,17 @@
         "type": "origins:and",
         "actions": [
             {
-                "type": "origins:execute_command",
-                "command": "power remove @s manhunt:strapped"
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:strapped"
+                    }
+                ]
+                }
             },
             {    
                 "type": "origins:explode",
@@ -47,7 +56,7 @@
             }
         ]
     },
-    "interval": 20,
+    "interval": 5,
     "condition": {
         "type": "origins:resource",
         "resource": "manhunt:strapped_resource2",

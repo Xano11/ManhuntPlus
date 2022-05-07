@@ -39,10 +39,7 @@
                         "resource": "manhunt:strapped_resource2",
                         "change": 1
                     }
-                },
-                    "bientity_condition": {
-                    "type": "origins:can_see"
-                }
+            }
             },
             {
                 "type": "origins:delay",
