@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:blunderbuss",
+		"manhunt:trained",
+		"manhunt:ns",
+		"manhunt:bunker",
+		"manhunt:craft",
+		"manhunt:nether",
+		"manhunt:air_speed"
+	],
+	"icon": {
+		"item": "minecraft:crossbow",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Captain",
+	"description": "A pirate made for the sea, trained to the point of leadership... also known as leader of the ship."
+}

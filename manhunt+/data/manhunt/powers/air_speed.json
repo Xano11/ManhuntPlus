@@ -1,0 +1,9 @@
+{
+    "type": "origins:modify_air_speed",
+    "modifier": {
+        "operation": "multiply_base",
+        "value": -0.2
+    },
+    "name":"Made For The Sea, Not The Air",
+    "description":"20% less air movement speed"
+}
