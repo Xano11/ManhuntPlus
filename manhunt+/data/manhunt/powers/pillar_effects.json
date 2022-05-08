@@ -1,0 +1,95 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 20
+			},
+        "min_action": {
+                "type": "origins:and",
+                "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "kill @e[type=minecraft:falling_block,distance=..2]"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "kill @e[type=minecraft:pig,distance=..2]"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "resource set @p[tag=arena] manhunt:arena 0"
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=pillar]"
+                    }
+                        ]
+                }
+            }
+        ]
+    }
+},
+"activation":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:cloud ~ ~ ~ 1 1 1 1 1000",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.ender_eye.death player @a ~ ~ ~ 1 0.5",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:pillar_effects_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:portal ~ ~ ~ 1 1 1 1 10",
+            "permission_level": 4
+        },
+        "interval": 2
+    },
+
+    "particles2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:end_rod ~ ~ ~ 1 1 1 0.1 4",
+            "permission_level": 4
+        },
+        "interval": 2
+    },
+    "hidden": true
+}

@@ -1,0 +1,284 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 12,
+            "should_render": true
+        },  
+        "min_action": {
+            "type": "origins:and",
+            "actions": [{
+            "type": "origins:execute_command",
+            "command": "tp @s[tag=runner] @e[tag=arena1,sort=nearest,limit=1]"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "tp @s[tag=hunter] @e[tag=arena2,sort=nearest,limit=1]"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "tag @a remove arena"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.wither.hurt player @a[distance=..32] ~ ~ ~ 1 0.5"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "power remove @a[tag=runner] manhunt:stop_forceload"
+        },
+        {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "kill @e[tag=arena1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=arena2]"
+                }
+                    ]
+            }
+        },
+        {
+            "type": "origins:delay",
+            "ticks": 2,
+            "action": {
+                "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "power remove @a manhunt:arena"
+                }
+                    ]
+            }
+        }
+    ]
+}
+},
+"sound":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.beacon.activate player @s ~ ~ ~ 1 1.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @s[tag=runner] run summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Glowing:1b,Marker:1b,Invisible:1b,Tags:[\"arena1\"]}",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @s[tag=hunter] run summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Glowing:1b,Marker:1b,Invisible:1b,Tags:[\"arena2\"]}",
+                "permission_level": 4
+            },
+            {
+                
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:execute_command",
+                "command": "execute at @e[tag=pillar,limit=1,sort=nearest] run spreadplayers ~ ~ 5 5 false @a[tag=arena]"
+            }
+            }
+        ]
+    }
+},
+"tag":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s add arena",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+"no_damage":
+{
+    "type": "origins:invulnerability",
+    "damage_condition": {
+        "type": "origins:attacker",
+        "entity_condition": {
+            "type": "origins:power",
+            "power": "manhunt:arena"
+        },
+        "inverted": true
+    }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:arena_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+"glow":
+{
+    "type": "origins:self_glow",
+    "use_teams": false,
+    "red": 0.8,
+    "green": 0,
+    "blue": 0
+},
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:end_rod",
+		"frequency": 5
+	},
+    "no_death":{
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.hurt player @a[distance=..32] ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                    "actions": [
+                        {
+                        "type": "origins:execute_command",
+                        "command": "effect give @p[tag=arena] minecraft:instant_health 1 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "effect give @p[tag=arena] minecraft:speed 30 1"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "effect give @p[tag=arena] minecraft:haste 30 1"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "effect give @p[tag=arena] minecraft:saturation 1 3"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "effect give @p[tag=arena] minecraft:resistance 30 0"
+                        }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 10
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:blindness",
+                        "duration": 100,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:weakness",
+                        "duration": 600,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:glowing",
+                        "duration": 600,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 600,
+                        "amplifier": 1
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove arena"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 2,
+                    "action": {
+                        "type": "origins:and",
+                    "actions": [
+                        {
+                        "type": "origins:execute_command",
+                        "command": "tp @p[tag=runner] @e[tag=arena1,sort=nearest,limit=1]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tp @p[tag=hunter] @e[tag=arena2,sort=nearest,limit=1]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power remove @a[tag=runner] manhunt:stop_forceload"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @a remove arena"
+                        }
+                            ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 3,
+                    "action": {
+                        "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @e[tag=arena1]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @e[tag=arena2]"
+                            }
+                            ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 4,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "power remove @e manhunt:arena"
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

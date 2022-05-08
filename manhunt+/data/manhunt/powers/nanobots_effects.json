@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+
+    "resource":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 200,
+            "start_value": 200,
+            "hud_render":{
+                "should_render":true,
+                "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+                "bar_index": 9
+            },   
+            "min_action": {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:nanobots_effects"
+            }
+            
+    },
+
+    "regen": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:heal",
+        "amount": 1
+    },
+    "interval": 10
+},
+"particles": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:happy_villager ~ ~ ~ 0.5 1 0.5 1 10"
+    },
+    "interval": 10
+},
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:nanobots_effects_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+"hidden": true
+}

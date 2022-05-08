@@ -34,7 +34,7 @@
         "resource": "manhunt:shield_resource",
         "change": 1
     },
-    "interval": 300,
+    "interval": 160,
     "condition": {
         "type": "origins:sneaking"
     }
