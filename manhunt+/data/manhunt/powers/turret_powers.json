@@ -37,7 +37,7 @@
                 "actions": [
                     {
                     "type": "origins:execute_command",
-                    "command": "kill @e[tag=turret]"
+                    "command": "kill @s[tag=turret]"
                     },
                     {
                         "type": "origins:execute_command",

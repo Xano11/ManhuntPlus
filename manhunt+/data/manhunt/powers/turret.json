@@ -12,11 +12,11 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "summon falling_block ~ ~1 ~ {BlockState:{Name:\"minecraft:hopper\"},NoGravity:1b,Silent:1b,Time:999999,DropItem:0b,HurtEntities:0b}"
+                            "command": "summon falling_block ~ ~1 ~ {BlockState:{Name:\"minecraft:hopper\"},NoGravity:1b,Silent:1b,Time:-999999,DropItem:0b,HurtEntities:0b}"
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "summon falling_block ~ ~ ~ {BlockState:{Name:\"minecraft:anvil\"},NoGravity:1b,Silent:1b,Time:999999,DropItem:0b,HurtEntities:0b}"
+                            "command": "summon falling_block ~ ~ ~ {BlockState:{Name:\"minecraft:anvil\"},NoGravity:1b,Silent:1b,Time:-999999,DropItem:0b,HurtEntities:0b}"
                         },
                         {
                             "type": "origins:execute_command",
