@@ -4,3 +4,4 @@ gamerule doImmediateRespawn true
 scoreboard objectives add x dummy
 scoreboard objectives add y dummy
 scoreboard objectives add z dummy
+time set day
