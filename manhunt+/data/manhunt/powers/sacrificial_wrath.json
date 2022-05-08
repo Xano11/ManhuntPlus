@@ -1,0 +1,80 @@
+{
+	"type": "origins:multiple",
+	"wrath_gain": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:play_sound",
+					"sound": "minecraft:item.bottle.fill_dragonbreath"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:sacrifice_sacrifice_resource",
+					"change": -1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:sacrificial_wrath_wrath_resource",
+					"change": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:soul ~ ~1 ~ 0.3 0.5 0.3 0.05 10",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound block.soul_soil.place player @a ~ ~1 ~ 2 0",
+					"permission_level": 4
+				}
+			]
+		},
+		"key": {
+			"key": "key.origins.secondary_active"
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"comparison": ">=",
+			"compare_to": 1
+		},
+		"cooldown": 1
+	},
+	"wrath_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 7,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 1
+		}
+	},
+	"wrath_boost": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_damage",
+			"value": 2,
+			"operation": "addition"
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:sacrificial_wrath_wrath_resource",
+			"comparison": ">=",
+			"compare_to": 1
+		}
+	},
+	"wrath_deplete": {
+		"type": "origins:self_action_on_hit",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "manhunt:sacrificial_wrath_wrath_resource",
+			"change": -1
+		},
+		"cooldown": 1
+	},
+	"name": "Sacrificial Wrath",
+	"description": "The souls that you store may be converted into raw power, granting you +2 damage for the next hit while active. This may stack up to 7 times, but one stack diminishes on hit."
+}

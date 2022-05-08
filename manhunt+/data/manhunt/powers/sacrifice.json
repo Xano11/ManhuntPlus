@@ -1,0 +1,25 @@
+{
+	"type": "origins:multiple",
+	"sacrifice_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 7,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 17
+		}
+	},
+	"sacrifice_gain": {
+		"type": "origins:self_action_on_kill",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"change": 1
+		},
+		"cooldown": 1
+	},
+	"name": "Sacrifice",
+	"description": "You have the ability to sacrifice and store the souls of those you vanquish. Up to seven of them may be stored at once."
+}
