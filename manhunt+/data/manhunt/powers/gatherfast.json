@@ -10,7 +10,7 @@
                             "type": "origins:apply_effect",
                             "effect": {
                                 "effect": "minecraft:haste",
-                                "duration": 200,
+                                "duration": 300,
                                 "amplifier": 1
                             }
                         },
@@ -27,7 +27,7 @@
                 "key": {
                     "key": "key.origins.secondary_active"
                 },
-        "cooldown": 3600,
+        "cooldown": 2400,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 3,
