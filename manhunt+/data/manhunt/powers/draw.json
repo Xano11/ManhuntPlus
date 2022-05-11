@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+
+        "card": {
+                "type": "origins:active_self",
+                "entity_action": {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:spade"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:heart"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:diamond"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:club"
+                            },
+                            "weight": 10
+                        }
+                    ]
+                },
+                "key": {
+                    "key": "key.origins.primary_active"
+                },
+        "cooldown": 1200,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 22,
+            "should_render": true
+        }   
+        },
+        "name":"§l§nDRAW A CARD",
+        "description":"Using your primary ability key, you will draw a card. Depending on the type (Spade, Heart, Diamond, Club), it will change the effect you get."
+    }

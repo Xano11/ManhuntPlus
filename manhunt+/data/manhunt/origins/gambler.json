@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:draw",
+        "manhunt:deception",
+		"manhunt:curse",
+		"manhunt:ace",
+		"origins:fire_immunity",
+		"manhunt:hydrophobe"
+	],
+	"icon": {
+		"item": "minecraft:filled_map",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Gambler",
+	"description": "The Gambler uses luck and illusions to confuse and overpower it's enemies."
+}

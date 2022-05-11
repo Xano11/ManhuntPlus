@@ -1,0 +1,31 @@
+{
+    "type":"origins:multiple",
+
+    "permanent":{
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+    "damage":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:damage",
+            "amount": 2,
+            "source": {
+                "name": "magic",
+                "bypasses_armor": true
+            }
+        },
+        "interval": 50,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "name": "Too classy for water.",
+    "description": "You don't like your suit when it's drenched in water. And the Devil agrees with you. (Slower in water + Damage)"
+}

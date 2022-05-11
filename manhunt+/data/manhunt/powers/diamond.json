@@ -1,0 +1,98 @@
+{
+    "type": "origins:multiple",
+
+    "resource":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 300,
+            "start_value": 300,
+            "hud_render":{
+                "should_render":true,
+                "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+                "bar_index": 0
+            },   
+            "min_action": {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:diamond"
+            }
+            
+    },
+
+"message":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tellraw @s [\"\",{\"text\":\"YOU DREW A \"},{\"text\":\"DIAMOND\",\"color\":\"aqua\"},{\"text\":\" ! OH, AIN'T YOU SO RICH? \"}]",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 1 1.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at XaNo11 positioned ~ ~5 ~ run function manhunt:diamond",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s {\"text\":\"(+ Armor)\",\"bold\":true,\"italic\":true}"
+                    }
+                        ]
+                }
+            }
+        ]
+    }
+},
+
+"armor": {
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Increase attack speed",
+        "attribute": "minecraft:generic.armor",
+        "value": 3,
+        "operation": "addition"
+    }
+},
+"armor_toughness": {
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Increase attack speed",
+        "attribute": "minecraft:generic.armor",
+        "value": 2,
+        "operation": "addition"
+    }
+},
+"particles": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust 0 0.9 0.7 1 ~ ~1 ~ 0.5 0.7 0.5 0.1 10"
+    },
+    "interval": 10
+},
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:diamond_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+"hidden": true
+}

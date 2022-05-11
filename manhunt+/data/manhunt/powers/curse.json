@@ -1,0 +1,12 @@
+
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": -4,
+        "operation": "addition"
+      },
+  "name": "Devil's Deal",
+  "description": "You traded 2 of your hearts to the Devil in exchange for your special abilities."
+}

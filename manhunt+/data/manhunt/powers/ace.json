@@ -1,0 +1,66 @@
+{
+    "type": "origins:multiple",
+    "no_death":{
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.vex.charge player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:death_msg_gambler"
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 6
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 1 ~ ~ ~ 2 1 2 1 400"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 1 1 1 1 ~ ~ ~ 2 1 2 1 400"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 1 0 0 1 ~ ~ ~ 2 1 2 1 400"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:weakness",
+                        "duration": 100,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:resistance",
+                        "duration": 40,
+                        "amplifier": 100
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                    "actions": [
+                        {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:ace"
+                        }
+                            ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Ace up their sleeve.",
+    "description": "You have made a pact with the Devil, granting you a free card to escape death once."
+}
