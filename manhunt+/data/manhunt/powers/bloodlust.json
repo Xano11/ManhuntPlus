@@ -19,7 +19,15 @@
                 "is_ambient": false,
                 "show_particles": false,
                 "show_icon": true
-                    }
+                    },
+            {
+                        "effect": "minecraft:saturation",
+                        "duration": 1,
+                        "amplifier": 5,
+                        "is_ambient": false,
+                        "show_particles": false,
+                        "show_icon": false
+                }
                 ]
             },
             {
@@ -45,5 +53,5 @@
         "entity_type": "minecraft:player"
     },
     "name": "Bloodlust",
-    "description": "Killing a player grants you strength I for 7 seconds and regeneration II for 5 seconds."
+    "description": "Killing a player grants you strength I for 7 seconds, regeneration II for 5 seconds and a bit of saturation back."
 }
