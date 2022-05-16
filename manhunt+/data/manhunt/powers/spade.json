@@ -16,9 +16,19 @@
                 "type": "origins:execute_command",
                 "command": "power remove @s manhunt:spade"
             }
-            
     },
-
+    "upgrade":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 2,
+            "start_value": 0,
+            "hud_render":{
+                "should_render":false,
+                "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index": 5
+            }
+    },
 "message":
 {
     "type": "origins:action_on_callback",
@@ -29,15 +39,10 @@
                 "type": "origins:execute_command",
                 "command": "tellraw @s [\"\",{\"text\":\"YOU DREW A \"},{\"text\":\"SPADE\",\"color\":\"gray\"},{\"text\":\"! TIME TO BE A JACK OF ALL \"},{\"text\":\"SPADES\",\"color\":\"gray\"},{\"text\":\"! \"}]",
                 "permission_level": 4
-            },
+            }, 
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 1 1.5",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute at XaNo11 positioned ~ ~5 ~ run function manhunt:spade",
+                "command": "execute at @s positioned ~ ~5 ~ run function manhunt:spade",
                 "permission_level": 4
             },
             {
@@ -54,6 +59,21 @@
                 }
             }
         ]
+    },
+    "entity_action_lost": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove spade1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove spade2",
+                "permission_level": 4
+            }       
+        ]
     }
 },
 
@@ -66,11 +86,67 @@
         "operation": "addition"
     }
 },
-"no_attack": {
+"more_attack_speed1": {
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Increase attack speed",
+        "attribute": "minecraft:generic.attack_speed",
+        "value": 0.1,
+        "operation": "addition"
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:spade_upgrade",
+        "comparison": ">=",
+        "compare_to": 1
+    }
+},
+"more_attack_speed2": {
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Increase attack speed",
+        "attribute": "minecraft:generic.attack_speed",
+        "value": 0.1,
+        "operation": "addition"
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:spade_upgrade",
+        "comparison": "==",
+        "compare_to": 2
+    }
+},
+"more_attack": {
     "type": "origins:modify_damage_dealt",
     "modifier": {
         "operation": "addition",
-        "value": 2
+        "value": 1
+    }
+},
+"more_attack1": {
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+        "operation": "addition",
+        "value": 1
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:spade_upgrade",
+        "comparison": ">=",
+        "compare_to": 1
+    }
+},
+"more_attack2": {
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+        "operation": "addition",
+        "value": 1
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:spade_upgrade",
+        "comparison": "==",
+        "compare_to": 2
     }
 },
 "particles": 

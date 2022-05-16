@@ -18,6 +18,18 @@
             }
             
     },
+    "upgrade":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 2,
+            "start_value": 0,
+            "hud_render":{
+                "should_render":false,
+                "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index": 5
+            }
+    },
 
 "message":
 {
@@ -29,15 +41,10 @@
                 "type": "origins:execute_command",
                 "command": "tellraw @s [\"\",{\"text\":\"YOU DREW A \"},{\"text\":\"CLUB\",\"color\":\"dark_purple\"},{\"text\":\"! TIME TO RUN! \"}]",
                 "permission_level": 4
-            },
+            }, 
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 1 1.5",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute at XaNo11 positioned ~ ~5 ~ run function manhunt:club",
+                "command": "execute at @s positioned ~ ~5 ~ run function manhunt:club",
                 "permission_level": 4
             },
             {
@@ -54,23 +61,94 @@
                 }
             }
         ]
+    },
+    "entity_action_lost": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove club1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove club2",
+                "permission_level": 4
+            }       
+        ]
     }
 },
 
-"more_armor": {
+"more_speed": {
     "type": "origins:attribute",
     "modifier": {
-        "name": "Increase armor",
+        "name": "Increase speed",
         "attribute": "minecraft:generic.movement_speed",
-        "value": 0.4,
+        "value": 0.2,
         "operation": "multiply_total"
     }
 },
-"more_attack_speed": {
+"more_speed1": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "name": "Increase speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "value": 0.15,
+        "operation": "multiply_total"
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:club_upgrade",
+        "comparison": ">=",
+        "compare_to": 1
+    }
+},
+"more_speed2": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "name": "Increase speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "value": 0.1,
+        "operation": "multiply_total"
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:club_upgrade",
+        "comparison": "==",
+        "compare_to": 2
+    }
+},
+"more_air_speed": {
     "type": "origins:modify_air_speed",
     "modifier": {
         "operation": "multiply_total",
         "value": 0.2
+    }
+},
+"more_air_speed1": {
+    "type": "origins:modify_air_speed",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": 0.1
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:club_upgrade",
+        "comparison": ">=",
+        "compare_to": 1
+    }
+},
+"more_air_speed2": {
+    "type": "origins:modify_air_speed",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": 0.1
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:club_upgrade",
+        "comparison": "==",
+        "compare_to": 2
     }
 },
 "particles": 

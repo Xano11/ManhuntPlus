@@ -16,7 +16,18 @@
                 "type": "origins:execute_command",
                 "command": "power remove @s manhunt:diamond"
             }
-            
+    },
+    "upgrade":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 2,
+            "start_value": 0,
+            "hud_render":{
+                "should_render":false,
+                "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index": 5
+            }
     },
 
 "message":
@@ -29,15 +40,10 @@
                 "type": "origins:execute_command",
                 "command": "tellraw @s [\"\",{\"text\":\"YOU DREW A \"},{\"text\":\"DIAMOND\",\"color\":\"aqua\"},{\"text\":\" ! OH, AIN'T YOU SO RICH? \"}]",
                 "permission_level": 4
-            },
+            }, 
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 1 1.5",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute at XaNo11 positioned ~ ~5 ~ run function manhunt:diamond",
+                "command": "execute at @s positioned ~ ~5 ~ run function manhunt:diamond",
                 "permission_level": 4
             },
             {
@@ -54,11 +60,26 @@
                 }
             }
         ]
+    },
+    "entity_action_lost": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove diamond1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove diamond2",
+                "permission_level": 4 
+            }       
+        ]
     }
 },
 
 "armor": {
-    "type": "origins:attribute",
+    "type": "origins:conditioned_attribute",
     "modifier": {
         "name": "Increase attack speed",
         "attribute": "minecraft:generic.armor",
@@ -66,13 +87,34 @@
         "operation": "addition"
     }
 },
-"armor_toughness": {
-    "type": "origins:attribute",
+"armor1": {
+    "type": "origins:conditioned_attribute",
     "modifier": {
         "name": "Increase attack speed",
         "attribute": "minecraft:generic.armor",
         "value": 2,
         "operation": "addition"
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:diamond_upgrade",
+        "comparison": ">=",
+        "compare_to": 1
+    }
+},
+"armor2": {
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Increase attack speed",
+        "attribute": "minecraft:generic.armor_toughness",
+        "value": 2,
+        "operation": "addition"
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:diamond_upgrade",
+        "comparison": "==",
+        "compare_to": 2
     }
 },
 "particles": 
