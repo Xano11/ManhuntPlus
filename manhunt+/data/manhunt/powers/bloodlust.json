@@ -19,16 +19,13 @@
                 "is_ambient": false,
                 "show_particles": false,
                 "show_icon": true
-                    },
-            {
-                        "effect": "minecraft:saturation",
-                        "duration": 1,
-                        "amplifier": 5,
-                        "is_ambient": false,
-                        "show_particles": false,
-                        "show_icon": false
                 }
                 ]
+            },
+            {
+                "type": "origins:feed",
+                "food": 6,
+                "saturation": 0
             },
             {
                 "type": "origins:execute_command",
