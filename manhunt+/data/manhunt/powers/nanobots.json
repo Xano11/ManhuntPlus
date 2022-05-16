@@ -5,7 +5,7 @@
         "actions":[
             {
                 "type":"origins:execute_command",
-                "command":"power grant @p[distance=..10,tag=!engineer] manhunt:nanobots_effects",
+                "command":"power grant @p[distance=..10,tag=!engineer,tag=hunter] manhunt:nanobots_effects",
                 "permission_level":4
             },
             {
