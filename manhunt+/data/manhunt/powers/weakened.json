@@ -1,0 +1,9 @@
+{
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.25
+    },
+    "name": "Frail arms",
+    "description": "You have frail arms, reducing your overall damage by 25%"
+}
