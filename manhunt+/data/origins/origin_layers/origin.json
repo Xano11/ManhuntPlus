@@ -3,7 +3,8 @@
   "replace": true,
   "origins": [
     "manhunt:hunter",
-    "manhunt:runner"
+    "manhunt:runner",
+    "manhunt:spectator"
   ],
   "name":"role"
 }
