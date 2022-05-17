@@ -3,7 +3,7 @@
     "recipe": "manhunt:flint_trident",
     "result": {
         "item": "minecraft:trident",
-        "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Copper.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+        "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
     },
     "entity_action":{
         "type": "origins:and",
