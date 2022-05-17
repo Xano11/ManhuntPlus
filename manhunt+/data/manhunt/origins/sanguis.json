@@ -3,7 +3,8 @@
 		"manhunt:bloodlust",
         "manhunt:fury",
         "manhunt:sense",
-        "manhunt:unusable"
+        "manhunt:unusable",
+		"origins:carnivore"
 	],
 	"icon": {
 		"item": "minecraft:netherite_axe",
