@@ -52,8 +52,8 @@
 "overlay":
 {
     "type": "origins:overlay",
-    "texture": "minecraft:textures/block/oak_log.png",
-    "strength": 0.4,
+    "texture": "minecraft:textures/misc/forcefield.png",
+    "strength": 0.2,
     "red": 0.1,
     "green": 0.8,
     "blue": 0.1,
