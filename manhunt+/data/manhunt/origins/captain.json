@@ -5,7 +5,8 @@
 		"manhunt:bunker",
 		"manhunt:craft",
 		"manhunt:nether",
-		"manhunt:air_speed"
+		"manhunt:air_speed",
+		"manhunt:seavision"
 	],
 	"icon": {
 		"item": "minecraft:crossbow",
