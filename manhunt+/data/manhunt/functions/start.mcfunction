@@ -5,3 +5,6 @@ scoreboard objectives add x dummy
 scoreboard objectives add y dummy
 scoreboard objectives add z dummy
 time set day
+gamerule doLimitedCrafting true
+recipe give @a *
+recipe take @a[tag=!imp] manhunt:flint_trident
