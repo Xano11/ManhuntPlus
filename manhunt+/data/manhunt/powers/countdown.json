@@ -118,7 +118,7 @@
         ]
     },
         "cooldown": 1,
-        "hud_render": {
+        "hud_render": { 
             "should_render": false
         },
         "key": {
