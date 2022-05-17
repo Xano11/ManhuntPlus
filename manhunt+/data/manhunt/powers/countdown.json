@@ -43,6 +43,10 @@
             "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
         },
         {
+            "type": "origins:execute_command",
+            "command": "power grant @s manhunt:timer"
+        },
+        {
             "type": "origins:delay",
             "ticks": 1,
             "action": {
@@ -70,6 +74,10 @@
             "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
         },
         {
+            "type": "origins:execute_command",
+            "command": "power grant @s manhunt:timer"
+        },
+        {
             "type": "origins:delay",
             "ticks": 1,
             "action": {
@@ -95,6 +103,9 @@
             "actions": [{
             "type": "origins:execute_command",
             "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+        },{
+            "type": "origins:execute_command",
+            "command": "power grant @s manhunt:timer"
         },
         {
             "type": "origins:delay",
