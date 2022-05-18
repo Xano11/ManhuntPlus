@@ -2,7 +2,6 @@
     "replace": false,
     "values": [
       "minecraft:bow",
-      "minecraft:crossbow",
       "minecraft:snowball",
       "minecraft:egg"
     ]

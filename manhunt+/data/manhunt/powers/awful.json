@@ -1,9 +1,9 @@
 {
-		"type": "origins:modify_projectile_damage",
-		"modifier": {
-			"operation": "multiply_total",
-			"value": -1
-		},
-	"name": "Awful Archer",
-    "description": "Any projectile you shoot or throw does no damage."
+    "type": "origins:modify_projectile_damage",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -1
+    },
+"name": "Awful Archer",
+"description": "Any projectile you shoot or throw does no damage."
 }
