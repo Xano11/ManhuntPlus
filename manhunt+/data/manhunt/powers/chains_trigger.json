@@ -20,6 +20,14 @@
                 }
             },
             {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:resistance",
+                    "duration": 200,
+                    "amplifier": 250
+                }
+            },
+            {
                 "type": "origins:execute_command",
                 "command": "playsound minecraft:block.bell.resonate player @s ~ ~ ~ 3 1.5",
                 "permission_level": 4

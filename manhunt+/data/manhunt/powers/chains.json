@@ -15,7 +15,7 @@
                 "key": {
                     "key": "key.origins.secondary_active"
                 },
-        "cooldown": 600,
+        "cooldown": 3600,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 15,
