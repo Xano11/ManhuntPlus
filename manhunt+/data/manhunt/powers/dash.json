@@ -55,10 +55,17 @@
     { 
     "type": "origins:action_over_time",
     "entity_action": {
-        
+        "type": "origins:and",
+        "actions": [{
         "type": "origins:add_velocity",
-        "z": 2,
-        "space": "local"
+            "z": 2,
+            "space": "local"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "power grant @s manhunt:no_fall"
+            }
+        ]
     },
     "interval": 2,
       "condition": {
@@ -135,5 +142,5 @@
         }
     },
     "name": "§l§nFiery Dash",
-    "description": "Sneaking will accumulate heat and allow you after a few seconds to propel yourself in the air."
+    "description": "Sneaking will accumulate heat and allow you after a few seconds to propel yourself in the air, taking no fall damage on land."
 }
