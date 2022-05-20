@@ -1,0 +1,10 @@
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:savior_resource",
+        "change": -10
+    },
+    "interval": 10,
+    "hidden": true
+}

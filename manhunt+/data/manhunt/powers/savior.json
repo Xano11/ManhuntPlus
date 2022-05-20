@@ -11,85 +11,12 @@
                             "command": "power grant @a[distance=1..,tag=hunter] manhunt:savior_tag"
                         },
                         {
-                            "type": "origins:delay",
-                            "ticks": 2,
-                            "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoBasePlate:1b,NoGravity:1b,CustomName:'{\"text\":\"tp1\"}'}",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute at @a[limit=1,sort=nearest,tag=lowhp] run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoBasePlate:1b,NoGravity:1b,CustomName:'{\"text\":\"tp2\"}'}",
-                                    "permission_level": 4
-                                }
-                            ]
-                            }
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:savior_lose"
                         },
                         {
-                            "type": "origins:delay",
-                            "ticks": 3,
-                            "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "tp @s @e[limit=1,sort=nearest,name=tp2]",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "tp @a[tag=lowhp,sort=nearest,limit=1] @e[limit=1,sort=nearest,name=tp1]",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "effect give @a[tag=lowhp,sort=nearest,limit=1] minecraft:regeneration 7 1",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power grant @s manhunt:savior_downside",
-                                    "permission_level": 4
-                                }
-                            ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 4,
-                            "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "tag @a remove lowhp",
-                                    "permission_level": 4
-                                }
-                            ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 4,
-                            "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "kill @e[name=tp1]",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "kill @e[name=tp2]",
-                                    "permission_level": 4
-                                }
-                            ]
-                            }
+                            "type": "origins:execute_command",
+                            "command": "resource set @s manhunt:savior_resource 200"
                         }
                     ]
                     },
@@ -103,6 +30,60 @@
             "should_render": true
         }   
         },
+        "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 1,
+        "hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 2
+			},
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[tag=saved] run particle minecraft:enchant ~ ~1 ~ 0.5 0.5 0.5 0.1 1000"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[tag=saved] run playsound minecraft:block.amethyst_block.chime player @a[distance=..15] ~ ~ ~ 1 0.5"
+                },
+        {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:savior_lose"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tp @a[tag=saved] @s"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @a[tag=saved] manhunt:savior_tag"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "effect give @a[tag=saved] minecraft:instant_health 1 2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "effect give @a[tag=saved] minecraft:slowness 15 2"
+                    }
+                ]
+            }
+        }
+    ]
+}
+},
         "name":"§l§nSavior of All",
-        "description":"Using the primary ability key, you can swap with the closest hunter with 2 hearts or less. Teleporting to your teammate, you are temporarily blind and slowed, but invulnerable for five seconds."
+        "description":"Using the primary ability key, you can grant your teammate the possibility to teleport to you, healing them, but slowing them."
     }
