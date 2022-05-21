@@ -162,9 +162,9 @@
                 {
                     "type": "origins:apply_effect",
                     "effect": {
-                        "effect": "minecraft:blindness",
+                        "effect": "minecraft:resistance",
                         "duration": 100,
-                        "amplifier": 0
+                        "amplifier": 200
                     }
                 },
                 {
@@ -172,7 +172,7 @@
                     "effect": {
                         "effect": "minecraft:weakness",
                         "duration": 100,
-                        "amplifier": 0
+                        "amplifier": 2
                     }
                 },
                 {
