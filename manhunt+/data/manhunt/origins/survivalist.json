@@ -5,7 +5,8 @@
 		"manhunt:hookshot",
 		"manhunt:survivalist_tag",
 		"manhunt:explorer_weakness",
-		"origins:nine_lives"
+		"origins:nine_lives",
+		"manhunt:bomb"
 	],
 	"icon": {
 		"item": "minecraft:crafting_table",
