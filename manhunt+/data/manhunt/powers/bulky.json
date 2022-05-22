@@ -1,0 +1,12 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.attack_speed",
+        "operation": "addition",
+        "value": -0.2,
+        "name": "Decreased attack speed."
+    },
+    "tick_rate": 1,
+    "name":"Bulky",
+    "description":"With how bulky you are, you have a hard time swinwing weapons at the standard speed. (-0.2 attack speed)"
+}

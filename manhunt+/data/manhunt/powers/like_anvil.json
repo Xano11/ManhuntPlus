@@ -1,0 +1,7 @@
+{
+    "type": "origins:modify_falling",
+    "velocity": 0.12,
+    "take_fall_damage": true,
+    "name": "Like An Anvil",
+    "description": "You fall faster, like an anvil would."
+}

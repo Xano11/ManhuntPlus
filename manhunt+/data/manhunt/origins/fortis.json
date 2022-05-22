@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:leap",
+        "manhunt:menacing",
+		"manhunt:resistance",
+		"manhunt:shutdown",
+        "manhunt:bulky",
+		"manhunt:like_anvil"
+	],
+	"icon": {
+		"item": "minecraft:shield",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Fortis",
+	"description": "The Fortis prides itself in it's resilience."
+}
