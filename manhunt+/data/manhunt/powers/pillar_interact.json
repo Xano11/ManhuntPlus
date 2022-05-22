@@ -8,6 +8,10 @@
             },
             {
                 "type": "origins:execute_command",
+                "command": "summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,ShowArms:0b,Small:1b,Invisible:1b,Marker:1b,NoBasePlate:1b,Tags:[\"pillar_tp\"]}"
+            },
+            {
+                "type": "origins:execute_command",
                 "command": "resource set @e[limit=1,sort=nearest,tag=pillar] manhunt:pillar_effects_resource 0"
             },
             {
@@ -17,6 +21,19 @@
             {
                 "type": "origins:delay",
                 "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                    "type": "origins:execute_command",
+                    "command": "power grant @e[limit=1,sort=nearest,type=armor_stand] manhunt:pillar_barrier"
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 2,
                 "action": {
                 "type": "origins:and",
                 "actions": [

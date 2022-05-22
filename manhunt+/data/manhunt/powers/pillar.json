@@ -37,7 +37,7 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @a[tag=hunter] manhunt:pillar_interact"
+                            "command": "power grant @a[tag=hunter,tag=!engineer] manhunt:pillar_interact"
                         },
                         {
                             "type": "origins:execute_command",

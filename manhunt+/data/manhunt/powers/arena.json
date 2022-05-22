@@ -46,7 +46,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "kill @e[tag=arena2]"
-                }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=pillar_tp]"
+                } 
                     ]
             }
         },
@@ -93,7 +97,7 @@
                 "ticks": 1,
                 "action": {
                 "type": "origins:execute_command",
-                "command": "execute at @e[tag=pillar,limit=1,sort=nearest] run spreadplayers ~ ~ 5 5 false @a[tag=arena]"
+                "command": "execute at @e[tag=pillar_tp,limit=1,sort=nearest] run spreadplayers ~ ~ 5 5 false @a[tag=arena]"
             }
             }
         ]
@@ -113,7 +117,7 @@
         ]
     }
 },
-"no_damage":
+"only_enemy":
 {
     "type": "origins:invulnerability",
     "damage_condition": {
@@ -123,6 +127,69 @@
             "power": "manhunt:arena"
         },
         "inverted": true
+    }
+},
+"no_speed": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "name": "No speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "value": -0.8,
+        "operation": "multiply_total"
+    },
+    "condition":
+    {
+        "type": "origins:command",
+        "command": "execute if entity @e[limit=1,sort=nearest,type=armor_stand,tag=pillar_tp,distance=..10]",
+        "comparison": "==",
+        "compare_to": 0
+    }
+},
+
+"no_atk_speed": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "name": "No attack speed",
+        "attribute": "minecraft:generic.attack_speed",
+        "value": -1,
+        "operation": "multiply_total"
+    },
+    "condition":
+    {
+        "type": "origins:command",
+        "command": "execute if entity @e[limit=1,sort=nearest,type=armor_stand,tag=pillar_tp,distance=..10]",
+        "comparison": "==",
+        "compare_to": 0
+    }
+},
+"no_damage":
+{
+    "type": "origins:modify_damage_dealt",
+    "modifier": {
+    "name": "No damage",
+    "operation": "multiply_total",
+    "value": -1
+    },
+    "condition":
+    {
+        "type": "origins:command",
+        "command": "execute if entity @e[limit=1,sort=nearest,type=armor_stand,tag=pillar_tp,distance=..10]",
+        "comparison": "==",
+        "compare_to": 0
+    }
+},
+"no_jump": {
+    "type": "origins:modify_jump",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -1
+    },
+    "condition":
+    {
+        "type": "origins:command",
+        "command": "execute if entity @e[limit=1,sort=nearest,type=armor_stand,tag=pillar_tp,distance=..10]",
+        "comparison": "==",
+        "compare_to": 0
     }
 },
 
