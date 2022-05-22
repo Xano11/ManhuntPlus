@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:pig_spawn_egg"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Pig Ringtone",
+	"description": "Oink!"
+}

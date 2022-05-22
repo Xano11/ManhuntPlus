@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:emerald"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Villager Ringtone",
+	"description": "Errr."
+}

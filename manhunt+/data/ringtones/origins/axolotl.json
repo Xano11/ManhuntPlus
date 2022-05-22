@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:axolotl_bucket"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Axolotl Ringtone",
+	"description": "Cute boi!"
+}

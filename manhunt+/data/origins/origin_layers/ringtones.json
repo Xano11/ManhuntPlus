@@ -1,0 +1,24 @@
+{
+    "order": 3,
+    "replace": false,
+    "origins": [
+          {
+            "condition": {
+              "type": "origins:origin",
+              "origin": "manhunt:hunter",
+              "layer": "origins:origin"
+          },
+              "origins": [
+                "ringtones:default",
+                "ringtones:amethyst",
+                "ringtones:axolotl",
+                "ringtones:drink",
+                "ringtones:pig",
+                "ringtones:tnt",
+                "ringtones:villager"
+              ]
+          }
+      ],
+      "name": "ringtone"
+}
+  

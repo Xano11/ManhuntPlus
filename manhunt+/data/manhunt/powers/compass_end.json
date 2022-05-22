@@ -16,10 +16,6 @@
                 "command": "execute store result entity @e[type=item,limit=1,sort=nearest,tag=tracking3] Item.tag.LodestonePos.X int 1 run data get entity @e[tag=runner,limit=1,sort=nearest] Pos[0]"
             },
             {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:block.note_block.chime player @s"
-            },
-            {
                 "type": "origins:delay",
                 "ticks": 1,
                 "action": {

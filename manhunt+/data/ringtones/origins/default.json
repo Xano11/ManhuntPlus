@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:bell"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Default Ringtone",
+	"description": "The Default ding."
+}

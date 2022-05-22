@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:glass_bottle"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Drinking Ringtone",
+	"description": "Self-explanatory meme."
+}
