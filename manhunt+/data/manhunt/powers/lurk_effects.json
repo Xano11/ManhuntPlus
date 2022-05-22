@@ -170,7 +170,7 @@
                         "ticks": 1,
                             "action": {
                         "type": "origins:execute_command",
-                        "command": "execute as @p run tellraw @a [{\"selector\":\"@p[tag=runner]\"},{\"text\":\"'s coordinates are X:\"},{\"score\":{\"name\":\"@p[tag=runner]\",\"objective\":\"x\"}},{\"text\":\" Y:\"},{\"score\":{\"name\":\"@p[tag=runner]\",\"objective\":\"y\"}},{\"text\":\" Z:\"},{\"score\":{\"name\":\"@p[tag=runner]\",\"objective\":\"z\"}}]"   
+                        "command": "execute as @p run tellraw @a[tag=hunter] [{\"selector\":\"@p[tag=runner]\"},{\"text\":\"'s coordinates are X:\"},{\"score\":{\"name\":\"@p[tag=runner]\",\"objective\":\"x\"}},{\"text\":\" Y:\"},{\"score\":{\"name\":\"@p[tag=runner]\",\"objective\":\"y\"}},{\"text\":\" Z:\"},{\"score\":{\"name\":\"@p[tag=runner]\",\"objective\":\"z\"}}]"   
                         }
                 }
             ]
