@@ -8,7 +8,7 @@
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @a[distance=1..,tag=hunter] manhunt:savior_tag"
+                            "command": "power grant @a[tag=!guardian,tag=hunter] manhunt:savior_tag"
                         },
                         {
                             "type": "origins:execute_command",
