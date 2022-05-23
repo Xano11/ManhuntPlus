@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
 
-        "shadow": {
+        "activate": {
                 "type": "origins:active_self",
                 "entity_action": {
                     "type": "origins:and",
