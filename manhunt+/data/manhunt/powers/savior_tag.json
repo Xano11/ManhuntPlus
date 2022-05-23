@@ -8,6 +8,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "tag @s add saved"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.chime player @s"
                 }
             ]
             },
