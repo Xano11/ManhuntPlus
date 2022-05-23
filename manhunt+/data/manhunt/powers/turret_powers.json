@@ -106,6 +106,10 @@
             },
             {
                 "type": "origins:execute_command",
+                "command": "execute as @e[distance=..3] run resource set @s manhunt:turret_effects_resource 200"
+            },
+            {
+                "type": "origins:execute_command",
                 "command": "particle minecraft:scrape ~ ~ ~ 1 1 1 1 400"
             },
             {
