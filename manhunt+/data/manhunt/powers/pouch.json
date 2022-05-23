@@ -1,6 +1,5 @@
 {
-    "type": "origins:inventory",
-    "drop_on_death": true,
+    "type": "origins:crafting_table",
     "key": {
         "key": "key.origins.primary_active"
     },
@@ -8,5 +7,5 @@
         "type": "origins:sneaking"
     },
     "name":"§l§nAdventurer's Pouch",
-    "description":"You can access a special 9 slot pouch by using your primary ability key and sneaking. Allows for more space."
+    "description":"You can access a pocket crafting table by sneaking and using your primary ability key."
 }
