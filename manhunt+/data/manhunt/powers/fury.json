@@ -35,5 +35,5 @@
         }   
         },
         "name":"§l§nFury",
-        "description":"Using your primary ability key, you can go into a fury, increasing your speed (40%), attack speed (+0.2) and attack damage (+3). The fury lasts 15 seconds and every kill restarts the cooldown. Though, after the delay, you will be slower."
+        "description":"Using your primary ability key, you can go into a fury, attack speed (+0.2) and attack damage (+3). The fury lasts 15 seconds and every kill restarts the cooldown. Though, after the delay, you will be slower."
     }

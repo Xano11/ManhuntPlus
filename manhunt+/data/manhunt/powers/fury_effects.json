@@ -63,15 +63,6 @@
         "entity_type": "minecraft:player"
     }
 },
-    "more_speed": {
-		"type": "origins:attribute",
-		"modifier": {
-			"name": "Increase speed",
-			"attribute": "minecraft:generic.movement_speed",
-			"value": 0.04,
-			"operation": "addition"
-		}
-	},
     "more_attack_speed": {
 		"type": "origins:attribute",
 		"modifier": {
