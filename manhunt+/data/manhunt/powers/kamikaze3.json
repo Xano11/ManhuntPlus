@@ -29,7 +29,7 @@
                     },
                     {
                         "type": "origins:explode",
-                        "power": 6,
+                        "power": 8,
                         "destruction_type": "break",
                         "damage_self": true,
                         "create_fire": false
