@@ -20,7 +20,7 @@
             "ticks": 1,
             "action": {
                 "type": "origins:execute_command",
-                "command": "power remove @s manhunt:countdown"
+                "command": "power remove @a manhunt:countdown"
                 }
             }
         ]
@@ -51,7 +51,7 @@
             "ticks": 1,
             "action": {
                 "type": "origins:execute_command",
-                "command": "power remove @s manhunt:countdown"
+                "command": "power remove @a manhunt:countdown"
                 }
             }
         ]
@@ -82,7 +82,7 @@
             "ticks": 1,
             "action": {
                 "type": "origins:execute_command",
-                "command": "power remove @s manhunt:countdown"
+                "command": "power remove @a manhunt:countdown"
                 }
             }
         ]
@@ -112,7 +112,7 @@
             "ticks": 1,
             "action": {
                 "type": "origins:execute_command",
-                "command": "power remove @s manhunt:countdown"
+                "command": "power remove @a manhunt:countdown"
                 }
             }
         ]

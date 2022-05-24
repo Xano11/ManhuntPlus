@@ -1,1 +1,1 @@
-power grant @p[tag=runner] manhunt:countdown
+power grant @a[tag=runner] manhunt:countdown
