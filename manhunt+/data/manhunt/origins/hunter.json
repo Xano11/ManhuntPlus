@@ -1,9 +1,7 @@
 {
 	"powers": [
 		"manhunt:hunter_effects",
-		"manhunt:compass_overworld",
-		"manhunt:compass_nether",
-		"manhunt:compass_end"
+		"manhunt:compass"
 	],
 	"icon": {
 		"item": "minecraft:netherite_sword"
