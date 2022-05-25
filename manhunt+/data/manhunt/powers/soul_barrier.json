@@ -1,24 +1,10 @@
 {
 	"type": "origins:multiple",
-	"soul_drain": {
-		"type": "origins:self_action_when_hit",
-		"entity_action": {
-			"type": "origins:change_resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
-			"change": -1
-		},
-		"damage_condition": {
-			"type": "origins:amount",
-			"comparison": ">=",
-			"compare_to": 2.0
-		},
-		"cooldown": 1
-	},
 	"soul_barrier_1": {
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": -2,
+			"value": -3,
 			"operation": "addition"
 		},
 		"condition": {
@@ -32,7 +18,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": -1,
+			"value": -2,
 			"operation": "addition"
 		},
 		"condition": {
@@ -46,7 +32,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": 1,
+			"value": -1,
 			"operation": "addition"
 		},
 		"condition": {
@@ -60,7 +46,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": 2,
+			"value": 1,
 			"operation": "addition"
 		},
 		"condition": {
@@ -74,7 +60,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": 3,
+			"value": 2,
 			"operation": "addition"
 		},
 		"condition": {
@@ -88,7 +74,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": 4,
+			"value": 3,
 			"operation": "addition"
 		},
 		"condition": {
@@ -102,7 +88,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": 5,
+			"value": 4,
 			"operation": "addition"
 		},
 		"condition": {
@@ -116,7 +102,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.armor",
-			"value": -3,
+			"value": -4,
 			"operation": "addition"
 		},
 		"condition": {
