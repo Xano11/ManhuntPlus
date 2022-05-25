@@ -1,0 +1,53 @@
+{
+	"type": "origins:multiple",
+	
+	"activate": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "power grant @s manhunt:wrath_effects"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:sacrifice_sacrifice_resource",
+					"change": -7
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 1,
+					"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:execute_command",
+							"command": "power grant @e[limit=1,sort=nearest,tag=turret] manhunt:turret_powers",
+							"permission_level": 4
+						}
+					]
+					}
+				}
+			]
+			},
+		"key": {
+			"key": "key.origins.secondary_active"
+		},
+		"condition":  {
+			"type": "origins:resource",
+			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"comparison": "==",
+			"compare_to": 7
+		},
+"cooldown": 3600,
+"hud_render": {
+	"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+	"bar_index": 5,
+	"should_render": true
+}   
+},
+
+	"name": "Wrath",
+	"description": "You can activate "
+}

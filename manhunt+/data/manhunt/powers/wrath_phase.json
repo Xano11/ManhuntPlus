@@ -1,0 +1,42 @@
+{
+    "type": "origins:multiple",
+
+    "resource":
+    { 
+            "type": "origins:resource",
+            "min": 0,
+            "max": 20,
+            "start_value": 20,
+            "hud_render": {
+                "should_render":false,
+                "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index":8
+            }, 
+            "min_action": {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:wrath_phase"
+            }
+            
+    },
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:wrath_phase_resource",
+        "change": -10
+    },
+    "interval": 5
+},
+"shader":
+{
+    "type": "origins:shader",
+    "shader": "minecraft:shaders/post/desaturate.json"
+},
+"invisibility":{
+    "type": "origins:invisibility",
+    "render_armor": false
+},
+"hidden": true
+}
