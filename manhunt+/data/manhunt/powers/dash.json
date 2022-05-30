@@ -43,7 +43,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "particle minecraft:small_flame ~ ~ ~ 0.2 0.2 0.2 0.01 20 normal",
+            "command": "particle minecraft:wax_off ~ ~ ~ 0.2 0.2 0.2 2 20 normal",
             "permission_level": 4
         },
         "interval": 10,
@@ -64,6 +64,10 @@
             {
                 "type": "origins:execute_command",
                 "command": "power grant @s manhunt:no_fall"
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "execute at @s run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1 normal"
             }
         ]
     },
@@ -88,7 +92,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:play_sound",
-            "sound": "minecraft:block.lava.extinguish"
+            "sound": "minecraft:entity.firework_rocket.launch"
         },
         "interval": 2,
       "condition": {
@@ -141,6 +145,21 @@
             "compare_to": 7
         }
     },
-    "name": "§l§nFiery Dash",
-    "description": "Sneaking will accumulate heat and allow you after a few seconds to propel yourself in the air, taking no fall damage on land."
+	"full_charge_particles": {
+	    "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @s run particle minecraft:effect ~ ~ ~ 0.2 0.2 0.2 3 5 normal",
+            "permission_level": 4
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:dash_resource",
+            "comparison": "==",
+            "compare_to": 7
+            }
+		},
+    "name": "§l§nEnergy Dash",
+    "description": "Sneaking will accumulate energy into your legs. After accumulating enough energy, your next double jump will launch you much further as well as negating fall damage upon landing."
 }
