@@ -2,7 +2,7 @@
     "type": "origins:action_over_time",
 	"entity_action": {
         "type": "origins:execute_command",
-        "command": "effect give @e[distance=0.5..10] minecraft:slowness 10 0 true"
+        "command": "effect give @e[distance=..10,tag=!runner] minecraft:slowness 10 0 true"
     },
     "interval": 30,
     "name":"Menacing Aura",
