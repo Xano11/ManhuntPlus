@@ -49,5 +49,5 @@
 },
 
 	"name": "Wrath",
-	"description": "You can activate "
+	"description": "You can activate your wrath, granting you more attack speed, movement speed and making you glow. Additionally, hitting any entity for more than 2 hearts will make you go invisible for one second and grant you one soul. But, not touching a single entity for two full hearts during the duration of the power will make you take immense damage."
 }
