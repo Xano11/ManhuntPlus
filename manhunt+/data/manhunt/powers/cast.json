@@ -88,10 +88,14 @@
     {
         "type": "origins:prevent_item_use"
     },
-
     "particles": {
         "type": "origins:particle",
 		"particle": "minecraft:flame",
+		"frequency": 1
+	},
+	"particles2": {
+        "type": "origins:particle",
+		"particle": "minecraft:soul_fire_flame",
 		"frequency": 1
 	},
     "hidden": true
