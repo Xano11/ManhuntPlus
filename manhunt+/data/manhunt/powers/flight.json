@@ -47,7 +47,27 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:firework ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.1 20 normal"
+                            "command": "execute at @s run particle minecraft:soul_fire_flame ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.08 5 normal"
+                        },
+						{
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run particle minecraft:flame ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.08 5 normal"
+                        },
+						{
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run particle minecraft:dust_color_transition 0.25 0.9 1.0 1.3 0.8 0.45 0 ^ ^0.5 ^-0.5 0.5 0.5 0.5 1 5 normal"
+                        },
+						{
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run particle minecraft:dust_color_transition 0.8 0.45 0 1.3 0.25 0.9 1.0 ^ ^0.5 ^-0.5 0.5 0.5 0.5 1 5 normal"
+                        },
+						{
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run playsound block.fire.ambient player @a ~ ~1 ~ 1 1"
+                        },
+						{
+                            "type": "origins:execute_command",
+                            "command": "execute at @s run playsound minecraft:entity.generic.extinguish_fire player @a ~ ~1 ~ 1 2"
                         },
                         {
                             "type": "origins:add_velocity",
