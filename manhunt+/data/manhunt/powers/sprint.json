@@ -12,11 +12,11 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:flame ~ ~ ~ 0.2 0 0.2 0.3 200 normal"
+                            "command": "execute at @s run particle minecraft:effect ~ ~ ~ 0.2 0 0.2 0.3 200 normal"
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:campfire_cosy_smoke ~ ~ ~ 0.2 0.2 0.2 0.1 200 normal"
+                            "command": "execute at @s run particle minecraft:cloud ~ ~1 ~ 0.1 0.5 0.1 0.1 50 normal"
                         }
                     ]
                     },
@@ -31,5 +31,5 @@
         }   
         },
         "name":"§l§nGotta Go Fast",
-        "description":"Pressing your main ability key gives you a massive speed boost, lasting for 10 seconds. But, after such a sprint, you have to take a break, reducing your speed temporarily."
+        "description":"Pressing your main ability key gives you a massive speed boost that lasts for 10 seconds. However, the speed boost makes it quite hard to land solid attacks, reducing your damage dealt. Additionally, once the speed boost ends you become exhausted, reducing your speed and even further reducing your damage dealt temporarily."
     }
