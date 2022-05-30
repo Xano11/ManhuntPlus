@@ -33,8 +33,18 @@
 				},
 				{
 					"type": "origins:play_sound",
-					"sound": "minecraft:block.snow.place"
+					"sound": "minecraft:entity.ender_dragon.flap"
 				},
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:firework ~ ~ ~ 0.2 0.05 0.2 0.05 20 normal",
+                    "permission_level": 4
+                },
+				{
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:cloud ~ ~ ~ 0.2 0.05 0.2 0.05 10 normal",
+                    "permission_level": 4
+                },
 				{
 					"type": "origins:set_fall_distance",
 					"fall_distance": 0
@@ -82,5 +92,5 @@
 		}
 	},
     "name": "§l§nDouble-Jump",
-    "description": "You can double jump by pressing space again whilst in the air."
+    "description": "You can double jump by pressing space again while airborne."
 }
