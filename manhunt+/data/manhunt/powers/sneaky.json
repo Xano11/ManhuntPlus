@@ -107,5 +107,32 @@
                 }
             ]
         }
-    }  
+    },
+    "damage": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": -6,
+            "name": "Increased sprinting speed"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                    {
+                    "type": "origins:on_block"
+                    },
+                    {
+                    "type": "origins:sneaking"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:sneaky_resource",
+                        "comparison": ">",
+                        "compare_to": 0
+                }
+            ]
+        }
+    }    
 }
