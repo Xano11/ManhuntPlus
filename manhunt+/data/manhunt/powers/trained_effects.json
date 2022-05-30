@@ -26,12 +26,47 @@
     "interval": 20
 },
 
-"speed": {
+"speed_water": {
 "type": "origins:modify_swim_speed",
     "modifier": {
         "operation": "addition",
         "value": 0.03
+    },
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0
     }
+},
+"speed_lava": {
+    "type": "origins:modify_swim_speed",
+        "modifier": {
+            "operation": "addition",
+            "value": -0.06
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:lava",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+"swim_lava":
+{
+    "type": "origins:swimming",
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:lava",
+        "comparison": ">",
+        "compare_to": 0
+    }
+},
+"lava_vision":
+{
+    "type": "origins:lava_vision",
+    "s": 0,
+    "v": 6
 },
 
 "tag":
