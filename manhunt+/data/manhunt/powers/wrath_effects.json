@@ -12,7 +12,7 @@
                 "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
                 "bar_index":1
             }, 
-            "condition":
+            "min_action":
             {
                 "type": "origins:and",
                 "actions": [
@@ -35,23 +35,6 @@
             }
         ]
     }       
-    },
-    "tag_removal":
-    { 
-            "type": "origins:resource",
-            "min": 0,
-            "max": 1,
-            "start_value": 0,
-            "hud_render": {
-                "should_render":true,
-                "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-                "bar_index":1
-            }, 
-            "max_action": {
-                "type": "origins:execute_command",
-                "command": "power remove @s manhunt:wrath_effects"
-            }
-            
     },
 
 "remove_resource": 
