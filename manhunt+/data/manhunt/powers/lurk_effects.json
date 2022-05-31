@@ -109,6 +109,10 @@
 			"operation": "multiply_total"
 		}
 	},
+    "no_collision":
+    {
+        "type": "origins:prevent_entity_collision"
+    },
 
 	"no_jump": {
 		"type": "origins:modify_jump",

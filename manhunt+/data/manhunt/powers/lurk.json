@@ -47,7 +47,7 @@
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "execute at @s as @s run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b}"
+                            "command": "execute at @s as @s run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
                         },
                         {
                             "type": "origins:execute_command",
@@ -55,7 +55,7 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b}"
+                            "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
                         },
                         {
                             "type": "origins:delay",
