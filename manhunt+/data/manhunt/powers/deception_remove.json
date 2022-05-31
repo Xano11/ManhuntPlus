@@ -23,11 +23,15 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "particle minecraft:dust 1 1 1 1 ~ ~ ~ 2 2 2 1 1000"
+                "command": "particle minecraft:dust_color_transition 0 0 0 1 1 1 1 ~ ~1 ~ 1 1 1 1 300"
             },
             {
                 "type": "origins:execute_command",
-                "command": "particle minecraft:dust 1 0.1 0.1 1 ~ ~ ~ 2 2 2 1 1000"
+                "command": "particle minecraft:ash ~ ~1 ~ 1 1 1 1 300 normal"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:snowflake ~ ~1 ~ 1 0 1 0.1 100"
             },
             {
                 "type": "origins:delay",
