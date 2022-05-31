@@ -74,7 +74,12 @@
             "hud_render":{
                 "should_render":true,
                 "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
-                "bar_index": 16
+                "bar_index": 16,
+                "condition":
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
             }       
     },
     "remove_resource": 
