@@ -8,16 +8,11 @@
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @e[distance=..10,tag=hunter] manhunt:trained_effects"
-    
+                            "command": "execute if entity @s[nbt={Dimension:\"minecraft:overworld\"}] run power grant @e[distance=..10,tag=hunter] manhunt:trained_effects"
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "particle minecraft:splash ~ ~2 ~ 0 0 0 10 1000 normal"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "particle minecraft:fishing ~ ~1.3 ~ 0 0 0 0.1 1000 normal"
+                            "command": "execute if entity @s[nbt={Dimension:\"minecraft:the_nether\"}] run power grant @e[distance=..10,tag=hunter] manhunt:trained_effects_lava"
                         }
                     ]
                     },
@@ -32,5 +27,5 @@
         }   
         },
         "name":"§l§nTrained For The Sea",
-        "description":"The Captain can use his secondary ability to give him and all nearby hunters water breathing and 30% increased swim speed for 1:30 (5 minute cooldown)"
+        "description":"The Captain can use his secondary ability to give him and all nearby hunters water breathing and 30% increased swim speed for 1:30 (5 minute cooldown). If you are in the nether, the effects will allow you to swim quickly in lava. BUT, it will not make you fire resistant, meaning you'll still need fire resistance."
     }
