@@ -49,6 +49,16 @@
         ]
     }
 },
+"particles": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust_color_transition 1 1 1 1 0 0 0 ~ ~1 ~ 0.5 0.3 0.5 1 50",
+        "permission_level": 4
+    },
+    "interval": 30
+},
 
 "remove_resource": 
 {
@@ -116,11 +126,5 @@
     {
         "type": "origins:prevent_item_use"
     },
-
-    "particles": {
-        "type": "origins:particle",
-		"particle": "minecraft:wax_off",
-		"frequency": 4
-	},
     "hidden": true
 }

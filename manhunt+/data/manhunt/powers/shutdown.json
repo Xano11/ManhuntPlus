@@ -9,6 +9,26 @@
                         {
                             "type": "origins:execute_command",
                             "command": "power grant @a[tag=hunter] manhunt:shutdown_effects"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 1 2"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:entity.firework_rocket.large_blast_far player @s ~ ~ ~ 1 0.5 1"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:item minecraft:netherite_ingot ~ ~1 ~ 1 0 1 0.4 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:dust 0 0 0 1 ~ ~1 ~ 1 0.5 1 1 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:campfire_cosy_smoke ~ ~ ~ 1 1 1 0.3 10"
                         }
                     ]
                     },
