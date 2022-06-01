@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:iron_axe"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Vindicator Ringtone",
+	"description": "Here comes Johnny!"
+}
