@@ -274,5 +274,44 @@
         ]
         }
         },
+        "vindicator": {
+            "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.vindicator.celebrate player @s"
+                    }
+                ]
+            },
+            "cooldown": 1,
+            "hud_render": {
+                "should_render": false
+            },
+            "key": {
+                "key": "key.use",
+                "continuous": false
+            },
+            "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:compass"
+                    }
+                }
+            },
+            {
+                "type": "origins:origin",
+                "origin": "ringtones:vindicator",
+                "layer": "origins:ringtones"
+            }
+        ]
+        }
+        },
         "hidden": true
     }
