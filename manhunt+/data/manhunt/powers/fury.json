@@ -20,7 +20,19 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 1 0.5"
+                            "command": "particle minecraft:crimson_spore ~ ~1 ~ 1 1 1 1 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beacon.power_select player @a[distance=..16] ~ ~ ~ 0.6 0.5 0.6"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:item.axe.scrape player @a[distance=..16] ~ ~ ~ 1 0.5 1"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:item.totem.use player @a[distance=..16] ~ ~ ~ 0.4 1.7 0.4"
                         }
                     ]
                     },
