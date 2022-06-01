@@ -8,7 +8,11 @@
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "execute as @s run function manhunt:sense"
+                            "command": "execute as @s at @s run function manhunt:sense"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.set_spawn player @s ~ ~ ~ 1 2"
                         }
                     ]
                     },
