@@ -150,12 +150,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "execute if entity @p[tag=runner,nbt={Dimension:\"minecraft:overworld\"}] at @p[tag=runner] run particle minecraft:flame ~ 300 ~ 5 0 5 0.1 10000 force",
-                                            "permission_level": 4
-                                        },
-										{
-                                            "type": "origins:execute_command",
-                                            "command": "execute if entity @p[tag=runner,nbt={Dimension:\"minecraft:overworld\"}] at @p[tag=runner] run particle minecraft:soul_fire_flame ~ 300 ~ 5 0 5 0.1 5000 force",
+                                            "command": "execute if entity @p[tag=runner,nbt={Dimension:\"minecraft:overworld\"}] at @p[tag=runner] run particle minecraft:block_marker minecraft:nether_portal ~ 300 ~ 10 0 10 100 10000 force",
                                             "permission_level": 4
                                         },
                                         {
