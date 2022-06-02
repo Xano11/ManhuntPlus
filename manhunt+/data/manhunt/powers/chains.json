@@ -15,7 +15,7 @@
                 "key": {
                     "key": "key.origins.secondary_active"
                 },
-        "cooldown": 3600,
+        "cooldown": 1800,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 15,
@@ -23,5 +23,5 @@
         }   
         },
         "name":"§l§nChains of despair",
-        "description":"Pressing your secondary ability key will afflict tagged entities with blindness and slowness for a few seconds."
+        "description":"Pressing your secondary ability key will afflict tagged entities with slowness, as well as disable their shields for a few seconds."
     }

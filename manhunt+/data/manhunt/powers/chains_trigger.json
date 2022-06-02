@@ -1,4 +1,8 @@
 {
+
+    "type":"origins:multiple",
+
+    "effects":{
     "type": "origins:action_on_callback",
     "entity_action_added": {
         "type": "origins:and",
@@ -7,25 +11,13 @@
                 "type": "origins:apply_effect",
                 "effect": {
                     "effect": "minecraft:slowness",
-                    "duration": 200,
+                    "duration": 300,
                     "amplifier": 0
                 }
             },
             {
-                "type": "origins:apply_effect",
-                "effect": {
-                    "effect": "minecraft:blindness",
-                    "duration": 200,
-                    "amplifier": 0
-                }
-            },
-            {
-                "type": "origins:apply_effect",
-                "effect": {
-                    "effect": "minecraft:resistance",
-                    "duration": 200,
-                    "amplifier": 250
-                }
+                "type": "origins:execute_command",
+                "command": "power grant @s origins:no_shield"
             },
             {
                 "type": "origins:execute_command",
@@ -46,20 +38,43 @@
                 "type": "origins:execute_command",
                 "command": "power remove @e manhunt:tag_effects",
                 "permission_level": 4
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                    "type": "origins:execute_command",
-                    "command": "power remove @e manhunt:chains_trigger"
-                    }
-                        ]
-                }
             }
         ]
     }
+},
+"resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+			"should_render": false
+		},
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s origins:no_shield",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:chains_trigger",
+                    "permission_level": 4
+                }
+            ]   
+        }
+},
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:chains_trigger_resource",
+        "change": -10
+    },
+    "interval": 10
+}
 }
