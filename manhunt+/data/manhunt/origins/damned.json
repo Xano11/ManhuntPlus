@@ -1,8 +1,9 @@
 {
 	"powers": [
 		"manhunt:undead",
-        "manhunt:bow_start",
-        "manhunt:supernova",
+        "manhunt:bow",
+		"manhunt:teleport_bow",
+		"manhunt:bow_start",
         "manhunt:arrow_tag",
         "manhunt:chains",
         "manhunt:bone_arms"

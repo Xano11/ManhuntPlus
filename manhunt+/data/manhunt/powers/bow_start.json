@@ -4,7 +4,7 @@
         "type": "origins:and",
         "actions": [{
         "type": "origins:execute_command",
-        "command": "give @s bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1}]} 1"
+        "command": "give @s bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]} 1"
         },
         {
             "type": "origins:execute_command",
@@ -14,7 +14,7 @@
 },
     "entity_action_respawned": {
         "type": "origins:execute_command",
-        "command": "give @s bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1}]} 1"
+        "command": "give @s bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]} 1"
     },
     "execute_chosen_when_orb": true,
 
