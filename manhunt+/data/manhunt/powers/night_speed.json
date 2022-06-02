@@ -15,5 +15,6 @@
         }
     ]
 },
-"hidden": true
-}  
+"name": "Shadow Hunter",
+	"description": "During night, you are much more faster, helping you follow your prey. But, during the day, you get slowed heavily."
+} 
