@@ -195,5 +195,48 @@
             "operation": "addition",
             "value": 7.0
         }
+    },
+    "netherite_piercing": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "execute if entity @s[scores={trident=1..}] run data modify entity @e[limit=1,sort=nearest,type=minecraft:trident] PierceLevel set value 3"
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "execute if entity @s[scores={trident=1..}] run scoreboard players set @s trident 0"
+                }
+            }
+        ]
+        },
+    "interval": 1,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:upgrades_resource",
+        "comparison": "==",
+        "compare_to": 3
     }
+},  
+"scoreboard":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:execute_command",
+        "command": "scoreboard objectives add trident minecraft.used:minecraft.trident"
+    },
+    "entity_action_respawned": {
+        "type": "origins:execute_command",
+        "command": "resource set @s manhunt:upgrades_resource 0",
+        "permission_level": 4
+    },
+    "execute_chosen_when_orb": true,
+    "hidden": true
+}
 }
