@@ -1,0 +1,81 @@
+{
+    "type": "origins:multiple",
+
+        "activate": {
+                "type": "origins:active_self",
+                "entity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:item minecraft:bone ~ ~1 ~ 0.3 0.3 0.3 0.2 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:dust 1 1 1 1 ~ ~1 ~ 0.5 0 0.5 0.2 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:ash ~ ~1 ~ 0.5 0.7 0.5 0.2 300"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 1 0.5 1"
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 1,
+                            "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                "type": "origins:execute_command",
+                                "command": "tp @s @e[limit=1,sort=nearest,type=arrow,tag=tp_skele]"
+                                }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 2,
+                            "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:item minecraft:bone ~ ~1 ~ 0.3 0.3 0.3 0.2 100"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:dust 1 1 1 1 ~ ~1 ~ 0.5 0 0.5 0.2 100"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:ash ~ ~1 ~ 0.5 0.7 0.5 0.2 300"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 1 0.5 1"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @e[limit=1,sort=nearest,type=arrow,tag=tp_skele] remove tp_skele"
+                                }
+                                ]
+                            }
+                        }
+                    ]
+                    },
+                "key": {
+                    "key": "key.origins.primary_active"
+                },
+        "cooldown": 6000,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 5,
+            "should_render": true
+        }
+        },
+        "name":"§l§nBone Warping",
+        "description":"Using your primary ability key, you can teleport yourself to the most recent arrow you shot. Arrows remain tagged for 30 seconds, so don't wait too long!"
+    }
