@@ -16,6 +16,14 @@
                 }
             },
             {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:blindness",
+                    "duration": 300,
+                    "amplifier": 0
+                }
+            },
+            {
                 "type": "origins:execute_command",
                 "command": "power grant @s origins:no_shield"
             },
