@@ -8,7 +8,7 @@
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "execute at @s as @s run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b}"
+                            "command": "execute at @s as @s run summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,HasVisualFire:0b,Glowing:0b,Marker:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"recall\"]}"
                         },
                         {
                             "type": "origins:delay",
@@ -16,11 +16,6 @@
                             "action": {
                                 "type": "origins:and",
                                 "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "execute at @s run tag @e[limit=1,sort=nearest,type=armor_stand] add recall",
-                                        "permission_level": 4
-                                    },
                                     {
                                         "type": "origins:execute_command",
                                         "command": "playsound minecraft:block.note_block.chime player @s ~ ~ ~ 1 0.6",
