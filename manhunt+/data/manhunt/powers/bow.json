@@ -52,6 +52,11 @@
                 "command": "execute if entity @s[scores={bow=1..}] run tag @e[limit=1,sort=nearest,type=arrow] add tp_skele"
             },
             {
+                "type": "origins:change_resource",
+                "resource": "manhunt:bow_resource",
+                "change": 600
+            },
+            {
                 "type": "origins:delay",
                 "ticks": 1,
                 "action": {
