@@ -26,6 +26,35 @@
         },
     "cooldown": 1
 },
+"grant_resource": 
+{
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:shield_resource",
+            "change": 1
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">=",
+            "compare_to": 2.0
+        },
+    "cooldown": 1
+},
+"respawn":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_respawned": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:change_resource",
+                "resource": "manhunt:shield_resource",
+                "change": 5
+            }
+        ]
+    }
+},
 "gain_resource1": 
 {
     "type": "origins:action_over_time",
@@ -44,7 +73,7 @@
     "modifier": {
         "name": "More resistance",
         "operation": "multiply_total",
-        "value": -0.2
+        "value": -0.25
     },
     "condition":
         {
@@ -59,7 +88,7 @@
     "modifier": {
         "name": "More damage",
         "operation": "multiply_total",
-        "value": 0.2
+        "value": 0.25
     },
     "condition":
         {
@@ -75,7 +104,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": -0.3,
+            "value": -0.4,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
