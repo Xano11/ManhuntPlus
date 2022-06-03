@@ -23,5 +23,5 @@
         }   
         },
         "name":"§l§nChains of despair",
-        "description":"Pressing your secondary ability key will afflict tagged entities with slowness, as well as disable their shields for a few seconds."
+        "description":"Pressing your secondary ability key will afflict tagged entities with slowness and blindess, as well as disable their shields for a few seconds. But, whilst they are weakened, they take 90% less damage."
     }
