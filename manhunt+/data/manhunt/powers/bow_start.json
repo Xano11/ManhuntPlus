@@ -1,23 +1,24 @@
 {
-    "type": "origins:action_on_callback",
-    "entity_action_gained": {
-        "type": "origins:and",
-        "actions": [{
-        "type": "origins:execute_command",
-        "command": "give @s bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]} 1"
+    "type":"origins:multiple",
+
+"equipment":
+{
+    "type": "origins:starting_equipment",
+    "stacks": [
+        {
+            "item": "minecraft:bow",
+            "amount": 1,
+            "slot": 5,
+            "tag": "{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]}"
         },
         {
-            "type": "origins:execute_command",
-            "command": "give @s minecraft:arrow 1"
+            "item": "minecraft:arrow",
+            "amount": 1,
+            "slot": 6
         }
-    ]
+    ],
+    "recurrent": true
 },
-    "entity_action_respawned": {
-        "type": "origins:execute_command",
-        "command": "give @s bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]} 1"
-    },
-    "execute_chosen_when_orb": true,
-
     "name":"§l§nThe Whisperer",
         "description":"You spawn in with your personal weapon of predilection; The Whisper. Using this bow will grant a tag to any entity shot with the bow. Using your ability keys, you can affect the tagged entities."
 }
