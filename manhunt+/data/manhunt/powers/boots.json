@@ -84,11 +84,26 @@
         "resource": "manhunt:boots_resource",
         "change": 1
     },
-    "interval": 60,
+    "interval": 20,
     "condition": {
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:power_active",
+        "power": "manhunt:toggle_boots"
+    },
+    {
+        "type": "origins:resource",
+        "resource": "manhunt:boots_resource",
+        "comparison": ">",
+        "compare_to": 0
+    },
+    {
         "type": "origins:sprinting",
         "inverted": true
     }
+]
+}
 },
 "gain_resource2": 
 {
@@ -113,14 +128,22 @@
             "operation": "multiply_base"
         },
         "tick_rate": 4,
-        "condition":
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+        {
+            "type": "origins:power_active",
+            "power": "manhunt:toggle_boots"
+        },
         {
             "type": "origins:resource",
             "resource": "manhunt:boots_resource",
             "comparison": ">",
             "compare_to": 0
         }
-    },
+    ]
+}
+},
     "fluid_speed_water":
     {
         "type": "origins:conditioned_attribute",
@@ -191,13 +214,21 @@
         "operation": "multiply_total",
         "value": 0.25
     },
-    "condition":
-        {
-            "type": "origins:resource",
-            "resource": "manhunt:boots_resource",
-            "comparison": ">",
-            "compare_to": 0
-        } 
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:power_active",
+        "power": "manhunt:toggle_boots"
+    },
+    {
+        "type": "origins:resource",
+        "resource": "manhunt:boots_resource",
+        "comparison": ">",
+        "compare_to": 0
+    }
+]
+} 
     },
     "less_fall_damage":
     {
@@ -211,13 +242,21 @@
             "type": "origins:name",
             "name": "fall"
         },
-        "condition":
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+        {
+            "type": "origins:power_active",
+            "power": "manhunt:toggle_boots"
+        },
         {
             "type": "origins:resource",
             "resource": "manhunt:boots_resource",
             "comparison": ">",
             "compare_to": 0
         }
+    ]
+}
     },
     "less_fall_damage_player":
     {
@@ -231,13 +270,21 @@
             "type": "origins:name",
             "name": "fall.player"
         },
-        "condition":
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+        {
+            "type": "origins:power_active",
+            "power": "manhunt:toggle_boots"
+        },
         {
             "type": "origins:resource",
             "resource": "manhunt:boots_resource",
             "comparison": ">",
             "compare_to": 0
         }
+    ]
+}
     },
     "name":"§l§nLegendary Boots",
     "description":"You wear special boots which grant you the ability to walk on fluids (Lava and water) and generally run faster, as well as reduce your fall damage by 35%. The Fluid Running can be toggled with the main ability key. But watch out; running will deplete the boots energy and at zero, will remove your movement speed upsides. Sneaking will refill the bar slowly."
