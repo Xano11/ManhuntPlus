@@ -217,16 +217,19 @@
         "value": -1
         }
     },
+
     "prevent_item": 
     {
         "type": "origins:prevent_item_use"
     },
 
     "particles": {
-        "type": "origins:particle",
-		"particle": "minecraft:cloud",
-		"frequency": 1
-	},
-
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:soul ~ ~1 ~ 0.3 0 0.3 0.1 2"
+        },
+        "interval": 2
+    },
     "hidden": true
 }
