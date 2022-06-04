@@ -73,8 +73,18 @@
     },
     "interval": 10,
     "condition": {
-        "type": "origins:sprinting"
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:power_active",
+        "power": "manhunt:toggle_boots"
+    },
+    {
+       "type":"origins:sprinting",
+       "inverted": false
     }
+]
+}
 },
 "gain_resource": 
 {
@@ -286,6 +296,113 @@
     ]
 }
     },
+    "particles": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:electric_spark ~ ~ ~ 0.3 0 0.3 0.3 10",
+        "permission_level": 4
+    },
+    "interval": 2,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:power_active",
+        "power": "manhunt:toggle_boots"
+    },
+    {
+        "type": "origins:resource",
+        "resource": "manhunt:boots_resource",
+        "comparison": ">",
+        "compare_to": 0
+    }
+]
+}
+},
+"particles_water": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust_color_transition 0 0 0.2 1 0 0 1 ~ ~0.5 ~ 0.3 0 0.3 0.1 4",
+        "permission_level": 4
+            },
+            {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:rain ~ ~0.5 ~ 0.3 0 0.3 0.1 4",
+        "permission_level": 4
+            }
+        ]   
+    },
+    "interval": 2,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:power_active",
+        "power": "manhunt:toggle_boots"
+    },
+    {
+        "type": "origins:resource",
+        "resource": "manhunt:boots_resource",
+        "comparison": ">",
+        "compare_to": 0
+    },
+    {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0
+    }
+]
+}
+},
+"particles_lava": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust_color_transition 0.9 0.7 0 1 1 0.5 0 ~ ~0.5 ~ 0.3 0 0.3 0.1 4",
+        "permission_level": 4
+            },
+            {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:lava ~ ~0.5 ~ 0.3 0 0.3 0.1 2",
+        "permission_level": 4
+            }
+        ]   
+    },
+    "interval": 2,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:power_active",
+        "power": "manhunt:toggle_boots"
+    },
+    {
+        "type": "origins:resource",
+        "resource": "manhunt:boots_resource",
+        "comparison": ">",
+        "compare_to": 0
+    },
+    {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:lava",
+        "comparison": ">",
+        "compare_to": 0
+    }
+]
+}
+},
     "name":"§l§nLegendary Boots",
     "description":"You wear special boots which grant you the ability to walk on fluids (Lava and water) and generally run faster, as well as reduce your fall damage by 35%. The Fluid Running can be toggled with the main ability key. But watch out; running will deplete the boots energy and at zero, will remove your movement speed upsides. Sneaking will refill the bar slowly."
 }
