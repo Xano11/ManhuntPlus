@@ -1,4 +1,7 @@
 {
+    "type":"origins:multiple",
+
+    "tag":{
     "type": "origins:target_action_on_hit",
     "entity_action": {
         "type": "origins:execute_command",
@@ -13,6 +16,24 @@
     "hud_render": {
         "should_render": false,
         "bar_index": 0
+    }
+},
+"speed_gain":{
+    "type": "origins:self_action_on_hit",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "power grant @s manhunt:bow_speed",
+        "permission_level": 4
     },
+    "damage_condition": {
+        "type": "origins:projectile",
+        "projectile": "minecraft:arrow"
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false,
+        "bar_index": 0
+    }
+},
     "hidden": true
 }
