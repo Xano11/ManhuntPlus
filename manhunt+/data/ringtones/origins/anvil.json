@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:anvil"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Anvil Ringtone",
+	"description": "Badonk."
+}

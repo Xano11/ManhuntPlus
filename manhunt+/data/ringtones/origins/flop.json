@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:cod_bucket"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Cod Ringtone",
+	"description": "flop"
+}

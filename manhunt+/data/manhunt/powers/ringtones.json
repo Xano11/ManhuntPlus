@@ -313,5 +313,122 @@
         ]
         }
         },
+        "shulker": {
+            "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.shulker.ambient player @s ~ ~ ~ 1"
+                    }
+                ]
+            },
+            "cooldown": 1,
+            "hud_render": {
+                "should_render": false
+            },
+            "key": {
+                "key": "key.use",
+                "continuous": false
+            },
+            "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:compass"
+                    }
+                }
+            },
+            {
+                "type": "origins:origin",
+                "origin": "ringtones:shulker",
+                "layer": "origins:ringtones"
+            }
+        ]
+        }
+        },
+        "flop": {
+            "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.cod.flop player @s ~ ~ ~ 5 1"
+                    }
+                ]
+            },
+            "cooldown": 1,
+            "hud_render": {
+                "should_render": false
+            },
+            "key": {
+                "key": "key.use",
+                "continuous": false
+            },
+            "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:compass"
+                    }
+                }
+            },
+            {
+                "type": "origins:origin",
+                "origin": "ringtones:flop",
+                "layer": "origins:ringtones"
+            }
+        ]
+        }
+        },
+        "anvil": {
+            "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.anvil.place player @s ~ ~ ~ 1"
+                    }
+                ]
+            },
+            "cooldown": 1,
+            "hud_render": {
+                "should_render": false
+            },
+            "key": {
+                "key": "key.use",
+                "continuous": false
+            },
+            "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:compass"
+                    }
+                }
+            },
+            {
+                "type": "origins:origin",
+                "origin": "ringtones:anvil",
+                "layer": "origins:ringtones"
+            }
+        ]
+        }
+        },
         "hidden": true
     }
