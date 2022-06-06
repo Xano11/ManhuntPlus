@@ -80,8 +80,8 @@
         "power": "manhunt:toggle_boots"
     },
     {
-       "type":"origins:sprinting",
-       "inverted": false
+       "type":"origins:sneaking",
+       "inverted": true
     }
 ]
 }
@@ -107,10 +107,6 @@
         "resource": "manhunt:boots_resource",
         "comparison": ">",
         "compare_to": 0
-    },
-    {
-        "type": "origins:sprinting",
-        "inverted": true
     }
 ]
 }
