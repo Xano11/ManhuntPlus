@@ -51,10 +51,6 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "particle minecraft:portal ~ ~0.7 ~ 0.5 0.5 0.5 1 1000"
-                        },
-                        {
-                            "type": "origins:execute_command",
                             "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
                         },
                         {
@@ -71,11 +67,6 @@
                                     {
                                         "type": "origins:execute_command",
                                         "command": "execute at @p[tag=runner] run tag @e[limit=1,sort=nearest,type=armor_stand] add tp2",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "execute at @s run particle minecraft:campfire_cosy_smoke ~ ~ ~ 0.2 0.2 0.2 0.01 20 normal",
                                         "permission_level": 4
                                     }
                                 ]
