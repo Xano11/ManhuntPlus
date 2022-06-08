@@ -92,5 +92,9 @@
     {
         "type": "origins:prevent_item_use"
     },
+	"prevent_block": 
+    {
+        "type": "origins:prevent_block_use"
+    },
     "hidden": true
 }

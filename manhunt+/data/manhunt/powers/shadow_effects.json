@@ -124,6 +124,11 @@
         "type": "origins:prevent_item_use"
     },
 
+    "prevent_block": 
+    {
+        "type": "origins:prevent_block_use"
+    },
+
     "particles": {
         "type": "origins:particle",
 		"particle": "minecraft:campfire_cosy_smoke",
