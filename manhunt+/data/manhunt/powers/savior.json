@@ -52,6 +52,14 @@
                     "type": "origins:execute_command",
                     "command": "execute at @a[tag=saved] run playsound minecraft:block.amethyst_block.chime player @a[distance=..15] ~ ~ ~ 1 0.5"
                 },
+                {
+                    "type": "origins:damage",
+                    "amount": 10,
+                    "source": {
+                        "name": "generic",
+                        "bypasses_armor": true
+                    }
+                },
         {
             "type": "origins:delay",
             "ticks": 1,
@@ -94,5 +102,5 @@
 }
 },
         "name":"§l§nSavior of All",
-        "description":"Using the primary ability key, you can grant your teammate the possibility to teleport to you, healing them, but slowing them."
+        "description":"Using the primary ability key, you can grant your teammate the possibility to teleport to you, healing them, but slowing them. Watch out, as the ability deals 5 hearts of damage on use."
     }
