@@ -47,7 +47,12 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "particle minecraft:dragon_breath ~ ~0.7 ~ 0.5 0.5 0.5 0.5 300"
+                            "command": "particle minecraft:sculk_charge 100 ~ ~1 ~ 0.5 0 0.5 0.1 100"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.3 0.1 ~ ~1 ~ 0.4 0.6 0.4 1 100",
+                            "permission_level": 4
                         }
                             ]
                                  }
@@ -68,12 +73,17 @@
         "actions": [
             {
                 "type": "origins:execute_command",
-                "command": "particle minecraft:dust 1 1 0 1 ~ ~ ~ 0.5 1 0.5 0.01 100",
+                "command": "particle minecraft:sculk_charge 100 ~ ~1 ~ 0.5 0 0.5 0.1 100",
                 "permission_level": 4
             },
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:item.trident.thunder player @s ~ ~ ~ 1 1.5",
+                "command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.3 0.1 ~ ~1 ~ 0.4 0.6 0.4 1 100",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.warden.roar player @s ~ ~ ~ 1 2",
                 "permission_level": 4
             }
         ]
@@ -223,13 +233,18 @@
         "type": "origins:prevent_item_use"
     },
 
+    "prevent_block": 
+    {
+        "type": "origins:prevent_block_use"
+    },
+
     "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "particle minecraft:soul ~ ~1 ~ 0.3 0 0.3 0.1 2"
+            "command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0 0.3 0.1 2"
         },
-        "interval": 2
+        "interval": 5
     },
     "hidden": true
 }
