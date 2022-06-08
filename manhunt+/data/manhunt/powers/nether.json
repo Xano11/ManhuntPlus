@@ -97,6 +97,22 @@
         "inverted": false
     }
 },
+"water": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:nether_resource",
+        "change": 1
+    },
+    "interval": 1,
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0
+    }
+},
 "drinking":
     {
         "type": "origins:action_on_item_use",
