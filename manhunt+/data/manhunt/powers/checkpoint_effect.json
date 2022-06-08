@@ -24,7 +24,7 @@
         },
                 {
                     "type": "origins:delay",
-                    "ticks": 2,
+                    "ticks": 6,
                     "action": {
                             "type": "origins:execute_command",
                             "command": "kill @e[tag=recall]"
@@ -32,7 +32,7 @@
                     },
                 {
                     "type": "origins:delay",
-                    "ticks": 1,
+                    "ticks": 5,
                     "action": {    
                             "type": "origins:execute_command",
                             "command": "tp @s @e[tag=recall,limit=1]",
@@ -46,7 +46,12 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "particle minecraft:dragon_breath ~ ~1 ~ 0.5 0.5 0.5 0.01 1000",
+                "command": "particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 0.1 1 force @a",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute at @e[limit=1,sort=nearest,tag=recall] run particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 0.1 1 force @a",
                 "permission_level": 4
             }
         ]   
