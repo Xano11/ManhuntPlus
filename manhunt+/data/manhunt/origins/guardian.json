@@ -4,7 +4,8 @@
         "manhunt:savior",
 		"manhunt:slow",
 		"manhunt:shield",
-		"manhunt:guardian_tag"
+		"manhunt:guardian_tag",
+		"origins:no_shield"
 	],
 	"icon": {
 		"item": "minecraft:beacon",
