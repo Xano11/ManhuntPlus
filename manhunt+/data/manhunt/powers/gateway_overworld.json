@@ -32,6 +32,11 @@
         }
     },
 
+    "prevent_block": 
+    {
+        "type": "origins:prevent_block_use"
+    },
+
     "fall":{
         "type": "origins:modify_falling",
         "velocity": 0.02,
