@@ -3,8 +3,8 @@
     "resource":{ 
         "type": "origins:resource",
         "min": 0,
-        "max": 5,
-        "start_value": 5,
+        "max": 3,
+        "start_value": 3,
         "hud_render": {
 			"should_render": true,
 			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
@@ -50,7 +50,7 @@
             {
                 "type": "origins:change_resource",
                 "resource": "manhunt:shield_resource",
-                "change": 5
+                "change": 3
             }
         ]
     }
@@ -68,7 +68,7 @@
         "type": "origins:sneaking"
     }
 },
-"resistance":{
+"resistance3":{
     "type": "origins:modify_damage_taken",
     "modifier": {
         "name": "More resistance",
@@ -79,8 +79,23 @@
         {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
-            "comparison": ">",
-            "compare_to": 0
+            "comparison": "==",
+            "compare_to": 3
+    }
+},
+"resistance2":{
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+        "name": "More resistance",
+        "operation": "multiply_total",
+        "value": -0.15
+    },
+    "condition":
+        {
+            "type": "origins:resource",
+            "resource": "manhunt:shield_resource",
+            "comparison": "==",
+            "compare_to": 2
     }
 },
 "weakness":{
@@ -115,6 +130,76 @@
             "comparison": "==",
             "compare_to": 0
         }
+    },
+    "on_hit":
+    {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+            "type": "origins:execute_command",
+            "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.4 0 0.4 0.1 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.9 0.5 1 0 0.1 1 ~ ~1 ~ 0.4 0 0.4 0.1 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.allay.hurt player @s ~ ~ ~ 3 0.5"
+                }
+            ]
+        },
+        "condition":
+        {
+            "type": "origins:resource",
+            "resource": "manhunt:shield_resource",
+            "comparison": ">",
+            "compare_to": 1
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">=",
+            "compare_to": 2.0
+        },
+        "cooldown": 1
+    },
+    "on_hit2":
+    {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+            "type": "origins:execute_command",
+            "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.4 0 0.4 0.1 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.9 0.5 1 0 0.1 1 ~ ~1 ~ 0.4 0 0.4 0.1 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block minecraft:sculk_shrieker ~ ~1 ~ 0.3 0 0.3 1 100particle minecraft:block minecraft:sculk_shrieker ~ ~1 ~ 0.3 0 0.3 1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.sonic_boom player @s ~ ~ ~ 3 2"
+                }
+            ]
+        },
+        "condition":
+        {
+            "type": "origins:resource",
+            "resource": "manhunt:shield_resource",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">=",
+            "compare_to": 2.0
+        },
+        "cooldown": 1
     },
 "air_speed":{
     "type": "origins:modify_air_speed",
