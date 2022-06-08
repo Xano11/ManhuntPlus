@@ -20,20 +20,11 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "/summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"bomb\"]}"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "forceload add ~ ~ ~ ~",
-                            "permission_level": 4
+                            "command": "summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"bomb\"]}"
                         },
                         {
                             "type": "origins:execute_command",
                             "command": "power grant @e[limit=1,sort=nearest,tag=bomb] manhunt:bomb_boom"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "power grant @a[tag=runner] manhunt:stop_forceload"
                         }
                     ]
                     },
