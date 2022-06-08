@@ -43,7 +43,7 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "effect give @s minecraft:blindness 7 0 true",
+                "command": "effect give @s minecraft:darkness 7 0 true",
                 "permission_level": 4
             }
         ]
@@ -125,6 +125,10 @@
     "prevent_item": 
     {
         "type": "origins:prevent_item_use"
+    },
+    "prevent_block": 
+    {
+        "type": "origins:prevent_block_use"
     },
     "hidden": true
 }
