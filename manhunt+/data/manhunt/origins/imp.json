@@ -11,7 +11,8 @@
         "manhunt:portal",
         "manhunt:craft_trident",
         "manhunt:craft_trident2",
-        "manhunt:imp_tag"
+        "manhunt:imp_tag",
+        "manhunt:infernal"
     ],
     "icon": {
 		"item": "minecraft:trident",

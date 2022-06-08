@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:fire"
+    },
+    "modifier": {
+        "name": "less fire dmg",
+        "operation": "multiply_total",
+        "value": -0.5
+    },
+    "name":"Infernal",
+    "description":"You take 50% less damage from fire and lava."
+}
