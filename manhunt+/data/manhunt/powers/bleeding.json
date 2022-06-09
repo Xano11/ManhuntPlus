@@ -16,8 +16,7 @@
                     "permission_level": 4
                 }
             ]
-        }
-    },
+        },
     "condition":
         {
             "type": "origins:resource",
@@ -29,6 +28,7 @@
     "hud_render": {
         "should_render": false,
         "bar_index": 0
+}
 },
 "resource":
 { 
