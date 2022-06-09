@@ -1,0 +1,71 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 4
+			},
+        "min_action": {
+                "type": "origins:and",
+                "actions": [
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:beast_effects"
+                    }
+                        ]
+                }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "power grant @s manhunt:risk"
+            }
+        ]
+    }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:beast_effects_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+
+    "movement_speed": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Increase movement speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": 0.2,
+			"operation": "multiply_total"
+		}
+	},
+	"more_damage": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "addition",
+			"value": 4
+		}
+	},
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:crimson_spore",
+		"frequency": 1
+	},
+    "hidden": true
+}
