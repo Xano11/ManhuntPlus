@@ -4,7 +4,8 @@
 		"manhunt:dash",
 		"manhunt:weak",
 		"manhunt:doublejump",
-		"manhunt:weakened"
+		"manhunt:weakened",
+		"manhunt:fall_reduction"
 	],
 	"icon": {
 		"item": "minecraft:feather",
