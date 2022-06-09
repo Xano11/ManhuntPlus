@@ -1,6 +1,6 @@
 {
 	"name": "§l§nEncouraging Aura",
-	"description": "Channeling your inner powers, you release a wave of powerful energy that grants a boost to the nearby entities. Watch out; the boost may affect those unwanted. (1 minute and 30 seconds cooldown)",
+	"description": "Channeling your inner powers, you release a wave of powerful energy that grants a boost to the nearby entities.",
 	"type": "origins:active_self",
 	"cooldown": 1800,
 	"hud_render": {
@@ -23,17 +23,17 @@
 		},
 		{
 		  "type": "origins:execute_command",
-		  "command": "effect give @e[distance=..5] minecraft:speed 10 1 true",
+		  "command": "effect give @e[distance=..5,tag=hunter] minecraft:speed 10 1 true",
 		  "permission_level": 4
 		},
 		{
 			"type": "origins:execute_command",
-			"command": "effect give @e[distance=..5] minecraft:resistance 10 0 true",
+			"command": "effect give @e[distance=..5,tag=hunter] minecraft:resistance 10 0 true",
 			"permission_level": 4
 		  },
 		  {
 			"type": "origins:execute_command",
-			"command": "effect give @e[distance=..5] minecraft:regeneration 10 1 true",
+			"command": "effect give @e[distance=..5,tag=hunter] minecraft:regeneration 10 1 true",
 			"permission_level": 4
 		  },
 		{
@@ -48,7 +48,7 @@
 		},
 		{
 			"type": "origins:execute_command",
-			"command": "execute at @e[distance=..10] run particle minecraft:heart ~ ~1 ~ 0.5 1 0.5 1 10",
+			"command": "execute at @e[distance=..10,tag=hunter] run particle minecraft:heart ~ ~1 ~ 0.5 1 0.5 1 10",
 			"permission_level": 4
 		}
 	  ]
