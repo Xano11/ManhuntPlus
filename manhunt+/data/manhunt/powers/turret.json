@@ -54,5 +54,5 @@
         }   
         },
         "name":"§l§nStun Turret",
-        "description":"Using the secondary ability key, you can construct a Stun Automated Turret (SAT for short) that will shoot stun darts to the runner if they are in a 8 blocks radius of the turret."
+        "description":"Using the secondary ability key, you can construct a Stun Automated Turret (SAT for short) that will shoot stun darts to the runner if they are in a 8 blocks radius of the turret. The dart reduces their damage by 40%, their attack speed by 0.3 and 20% less movement speed."
     }

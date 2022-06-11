@@ -51,5 +51,14 @@
 			"operation": "addition"
 		}
     },
+    "less_dmg": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Decrease attack",
+			"attribute": "minecraft:generic.attack_damage",
+			"value": -0.4,
+			"operation": "multiply_total"
+		}
+    },
     "hidden": true
 }
