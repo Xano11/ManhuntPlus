@@ -16,7 +16,7 @@
                 "actions": [
                     {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:totem_interact"
+                    "command": "power remove @s manhunt:itotem_interact"
                     }
                     ]
                 }
@@ -31,7 +31,7 @@
         "type": "origins:target_condition",
         "condition": {
             "type": "origins:power",
-            "power": "manhunt:totem_effects"
+            "power": "manhunt:itotem_effects"
         }
     },
     "condition": {
