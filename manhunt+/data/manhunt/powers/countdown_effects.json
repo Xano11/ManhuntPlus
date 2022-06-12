@@ -33,23 +33,18 @@
     },
     "interval": 10
 },
-    "no_move": {
-		"type": "origins:attribute",
-		"modifier": {
-			"name": "Decrease speed",
-			"attribute": "minecraft:generic.movement_speed",
-			"value": -1,
-			"operation": "multiply_total"
-		}
-	},
-    "no_air":
-    {
-		"type": "origins:modify_air_speed",
-		"modifier": {
-			"operation": "multiply_total",
-			"value": -1
-		}
+"no_move":{
+    "type": "origins:modify_velocity",
+    "modifier": {
+      "value": -1,
+      "operation": "multiply_total"
     },
+    "axes": [
+      "x",
+      "y",
+      "z"
+    ]
+  },
     "no_atk_speed": {
 		"type": "origins:attribute",
 		"modifier": {
@@ -59,15 +54,6 @@
 			"operation": "multiply_total"
 		}
 	},
-
-	"no_jump": {
-		"type": "origins:modify_jump",
-		"modifier": {
-			"operation": "multiply_total",
-			"value": -1
-		}
-	},
-
 	"no_elytra":
 	{
 		"type": "origins:prevent_elytra_flight"
