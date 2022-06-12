@@ -9,6 +9,11 @@
                 "permission_level":4
             },
             {
+                "type":"origins:execute_command",
+                "command":"execute at @p[distance=1..10,tag=hunter] run particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100",
+                "permission_level":4
+            },
+            {
                 "type": "origins:execute_command",
                 "command": "playsound minecraft:block.anvil.use player @a[distance=..5] ~ ~ ~ 1 0.7",
                 "permission_level": 4
