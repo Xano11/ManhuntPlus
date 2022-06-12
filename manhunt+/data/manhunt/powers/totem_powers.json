@@ -1,0 +1,141 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 20
+			},
+        "min_action": {
+                "type": "origins:and",
+                "actions": [{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                "type": "origins:and",
+                "actions": [{
+            "type": "origins:execute_command",
+            "command": "power remove @e manhunt:totem_powers"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "power remove @a[tag=runner] manhunt:stop_forceload"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "kill @s[tag=core]"
+            }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "kill @e[type=minecraft:falling_block,distance=..2,tag=lifetotem]"
+                    }
+                        ]
+                }
+            }
+        ]
+    }
+},
+"activation":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:shriek 1 ~ ~2 ~ 0.1 0 0.1 1 10 normal",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:sculk_soul ~ ~ ~ 1 1 1 1 100",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.sculk_shrieker.shriek player @a[distance=..50] ~ ~ ~ 3 0.5",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+
+"effects": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:area_of_effect",
+        "radius": 8,
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:heart ~ ~0.7 ~ 0.3 0.6 0.3 0.1 5",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:sculk_soul ~ ~ ~ 0.3 1 0.3 0.1 20",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:heal",
+                        "amount": 4
+                    },
+                    {
+                        "type": "origins:feed",
+                        "food": 4,
+                        "saturation": 2
+                    }
+                ]
+        }
+    },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags: ['hunter']}"
+            }
+        }
+    },
+    "interval": 30
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:totem_powers_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function manhunt:totem",
+            "permission_level": 4
+        },
+        "interval": 30
+    },
+    "hidden": true
+}

@@ -1,0 +1,259 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3600,
+        "start_value": 3600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 19,
+            "should_render": true
+        },  
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+        {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:and",
+            "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:reborn_effects"
+                    }
+                ]
+            }
+        }
+    ]
+}
+},
+"players":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 19,
+            "should_render": false
+        }
+},
+"timer":
+{ 
+    "type": "origins:resource",
+    "min": 0,
+    "max": 300,
+    "start_value": 300,
+    "hud_render": {
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 19,
+        "should_render": false
+    },  
+    "min_action": {
+        "type": "origins:and",
+        "actions": [
+    {
+        "type": "origins:delay",
+        "ticks": 1,
+        "action": {
+            "type": "origins:and",
+        "actions": [
+            {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:reborn_effects"
+            }
+            ]
+        }
+    },
+    {
+        "type": "origins:execute_command",
+        "command": "power remove @a manhunt:reborn_accept"
+    },
+    {
+        "type": "origins:execute_command",
+        "command": "power remove @a manhunt:reborn_lose"
+    },
+    {
+        "type": "origins:execute_command",
+        "command": "tp @a[tag=helper] @s"
+    },
+    {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:sonic_boom ~ ~1 ~ 0.1 0 0.1 0.1 10"
+    }
+]
+}
+},
+"tag":
+{
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s add reborn",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:reborn_effects_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+"player1": 
+{
+    "type": "origins:action_over_time",
+	"entity_action":  {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:soul_fire_flame ~1 ~1 ~ 0 0 0 0.1 10",
+        "permission_level": 4
+    },
+    "interval": 5,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:reborn_effects_players",
+        "comparison": ">=",
+        "compare_to": 1
+    }
+},
+"player2": 
+{
+    "type": "origins:action_over_time",
+	"entity_action":  {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:soul_fire_flame ~-1 ~1 ~ 0 0 0 0.1 10",
+        "permission_level": 4
+    },
+    "interval": 5,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:reborn_effects_players",
+        "comparison": "==",
+        "compare_to": 2
+    }
+},
+"particles2": 
+{
+    "type": "origins:action_over_time",
+	"entity_action":  {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:block minecraft:sculk_catalyst ~ ~ ~ 0.3 0 0.3 0.1 10"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:sculk_soul ~ ~ ~ 0.3 0 0.3 0.1 10"
+            }
+        ]
+    },
+    "interval": 2,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:reborn_effects_timer",
+        "comparison": "<",
+        "compare_to": 300
+    }
+},
+
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:sculk_soul",
+		"frequency": 5
+	},
+    "no_death":{
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.roar player @a[distance=..50] ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.7 0.6 1 0 0.9 0.6 ~ ~ ~ 1 1 1 1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.2 0.5 0.2 0.6 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0.4 0.4 0.4 0.1 100"
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 10
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=hunter,tag=!reborn] manhunt:reborn_accept"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:reborn_effects_remove_resource"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:reborn_lose"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:resistance",
+                        "duration": 300,
+                        "amplifier": 200,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:weakness",
+                        "duration": 300,
+                        "amplifier": 200,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:levitation",
+                        "duration": 300,
+                        "amplifier": 255,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:darkness",
+                        "duration": 300,
+                        "amplifier": 0,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

@@ -1,0 +1,9 @@
+{
+    "type": "origins:modify_healing",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.5  
+},
+"name": "Absorbed",
+"description": "Being granted those abilities has weakened your body and its regeneration ability. All healing is reduced by half."
+}

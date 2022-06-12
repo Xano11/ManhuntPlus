@@ -8,15 +8,31 @@
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "summon wither_skeleton ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Tags:[\"totem\"],HandItems:[{id:\"minecraft:air\",Count:1b},{}]}"
+                            "command": "summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Marker:1b,Invulnerable:1b,Invisible:1b,NoBasePlate:1b,Tags:[\"core\"]}"
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @a[tag=hunter] manhunt:totem_interact"
+                            "command": "summon falling_block ~ ~1 ~ {BlockState:{Name:\"minecraft:sculk_shrieker\",Properties:{can_summon:\"false\",shrieking:\"false\",waterlogged:\"false\"}},NoGravity:1b,Silent:1b,Glowing:0b,Time:-99999,DropItem:0b,HurtEntities:0b,Tags:[\"lifetotem\"]}"
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @a[tag=runner] manhunt:stop_forceload"
+                            "command": "summon falling_block ~ ~ ~ {BlockState:{Name:\"minecraft:reinforced_deepslate\"},NoGravity:1b,Silent:1b,Glowing:0b,Time:-99999,DropItem:0b,HurtEntities:0b,Tags:[\"lifetotem\"]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~-0.01 ~ ~ {BlockState:{Name:\"minecraft:sculk_vein\",Properties:{west:\"true\"}},NoGravity:1b,Silent:1b,Glowing:0b,Time:-99999,DropItem:0b,HurtEntities:0b,Tags:[\"lifetotem\"]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~0.01 ~ ~ {BlockState:{Name:\"minecraft:sculk_vein\",Properties:{east:\"true\"}},NoGravity:1b,Silent:1b,Glowing:0b,Time:-99999,DropItem:0b,HurtEntities:0b,Tags:[\"lifetotem\"]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~ ~ ~0.01 {BlockState:{Name:\"minecraft:sculk_vein\",Properties:{south:\"true\"}},NoGravity:1b,Silent:1b,Glowing:0b,Time:-99999,DropItem:0b,HurtEntities:0b,Tags:[\"lifetotem\"]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~ ~ ~-0.01 {BlockState:{Name:\"minecraft:sculk_vein\",Properties:{north:\"true\"}},NoGravity:1b,Silent:1b,Glowing:0b,Time:-99999,DropItem:0b,HurtEntities:0b,Tags:[\"lifetotem\"]}"
                         },
                         {
                             "type": "origins:execute_command",
@@ -31,7 +47,7 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "power grant @e[limit=1,sort=nearest,tag=totem] manhunt:totem_effects",
+                                    "command": "power grant @e[limit=1,sort=nearest,tag=core] manhunt:totem_powers",
                                     "permission_level": 4
                                 }
                             ]
@@ -40,15 +56,15 @@
                     ]
                     },
                 "key": {
-                    "key": "key.origins.secondary_active"
+                    "key": "key.origins.primary_active"
                 },
-        "cooldown": 6000,
+        "cooldown": 3600,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 24,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 14,
             "should_render": true
         }   
         },
-        "name":"§l§nImmortality Totem",
-        "description":"Using the secondary ability key, you can summon a totem that grants a second life if clicked whilst sneaking. You lose all armor points and lose 5 hearts, but on death, you will teleported back to the totem. Watch out as the totem has a duration of a minute. "
+        "name":"§l§nTotem of life",
+        "description":"Using your primary ability key, you can summon a totem that feeds and heals your teammates."
     }

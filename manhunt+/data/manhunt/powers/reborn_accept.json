@@ -1,0 +1,65 @@
+{
+    "type": "origins:multiple",
+        "activate": {
+            "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s add helper"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource change @s manhunt:reborn_effects_players 1"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource change @s manhunt:reborn_accept_players 1"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.chime player @s"
+                    }
+                ]
+                },
+            "key": {
+                "key": "key.saveToolbarActivator"
+            },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:resource",
+        "resource": "manhunt:reborn_accept_players",
+        "comparison": "<",
+        "compare_to": 2
+    }   
+    },
+    "players":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 19,
+            "should_render": true
+        }
+},
+    "notification":
+    {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tellraw @s [\"\",{\"text\":\"Use your [\"},{\"keybind\":\"key.saveToolbarActivator\"},{\"text\":\"] key to teleport to your teammate that triggered the Reborn ability!\"}]"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove helper"
+        }
+    },
+        "hidden": true
+    }

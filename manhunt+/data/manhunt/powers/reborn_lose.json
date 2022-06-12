@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+
+    "lose":{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:reborn_effects_timer",
+        "change": -10
+    },
+    "interval": 10
+},
+"no_move":{
+    "type": "origins:modify_velocity",
+    "modifier": {
+      "value": -1,
+      "operation": "multiply_total"
+    },
+    "axes": [
+      "x",
+      "y",
+      "z"
+    ]
+  },
+    "hidden": true
+}
