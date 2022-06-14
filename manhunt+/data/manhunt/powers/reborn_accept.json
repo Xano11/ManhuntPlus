@@ -20,6 +20,19 @@
                     {
                         "type": "origins:execute_command",
                         "command": "playsound minecraft:block.note_block.chime player @s"
+                    }, 
+                    {
+                        "type": "origins:delay",
+                        "ticks": 1,
+                        "action": {
+                            "type": "origins:and",
+                        "actions": [
+                            {
+                            "type": "origins:execute_command",
+                            "command": "power remove @s manhunt:reborn_accept"
+                                }
+                            ]
+                        }
                     }
                 ]
                 },

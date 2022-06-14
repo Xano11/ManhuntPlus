@@ -93,7 +93,7 @@
             "actions": [
                     {
                         "type": "origins:execute_command",
-                        "command": "power remove @a[tag=saved] manhunt:savior_tag"
+                        "command": "power remove @a manhunt:savior_tag"
                     }
                 ]
             }
