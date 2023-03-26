@@ -1,0 +1,77 @@
+{
+    "type": "origins:multiple",
+
+        "activate": {
+                "type": "origins:active_self",
+                "entity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Glowing:1b,ShowArms:0b,Small:1b,Invisible:1b,Marker:1b,NoBasePlate:1b,Tags:[\"pillar\"],ArmorItems:[{},{},{},{id:\"minecraft:beacon\",Count:1b,tag:{Enchantments:[{}]}}]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~ ~-0.2 ~ {BlockState:{Name:\"minecraft:blackstone_wall\",Properties:{up:\"true\"}},NoGravity:1b,Silent:1b,Glowing:1b,Time:-999999,DropItem:0b}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~ ~0.5 ~ {BlockState:{Name:\"minecraft:lightning_rod\"},NoGravity:1b,Silent:1b,Glowing:1b,Time:-999999,DropItem:0b}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~ ~1.3 ~ {BlockState:{Name:\"minecraft:redstone_torch\"},NoGravity:1b,Silent:1b,Glowing:1b,Time:-999999,DropItem:0b}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon falling_block ~ ~1.2 ~ {BlockState:{Name:\"minecraft:chain\"},NoGravity:1b,Silent:1b,Glowing:1b,Time:-999999,DropItem:0b}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon pig ~ ~2 ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Glowing:1b,NoAI:1b,CanPickUpLoot:0b,Age:-9999}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "forceload add ~ ~ ~ ~",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @e[tag=pillar,limit=1,sort=nearest] manhunt:pillar_interact"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @a[tag=runner] manhunt:stop_forceload"
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 1,
+                            "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @e[limit=1,sort=nearest,tag=pillar] manhunt:pillar_effects",
+                                    "permission_level": 4
+                                }
+                            ]
+                            }
+                        }
+                    ]
+                    },
+                "key": {
+                    "key": "key.origins.secondary_active"
+                },
+                "condition": {
+                    "type": "origins:sneaking"
+                },
+        "cooldown": 12000,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 20,
+            "should_render": true
+        }   
+        },
+        "name":"§l§nBACON-T",
+        "description":"Using the secondary ability key and sneaking, you can construct a Beacon of Artificial Construct for Oppressive Nanobot Tactics (BACON-T for short) that allows a teammate to sneak near the beacon. Sneaking will teleport the runner in a radius of the beacon, and if one of the two participants (Runner or hunter) kills the other one, the loser will get negative effects and be teleported back to their original spot; the winner getting positives effects."
+    }

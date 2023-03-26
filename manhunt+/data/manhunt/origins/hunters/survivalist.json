@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"manhunt:survivalist/pouch",
+        "manhunt:survivalist/gatherfast",
+		"manhunt:survivalist/hookshot",
+		"manhunt:survivalist/survivalist_tag",
+		"manhunt:survivalist/explorer_weakness",
+		"origins:nine_lives",
+		"manhunt:survivalist/bomb",
+		"manhunt:survivalist/fod"
+	],
+	"icon": {
+		"item": "minecraft:crafting_table",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Survivalist",
+	"description": "You are the most resourceful of the group. With your experience in the wild, you've mastered the abilty to gather and keep resources well."
+}

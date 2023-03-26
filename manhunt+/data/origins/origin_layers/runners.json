@@ -11,11 +11,11 @@
           },
               "origins": [
                 "manhunt:none",
-                "manhunt:celeritas",
-                "manhunt:sanguis",
-                "manhunt:damned",
-                "manhunt:gambler",
-                "manhunt:fortis"
+                "manhunt:runners/celeritas",
+                "manhunt:runners/sanguis",
+                "manhunt:runners/damned",
+                "manhunt:runners/gambler",
+                "manhunt:runners/fortis"
               ]
           }
       ],

@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"manhunt:berserker/berserk",
+		"manhunt:berserker/beast",
+		"manhunt:berserker/horn",
+		"origins:no_shield",
+        "manhunt:berserker/bleeding"
+	],
+	"icon": {
+		"item": "minecraft:goat_horn",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Berserker",
+	"description": "HOG RID- I mean... Ahem. BERSERKEERRRRRRRRRRRRRRRRRRR!!!"
+}

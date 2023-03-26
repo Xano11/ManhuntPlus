@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:lurker/lurk",
+		"origins:fragile",
+		"origins:cat_vision",
+		"manhunt:lurker/daylight",
+		"manhunt:lurker/night_speed",
+		"manhunt:lurker/shadow"
+	],
+	"icon": {
+		"item": "minecraft:sculk_sensor",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Lurker",
+	"description": "Lurking in the shadows, he always keeps an eye on the runner. No matter where they are..."
+}

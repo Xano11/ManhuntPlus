@@ -1,74 +1,56 @@
 {
-        "type": "origins:active_self",
-        "entity_action": {
-                "type": "origins:and",
-                "actions": [{
-                "type": "origins:execute_command",
-                "command": "power grant @s manhunt:arena"
-            },
+    "type": "origins:action_on_being_used",
+    "bientity_action": {
+        "type": "origins:and",
+        "actions": [
             {
-                "type": "origins:execute_command",
-                "command": "summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,ShowArms:0b,Small:1b,Invisible:1b,Marker:1b,NoBasePlate:1b,Tags:[\"pillar_tp\"]}"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "resource set @e[limit=1,sort=nearest,tag=pillar] manhunt:pillar_effects_resource 0"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "power grant @p[tag=runner] manhunt:arena"
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
+                "type": "origins:actor_action",
                 "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                    "type": "origins:execute_command",
-                    "command": "power grant @e[limit=1,sort=nearest,type=armor_stand] manhunt:pillar_barrier"
-                    }
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:arena"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,ShowArms:0b,Small:1b,Invisible:1b,Marker:1b,NoBasePlate:1b,Tags:[\"pillar_tp\"]}"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @p[tag=runner] manhunt:arena"
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 1,
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[limit=1,sort=nearest,type=armor_stand,tag=pillar_tp] manhunt:pillar_barrier"
+                            }
+                        }
                     ]
                 }
             },
             {
-                "type": "origins:delay",
-                "ticks": 2,
+                "type": "origins:target_action",
                 "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a manhunt:pillar_interact"
-                    }
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "resource set @s manhunt:pillar_effects_resource 0"
+                        }
                     ]
                 }
             }
-        ]
-    },
-    "cooldown": 1,
-    "hud_render": {
-        "should_render": false
-    },
-    "key": {
-        "key": "key.sneak",
-        "continuous": true
-    },
-    "condition": {
-        "type": "origins:and",
-        "conditions": [
-    {
-        "type": "origins:command",
-        "command": "execute if entity @e[limit=1,sort=nearest,type=armor_stand,tag=pillar,distance=..1]",
-        "comparison": "==",
-        "compare_to": 1
-    },
-    {
-        "type": "origins:power",
-        "power": "manhunt:pillar",
-        "inverted": true
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:hunter_effects"
+            }
+        },
+        "hidden": true
     }
-]
-},
-"hidden": true
-}

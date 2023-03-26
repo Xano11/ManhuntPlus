@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:sanguis/bloodlust",
+        "manhunt:sanguis/fury",
+        "manhunt:sanguis/sense",
+        "manhunt:sanguis/awful",
+		"manhunt:sanguis/unusable",
+		"origins:carnivore"
+	],
+	"icon": {
+		"item": "minecraft:netherite_axe",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Sanguis Deus",
+	"description": "The Blood God. Specializes in killing players, dominating the field with it's agressive abilities."
+}

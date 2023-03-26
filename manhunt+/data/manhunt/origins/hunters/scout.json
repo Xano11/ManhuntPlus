@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:scout/sprint",
+		"manhunt:scout/dash",
+		"manhunt:scout/weak",
+		"manhunt:scout/doublejump",
+		"manhunt:scout/weakened",
+		"manhunt:scout/fall_reduction"
+	],
+	"icon": {
+		"item": "minecraft:feather",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Scout",
+	"description": "You have a Need For Speed. You do 1v1's with cars on the highway since you think you're so fast."
+}

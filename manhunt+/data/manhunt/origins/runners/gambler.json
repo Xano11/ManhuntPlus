@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:gambler/draw",
+        "manhunt:gambler/deception",
+		"manhunt:gambler/curse",
+		"manhunt:gambler/ace",
+		"origins:fire_immunity",
+		"manhunt:gambler/hydrophobe"
+	],
+	"icon": {
+		"item": "minecraft:filled_map",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Fortuna",
+	"description": "The Fortuna uses luck and illusions to confuse and overpower it's enemies."
+}

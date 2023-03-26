@@ -1,9 +1,0 @@
-{
-    "type":"origins:multiple",
-
-    "ignore_water":{
-    "type": "origins:ignore_water"
-    },
-    "name":"Heavy",
-        "description":"Having so much explosive on you makes you sink in water."
-}

@@ -11,18 +11,18 @@
           },
               "origins": [
                 "manhunt:none",
-                "manhunt:lurker",
-                "manhunt:herald",
-                "manhunt:scout",
-                "manhunt:bomber",
-                "manhunt:survivalist",
-                "manhunt:guardian",
-                "manhunt:imp",
-                "manhunt:captain",
-                "manhunt:engineer",
-                "manhunt:ritualist",
-                "manhunt:berserker",
-                "manhunt:shaman"
+                "manhunt:hunters/lurker",
+                "manhunt:hunters/herald",
+                "manhunt:hunters/scout",
+                "manhunt:hunters/bomber",
+                "manhunt:hunters/survivalist",
+                "manhunt:hunters/guardian",
+                "manhunt:hunters/imp",
+                "manhunt:hunters/captain",
+                "manhunt:hunters/engineer",
+                "manhunt:hunters/ritualist",
+                "manhunt:hunters/berserker",
+                "manhunt:hunters/shaman"
               ]
           }
       ],

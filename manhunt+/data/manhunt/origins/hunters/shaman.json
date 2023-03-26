@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"manhunt:shaman/totem",
+		"manhunt:shaman/reborn",
+		"manhunt:shaman/absorbed",
+		"manhunt:shaman/sculk",
+		"manhunt:shaman/cure"
+	],
+	"icon": {
+		"item": "minecraft:sculk_shrieker",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Shaman",
+	"description": "The Shaman can use its supernatural powers to make sure their team is always on maximum shape."
+}
