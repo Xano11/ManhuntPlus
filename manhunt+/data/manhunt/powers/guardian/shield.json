@@ -1,18 +1,17 @@
 {
     "type": "origins:multiple",
-    "resource":{ 
+    "resource": {
         "type": "origins:resource",
         "min": 0,
         "max": 3,
         "start_value": 3,
         "hud_render": {
-			"should_render": true,
-			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-			"bar_index": 0
-			}   
-        },
-"remove_resource": 
-{
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0
+        }
+    },
+    "remove_resource": {
         "type": "origins:self_action_when_hit",
         "entity_action": {
             "type": "origins:change_resource",
@@ -24,10 +23,9 @@
             "comparison": ">=",
             "compare_to": 2.0
         },
-    "cooldown": 1
-},
-"grant_resource": 
-{
+        "cooldown": 1
+    },
+    "grant_resource": {
         "type": "origins:self_action_on_hit",
         "entity_action": {
             "type": "origins:change_resource",
@@ -39,82 +37,76 @@
             "comparison": ">=",
             "compare_to": 2.0
         },
-    "cooldown": 1
-},
-"respawn":
-{
-    "type": "origins:action_on_callback",
-    "entity_action_respawned": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:change_resource",
-                "resource": "manhunt:shield_resource",
-                "change": 3
-            }
-        ]
-    }
-},
-"gain_resource1": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:shield_resource",
-        "change": 1
+        "cooldown": 1
     },
-    "interval": 160,
-    "condition": {
-        "type": "origins:sneaking"
-    }
-},
-"resistance3":{
-    "type": "origins:modify_damage_taken",
-    "modifier": {
-        "name": "More resistance",
-        "operation": "multiply_total",
-        "value": -0.25
+    "respawn": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shield_resource",
+                    "change": 3
+                }
+            ]
+        }
     },
-    "condition":
-        {
+    "gain_resource1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:shield_resource",
+            "change": 1
+        },
+        "interval": 160,
+        "condition": {
+            "type": "origins:sneaking"
+        }
+    },
+    "resistance3": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "More resistance",
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": "==",
             "compare_to": 3
-    }
-},
-"resistance2":{
-    "type": "origins:modify_damage_taken",
-    "modifier": {
-        "name": "More resistance",
-        "operation": "multiply_total",
-        "value": -0.15
+        }
     },
-    "condition":
-        {
+    "resistance2": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "More resistance",
+            "operation": "multiply_total",
+            "value": -0.15
+        },
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": "==",
             "compare_to": 2
-    }
-},
-"weakness":{
-    "type": "origins:modify_damage_taken",
-    "modifier": {
-        "name": "More damage",
-        "operation": "multiply_total",
-        "value": 0.25
+        }
     },
-    "condition":
-        {
+    "weakness": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "More damage",
+            "operation": "multiply_total",
+            "value": 0.25
+        },
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": "==",
             "compare_to": 0
-    }
-},
-    "speed":
-    {
+        }
+    },
+    "speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "name": "Movement speed increase",
@@ -123,22 +115,21 @@
             "operation": "multiply_base"
         },
         "tick_rate": 4,
-        "condition":
-        {
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": "==",
             "compare_to": 0
         }
     },
-    "on_hit":
-    {
+    "on_hit": {
         "type": "origins:self_action_when_hit",
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-            "type": "origins:execute_command",
-            "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.4 0 0.4 0.1 20"
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.4 0 0.4 0.1 20"
                 },
                 {
                     "type": "origins:execute_command",
@@ -150,8 +141,7 @@
                 }
             ]
         },
-        "condition":
-        {
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": ">",
@@ -164,14 +154,14 @@
         },
         "cooldown": 1
     },
-    "on_hit2":
-    {
+    "on_hit2": {
         "type": "origins:self_action_when_hit",
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-            "type": "origins:execute_command",
-            "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.4 0 0.4 0.1 20"
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.4 0 0.4 0.1 20"
                 },
                 {
                     "type": "origins:execute_command",
@@ -187,8 +177,7 @@
                 }
             ]
         },
-        "condition":
-        {
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": "==",
@@ -201,20 +190,19 @@
         },
         "cooldown": 1
     },
-"air_speed":{
-    "type": "origins:modify_air_speed",
-    "modifier": {
-        "operation": "multiply_total",
-        "value": -0.3
-    },
-    "condition":
-        {
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.3
+        },
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:shield_resource",
             "comparison": "==",
             "compare_to": 0
-        } 
+        }
     },
-    "name":"§l§nShields of the Guardian",
-    "description":"You have special shields that protects you from enemy hits by 20%. Any hit that does more than a heart of damage will consume a shield and shields will slowly deplete over time. If your shields are depleted, you become slower and lose your additional resistance. Shields will come back slowly, but can be accelerated through sneaking."
+    "name": "§l§nShields of the Guardian",
+    "description": "You have special shields that protects you from enemy hits by 20%. Any hit that does more than a heart of damage will consume a shield and shields will slowly deplete over time. If your shields are depleted, you become slower and lose your additional resistance. Shields will come back slowly, but can be accelerated through sneaking."
 }

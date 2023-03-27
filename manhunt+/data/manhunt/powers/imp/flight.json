@@ -1,30 +1,29 @@
 {
-    "name":"§l§nFlight",
-    "description":"When not sprinting charge up your \"Flight\" bar, holding your Primary ability key will propel you forward pretty quickly, whilst draining the \"Flight\" bar that you charged up prior. (this ability can be used to negate fall damage)",
+    "name": "§l§nFlight",
+    "description": "When not sprinting charge up your \"Flight\" bar, holding your Primary ability key will propel you forward pretty quickly, whilst draining the \"Flight\" bar that you charged up prior. (this ability can be used to negate fall damage)",
     "type": "origins:multiple",
-    "resource":{ 
+    "resource": {
         "type": "origins:resource",
         "min": 0,
         "max": 20,
         "start_value": 20,
         "hud_render": {
-			"should_render": true,
-			"sprite_location": "origins:textures/gui/resource_bar.png",
-			"bar_index": 4
-			}   
-        },
-
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4
+        }
+    },
     "gain_resource": {
         "type": "origins:action_over_time",
-	    "entity_action": {
+        "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:flight_resource",
+            "resource": "manhunt:imp/flight_resource",
             "change": 1
         },
-    "interval": 30,
-    "condition": {
-        "type": "origins:and",
-        "conditions": [
+        "interval": 30,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
                 {
                     "type": "origins:on_block"
                 },
@@ -35,65 +34,64 @@
             ]
         }
     },
-
-    "activate":{
+    "activate": {
         "type": "origins:active_self",
-                "entity_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "execute run effect give @s minecraft:slow_falling 1 0 true"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:soul_fire_flame ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.08 5 normal"
-                        },
-						{
-                            "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:flame ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.08 5 normal"
-                        },
-						{
-                            "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:dust_color_transition 0.25 0.9 1.0 1.3 0.8 0.45 0 ^ ^0.5 ^-0.5 0.5 0.5 0.5 1 5 normal"
-                        },
-						{
-                            "type": "origins:execute_command",
-                            "command": "execute at @s run particle minecraft:dust_color_transition 0.8 0.45 0 1.3 0.25 0.9 1.0 ^ ^0.5 ^-0.5 0.5 0.5 0.5 1 5 normal"
-                        },
-						{
-                            "type": "origins:execute_command",
-                            "command": "execute at @s run playsound block.fire.ambient player @a ~ ~1 ~ 1 1"
-                        },
-						{
-                            "type": "origins:execute_command",
-                            "command": "execute at @s run playsound minecraft:entity.generic.extinguish_fire player @a ~ ~1 ~ 1 2"
-                        },
-                        {
-                            "type": "origins:add_velocity",
-                            "z": 0.2,
-                            "space": "local"
-                        },
-                        {
-                            "type": "origins:change_resource",
-                            "resource": "manhunt:flight_resource",
-                            "change": -1
-                        }
-                    ]
-                    },
-                "key": {
-                    "key": "key.origins.primary_active",
-                    "continuous": true
-            },
-            "cooldown": 1,
-            "hud_render": {
-                "should_render": false
-            },
-            "condition": {
-                "type": "origins:resource",
-                "resource": "manhunt:flight_resource",
-                "comparison": ">",
-                "compare_to": 0
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute run effect give @s minecraft:slow_falling 1 0 true"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:soul_fire_flame ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.08 5 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:flame ^ ^0.5 ^-0.5 0.1 0.1 0.1 0.08 5 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:dust_color_transition 0.25 0.9 1.0 1.3 0.8 0.45 0 ^ ^0.5 ^-0.5 0.5 0.5 0.5 1 5 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:dust_color_transition 0.8 0.45 0 1.3 0.25 0.9 1.0 ^ ^0.5 ^-0.5 0.5 0.5 0.5 1 5 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run playsound block.fire.ambient player @a ~ ~1 ~ 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run playsound minecraft:entity.generic.extinguish_fire player @a ~ ~1 ~ 1 2"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.2,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:imp/flight_resource",
+                    "change": -1
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/flight_resource",
+            "comparison": ">",
+            "compare_to": 0
         }
     }
 }

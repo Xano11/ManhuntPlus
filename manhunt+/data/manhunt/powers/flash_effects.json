@@ -1,37 +1,33 @@
 {
-    "type":"origins:multiple",
-
-    "overlay":{
-    "type": "origins:overlay",
-    "texture": "minecraft:textures/block/white_concrete_powder.png",
-    "strength": 1,
-    "red": 1,
-    "green": 1,
-    "blue": 1,
-    "draw_mode": "texture",
-    "draw_phase": "above_hud",
-    "hide_with_hud": false,
-    "visible_in_third_person": true
+    "type": "origins:multiple",
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/white_concrete_powder.png",
+        "strength": 1,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true
     },
-    "resource":
-    { 
-            "type": "origins:resource",
-            "min": 0,
-            "max": 60,
-            "start_value": 60,
-            "hud_render": {
-                "should_render": false,
-                "sprite_location": "origins:textures/gui/resource_bar.png",
-                "bar_index": 2
-                },
-            "min_action": {
-                "type": "origins:execute_command",
-                "command": "power remove @s manhunt:flash_effects"
-                }
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:flash_effects"
+        }
     },
-    
-    "remove_resource": 
-    {
+    "remove_resource": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",

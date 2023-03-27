@@ -1,5 +1,5 @@
 {
-"type": "origins:multiple",
+    "type": "origins:multiple",
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -14,29 +14,26 @@
                     "command": "playsound minecraft:block.note_block.chime player @s"
                 }
             ]
-            },
+        },
         "key": {
             "key": "key.saveToolbarActivator"
         },
-"cooldown": 1,
-"hud_render": {
-    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-    "bar_index": 9,
-    "should_render": false
-}   
-},
-"notification":
-{
-    "type": "origins:action_on_callback",
-    "entity_action_gained": {
-        "type": "origins:execute_command",
-        "command": "tellraw @s [\"\",{\"text\":\"Use your [\"},{\"keybind\":\"key.saveToolbarActivator\"},{\"text\":\"] key to teleport to the Guardian!\"}]"
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
     },
-    "entity_action_lost": {
-        "type": "origins:execute_command",
-        "command": "tag @s remove saved"
+    "notification": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tellraw @s [\"\",{\"text\":\"Use your [\"},{\"keybind\":\"key.saveToolbarActivator\"},{\"text\":\"] key to teleport to the Guardian!\"}]"
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove saved"
+        },
+        "execute_chosen_when_orb": true
     },
-    "execute_chosen_when_orb": true
-},
     "hidden": true
 }

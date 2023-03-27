@@ -1,6 +1,6 @@
 {
 	"type": "origins:multiple",
-	"sacrifice_resource": {
+	"resource": {
 		"type": "origins:resource",
 		"min": 0,
 		"max": 7,
@@ -15,7 +15,7 @@
 		"type": "origins:self_action_on_kill",
 		"entity_action": {
 			"type": "origins:change_resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"change": 1
 		},
 		"cooldown": 1

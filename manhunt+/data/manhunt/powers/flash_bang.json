@@ -4,19 +4,19 @@
         "type": "origins:and",
         "actions": [
             {
-                        "type": "origins:area_of_effect",
-                        "radius": 12,
-                        "bientity_action": {
-                            "type": "origins:target_action",
-                            "action": {
-                                "type": "origins:execute_command",
-                                "command": "power grant @s[tag=!bomber] manhunt:flash_effects"
-                                }
-                        },
-                        "bientity_condition": {
-                            "type": "origins:can_see"
-                        }
-                    },
+                "type": "origins:area_of_effect",
+                "radius": 12,
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s[tag=!bomber] manhunt:flash_effects"
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:can_see"
+                }
+            },
             {
                 "type": "origins:execute_command",
                 "command": "playsound minecraft:block.bell.resonate player @s ~ ~ ~ 3 1.5",
@@ -26,19 +26,19 @@
                 "type": "origins:delay",
                 "ticks": 1,
                 "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:execute_command",
-                        "command": "kill @e[tag=flash]",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "kill @e[tag=eye]",
-                        "permission_level": 4
-                    }
-                ]
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @e[tag=flash]",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @e[tag=eye]",
+                            "permission_level": 4
+                        }
+                    ]
                 }
             }
         ]

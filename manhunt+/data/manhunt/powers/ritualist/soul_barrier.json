@@ -9,7 +9,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 1
 		}
@@ -23,7 +23,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 2
 		}
@@ -37,7 +37,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 3
 		}
@@ -51,7 +51,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 4
 		}
@@ -65,7 +65,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 5
 		}
@@ -79,7 +79,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 6
 		}
@@ -93,7 +93,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 7
 		}
@@ -107,7 +107,7 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 0
 		}

@@ -18,7 +18,7 @@
         "type": "origins:action_over_time",
 	        "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:sneaky_resource",
+            "resource": "manhunt:imp/sneaky_resource",
             "change": 1
         },
     "interval": 200,
@@ -27,7 +27,7 @@
         "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "manhunt:sneaky_resource",
+                    "resource": "manhunt:imp/sneaky_resource",
                     "comparison": "<",
                     "compare_to": 10
                 },
@@ -43,7 +43,7 @@
         "type": "origins:action_over_time",
 	        "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:sneaky_resource",
+            "resource": "manhunt:imp/sneaky_resource",
             "change": -1
         },
     "interval": 20,
@@ -74,7 +74,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "manhunt:sneaky_resource",
+                    "resource": "manhunt:imp/sneaky_resource",
                     "comparison": ">",
                     "compare_to": 0
                 }
@@ -101,7 +101,7 @@
                     },
                     {
                         "type": "origins:resource",
-                        "resource": "manhunt:sneaky_resource",
+                        "resource": "manhunt:imp/sneaky_resource",
                         "comparison": ">",
                         "compare_to": 0
                 }
@@ -128,7 +128,7 @@
                     },
                     {
                         "type": "origins:resource",
-                        "resource": "manhunt:sneaky_resource",
+                        "resource": "manhunt:imp/sneaky_resource",
                         "comparison": ">",
                         "compare_to": 0
                 }

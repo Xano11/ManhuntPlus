@@ -1,32 +1,27 @@
-
 {
-    "type":"origins:multiple",
-    
-    "resource":
-    {
-    "type": "origins:resource",
-    "min": 0,
-    "max": 7,
-    "hud_render": {
-        "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-        "bar_index": 0
-    }
+    "type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 7,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 0
+        }
     },
-    "resource_gain":
-    {
+    "resource_gain": {
         "type": "origins:action_over_time",
         "entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:dash_resource",
-        "change": 1
+            "type": "origins:change_resource",
+            "resource": "manhunt:dash_resource",
+            "change": 1
         },
         "interval": 15,
         "condition": {
             "type": "origins:sneaking"
         }
     },
-
-        "sounds": {
+    "sounds": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:play_sound",
@@ -37,9 +32,7 @@
         },
         "interval": 30
     },
-
-    "particles_sneak":
-    {
+    "particles_sneak": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
@@ -51,67 +44,65 @@
             "type": "origins:sneaking"
         }
     },
-    "boost":
-    { 
-    "type": "origins:action_over_time",
-    "entity_action": {
-        "type": "origins:and",
-        "actions": [{
-        "type": "origins:add_velocity",
-            "z": 2,
-            "space": "local"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "power grant @s manhunt:no_fall"
-            },
-			{
-                "type": "origins:execute_command",
-                "command": "execute at @s run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1 normal"
-            }
-        ]
-    },
-    "interval": 2,
-      "condition": {
-        "type": "origins:and",
-        "conditions": [
-        {
-        "type": "origins:resource",
-        "resource": "manhunt:dash_resource",
-        "comparison": "==",
-        "compare_to": 7
+    "boost": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "z": 2,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:no_fall"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1 normal"
+                }
+            ]
         },
-        {
-        "type": "origins:fall_flying"
+        "interval": 2,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:dash_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
+            ]
         }
-        ]
-    }
     },
-    "sound2": 
-    {
+    "sound2": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:play_sound",
             "sound": "minecraft:entity.firework_rocket.launch"
         },
         "interval": 2,
-      "condition": {
-        "type": "origins:and",
-        "conditions": [
-        {
-        "type": "origins:resource",
-        "resource": "manhunt:dash_resource",
-        "comparison": "==",
-        "compare_to": 7
-        },
-        {
-        "type": "origins:fall_flying"
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:dash_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
+            ]
         }
-        ]
-    }
     },
-    "boost_cost":
-    { 
+    "boost_cost": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
@@ -119,23 +110,22 @@
             "change": -7
         },
         "interval": 2,
-          "condition": {
+        "condition": {
             "type": "origins:and",
             "conditions": [
-            {
-            "type": "origins:resource",
-            "resource": "manhunt:dash_resource",
-            "comparison": "==",
-            "compare_to": 7
-            },
-            {
-            "type": "origins:fall_flying"
-            }
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:dash_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
             ]
         }
-        },
-    "elytra_dash":
-    {
+    },
+    "elytra_dash": {
         "type": "origins:elytra_flight",
         "render_elytra": false,
         "condition": {
@@ -145,8 +135,8 @@
             "compare_to": 7
         }
     },
-	"full_charge_particles": {
-	    "type": "origins:action_over_time",
+    "full_charge_particles": {
+        "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
             "command": "execute at @s run particle minecraft:effect ~ ~ ~ 0.2 0.2 0.2 3 5 normal",
@@ -158,8 +148,8 @@
             "resource": "manhunt:dash_resource",
             "comparison": "==",
             "compare_to": 7
-            }
-		},
+        }
+    },
     "name": "§l§nEnergy Dash",
     "description": "Sneaking will accumulate energy into your legs. After accumulating enough energy, your next double jump will launch you much further as well as negating fall damage upon landing."
 }

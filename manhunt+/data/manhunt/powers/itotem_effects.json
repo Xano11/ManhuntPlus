@@ -1,76 +1,73 @@
 {
     "type": "origins:multiple",
-    "resource":
-{ 
+    "resource": {
         "type": "origins:resource",
         "min": 0,
         "max": 1200,
         "start_value": 1200,
         "hud_render": {
-			"should_render": true,
-			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-			"bar_index": 20
-			},
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 20
+        },
         "min_action": {
-                "type": "origins:and",
-                "actions": [{
-            "type": "origins:execute_command",
-            "command": "power remove @e manhunt:revenant"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "power remove @a[tag=runner] manhunt:stop_forceload"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "tp @e[tag=revenant] @s"
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
+            "type": "origins:and",
+            "actions": [
+                {
                     "type": "origins:execute_command",
-                    "command": "kill @e[tag=totem]"
-                    }
+                    "command": "power remove @e manhunt:revenant"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=runner] manhunt:stop_forceload"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @e[tag=revenant] @s"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @e[tag=totem]"
+                            }
                         ]
+                    }
                 }
-            }
-        ]
-    }
-},
-"activation":
-{
-    "type": "origins:action_on_callback",
-    "entity_action_gained": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:execute_command",
-                "command": "particle minecraft:flame ~ ~ ~ 1 1 1 1 1000",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:entity.wither.shoot player @a[distance=..50] ~ ~ ~ 1 0.5",
-                "permission_level": 4
-            }
-        ]
-    }
-},
-
-"remove_resource": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:itotem_effects_resource",
-        "change": -10
+            ]
+        }
     },
-    "interval": 10
-},
+    "activation": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flame ~ ~ ~ 1 1 1 1 1000",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.shoot player @a[distance=..50] ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:itotem_effects_resource",
+            "change": -10
+        },
+        "interval": 10
+    },
     "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -88,6 +85,31 @@
             "permission_level": 4
         },
         "interval": 10
+    },
+    "revenant": {
+        "type": "origins:action_on_being_used",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:revenant"
+                    }
+                ]
+            }
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:itotem_effects"
+            }
+        }
     },
     "hidden": true
 }

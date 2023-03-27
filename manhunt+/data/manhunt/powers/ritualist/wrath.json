@@ -1,6 +1,5 @@
 {
 	"type": "origins:multiple",
-	
 	"activate": {
 		"type": "origins:active_self",
 		"entity_action": {
@@ -16,24 +15,23 @@
 					"change": -7
 				}
 			]
-			},
+		},
 		"key": {
 			"key": "key.origins.secondary_active"
 		},
-		"condition":  {
+		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:sacrifice_sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_resource",
 			"comparison": "==",
 			"compare_to": 7
 		},
-"cooldown": 3600,
-"hud_render": {
-	"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-	"bar_index": 5,
-	"should_render": true
-}   
-},
-
+		"cooldown": 3600,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 5,
+			"should_render": true
+		}
+	},
 	"name": "Wrath",
 	"description": "You can activate your wrath, granting you more attack speed, movement speed and making you glow. Additionally, hitting any entity for more than 2 hearts will make you go invisible for one second and grant you one soul. But, not touching a single entity for two full hearts during the duration of the power will make you take immense damage."
 }

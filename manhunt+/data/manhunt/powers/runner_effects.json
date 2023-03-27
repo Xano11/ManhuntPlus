@@ -4,14 +4,30 @@
     "tag":{
     "type": "origins:action_on_callback",
     "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [{
         "type": "origins:execute_command",
         "command": "tag @s add runner"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute store result score @s runners run execute if entity @a[tag=runner]"
+            }
+        ]
     },
-    "entity_action_lost": {
+    "entity_action_removed": {
         "type": "origins:and",
         "actions": [{
         "type": "origins:execute_command",
         "command": "tag @s remove runner"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "execute as @a[tag=runner] if score @s runners > @p runners run scoreboard players remove @s runners 1"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scoreboard players reset @s runners"
             },
             {
                 "type": "origins:execute_command",

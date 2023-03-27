@@ -1,30 +1,24 @@
-
 {
-    "type":"origins:multiple",
-    
-    "left": 
-    {
+    "type": "origins:multiple",
+    "left": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-            "type": "origins:execute_command",
-            "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
-        },
-        {
-            "type": "origins:execute_command",
-            "command": "power grant @s manhunt:timer"
-        },
-        {
-            "type": "origins:delay",
-            "ticks": 1,
-            "action": {
-                "type": "origins:execute_command",
-                "command": "power remove @a manhunt:countdown"
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:timer"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:countdown"
                 }
-            }
-        ]
-    },
+            ]
+        },
         "cooldown": 1,
         "hud_render": {
             "should_render": false
@@ -33,29 +27,25 @@
             "key": "key.left"
         }
     },
-    "right": 
-    {
+    "right": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-            "type": "origins:execute_command",
-            "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
-        },
-        {
-            "type": "origins:execute_command",
-            "command": "power grant @s manhunt:timer"
-        },
-        {
-            "type": "origins:delay",
-            "ticks": 1,
-            "action": {
-                "type": "origins:execute_command",
-                "command": "power remove @a manhunt:countdown"
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:timer"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:countdown"
                 }
-            }
-        ]
-    },
+            ]
+        },
         "cooldown": 1,
         "hud_render": {
             "should_render": false
@@ -64,29 +54,25 @@
             "key": "key.right"
         }
     },
-    "forward": 
-    {
+    "forward": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-            "type": "origins:execute_command",
-            "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
-        },
-        {
-            "type": "origins:execute_command",
-            "command": "power grant @s manhunt:timer"
-        },
-        {
-            "type": "origins:delay",
-            "ticks": 1,
-            "action": {
-                "type": "origins:execute_command",
-                "command": "power remove @a manhunt:countdown"
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:timer"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:countdown"
                 }
-            }
-        ]
-    },
+            ]
+        },
         "cooldown": 1,
         "hud_render": {
             "should_render": false
@@ -95,30 +81,27 @@
             "key": "key.forward"
         }
     },
-    "back": 
-    {
+    "back": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-            "type": "origins:execute_command",
-            "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
-        },{
-            "type": "origins:execute_command",
-            "command": "power grant @s manhunt:timer"
-        },
-        {
-            "type": "origins:delay",
-            "ticks": 1,
-            "action": {
-                "type": "origins:execute_command",
-                "command": "power remove @a manhunt:countdown"
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:timer"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:countdown"
                 }
-            }
-        ]
-    },
+            ]
+        },
         "cooldown": 1,
-        "hud_render": { 
+        "hud_render": {
             "should_render": false
         },
         "key": {

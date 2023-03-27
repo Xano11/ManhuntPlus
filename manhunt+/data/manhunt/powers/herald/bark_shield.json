@@ -1,34 +1,100 @@
 {
-    "type":"origins:active_self",
-    "entity_action":{
-        "type":"origins:and",
-        "actions":[
-            {
-                "type":"origins:execute_command",
-                "command":"power grant @p[distance=1..10,tag=hunter] manhunt:bark_effects",
-                "permission_level":4
-            },
-            {
-                "type":"origins:execute_command",
-                "command":"execute at @p[distance=1..10,tag=hunter] run particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100",
-                "permission_level":4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:block.anvil.use player @a[distance=..5] ~ ~ ~ 1 0.7",
-                "permission_level": 4
+    "type": "origins:multiple",
+    "use": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:bark_effects",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.anvil.use player @a[distance=..5] ~ ~ ~ 1 0.7",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:herald/bark_shield_cooldown",
+                        "change": 1800
+                    }
+                ]
             }
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:living"
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "manhunt:hunter_effects"
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "manhunt:herald/bark_effects",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:herald/bark_shield_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
         ]
     },
-    "cooldown": 1800,
-    "hud_render":{
-        "should_render":true,
-        "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
-        "bar_index":8
-    },    
-    "key":{
-        "key":"key.origins.secondary_active"
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1800,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 8
+        }
     },
-    "name":"§l§nTree Bark Shield",
-    "description":"Using the power of nature, you can give a tree bark shield that increases your teammates defense and giving them a passive health regeneration. Pressing the secondary ability key will grant it to the closest player in a 10 block radius. (5 minute cooldown)"
+    "cooldown_down":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:herald/bark_shield_cooldown",
+            "change": -20
+        },
+        "interval": 20
+    },
+    "name": "§l§nTree Bark Shield",
+    "description": "Using the power of nature, you can give a tree bark shield that increases your teammates defense and giving them a passive health regeneration. [USING] a hunter will grant it the shield. (1.5 minute cooldown)"
 }

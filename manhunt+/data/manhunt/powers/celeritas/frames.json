@@ -1,0 +1,9 @@
+{
+    "type": "eggolib:modify_hurt_ticks",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.25
+    },
+    "name":"Living life too quick",
+    "description":"You have 25% less invincibility frames."
+}

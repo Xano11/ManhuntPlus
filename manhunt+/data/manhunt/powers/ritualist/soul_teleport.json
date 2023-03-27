@@ -8,75 +8,79 @@
 	},
 	"entity_action": {
 		"type": "origins:and",
-		"actions": [{
-			"type": "origins:raycast",
-			"distance": 5,
-			"entity": false,
-			"before_action": {
-				"type": "origins:and",
-				"actions": {
-					"type": "origins:execute_command",
-					"command": "tag @s add tping"
-				}
-			},
-			"command_step": 1,
-			"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ air run tp @e[tag=tping,sort=nearest] ~ ~ ~",
-			"miss_action": {
-				"type": "origins:and",
-				"actions": [{
-						"type": "origins:add_velocity",
-						"space": "local",
-						"z": 0.01
-					},
-					{
+		"actions": [
+			{
+				"type": "origins:raycast",
+				"distance": 5,
+				"entity": false,
+				"before_action": {
+					"type": "origins:and",
+					"actions": {
 						"type": "origins:execute_command",
-						"command": "tag @s remove tping"
-					},
-					{
-						"type": "origins:change_resource",
-						"resource": "manhunt:sacrifice_sacrifice_resource",
-						"change": -1
-					},
-					{
-					"type": "origins:execute_command",
-					"command": "particle minecraft:soul ~ ~0.2 ~ 0.1 0.1 0.1 0.1 10",
-					"permission_level": 4
-				    },
-					{
-					"type": "origins:execute_command",
-					"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
-					"permission_level": 4
-				    },
-					{
-					"type": "origins:execute_command",
-					"command": "effect give @p slow_falling 1 0 true",
-					"permission_level": 4
-				    },
-					{
-					"type": "origins:execute_command",
-					"command": "effect give @p speed 5 0 true",
-					"permission_level": 4
-				    }
-				]
-			},
-			"hit_action": {
-				"type": "origins:and",
-				"actions": [{
-						"type": "origins:add_velocity",
-						"space": "local",
-						"y": 0.01
-					},
-					{
-						"type": "origins:execute_command",
-						"command": "tag @s remove tping"
+						"command": "tag @s add tping"
 					}
-				]
+				},
+				"command_step": 1,
+				"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ air run tp @e[tag=tping,sort=nearest] ~ ~ ~",
+				"miss_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:add_velocity",
+							"space": "local",
+							"z": 0.01
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "tag @s remove tping"
+						},
+						{
+							"type": "origins:change_resource",
+							"resource": "manhunt:sacrifice_sacrifice_resource",
+							"change": -1
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "particle minecraft:soul ~ ~0.2 ~ 0.1 0.1 0.1 0.1 10",
+							"permission_level": 4
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
+							"permission_level": 4
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "effect give @p slow_falling 1 0 true",
+							"permission_level": 4
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "effect give @p speed 5 0 true",
+							"permission_level": 4
+						}
+					]
+				},
+				"hit_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:add_velocity",
+							"space": "local",
+							"y": 0.01
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "tag @s remove tping"
+						}
+					]
+				}
 			}
-		}]
+		]
 	},
 	"condition": {
 		"type": "origins:resource",
-		"resource": "manhunt:sacrifice_sacrifice_resource",
+		"resource": "manhunt:ritualist/sacrifice_resource",
 		"comparison": ">=",
 		"compare_to": 1
 	},

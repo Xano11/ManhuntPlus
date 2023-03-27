@@ -1,13 +1,12 @@
 {
     "type": "origins:multiple",
-
-        "fast": {
-            "type": "origins:modify_break_speed",
-            "modifier": {
-                "operation": "multiply_base",
-                "value": 0.2
-            }
-        },
-        "name":"§l§nFast Gathering",
-        "description":"You have a passive 20% mining speed bonus"
-    }
+    "fast": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.2
+        }
+    },
+    "name": "§l§nFast Gathering",
+    "description": "You have a passive 20% mining speed bonus"
+}

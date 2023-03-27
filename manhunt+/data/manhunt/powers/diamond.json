@@ -61,7 +61,7 @@
             }
         ]
     },
-    "entity_action_lost": {
+    "entity_action_removed": {
         "type": "origins:and",
         "actions": [
             {

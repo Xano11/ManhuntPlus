@@ -1,76 +1,69 @@
 {
     "type": "origins:multiple",
-    "resource":
-{ 
+    "resource": {
         "type": "origins:resource",
         "min": 0,
         "max": 80,
         "start_value": 80,
         "hud_render": {
-			"should_render": false,
-			"sprite_location": "origins:textures/gui/resource_bar.png",
-			"bar_index": 2
-			},
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        },
         "min_action": {
             "type": "origins:and",
             "actions": [
                 {
-            "type": "origins:delay",
-            "ticks": 1,
-            "action": {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @e[tag=bomb]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @e[tag=bomb_part]"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:explode",
+                    "power": 2,
+                    "destruction_type": "break",
+                    "damage_self": true,
+                    "create_fire": false
+                }
+            ]
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
-                "type": "origins:execute_command",
-                "command": "kill @e[tag=bomb]"
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomb_boom_resource",
+                    "change": -10
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "kill @e[tag=bomb_part]"
-                    }
-                    ]
-                         }
-                    },
-                    {
-                        "type": "origins:explode",
-                        "power": 2,
-                        "destruction_type": "break",
-                        "damage_self": true,
-                        "create_fire": false
-                    }
-            ]   
-        }
-},
-
-"remove_resource": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:bomb_boom_resource",
-        "change": -10
+                    "command": "particle minecraft:campfire_signal_smoke ~ ~1 ~ 0 0 0 0.01 1"
+                }
+            ]
+        },
+        "interval": 10
     },
-    "interval": 10
-},
-"sound":
-{
-"type": "origins:action_on_callback",
-"entity_action_gained": {
-    "type": "origins:execute_command",
-    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 1 0.5"
-}
-},
-
-    "particles": {
-        "type": "origins:particle",
-		"particle": "minecraft:flame",
-		"frequency": 5
-	},
-
-    "particles1": {
-        "type": "origins:particle",
-		"particle": "minecraft:campfire_signal_smoke",
-		"frequency": 5
-	},
+    "sound": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 1 0.5"
+        }
+    },
     "hidden": true
 }

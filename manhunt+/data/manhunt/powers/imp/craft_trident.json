@@ -1,28 +1,61 @@
 {
-    "type": "origins:action_on_callback",
-    "entity_action_added": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:execute_command",
-                "command": "recipe give @s manhunt:flint_trident",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
+    "type": "origins:multiple",
+    "craft1": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:craft_trident"
-                    }
+                    "command": "recipe give @s manhunt:flint_trident",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:craft_trident_craft1"
+                            }
                         ]
+                    }
                 }
-            }
-        ]
+            ]
+        }
     },
-    "name":"Imp's Recipe",
-	"description":"Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid."
+    "craft2": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flint_trident",
+        "result": {
+            "item": "minecraft:trident",
+            "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "recipe take @s manhunt:flint_trident"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:craft_trident_craft2"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Imp's Recipe",
+    "description": "Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid."
 }

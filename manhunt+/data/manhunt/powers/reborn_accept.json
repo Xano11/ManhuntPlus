@@ -69,7 +69,7 @@
             "type": "origins:execute_command",
             "command": "tellraw @s [\"\",{\"text\":\"Use your [\"},{\"keybind\":\"key.saveToolbarActivator\"},{\"text\":\"] key to teleport to your teammate that triggered the Reborn ability!\"}]"
         },
-        "entity_action_lost": {
+        "entity_action_removed": {
             "type": "origins:execute_command",
             "command": "tag @s remove helper"
         }

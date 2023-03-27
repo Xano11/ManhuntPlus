@@ -1,6 +1,5 @@
 {
     "type": "origins:multiple",
-
         "cast": {
                 "type": "origins:active_self",
                 "entity_action": {

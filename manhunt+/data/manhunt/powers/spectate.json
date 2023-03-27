@@ -4,7 +4,7 @@
         "type": "origins:execute_command",
         "command": "gamemode spectator @s"
     },
-    "entity_action_lost": {
+    "entity_action_removed": {
         "type": "origins:execute_command",
         "command": "gamemode survival @s"
     },

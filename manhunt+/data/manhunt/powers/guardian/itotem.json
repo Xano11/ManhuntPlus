@@ -1,54 +1,52 @@
 {
     "type": "origins:multiple",
-
-        "activate": {
-                "type": "origins:active_self",
-                "entity_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "summon wither_skeleton ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Tags:[\"totem\"],HandItems:[{id:\"minecraft:air\",Count:1b},{}]}"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "power grant @a[tag=hunter] manhunt:itotem_interact"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "power grant @a[tag=runner] manhunt:stop_forceload"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "forceload add ~ ~ ~ ~",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 1,
-                            "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power grant @e[limit=1,sort=nearest,tag=totem] manhunt:itotem_effects",
-                                    "permission_level": 4
-                                }
-                            ]
-                            }
-                        }
-                    ]
-                    },
-                "key": {
-                    "key": "key.origins.secondary_active"
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add guardian"
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove guardian"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon wither_skeleton ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Tags:[\"totem\"],HandItems:[{id:\"minecraft:air\",Count:1b},{}]}"
                 },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=runner] manhunt:stop_forceload"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @e[limit=1,sort=nearest,tag=totem] manhunt:itotem_effects",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
         "cooldown": 6000,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
             "bar_index": 24,
             "should_render": true
-        }   
-        },
-        "name":"§l§nImmortality Totem",
-        "description":"Using the secondary ability key, you can summon a totem that grants a second life if clicked whilst sneaking. You lose all armor points and lose 5 hearts, but on death, you will teleported back to the totem. Watch out as the totem has a duration of a minute. "
-    }
+        }
+    },
+    "name": "§l§nImmortality Totem",
+    "description": "Using the secondary ability key, you can summon a totem that grants a second life if clicked whilst sneaking. You lose all armor points and lose 5 hearts, but on death, you will teleported back to the totem. Watch out as the totem has a duration of a minute. "
+}

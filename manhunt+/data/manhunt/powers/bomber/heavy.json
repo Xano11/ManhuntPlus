@@ -6,7 +6,7 @@
             "type": "origins:execute_command",
             "command": "tag @s add bomber"
         },
-        "entity_action_lost": {
+        "entity_action_removed": {
             "type": "origins:execute_command",
             "command": "tag @s remove bomber"
         },

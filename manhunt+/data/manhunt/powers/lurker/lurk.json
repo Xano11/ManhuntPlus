@@ -1,131 +1,127 @@
 {
     "type": "origins:multiple",
-    
     "charge_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/lurk_charge_resource",
+            "change": -60
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:sneaking",
+            "inverted": true
+        }
+    },
+    "gain_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/lurk_charge_resource",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:sneaking"
+        }
+    },
+    "tp": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s as @s run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run tag @e[limit=1,sort=nearest,type=armor_stand] add tp1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @p[tag=runner] run tag @e[limit=1,sort=nearest,type=armor_stand] add tp2",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 2,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:lurk_effects"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @a[tag=runner] manhunt:stop_forceload"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "forceload add ~ ~ ~ ~",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 3,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s @e[tag=tp2,limit=1]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
             "type": "origins:resource",
-            "min": 0,
-            "max": 60,
-            "start_value": 0,
-            "hud_render": {
-                "should_render": true,
-                "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-                "bar_index": 1
-                }  
-    },
-    "remove_resource": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:lurk_charge_resource",
-        "change": -60
-    },
-    "interval": 5,
-    "condition": {
-        "type": "origins:sneaking",
-        "inverted":true
-    }
-},
-"gain_resource": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:lurk_charge_resource",
-        "change": 10
-    },
-    "interval": 10,
-    "condition": {
-        "type": "origins:sneaking"
-    }
-},
-
-        "tp": {
-                "type": "origins:active_self",
-                "entity_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "execute at @s as @s run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b}"
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 1,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "execute at @s run tag @e[limit=1,sort=nearest,type=armor_stand] add tp1",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "execute at @p[tag=runner] run tag @e[limit=1,sort=nearest,type=armor_stand] add tp2",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 2,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:lurk_effects"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @a[tag=runner] manhunt:stop_forceload"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "forceload add ~ ~ ~ ~",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 3,
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "tp @s @e[tag=tp2,limit=1]",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "key": {
-                    "key": "key.origins.primary_active"
-                },
-                "condition": {
-                    "type": "origins:resource",
-                    "resource": "manhunt:lurk_charge_resource",
-                    "comparison": "==",
-                    "compare_to": 60
-                },
+            "resource": "manhunt:lurker/lurk_charge_resource",
+            "comparison": "==",
+            "compare_to": 60
+        },
         "cooldown": 6000,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 7,
             "should_render": true
-        }   
-        },
-        "name":"§l§nThe Watching Eye",
-        "description":"By sneaking, you can charge your lurking ability. Once fully charged, you can use your primary ability key to teleport to the Runner, unable to do anything. The Runner will not be able to interact with you, but they will be able to notice your presence. After 10 seconds of gathering information, you will be teleported back to where the abiltiy was casted."
-    }
+        }
+    },
+    "name": "§l§nThe Watching Eye",
+    "description": "By sneaking, you can charge your lurking ability. Once fully charged, you can use your primary ability key to teleport to the Runner, unable to do anything. The Runner will not be able to interact with you, but they will be able to notice your presence. After 10 seconds of gathering information, you will be teleported back to where the abiltiy was casted."
+}

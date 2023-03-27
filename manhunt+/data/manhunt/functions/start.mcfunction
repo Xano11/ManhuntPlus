@@ -4,6 +4,8 @@ gamerule doImmediateRespawn true
 scoreboard objectives add x dummy
 scoreboard objectives add y dummy
 scoreboard objectives add z dummy
+scoreboard objectives add runners dummy
+scoreboard objectives add tracking dummy
 time set day
 gamerule doLimitedCrafting true
 recipe give @a *

@@ -4,9 +4,17 @@
         "type": "origins:execute_command",
         "command": "tag @s add hunter"
     },
-    "entity_action_lost": {
-        "type": "origins:execute_command",
-        "command": "tag @s remove hunter"
+    "entity_action_removed": {
+        "type": "origins:and",
+        "actions": [{
+            "type": "origins:execute_command",
+            "command": "tag @s remove hunter"
+        },
+            {
+                "type": "origins:execute_command",
+                "command": "scoreboard players reset @s tracking"
+            }
+        ]
     },
     "entity_action_respawned": {
         "type": "origins:execute_command",
