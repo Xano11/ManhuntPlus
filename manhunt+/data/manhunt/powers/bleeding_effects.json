@@ -1,47 +1,30 @@
 {
-    "type":"origins:multiple",
-    "resource":
-{ 
+    "type": "origins:multiple",
+    "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 200,
-        "start_value": 200,
+        "max": 40,
+        "start_value": 40,
         "hud_render": {
-			"should_render": true,
-			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-			"bar_index": 14
-			},
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 14
+        },
         "min_action": {
-                "type": "origins:and",
-                "actions": [
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:bleeding_effects"
-                    }
-                        ]
-                }
-            }
-        ]
-    }
-},
-
-"remove_resource": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:change_resource",
-        "resource": "manhunt:bleeding_effects_resource",
-        "change": -10
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:bleeding_effects"
+        }
     },
-    "interval": 10
-},
-    "bleed_use":{
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bleeding_effects_resource",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "bleed_use": {
         "type": "origins:action_on_item_use",
         "entity_action": {
             "type": "origins:damage",
@@ -50,32 +33,31 @@
                 "name": "generic.player",
                 "bypasses_armor": true
             }
-    }
-},
-"bleed_recurrent":{
-    "type": "origins:action_over_time",
-    "entity_action": {
-        "type": "origins:damage",
-        "amount": 1,
-        "source": {
-            "name": "generic.player",
-            "bypasses_armor": true
         }
     },
-    "interval": 15,
-    "condition": {
-        "type": "origins:using_item"
-    }
-},
-"particles": 
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "particle minecraft:dust_color_transition 1 0 0 1 0.4 0 0 ~ ~1 ~ 0.4 0.5 0.4 0.1 10",
-        "permission_level": 4
+    "bleed_recurrent": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:damage",
+            "amount": 1,
+            "source": {
+                "name": "generic.player",
+                "bypasses_armor": true
+            }
+        },
+        "interval": 15,
+        "condition": {
+            "type": "origins:using_item"
+        }
     },
-    "interval": 30
-},
-"hidden": true
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 0 0 1 0.4 0 0 ~ ~1 ~ 0.4 0.5 0.4 0.1 10",
+            "permission_level": 4
+        },
+        "interval": 5
+    },
+    "hidden": true
 }

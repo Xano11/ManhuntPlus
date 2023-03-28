@@ -19,7 +19,7 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:block.bell.resonate player @s ~ ~ ~ 3 1.5",
+                "command": "playsound manhunt:flashbang player @a ~ ~ ~ 3 1.5",
                 "permission_level": 4
             },
             {

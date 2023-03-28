@@ -2,8 +2,9 @@
 	"powers": [
 		"manhunt:ringtones"
 	],
-	"icon": {
-		"item": "minecraft:bell"
+	"icon":  {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}]}"
 	},
 	"order": 10,
 	"impact": 0,

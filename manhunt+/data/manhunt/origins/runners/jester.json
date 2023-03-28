@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:jester/smoke_bomb"
+	],
+	"icon": {
+		"item": "minecraft:jigsaw",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Balatro ⚜",
+	"description": "The Balatro is the jester of the court"
+}

@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:3}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Bomb Ringtone",
+	"description": "Boom Boom Boom Boom, I want you in my room"
+}

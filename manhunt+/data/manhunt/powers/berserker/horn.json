@@ -19,7 +19,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter,distance=..32] manhunt:horn_effects"
+                    "command": "power grant @a[tag=hunter,distance=..20] manhunt:horn_effects"
                 }
             ]
         },
@@ -43,5 +43,5 @@
         "cooldown": 6000
     },
     "name": "§l§nHorny (Wait a minute-)",
-    "description": "You spawn with your personalized horn. Using said horn will grant a defense and attack speed boost to all other hunters in a 32 block radius. (5 mins cooldown)"
+    "description": "You spawn with your personalized horn. Using said horn will grant a defense and attack speed boost to all other hunters in a 20 block radius. (5 mins cooldown)"
 }

@@ -26,10 +26,6 @@
             "conditions": [
                 {
                     "type": "origins:on_block"
-                },
-                {
-                    "type": "origins:sneaking",
-                    "inverted": true
                 }
             ]
         }

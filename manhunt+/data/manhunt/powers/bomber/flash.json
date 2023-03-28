@@ -10,7 +10,7 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:block.amethyst_cluster.hit player @s ~ ~ ~ 4 0.5",
+                "command": "playsound minecraft:block.amethyst_cluster.hit player @a ~ ~ ~ 4 0.5",
                 "permission_level": 4
             },
             {

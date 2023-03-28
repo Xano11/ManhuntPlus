@@ -16,10 +16,6 @@
             }
         ]
     },
-    "entity_action_respawned": {
-        "type": "origins:execute_command",
-        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
-    },
     "execute_chosen_when_orb": true,
     "hidden": true
 }

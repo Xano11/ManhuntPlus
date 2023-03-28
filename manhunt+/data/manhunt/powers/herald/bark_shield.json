@@ -62,7 +62,7 @@
                                 "type": "origins:resource",
                                 "resource": "manhunt:herald/bark_shield_cooldown",
                                 "comparison": "==",
-                                "compare_to": 0
+                                "compare_to": 1800
                             }
                         ]
                     }
@@ -91,7 +91,7 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:herald/bark_shield_cooldown",
-            "change": -20
+            "change": 20
         },
         "interval": 20
     },

@@ -50,7 +50,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "manhunt:draw_resource",
+                                "resource": "manhunt:gambler/draw_resource",
                                 "change": -1
                             },
                             {
@@ -112,7 +112,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "manhunt:draw_resource",
+                                "resource": "manhunt:gambler/draw_resource",
                                 "change": -1
                             },
                             {
@@ -174,7 +174,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "manhunt:draw_resource",
+                                "resource": "manhunt:gambler/draw_resource",
                                 "change": -1
                             },
                             {
@@ -236,7 +236,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "manhunt:draw_resource",
+                                "resource": "manhunt:gambler/draw_resource",
                                 "change": -1
                             },
                             {
@@ -266,7 +266,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:draw_resource",
+            "resource": "manhunt:gambler/draw_resource",
             "comparison": ">=",
             "compare_to": 1
         }
@@ -286,10 +286,10 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:draw_resource",
+            "resource": "manhunt:gambler/draw_resource",
             "change": 1
         },
-        "interval": 1200
+        "interval": 900
     },
     "name": "§l§nDRAW A CARD",
     "description": "Using your primary ability key, you will draw a card. Depending on the type (Spade, Heart, Diamond, Club), it will change the effect you get. You can draw up to three cards at a time, getting one more draw every minute."

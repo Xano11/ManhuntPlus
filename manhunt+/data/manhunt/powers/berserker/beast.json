@@ -109,7 +109,7 @@
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "addition",
-            "value": 4
+            "value": 3
         },
         "condition": {
             "type": "origins:resource",
@@ -143,5 +143,5 @@
         }
     },
     "name": "§l§nTHE BEAST INSIDE",
-    "description": "Sacrificing 5 hearts, you are granted 10 seconds of +4 damage and 20% more movement speed. But outside of your frenzy, you have -2 damage passively."
+    "description": "Sacrificing 5 hearts, you are granted 10 seconds of +3 damage and 20% more movement speed. But outside of your frenzy, you have -2 damage passively."
 }

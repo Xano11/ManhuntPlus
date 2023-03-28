@@ -1,10 +1,9 @@
 {
 	"powers": [
-		"manhunt:guardian/itotem",
         "manhunt:guardian/savior",
 		"manhunt:guardian/slow",
 		"manhunt:guardian/shield",
-		"origins:guardian/no_shield"
+		"manhunt:guardian/protector"
 	],
 	"icon": {
 		"item": "minecraft:beacon",

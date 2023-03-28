@@ -2,9 +2,10 @@
 	"powers": [
 		"manhunt:herald/boost",
 		"manhunt:herald/bark_shield",
-		"origins:herald/more_exhaustion",
-		"origins:herald/nine_lives",
-		"manhunt:herald/fire_weak"
+		"origins:more_exhaustion",
+		"origins:nine_lives",
+		"manhunt:herald/fire_weak",
+		"manhunt:herald/cleric"
 	],
 	"icon": {
 		"item": "minecraft:vine",

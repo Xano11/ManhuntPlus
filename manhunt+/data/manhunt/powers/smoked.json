@@ -1,0 +1,75 @@
+{
+    "type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:smoked"
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:smoked_resource",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "fog": {
+        "type": "moborigins:fog",
+        "red": 0.3,
+        "green": 0.3,
+        "blue": 0.3,
+        "start": -1,
+        "end": 8
+    },
+    "invisibility": {
+        "type": "origins:invisibility",
+        "render_armor": true
+    },
+    "speed":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Movement speed increase",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.5,
+            "operation": "multiply_total"
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:both",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:armor_stand",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:smoked"
+                    }
+                ]
+            }
+        },
+        "use_teams": false,
+        "red": 0.3,
+        "green": 0.3,
+        "blue": 0.3
+    }
+}

@@ -11,7 +11,7 @@
 				},
 				{
 					"type": "origins:change_resource",
-					"resource": "manhunt:sacrifice_sacrifice_resource",
+					"resource": "manhunt:ritualist/sacrifice_resource",
 					"change": -7
 				}
 			]

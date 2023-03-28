@@ -4,7 +4,7 @@
 		"key": "key.origins.primary_active"
 	},
 	"hud_render": {
-		"should_render": true
+		"should_render": false
 	},
 	"entity_action": {
 		"type": "origins:and",
@@ -36,7 +36,7 @@
 						},
 						{
 							"type": "origins:change_resource",
-							"resource": "manhunt:sacrifice_sacrifice_resource",
+							"resource": "manhunt:ritualist/sacrifice_resource",
 							"change": -1
 						},
 						{

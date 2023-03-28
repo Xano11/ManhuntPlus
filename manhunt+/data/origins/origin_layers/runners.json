@@ -15,7 +15,8 @@
                 "manhunt:runners/sanguis",
                 "manhunt:runners/damned",
                 "manhunt:runners/gambler",
-                "manhunt:runners/fortis"
+                "manhunt:runners/fortis",
+                "manhunt:runners/jester"
               ]
           }
       ],

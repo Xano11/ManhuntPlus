@@ -3,7 +3,8 @@
 		"manhunt:ringtones"
 	],
 	"icon": {
-		"item": "minecraft:amethyst_cluster"
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
 	"impact": 0,
