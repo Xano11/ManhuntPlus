@@ -71,7 +71,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking1] run tp ~ 300 ~",
+            "command": "execute at @s as @e[limit=1,sort=nearest,type=item,tag=tracking1] run tp ~ 300 ~",
             "permission_level": 4
         },
         "interval": 1,
@@ -120,7 +120,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking2] run tp ~ 300 ~",
+            "command": "execute at @s as @e[limit=1,sort=nearest,type=item,tag=tracking2] run tp ~ 300 ~",
             "permission_level": 4
         },
         "interval": 1,
@@ -205,7 +205,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking3] run tp ~ 300 ~",
+            "command": "execute at @s as @e[limit=1,sort=nearest,type=item,tag=tracking3] run tp ~ 300 ~",
             "permission_level": 4
         },
         "interval": 1,
