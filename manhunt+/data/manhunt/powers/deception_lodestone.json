@@ -17,7 +17,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a if score @s lodestone = @e[limit=1,sort=nearest,tag=deception] lodestone run power grant @s manhunt:stop_forceload"
+                    "command": "power remove @a manhunt:stop_forceload"
                 },
                 {
                     "type": "origins:execute_command",

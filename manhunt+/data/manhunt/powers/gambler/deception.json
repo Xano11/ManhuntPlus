@@ -11,12 +11,12 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:stop_forceload"
+                    "command": "power grant @a manhunt:stop_forceload"
                 },
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:zombie",
-                    "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"deception\"],ArmorItems:[{},{},{},{id:\"minecraft:lodestone\",Count:1b,tag:{Enchantments:[{}]}}]}",
+                    "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"deception\"],ArmorItems:[{},{},{},{id:\"minecraft:lodestone\",Count:1b,tag:{Enchantments:[{}]}}]}",
                     "entity_action": {
                         "type": "origins:execute_command",
                         "command": "power grant @s manhunt:deception_lodestone"
