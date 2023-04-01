@@ -11,7 +11,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter,distance=..10] manhunt:cast"
+                    "command": "power grant @s manhunt:cast"
                 },
                 {
                     "type": "origins:execute_command",
@@ -172,7 +172,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 24000,
+        "cooldown": 9600,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 7,
@@ -180,5 +180,5 @@
         }
     },
     "name": "§l§nImp's Gateway",
-    "description": "Using the secondary ability key, you can teleport you and any hunter in a 10 block radius of yourself near the runner. In the overworld, you'll be teleported high in the air overtop the runner and will descend slowly. In the Nether you will teleport close to the runner, but will temporarily turn into a spirit. If you are hit as a spirit, you'll be teleported back to the imp's original location."
+    "description": "Using the secondary ability key, you can teleport yourself near the runner. In the overworld, you'll be teleported high in the air overtop the runner and will descend slowly. In the Nether you will teleport close to the runner, but will temporarily turn into a spirit. If you are hit as a spirit, you'll be teleported back to the imp's original location."
 }
