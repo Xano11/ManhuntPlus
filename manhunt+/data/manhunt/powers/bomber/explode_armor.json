@@ -1,7 +1,7 @@
 {
     "type": "origins:modify_damage_taken",
     "modifier": {
-        "name": "Weak to cursed items",
+        "name": "Explosion Armor",
         "operation": "multiply_total",
         "value": -0.9
         },
