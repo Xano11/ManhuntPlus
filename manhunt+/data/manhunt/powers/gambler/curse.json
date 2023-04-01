@@ -1,12 +1,22 @@
-
 {
+  "type": "origins:multiple",
+  "health": {
     "type": "origins:attribute",
     "modifier": {
-        "name": "Max health increase",
-        "attribute": "minecraft:generic.max_health",
-        "value": -4,
-        "operation": "addition"
-      },
+      "name": "Max health increase",
+      "attribute": "minecraft:generic.max_health",
+      "value": -4,
+      "operation": "addition"
+    }
+  },
+  "gambler_revoke": {
+    "type": "origins:action_on_callback",
+    "entity_action_removed": {
+      "type": "origins:execute_command",
+      "command": "power revokeall @s apoli:command"
+    },
+    "execute_chosen_when_orb": true
+  },
   "name": "Devil's Deal",
   "description": "You traded 2 of your hearts to the Devil in exchange for your special abilities."
 }

@@ -21,7 +21,7 @@
                     ]
                     },
                 "key": {
-                    "key": "key.origins.primary_active"
+                    "key": "key.origins.secondary_active"
                 },
         "cooldown": 1800,
         "hud_render": {
@@ -31,5 +31,5 @@
         }   
         },
         "name":"§l§nGotta Go Fast",
-        "description":"Pressing your main ability key gives you a massive speed boost that lasts for 10 seconds. However, the speed boost makes it quite hard to land solid attacks, reducing your damage dealt. Additionally, once the speed boost ends you become exhausted, reducing your speed and even further reducing your damage dealt temporarily."
+        "description":"Pressing your secondary ability key will give you a massive speed boost that lasts for 10 seconds. However, the speed boost makes it quite hard to land solid attacks, reducing your damage dealt. Additionally, once the speed boost ends you become exhausted, reducing your speed and even further reducing your damage dealt temporarily."
     }

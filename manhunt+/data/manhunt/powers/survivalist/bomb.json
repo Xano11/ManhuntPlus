@@ -35,7 +35,7 @@
                     "type": "origins:sneaking",
                     "inverted": true
                 },
-        "cooldown": 3600,
+        "cooldown": 1800,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 2,

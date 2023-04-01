@@ -17,5 +17,5 @@
         }
     },
     "name": "§l§nBleeding Hit",
-    "description": "Using your secondary ability key, you will grant your next hit a bleeding stack that will last 10 seconds for the victim. If the victim uses any item (Ender pearl, charging a bow, blocking with a shield), they will take periodic damage."
+    "description": "Dealing a crit hit will grant the target bleeding stack that will last 3 seconds for the victim. If the victim uses any item (Ender pearl, charging a bow, blocking with a shield), they will take periodic damage."
 }

@@ -1,6 +1,8 @@
 {
 	"powers": [
-		"manhunt:jester/smoke_bomb"
+		"manhunt:jester/smoke_bomb",
+		"manhunt:jester/compass",
+		"manhunt:jester/switch"
 	],
 	"icon": {
 		"item": "minecraft:jigsaw",

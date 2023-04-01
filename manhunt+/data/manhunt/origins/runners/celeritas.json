@@ -3,7 +3,8 @@
 		"manhunt:celeritas/boots",
 		"origins:fragile",
         "manhunt:celeritas/checkpoint",
-		"manhunt:celeritas/more_adrenaline"
+		"manhunt:celeritas/more_adrenaline",
+		"manhunt:frames"
 	],
 	"icon": {
 		"item": "minecraft:diamond_boots",

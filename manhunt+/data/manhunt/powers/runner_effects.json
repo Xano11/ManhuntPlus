@@ -1,288 +1,290 @@
 {
-    "type":"origins:multiple",
-
-    "tag":{
-    "type": "origins:action_on_callback",
-    "entity_action_gained": {
-        "type": "origins:and",
-        "actions": [{
-        "type": "origins:execute_command",
-        "command": "tag @s add runner"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute store result score @s runners run execute if entity @a[tag=runner]"
-            }
-        ]
-    },
-    "entity_action_removed": {
-        "type": "origins:and",
-        "actions": [{
-        "type": "origins:execute_command",
-        "command": "tag @s remove runner"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute as @a[tag=runner] if score @s runners > @p runners run scoreboard players remove @s runners 1"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "scoreboard players reset @s runners"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute in minecraft:overworld kill @e[limit=1,sort=nearest,type=item,tag=tracking1]"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute in minecraft:the_nether run kill @e[limit=1,sort=nearest,type=item,tag=tracking2]"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute in minecraft:the_end run kill @e[limit=1,sort=nearest,type=item,tag=tracking3]"
-            }
-        ]
-    },
-    "entity_action_respawned": {
-        "type": "origins:and",
-        "actions": [{
-        "type": "origins:execute_command",
-        "command": "origin set @s origins:origin manhunt:spectator"
-    },
-    {
-        "type": "origins:execute_command",
-        "command": "origin set @s origins:runners manhunt:none"
-    }
-        ]
-    },
-    "execute_chosen_when_orb": true
-},
-"tracking1":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking1] run tp ~ 300 ~",
-        "permission_level": 4
-    },
-    "interval": 1,
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "minecraft:overworld"
-    }
-},
-"chunk1":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "forceload add ~ ~ ~ ~",
-        "permission_level": 4
-    },
-    "interval": 1,
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "minecraft:overworld"
-    }
-},
-"chunk_remove1":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "forceload remove all",
-        "permission_level": 4
-    },
-    "interval": 5,
-    "condition": {
-        "type": "origins:and",
-        "conditions": [{
-        "type": "origins:dimension",
-        "dimension": "minecraft:overworld"
+    "type": "origins:multiple",
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add runner"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute store result score @s runners run execute if entity @a[tag=runner]"
+                    }
+                }
+            ]
         },
-        {
-            "type": "origins:power",
-            "power": "manhunt:stop_forceload",
-            "inverted": true
-        }
-    ]
-}
-},
-"tracking2":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking2] run tp ~ 300 ~",
-        "permission_level": 4
+        "entity_action_removed": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove runner"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=runner] if score @s runners > @p runners run scoreboard players remove @s runners 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players reset @s runners"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players reset @s tracking"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute in minecraft:overworld kill @e[limit=1,sort=nearest,type=item,tag=tracking1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute in minecraft:the_nether run kill @e[limit=1,sort=nearest,type=item,tag=tracking2]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute in minecraft:the_end run kill @e[limit=1,sort=nearest,type=item,tag=tracking3]"
+                }
+            ]
+        },
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin set @s origins:origin manhunt:spectator"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin set @s origins:runners manhunt:none"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
     },
-    "interval": 1,
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_nether"
-    }
-},
-"chunk2":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "forceload add ~ ~ ~ ~",
-        "permission_level": 4
-    },
-    "interval": 1,
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_nether"
-    }
-},
-"compass2":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:and",
-        "actions": [
-            {
+    "tracking1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
             "type": "origins:execute_command",
-            "command": "function manhunt:nether"
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": 
-                    {
+            "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking1] run tp ~ 300 ~",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:overworld"
+        }
+    },
+    "chunk1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "forceload add ~ ~ ~ ~",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:overworld"
+        }
+    },
+    "chunk_remove1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "forceload remove all",
+            "permission_level": 4
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:stop_forceload",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "tracking2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking2] run tp ~ 300 ~",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
+    "chunk2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "forceload add ~ ~ ~ ~",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
+    "compass2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:nether"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
                         "type": "origins:execute_command",
                         "command": "power grant @s manhunt:comp1",
                         "permission_level": 4
                     }
-            }
-        ]
+                }
+            ]
         },
-    "interval": 5,
-    "condition": {
-        "type": "origins:and",
-        "conditions": [{
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_nether"
-        },
-        {
-            "type": "origins:power",
-            "power": "manhunt:comp1",
-            "inverted": true
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:comp1",
+                    "inverted": true
+                }
+            ]
         }
-    ]
-}
-},
-"chunk_remove2":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "forceload remove all",
-        "permission_level": 4
     },
-    "interval": 5,
-    "condition": {
-        "type": "origins:and",
-        "conditions": [{
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_nether"
-        },
-        {
-            "type": "origins:power",
-            "power": "manhunt:stop_forceload",
-            "inverted": true
-        }
-    ]
-}
-},
-"tracking3":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking3] run tp ~ 300 ~",
-        "permission_level": 4
-    },
-    "interval": 1,
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_end"
-    }
-},
-"chunk3":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "forceload add ~ ~ ~ ~",
-        "permission_level": 4
-    },
-    "interval": 1,
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_end"
-    }
-},
-"compass3":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:and",
-        "actions": [
-            {
+    "chunk_remove2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
             "type": "origins:execute_command",
-            "command": "function manhunt:end"
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": 
-                    {
+            "command": "forceload remove all",
+            "permission_level": 4
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:stop_forceload",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "tracking3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @p[tag=runner] as @e[limit=1,sort=nearest,type=item,tag=tracking3] run tp ~ 300 ~",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_end"
+        }
+    },
+    "chunk3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "forceload add ~ ~ ~ ~",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_end"
+        }
+    },
+    "compass3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:end"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
                         "type": "origins:execute_command",
                         "command": "power grant @s manhunt:comp2",
                         "permission_level": 4
                     }
-            }
-        ]
+                }
+            ]
         },
-    "interval": 5,
-    "condition": {
-        "type": "origins:and",
-        "conditions": [{
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_nether"
-        },
-        {
-            "type": "origins:power",
-            "power": "manhunt:comp2",
-            "inverted": true
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:comp2",
+                    "inverted": true
+                }
+            ]
         }
-    ]
-}
-},
-"chunk_remove3":
-{
-    "type": "origins:action_over_time",
-	"entity_action": {
-        "type": "origins:execute_command",
-        "command": "forceload remove all",
-        "permission_level": 4
     },
-    "interval": 5,
-    "condition": {
-        "type": "origins:and",
-        "conditions": [{
-        "type": "origins:dimension",
-        "dimension": "minecraft:the_end"
+    "chunk_remove3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "forceload remove all",
+            "permission_level": 4
         },
-        {
-            "type": "origins:power",
-            "power": "manhunt:stop_forceload",
-            "inverted": true
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_end"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:stop_forceload",
+                    "inverted": true
+                }
+            ]
         }
-    ]
-}
-},
-"hidden": true
+    },
+    "hidden": true
 }

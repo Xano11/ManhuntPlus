@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:6}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Shulker Ringtone",
+	"description": "Pretty straightforward"
+}

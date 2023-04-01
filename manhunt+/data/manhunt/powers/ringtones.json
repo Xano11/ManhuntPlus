@@ -132,6 +132,138 @@
             ]
         }
     },
+    "emerald": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.villager.trade player @s"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:4}"
+                    }
+                }
+            ]
+        }
+    },
+    "cod": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.cod.flop player @s ~ ~ ~ 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:5}"
+                    }
+                }
+            ]
+        }
+    },
+    "shulker": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.shulker.ambient player @s"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:6}"
+                    }
+                }
+            ]
+        }
+    },
+    "suspicious": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound manhunt:amongus player @s"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:7}"
+                    }
+                }
+            ]
+        }
+    },
     "compass":{
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -179,6 +311,50 @@
                     "action": {
                         "type": "origins:execute_command",
                         "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:3,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:emerald",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:4,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:cod",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:5,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:shulker",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:6,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:suspicious",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:7,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
                     }
                 }
             ]
@@ -228,6 +404,50 @@
                     "action": {
                         "type": "origins:execute_command",
                         "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:3,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:emerald",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:4,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:cod",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:5,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:shulker",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:6,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "ringtones:suspicious",
+                        "layer": "origins:ringtones"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:7,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
                     }
                 }
             ]

@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:5}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Cod Ringtone",
+	"description": "*flop*"
+}

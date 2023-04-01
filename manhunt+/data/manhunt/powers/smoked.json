@@ -3,8 +3,8 @@
     "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 30,
-        "start_value": 30,
+        "max": 70,
+        "start_value": 70,
         "hud_render": {
             "should_render": false,
             "sprite_location": "origins:textures/gui/resource_bar.png",
@@ -18,9 +18,18 @@
     "remove_resource": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:smoked_resource",
-            "change": -1
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:smoked_resource",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:campfire_signal_smoke ~ ~1 ~ 0.3 0.3 0.3 0.01 2"
+                }
+            ]
         },
         "interval": 1
     },
@@ -36,7 +45,7 @@
         "type": "origins:invisibility",
         "render_armor": true
     },
-    "speed":{
+    "speed": {
         "type": "origins:attribute",
         "modifier": {
             "name": "Movement speed increase",
@@ -71,5 +80,8 @@
         "red": 0.3,
         "green": 0.3,
         "blue": 0.3
+    },
+    "mobs_ignore":{
+        "type": "apugli:mobs_ignore"
     }
 }

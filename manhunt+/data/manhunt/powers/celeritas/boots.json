@@ -6,7 +6,12 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "hidden": true
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:boots_exhausted",
+            "inverted": true
+        },
+        "retain_state": false
     },
     "boots_water": {
         "type": "origins:walk_on_fluid",
@@ -61,12 +66,16 @@
     "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 60,
-        "start_value": 60,
+        "max": 50,
+        "start_value": 50,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
             "bar_index": 20
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power grant @s manhunt:boots_exhausted"
         }
     },
     "remove_resource": {
@@ -86,6 +95,11 @@
                 },
                 {
                     "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:boots_exhausted",
                     "inverted": true
                 }
             ]
@@ -111,6 +125,11 @@
                     "resource": "manhunt:celeritas/boots_resource",
                     "comparison": ">",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:boots_exhausted",
+                    "inverted": true
                 }
             ]
         }
