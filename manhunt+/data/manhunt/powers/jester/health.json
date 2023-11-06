@@ -1,0 +1,14 @@
+{
+    "type": "origins:multiple",
+    "health": {
+      "type": "origins:attribute",
+      "modifier": {
+        "name": "Max health decrease",
+        "attribute": "minecraft:generic.max_health",
+        "value": -2,
+        "operation": "addition"
+      }
+    },
+    "name": "Jester's soul",
+    "description": "Balatro lost a heart because... they misplaced it? I don't know, ask them."
+  }

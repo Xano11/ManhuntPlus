@@ -67,6 +67,42 @@
         },
         "execute_chosen_when_orb": true
     },
+    "prevent_trace_render":{
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:passenger",
+                        "bientity_condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:armor_stand"
+                                    }
+                                ]
+                            }
+                        },
+                        "compare_to": 1,
+                        "comparison": ">="
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:sanguis/sense/intuition",
+                        "inverted": true
+                    }
+                }
+            ]
+        }
+    },
     "tracking1": {
         "type": "origins:action_over_time",
         "entity_action": {

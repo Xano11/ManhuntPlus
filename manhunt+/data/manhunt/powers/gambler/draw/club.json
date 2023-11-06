@@ -1,0 +1,166 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "sprite_location": "manhunt:textures/gambler_02.png",
+            "bar_index": 1,
+            "should_render": true
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:gambler/draw/club"
+        }
+    },
+    "upgrade": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5
+        }
+    },
+    "message": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"YOU DREW A \"},{\"text\":\"CLUB\",\"color\":\"dark_purple\"},{\"text\":\"! TIME TO RUN! \"}]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon item_display ~ ~5 ~ {Glowing:1b,glow_color_override:1b,billboard:\"vertical\",Tags:[\"club_card\",\"card\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:paper\",Count:1b,tag:{CustomModelData:2,Enchantments:[{}]}}}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Marker:1b,Invisible:1b,Tags:[\"card_delete\"]}",
+                    "entity_action":{
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:gambler/draw/card_delete",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s {\"text\":\"(+ Speed)\",\"bold\":true,\"italic\":true}"
+                }
+            ]
+        },
+        "entity_action_removed": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove club1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove club2",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "more_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.2,
+            "operation": "multiply_total"
+        }
+    },
+    "more_speed1": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.15,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/club_upgrade",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "more_speed2": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.1,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/club_upgrade",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "more_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.2
+        }
+    },
+    "more_air_speed1": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/club_upgrade",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "more_air_speed2": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/club_upgrade",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:firework ~ ~1 ~ 0.5 0.5 0.5 0.1 10"
+        },
+        "interval": 10
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/draw/club_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "hidden": true
+}

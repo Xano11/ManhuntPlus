@@ -1,6 +1,6 @@
 {
 	"powers": [
-		"manhunt:engineer/turret",
+		"manhunt:engineer/scan/scan",
         "manhunt:engineer/pillar",
 		"origins:vegetarian",
 		"origins:light_armor",

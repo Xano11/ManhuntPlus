@@ -1,7 +1,7 @@
 {
 	"powers": [
-		"manhunt:gambler/draw",
-        "manhunt:gambler/deception",
+		"manhunt:gambler/draw/draw",
+        "manhunt:gambler/deception/deception",
 		"manhunt:gambler/curse",
 		"manhunt:gambler/ace",
 		"manhunt:gambler/hydrophobe"

@@ -1,0 +1,22 @@
+{
+    "type": "origins:multiple",
+    "glow": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 32
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0
+    },
+    "name": "Dynamic Aura",
+    "description": "Hunters in a 32 block radius of the Balatro will be able to see you glowing through walls, revealing your current position."
+}

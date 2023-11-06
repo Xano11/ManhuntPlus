@@ -2,7 +2,10 @@
 	"powers": [
 		"manhunt:jester/smoke_bomb",
 		"manhunt:jester/compass",
-		"manhunt:jester/switch"
+		"manhunt:jester/switch",
+		"manhunt:jester/glow",
+		"manhunt:jester/health",
+		"manhunt:jester/nearsighted"
 	],
 	"icon": {
 		"item": "minecraft:jigsaw",
@@ -11,5 +14,5 @@
 	"order": 10,
 	"impact": 2,
 	"name": "Balatro ⚜",
-	"description": "The Balatro is the jester of the court"
+	"description": "The Balatro is a little goofy jester that loves risks."
 }

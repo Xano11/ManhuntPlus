@@ -207,6 +207,28 @@
             "bar_index": 0
         }
     },
+    "glowing_arrows":{
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:arrow"
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=tp_skele]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+            "use_teams": false,
+            "red": 0.4,
+            "green": 0.1,
+            "blue": 0.7
+    },
     "name": "§l§nBone Warping",
     "description": "Using your primary ability key, you can teleport yourself to the most recent arrow you shot. Arrows remain tagged for 30 seconds, so don't wait too long!"
 }

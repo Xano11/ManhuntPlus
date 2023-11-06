@@ -1,0 +1,112 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 99,
+        "start_value": 99,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=pings]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:engineer/scan/pinged"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/scan/pinged_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "glow_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow_duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/scan/pinged_glow_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "glow":{
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/scan/pinged_glow_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "ping": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/scan/pinged_glow_duration",
+                    "change": 10
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.amethyst_block.resonate player @a ~ ~ ~ 10 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.repair player @a ~ ~ ~ 10 1.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=pings]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon minecraft:item_display ~ 250 ~ {Tags:[\"pings\"],view_range:100f,item:{id: \"minecraft:white_stained_glass_pane\",Count:1b,tag:{CustomModelData:1}},brightness:{block:15,sky:15},Rotation:[0f,90f],interpolation_duration:0,start_interpolation:-3,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]}}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon block_display ~ ~ ~ {Tags:[\"pings\"],view_range:100f,start_interpolation:1,brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.3f,0.1f,0.3f]},block_state:{Name:\"minecraft:ochre_froglight\"}}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=pings] run data modify entity @s interpolation_duration set value 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=item_display,tag=pings] run data modify entity @s transformation.scale set value [100.0f,100.0f,0.1f]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=block_display,tag=pings] run data modify entity @s transformation.scale set value [0.3f,500.0f,0.3f]"
+                }
+            ]
+        },
+        "interval": 20
+    },
+    "hidden": true
+}

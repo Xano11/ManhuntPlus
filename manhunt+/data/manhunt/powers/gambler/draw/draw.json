@@ -1,0 +1,248 @@
+{
+    "type": "origins:multiple",
+    "card": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:choice",
+            "actions": [
+                {
+                    "element": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=!spade1] run power grant @s manhunt:gambler/draw/spade"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=spade2] run resource set @s manhunt:gambler/draw/spade_upgrade 2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=spade1] run resource set @s manhunt:gambler/draw/spade_upgrade 1"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=spade1] run tag @s add spade2",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=spade1] run tellraw @s [\"\",{\"text\":\"YOU DREW ANOTHER \"},{\"text\":\"SPADE!\",\"color\":\"gray\"}]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add spade1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:gambler/draw/draw_deck",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=!heart1] run power grant @s manhunt:gambler/draw/heart"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=heart2] run resource set @s manhunt:gambler/draw/heart_upgrade 2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=heart1] run resource set @s manhunt:gambler/draw/heart_upgrade 1"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=heart1] run tag @s add heart2",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=heart1] run tellraw @s [\"\",{\"text\":\"YOU DREW ANOTHER \"},{\"text\":\"HEART!\",\"color\":\"red\"}]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add heart1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:gambler/draw/draw_deck",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=!diamond1] run power grant @s manhunt:gambler/draw/diamond"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=diamond2] run resource set @s manhunt:gambler/draw/diamond_upgrade 2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=diamond1] run resource set @s manhunt:gambler/draw/diamond_upgrade 1"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=diamond1] run tag @s add diamond2",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=diamond1] run tellraw @s [\"\",{\"text\":\"YOU DREW ANOTHER \"},{\"text\":\"DIAMOND!\",\"color\":\"aqua\"}]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add diamond1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:gambler/draw/draw_deck",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=!club1] run power grant @s manhunt:gambler/draw/club"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=club2] run resource set @s manhunt:gambler/draw/club_upgrade 2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=club1] run resource set @s manhunt:gambler/draw/club_upgrade 1"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=club1] run tag @s add club2",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute if entity @s[tag=club1] run tellraw @s [\"\",{\"text\":\"YOU DREW ANOTHER \"},{\"text\":\"CLUB!\",\"color\":\"dark_purple\"}]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add club1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:gambler/draw/draw_deck",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "weight": 10
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 22,
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_deck",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "deck": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 3,
+        "hud_render": {
+            "sprite_location": "manhunt:textures/gambler_01.png",
+            "bar_index": 0,
+            "should_render": true
+        }
+    },
+    "gain_cards": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/draw/draw_deck",
+            "change": 1
+        },
+        "interval": 900
+    },
+    "name": "§l§nDRAW A CARD",
+    "description": "Using your primary ability key, you will draw a card. Depending on the type (Spade, Heart, Diamond, Club), it will change the effect you get. You can draw up to three cards at a time, getting one more draw every minute."
+}

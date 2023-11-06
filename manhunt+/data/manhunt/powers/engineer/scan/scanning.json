@@ -1,0 +1,211 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:engineer/scan/scanning"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/scan/scanning_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "upload": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "uploading": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/scan/scanning_upload",
+                    "change": 1
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scanning_upload",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇\",\"bold\":true,\"color\":\"dark_purple\"},\"┇ ┇ 16.7%  ┇ ┇ ┇\"]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.5"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scanning_upload",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇\",\"bold\":true,\"color\":\"dark_purple\"},\"┇ 33.3%  ┇ ┇ ┇\"]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.6"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scanning_upload",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 5\",\"bold\":true,\"color\":\"dark_purple\"},\"0%  ┇ ┇ ┇\"]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.7"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scanning_upload",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 66.67%  ┇\",\"bold\":true,\"color\":\"dark_purple\"},\" ┇ ┇\"]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.8"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scanning_upload",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 83.33%  ┇ ┇\",\"bold\":true,\"color\":\"dark_purple\"},\" ┇\"]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.9"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scanning_upload",
+                                "comparison": "==",
+                                "compare_to": 5
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 100%  ┇ ┇ ┇\",\"bold\":true,\"color\":\"dark_purple\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "interval": 5
+    },
+    "ping":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:engineer/scan/pinged"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=runner] manhunt:engineer/scan/scanning"
+                }
+            ]
+        }, 
+        "interval": 4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:engineer/scan/scanning_upload",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:moving"
+                }                
+            ]
+        }
+    },
+    "hidden": true
+}

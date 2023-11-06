@@ -1,10 +1,10 @@
 {
 	"powers": [
 		"manhunt:berserker/berserk",
-		"manhunt:berserker/beast",
-		"manhunt:berserker/horn",
+		"manhunt:berserker/beast/beast",
+		"manhunt:berserker/horn/horn",
 		"origins:no_shield",
-        "manhunt:berserker/bleeding"
+        "manhunt:berserker/bleeding/bleeding"
 	],
 	"icon": {
 		"item": "minecraft:goat_horn",

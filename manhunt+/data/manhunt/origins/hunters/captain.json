@@ -1,7 +1,7 @@
 {
 	"powers": [
 		"manhunt:captain/blunderbuss",
-		"manhunt:captain/trained",
+		"manhunt:captain/trained/trained",
 		"manhunt:captain/bunker",
 		"manhunt:captain/craft",
 		"manhunt:captain/nether",

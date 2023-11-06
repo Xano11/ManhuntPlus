@@ -50,6 +50,14 @@
         ]
     }
 },
+"damage_taken":{
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+        "name": "Resistance",
+        "operation": "multiply_total",
+        "value": -0.9
+    }
+},
 "resource":
 { 
         "type": "origins:resource",

@@ -1,7 +1,6 @@
 {
-    "type":"origins:multiple",
-
-    "attack_speed":{
+    "type": "origins:multiple",
+    "attack_speed": {
         "type": "origins:attribute",
         "modifier": {
             "attribute": "minecraft:generic.attack_speed",
@@ -10,6 +9,6 @@
             "name": "Decreased attack speed."
         }
     },
-    "name":"Massive and slow.",
-        "description":"With such a stature, you are well known for being slow attack-wise. (-0.3 attack speed)"
+    "name": "Massive and slow.",
+    "description": "With such a stature, you are well known for being slow attack-wise. (-0.3 attack speed)"
 }

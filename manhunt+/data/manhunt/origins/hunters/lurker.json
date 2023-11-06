@@ -5,7 +5,7 @@
 		"origins:cat_vision",
 		"manhunt:lurker/daylight",
 		"manhunt:lurker/night_speed",
-		"manhunt:lurker/shadow"
+		"manhunt:lurker/shadow/shadow"
 	],
 	"icon": {
 		"item": "minecraft:sculk_sensor",

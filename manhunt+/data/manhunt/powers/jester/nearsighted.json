@@ -1,0 +1,18 @@
+{
+    "type": "origins:multiple",
+    "sight": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 32
+                }
+            ]
+        }
+    },
+    "name": "Nearsighted",
+    "description": "You can only see entities that are at max 32 blocks away from you."
+}

@@ -1,43 +1,115 @@
 {
-    "type": "origins:action_on_callback",
-    "entity_action_added": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:execute_command",
-                "command": "tag @s add hunter"
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": {
+    "type": "origins:multiple",
+    "default": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
                     "type": "origins:execute_command",
-                    "command": "execute store result score @s hunters run execute if entity @a[tag=hunter]"
+                    "command": "tag @s add hunter"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute store result score @s hunters run execute if entity @a[tag=hunter]"
+                    }
                 }
-            }
-        ]
+            ]
+        },
+        "entity_action_removed": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=hunter] if score @s hunters > @p hunters run scoreboard players remove @s hunters 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players reset @s hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players reset @s tracking"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
     },
-    "entity_action_removed": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:execute_command",
-                "command": "tag @s remove hunter"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "execute as @a[tag=hunter] if score @s hunters > @p hunters run scoreboard players remove @s hunters 1"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "scoreboard players reset @s hunters"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "scoreboard players reset @s tracking"
-            }
-        ]
+    "traces_sanguis": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{Tags:[\"sanguis_trace\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"delete_trace\"],ArmorItems:[{},{},{},{id:\"minecraft:air\",Count:1b,tag:{display:{Name:'{\"text\":\"check\"}'}}}]}],transformation:{left_rotation:[1f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:netherite_upgrade_smithing_template\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run power grant @s manhunt:sanguis/sense/delete_trace",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 1,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute as @s at @s facing entity @p feet run tp @s ~ ~ ~ ~ ~",
+                                    "permission_level": 4
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 60
     },
-    "execute_chosen_when_orb": true,
+    "prevent_trace_render": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:passenger",
+                        "bientity_condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:armor_stand"
+                                    }
+                                ]
+                            }
+                        },
+                        "compare_to": 1,
+                        "comparison": ">="
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:sanguis/sense/intuition",
+                        "inverted": true
+                    }
+                }
+            ]
+        }
+    },
     "hidden": true
 }

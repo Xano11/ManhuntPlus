@@ -1,0 +1,38 @@
+{
+    "type": "origins:multiple",
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add engineer"
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove engineer"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=runner] manhunt:engineer/scan/scanning"
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 2400,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 0,
+            "should_render": true
+        }
+    },
+    "name": "§l§nTecto-Scan",
+    "description": "Using the primary ability key, you will use your Tectonic Scan. The scan will start uploading the information gathered by your compass, requiring a few seconds for full upload. Upon full upload, any moving runner will start signaling their position to the hunters"
+}

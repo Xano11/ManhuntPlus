@@ -1,62 +1,222 @@
 {
     "type": "origins:multiple",
-"give_tag":{
-    "type": "origins:target_action_on_hit",
-    "entity_action": {
-        "type": "origins:execute_command",
-        "command": "power grant @s manhunt:strapped",
-        "permission_level": 4
-    },
-    "damage_condition": {
-        "type": "origins:projectile",
-        "projectile": "minecraft:arrow"
-    },
-    "cooldown": 1,
-    "hud_render": {
-        "should_render": false,
-        "bar_index": 0
-    }
-},
-"activate":
-{
-    "type": "origins:active_self",
-    "entity_action": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:change_resource",
-                "resource": "manhunt:strapped_resource2",
-                "change": 1
-            },
-            {
-                "type": "origins:area_of_effect",
-                "radius": 32,
-                "bientity_action": {
-                "type": "origins:target_action",
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "manhunt:strapped_resource2",
-                        "change": 1
+    "hit": {
+        "type": "apugli:action_on_projectile_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:explode",
+                        "power": 1,
+                        "destruction_type": "break",
+                        "damage_self": true,
+                        "create_fire": true
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:explosion ~ ~ ~ 0 0 0 1 1"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "kill @e[tag=tnt_tip,limit=1,sort=nearest]"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "kill @e[tag=bomb_arrow,limit=1,sort=nearest]"
                     }
+                ]
             }
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 10,
-                "action": {    
-                "type": "origins:execute_command",
-                "command": "power remove @e manhunt:strapped"
-                }
-            }
-        ]
-    },
-    "cooldown": 6000,
-    "hud_render": {
-        "should_render": true,
-        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-		"bar_index": 14
         }
     },
-    "name":"§l§nExplosive Ammunition",
-    "description":"Upon shooting an entity with a crossbow they will be armed with a bomb for 30 seconds, and by using your primary key while in view range & 32 blocks of the target the bomb will be detonated. (explosion power 1, 10m cooldown)"
+    "tag": {
+        "type": "apugli:projectile_action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add bomb_arrow"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "summon block_display ~ ~ ~ {Tags:[\"tnt_tip\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[1f,0f,0f,1f],translation:[-0.1f,-0.3f,0f],scale:[0.1f,0.1f,0.1f]},block_state:{Name:\"minecraft:tnt\"}}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "ride @e[limit=1,sort=nearest,type=minecraft:block_display,tag=tnt_tip] mount @s"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:captain/blunderbuss_loaded",
+                        "change": -1
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:arrow"
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags: ['bomb_arrow']}",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{inGround:0b}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:captain/blunderbuss_loaded",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:crossbow"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "loaded": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:captain/blunderbuss_loaded",
+                    "change": 1
+                }
+            ]
+        },
+        "cooldown": 1200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 14
+        }
+    },
+    "detonate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 64,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:explode",
+                                    "power": 1,
+                                    "destruction_type": "break",
+                                    "damage_self": true,
+                                    "create_fire": true
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:explosion ~ ~ ~ 0 0 0 1 1"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @e[tag=tnt_tip,limit=1,sort=nearest]"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @e[tag=bomb_arrow,limit=1,sort=nearest]"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:arrow"
+                                        },
+                                        {
+                                            "type": "origins:nbt",
+                                            "nbt": "{Tags: ['bomb_arrow']}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 4,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "§l§nExplosive Ammunition",
+    "description": "Pressing [PRIMARY ABILITY KEY] will load your next crossbow arrow with a TNT charge. If the arrow hits an entity, it will explode. If it lands on a block, it can be later detonated by pressing the same key again."
 }

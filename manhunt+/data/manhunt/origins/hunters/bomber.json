@@ -1,11 +1,11 @@
 {
 	"powers": [
 		"manhunt:bomber/kamikaze",
-		"manhunt:bomber/flash",
+		"manhunt:bomber/flash/flash",
 		"manhunt:bomber/heavy",
 		"manhunt:bomber/explode_armor",
 		"manhunt:bomber/break_speed",
-		"manhunt:bomber/cannon"
+		"manhunt:bomber/cannon/cannon"
 	],
 	"icon": {
 		"item": "minecraft:tnt",

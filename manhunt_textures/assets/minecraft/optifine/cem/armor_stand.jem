@@ -1,0 +1,28 @@
+{
+	"credit": "Made with Blockbench",
+	"texture": "wood2.png",
+	"textureSize": [64, 64],
+	"models": [
+		{
+			"part": "body",
+			"id": "body",
+			"invertAxis": "xy",
+			"translate": [0, -12, 0],
+			"rotate": [-180, 0, 0],
+			"boxes": [
+				{"coordinates": [-2, -1, -2, 4, 20, 4], "textureOffset": [48, 0]},
+				{"coordinates": [-4, 19, -4, 8, 5, 8], "textureOffset": [0, 51]},
+				{"coordinates": [-5, 3, -5, 10, 3, 10], "textureOffset": [0, 0]},
+				{"coordinates": [-5, 4, -1, 10, 1, 2], "textureOffset": [0, 28]},
+				{"coordinates": [-1, 4, -5, 2, 1, 10], "textureOffset": [40, 36]},
+				{"coordinates": [-4, -9, -4, 8, 8, 8], "textureOffset": [0, 35]},
+				{"coordinates": [-5, -8, -1, 10, 4, 6], "textureOffset": [0, 16]}
+			],
+			"animations": [
+				{
+					"this.rx": 0
+				}
+			]
+		}
+	]
+}

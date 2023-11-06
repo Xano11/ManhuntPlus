@@ -1,0 +1,16 @@
+{
+    "type": "origins:multiple",
+    "notification": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tellraw @s [\"\",{\"text\":\"Use your [\"},{\"keybind\":\"key.saveToolbarActivator\"},{\"text\":\"] key to teleport to the Guardian!\"}]"
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove saved"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "hidden": true
+}

@@ -1,0 +1,93 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:sanguis/fury/fury_downside"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:sanguis/fury/fury_effects"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "kill": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_duration",
+            "change": 300
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 5
+        },
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:player"
+        }
+    },
+    "more_attack_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Increase attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.2,
+            "operation": "addition"
+        }
+    },
+    "movement_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Increase movement speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.2,
+            "operation": "multiply_total"
+        }
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "addition",
+            "value": 3
+        }
+    },
+    "particles":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 0 0 1.5 0.4 0 0 ~ ~1 ~ 0.3 0 0.3 1 5"
+        },
+        "interval": 2
+    },
+    "swirl":{
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/fury.png",
+        "speed": 0.005
+    },
+    "hidden": true
+}

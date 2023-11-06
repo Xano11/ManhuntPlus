@@ -1,0 +1,91 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 1,
+                    "destruction_type": "none",
+                    "damage_self": false,
+                    "create_fire": false
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.5,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 2,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:bomber/cannon/cannon_boom"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/cannon/cannon_boom_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:flame",
+        "frequency": 1
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 1,
+                    "destruction_type": "none",
+                    "damage_self": false,
+                    "create_fire": false
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.5,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 2,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:bomber/cannon/cannon_boom"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.sneak"
+        }
+    },
+    "hidden": true
+}
