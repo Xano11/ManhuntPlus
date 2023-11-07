@@ -1,7 +1,7 @@
 {
 	"powers": [
 		"manhunt:herald/boost",
-		"manhunt:herald/bark_shield",
+		"manhunt:herald/bark/bark_shield",
 		"origins:more_exhaustion",
 		"origins:nine_lives",
 		"manhunt:herald/fire_weak",

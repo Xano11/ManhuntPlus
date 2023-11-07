@@ -4,28 +4,27 @@
         "type": "origins:and",
         "actions": [
             {
-                "type": "origins:execute_command",
-                "command": "summon armor_stand ~ ~ ~ {NoGravity:0b,Glowing:0b,Small:0b,Invisible:1b,NoBasePlate:1b,Motion:[0.0,0.5,0.0],Tags:[\"flash\"],Passengers:[{id:\"minecraft:eye_of_ender\",Glowing:1b,Tags:[\"eye\"],Item:{id:\"minecraft:music_disc_far\",Count:1b,tag:{Enchantments:[{}]}}}]}",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:block.amethyst_cluster.hit player @a ~ ~ ~ 4 0.5",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:delay",
-                "ticks": 20,
-                "action": {
+                "type": "origins:fire_projectile",
+                "entity_type": "minecraft:armor_stand",
+                "divergence": 0,
+                "count": 1,
+                "speed": 2,
+                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"flashbang\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"center\",Tags:[\"flashbang\"],item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:1}}}]}",
+                "projectile_action": {
                     "type": "origins:and",
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @e[limit=1,sort=nearest,tag=flash] manhunt:bomber/flash/flash_bang",
+                            "command": "power grant @s manhunt:bomber/flash/flash_bang",
                             "permission_level": 4
                         }
                     ]
                 }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:item.shield.break player @a ~ ~ ~ 1 1.5",
+                "permission_level": 4
             }
         ]
     },

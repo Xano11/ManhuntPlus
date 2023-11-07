@@ -3,9 +3,9 @@
     "modifier": {
         "name": "Max health increase",
         "attribute": "minecraft:generic.max_health",
-        "value": -8,
+        "value": -4,
         "operation": "addition"
       },
   "name": "Sculk Heart",
-  "description": "Being related to the souls of the sculk, you have lost some part of yourself. You have 6 hearts."
+  "description": "Being related to the souls of the sculk, you have lost some part of yourself. You have 8 hearts."
 }

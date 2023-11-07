@@ -1,0 +1,144 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=totem_ring,distance=..0.1]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=totem,distance=..0.1]"
+                }
+            ]
+        }
+    },
+    "activation": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:shriek 1 ~ ~2 ~ 0.1 0 0.1 1 10 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_soul ~ ~ ~ 1 1 1 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.sculk_shrieker.shriek player @a[distance=..50] ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "effects": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 8,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:heart ~ ~0.7 ~ 0.3 0.6 0.3 0.1 5",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:sculk_soul ~ ~ ~ 0.3 1 0.3 0.1 20",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:heal",
+                            "amount": 4
+                        },
+                        {
+                            "type": "origins:feed",
+                            "food": 4,
+                            "saturation": 2
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },                        
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 30
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:shaman/totem/totem_powers_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "rotation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@e[limit=1,sort=nearest,type=item_display,tag=totem_ring]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tp @s ~ ~ ~ ~3 ~",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:sculk_soul ^ ^7 ^-1 0.05 0.05 0.05 0 1",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:sculk_soul ^ ^-7 ^-1 0.05 0.05 0.05 0 1",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

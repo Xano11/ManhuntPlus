@@ -1,53 +1,12 @@
 {
     "type": "origins:multiple",
-    "activate": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=!guardian,tag=hunter] manhunt:guardian/savior/savior_tag"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:guardian/savior/savior_timer 200"
-                }
-            ]
-        },
-        "key": {
-            "key": "key.origins.primary_active"
-        },
-        "cooldown": 3600,
-        "hud_render": {
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 4,
-            "should_render": true
-        }
-    },
-    "timer_down":{
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:guardian/savior/savior_timer",
-                    "change": -10
-                }
-            ]
-        },
-        "interval": 10
-    },
-    "timer": {
+    "windup": {
         "type": "origins:resource",
         "min": 0,
-        "max": 200,
+        "max": 160,
         "start_value": 0,
         "hud_render": {
-            "should_render": false,
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 2
+            "should_render": false
         },
         "min_action": {
             "type": "origins:and",
@@ -85,6 +44,113 @@
                     "command": "power remove @a manhunt:guardian/savior/savior_tag"
                 }
             ]
+        }
+    },
+    "windup_ticking": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/savior/savior_windup",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "no_move": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.forward",
+            "key.back",
+            "key.left",
+            "key.right",
+            "key.jump"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/savior/savior_windup",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "cancel": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:guardian/savior/savior_windup"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=shield_guardian] manhunt:guardian/savior/savior_shield_duration 0"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/savior/savior_windup",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:guardian/savior/savior_windup"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a[distance=0.1..,tag=hunter] [\"\",\"Accept teleport from \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"gold\"},\"?  \",{\"text\":\"[YES]\",\"bold\":true,\"underlined\":true,\"color\":\"green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"function manhunt:guardian_accept\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":[\"Click to accept.\"]}}]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:guardian/savior/savior_windup 160"
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{view_range:12f,Tags:[\"shield_guardian\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"shield_guardian\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[4f,4f,4f]},item:{id:\"minecraft:iron_chestplate\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run power grant @s manhunt:guardian/savior/savior_shield",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~5 ~ ~ ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 3600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4,
+            "should_render": true
         }
     },
     "name": "§l§nSavior of All",

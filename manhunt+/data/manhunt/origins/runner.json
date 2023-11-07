@@ -4,7 +4,7 @@
 	],
 	"icon": {
 		"item": "minecraft:ender_eye",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"tag": "{Enchantments:[{}]}"
 	},
 	"order": 10,
 	"impact": 0,

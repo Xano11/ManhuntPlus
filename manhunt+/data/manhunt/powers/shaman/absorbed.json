@@ -1,9 +1,23 @@
 {
-    "type": "origins:modify_healing",
-    "modifier": {
-        "operation": "multiply_total",
-        "value": -0.5  
-},
-"name": "Absorbed",
-"description": "Being granted those abilities has weakened your body and its regeneration ability. All healing is reduced by half."
+    "type": "origins:multiple",
+    "no_heal": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.secondary_active",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "disable_regen":{
+        "type": "origins:disable_regen"
+    },
+    "name": "Absorbed",
+    "description": "Being granted those abilities has weakened your body and its regeneration ability. You can only heal using your secondary ability."
 }

@@ -3,8 +3,7 @@
 		"manhunt:engineer/scan/scan",
         "manhunt:engineer/pillar",
 		"origins:vegetarian",
-		"origins:light_armor",
-		"manhunt:engineer/nanobots"
+		"origins:light_armor"
 	],
 	"icon": {
 		"item": "minecraft:observer",

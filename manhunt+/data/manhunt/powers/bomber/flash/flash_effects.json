@@ -221,10 +221,19 @@
     "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:bomber/flash/flash_effects_duration",
-            "change": -10
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomber/flash/flash_effects_duration",
+                    "change": -5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^ ^1.8 ^0.4 0.3 0.1 0.3 0 10"
+                }
+            ]
         },
-        "interval": 10
+        "interval": 5
     }
 }

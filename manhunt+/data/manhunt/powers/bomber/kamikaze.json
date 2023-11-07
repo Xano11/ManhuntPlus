@@ -410,6 +410,16 @@
                                         "destruction_type": "break",
                                         "damage_self": true,
                                         "create_fire": false
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:explosion ~ ~1 ~ 1 1 1 1 10",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 2 1",
+                                        "permission_level": 4
                                     }
                                 ]
                             }
@@ -435,6 +445,16 @@
                                         "destruction_type": "break",
                                         "damage_self": true,
                                         "create_fire": false
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:explosion ~ ~1 ~ 1.5 1.5 1.5 1 15",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 2 0.8",
+                                        "permission_level": 4
                                     }
                                 ]
                             }
@@ -460,6 +480,16 @@
                                         "destruction_type": "break",
                                         "damage_self": true,
                                         "create_fire": false
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:explosion ~ ~1 ~ 2 2 2 1 20",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 2 0.7",
+                                        "permission_level": 4
                                     }
                                 ]
                             }
@@ -485,6 +515,16 @@
                                         "destruction_type": "break",
                                         "damage_self": true,
                                         "create_fire": false
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:explosion ~ ~1 ~ 3 3 3 1 40",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 2 0.5",
+                                        "permission_level": 4
                                     }
                                 ]
                             }
@@ -790,7 +830,11 @@
         }
     },
     "less_air_speed":{
-        "type": "origins:modify_air_speed",
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
         "modifier": {
             "operation": "multiply_total",
             "value": -0.5
@@ -798,6 +842,10 @@
         "condition": {
             "type": "origins:and",
             "conditions": [
+                {
+                    "type":"origins:on_block",
+                    "inverted": true
+                },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:bomber/kamikaze_timer",

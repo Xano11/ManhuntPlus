@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "manhunt:item/dude_getting_flashbanged_like_3_times"
+    }
+}

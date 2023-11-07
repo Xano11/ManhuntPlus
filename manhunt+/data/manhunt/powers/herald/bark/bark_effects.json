@@ -1,36 +1,35 @@
 {
     "type": "origins:multiple",
-    "resource": {
+    "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
-        "start_value": 300,
+        "max": 180,
+        "start_value": 180,
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 8
+            "should_render": false
         },
         "min_action": {
             "type": "origins:execute_command",
-            "command": "power remove @s manhunt:herald/bark_effects"
+            "command": "power remove @s manhunt:herald/bark/bark_effects"
         }
-    },
-    "remove_resource": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:heal",
-            "amount": 1
-        },
-        "interval": 10
     },
     "regeneration": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:herald/bark_effects_resource",
-            "change": -10
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:herald/bark/bark_effects_duration",
+                    "change": -30
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 2
+                }
+            ]
         },
-        "interval": 10
+        "interval": 30
     },
     "particles": {
         "type": "origins:action_over_time",
@@ -39,20 +38,20 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100"
+                    "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.2 0.4 0.2 1 40"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:block minecraft:oak_log ~ ~1 ~ 0.5 0 0.5 1 100"
+                    "command": "particle minecraft:block minecraft:oak_log ~ ~1 ~ 0.2 0.4 0.2 1 100"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.wood.break player @a[distance=..32] ~ ~ ~ 1 0.5 1"
+                    "command": "playsound minecraft:block.wood.break player @a ~ ~ ~ 1 0.5 1"
                 }
             ]
         },
         "interval": 30
-    }, 
+    },
     "defense": {
         "type": "origins:attribute",
         "modifier": {

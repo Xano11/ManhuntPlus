@@ -73,7 +73,24 @@
                 }
             ]
         },
-        "interval": 60
+        "interval": 60,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:lava",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
     },
     "prevent_trace_render": {
         "type": "origins:prevent_entity_render",
@@ -92,6 +109,10 @@
                                     {
                                         "type": "origins:entity_type",
                                         "entity_type": "minecraft:armor_stand"
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "manhunt:sanguis/sense/delete_trace"
                                     }
                                 ]
                             }

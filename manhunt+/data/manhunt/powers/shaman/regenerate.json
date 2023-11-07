@@ -1,0 +1,210 @@
+{
+    "type": "origins:multiple",
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "change": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0 0.3 0.1 1"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "<",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.sculk_sensor.clicking player @s ~ ~ ~ 2 0.5"
+                }
+            ]
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:shaman/regenerate_windup",
+            "change": -5
+        },
+        "interval": 5,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.secondary_active",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "no_movement": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -1,
+            "name": "Increased sprinting speed"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "model": {
+        "type": "origins:model_color",
+        "red": 0,
+        "green": 0.5,
+        "blue": 0.7,
+        "alpha": 0.8,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/regenerate_windup",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 15,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/regenerate_windup",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "no_jump": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "More damage",
+            "operation": "multiply_total",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/regenerate_windup",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "fog": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": -1,
+        "max_stacks": 8,
+        "duration_per_stack": 10,
+        "effects": [
+            {
+                "effect": "minecraft:darkness",
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Cursed Link",
+    "description": "Your strange connection with the sculk allows you to tap into their realm and let your body heal itself. Doing so leaves you weak; taking double damage."
+}

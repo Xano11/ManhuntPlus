@@ -1,10 +1,9 @@
 {
 	"powers": [
-		"manhunt:scout/sprint",
+		"manhunt:scout/speed",
 		"manhunt:scout/dash",
 		"manhunt:scout/weak",
-		"manhunt:scout/doublejump",
-		"manhunt:scout/weakened",
+		"manhunt:scout/bouncepad/bouncepad",
 		"manhunt:scout/fall_reduction"
 	],
 	"icon": {

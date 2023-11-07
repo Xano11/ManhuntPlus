@@ -113,36 +113,75 @@
         }
     },
     "more_air_speed": {
-        "type": "origins:modify_air_speed",
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
         "modifier": {
             "operation": "multiply_total",
             "value": 0.2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:on_block",
+                    "inverted": true
+                }
+            ]
         }
     },
     "more_air_speed1": {
-        "type": "origins:modify_air_speed",
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
         "modifier": {
             "operation": "multiply_total",
             "value": 0.1
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:gambler/draw/club_upgrade",
-            "comparison": ">=",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:on_block",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/club_upgrade",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "more_air_speed2": {
-        "type": "origins:modify_air_speed",
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
         "modifier": {
             "operation": "multiply_total",
             "value": 0.1
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:gambler/draw/club_upgrade",
-            "comparison": "==",
-            "compare_to": 2
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:on_block",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/club_upgrade",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "particles": {

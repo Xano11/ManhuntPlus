@@ -1,8 +1,21 @@
 {
-    "type": "origins:modify_air_speed",
+    "type": "origins:modify_velocity",
+    "axes": [
+        "z",
+        "x"
+    ],
     "modifier": {
-        "operation": "multiply_base",
+        "operation": "multiply_total",
         "value": -0.2
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type":"origins:on_block",
+                "inverted": true
+            }
+        ]
     },
     "name":"Made For The Sea, Not The Air",
     "description":"20% less air movement speed"

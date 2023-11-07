@@ -1,0 +1,441 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6000,
+        "start_value": 6000,
+        "hud_render":  {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 5,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:damned/bow/bow_cooldown",
+                "comparison": "<",
+                "compare_to": 6000
+            }
+        }
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:damned/bow/bow_cooldown",
+            "change": 20
+        },
+        "interval": 20
+    },
+    "tag_arrow": {
+        "type": "apugli:projectile_action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add skele_tp"
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:armor_stand",
+                                "tag": "{Marker:1b,Invisible:1b,Tags:[\"skele_tp\"]}",
+                                "entity_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:damned/bow/bow_arrow",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "ride @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=skele_tp] mount @s"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:arrow"
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags: ['skele_tp']}",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{inGround:0b}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:damned/bow/bow_cooldown",
+                                "comparison": "==",
+                                "compare_to": 6000
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:bow"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:damned/bow/bow_resource",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[limit=1,sort=nearest,type=arrow,tag=tp_skele] run particle minecraft:dust_color_transition 1 1 1 1 0.4 0 1 ~ ~ ~ 0.3 0.3 0.3 1 20",
+            "permission_level": 4
+        },
+        "interval": 30
+    },
+    "particles2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[limit=1,sort=nearest,type=arrow,tag=tp_skele] run particle minecraft:witch ~ ~ ~ 0.1 0.1 0.1 1 20",
+            "permission_level": 4
+        },
+        "interval": 30
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @e[limit=1,sort=nearest,type=arrow,tag=tp_skele] run playsound minecraft:block.amethyst_cluster.break player @a[distance=..12] ~ ~ ~ 0.3 0.5 0.1",
+            "permission_level": 4
+        },
+        "interval": 30
+    },
+    "use": {
+        "type": "origins:active_self",
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:damned/bow/bow_cooldown",
+                                "change": -6000
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:item minecraft:bone ~ ~1 ~ 0.3 0.3 0.3 0.2 100"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 1 1 1 1 ~ ~1 ~ 0.5 0 0.5 0.2 100"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:ash ~ ~1 ~ 0.5 0.7 0.5 0.2 300"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 1 0.5 1"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "effect give @s minecraft:slowness 5 3"
+                            }
+                        ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on origin run tp @s ~ ~ ~"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:item minecraft:bone ~ ~1 ~ 0.3 0.3 0.3 0.2 100"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:dust 1 1 1 1 ~ ~1 ~ 0.5 0 0.5 0.2 100"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:ash ~ ~1 ~ 0.5 0.7 0.5 0.2 300"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 1 0.5 1"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:arrow"
+                                        },
+                                        {
+                                            "type": "origins:passenger",
+                                            "bientity_condition": {
+                                                "type": "origins:actor_condition",
+                                                "condition": {
+                                                    "type": "origins:and",
+                                                    "conditions": [
+                                                        {
+                                                            "type": "origins:entity_type",
+                                                            "entity_type": "minecraft:armor_stand"
+                                                        },
+                                                        {
+                                                            "type": "origins:power",
+                                                            "power": "manhunt:damned/bow/bow_arrow"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "compare_to": 0,
+                                            "comparison": ">"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 96
+                            }
+                        ]
+                    },
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "key": "key.origins.primary_active",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:damned/bow/bow_cooldown",
+                    "comparison": "==",
+                    "compare_to": 6000
+                }
+            ]
+        }
+    },
+    "tag": {
+        "type": "origins:target_action_on_hit",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power grant @e[limit=1,sort=nearest] manhunt:damned/bow/tag_effects",
+            "permission_level": 4
+        },
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "minecraft:arrow"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false,
+            "bar_index": 0
+        }
+    },
+    "glowing_arrows": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:arrow"
+                            },
+                            {
+                                "type": "origins:passenger",
+                                "bientity_condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:entity_type",
+                                                "entity_type": "minecraft:armor_stand"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "manhunt:damned/bow/bow_arrow"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "compare_to": 0,
+                                "comparison": ">"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 96
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.4,
+        "green": 0.1,
+        "blue": 0.7
+    },
+    "selecting_glow": {
+        "type": "origins:entity_glow",
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:arrow"
+                            },
+                            {
+                                "type": "origins:passenger",
+                                "bientity_condition": {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:entity_type",
+                                                "entity_type": "minecraft:armor_stand"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "manhunt:damned/bow/bow_arrow"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "compare_to": 0,
+                                "comparison": ">"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:passenger",
+                                    "bientity_condition": {
+                                        "type": "origins:actor_condition",
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:armor_stand"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "manhunt:damned/bow/bow_arrow"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "compare_to": 0,
+                                    "comparison": ">"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "name": "§l§nBone Warping",
+    "description": "Using your primary ability key, you can teleport to an arrow you shot recently. To activate, be sure you're looking directly at the arrow you want to teleport to."
+}

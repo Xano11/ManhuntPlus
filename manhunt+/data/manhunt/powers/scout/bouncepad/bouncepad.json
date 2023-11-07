@@ -1,0 +1,50 @@
+{
+    "type": "origins:multiple",
+    "perform": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 2,
+                    "tag": "{Invisible:1b,Invulnerable:1b,Tags:[\"bouncepad\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"bouncepad\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[1f,0f,0f,1f],translation:[0f,-1.4f,0f],scale:[1.7f,1.4f,1.7f]},item:{id:\"minecraft:slime_ball\",Count:1b,tag:{CustomModelData:1}}}]}",
+                    "projectile_action":{
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:scout/bouncepad/bouncepad_effects",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_chain player @a ~ ~ ~ 2 2",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 1
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+    },
+    "name": "§l§nDash",
+    "description": "You can dash forward by pressing Primary Ability key."
+}

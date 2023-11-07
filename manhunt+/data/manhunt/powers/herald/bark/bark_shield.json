@@ -1,0 +1,267 @@
+{
+    "type": "origins:multiple",
+    "left_click": {
+        "type": "origins:active_self",
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 20,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:herald/bark/bark_shield_charges",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:herald/bark/bark_shield_cooldown",
+                                "change": 60
+                            }
+                        ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:herald/bark/bark_effects"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:block.anvil.use player @a ~ ~ ~ 1 0.7",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:herald/bark/bark_effects",
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    },
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "key": "key.attack",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:herald/bark/bark_shield_charges",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "right_click": {
+        "type": "origins:active_self",
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:herald/bark/bark_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.anvil.use player @a ~ ~ ~ 1 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:herald/bark/bark_shield_charges",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:herald/bark/bark_shield_cooldown",
+                    "change": 60
+                }
+            ]
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:herald/bark/bark_shield_charges",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:herald/bark/bark_effects",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "charges": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "hud_render": {
+            "sprite_location": "manhunt:textures/bark_shields.png",
+            "bar_index": 0,
+            "should_render": true
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 8,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:herald/bark/bark_shield_charges",
+                "comparison": "<",
+                "compare_to": 2
+            }
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:herald/bark/bark_shield_charges",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:herald/bark/bark_shield_cooldown",
+                    "change": 60
+                }
+            ]
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:herald/bark/bark_shield_cooldown",
+            "change": -1
+        },
+        "interval": 20
+    },
+    "overlay": {
+        "type": "origins:status_bar_texture",
+        "texture": "manhunt:textures/gui/bark_overlay.png",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 20,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:herald/bark/bark_effects",
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:herald/bark/bark_shield_charges",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "name": "§l§nTree Bark Shield",
+    "description": "Using the power of nature, you can give a tree bark shield that increases your teammates defense and giving them a passive health regeneration. [USING] a hunter will grant it the shield. (1.5 minute cooldown)"
+}

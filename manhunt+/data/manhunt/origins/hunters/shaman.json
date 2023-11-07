@@ -1,10 +1,10 @@
 {
 	"powers": [
-		"manhunt:shaman/totem",
-		"manhunt:shaman/reborn",
+		"manhunt:shaman/totem/totem",
 		"manhunt:shaman/absorbed",
 		"manhunt:shaman/sculk",
-		"manhunt:shaman/cure"
+		"manhunt:shaman/cure",
+		"manhunt:shaman/regenerate"
 	],
 	"icon": {
 		"item": "minecraft:sculk_shrieker",
