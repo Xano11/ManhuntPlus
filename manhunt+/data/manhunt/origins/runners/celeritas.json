@@ -2,9 +2,9 @@
 	"powers": [
 		"manhunt:celeritas/boots/boots",
 		"origins:fragile",
-        "manhunt:celeritas/checkpoint",
+        "manhunt:celeritas/checkpoint/checkpoint",
 		"manhunt:celeritas/more_adrenaline",
-		"manhunt:frames"
+		"manhunt:celeritas/frames"
 	],
 	"icon": {
 		"item": "minecraft:diamond_boots",

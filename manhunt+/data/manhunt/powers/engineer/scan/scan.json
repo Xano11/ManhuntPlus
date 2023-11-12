@@ -1,17 +1,5 @@
 {
     "type": "origins:multiple",
-    "tag": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "tag @s add engineer"
-        },
-        "entity_action_removed": {
-            "type": "origins:execute_command",
-            "command": "tag @s remove engineer"
-        },
-        "execute_chosen_when_orb": true
-    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -26,7 +14,7 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "cooldown": 2400,
+        "cooldown": 1200,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
             "bar_index": 0,

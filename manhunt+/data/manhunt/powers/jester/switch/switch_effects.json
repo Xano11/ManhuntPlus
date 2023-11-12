@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "resource": {
+    "duration": {
         "type": "origins:resource",
         "min": 0,
         "max": 60,
@@ -23,7 +23,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:switch_effects"
+                    "command": "power remove @s manhunt:jester/switch/switch_effects"
                 }
             ]
         }
@@ -41,11 +41,11 @@
             ]
         }
     },
-    "remove_resource": {
+    "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:switch_effects_resource",
+            "resource": "manhunt:jester/switch/switch_effects_duration",
             "change": -1
         },
         "interval": 1
@@ -65,18 +65,18 @@
             "type": "origins:if_else",
             "condition": {
                 "type": "origins:resource",
-                "resource": "manhunt:switch_effects_red_white",
+                "resource": "manhunt:jester/switch/switch_effects_red_white",
                 "comparison": "==",
                 "compare_to": 1
             },
             "if_action": {
                 "type": "origins:change_resource",
-                "resource": "manhunt:switch_effects_red_white",
+                "resource": "manhunt:jester/switch/switch_effects_red_white",
                 "change": -1
             },
             "else_action": {
                 "type": "origins:change_resource",
-                "resource": "manhunt:switch_effects_red_white",
+                "resource": "manhunt:jester/switch/switch_effects_red_white",
                 "change": 1
             }
         },
@@ -121,7 +121,7 @@
         "blue": 0.0,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:switch_effects_red_white",
+            "resource": "manhunt:jester/switch/switch_effects_red_white",
             "comparison": "==",
             "compare_to": 0
         }
@@ -134,7 +134,7 @@
         "blue": 1.0,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:switch_effects_red_white",
+            "resource": "manhunt:jester/switch/switch_effects_red_white",
             "comparison": "==",
             "compare_to": 1
         }

@@ -7,3 +7,4 @@ scoreboard objectives add hunters dummy
 scoreboard objectives add tracking dummy
 scoreboard objectives add lodestone dummy
 scoreboard objectives add simulation dummy
+scoreboard objectives add recall dummy

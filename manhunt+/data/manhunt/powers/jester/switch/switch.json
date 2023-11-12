@@ -35,12 +35,12 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a[tag=hunter] if score @s hunters = @p tracking run power grant @s manhunt:switch_effects",
+                    "command": "execute as @a[tag=hunter] if score @s hunters = @p tracking run power grant @s manhunt:jester/switch/switch_effects",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:jester/switch_resource",
+                    "resource": "manhunt:jester/switch/switch_duration",
                     "change": 60
                 }
             ]
@@ -70,7 +70,7 @@
             ]
         }
     },
-    "resource": {
+    "duration": {
         "type": "origins:resource",
         "min": 0,
         "max": 60,
@@ -117,11 +117,11 @@
             ]
         }
     },
-    "remove_resource": {
+    "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:jester/switch_resource",
+            "resource": "manhunt:jester/switch_duration",
             "change": -1
         },
         "interval": 1

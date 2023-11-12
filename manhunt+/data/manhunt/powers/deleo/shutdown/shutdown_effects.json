@@ -6,27 +6,11 @@
         "max": 140,
         "start_value": 140,
         "hud_render": {
-            "should_render": false,
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 2
+            "should_render": false
         },
-        "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:delay",
-                    "ticks": 1,
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power remove @s manhunt:shutdown_effects"
-                            }
-                        ]
-                    }
-                }
-            ]
+        "min_action":  {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:deleo/shutdown/shutdown_effects"
         }
     },
     "sound": {
@@ -56,23 +40,14 @@
         },
         "interval": 30
     },
-    "remove_resource": {
+    "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:shutdown_effects_resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_effects_duration",
             "change": -10
         },
         "interval": 10
-    },
-    "more_speed": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increase speed",
-            "attribute": "minecraft:generic.movement_speed",
-            "value": -0.75,
-            "operation": "multiply_total"
-        }
     },
     "no_atk_speed": {
         "type": "origins:attribute",
@@ -83,11 +58,61 @@
             "operation": "multiply_total"
         }
     },
-    "air_speed": {
-        "type": "origins:modify_air_speed",
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            {
+                "key": "key.origins.primary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"Curse energy prevents you from using abilities.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "key.origins.secondary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"Curse energy prevents you from using abilities.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "slowed":{
+        "type": "origins:modify_velocity",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -0.5
+          "value": -0.6,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+    "glitched":{
+        "type": "eggolib:modify_label_render",
+        "text": {
+            "text": "Impostor",
+            "bold": true,
+            "obfuscated": true
         }
     },
     "camera":{
@@ -96,21 +121,6 @@
             "operation": "multiply_total_multiplicative",
             "value": -0.5
         }
-    },
-    "overlay": {
-        "type": "origins:overlay",
-        "texture": "minecraft:textures/block/red_nether_bricks.png",
-        "strength": 0.2,
-        "red": 0.25,
-        "green": 0.05,
-        "blue": 0.4,
-        "draw_mode": "texture",
-        "draw_phase": "below_hud",
-        "hide_with_hud": false,
-        "visible_in_third_person": false
-    },
-    "no_elytra": {
-        "type": "origins:prevent_elytra_flight"
     },
     "no_damage": {
         "type": "origins:modify_damage_taken",
@@ -126,8 +136,7 @@
     "prevent_block": {
         "type": "origins:prevent_block_use"
     },
-    "deaf":
-    {
+    "deaf":{
         "type": "apugli:prevent_sound",
         "categories": [
             "BLOCKS",
@@ -142,9 +151,9 @@
         ],
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:shutdown_effects_resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_effects_duration",
             "comparison": "<",
-            "compare_to": 138
+            "compare_to": 130
         }
     },
     "hidden": true

@@ -2,7 +2,7 @@
 	"powers": [
 		"manhunt:jester/smoke/smoke_bomb",
 		"manhunt:jester/compass",
-		"manhunt:jester/switch",
+		"manhunt:jester/switch/switch",
 		"manhunt:jester/glow",
 		"manhunt:jester/health",
 		"manhunt:jester/nearsighted"

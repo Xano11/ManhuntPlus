@@ -204,5 +204,32 @@
             ]
         }
     },
+    "prevent_soul_pickup":{
+        "type": "eggolib:prevent_item_pickup",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunters/ritualist",
+                "layer": "origins:hunters",
+                "inverted": true
+            }
+        },
+        "item_condition":  {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{CustomModelData:1}"
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:diamond"
+                    }
+                }
+            ]
+        }
+    },
     "hidden": true
 }
