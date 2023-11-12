@@ -6,7 +6,7 @@
         "max": 900,
         "start_value": 900,
         "hud_render": {
-            "should_render": false
+            "should_render": true
         }
     },
     "cooldown_up": {
