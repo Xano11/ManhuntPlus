@@ -1,0 +1,15 @@
+{
+	"powers": [
+        "manhunt:fortis/menacing",
+		"manhunt:deleo/shutdown/shutdown",
+		"manhunt:deleo/disable/disable"
+	],
+	"icon": {
+		"item": "minecraft:music_disc_5",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Deleo ▼",
+	"description": "The Deleo specializes in disrupting the enemies; disabling their abilities and combat potential."
+}

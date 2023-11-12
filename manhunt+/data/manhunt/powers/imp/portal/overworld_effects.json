@@ -1,0 +1,29 @@
+{
+    "type": "origins:multiple",
+    "landing": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:imp/portal/overworld_effects"
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:ender_pearl"
+            }
+        }
+    },
+    "fall": {
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false
+    },
+    "hidden": true
+}

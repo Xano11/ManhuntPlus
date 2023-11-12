@@ -1,0 +1,260 @@
+{
+    "type": "origins:multiple",
+    "zpos": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=25,dz=10,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=-25,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=25,dz=10,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=-25,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -0.5
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=wall_simulationzpos]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "zneg": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=25,dz=-10,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": 0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=-25,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": 0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=25,dz=-10,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": 0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dx=-25,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": 0.5
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=wall_simulationzneg]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "xpos": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=25,dx=10,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": -0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=-25,dx=10,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": -0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=25,dx=10,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": -0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=-25,dx=10,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": -0.5
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=wall_simulationxpos]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "xneg": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=25,dx=-10,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": 0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=-25,dx=-10,dy=100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": 0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=25,dx=-10,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": 0.5
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=simulated,dz=-25,dx=-10,dy=-100]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "x": 0.5
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=wall_simulationxneg]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

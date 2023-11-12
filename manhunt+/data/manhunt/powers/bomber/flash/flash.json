@@ -38,5 +38,5 @@
         "key": "key.origins.secondary_active"
     },
     "name": "§l§nFlash",
-    "description": "Pressing the main ability key will launch a bomb that will blind any player in a 12 block radius (except the bomber themselves)"
+    "description": "Pressing [Secondary Ability Key] will throw a flash bang that blinds enemies in a 32 block radius. You are immune to the effect."
 }

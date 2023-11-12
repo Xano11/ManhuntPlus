@@ -110,7 +110,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @a[distance=0.1..,tag=hunter] [\"\",\"Accept teleport from \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"gold\"},\"?  \",{\"text\":\"[YES]\",\"bold\":true,\"underlined\":true,\"color\":\"green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"function manhunt:guardian_accept\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":[\"Click to accept.\"]}}]"
+                    "command": "tellraw @a[distance=0.1..,tag=hunter] [\"\",\"Accept teleport from \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"gold\"},\"?    \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.saveToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[distance=0.1..,tag=hunter] manhunt:guardian/savior/savior_tag"
                 },
                 {
                     "type": "origins:execute_command",

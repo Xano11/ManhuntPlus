@@ -1,0 +1,200 @@
+{
+    "type": "origins:multiple",
+    "gained": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:heal",
+                    "amount": 20
+                },
+                {
+                    "type": "origins:feed",
+                    "food": 20,
+                    "saturation": 20
+                }
+            ]
+        }
+    },
+    "mobs_ignore":{
+        "type": "apugli:mobs_ignore"
+    },
+    "shader": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/scan_pincushion.json",
+        "toggleable": false
+    },
+    "only_enemy": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:power",
+                "power": "manhunt:engineer/bacont/simulated",
+                "inverted": true
+            }
+        }
+    },
+    "only_enemy1": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:power",
+                "power": "manhunt:engineer/bacont/simulated",
+                "inverted": true
+            }
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0.8,
+        "green": 0,
+        "blue": 0
+    },
+    "prevent_render": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:engineer/bacont/simulated",
+                        "inverted": true
+                    }
+                ]
+            }
+        }
+    },
+    "prevent_pearls": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:ender_pearl"
+            }
+        }
+    },
+    "no_collision": {
+        "type": "origins:prevent_entity_collision"
+    },
+    "pickup": {
+        "type": "eggolib:prevent_item_pickup"
+    },
+    "block_place": {
+        "type": "eggolib:prevent_block_place"
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.drop",
+            {
+                "key": "key.origins.primary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"You can't use abilities in the Simulation.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "key.origins.secondary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"You can't use abilities in the Simulation.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "no_death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:execute_command",
+                    "command": "resource set @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=bacont] manhunt:engineer/bacont/simulation_timer 0"
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 10
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:glowing",
+                            "duration": 300,
+                            "amplifier": 0,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:weakness",
+                            "duration": 300,
+                            "amplifier": 1,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:slowness",
+                            "duration": 300,
+                            "amplifier": 0,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute on attacker run effect give @s minecraft:health_boost 1 10 false"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute on attacker run effect give @s minecraft:strength 15 0 false"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute on attacker run effect give @s minecraft:speed 15 2 false"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute on attacker run effect give @s minecraft:resistance 15 0 false"
+                },
+                {
+                    "type": "apoli:execute_command",
+                    "command": "execute on attacker run effect give @s minecraft:saturation 1 10 false"
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

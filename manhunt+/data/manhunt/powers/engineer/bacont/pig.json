@@ -1,0 +1,246 @@
+{
+    "type": "origins:multiple",
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 1200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "timer_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/bacont/pig_timer",
+            "change": -20
+        },
+        "interval": 20
+    },
+    "activate": {
+        "type": "origins:action_on_being_used",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invisible:1b,Marker:1b,NoBasePlate:1b,Tags:[\"simulation_recall\"]}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add hunter_simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @p[tag=runner] run tag @s add runner_simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @p[tag=runner] run tag @s add simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:engineer/bacont/simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @p[tag=runner] manhunt:engineer/bacont/simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @p[tag=runner] @s"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:passenger_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:engineer/bacont/simulation",
+                                    "permission_level": 4
+                                },
+                                "recursive": true
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run scoreboard players set @s simulation 25"
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:item_display",
+                                "tag": "{Tags:[\"wall_simulationzpos\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationzpos\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[50f,100f,0.1f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run power grant @s manhunt:engineer/bacont/render_wall",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s ~ ~ ~25",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:item_display",
+                                "tag": "{Tags:[\"wall_simulationzneg\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationzneg\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[50f,100f,0.1f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run power grant @s manhunt:engineer/bacont/render_wall",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s ~ ~ ~-25",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:item_display",
+                                "tag": "{Tags:[\"wall_simulationxpos\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationxpos\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,100f,50f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run power grant @s manhunt:engineer/bacont/render_wall",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s ~25 ~ ~",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:item_display",
+                                "tag": "{Tags:[\"wall_simulationxneg\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationxneg\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,100f,50f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run power grant @s manhunt:engineer/bacont/render_wall",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s ~-25 ~ ~",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:item_display",
+                                "tag": "{Tags:[\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[50f,0.1f,50f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run power grant @s manhunt:engineer/bacont/render_wall",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s ~ ~50 ~",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s Rotation set value [0f,180f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:engineer/bacont/pig",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:hunter_effects"
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

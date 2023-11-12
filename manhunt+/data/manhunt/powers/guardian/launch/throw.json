@@ -1,0 +1,53 @@
+{
+    "type": "origins:multiple",
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 4,
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 1
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:can_see"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition":  {
+                                    "type": "origins:riding"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.anvil.land player @a ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0 0 0 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+   "hidden": true
+}

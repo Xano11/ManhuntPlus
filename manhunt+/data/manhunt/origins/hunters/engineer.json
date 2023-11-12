@@ -1,7 +1,7 @@
 {
 	"powers": [
 		"manhunt:engineer/scan/scan",
-        "manhunt:engineer/pillar",
+        "manhunt:engineer/bacont/bacont",
 		"origins:vegetarian",
 		"origins:light_armor"
 	],

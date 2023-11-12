@@ -80,5 +80,5 @@
         }
     },
     "name": "§l§nBone Warping",
-    "description": "Using your primary ability key, you can teleport yourself to the most recent arrow you shot. Arrows remain tagged for 30 seconds, so don't wait too long!"
+    "description": "By looking at an arrow you recently shot and pressing [Primary Ability Key], you will teleport to said arrow. All arrows you shoot are tagged for 30 seconds, so be quick!"
 }

@@ -5,58 +5,58 @@
         "bientity_action": {
             "type": "origins:target_action",
             "action": {
-            "type": "origins:area_of_effect",
-            "radius": 5,
-            "bientity_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:target_action",
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:heal",
-                                    "amount": 1
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "particle minecraft:dust_color_transition 1 0 0.1 1.2 1 1 1 ~ ~1 ~ 0.3 0.3 0.3 1 50",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "playsound minecraft:entity.illusioner.cast_spell player @s ~ ~ ~ 1 2",
-                                    "permission_level": 4
-                                }
-                            ]
+                "type": "origins:area_of_effect",
+                "radius": 5,
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:heal",
+                                        "amount": 1
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:dust_color_transition 1 0 0.1 1.2 1 1 1 ~ ~1 ~ 0.3 0.3 0.3 1 50",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.illusioner.cast_spell player @s ~ ~ ~ 1 2",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
                         }
-                    }
-                ]
-            }
-            },
-            "bientity_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:can_see"
-                    },
-                    {
-                        "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:living"
-                                },
-                                {
-                                    "type": "origins:power",
-                                    "power": "manhunt:hunter_effects"
-                                }
-                            ]
+                    ]
+                },
+                "bientity_condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:can_see"
+                        },
+                        {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:living"
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "manhunt:hunter_effects"
+                                    }
+                                ]
+                            }
                         }
-                    }
-                ]
+                    ]
+                }
             }
         }
     },

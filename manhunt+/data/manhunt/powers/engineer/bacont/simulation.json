@@ -1,0 +1,131 @@
+{
+    "type": "origins:multiple",
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 500,
+        "start_value": 500,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @p[tag=runner_simulated] @e[limit=1,sort=nearest,tag=simulation_recall]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @p[tag=hunter_simulated] @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:engineer/bacont/simulated"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=wall_simulation] on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=wall_simulation] run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @p[tag=hunter_simulated] @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @p[tag=hunter] remove hunter_simulated"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @p[tag=runner] remove runner_simulated"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @a remove simulated"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "timer_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/bacont/simulation_timer",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "timer_display": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @a actionbar [\"\",\"Simulation will end in \",{\"score\":{\"name\":\"@s\",\"objective\":\"simulation\"},\"bold\":true},\"s\"]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players remove @s simulation 1"
+                }
+            ]
+        },
+        "interval": 20
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:end_rod ~ ~1 ~ 0 0 0 0.2 10"
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/bacont/simulation_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "limits": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 50,
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": -2
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:power",
+                            "power": "manhunt:engineer/bacont/simulated"
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:engineer/bacont/simulated_pull",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 5
+    },
+    "hidden": true
+}

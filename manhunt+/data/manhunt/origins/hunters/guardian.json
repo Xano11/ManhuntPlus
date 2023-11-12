@@ -3,7 +3,9 @@
         "manhunt:guardian/savior/savior",
 		"manhunt:guardian/slow",
 		"manhunt:guardian/shield",
-		"manhunt:guardian/protector"
+		"manhunt:guardian/protector",
+		"manhunt:guardian/launch/launch",
+		"manhunt:guardian/launch/pickup"
 	],
 	"icon": {
 		"item": "minecraft:beacon",

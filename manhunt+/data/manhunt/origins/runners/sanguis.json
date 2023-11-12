@@ -9,7 +9,7 @@
 	],
 	"icon": {
 		"item": "minecraft:netherite_axe",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"tag": "{Enchantments:[{}]}"
 	},
 	"order": 10,
 	"impact": 2,

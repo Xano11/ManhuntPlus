@@ -1,0 +1,94 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [ 
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:deleo/disable/disabled",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "swirl":{
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/cursed.png",
+        "speed": 0.03   
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            {
+                "key": "key.origins.primary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"Curse energy prevents you from using abilities.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "key.origins.secondary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"Curse energy prevents you from using abilities.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "slowed":{
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -0.6,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+    "glitched":{
+        "type": "eggolib:modify_label_render",
+        "text": {
+            "text": "Impostor",
+            "bold": true,
+            "obfuscated": true
+        }
+    },
+    "hidden": true
+}

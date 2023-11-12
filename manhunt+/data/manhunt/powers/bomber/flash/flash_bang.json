@@ -18,7 +18,7 @@
                         "type": "origins:target_action",
                         "action": {
                             "type": "origins:execute_command",
-                            "command": "power grant @s[tag=!bomber] manhunt:bomber/flash/flash_effects"
+                            "command": "power grant @s[tag=!bomber,type=minecraft:player] manhunt:bomber/flash/flash_effects"
                         }
                     },
                     "bientity_condition": {

@@ -353,5 +353,5 @@
         }
     },
     "name": "§l§nLegendary Boots",
-    "description": "You wear special boots which grant you the ability to walk on fluids (Lava and water) and generally run faster, as well as reduce your fall damage by 35%. The Fluid Running can be toggled with the main ability key. But watch out; running will deplete the boots energy and at zero, will remove your movement speed upsides. Sneaking will refill the bar slowly."
+    "description": "Holding [Primary Ability Key] will grant you extra speed and the ability to walk on water (and lava). But, boots have energy and need to be recharged. To recharge, sneak and stop moving."
 }
