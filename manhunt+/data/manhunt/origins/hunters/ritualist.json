@@ -1,7 +1,7 @@
 {
 	"powers": [
 		"manhunt:ritualist/sacrifice",
-		"manhunt:ritualist/wrath",
+		"manhunt:ritualist/wrath/wrath",
 		"manhunt:ritualist/soul_teleport",
 		"manhunt:ritualist/soul_barrier",
 		"origins:nine_lives"

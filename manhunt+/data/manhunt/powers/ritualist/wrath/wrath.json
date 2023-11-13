@@ -11,8 +11,8 @@
 				},
 				{
 					"type": "origins:change_resource",
-					"resource": "manhunt:ritualist/sacrifice_resource",
-					"change": -7
+					"resource": "manhunt:ritualist/sacrifice_souls",
+					"change": -15
 				}
 			]
 		},
@@ -21,9 +21,9 @@
 		},
 		"condition": {
 			"type": "origins:resource",
-			"resource": "manhunt:ritualist/sacrifice_resource",
+			"resource": "manhunt:ritualist/sacrifice_souls",
 			"comparison": "==",
-			"compare_to": 7
+			"compare_to": 15
 		},
 		"cooldown": 3600,
 		"hud_render": {

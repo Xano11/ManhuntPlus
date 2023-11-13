@@ -1,53 +1,33 @@
 {
     "type": "origins:multiple",
-    "charge_resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 60,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1
-        }
-    },
-    "remove_resource": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:lurker/lurk_charge_resource",
-            "change": -60
-        },
-        "interval": 5,
-        "condition": {
-            "type": "origins:sneaking",
-            "inverted": true
-        }
-    },
-    "gain_resource": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:lurker/lurk_charge_resource",
-            "change": 10
-        },
-        "interval": 10,
-        "condition": {
-            "type": "origins:sneaking"
-        }
-    },
     "tp": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:[\"tp1\"]}"
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"lurk\"]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s lurk run data get entity @s UUID[0] 1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @p lurk run data get entity @s UUID[0] 1",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a[tag=runner] if score @s runners = @p tracking at @s run summon armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:[\"tp2\"]}"
+                    "command": "execute as @a[tag=runner] if score @s runners = @p tracking run tp @p @s"
                 },
                 {
                     "type": "origins:execute_command",
@@ -61,27 +41,11 @@
                     "type": "origins:execute_command",
                     "command": "forceload add ~ ~ ~ ~",
                     "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tp @s @e[tag=tp2,limit=1,sort=nearest]",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "kill @e[tag=tp2,limit=1,sort=nearest]",
-                    "permission_level": 4
                 }
             ]
         },
         "key": {
             "key": "key.origins.primary_active"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:lurker/lurk_charge_resource",
-            "comparison": "==",
-            "compare_to": 60
         },
         "cooldown": 3600,
         "hud_render": {

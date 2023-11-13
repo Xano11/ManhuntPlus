@@ -18,7 +18,7 @@
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5400,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:diamond\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5800,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:diamond\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
 		"bientity_condition": {
@@ -39,7 +39,7 @@
 			}
 		}
 	},
-	"crit_gain":{
+	"crit_gain": {
 		"type": "eggolib:action_on_critical_hit",
 		"bientity_action": {
 			"type": "origins:target_action",
@@ -84,6 +84,32 @@
 						"change": 1
 					},
 					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:power",
+							"power": "manhunt:ritualist/wrath/wrath_effects"
+						},
+						"if_action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:heal",
+									"amount": 2.0
+								},
+								{
+									"type": "origins:change_resource",
+									"resource": "manhunt:ritualist/wrath/wrath_effects_duration",
+									"change": 10
+								}
+							]
+						},
+						"else_action": {
+							"type": "origins:change_resource",
+							"resource": "manhunt:ritualist/sacrifice_souls",
+							"change": 1
+						}
+					},
+					{
 						"type": "origins:execute_command",
 						"command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0 0.3 0 10"
 					},
@@ -94,21 +120,21 @@
 				]
 			}
 		},
-		"item_condition":  {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{CustomModelData:1}"
-                },
-                {
-                    "type": "origins:ingredient",
-                    "ingredient": {
-                        "item": "minecraft:diamond"
-                    }
-                }
-            ]
-        }
+		"item_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:nbt",
+					"nbt": "{CustomModelData:1}"
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:diamond"
+					}
+				}
+			]
+		}
 	},
 	"name": "Sacrifice",
 	"description": "You have the ability to sacrifice and store the souls of those you vanquish. Up to seven of them may be stored at once."
