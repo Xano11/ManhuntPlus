@@ -46,6 +46,23 @@
             "should_render": true
         }
     },
-    "name": "§l§nRecall",
-    "description": "Using the secondary ability key, you can leave a marker on your current position and you will return to this marker fifteen seconds after the activation of the ability."
+    "name": "Recall",
+    "description": "Create a return location that you get teleported to after a brief delay.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Recall: Returns you after 15s."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Trigger with %s! Press %s again to trigger Recall early."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 5m"
+        }
+    ]
 }

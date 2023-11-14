@@ -79,6 +79,23 @@
             "should_render": true
         }
     },
-    "name": "§l§nBone Warping",
-    "description": "By looking at an arrow you recently shot and pressing [Primary Ability Key], you will teleport to said arrow. All arrows you shoot are tagged for 30 seconds, so be quick!"
+    "name": "Bone Warping",
+    "description": "By looking at an arrow you recently shot, you can teleport to said arrow.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Arrows are tagged for 30s."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Warp with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 6m"
+        }
+    ]
 }

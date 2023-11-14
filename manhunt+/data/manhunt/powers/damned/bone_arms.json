@@ -8,5 +8,11 @@
     },
     "tick_rate": 1,
     "name":"Bone Arms",
-    "description":"With your undead arms, you have less ability at swinging weapons easily. (-0.4 attack speed)"
+    "description":"With your undead arms, you have less ability at swinging weapons easily.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-0.4 attack speed"
+        }
 }
