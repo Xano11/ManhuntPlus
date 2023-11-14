@@ -191,7 +191,7 @@
                 {
                     "type": "origins:ingredient",
                     "ingredient": {
-                        "item": "minecraft:diamond"
+                        "item": "minecraft:cyan_dye"
                     }
                 }
             ]

@@ -1,6 +1,6 @@
 {
 	"powers": [
-        "manhunt:fortis/menacing",
+        "manhunt:deleo/menacing",
 		"manhunt:deleo/shutdown/shutdown",
 		"manhunt:deleo/disable/disable"
 	],

@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter] manhunt:shutdown_effects"
+                    "command": "power grant @a[tag=hunter] manhunt:deleo/shutdown/shutdown_effects"
                 },
                 {
                     "type": "origins:execute_command",

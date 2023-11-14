@@ -7,7 +7,7 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
-					"command": "power grant @s manhunt:wrath_effects"
+					"command": "power grant @s manhunt:ritualist/wrath/wrath_effects"
 				},
 				{
 					"type": "origins:change_resource",
@@ -29,7 +29,12 @@
 		"hud_render": {
 			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
 			"bar_index": 5,
-			"should_render": true
+			"should_render": true,
+			"condition": {
+				"type": "origins:power",
+				"power": "manhunt:ritualist/wrath/wrath_effects",
+				"inverted": true
+			}
 		}
 	},
 	"name": "Wrath",

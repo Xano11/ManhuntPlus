@@ -90,5 +90,126 @@
             "obfuscated": true
         }
     },
+    "sound":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "apoli:execute_command",
+            "command": "playsound minecraft:item.spyglass.use player @s ~ ~ ~ 3 0.5"
+        },
+        "interval": 7
+    },
+    "animation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action":  {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "change": -3
+        }
+    },
+    "cycling_animation":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "change": 1
+        },
+        "interval": 5
+    },
+    "overlay0":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/deleo_effect0.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "overlay1":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/deleo_effect1.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 1,
+            "comparison": "=="
+        }
+    },
+    "overlay2":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/deleo_effect2.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 2,
+            "comparison": "=="
+        }
+    },
+    "overlay3":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/deleo_effect3.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 3,
+            "comparison": "=="
+        }
+    },
+    "overlay4":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/deleo_effect4.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 4,
+            "comparison": "=="
+        }
+    },
     "hidden": true
 }

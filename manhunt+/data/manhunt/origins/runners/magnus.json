@@ -1,0 +1,15 @@
+{
+	"powers": [
+        "manhunt:fortis/menacing",
+		"manhunt:deleo/shutdown/shutdown",
+		"manhunt:deleo/disable/disable"
+	],
+	"icon": {
+		"item": "minecraft:dispenser",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Magnus ▼",
+	"description": "The Magnus takes advantage of its ability to modify itself."
+}

@@ -9,7 +9,7 @@
                 "divergence": 0,
                 "count": 1,
                 "speed": 5,
-                "tag": "{Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Tags:[\"hatchet\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"hatchet\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,-1f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:netherite_axe\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                "tag": "{Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Tags:[\"hatchet\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"hatchet\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,-1f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:echo_shard\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
                 "projectile_action": {
                     "type": "origins:and",
                     "actions": [

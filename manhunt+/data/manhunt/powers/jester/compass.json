@@ -176,7 +176,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "manhunt:jester/switch_resource",
+                    "resource": "manhunt:jester/switch/switch_duration",
                     "comparison": "==",
                     "compare_to": 0
                 }

@@ -6,6 +6,23 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:passenger_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:dismount"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:guardian/launch/thrown",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "recursive": true
+                },
+                {
                     "type": "origins:area_of_effect",
                     "radius": 4,
                     "bientity_action": {
@@ -20,7 +37,7 @@
                             },
                             {
                                 "type": "origins:target_condition",
-                                "condition":  {
+                                "condition": {
                                     "type": "origins:riding"
                                 }
                             }
@@ -49,5 +66,5 @@
             "type": "origins:on_block"
         }
     },
-   "hidden": true
+    "hidden": true
 }

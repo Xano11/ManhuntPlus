@@ -121,7 +121,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:jester/switch_duration",
+            "resource": "manhunt:jester/switch/switch_duration",
             "change": -1
         },
         "interval": 1

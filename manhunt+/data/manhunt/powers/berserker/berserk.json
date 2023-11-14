@@ -72,5 +72,12 @@
     }
 },
 "name": "BERSERK MINDSET",
-"description": "You gain 0.15 attack speed per 2 missing hearts"
+"description": "You gain 0.15 attack speed per 2 missing hearts",
+"badges":[
+    {
+        "type": "origins:tooltip",
+        "sprite": "origins:textures/gui/badge/star.png",
+        "text": "A gold star!"
+    }
+]
 }
