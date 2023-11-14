@@ -37,5 +37,22 @@
         }
     },
     "name": "§l§nTrained For The Sea",
-    "description": "The Captain can use his secondary ability to give him and all nearby hunters water breathing and 30% increased swim speed for 1:30 (5 minute cooldown). If you are in the nether, the effects will allow you to swim quickly in lava. BUT, it will not make you fire resistant, meaning you'll still need fire resistance."
+    "description": "Grants water affinity to you and nearby hunters, and does work in the nether",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Water Affinity: 30s of +30% swim speed, also in effect while in lava"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Trigger with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 5m"
+        }
+    ]
 }

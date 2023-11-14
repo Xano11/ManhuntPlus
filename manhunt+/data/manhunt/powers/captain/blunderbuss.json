@@ -225,5 +225,22 @@
         }
     },
     "name": "§l§nExplosive Ammunition",
-    "description": "Pressing [PRIMARY ABILITY KEY] will load your next crossbow arrow with a TNT charge. If the arrow hits an entity, it will explode. If it lands on a block, it can be later detonated by pressing the same key again."
+    "description": "Load your next crossbow arrow with a TNT charge. Explodes when hitting entities.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Press the key again to detonate if it lands on a block."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Trigger with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
 }

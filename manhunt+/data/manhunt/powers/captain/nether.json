@@ -122,5 +122,12 @@
         "hidden": true
     },
     "name": "No Water, No Captain",
-    "description": "In the nether, the captain needs to constantly drink water to feel comfortable with their surroundings. Over time, your water wellness bar will go down and reaching 25% and lower will start affecting you badly. (Slower movement, more hunger, less armor, less damage)"
+    "description": "The nether weakens you when you are thirsty. (thirsty boi 😜)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Thirsty: Weakness I, Slowness I, Withered L, Saturation L"
+        }
+    ]
 }

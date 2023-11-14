@@ -17,6 +17,13 @@
             }
         ]
     },
-    "name":"Made For The Sea, Not The Air",
-    "description":"20% less air movement speed"
+    "name":"Made For The Sea",
+    "description":"You move slower mid-air",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Seamen: -20% air movement speed"
+        }
+    ]
 }
