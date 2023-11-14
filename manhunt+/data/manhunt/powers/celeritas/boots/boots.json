@@ -315,8 +315,8 @@
             ]
         }
     },
-    "particles": {
-        "type": "origins:action_over_time",
+    "particles":{
+        "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
             "actions": [
@@ -332,24 +332,18 @@
                 }
             ]
         },
-        "interval": 1,
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "hud_render": {
+            "should_render": false
+        },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    }
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:celeritas/boots/boots_energy",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:celeritas/boots/boots_energy",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "name": "Legendary Boots",
@@ -363,7 +357,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger with %s!"
+            "text": "Use boots with %s!"
         }
     ]
 }

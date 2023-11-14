@@ -57,7 +57,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger with %s! Press %s again to trigger Recall early."
+            "text": "Trigger with %s! Pressing the key again will trigger Recall early."
         },
         {
             "type": "origins:tooltip",
