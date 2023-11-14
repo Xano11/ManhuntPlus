@@ -352,6 +352,18 @@
             ]
         }
     },
-    "name": "§l§nLegendary Boots",
-    "description": "Holding [Primary Ability Key] will grant you extra speed and the ability to walk on water (and lava). But, boots have energy and need to be recharged. To recharge, sneak and stop moving."
+    "name": "Legendary Boots",
+    "description": "Your boots can make you faster and walk on water/lava.",
+    "badges" [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "To recharge, sneak and stop moving."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Trigger with %s!"
+        }
+    ]
 }

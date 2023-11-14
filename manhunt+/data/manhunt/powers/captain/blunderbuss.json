@@ -220,7 +220,7 @@
             "should_render": false
         }
     },
-    "name": "§l§nExplosive Ammunition",
+    "name": "Explosive Ammunition",
     "description": "Load your next crossbow arrow with a TNT charge. Explodes when hitting entities.",
     "badges": [
         {
