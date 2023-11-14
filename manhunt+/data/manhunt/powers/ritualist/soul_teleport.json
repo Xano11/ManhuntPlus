@@ -86,6 +86,24 @@
 		"comparison": ">=",
 		"compare_to": 3
 	},
+	"cooldown": 20,
 	"name": "Instant Transmission",
-	"description": "Upon using your primary you instantly teleport a few blocks forwards and gain a speed boost, at the cost of a soul."
+	"description": "Teleport yourself forward at the cost of three souls.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Wrath: +40% speed and +30% attack speed. Picking up souls now heals you. (+1 heart per soul)\nAdditionally, dealing more than 4 damage on a hit will make you invisible for a very brief delay."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Teleport with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Requires 3 souls.\nCooldown: 1s."
+        }
+    ]
 }

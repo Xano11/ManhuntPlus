@@ -35,5 +35,12 @@
         }
     },
     "name": "Bad Swimmer",
-    "description": "You are so heavy you won't be able to swim."
+    "description": "You were never taught how to swim.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You sink in water and lose all movement underwater."
+        }
+    ]
 }

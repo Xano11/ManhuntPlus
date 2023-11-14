@@ -9,5 +9,12 @@
         "value": 1
     },
     "name": "Burning Weakness",
-    "description": "Fire deals double damage due to your grand link to nature."
+    "description": "Fire deals more damage due to your grand link to nature.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(2x Damage)"
+        }
+    ]
 }

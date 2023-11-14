@@ -42,7 +42,7 @@
         }
     },
     "name": "Shutdown.",
-    "description": "You can hinder all the hunters for a short while, wherever they are.",
+    "description": "Hinder all the hunters for a short while, wherever they are.",
     "badges": [
         {
             "type": "origins:tooltip",

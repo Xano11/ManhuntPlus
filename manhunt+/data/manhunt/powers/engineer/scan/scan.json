@@ -22,7 +22,7 @@
         }
     },
     "name": "Tecto-Scan",
-    "description": "You can use your Tectonic Scan to upload runner movements.",
+    "description": "Use your Tectonic Scan to upload the location of moving runners.",
     "badges": [
         {
             "type": "origins:tooltip",

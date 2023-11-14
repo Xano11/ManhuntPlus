@@ -64,7 +64,7 @@
         }
     },
     "name": "The Fool's Deception",
-    "description": "You can place a cursed lodestone, leading the hunters' compasses to it and therefore; preventing them from tracking you.",
+    "description": "Place a cursed lodestone, leading the hunters' compasses to it and therefore; preventing them from tracking you.",
     "badges": [
         {
             "type": "origins:tooltip",

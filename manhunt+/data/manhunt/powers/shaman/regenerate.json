@@ -206,5 +206,17 @@
         }
     },
     "name": "Cursed Link",
-    "description": "Your strange connection with the sculk allows you to tap into their realm and let your body heal itself. Doing so leaves you weak; taking double damage."
+    "description": "Your strange connection with the sculk allows you to tap into their realm and let your body heal itself.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Cursed Link: Heal for half a heart every 0.75s\nWhilst resting, you take double damage."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s to let your body rest."
+        }
+    ]
 }

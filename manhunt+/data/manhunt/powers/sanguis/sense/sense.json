@@ -22,13 +22,30 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 1800,
+        "cooldown": 3600,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 19,
             "should_render": true
         }
     },
-    "name": "§l§nThe Voices.",
-    "description": "Pressing your secondary ability key will detect for players around. If the closest player is too close, a message in red will appear (Distance of 30 blocks); if the message is yellow, the closest player is further than 30 blocks and if the message is green, the closest player is further than a 100 blocks away."
+    "name": "The Voices.",
+    "description": "Let the voices speak to you and awaken your true intuition.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Upon using the ability, the voices will speak and you will be granted Hunter vision.\nIn your chat, the voices will speak.\nA §2green§r message indicates no hunters in a 100 block radius.\nAn §6orange§r message indicates a hunter player between 30 and 100 block radius.\nA §4red§r message indicates a hunter player in a 30 block radius.\nHunter Vision: Hunters leave traces of their movements which can be followed."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Let the voices speak with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 3m"
+        }
+    ]
 }

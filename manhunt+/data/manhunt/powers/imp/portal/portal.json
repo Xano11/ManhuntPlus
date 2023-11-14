@@ -117,6 +117,23 @@
             "should_render": true
         }
     },
-    "name": "§l§nImp's Gateway",
-    "description": "Using the secondary ability key, you can teleport yourself near the runner. In the overworld, you'll be teleported high in the air overtop the runner and will descend slowly. In the Nether you will teleport close to the runner, but will temporarily turn into a spirit. If you are hit as a spirit, you'll be teleported back to the imp's original location."
+    "name": "Imp's Gateway",
+    "description": "Open a fracture that lets you and your teammates teleport to the runner.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The teleport works differently depending on the dimension.\nOverworld: Opens a fracture in the sky and allows you to slow fall to safety.\nNether: Opens a fracture on the Runner directly, but weakens you on teleport."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Open the portal with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 8m"
+        }
+    ]
 }

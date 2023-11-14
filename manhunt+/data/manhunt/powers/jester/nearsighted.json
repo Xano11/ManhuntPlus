@@ -14,5 +14,5 @@
         }
     },
     "name": "Nearsighted",
-    "description": "You can only see entities that are at max 32 blocks away from you."
+    "description": "You can only see entities that are at most 32 blocks away from you."
 }

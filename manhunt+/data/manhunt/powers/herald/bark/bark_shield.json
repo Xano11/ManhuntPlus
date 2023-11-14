@@ -288,6 +288,23 @@
             ]
         }
     },
-    "name": "§l§nTree Bark Shield",
-    "description": "Using the power of nature, you can give a tree bark shield that increases your teammates defense and giving them a passive health regeneration. [USING] a hunter will grant it the shield. (1.5 minute cooldown)"
+    "name": "Tree Bark Shield",
+    "description": "Channel nature's force to protect and regenerate yourself and your fellow companions.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Bark Shield: +4 Armor and 1 heart per 1.5s for 9s.\nLook directly at a teammate to select them."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s and press Left Click to apply to a teammate!\nRight Click will instead apply it to yourself!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Max Charges: 2\nCooldown: 1m per charge"
+        }
+    ]
 }

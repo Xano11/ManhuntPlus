@@ -132,5 +132,12 @@
 		}
 	},
 	"name": "Sacrifice",
-	"description": "You have the ability to sacrifice and store the souls of those you vanquish. Up to seven of them may be stored at once."
+	"description": "Sacrifice and store the souls of those you vanquish. Up to 15 of them may be stored at once.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Hitting a runner grants one soul.\nAdditionally, doing a critical hit grants two instead."
+		}
+    ]
 }

@@ -50,5 +50,12 @@
         "entity_type": "minecraft:player"
     },
     "name": "Bloodlust",
-    "description": "Killing a player grants you strength I for 7 seconds, regeneration II for 5 seconds and a bit of saturation back."
+    "description": "Killing a hunter feeds your rampant need for blood.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Bloodlust: Strength I, Regeneration II and Saturation I for 7 seconds."
+        }
+    ]
 }

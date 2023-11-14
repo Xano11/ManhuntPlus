@@ -45,7 +45,7 @@
                 }
             ]
         },
-        "cooldown": 1200,
+        "cooldown": 3000,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -126,6 +126,23 @@
         },
         "interval": 1
     },
-    "name": "§l§nSwitch",
-    "description": "Pressing the main ability key will launch a bomb that will blind any player in a 12 block radius (except the bomber themselves)"
+    "name": "Switch",
+    "description": "Use hunter compasses to switch position with a hunter at your desire.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Right-click with a compass to select a hunter."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Switch with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 2m and 30s"
+        }
+    ]
 }

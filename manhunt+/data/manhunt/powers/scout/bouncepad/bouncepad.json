@@ -45,6 +45,23 @@
             "continuous": false
         }
     },
-    "name": "§l§nDash",
-    "description": "You can dash forward by pressing Primary Ability key."
+    "name": "Bouncepad",
+    "description": "Deploy a launchpad to propel your team to victory.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Bouncepad: Launches players forward.\nBouncepads last for 15 seconds."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Deploy with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m and 30s"
+        }
+    ]
 }

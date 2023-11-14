@@ -202,6 +202,23 @@
             ]
         }     
     },
-    "name": "§l§nShadowy Cloud",
-    "description": "Using the secondary ability key, you can quickly turn into a shadow, becoming invisible and invincible for a few seconds."
+    "name": "Void Presence",
+    "description": "Tap into the Void and travel distances unnoticed.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Void-being: You move 60% quicker and you become invisible.\n(Note that you can't interact or see entities additionally)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Step into the Void with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 35s"
+        }
+    ]
 }

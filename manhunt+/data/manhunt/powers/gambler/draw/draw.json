@@ -244,7 +244,7 @@
         "interval": 900
     },
     "name": "Draw a Card",
-    "description": "You can draw a card. The different suits grant you different buffs. Draw up to 3 cards simultaneously.",
+    "description": "Draw a card. The different suits grant you different buffs. Draw up to 3 cards simultaneously.",
     "badges": [
         {
             "type": "origins:tooltip",

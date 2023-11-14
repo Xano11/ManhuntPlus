@@ -75,7 +75,7 @@
             "inverted": true
         }
     },
-    "name": "§l§nTHE BEAST INSIDE",
+    "name": "THE BEAST INSIDE",
     "description": "Sacrificing half your HP puts you in a frenzy, however you lose health if you are not in frenzy you are weaker.",
     "badges": [
         {
@@ -91,7 +91,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown : 30s"
+            "text": "Cooldown: 30s"
         }
     ]
 }

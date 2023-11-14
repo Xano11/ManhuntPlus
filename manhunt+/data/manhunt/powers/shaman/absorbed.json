@@ -19,5 +19,12 @@
         "type": "origins:disable_regen"
     },
     "name": "Absorbed",
-    "description": "Being granted those abilities has weakened your body and its regeneration ability. You can only heal using your secondary ability."
+    "description": "Being granted those abilities has weakened your body and its regeneration ability. You can't heal without letting your body rest.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You do not regenerate outside of Cursed Link."
+        }
+    ]
 }

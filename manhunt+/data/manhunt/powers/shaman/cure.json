@@ -39,6 +39,18 @@
     "condition": {
         "type": "origins:sneaking"
     },
-    "name": "§l§nSculk's cure",
-    "description": "Upon sneaking and right clicking a hunter, you will remove poison and wither effects, as well as extinguish them if they are on fire."
+    "name": "Sculk's cure",
+    "description": "You can cure players of their ailments.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Curing: Removes the poison and wither effect. Additionally, extinguishes the player."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "To use, simply sneak and right click a player."
+        }
+    ]
 }

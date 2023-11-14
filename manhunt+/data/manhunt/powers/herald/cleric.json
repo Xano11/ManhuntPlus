@@ -60,6 +60,13 @@
             }
         }
     },
-    "name": "§l§nCleric",
-    "description": "Dealing a critical hit will instead heal any nearby hunters."
+    "name": "Cleric",
+    "description": "Dealing a critical hit will instead heal any nearby hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Cleric Critical: Heals hunters for half a heart in a 5 block radius."
+        }
+    ]
 }

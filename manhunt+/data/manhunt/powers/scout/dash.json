@@ -7,7 +7,7 @@
 			"actions": [
 				{
 					"type": "origins:add_velocity",
-					"z": 0.35,
+					"z": 0.45,
 					"space": "local"
 				},
 				{
@@ -58,5 +58,22 @@
 		}
 	},
     "name": "§l§nDash",
-    "description": "You can dash forward by pressing Primary Ability key."
+    "description": "Do a light dash every now and then.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(Can be used to negate fall damage)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Dash with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 3s"
+        }
+    ]
 }

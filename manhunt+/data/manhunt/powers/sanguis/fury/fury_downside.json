@@ -24,7 +24,7 @@
         },
         "interval": 10
     },
-    "more_speed": {
+    "less_speed": {
         "type": "origins:attribute",
         "modifier": {
             "name": "Increase speed",

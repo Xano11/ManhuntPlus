@@ -16,5 +16,12 @@
         }
     },
     "name": "Frail Body",
-    "description": "Being so fast and lightweight doesn't make you that resistant compared to your teammates. You take 25% more damage and deal 25% less damage."
+    "description": "Being so fast and lightweight doesn't make you that resistant and strong compared to your teammates.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Frail: Deal 25% less damage and receive 25% more damage."
+        }
+    ]
 }

@@ -25,7 +25,7 @@
 			"comparison": "==",
 			"compare_to": 15
 		},
-		"cooldown": 3600,
+		"cooldown": 1800,
 		"hud_render": {
 			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
 			"bar_index": 5,
@@ -38,5 +38,22 @@
 		}
 	},
 	"name": "Wrath",
-	"description": "You can activate your wrath, granting you more attack speed, movement speed and making you glow. Additionally, hitting any entity for more than 2 hearts will make you go invisible for one second and grant you one soul. But, not touching a single entity for two full hearts during the duration of the power will make you take immense damage."
+	"description": "Unleash your soul energy into an unstoppable wrath that makes you much stronger.",
+	"badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Wrath: +40% speed and +30% attack speed. Picking up souls now heals you. (+1 heart per soul)\nAdditionally, dealing more than 4 damage on a hit will make you invisible for a very brief delay."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Unleash wrath with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Requires max amount of souls.\nCooldown: 1m and 30s."
+        }
+    ]
 }

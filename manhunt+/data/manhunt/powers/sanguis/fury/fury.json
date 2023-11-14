@@ -38,13 +38,30 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "cooldown": 3600,
+        "cooldown": 1800,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 1,
             "should_render": true
         }
     },
-    "name": "§l§nFury",
-    "description": "Using your primary ability key, you can go into a fury, increasing the following : Attack speed (+0.2), Movement speed (20%) and Attack damage (+3). The fury lasts 15 seconds and every kill restarts the cooldown. Though, after the delay, you will be slower."
+    "name": "Fury",
+    "description": "Unleash your fury and hunt the hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Fury: +3 damage, +20% speed and +20% attack speed for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 15 seconds."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Unleash your fury with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m and 30s"
+        }
+    ]
 }

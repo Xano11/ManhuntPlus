@@ -1,5 +1,43 @@
 {
     "type": "origins:multiple",
+    "craft1": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "recipe give @s manhunt:flint_trident",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:pitchfork_craft1"
+                }
+            ]
+        }
+    },
+    "craft2": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flint_trident",
+        "result": {
+            "item": "minecraft:trident",
+            "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "recipe take @s manhunt:flint_trident"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:pitchfork_craft2"
+                }
+            ]
+        }
+    },
     "damage_projectile": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
@@ -11,18 +49,14 @@
             "value": -3
         }
     },
-    "tag": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "tag @s add imp"
-        },
-        "entity_action_removed": {
-            "type": "origins:execute_command",
-            "command": "tag @s remove imp"
-        },
-        "execute_chosen_when_orb": true,
-        "hidden": true
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     },
     "iron": {
         "type": "origins:item_on_item",
@@ -49,12 +83,12 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
+                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:imp/upgrades_resource 1",
+                    "command": "resource set @s manhunt:imp/pitchfork_levels 1",
                     "permission_level": 4
                 }
             ]
@@ -85,12 +119,12 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:2}],HideFlags:3} 1",
+                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:2}],HideFlags:3} 1",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:imp/upgrades_resource 2",
+                    "command": "resource set @s manhunt:imp/pitchfork_levels 2",
                     "permission_level": 4
                 }
             ]
@@ -121,24 +155,15 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @p trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Netherite Fright.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:3}],HideFlags:3} 1",
+                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Netherite Fright.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:3}],HideFlags:3} 1",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:imp/upgrades_resource 3",
+                    "command": "resource set @s manhunt:imp/pitchfork_levels 3",
                     "permission_level": 4
                 }
             ]
-        }
-    },
-    "resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 3,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
         }
     },
     "iron_projectile_dmg": {
@@ -154,7 +179,7 @@
                     "type": "origins:attacker",
                     "entity_condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:imp/upgrades_resource",
+                        "resource": "manhunt:imp/pitchfork_levels",
                         "comparison": "==",
                         "compare_to": 1
                     }
@@ -179,7 +204,7 @@
                     "type": "origins:attacker",
                     "entity_condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:imp/upgrades_resource",
+                        "resource": "manhunt:imp/pitchfork_levels",
                         "comparison": "==",
                         "compare_to": 2
                     }
@@ -204,7 +229,7 @@
                     "type": "origins:attacker",
                     "entity_condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:imp/upgrades_resource",
+                        "resource": "manhunt:imp/pitchfork_levels",
                         "comparison": "==",
                         "compare_to": 3
                     }
@@ -238,7 +263,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/upgrades_resource",
+            "resource": "manhunt:imp/pitchfork_levels",
             "comparison": "==",
             "compare_to": 3
         }
@@ -251,12 +276,43 @@
         },
         "entity_action_respawned": {
             "type": "origins:execute_command",
-            "command": "resource set @s manhunt:imp/upgrades_resource 0",
+            "command": "resource set @s manhunt:imp/pitchfork_levels 0",
             "permission_level": 4
         },
         "execute_chosen_when_orb": true,
         "hidden": true
     },
-    "name": "Upgrades",
-    "description": "You can upgrade your pitchfork, starting out you cannot deal damage with it but you can upgrade it using iron, diamond and a netherite scrap (in that very order) by dragging the corresponding material on top of it and right clicking it. The damage will increase with each upgrade. Death resets the upgrade (the level of upgrade is shown by how many ☆'s are at the end of the name, for example if you have \"Ol'reliable ★\" that means you are on the copper upgrade and must add iron to upgrade it again.)"
+    "name": "Imp's Recipe",
+    "description": "Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid. This pitchfork can be upgraded with resources. (see badges)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "To upgrade, simply right click with the material while hovering on the trident in your inventory.\n§7Iron Upgrade: 1 Iron Ingot\n§3Diamond Upgrade: 1 Diamond\n§6Netherite Upgrade: 1 Netherite Scrap§r\nUpgrades increase the damage of the trident (Netherite also has piercing)."
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/trident.png",
+            "recipe": {
+                "id": "manhunt:flint_trident",
+                "type": "minecraft:crafting_shaped",
+                "key": {
+                    "X": {
+                        "item": "minecraft:flint"
+                    },
+                    "#": {
+                        "item": "minecraft:stick"
+                    }
+                },
+                "pattern": [
+                    " X ",
+                    " # ",
+                    " # "
+                ],
+                "result": {
+                    "item": "minecraft:trident"
+                }
+            }
+        }
+    ]
 }

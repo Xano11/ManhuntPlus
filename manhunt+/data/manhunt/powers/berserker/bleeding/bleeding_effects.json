@@ -1,10 +1,10 @@
 {
     "type": "origins:multiple",
-    "resource": {
+    "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 40,
-        "start_value": 40,
+        "max": 60,
+        "start_value": 60,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
@@ -15,11 +15,11 @@
             "command": "power remove @s manhunt:berserker/bleeding/bleeding_effects"
         }
     },
-    "remove_resource": {
+    "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:berserker/bleeding/bleeding_effects_resource",
+            "resource": "manhunt:berserker/bleeding/bleeding_effects_duration",
             "change": -10
         },
         "interval": 10

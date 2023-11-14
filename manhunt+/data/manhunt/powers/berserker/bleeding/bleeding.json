@@ -3,26 +3,31 @@
     "on_crit": {
         "type": "eggolib:action_on_critical_hit",
         "bientity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:target_action",
-                    "action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
                         "type": "origins:execute_command",
                         "command": "power grant @s manhunt:berserker/bleeding/bleeding_effects",
                         "permission_level": 4
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:berserker/bleeding/bleeding_effects_duration",
+                        "change": 60
                     }
-                }
-            ]
+                ]
+            }
         }
     },
-    "name": "§l§nBleeding Hit",
+    "name": "Bleeding Hit",
     "description": "Critical hits cause bleeding, and their struggles cause even more damage.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Bleed stack: 3s DoT. Entities with stacks take damage by using items."
+            "text": "Bleeding: 3s damage over time. Bleeding entities take damage by using items."
         }
     ]
 }

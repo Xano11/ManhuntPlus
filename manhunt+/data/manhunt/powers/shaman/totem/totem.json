@@ -75,6 +75,23 @@
             "type":"origins:on_block"
         }
     },
-    "name": "§l§nTotem of life",
-    "description": "Using your primary ability key, you can summon a totem that feeds and heals your teammates."
+    "name": "Totem of life",
+    "description": "Summon a totem that feeds the soul (and body) of nearby hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Totem: Heals for 2 hearts and feeds for 2 full hunger shanks every 1.5 seconds."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Summon with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 2m"
+        }
+    ]
 }

@@ -5,5 +5,12 @@
         "value": -0.8
     },
 "name": "Awful Archer",
-"description": "Any projectile you shoot or throw does next to little damage."
+"description": "Any projectile you shoot or throw does next to little damage.",
+"badges": [
+    {
+        "type": "origins:tooltip",
+        "sprite": "origins:textures/gui/badge/star.png",
+        "text": "(-80% projectile damage)"
+    }
+]
 }

@@ -74,6 +74,13 @@
             ]
         }
     },
-    "name": "§l§nYOU'RE COMING BACK HERE BIT-",
-    "description": "You go faster when there is no runner in a 64 block radius."
+    "name": "COME BACK HERE",
+    "description": "You go faster when there is no runner in a 64 block radius.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(20% speed increase)"
+        }
+    ]
 }

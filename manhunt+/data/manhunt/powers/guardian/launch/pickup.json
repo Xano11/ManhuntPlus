@@ -26,7 +26,16 @@
                 {
                     "type": "origins:target_condition",
                     "condition": {
-                        "type": "origins:living"
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:living"
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "manhunt:hunter_effects"
+                            }
+                        ]
                     }
                 }
             ]

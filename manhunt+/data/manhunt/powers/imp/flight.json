@@ -1,12 +1,10 @@
 {
-    "name": "§l§nFlight",
-    "description": "When not sprinting charge up your \"Flight\" bar, holding your Primary ability key will propel you forward pretty quickly, whilst draining the \"Flight\" bar that you charged up prior. (this ability can be used to negate fall damage)",
     "type": "origins:multiple",
-    "resource": {
+    "energy": {
         "type": "origins:resource",
         "min": 0,
-        "max": 20,
-        "start_value": 20,
+        "max": 60,
+        "start_value": 60,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/resource_bar.png",
@@ -17,10 +15,10 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:imp/flight_resource",
+            "resource": "manhunt:imp/flight_energy",
             "change": 1
         },
-        "interval": 30,
+        "interval": 5,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -64,14 +62,18 @@
                     "command": "execute at @s run playsound minecraft:entity.generic.extinguish_fire player @a ~ ~1 ~ 1 2"
                 },
                 {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
                     "type": "origins:add_velocity",
                     "z": 0.2,
                     "space": "local"
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:imp/flight_resource",
-                    "change": -1
+                    "resource": "manhunt:imp/flight_energy",
+                    "change": -3
                 }
             ]
         },
@@ -85,9 +87,28 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/flight_resource",
-            "comparison": ">",
-            "compare_to": 0
+            "resource": "manhunt:imp/flight_energy",
+            "comparison": ">=",
+            "compare_to": 3
         }
-    }
+    },
+    "name": "Infernal flight",
+    "description": "Fly at high speeds in the direction you are looking.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The ability can be used to negate fall damage."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Fly with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "6%/sec energy recharge whilst on the ground."
+        }
+    ]
 }

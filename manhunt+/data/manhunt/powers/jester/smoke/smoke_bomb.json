@@ -44,6 +44,23 @@
     "key": {
         "key": "key.origins.secondary_active"
     },
-    "name": "§l§nSmoke Bomb",
-    "description": "Pressing the secondary ability key will launch a smoke bomb that will deploy a smoke screen. Whilst inside the smoke screen, entities become invisible, with their outline shown to other players in the smokescreen. It also increases the speed of entities inside."
+    "name": "Smoke Bomb",
+    "description": "Deploy a disruptive smoke bomb to sow seeds of chaos.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Smoked: Increased speed and invisibility.\n(Your armor is still rendered and you leave a smoke trace)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Deploy smoke with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
 }
