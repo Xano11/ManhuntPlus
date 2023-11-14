@@ -18,7 +18,7 @@
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5800,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:diamond\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5800,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
 		"bientity_condition": {
@@ -46,7 +46,7 @@
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5400,PickupDelay:30,Invulnerable:1b,Item:{id:\"minecraft:diamond\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5400,PickupDelay:30,Invulnerable:1b,Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
 		"bientity_condition": {
@@ -78,11 +78,6 @@
 			"action": {
 				"type": "origins:and",
 				"actions": [
-					{
-						"type": "origins:change_resource",
-						"resource": "manhunt:ritualist/sacrifice_souls",
-						"change": 1
-					},
 					{
 						"type": "origins:if_else",
 						"condition": {
@@ -130,7 +125,7 @@
 				{
 					"type": "origins:ingredient",
 					"ingredient": {
-						"item": "minecraft:diamond"
+						"item": "minecraft:cyan_dye"
 					}
 				}
 			]

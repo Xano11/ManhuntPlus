@@ -77,6 +77,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "resource set @s manhunt:celeritas/checkpoint/checkpoint_effects_duration 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:celeritas/checkpoint/checkpoint_effects_trigger_early"
                 }
             ]
         },

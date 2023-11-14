@@ -1,0 +1,239 @@
+{
+    "type": "origins:multiple",
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 1,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 60
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 30
+                }
+            ]
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 0.95,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 30
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 25
+                }
+            ]
+        }
+    },
+    "overlay3": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 0.9,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 25
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
+    "overlay4": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 0.85,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 15
+                }
+            ]
+        }
+    },
+    "overlay5": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 0.8,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 10
+                }
+            ]
+        }
+    },
+    "overlay6": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 0.7,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 5
+                }
+            ]
+        }
+    },
+    "overlay7": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/cdn.png",
+        "strength": 0.4,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "comparison": "<=",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/lash/special_flash_effects_duration",
+                    "comparison": ">=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:bomber/flash/special_flash_effects"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomber/flash/special_flash_effects_duration",
+                    "change": -5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^ ^1.8 ^0.4 0.3 0.1 0.3 0 10"
+                }
+            ]
+        },
+        "interval": 5
+    }
+}

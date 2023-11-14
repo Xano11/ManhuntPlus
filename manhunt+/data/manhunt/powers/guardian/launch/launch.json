@@ -62,6 +62,11 @@
                             },
                             {
                                 "type": "origins:execute_command",
+                                "command": "power grant @p[tag=riding] manhunt:guardian/launch/thrown",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
                                 "command": "execute on passengers run tag @s remove riding",
                                 "permission_level": 4
                             },

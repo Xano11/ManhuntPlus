@@ -1,7 +1,7 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "minecraft:item/netherite_axe"
+        "layer0": "minecraft:item/echo_shard"
     },
     "overrides": [
         {

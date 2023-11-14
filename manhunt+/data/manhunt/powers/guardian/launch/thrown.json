@@ -1,0 +1,10 @@
+{
+    "type": "origins:multiple",
+    "no_dismount": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+           "key.sneak"
+        ]
+    },
+   "hidden": true
+}

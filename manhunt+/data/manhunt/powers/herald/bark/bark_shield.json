@@ -52,11 +52,6 @@
                                             "change": -1
                                         },
                                         {
-                                            "type": "origins:change_resource",
-                                            "resource": "manhunt:herald/bark/bark_shield_cooldown",
-                                            "change": 60
-                                        },
-                                        {
                                             "type": "origins:if_else",
                                             "condition": {
                                                 "type": "origins:resource",
@@ -150,9 +145,18 @@
                     "change": -1
                 },
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:herald/bark/bark_shield_cooldown",
-                    "change": 60
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:herald/bark/bark_shield_charges",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "if_action":{
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:herald/bark/bark_shield_cooldown",
+                        "change": 60
+                    }
                 }
             ]
         },

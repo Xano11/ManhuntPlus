@@ -33,7 +33,7 @@
         "type": "origins:resource",
         "min": 0,
         "max": 15,
-        "start_value": 15,
+        "start_value": 0,
         "hud_render": {
             "should_render": false
         },
@@ -51,7 +51,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_usage",
+            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
             "change": -1
         },
         "interval": 1
@@ -61,7 +61,7 @@
         "shader": "minecraft:shaders/post/desaturate.json",
         "condition": {
             "type":"origins:resource",
-            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_usage",
+            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
             "compare_to": 0,
             "comparison": ">"
         }
@@ -71,7 +71,7 @@
         "render_armor": false,
         "condition": {
             "type":"origins:resource",
-            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_usage",
+            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
             "compare_to": 0,
             "comparison": ">"
         }
@@ -108,7 +108,7 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:ritualist/wrath/wrath_effects_phase_usage",
+                    "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
                     "change": 15
                 },
                 {
