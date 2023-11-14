@@ -6,5 +6,12 @@
         "value": -0.5
     },
     "name":"Adrenaline",
-    "description":"Being used to running for your life at all time, you've learned how to reduce your consumption of food. (50% less exhaustion)"
+    "description":"You are used to running and exhaust less.",
+    "badges" [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Adrenaline: -50% exhaustion"
+        }
+    ]
 }
