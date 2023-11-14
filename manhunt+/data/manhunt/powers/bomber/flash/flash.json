@@ -65,5 +65,17 @@
         "key": "key.origins.secondary_active"
     },
     "name": "§l§nFlash",
-    "description": "Pressing [Secondary Ability Key] will throw a flash bang that blinds enemies in a 32 block radius. You are immune to the effect."
+    "description": "Pressing [Secondary Ability Key] will throw a flash bang that blinds enemies in a 32 block radius. You are immune to the effect.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Max Carry: 2 packs.\n(Those with a pack can trigger it by sneaking)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "3m per pack"
+        }
+    ]
 }

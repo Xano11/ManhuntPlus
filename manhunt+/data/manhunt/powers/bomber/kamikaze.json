@@ -880,5 +880,22 @@
         }
     },
     "name": "§l§nKamikaze",
-    "description": "Holding your main ability key will start charging up Kamikaze. The longer the key is held, the stronger the explosion will be. (No Health Insurance Included)."
+    "description": "Charging up your kamikaze will cause an explosion, charging longer will cause a stronger explosion.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Small Explosion: 0s\nMedium Explosion: 1.65s\nLarge Explosion: 3.3s\nMax Explosions: 5s"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Charge by pressing %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 3m"
+        }
+    ]
 }
