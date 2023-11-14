@@ -50,7 +50,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "data modify entity @s Pickup set value 0b"
+                                "command": "data modify entity @s pickup set value 0b"
                             },
                             {
                                 "type": "origins:execute_command",

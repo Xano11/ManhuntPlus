@@ -53,7 +53,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @s {\"text\":\"(+Atk and +Atk Speed)\",\"bold\":true,\"italic\":true}"
+                    "command": "tellraw @s {\"text\":\"(+Atk)\",\"bold\":true,\"italic\":true}"
                 }
             ]
         },
@@ -73,50 +73,11 @@
             ]
         }
     },
-    "more_attack_speed": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.2,
-            "operation": "addition"
-        }
-    },
-    "more_attack_speed1": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
-            "operation": "addition"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:gambler/draw/spade_upgrade",
-            "comparison": ">=",
-            "compare_to": 1
-        }
-    },
-    "more_attack_speed2": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
-            "operation": "addition"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:gambler/draw/spade_upgrade",
-            "comparison": "==",
-            "compare_to": 2
-        }
-    },
     "more_attack": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "addition",
-            "value": 1
+            "value": 2
         }
     },
     "more_attack1": {
