@@ -86,7 +86,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger with %s!"
+            "text": "Unleash with %s!"
         },
         {
             "type": "origins:tooltip",

@@ -235,7 +235,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger with %s!"
+            "text": "Load your crossbow with %s!"
         },
         {
             "type": "origins:tooltip",

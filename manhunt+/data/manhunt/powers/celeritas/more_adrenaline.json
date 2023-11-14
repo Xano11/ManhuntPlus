@@ -7,7 +7,7 @@
     },
     "name":"Adrenaline",
     "description":"You are used to running and exhaust less.",
-    "badges" [
+    "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
