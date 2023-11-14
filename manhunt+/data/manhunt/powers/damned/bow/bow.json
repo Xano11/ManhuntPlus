@@ -290,23 +290,6 @@
             ]
         }
     },
-    "tag": {
-        "type": "origins:target_action_on_hit",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "power grant @e[limit=1,sort=nearest] manhunt:damned/bow/tag_effects",
-            "permission_level": 4
-        },
-        "damage_condition": {
-            "type": "origins:projectile",
-            "projectile": "minecraft:arrow"
-        },
-        "cooldown": 1,
-        "hud_render": {
-            "should_render": false,
-            "bar_index": 0
-        }
-    },
     "glowing_arrows": {
         "type": "origins:entity_glow",
         "bientity_condition": {
