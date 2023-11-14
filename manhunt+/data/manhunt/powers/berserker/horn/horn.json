@@ -49,6 +49,11 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
             "text": "Boon: 20s defense and attack speed up in a 20 block radius."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 5m"
         }
     ]
 }
