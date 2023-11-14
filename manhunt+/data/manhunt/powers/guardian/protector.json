@@ -42,6 +42,13 @@
             }
         }
     },
-    "name": "§l§nProtector",
-    "description": "Holding a shield will grant all nearby hunters in a 12 block radius the effect Resistance, nullifying 20% of all incoming damage."
+    "name": "Protector",
+    "description": "Holding a shield will grants nearby hunters extra protection.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Protection: 20% mitigation in a 12 block radius."
+        }
+    ]
 }

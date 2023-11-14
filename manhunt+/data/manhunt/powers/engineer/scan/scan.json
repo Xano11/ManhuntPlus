@@ -21,6 +21,23 @@
             "should_render": true
         }
     },
-    "name": "§l§nTecto-Scan",
-    "description": "Using the primary ability key, you will use your Tectonic Scan. The scan will start uploading the information gathered by your compass, requiring a few seconds for full upload. Upon full upload, any moving runner will start signaling their position to the hunters"
+    "name": "Tecto-Scan",
+    "description": "You can use your Tectonic Scan to upload runner movements.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The scan lasts a few seconds and will signal any moving runners' location."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Scan with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
 }

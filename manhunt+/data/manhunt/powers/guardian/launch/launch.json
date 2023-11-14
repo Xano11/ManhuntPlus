@@ -104,6 +104,23 @@
             "compare_to": 900
         }
     },
-    "name": "§l§nSavior of All",
-    "description": "Using the primary ability key, you can grant your teammate the possibility to teleport to you, healing them, but slowing them. Watch out, as the ability deals 5 hearts of damage on use."
+    "name": "Chuck",
+    "description": "Pick up and throw your fellow hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Thrown hunters do not take fall damage."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Pick up with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 45s"
+        }
+    ]
 }

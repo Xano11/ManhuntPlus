@@ -243,6 +243,23 @@
         },
         "interval": 900
     },
-    "name": "§l§nDRAW A CARD",
-    "description": "Using your primary ability key, you will draw a card. Depending on the type (Spade, Heart, Diamond, Club), it will change the effect you get. You can draw up to three cards at a time, getting one more draw every minute."
+    "name": "Draw a Card",
+    "description": "You can draw a card. The different suits grant you different buffs. Draw up to 3 cards simultaneously.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Drawing the same suit multiplies the suits' effects\n§5Clubs: Speed Up\n§7Spades: Damage Up\n§cHearts: Regen\n§bDiamonds: Armor Up"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Draw a Card with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Regain a Card every 45s"
+        }
+    ]
 }

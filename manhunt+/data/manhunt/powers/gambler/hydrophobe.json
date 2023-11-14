@@ -26,6 +26,13 @@
             "compare_to": 1
         }
     },
-    "name": "Too classy for water.",
-    "description": "You don't like your suit when it's drenched in water. And the Devil agrees with you. (Slower in water + Damage)"
+    "name": "Dripless Drip.",
+    "description": "You don't want your drip to get drenched. And the Devil agrees with you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Drenched: 1dps + Slowness I"
+        }
+    ]
 }

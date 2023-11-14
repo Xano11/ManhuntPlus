@@ -63,6 +63,23 @@
             "should_render": true
         }
     },
-    "name": "§l§nTHE FOOL'S DECEPTION",
-    "description": "Pressing your secondary ability key will leave at your position a cursed lodestone, leading the hunters' compasses to it and therefore; preventing them from tracking you."
+    "name": "The Fool's Deception",
+    "description": "You can place a cursed lodestone, leading the hunters' compasses to it and therefore; preventing them from tracking you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The lodestone lasts for 1m. Hunters can break the lodestone."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Place lodestone with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 3m"
+        }
+    ]
 }

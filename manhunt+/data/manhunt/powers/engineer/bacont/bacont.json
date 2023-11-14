@@ -42,5 +42,22 @@
         }
     },
     "name": "BACON-T",
-    "description": "You can summon your little friend: BACON-T! Interacting with them will put yourself and the closest runneer into a simulation. Fight for your life and winning will grant you buffs and weaken the runner."
+    "description": "You can summon your little friend: BACON-T! Interacting with them will put yourself and the closest runneer into a simulation. Whomever wins, gets a temporary buff",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Winner Buff: Increase Max Health, Strength I, Speed III, Resistance I."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Summon with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 10m"
+        }
+    ]
 }

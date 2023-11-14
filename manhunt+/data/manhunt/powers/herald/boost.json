@@ -1,6 +1,23 @@
 {
-	"name": "§l§nEncouraging Aura",
+	"name": "Encouraging Aura",
 	"description": "Channeling your inner powers, you release a wave of powerful energy that grants a boost to the nearby entities.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Aura: "
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Realease aura with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ],
 	"type": "origins:active_self",
 	"cooldown": 1200,
 	"hud_render": {

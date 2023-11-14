@@ -9,6 +9,13 @@
             "name": "Decreased attack speed."
         }
     },
-    "name": "Massive and slow.",
-    "description": "With such a stature, you are well known for being slow attack-wise. (-0.3 attack speed)"
+    "name": "Big and Bulky.",
+    "description": "With such a stature, you are well known for having slow attacks.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Bulky: -30% Attack Speed."
+        }
+    ]
 }

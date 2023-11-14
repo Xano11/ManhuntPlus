@@ -203,6 +203,6 @@
             "compare_to": 0
         }
     },
-    "name": "§l§nShields of the Guardian",
+    "name": "Guardian's Shields",
     "description": "You have special shields that protects you from enemy hits by 20%. Any hit that does more than a heart of damage will consume a shield and shields will slowly deplete over time. If your shields are depleted, you become slower and lose your additional resistance. Shields will come back slowly, but can be accelerated through sneaking."
 }
