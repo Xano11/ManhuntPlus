@@ -1,29 +1,51 @@
 {
-    "type": "origins:modify_velocity",
-    "axes": [
-        "z",
-        "x"
-    ],
-    "modifier": {
-        "operation": "multiply_total",
-        "value": -0.2
+    "type": "origins:multiple",
+    "slower": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                }
+            ]
+        }
     },
-    "condition": {
-        "type": "origins:and",
-        "conditions": [
-            {
-                "type":"origins:on_block",
+    "drop_offhand": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:drop_inventory",
+            "inventory_type": "inventory",
+            "slots": [
+                "weapon.offhand"
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "offhand",
+            "item_condition": {
+                "type": "origins:empty",
                 "inverted": true
             }
-        ]
+        }
     },
-    "name":"Made For The Sea",
-    "description":"You move slower mid-air",
+    "name": "Sea Rascal",
+    "description": "Your crippled body doesn't allow you to use your offhand and to keep up with others as well.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Seamen: -20% air movement speed"
+            "text": "Crippled Leg: -20% air movement speed\n\nLost Hand: No offhand usage."
         }
     ]
 }

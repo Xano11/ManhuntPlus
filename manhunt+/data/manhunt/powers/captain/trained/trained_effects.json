@@ -69,6 +69,14 @@
             ]
         }
     },
+    "vision":{
+        "type": "origins:night_vision",
+        "strength": 0.5,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        }
+    },
     "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
