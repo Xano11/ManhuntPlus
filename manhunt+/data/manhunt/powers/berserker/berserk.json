@@ -72,5 +72,12 @@
     }
 },
 "name": "BERSERK MINDSET",
-"description": "You gain 0.15 attack speed per 2 missing hearts"
+"description": "You gain more attack speed when you are missing more health.",
+"badges": [
+    {
+        "type": "origins:tooltip",
+        "sprite": "manhunt:textures/icons/cooldown.png",
+        "text": "Berserk: 0.15 attack speed per 2 hearts."
+    }
+]
 }

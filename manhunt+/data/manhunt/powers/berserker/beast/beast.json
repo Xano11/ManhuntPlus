@@ -76,5 +76,17 @@
         }
     },
     "name": "§l§nTHE BEAST INSIDE",
-    "description": "Sacrificing 5 hearts, you are granted 10 seconds of +3 damage and 20% more movement speed. But outside of your frenzy, you have -2 damage passively."
+    "description": "Sacrificing half your HP puts you in a frenzy, however you lose health if you are not in frenzy you are weaker.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "With Frenzy: 10 seconds of +3 damage and 20% more movement speed.\n Without Frenzy: passive -2 damage."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Trigger with %s!"
+        }
+    ]
 }

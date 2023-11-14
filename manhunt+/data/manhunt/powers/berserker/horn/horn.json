@@ -43,5 +43,12 @@
         "cooldown": 6000
     },
     "name": "§l§nHorny (Wait a minute-)",
-    "description": "You spawn with your personalized horn. Using said horn will grant a defense and attack speed boost to all other hunters in a 20 block radius. (5 mins cooldown)"
+    "description": "Spawn with a horn, which when blown will grant a boon to your fellow hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Boon: 20s defense and attack speed up in a 20 block radius."
+        }
+    ]
 }

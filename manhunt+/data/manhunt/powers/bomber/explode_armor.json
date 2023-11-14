@@ -23,5 +23,12 @@
         ]
       },
       "name": "Explosion-Proof Armor",
-      "description": "Being the maniac of bombs you are, you have an innate 90% blast damage protection."
+      "description": "Being the maniac of bombs you are, you have an innate resistance to explosions.",
+      "badges": [
+        {
+          "type": "origins:tooltip",
+          "sprite": "origins:textures/gui/badge/star.png",
+          "text": "90% blast damage mitigation."
+      }
+      ]
   }
