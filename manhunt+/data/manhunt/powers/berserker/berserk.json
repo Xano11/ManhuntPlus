@@ -72,21 +72,12 @@
     }
 },
 "name": "BERSERK MINDSET",
-<<<<<<< HEAD
-"description": "You gain more attack speed when you are missing more health.",
-"badges": [
-    {
-        "type": "origins:tooltip",
-        "sprite": "manhunt:textures/icons/cooldown.png",
-        "text": "Berserk: 0.15 attack speed per 2 hearts."
-=======
-"description": "You gain 0.15 attack speed per 2 missing hearts",
+"description": "You gain more attack speed proportial to missing health.",
 "badges":[
     {
         "type": "origins:tooltip",
         "sprite": "origins:textures/gui/badge/star.png",
-        "text": "A gold star!"
->>>>>>> 32aa22a6fdff496697698186dd2e8e5dd9ce5865
+        "text": "Berserk : 0.15 attack per 2 missing hearts."
     }
 ]
 }

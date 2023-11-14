@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "resource": {
+    "duration": {
         "type": "origins:resource",
         "min": 0,
         "max": 30,
@@ -69,11 +69,11 @@
             ]
         }
     },
-    "remove_resource": {
+    "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:captain/trained/trained_effects_resource",
+            "resource": "manhunt:captain/trained/trained_effects_duration",
             "change": -1
         },
         "interval": 20
