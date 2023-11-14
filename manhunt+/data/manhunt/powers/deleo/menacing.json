@@ -6,5 +6,12 @@
     },
     "interval": 30,
     "name":"Menacing Aura",
-    "description":"You pulse with menacing energy, granting slowness to every entity in a 10 block radius."
+    "description":"You pulse with menacing energy.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Aura: Slowness I in a 10 block radius"
+        }
+    ]
 }

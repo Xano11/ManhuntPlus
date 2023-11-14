@@ -41,6 +41,23 @@
             "should_render": true
         }
     },
-    "name": "§l§nShutdown.",
-    "description": "Using the secondary ability key, you can stun all the hunters for 7 seconds, wherever they are."
+    "name": "Shutdown.",
+    "description": "You can hinder all the hunters for a short while, wherever they are.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Hunter Stun: No abilities, 60% Slowness, 75% Mitigation, Deafened."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Trigger with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 5m"
+        }
+    ]
 }

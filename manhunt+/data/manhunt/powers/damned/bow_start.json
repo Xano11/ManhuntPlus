@@ -23,6 +23,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "The Whisperer's arrows allow you to use your abilities."
+            "text": "The Whisperer's arrows allow you to use your abilities.\n(Arrows are tagged for 30s)"
         }
+    ]
 }

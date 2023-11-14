@@ -444,6 +444,18 @@
             ]
         }
     },
-    "name": "§l§nBone Warping",
-    "description": "Using your primary ability key, you can teleport to an arrow you shot recently. To activate, be sure you're looking directly at the arrow you want to teleport to."
+    "name": "Bone Warping",
+    "description": "By looking at an arrow you recently shot, you can teleport to said arrow.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Warp with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 5m"
+        }
+    ]
 }

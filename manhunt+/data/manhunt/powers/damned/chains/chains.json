@@ -191,6 +191,18 @@
             ]
         }
     },
-    "name": "§l§nChains of despair",
-    "description": "Whilst looking at a tagged arrow and pressing [Secondary Ability Key], you will summon a skull pillar to pulls nearby entities and restrains them."
+    "name": "Chains of despair",
+    "description": "Whilst looking at a tagged arrow you can summon a skull pillar to pull nearby entities and restrain them.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Chain with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
 }

@@ -52,6 +52,23 @@
     "key": {
         "key": "key.origins.primary_active"
     },
-    "name": "§l§nCursed Hatchet",
-    "description": "Pressing the main ability key will launch a bomb that will blind any player in a 12 block radius (except the bomber themselves)"
+    "name": "Cursed Hatchet",
+    "description": "Throw a hatchet which puts a curse on runners",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Curse: No abilities for 10s."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Throw hatchet with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
 }

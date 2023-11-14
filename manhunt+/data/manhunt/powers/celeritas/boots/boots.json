@@ -354,7 +354,7 @@
     },
     "name": "Legendary Boots",
     "description": "Your boots can make you faster and walk on water/lava.",
-    "badges" [
+    "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
