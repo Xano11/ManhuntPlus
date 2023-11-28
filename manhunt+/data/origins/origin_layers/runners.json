@@ -21,5 +21,6 @@
               ]
           }
       ],
+      "default_origin": "manhunt:none",
       "name": "runner"
 }

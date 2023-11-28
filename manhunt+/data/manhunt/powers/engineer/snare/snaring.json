@@ -1,0 +1,251 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "effects": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 2.2,
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:engineer/snare/snared",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:item.shield.break player @a ~ ~ ~ 3 1.5",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.2 0 0.2 0.1 20",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:engineer/snare/snaring_duration",
+                                    "change": -140
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runner",
+                            "layer": "origins:origin"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 2
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/snare/snaring_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.crossbow.loading_end player @a ~ ~ ~ 1 2",
+            "permission_level": 4
+        },
+        "interval": 7
+    },
+    "anim": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/snare/snaring_anim",
+            "change": -4
+        }
+    },
+    "anim_loop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/snare/snaring_anim",
+            "change": 1
+        },
+        "interval": 4
+    },
+    "animation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:engineer/snare/snaring_anim",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on vehicle run data modify entity @s item.tag.CustomModelData set value 1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:engineer/snare/snaring_anim",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on vehicle run data modify entity @s item.tag.CustomModelData set value 2",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:engineer/snare/snaring_anim",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on vehicle run data modify entity @s item.tag.CustomModelData set value 3",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:engineer/snare/snaring_anim",
+                        "comparison": "==",
+                        "compare_to": 3
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on vehicle run data modify entity @s item.tag.CustomModelData set value 4",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.3 0.5 1 0 1 1 ~ ~ ~ 2.5 0 2.5 1 100",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 4
+    },
+    "rotation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:raycast",
+                        "distance": 0.8,
+                        "block": true,
+                        "entity": false,
+                        "shape_type": "visual",
+                        "fluid_handling": "none",
+                        "block_condition": {
+                            "type": "origins:movement_blocking"
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on vehicle at @s run tp @s ~ ~ ~ ~18 ~",
+                        "permission_level": 4
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @e[limit=1,sort=nearest,type=item_display,tag=snare] ^ ^ ^1.2",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run tp @s ~ ~ ~ ~18 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.3 0.5 2 0 1 1 ^ ^2.5 ^ 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.3 0.5 2 0 1 1 ^ ^-2.5 ^ 0 0 0 1 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

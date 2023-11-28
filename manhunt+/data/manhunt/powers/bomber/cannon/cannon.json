@@ -80,7 +80,7 @@
             "type": "origins:sneaking"
         }
     },
-    "name": "§l§nCANNONBALL",
+    "name": "CANNONBALL",
     "description": "Interact with a fellow hunter while sneaking to equip them with a Cannon Pack to launch them forwards.",
     "badges": [
         {

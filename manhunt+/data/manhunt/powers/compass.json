@@ -26,7 +26,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "execute as @a[tag=runner,nbt={Dimension:\"minecraft:overworld\"}] if score @s runners = @p tracking at @s run data modify storage lode Track1 merge from entity @e[limit=1,sort=nearest,type=minecraft:item,tag=tracking1]"
+                        "command": "execute as @a[tag=runner] if score @s runners = @p tracking at @s in minecraft:overworld run data modify storage lode Track1 merge from entity @e[limit=1,sort=nearest,type=minecraft:item,tag=tracking1]"
                     }
                 ]
             },

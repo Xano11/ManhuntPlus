@@ -1,6 +1,4 @@
 {
-    "name": "Imp",
-    "description": "These natural tricksters love to mess and stalk anyone that comes in their way.",
     "powers": [
         "manhunt:imp/flight",
         "manhunt:imp/body",
@@ -12,5 +10,7 @@
 		"item": "minecraft:trident",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
-    "impact": 3
+    "impact": 3,
+    "name": "Imp",
+    "description": "      [§bPACEKEEPER ╬§r]\nThese natural tricksters love to mess and stalk anyone that comes in their way."
 }

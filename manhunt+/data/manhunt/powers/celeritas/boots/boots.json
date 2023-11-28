@@ -334,7 +334,8 @@
         },
         "cooldown": 1,
         "key": {
-            "key": "key.origins.primary_active"
+            "key": "key.origins.primary_active",
+            "continuous": true
         },
         "hud_render": {
             "should_render": false

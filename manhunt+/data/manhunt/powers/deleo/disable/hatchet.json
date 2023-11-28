@@ -38,6 +38,15 @@
         },
         "interval": 1
     },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:enchant ~ ~ ~ 0.2 0.2 0.2 1 5",
+            "permission_level": 4
+        },
+        "interval": 1
+    },
     "impact": {
         "type": "origins:action_over_time",
         "rising_action": {

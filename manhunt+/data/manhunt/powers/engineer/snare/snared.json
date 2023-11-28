@@ -1,0 +1,67 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:engineer/snare/snared"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/snare/snared_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "less_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -0.6,
+            "operation": "multiply_total"
+        }
+    },
+    "less_air_speed": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.3
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type":"origins:on_block",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "less_jump":{
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+    "hidden": true
+}

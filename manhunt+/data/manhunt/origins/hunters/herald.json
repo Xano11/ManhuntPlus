@@ -1,6 +1,6 @@
 {
 	"powers": [
-		"manhunt:herald/boost",
+		"manhunt:herald/boost/boost",
 		"manhunt:herald/bark/bark_shield",
 		"origins:more_exhaustion",
 		"origins:nine_lives",
@@ -14,5 +14,5 @@
 	"order": 10,
 	"impact": 1,
 	"name": "Herald",
-	"description": "The Herald is the leader of the group; they lead with their supportive powers to get an advantage on the runner."
+	"description": "       [§eASSISTANCE ✦§r]\nThe Herald is the leader of the group; they lead with their supportive powers to get an advantage on the runner."
 }

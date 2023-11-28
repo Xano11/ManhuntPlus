@@ -67,7 +67,7 @@
                             }
                         ]
                     },
-                    "radius": 64.0,
+                    "radius": 96.0,
                     "comparison": "==",
                     "compare_to": 0
                 }
@@ -75,7 +75,7 @@
         }
     },
     "name": "COME BACK HERE",
-    "description": "You go faster when there is no runner in a 64 block radius.",
+    "description": "You go faster when there is no runner in a 96 block radius.",
     "badges": [
         {
             "type": "origins:tooltip",

@@ -81,6 +81,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power remove @s manhunt:celeritas/checkpoint/checkpoint_effects_trigger_early"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.chime player @s ~ ~ ~ 1 0.6",
+                    "permission_level": 4
                 }
             ]
         },

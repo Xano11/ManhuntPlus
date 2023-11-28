@@ -29,6 +29,14 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "OFF_HAND"
+                },
+                {
                     "type": "origins:passenger_action",
                     "action":  {
                         "type": "origins:and",

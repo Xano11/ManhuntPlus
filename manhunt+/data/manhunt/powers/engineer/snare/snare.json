@@ -3,26 +3,26 @@
     "entity_action": {
         "type": "origins:and",
         "actions": [
-            {
+          {
                 "type": "origins:spawn_entity",
-                "entity_type": "minecraft:armor_stand",
-                "tag": "{Marker:1b,Invisible:1b,Tags:[\"smoke\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,shadow_radius:7f,shadow_strength:10f,Tags:[\"smoke1\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,shadow_radius:9f,shadow_strength:10f,Tags:[\"smoke2\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1.5f,0f],scale:[10f,6f,10f]},item:{id:\"minecraft:light_gray_concrete_powder\",Count:1b}}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,2.5f,0f],scale:[8f,8f,8f]},item:{id:\"minecraft:light_gray_concrete_powder\",Count:1b}}]}",
+                "entity_type": "minecraft:item_display",
+                "tag": "{view_range:100f,Tags:[\"snare\"],Passengers:[{id:\"minecraft:armor_stand\",Silent:1b,Invisible:1b,Invulnerable:1b,Marker:1b,Tags:[\"snare\"]}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[5f,5f,5f]},item:{id:\"minecraft:cobweb\",Count:1b,tag:{CustomModelData:1}}}",
                 "entity_action": {
                     "type": "origins:and",
                     "actions": [
                         {
                             "type": "origins:execute_command",
-                            "command": "power grant @s manhunt:jester/smoke/smoke_bombing",
+                            "command": "tp @s ~ ~1 ~",
                             "permission_level": 4
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                            "command": "data modify entity @s Rotation[1] set value 90f",
                             "permission_level": 4
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "execute on passengers on passengers run data modify entity @s Rotation set value [0f,0f]",
+                            "command": "execute on passengers run power grant @s manhunt:engineer/snare/snaring",
                             "permission_level": 4
                         }
                     ]
@@ -34,7 +34,12 @@
             },
             {
                 "type": "origins:execute_command",
-                "command": "playsound minecraft:block.candle.extinguish player @a ~ ~ ~ 2 0.5",
+                "command": "playsound minecraft:item.hoe.till player @a ~ ~ ~ 3 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:item.armor.equip_leather player @a ~ ~ ~ 3 0.8",
                 "permission_level": 4
             }
         ]
@@ -46,20 +51,27 @@
         "bar_index": 0
     },
     "key": {
-        "key": "key.origins.secondary_active"
+        "key": "key.attack"
     },
-    "name": "Smoke Bomb",
-    "description": "Deploy a disruptive smoke bomb to sow seeds of chaos.",
+    "condition":{
+        "type": "apugli:key_pressed",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
+    "name": "Nano-Snare",
+    "description": "Throw a snare that captures and slows down runners.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Smoked: Increased speed and invisibility.\n(Your armor is still rendered and you leave a smoke trace)"
+            "text": "Snare: Slows player down by 60% and reduces jump height."
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Deploy smoke with %s!"
+            "text": "Hold %s and press Left Click to throw snare!"
         },
         {
             "type": "origins:tooltip",

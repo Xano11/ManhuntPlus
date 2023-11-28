@@ -29,6 +29,10 @@
                     }
                 },
                 {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:item.armor.equip_chain player @a ~ ~ ~ 2 2",
                     "permission_level": 4

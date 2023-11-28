@@ -27,6 +27,10 @@
                 }
             },
             {
+                "type": "origins:swing_hand",
+                "hand": "MAIN_HAND"
+            },
+            {
                 "type": "origins:execute_command",
                 "command": "playsound minecraft:item.axe.scrape player @a ~ ~ ~ 3 0.5",
                 "permission_level": 4

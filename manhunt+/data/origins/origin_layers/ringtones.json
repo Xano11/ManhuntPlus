@@ -21,6 +21,7 @@
               ]
           }
       ],
+      "default_origin": "manhunt:none",
       "name": "ringtone"
 }
   

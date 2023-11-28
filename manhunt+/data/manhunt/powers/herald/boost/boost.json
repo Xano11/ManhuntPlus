@@ -1,0 +1,131 @@
+{
+	"type": "origins:multiple",
+	"activate": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 2 1 0",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:dust_color_transition 1 1 1 1 1 0 0 ~ ~1 ~ 1.5 0 1.5 1 100",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:cherry_leaves ~ ~1 ~ 3 0.2 3 1 100",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:area_of_effect",
+					"radius": 7,
+					"bientity_action": {
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:and",
+							"actions": [
+								{
+									"type": "origins:execute_command",
+									"command": "effect give @s minecraft:speed 7 1 true",
+									"permission_level": 4
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "effect give @s minecraft:regeneration 7 1 true",
+									"permission_level": 4
+								},
+								{
+									"type": "origins:execute_command",
+									"command": "particle minecraft:heart ~ ~1 ~ 0.5 1 0.5 1 10",
+									"permission_level": 4
+								}
+							]
+						}
+					},
+					"include_target": true,
+					"bientity_condition": {
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:and",
+							"conditions": [
+								{
+									"type": "origins:living"
+								},
+								{
+									"type": "origins:origin",
+									"origin": "manhunt:hunter",
+									"layer": "origins:origin"
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "origins:spawn_entity",
+					"entity_type": "minecraft:armor_stand",
+					"tag": "{Marker:1b,Invisible:1b,Tags:[\"flower_circle\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"flower_circle\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:pink_petals\",Count:1b,tag:{CustomModelData:1}}}]}",
+					"entity_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tp @s ~ ~1 ~",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "power grant @s manhunt:herald/boost/delete_area",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s interpolation_duration set value 5",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s transformation.scale set value [10f,10f,1f]",
+								"permission_level": 4
+							}
+						]
+					}
+				}
+			]
+		},
+		"cooldown": 1200,
+		"key": "key.origins.secondary_active",
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 4
+		}
+	},
+	"name": "Encouraging Aura",
+	"description": "Channeling your inner powers, you release a powerful aura.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "Aura: Regeneration II and Speed II for 7 seconds.\nRadius: 7 blocks."
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": "Release aura with %s!"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "manhunt:textures/icons/cooldown.png",
+			"text": "Cooldown: 1m"
+		}
+	]
+}

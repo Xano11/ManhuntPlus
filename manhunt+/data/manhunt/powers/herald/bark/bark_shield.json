@@ -130,6 +130,10 @@
                     "command": "power grant @s manhunt:herald/bark/bark_effects"
                 },
                 {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.5 0 0.5 1 100",
                     "permission_level": 4

@@ -12,13 +12,20 @@
             ]
         },
         "key": {
-            "key": "key.origins.primary_active"
+            "key": "key.use"
         },
         "cooldown": 1200,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
             "bar_index": 0,
             "should_render": true
+        },
+        "condition":{
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            }
         }
     },
     "name": "Tecto-Scan",
@@ -32,7 +39,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Scan with %s!"
+            "text": "Hold %s and press Left Click to deploy the scan!"
         },
         {
             "type": "origins:tooltip",

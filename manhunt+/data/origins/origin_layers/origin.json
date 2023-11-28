@@ -4,7 +4,9 @@
   "origins": [
     "manhunt:hunter",
     "manhunt:runner",
-    "manhunt:spectator"
+    "manhunt:spectator",
+    "manhunt:start"
   ],
+  "default_origin": "manhunt:start",
   "name":"role"
 }
