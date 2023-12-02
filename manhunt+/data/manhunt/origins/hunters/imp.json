@@ -4,7 +4,8 @@
         "manhunt:imp/body",
         "manhunt:imp/bad_swimmer",
         "manhunt:imp/pitchfork",
-        "manhunt:imp/infernal"
+        "manhunt:imp/infernal",
+        "manhunt:imp/portal/portal"
     ],
     "icon": {
 		"item": "minecraft:trident",

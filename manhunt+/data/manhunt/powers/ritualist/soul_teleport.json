@@ -1,7 +1,7 @@
 {
 	"type": "origins:active_self",
 	"key": {
-		"key": "key.origins.primary_active"
+		"key": "key.attack"
 	},
 	"hud_render": {
 		"should_render": false
@@ -81,29 +81,46 @@
 		]
 	},
 	"condition": {
-		"type": "origins:resource",
-		"resource": "manhunt:ritualist/sacrifice_souls",
-		"comparison": ">=",
-		"compare_to": 3
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "manhunt:ritualist/sacrifice_souls",
+				"comparison": ">=",
+				"compare_to": 3
+			},
+			{
+				"type": "apugli:key_pressed",
+				"key": {
+					"key": "key.origins.primary_active",
+					"continuous": true
+				}
+			},
+			{
+				"type": "origins:power",
+				"power": "manhunt:ritualist/ritual/ritual_effects",
+				"inverted": true
+			}
+		]
 	},
 	"cooldown": 20,
 	"name": "Instant Transmission",
 	"description": "Teleport yourself forward at the cost of three souls.",
 	"badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Wrath: +40% speed and +30% attack speed. Picking up souls now heals you. (+1 heart per soul)\nAdditionally, dealing more than 4 damage on a hit will make you invisible for a very brief delay."
-        },
-        {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Teleport with %s!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Requires 3 souls.\nCooldown: 1s."
-        }
-    ]
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "Wrath: +40% speed and +30% attack speed. Picking up souls now heals you. (+1 heart per soul)\nAdditionally, dealing more than 4 damage on a hit will make you invisible for a very brief delay."
+		},
+		{
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": "Hold %s and left click to teleport!"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "manhunt:textures/icons/cooldown.png",
+			"text": "Requires 3 souls.\nCooldown: 1s."
+		}
+	]
 }

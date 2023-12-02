@@ -1,6 +1,6 @@
 {
 	"powers": [
-		"manhunt:lurker/lurk",
+		"manhunt:lurker/lurk/lurk",
 		"origins:fragile",
 		"origins:cat_vision",
 		"manhunt:lurker/daylight",

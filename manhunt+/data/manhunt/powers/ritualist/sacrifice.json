@@ -67,6 +67,61 @@
 			}
 		}
 	},
+	"ritual": {
+		"type": "eggolib:action_on_critical_hit",
+		"bientity_action": {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:spawn_entity",
+				"entity_type": "minecraft:item",
+				"tag": "{Age:5400,PickupDelay:30,Invulnerable:1b,Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+			}
+		},
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:player"
+					},
+					{
+						"type": "origins:power",
+						"power": "manhunt:ritualist/ritual/preyed"
+					}
+				]
+			}
+		}
+	},
+	"soul_pull": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:area_of_effect",
+			"radius": 4,
+			"bientity_action": {
+				"type": "origins:add_velocity",
+				"z": -0.1
+			},
+			"bientity_condition": {
+				"type": "origins:target_condition",
+				"condition": {
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:nbt",
+							"nbt": "{CustomModelData:1}"
+						},
+						{
+							"type": "origins:entity_type",
+							"entity_type": "minecraft:item"
+						}
+					]
+				}
+			}
+		},
+		"interval": 1
+	},
 	"soul_pickup": {
 		"type": "eggolib:action_on_item_pickup",
 		"item_action": {
@@ -134,10 +189,10 @@
 	"name": "Sacrifice",
 	"description": "Sacrifice and store the souls of those you vanquish. Up to 15 of them may be stored at once.",
 	"badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hitting a runner grants one soul.\nAdditionally, doing a critical hit grants two instead."
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "Hitting a runner grants one soul.\nAdditionally, doing a critical hit grants two instead."
 		}
-    ]
+	]
 }

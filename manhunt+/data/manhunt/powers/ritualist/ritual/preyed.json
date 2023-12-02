@@ -1,0 +1,85 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:ritualist/ritual/preyed"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:ritualist/ritual/preyed_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "granted": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_charge 100 ~ ~1 ~ 0.5 0 0.5 0.1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.3 0.1 ~ ~1 ~ 0.4 0.6 0.4 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.vex.charge player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "More damage",
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "bientity_condition":{
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:ritualist",
+                "layer": "origins:hunters"
+            }
+        }
+    },
+    "glow":{
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:ritualist",
+                "layer": "origins:hunters"
+            }
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0
+    },
+    "hidden": true
+}

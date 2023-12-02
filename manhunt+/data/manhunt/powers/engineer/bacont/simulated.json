@@ -167,7 +167,7 @@
                         {
                             "effect": "minecraft:slowness",
                             "duration": 300,
-                            "amplifier": 0,
+                            "amplifier": 2,
                             "show_particles": false,
                             "show_icon": true
                         }

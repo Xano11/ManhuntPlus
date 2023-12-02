@@ -12,6 +12,12 @@
         },
         {
             "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "manhunt:item/lurker_eye"
+        },
+        {
+            "predicate": {
                 "custom_model_data": 99
             },
             "model": "manhunt:item/dude_getting_flashbanged_like_3_times"

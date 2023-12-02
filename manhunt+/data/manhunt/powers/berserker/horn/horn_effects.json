@@ -29,25 +29,54 @@
             ]
         }
     },
-    "cant_see": {
+    "anim": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:shriek 1 ~ ~ ~ 1 0.6 1 0.1 100",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:wax_off ~ ~0.7 ~ 0.3 0.6 0.3 0.1 100",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.illusioner.prepare_mirror player @s ~ ~ ~ 3 2",
-                    "permission_level": 4
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/berserker",
+                        "layer": "origins:hunters",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:armor_stand",
+                        "tag": "{Marker:1b,Invisible:1b,Tags:[\"horn_effect\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"horn_effect\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:music_disc_pigstep\",Count:1b,tag:{CustomModelData:1}}}]}",
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s ~ ~1.8 ~",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:berserker/horn/anim",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2f,2f,1f]",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
                 }
             ]
         }

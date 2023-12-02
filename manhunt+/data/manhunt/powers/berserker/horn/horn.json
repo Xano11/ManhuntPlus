@@ -7,7 +7,7 @@
                 "item": "minecraft:goat_horn",
                 "amount": 1,
                 "slot": 4,
-                "tag": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\"}"
+                "tag": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
             }
         ],
         "recurrent": true
@@ -20,7 +20,42 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter,distance=..20] manhunt:berserker/horn/horn_effects"
-                }
+                },
+                {
+					"type": "origins:spawn_entity",
+					"entity_type": "minecraft:armor_stand",
+					"tag": "{Marker:1b,Invisible:1b,Tags:[\"horn_effect\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"horn_effect\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:music_disc_pigstep\",Count:1b,tag:{CustomModelData:1}}}]}",
+					"entity_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tp @s ~ ~1.8 ~",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "power grant @s manhunt:berserker/horn/anim",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s transformation.scale set value [5f,5f,1f]",
+								"permission_level": 4
+							}
+						]
+					}
+				}
             ]
         },
         "condition": {
@@ -28,7 +63,7 @@
             "equipment_slot": "mainhand",
             "item_condition": {
                 "type": "origins:nbt",
-                "nbt": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\"}"
+                "nbt": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
             }
         },
         "hud_render": {
@@ -40,7 +75,7 @@
             "key": "key.use",
             "continuous": false
         },
-        "cooldown": 6000
+        "cooldown": 3600
     },
     "name": "Horny (Wait a minute-)",
     "description": "Spawn with a horn, which when blown will grant a boon to your fellow hunters.",
@@ -53,7 +88,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 5m"
+            "text": "Cooldown: 3m"
         }
     ]
 }

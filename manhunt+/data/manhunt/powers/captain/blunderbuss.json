@@ -9,7 +9,7 @@
                 "actions": [
                     {
                         "type": "origins:explode",
-                        "power": 1,
+                        "power": 2,
                         "destruction_type": "break",
                         "damage_self": true,
                         "create_fire": true
@@ -134,6 +134,37 @@
             "should_render": false
         }
     },
+    "loaded_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render":  {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:captain/blunderbuss_loaded_timer",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/blunderbuss_loaded",
+            "change": -1
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/blunderbuss_loaded_timer",
+            "change": -20
+        },
+        "interval": 20
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -143,6 +174,11 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:captain/blunderbuss_loaded",
                     "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:captain/blunderbuss_loaded_timer",
+                    "change": 200
                 }
             ]
         },
@@ -153,7 +189,13 @@
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-            "bar_index": 14
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:captain/blunderbuss_loaded_timer",
+                "comparison": "==",
+                "compare_to": 0
+            }
         }
     },
     "detonate": {
@@ -171,7 +213,7 @@
                             "actions": [
                                 {
                                     "type": "origins:explode",
-                                    "power": 1,
+                                    "power": 2,
                                     "destruction_type": "break",
                                     "damage_self": true,
                                     "create_fire": true
@@ -230,7 +272,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Press the key again to detonate if it lands on a block."
+            "text": "Press the key again to detonate if it lands on a block.\n"
         },
         {
             "type": "origins:keybind",

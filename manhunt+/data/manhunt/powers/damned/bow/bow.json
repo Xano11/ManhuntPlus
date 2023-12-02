@@ -90,12 +90,6 @@
                         "type": "origins:and",
                         "conditions": [
                             {
-                                "type": "origins:resource",
-                                "resource": "manhunt:damned/bow/bow_cooldown",
-                                "comparison": "==",
-                                "compare_to": 6000
-                            },
-                            {
                                 "type": "origins:equipped_item",
                                 "equipment_slot": "mainhand",
                                 "item_condition": {

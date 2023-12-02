@@ -12,7 +12,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:pitchfork_craft1"
+                    "command": "power remove @s manhunt:imp/pitchfork_craft1"
                 }
             ]
         }
@@ -33,7 +33,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:pitchfork_craft2"
+                    "command": "power remove @s manhunt:imp/pitchfork_craft2"
                 }
             ]
         }

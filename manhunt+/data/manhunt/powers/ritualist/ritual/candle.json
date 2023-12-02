@@ -1,0 +1,59 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 70,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:ritualist/ritual/candle_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "animation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~10 ~1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ^ ^ ^1 0 0 0 0 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ^ ^ ^-1 0 0 0 0 1"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition":  {
+            "type": "origins:command",
+            "command": "data get entity @s Rotation[1] 1",
+            "comparison": "==",
+            "compare_to": 0,
+            "inverted": true
+        }
+    },
+    "hidden": true
+}
