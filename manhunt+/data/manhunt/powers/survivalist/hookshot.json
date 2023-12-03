@@ -1,16 +1,35 @@
 {
     "type": "origins:multiple",
-    "tag": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "tag @s add survivalist"
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "should_render": true,
+            "bar_index": 24,
+            "condition":{
+                "type": "origins:resource",
+                "resource": "manhunt:survivalist/hookshot_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:survivalist/hookshot_cooldown",
+                    "change": -1
+                }
+            ]
         },
-        "entity_action_removed": {
-            "type": "origins:execute_command",
-            "command": "tag @s remove survivalist"
-        },
-        "execute_chosen_when_orb": true
+        "interval": 1
     },
     "grappling_hook": {
         "type": "origins:active_self",
@@ -26,13 +45,24 @@
                 "z": -0.85,
                 "client": false
             },
-            "block_action": {
-                "type": "origins:execute_command",
-                "command": "tag @e[limit=1,tag=survivalist,sort=nearest,distance=1..] add target"
-            },
             "hit_action": {
-                "type": "origins:swing_hand",
-                "hand": "OFF_HAND"
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:swing_hand",
+                        "hand": "OFF_HAND"
+                    },
+                    {
+                        "type": "origins:add_velocity",
+                        "space": "local",
+                        "z": 0.8
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:survivalist/hookshot_cooldown",
+                        "change": 300
+                    }
+                ]
             },
             "before_action": {
                 "type": "origins:execute_command",
@@ -40,49 +70,63 @@
             },
             "command_at_hit": "particle minecraft:item minecraft:anvil ~ ~1 ~ 0.2 0.2 0.2 0.001 40 normal",
             "command_along_ray": "particle minecraft:item minecraft:anvil ~ ~1 ~ 0.001 0.001 0.001 0.001 20 normal",
-            "command_step": 1,
+            "command_step": 0.2,
             "command_along_ray_only_on_hit": false
         },
-        "cooldown": 300,
+        "cooldown": 1,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-            "should_render": true,
-            "bar_index": 24
+            "should_render": false
         },
-        "condition": {
-            "type": "origins:sneaking",
-            "inverted": true
-        },
-        "key": {
-            "key": "key.origins.primary_active"
-        }
-    },
-    "pull_towards_hit_location": {
-        "type": "origins:action_over_time",
-        "entity_action": {
+        "condition":  {
             "type": "origins:and",
-            "actions": [
+            "conditions": [
                 {
-                    "type": "origins:add_velocity",
-                    "space": "local",
-                    "z": 0.8
+                    "type": "origins:resource",
+                    "resource": "manhunt:survivalist/hookshot_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
                 },
                 {
-                    "type": "origins:delay",
-                    "ticks": 1,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "tag @s remove target"
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
                     }
                 }
             ]
         },
-        "interval": 1,
+        "key": {
+            "key": "key.attack"
+        }
+    },
+    "overlay": {
+        "type": "origins:status_bar_texture",
+        "texture": "manhunt:textures/gui/bark_overlay.png",
         "condition": {
-            "type": "origins:command",
-            "command": "execute if entity @s[tag=target]",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 16,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:survivalist/hookshot_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
         }
     },
     "name": "§l§nHookshot",

@@ -39,6 +39,19 @@
 			}
 		}
 	},
+	"soul_kill":{
+		"type": "apugli:action_on_target_death",
+		"bientity_action":  {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:spawn_entity",
+				"entity_type": "minecraft:item",
+				"tag": "{Age:5800,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+			}
+		},
+		"cooldown":1,
+		"includes_prime_adversary": false
+	},
 	"crit_gain": {
 		"type": "eggolib:action_on_critical_hit",
 		"bientity_action": {
@@ -192,7 +205,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Hitting a runner grants one soul.\nAdditionally, doing a critical hit grants two instead."
+			"text": "Hitting a runner or killing an entity grants one soul.\nAdditionally, doing a critical hit grants two instead."
 		}
 	]
 }

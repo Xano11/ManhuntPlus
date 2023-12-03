@@ -71,6 +71,19 @@
                                         }
                                     ]
                                 }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:ritualist/sacrifice_souls",
+                                            "change": -5
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     },
@@ -88,6 +101,15 @@
                                             "layer": "origins:origin"
                                         }
                                     ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:ritualist/sacrifice_souls",
+                                    "comparison": ">=",
+                                    "compare_to": 5
                                 }
                             },
                             {

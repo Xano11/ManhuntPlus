@@ -1,0 +1,108 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:survivalist/supply/drop_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "effects": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 8,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:heart ~ ~0.7 ~ 0.3 0.6 0.3 0.1 5",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:sculk_soul ~ ~ ~ 0.3 1 0.3 0.1 20",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:heal",
+                            "amount": 4
+                        },
+                        {
+                            "type": "origins:feed",
+                            "food": 4,
+                            "saturation": 2
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },                        
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 30
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.hit_ground player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:cloud ~ ~ ~ 0.2 0.05 0.2 0.05 10 normal",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "hidden": true
+}
