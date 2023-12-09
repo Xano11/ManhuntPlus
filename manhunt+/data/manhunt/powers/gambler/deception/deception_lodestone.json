@@ -13,14 +13,6 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a if score @s lodestone = @e[limit=1,sort=nearest,tag=deception] lodestone run power grant @s manhunt:runner_effects"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a manhunt:stop_forceload"
-                },
-                {
-                    "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.illusioner.cast_spell player @A ~ ~ ~ 1 0.5"
                 },
                 {
@@ -37,7 +29,15 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tag @s add runner"
+                    "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 0"
                 },
                 {
                     "type": "origins:execute_command",
@@ -84,15 +84,23 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute as @a if score @s lodestone = @e[limit=1,sort=nearest,tag=deception] lodestone run power grant @s manhunt:runner_effects"
-                            },
-                            {
-                                "type": "origins:execute_command",
                                 "command": "execute as @a if score @s lodestone = @e[limit=1,sort=nearest,tag=deception] lodestone anchored eyes facing entity @s eyes run tp @e[limit=1,sort=nearest,tag=deception] ~ ~ ~ ~ ~"
                             },
                             {
                                 "type": "origins:add_velocity",
                                 "z": 2
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 0"
                             },
                             {
                                 "type": "origins:execute_command",

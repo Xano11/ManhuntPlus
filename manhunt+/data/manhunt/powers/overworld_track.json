@@ -1,0 +1,252 @@
+{
+    "type": "origins:multiple",
+    "following": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag = runner]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners run tp @s ~ 300 ~"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.Z int 1 run data get entity @p Pos[2]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.Y int 1 run data get entity @p Pos[1]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.X int 1 run data get entity @p Pos[0]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners run data modify storage lode Track1 merge from entity @s HandItems[0]"
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "eggolib:compare_score",
+                        "actor_objective": "tracking",
+                        "target_objective": "runners",
+                        "comparison": "=="
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:dimension",
+                            "dimension": "minecraft:overworld"
+                        }
+                    }
+                ]
+            }
+        },
+        "interval": 1
+    },
+    "update": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag = runner]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.Z int 1 run data get entity @p Pos[2]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.Y int 1 run data get entity @p Pos[1]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.X int 1 run data get entity @p Pos[0]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners run data modify storage lode Track1 merge from entity @s HandItems[0]"
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "eggolib:compare_score",
+                        "actor_objective": "tracking",
+                        "target_objective": "runners",
+                        "comparison": "=="
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:dimension",
+                            "dimension": "minecraft:overworld"
+                        }
+                    }
+                ]
+            }
+        },
+        "interval": 1
+    },
+    "update_itself": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag = runner]",
+            "bientity_action": {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute store result entity @s HandItems[0].tag.LodestonePos.Z int 1 run data get entity @s Pos[2]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute store result entity @s HandItems[0].tag.LodestonePos.Y int 1 run data get entity @s Pos[1]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute store result entity @s HandItems[0].tag.LodestonePos.X int 1 run data get entity @s Pos[0]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "data modify storage lode Track1 merge from entity @s HandItems[0]"
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "eggolib:compare_score",
+                        "actor_objective": "tracking",
+                        "target_objective": "runners",
+                        "comparison": "=="
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:dimension",
+                            "dimension": "minecraft:overworld",
+                            "inverted": true
+                        }
+                    }
+                ]
+            }
+        },
+        "interval": 1
+    },
+    "chunkload": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "forceload add ~ ~"
+        },
+        "falling_action": {
+            "type": "origins:execute_command",
+            "command": "forceload remove ~ ~"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute at @a[tag=runner,nbt={Dimension:\"minecraft:overworld\"}] if score @s tracking = @p runners",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "disabled": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        }
+    },
+    "reenable": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:overworld_track_disabled",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "track": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag = hunter]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:modify_inventory",
+                    "inventory_type": "inventory",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'}}"
+                    },
+                    "item_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:modify",
+                                "modifier": "manhunt:overworld_track"
+                            }
+                        ]
+                    }
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "eggolib:compare_score",
+                        "actor_objective": "tracking",
+                        "target_objective": "tracking",
+                        "comparison": "=="
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:dimension",
+                            "dimension": "minecraft:overworld"
+                        }
+                    },
+                    {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:overworld_track_disabled",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
+                    }
+                ]
+            }
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

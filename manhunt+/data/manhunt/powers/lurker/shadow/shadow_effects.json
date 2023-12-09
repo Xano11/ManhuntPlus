@@ -24,7 +24,7 @@
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:sculk_soul ~ ~1 ~ 0.5 0.5 0.5 0.1 10"
-                },  
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 0 0 0.3 1.2 0 0 0 ~ ~1 ~ 0.4 0.4 0.4 1 100"
@@ -95,7 +95,7 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type":"origins:on_block",
+                    "type": "origins:on_block",
                     "inverted": true
                 }
             ]
@@ -152,7 +152,23 @@
         "type": "origins:prevent_block_use"
     },
     "prevent_entity_render": {
-        "type": "origins:prevent_entity_render"
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:lurker/lurk/lurked",
+                        "inverted": true
+                    }
+                ]
+            }
+        }
     },
     "prevent_collision": {
         "type": "origins:prevent_entity_collision"

@@ -375,7 +375,35 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hitting a runner grants one soul.\nAdditionally, doing a critical hit grants two instead."
+            "text": "To form a ritual circle, put candles 2 blocks away from you in each cardinal direction.\n(See crafting recipe below on how to craft candles)"
+        },
+        {
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": "Hold %s to start the ritual!"
+		},
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/gray_candle.png",
+            "recipe": {
+                "id": "manhunt:candle",
+                "type": "minecraft:crafting_shaped",
+                "key": {
+                    "X": {
+                        "item": "minecraft:gunpowder"
+                    },
+                    "#": {
+                        "item": "minecraft:bone"
+                    }
+                },
+                "pattern": [
+                    " X ",
+                    " # "
+                ],
+                "result": {
+                    "item": "minecraft:gray_candle"
+                }
+            }
         }
     ]
 }

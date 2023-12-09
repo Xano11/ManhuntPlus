@@ -39,7 +39,7 @@
                 },
                 {
                     "type": "origins:add_velocity",
-                    "z": 2,
+                    "z": 1.2,
                     "space": "local"
                 },
                 {
@@ -82,7 +82,7 @@
                 },
                 {
                     "type": "origins:add_velocity",
-                    "z": 2,
+                    "z": 1.2,
                     "space": "local"
                 },
                 {

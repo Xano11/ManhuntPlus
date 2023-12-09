@@ -36,7 +36,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tp @s ~ ~0.05 ~ ~20 ~",
+                    "command": "execute positioned as @p run tp @s ~ ~2.2 ~ ~20 ~",
                     "permission_level": 4
                 },
                 {

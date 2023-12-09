@@ -1,5 +1,19 @@
 {
     "type": "origins:multiple",
+    "keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:herald/bark/bark_shield_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
     "left_click": {
         "type": "origins:active_self",
         "cooldown": 5,

@@ -1,45 +1,67 @@
 {
     "type": "origins:multiple",
-
-        "activate": {
-                "type": "origins:active_self",
-                "entity_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:fire_projectile",
-                            "entity_type": "minecraft:armor_stand",
-                            "divergence": 0,
-                            "count": 1,
-                            "speed": 1,
-                            "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"supply_drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",Tags:[\"supply_drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:firework_star\",Count:1b,tag:{CustomModelData:1,Explosion:{Type:0}}}}]}",
-                            "projectile_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:survivalist/supply/drop",
-                                        "permission_level": 4
-                                    }
-                                ]
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 1,
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"supply_drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",Tags:[\"supply_drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:firework_star\",Count:1b,tag:{CustomModelData:1,Explosion:{Type:0}}}}]}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:survivalist/supply/drop",
+                                "permission_level": 4
                             }
-                        }
-                    ]
-                    },
-                "key": {
-                    "key": "key.origins.secondary_active"
+                        ]
+                    }
                 },
-                "condition": {
-                    "type": "origins:sneaking",
-                    "inverted": true
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:ui.toast.in player @a ~ ~ ~ 3 2",
+                    "permission_level": 4
                 },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
         "cooldown": 9000,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 2,
             "should_render": true
-        }   
+        }
+    },
+    "name": "Emergency Drop",
+    "description": "Deploy a flare that will summon a loot drop.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": ""
         },
-        "name":"§l§nBomb Pouch",
-        "description":"Using the secondary ability key and sneaking, you can drop a bomb that will explode, doing light damage and breaking blocks around it."
-    }
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Press %s to deploy the flare!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 15s"
+        }
+    ]
+}

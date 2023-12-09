@@ -55,6 +55,10 @@
                                         {
                                             "type": "origins:swing_hand",
                                             "hand": "MAIN_HAND"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.allay.item_taken player @a ~ ~ ~ 3 2"
                                         }
                                     ]
                                 }

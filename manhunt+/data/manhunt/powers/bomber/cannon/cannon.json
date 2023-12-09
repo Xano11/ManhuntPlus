@@ -1,24 +1,24 @@
 {
     "type": "origins:multiple",
-    "resource": {
+    "charges": {
         "type": "origins:resource",
         "min": 0,
         "max": 2,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "sprite_location": "manhunt:textures/cannon_packs.png",
             "bar_index": 0
         }
     },
-    "add_resource": {
+    "add_charge": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:bomber/cannon/cannon_resource",
+            "resource": "manhunt:bomber/cannon/cannon_charges",
             "change": 1
         },
-        "interval": 3600
+        "interval": 1800
     },
     "use": {
         "type": "origins:action_on_entity_use",
@@ -44,7 +44,7 @@
                         "actions": [
                             {
                                 "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/cannon/cannon_charge_resource",
+                                "resource": "manhunt:bomber/cannon/cannon_charges",
                                 "change": -1
                             }
                         ]
@@ -66,7 +66,7 @@
                     "type": "origins:actor_condition",
                     "condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:bomber/cannon/cannon_resource",
+                        "resource": "manhunt:bomber/cannon/cannon_charges",
                         "comparison": ">=",
                         "compare_to": 1
                     }
@@ -91,7 +91,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "3m per pack"
+            "text": "1.5m per pack"
         }
     ]
 }

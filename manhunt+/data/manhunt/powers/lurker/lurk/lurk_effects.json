@@ -50,7 +50,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker run tp @s ~ ~1.5 ~ ~ ~",
+            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker run tp @s ~ ~ ~ ~ ~",
             "permission_level": 4
         },
         "interval": 1

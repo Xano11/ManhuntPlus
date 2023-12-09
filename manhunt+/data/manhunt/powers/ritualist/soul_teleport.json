@@ -97,9 +97,10 @@
 				}
 			},
 			{
-				"type": "origins:power",
-				"power": "manhunt:ritualist/ritual/ritual_effects",
-				"inverted": true
+				"type": "origins:resource",
+				"resource": "manhunt:ritualist/ritual/ritual_windup",
+				"compare_to": 0,
+				"comparison": "=="
 			}
 		]
 	},

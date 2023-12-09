@@ -24,10 +24,6 @@
                     "type": "origins:execute_command",
                     "command": "forceload add ~ ~ ~ ~",
                     "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=runner] manhunt:stop_forceload"
                 }
             ]
         },

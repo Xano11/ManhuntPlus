@@ -7,10 +7,10 @@
     ],
     "key": {
         "#": {
-            "item": "minecraft:gunpowder"
+            "item": "minecraft:bone"
         },
         "y": {
-            "item": "minecraft:bone"
+            "item": "minecraft:gunpowder"
         }
     },
     "result": {

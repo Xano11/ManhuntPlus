@@ -49,7 +49,8 @@
 		},
 		"cooldown": 60,
 		"hud_render": {
-			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"should_render": true,
+			"sprite_location": "manhunt:textures/bars1.png",
 			"bar_index": 1
 		},
 		"key": {

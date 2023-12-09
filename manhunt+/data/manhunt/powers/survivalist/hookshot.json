@@ -42,12 +42,16 @@
             "fluid_handling": "none",
             "bientity_action": {
                 "type": "origins:add_velocity",
-                "z": -0.85,
+                "z": -0.95,
                 "client": false
             },
             "hit_action": {
                 "type": "origins:and",
                 "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.anvil.destroy player @a[distance=..10] ~ ~ ~ 1 1.5"
+                    },
                     {
                         "type": "origins:swing_hand",
                         "hand": "OFF_HAND"
@@ -64,14 +68,10 @@
                     }
                 ]
             },
-            "before_action": {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:block.anvil.destroy player @a[distance=..10] ~ ~ ~ 1 1.5"
-            },
-            "command_at_hit": "particle minecraft:item minecraft:anvil ~ ~1 ~ 0.2 0.2 0.2 0.001 40 normal",
-            "command_along_ray": "particle minecraft:item minecraft:anvil ~ ~1 ~ 0.001 0.001 0.001 0.001 20 normal",
+            "command_at_hit": "particle minecraft:item minecraft:anvil ~ ~ ~ 0.2 0.2 0.2 0.001 40 normal",
+            "command_along_ray": "function manhunt:hook",
             "command_step": 0.2,
-            "command_along_ray_only_on_hit": false
+            "command_along_ray_only_on_hit": true
         },
         "cooldown": 1,
         "hud_render": {
@@ -101,7 +101,7 @@
     },
     "overlay": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/bark_overlay.png",
+        "texture": "manhunt:textures/gui/hook_overlay.png",
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -129,6 +129,23 @@
             ]
         }
     },
-    "name": "§l§nHookshot",
-    "description": "Using your primary ability key, you can launch a grappling hook to move yourself around."
+    "name": "Hookshot",
+    "description": "You have access to a quick-use grappling hook to propel yourself forward.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(Hitting an entity with the hook will additionally pull them towards you)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s and left click to use your hook!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 15s"
+        }
+    ]
 }

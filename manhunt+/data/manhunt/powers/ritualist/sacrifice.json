@@ -3,12 +3,12 @@
 	"souls": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 15,
+		"max": 14,
 		"start_value": 0,
 		"hud_render": {
 			"should_render": true,
-			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-			"bar_index": 17
+			"sprite_location": "manhunt:textures/ritualist.png",
+			"bar_index": 0
 		}
 	},
 	"soul_gain": {
@@ -200,7 +200,7 @@
 		}
 	},
 	"name": "Sacrifice",
-	"description": "Sacrifice and store the souls of those you vanquish. Up to 15 of them may be stored at once.",
+	"description": "Sacrifice and store the souls of those you vanquish. Up to 14 of them may be stored at once.",
 	"badges": [
 		{
 			"type": "origins:tooltip",

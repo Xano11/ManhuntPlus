@@ -1,0 +1,34 @@
+{
+    "type": "origins:multiple",
+    "tp_back": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a if score @s lurker = @p lurker run forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a if score @s lurker = @p lurker run power grant @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] manhunt:lurker/lurk/eye_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a if score @p lurker = @s lurker run tp @p @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s lurker = @e[tag=lurk,limit=1,sort=nearest] lurker run power remove @s manhunt:lurker/lurk/lurk_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "hidden": true
+}

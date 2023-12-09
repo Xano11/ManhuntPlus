@@ -7,6 +7,10 @@
         "start_value": 0,
         "hud_render": {
             "should_render": false
+        },
+        "min_action":{
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:lurker/lurk/lurked"
         }
     },
     "glow": {

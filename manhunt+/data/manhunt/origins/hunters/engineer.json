@@ -3,8 +3,8 @@
 		"manhunt:engineer/scan/scan",
         "manhunt:engineer/bacont/bacont",
 		"manhunt:engineer/snare/snare",
-		"origins:vegetarian",
-		"origins:light_armor"
+		"manhunt:engineer/armor",
+		"origins:vegetarian"
 	],
 	"icon": {
 		"item": "minecraft:observer",

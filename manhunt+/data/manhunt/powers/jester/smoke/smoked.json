@@ -67,6 +67,38 @@
             "operation": "multiply_total"
         }
     },
+    "air_speed": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        },
+        "condition": {
+            "type": "origins:on_block",
+            "inverted": true
+        }
+    },
+    "phase": {
+        "type": "origins:phasing",
+        "blacklist": false,
+        "render_type": "blindness",
+        "view_distance": 6,
+        "phase_down_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        }
+    },
     "glow": {
         "type": "origins:self_glow",
         "bientity_condition": {
