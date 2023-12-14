@@ -4,7 +4,8 @@
 		"manhunt:berserker/beast/beast",
 		"manhunt:berserker/horn/horn",
 		"origins:no_shield",
-        "manhunt:berserker/bleeding/bleeding"
+        "manhunt:berserker/bleeding/bleeding",
+		"origins:carnivore"
 	],
 	"icon": {
 		"item": "minecraft:goat_horn",

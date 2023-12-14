@@ -1,0 +1,9 @@
+{
+    "type": "origins:multiple",
+    "prevent": {
+        "type": "origins:prevent_sleep",
+        "message": "Sleep was never your thing, huh."
+    },
+    "name": "Sleepless",
+    "description": "You're plagued by chronic insomnia and can't sleep at all."
+}

@@ -1,20 +1,35 @@
 {
-    "type": "origins:modify_damage_taken",
-    "damage_condition": {
-        "type": "origins:fire"
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fire"
+        },
+        "modifier": {
+            "name": "Weak to fire",
+            "operation": "multiply_total",
+            "value": 1
+        }
     },
-    "modifier": {
-        "name": "Weak to fire",
-        "operation": "multiply_total",
-        "value": 1
+    "unextinguishable": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:set_on_fire",
+            "duration": 4
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:on_fire"
+        }
     },
     "name": "Burning Weakness",
-    "description": "Fire deals more damage due to your grand link to nature.",
+    "description": "Fire deals more damage and you need to be properly extinguished.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(2x Damage)"
+            "text": "(Fire deals double damage)\nAlso, fire doesnt't naturally extinguish itself."
         }
     ]
 }

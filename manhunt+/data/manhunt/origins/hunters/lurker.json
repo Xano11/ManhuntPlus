@@ -2,10 +2,8 @@
 	"powers": [
 		"manhunt:lurker/lurk/lurk",
 		"origins:fragile",
-		"origins:cat_vision",
-		"manhunt:lurker/daylight",
-		"manhunt:lurker/night_speed",
-		"manhunt:lurker/shadow/shadow"
+		"manhunt:lurker/shadow/shadow",
+		"manhunt:lurker/sleepless"
 	],
 	"icon": {
 		"item": "minecraft:sculk_sensor",

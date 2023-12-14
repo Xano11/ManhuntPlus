@@ -378,6 +378,11 @@
             "text": "To form a ritual circle, put candles 2 blocks away from you in each cardinal direction.\n(See crafting recipe below on how to craft candles)"
         },
         {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Preyed: Runners affected by Prey drop an extra soul on critical hit.\nAdditionally, they take 50% more damage from Ritualists."
+        },
+        {
 			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/toggle.png",
 			"text": "Hold %s to start the ritual!"

@@ -1,0 +1,145 @@
+{
+    "type": "origins:multiple",
+    "no_fire_dmg": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "onFire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "onFire.player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "inFire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "inFire.player"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "hotFloor"
+                }
+            ]
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 15,
+            "condition": {
+                "type": "origins:or",
+                "inverted": true,
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:gambler/devil_duration",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:gambler/devil_duration",
+                        "comparison": "==",
+                        "compare_to": 140
+                    }
+                ]
+            }
+        }
+    },
+    "drain":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/devil_duration",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:lava",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "regain":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/devil_duration",
+            "change": 20
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:lava",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no_lava_dmg": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "lava"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "lava.player"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/devil_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "can_see": {
+        "type": "origins:lava_vision",
+        "s": 0,
+        "v": 4,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/devil_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Devil",
+    "description": "Immune to fire damage with a small caveat.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Immune to lava damage for a short duration.\n+Additionally, you can see through lava."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "(Your lava immunity lasts 7 seconds)"
+        }
+    ]
+}

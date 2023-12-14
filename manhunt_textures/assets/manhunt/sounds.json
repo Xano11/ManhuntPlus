@@ -8,5 +8,10 @@
       "sounds": [
         "misc/amongus"
       ]
+    },
+    "bonk": {
+      "sounds": [
+        "misc/bonk"
+      ]
     }
   }

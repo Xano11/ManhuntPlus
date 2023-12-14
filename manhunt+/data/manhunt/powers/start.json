@@ -1,0 +1,191 @@
+{
+    "type": "origins:multiple",
+    "titlecard": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ender_dragon.shoot player @s ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "moborigins:show_floating_item",
+                    "item_stack": {
+                        "item": "minecraft:diamond",
+                        "tag": "{CustomModelData:1}"
+                    }
+                }
+            ]
+        },  
+        "execute_chosen_when_orb": true
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "tick_timer": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:start_timer",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "sound2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 3 1.4"
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:start_timer",
+            "comparison": "==",
+            "compare_to": 90
+        }
+    },
+    "msg1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",\"Welcome to \",{\"text\":\"MANHUNT+\",\"bold\":true,\"color\":\"gold\"},\"!\"]"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:start_timer",
+            "comparison": "==",
+            "compare_to": 60
+        }
+    },
+    "msg2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s \"Please select your role.\""
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:start_timer",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "origin_gui": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin gui @s"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:start_timer",
+            "comparison": "==",
+            "compare_to": 10
+        }
+    },
+    "no_move": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -1,
+            "operation": "multiply_total"
+        }
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use"
+    },
+    "no_exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "No exhaustion",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            "key.origins.secondary_active"
+        ]
+    },
+    "no_pickup": {
+        "type": "eggolib:prevent_item_pickup",
+        "item_condition": {
+            "type": "eggolib:block_item"
+        }
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "hidden": true
+}

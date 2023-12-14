@@ -1,0 +1,21 @@
+{
+    "type": "origins:multiple",
+    "no_sprint":{
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type": "origins:food_level",
+            "compare_to": 12,
+            "comparison": "<="
+        }
+    },
+    "more_exhaust":{
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": 1.0
+        }
+    },
+    "name": "Low Stamina",
+    "description": "You exhaust much quicker and can't sprint with 6 or less full hunger shanks."
+}

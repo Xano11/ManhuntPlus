@@ -1,6 +1,6 @@
 {
 	"powers": [
-        "manhunt:starting"
+        "manhunt:waiting"
 	],
 	"icon": {
 		"item": "minecraft:barrier"

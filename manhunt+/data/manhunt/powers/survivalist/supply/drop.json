@@ -31,6 +31,15 @@
         },
         "interval": 10
     },
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
     "bounce":{
         "type": "eggolib:modify_bounciness",
         "modifier":{
@@ -66,6 +75,37 @@
                     "type": "origins:execute_command",
                     "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run power grant @s manhunt:survivalist/supply/loot",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition":  {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/drop_levels",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 1",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition":  {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/drop_levels",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 2",
+                                "permission_level": 4
+                            }
+                        }
+                    ]
                 },
                 {
                     "type": "origins:execute_command",

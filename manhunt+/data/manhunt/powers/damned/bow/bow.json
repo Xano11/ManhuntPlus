@@ -41,6 +41,14 @@
                                 "command": "tag @s add skele_tp"
                             },
                             {
+                                "type": "origins:execute_command",
+                                "command": "scale set pehkui:interaction_box_height 2.5"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "scale set pehkui:interaction_box_width 2.5"
+                            },
+                            {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:armor_stand",
                                 "tag": "{Marker:1b,Invisible:1b,Tags:[\"skele_tp\"]}",
@@ -378,6 +386,52 @@
                 }
             ]
         },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:passenger",
+                                    "bientity_condition": {
+                                        "type": "origins:actor_condition",
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:armor_stand"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "manhunt:damned/bow/bow_arrow"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "compare_to": 0,
+                                    "comparison": ">"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "selecting_indicator":{
+        "type": "origins:status_bar_texture",
+        "texture": "manhunt:textures/gui/damned_teleport.png",
         "condition": {
             "type": "origins:and",
             "conditions": [

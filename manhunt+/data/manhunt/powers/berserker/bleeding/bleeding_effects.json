@@ -24,30 +24,16 @@
         },
         "interval": 10
     },
-    "bleed_use": {
-        "type": "origins:action_on_item_use",
-        "entity_action": {
-            "type": "origins:damage",
-            "amount": 1,
-            "source": {
-                "name": "generic.player",
-                "bypasses_armor": true
-            }
-        }
-    },
     "bleed_recurrent": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:damage",
             "amount": 1,
-            "source": {
-                "name": "generic.player",
-                "bypasses_armor": true
-            }
+            "damage_type": "manhunt:bleeding"
         },
-        "interval": 15,
+        "interval": 20,
         "condition": {
-            "type": "origins:using_item"
+            "type": "origins:moving"
         }
     },
     "particles": {

@@ -4,6 +4,6 @@
         "operation": "multiply_base",
         "value": -0.5
     },
-    "name":"Flailing Arms",
-    "description":"You aren't so good at breaking blocks. (50% less mining speed)"
+    "name": "Flailing Arms",
+    "description": "You aren't so good at breaking blocks. (50% less mining speed)"
 }

@@ -17,7 +17,7 @@
         "modifier": {
             "name": "Decrease speed",
             "attribute": "minecraft:generic.attack_speed",
-            "value": -3,
+            "value": -1,
             "operation": "multiply_total"
         }
     },
@@ -62,6 +62,13 @@
     },
     "mobs_ignore":{
         "type": "apugli:mobs_ignore"
+    },
+    "no_break":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
     },
     "hidden": true
 }

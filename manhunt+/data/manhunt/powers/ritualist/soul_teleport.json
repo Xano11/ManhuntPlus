@@ -1,14 +1,13 @@
 {
 	"type": "origins:active_self",
-	"key": {
-		"key": "key.attack"
-	},
-	"hud_render": {
-		"should_render": false
-	},
 	"entity_action": {
 		"type": "origins:and",
 		"actions": [
+			{
+				"type": "origins:change_resource",
+				"resource": "manhunt:ritualist/sacrifice_souls",
+				"change": -3
+			},
 			{
 				"type": "origins:raycast",
 				"distance": 5,
@@ -19,27 +18,26 @@
 						{
 							"type": "origins:execute_command",
 							"command": "tag @s add tping"
+						},
+						{
+							"type": "origins:set_fall_distance",
+							"fall_distance": 0
 						}
 					]
 				},
 				"command_step": 1,
-				"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ air run tp @e[tag=tping,sort=nearest] ~ ~ ~",
+				"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ air run tp @p[tag=tping] ~ ~ ~",
 				"miss_action": {
 					"type": "origins:and",
 					"actions": [
-						{
-							"type": "origins:add_velocity",
-							"space": "local",
-							"z": 0.01
-						},
 						{
 							"type": "origins:execute_command",
 							"command": "tag @s remove tping"
 						},
 						{
-							"type": "origins:change_resource",
-							"resource": "manhunt:ritualist/sacrifice_souls",
-							"change": -3
+							"type": "origins:add_velocity",
+							"space": "local",
+							"z": 0.02
 						},
 						{
 							"type": "origins:execute_command",
@@ -49,16 +47,6 @@
 						{
 							"type": "origins:execute_command",
 							"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
-							"permission_level": 4
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "effect give @p slow_falling 1 0 true",
-							"permission_level": 4
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "effect give @p speed 5 0 true",
 							"permission_level": 4
 						}
 					]
@@ -79,6 +67,12 @@
 				}
 			}
 		]
+	},
+	"key": {
+		"key": "key.attack"
+	},
+	"hud_render": {
+		"should_render": false
 	},
 	"condition": {
 		"type": "origins:and",
@@ -111,7 +105,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Wrath: +40% speed and +30% attack speed. Picking up souls now heals you. (+1 heart per soul)\nAdditionally, dealing more than 4 damage on a hit will make you invisible for a very brief delay."
+			"text": "Teleport distance: 5 blocks."
 		},
 		{
 			"type": "origins:keybind",

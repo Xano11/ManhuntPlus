@@ -1,0 +1,36 @@
+{
+    "type": "origins:multiple",
+    "hit": {
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "manhunt:scout/dash_perform"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:scout/bouncepad/bouncepad_perform",
+                        "change": 180
+                    }
+                ]
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Achilles' heel",
+    "description": "Taking a hit of damage will trigger your dash cooldown and delay your bouncepad cooldown.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(-10% total bouncepad cooldown)"
+        }
+    ]
+}

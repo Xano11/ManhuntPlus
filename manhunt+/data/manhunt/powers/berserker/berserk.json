@@ -1,83 +1,82 @@
 {
     "type": "origins:multiple",
-
-"atk_speed1": {
-    "type": "origins:conditioned_attribute",
-    "modifier": {
-        "name": "Increase attack speed",
-        "attribute": "minecraft:generic.attack_speed",
-        "value": 0.15,
-        "operation": "addition"
+    "atk_speed1": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.15,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 16
+        }
     },
-    "condition": {
-        "type": "origins:health",
-        "comparison": "<=",
-        "compare_to": 16
-    }
-},
-"atk_speed2": {
-    "type": "origins:conditioned_attribute",
-    "modifier": {
-        "name": "Increase attack speed",
-        "attribute": "minecraft:generic.attack_speed",
-        "value": 0.15,
-        "operation": "addition"
+    "atk_speed2": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.15,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 12
+        }
     },
-    "condition": {
-        "type": "origins:health",
-        "comparison": "<=",
-        "compare_to": 12
-    }
-},
-"atk_speed3": {
-    "type": "origins:conditioned_attribute",
-    "modifier": {
-        "name": "Increase attack speed",
-        "attribute": "minecraft:generic.attack_speed",
-        "value": 0.15,
-        "operation": "addition"
+    "atk_speed3": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.15,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 8
+        }
     },
-    "condition": {
-        "type": "origins:health",
-        "comparison": "<=",
-        "compare_to": 8
-    }
-},
-"atk_speed4": {
-    "type": "origins:conditioned_attribute",
-    "modifier": {
-        "name": "Increase attack speed",
-        "attribute": "minecraft:generic.attack_speed",
-        "value": 0.15,
-        "operation": "addition"
+    "atk_speed4": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.15,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 4
+        }
     },
-    "condition": {
-        "type": "origins:health",
-        "comparison": "<=",
-        "compare_to": 4
-    }
-},
-"atk_speed5": {
-    "type": "origins:conditioned_attribute",
-    "modifier": {
-        "name": "Increase attack speed",
-        "attribute": "minecraft:generic.attack_speed",
-        "value": 0.15,
-        "operation": "addition"
+    "atk_speed5": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.15,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 1
+        }
     },
-    "condition": {
-        "type": "origins:health",
-        "comparison": "<=",
-        "compare_to": 1
-    }
-},
-"name": "BERSERK MINDSET",
-"description": "You gain more attack speed proportial to missing health.",
-"badges":[
-    {
-        "type": "origins:tooltip",
-        "sprite": "origins:textures/gui/badge/star.png",
-        "text": "Berserk : 0.15 attack per 2 missing hearts."
-    }
-]
+    "name": "BERSERK MINDSET",
+    "description": "You gain more attack speed proportial to missing health.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Berserk : 0.15 attack speed per 2 missing hearts."
+        }
+    ]
 }

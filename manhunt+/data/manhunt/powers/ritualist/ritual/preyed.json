@@ -69,7 +69,7 @@
     "glow":{
         "type": "origins:self_glow",
         "bientity_condition": {
-            "type": "origins:actor_condition",
+            "type": "origins:target_condition",
             "condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:ritualist",

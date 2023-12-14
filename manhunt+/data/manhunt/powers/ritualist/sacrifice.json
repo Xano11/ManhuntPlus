@@ -122,12 +122,12 @@
 					"type": "origins:and",
 					"conditions": [
 						{
-							"type": "origins:nbt",
-							"nbt": "{CustomModelData:1}"
-						},
-						{
 							"type": "origins:entity_type",
 							"entity_type": "minecraft:item"
+						},
+						{
+							"type": "origins:nbt",
+							"nbt": "{Tags: ['soul']}"
 						}
 					]
 				}
@@ -172,6 +172,11 @@
 							"change": 1
 						}
 					},
+					{
+                        "type": "origins:feed",
+                        "food": 2,
+                        "saturation": 0.2
+                    },
 					{
 						"type": "origins:execute_command",
 						"command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0 0.3 0 10"

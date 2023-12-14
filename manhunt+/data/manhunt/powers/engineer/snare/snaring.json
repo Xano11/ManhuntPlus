@@ -103,7 +103,7 @@
             "command": "playsound minecraft:item.crossbow.loading_end player @a ~ ~ ~ 1 2",
             "permission_level": 4
         },
-        "interval": 7
+        "interval": 5
     },
     "anim": {
         "type": "origins:resource",

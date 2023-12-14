@@ -1,0 +1,20 @@
+{
+	"type": "origins:multiple",
+    "less_food":{
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+	"name": "Hungry spirit",
+	"description": "Souls you consume feed you slightly, but any other food is putrid.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "All food gives half the expected amount of sustenance.\n(Saturation is NOT affected)"
+		}
+	]
+}

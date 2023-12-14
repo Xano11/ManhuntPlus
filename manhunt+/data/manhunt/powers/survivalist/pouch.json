@@ -13,6 +13,6 @@
     "condition": {
         "type": "origins:sneaking"
     },
-    "name":"§l§nAdventurer's Pouch",
+    "name":"Adventurer's Pouch",
     "description":"You can access a pocket crafting table by sneaking and using your primary ability key."
 }

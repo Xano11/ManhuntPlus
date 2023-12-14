@@ -5,8 +5,7 @@
 		"manhunt:captain/bunker",
 		"manhunt:captain/craft",
 		"manhunt:captain/nether",
-		"manhunt:captain/air_speed",
-		"manhunt:captain/seavision"
+		"manhunt:captain/air_speed"
 	],
 	"icon": {
 		"item": "minecraft:crossbow",

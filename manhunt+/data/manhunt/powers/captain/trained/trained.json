@@ -1,24 +1,36 @@
 {
     "type": "origins:multiple",
-    "power": {
+    "use": {
         "type": "origins:active_self",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute if entity @s[nbt={Dimension:\"minecraft:overworld\"}] run power grant @e[distance=..10,tag=hunter] manhunt:captain/trained/trained_effects"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute if entity @s[nbt={Dimension:\"minecraft:the_nether\"}] run power grant @e[distance=..10,tag=hunter] manhunt:captain/trained/trained_effects_lava"
-                }
-            ]
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:dimension",
+                "dimension": "minecraft:the_nether"
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "power grant @a[distance=..10,tag=hunter] manhunt:captain/trained/trained_effects_lava"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "power grant @a[distance=..10,tag=hunter] manhunt:captain/trained/trained_effects"
+            }
         },
         "key": {
             "key": "key.origins.secondary_active"
         },
         "cooldown": 6000,
+        "hud_render": {
+            "sprite_location": "manhunt:textures/captain.png",
+            "bar_index": 1,
+            "should_render": true,
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:captain/trained/trained_effects",
+                "inverted": true
+            }
+        },
         "condition":  {
             "type": "origins:riding",
             "bientity_condition": {
@@ -29,11 +41,6 @@
                 }
             },
             "inverted": true
-        },
-        "hud_render": {
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 10,
-            "should_render": true
         }
     },
     "name": "Trained For The Sea",

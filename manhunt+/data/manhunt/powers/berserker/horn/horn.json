@@ -18,6 +18,14 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "apugli:cooldown",
+                        "ticks": 3600
+                    }
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter,distance=..20] manhunt:berserker/horn/horn_effects"
                 },
@@ -67,9 +75,7 @@
             }
         },
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-            "bar_index": 13
+            "should_render": false
         },
         "key": {
             "key": "key.use",
