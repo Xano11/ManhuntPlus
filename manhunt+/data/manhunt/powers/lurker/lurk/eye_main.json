@@ -37,11 +37,11 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run tp @p @s"
+                                    "command": "power remove @p manhunt:lurker/lurk/lurk_effects"
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "power remove @p manhunt:lurker/lurk/lurk_effects"
+                                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run tp @p @s"
                                 }
                             ]
                         }

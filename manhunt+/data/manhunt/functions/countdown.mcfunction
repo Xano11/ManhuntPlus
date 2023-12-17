@@ -7,4 +7,3 @@ time set day
 gamerule doLimitedCrafting true
 recipe give @a *
 recipe take @a[tag=!imp] manhunt:flint_trident
-power grant @a[tag=runner] manhunt:countdown

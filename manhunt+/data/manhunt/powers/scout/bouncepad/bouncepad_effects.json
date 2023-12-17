@@ -84,6 +84,11 @@
                         },
                         {
                             "type": "origins:execute_command",
+                            "command": "execute at @s run particle minecraft:poof ~ ~ ~ 1 0 1 0.1 10",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
                             "command": "power grant @s manhunt:scout/bouncepad/fall_immune"
                         }
                     ]

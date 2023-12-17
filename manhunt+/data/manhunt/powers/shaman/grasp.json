@@ -211,6 +211,62 @@
         "green": 0.9,
         "blue": 1.0
     },
+    "overlay": {
+        "type": "origins:status_bar_texture",
+        "texture": "manhunt:textures/gui/grasp_overlay.png",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 64,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:hunter",
+                                            "layer": "origins:origin"
+                                        },
+                                        {
+                                            "type": "apugli:entity_in_radius",
+                                            "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags: ['totem']}"
+                                            },
+                                            "radius": 8.0,
+                                            "comparison": "==",
+                                            "compare_to": 0
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 64
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "comparison": "==",
+                    "compare_to": 30
+                }
+            ]
+        }
+    },
     "name": "Sculk's grasp",
     "description": "Whilst in the totem and fully reposed, you can teleport teammates to you.",
     "badges": [

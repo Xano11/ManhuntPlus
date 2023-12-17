@@ -17,7 +17,7 @@
                     }
                 }
             ]
-        },  
+        },
         "execute_chosen_when_orb": true
     },
     "timer": {
@@ -37,6 +37,15 @@
             "change": -10
         },
         "interval": 10
+    },
+    "ready": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     },
     "sound2": {
         "type": "origins:action_over_time",
@@ -114,6 +123,346 @@
             "type": "origins:resource",
             "resource": "manhunt:start_timer",
             "comparison": "==",
+            "compare_to": 10
+        }
+    },
+    "choosing": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " ["
+            },
+            {
+                "text": "...",
+                "color": "gray"
+            },
+            {
+                "text": "]"
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_timer",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:runners"
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:hunters"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "chose_unready": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " ["
+            },
+            {
+                "text": "✔",
+                "color": "gray"
+            },
+            {
+                "text": "]"
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_timer",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_ready",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:hunters",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "chose_ready": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " ["
+            },
+            {
+                "text": "✔",
+                "color": "green"
+            },
+            {
+                "text": "]"
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_timer",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_ready",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:hunters",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "repick": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",\"Click [\",{\"keybind\":\"key.jump\",\"bold\":true,\"color\":\"gold\"},\"] to repick your role.\"]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_timer",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:hunters",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "readyup": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [\"\",\"Click [\",{\"keybind\":\"key.swapOffhand\",\"bold\":true,\"color\":\"gold\"},\"] to ready up!\"]"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_timer",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:hunters",
+                            "inverted": true
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=!ready]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "repick_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin gui @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove ready"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:start_ready",
+                    "change": -1
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.jump"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:start_timer",
+            "comparison": "<=",
+            "compare_to": 10
+        }
+    },
+    "ready_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=!ready]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add ready"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:start_ready",
+                                "change": 1
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove ready"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:start_ready",
+                                "change": -1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @s"
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.swapOffhand"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:start_timer",
+            "comparison": "<=",
             "compare_to": 10
         }
     },

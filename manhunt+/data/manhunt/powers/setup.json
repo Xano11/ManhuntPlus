@@ -1,0 +1,22 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:spawn_entity",
+                "entity_type": "minecraft:armor_stand",
+                "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"setup\"]}",
+                "entity_action":{
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:setup_armorstand"
+                }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:setup"
+            }
+        ]
+    },
+    "execute_chosen_when_orb": true
+}

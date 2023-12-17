@@ -122,24 +122,6 @@
         },
         "interval": 10
     },
-    "particles": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @e[limit=1,sort=nearest,type=arrow,tag=tp_skele] run particle minecraft:dust_color_transition 1 1 1 1 0.4 0 1 ~ ~ ~ 0.3 0.3 0.3 1 20",
-            "permission_level": 4
-        },
-        "interval": 30
-    },
-    "particles2": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @e[limit=1,sort=nearest,type=arrow,tag=tp_skele] run particle minecraft:witch ~ ~ ~ 0.1 0.1 0.1 1 20",
-            "permission_level": 4
-        },
-        "interval": 30
-    },
     "sound": {
         "type": "origins:action_over_time",
         "entity_action": {
