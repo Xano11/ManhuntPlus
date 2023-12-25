@@ -24,6 +24,29 @@
             ]
         }
     },
+    "no_ride": {
+        "type": "origins:action_over_time",
+        "rising_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=item_display,distance=..0.1,tag=sanguis_trace]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    },
     "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {

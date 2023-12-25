@@ -5,7 +5,7 @@
 		"manhunt:bomber/heavy",
 		"manhunt:bomber/explode_armor",
 		"manhunt:bomber/break_speed",
-		"manhunt:bomber/cannon/cannon"
+		"manhunt:bomber/boom/boom"
 	],
 	"icon": {
 		"item": "minecraft:tnt",

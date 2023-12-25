@@ -18,7 +18,7 @@
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5800,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5800,PickupDelay:10,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
 		"bientity_condition": {
@@ -39,17 +39,17 @@
 			}
 		}
 	},
-	"soul_kill":{
+	"soul_kill": {
 		"type": "apugli:action_on_target_death",
-		"bientity_action":  {
+		"bientity_action": {
 			"type": "origins:target_action",
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5800,PickupDelay:30,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5800,PickupDelay:10,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
-		"cooldown":1,
+		"cooldown": 1,
 		"includes_prime_adversary": false
 	},
 	"crit_gain": {
@@ -59,7 +59,7 @@
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5400,PickupDelay:30,Invulnerable:1b,Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5400,PickupDelay:10,Invulnerable:1b,Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
 		"bientity_condition": {
@@ -87,7 +87,7 @@
 			"action": {
 				"type": "origins:spawn_entity",
 				"entity_type": "minecraft:item",
-				"tag": "{Age:5400,PickupDelay:30,Invulnerable:1b,Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
+				"tag": "{Age:5400,PickupDelay:10,Invulnerable:1b,Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
 			}
 		},
 		"bientity_condition": {
@@ -135,15 +135,27 @@
 		},
 		"interval": 1
 	},
-	"soul_pickup": {
-		"type": "eggolib:action_on_item_pickup",
-		"item_action": {
-			"type": "origins:consume",
-			"amount": 99
-		},
-		"bientity_action": {
-			"type": "origins:target_action",
-			"action": {
+	"soul_consume": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:modify_inventory",
+			"inventory_type": "inventory",
+			"item_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:nbt",
+						"nbt": "{CustomModelData:1}"
+					},
+					{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:cyan_dye"
+						}
+					}
+				]
+			},
+			"entity_action": {
 				"type": "origins:and",
 				"actions": [
 					{
@@ -173,10 +185,10 @@
 						}
 					},
 					{
-                        "type": "origins:feed",
-                        "food": 2,
-                        "saturation": 0.2
-                    },
+						"type": "origins:feed",
+						"food": 2,
+						"saturation": 0.2
+					},
 					{
 						"type": "origins:execute_command",
 						"command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0 0.3 0 10"
@@ -186,23 +198,13 @@
 						"command": "playsound minecraft:block.respawn_anchor.charge player @a ~ ~ ~ 3 2"
 					}
 				]
+			},
+			"item_action": {
+				"type": "origins:consume",
+				"amount": 1
 			}
 		},
-		"item_condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:nbt",
-					"nbt": "{CustomModelData:1}"
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"item": "minecraft:cyan_dye"
-					}
-				}
-			]
-		}
+		"interval": 1
 	},
 	"name": "Sacrifice",
 	"description": "Sacrifice and store the souls of those you vanquish. Up to 14 of them may be stored at once.",

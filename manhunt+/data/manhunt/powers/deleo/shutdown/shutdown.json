@@ -7,27 +7,47 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter] manhunt:deleo/shutdown/shutdown_effects"
+                    "command": "power grant @s manhunt:deleo/shutdown/shutdown_windup"
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 1 2"
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"particle_shutdown\"]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:deleo/shutdown/delete_particles",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.firework_rocket.large_blast_far player @s ~ ~ ~ 1 0.5 1"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:item minecraft:netherite_ingot ~ ~1 ~ 1 0 1 0.4 100"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust 0 0 0 1 ~ ~1 ~ 1 0.5 1 1 100"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:campfire_cosy_smoke ~ ~ ~ 1 1 1 0.3 10"
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"particle_shutdown\"]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:deleo/shutdown/delete_particles",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [180f,0f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
                 }
             ]
         },
@@ -39,6 +59,9 @@
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
             "bar_index": 16,
             "should_render": true
+        },
+        "condition": {
+            "type": "origins:on_block"
         }
     },
     "name": "Shutdown.",
@@ -47,7 +70,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hunter Stun: No abilities, 60% Slowness, 75% Mitigation, Deafened."
+            "text": "Hunter Stun: No abilities, 35% Slowness, 75% Mitigation, Deafened."
         },
         {
             "type": "origins:keybind",

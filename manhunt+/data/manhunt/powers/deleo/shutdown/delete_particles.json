@@ -1,0 +1,59 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 70,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action":{
+            "type": "origins:execute_command",
+            "command": "kill @s",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/shutdown/delete_particles_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "particle": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.5 0.55 1.4 0 0.2 0.25 ^ ^1 ^2 0 0 0 1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:deleo/shutdown/delete_particles_duration",
+                        "comparison": ">",
+                        "compare_to": 55
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~0.15 ~ ~10 ~",
+                        "permission_level": 4
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~ ~ ~10 ~",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    }
+}

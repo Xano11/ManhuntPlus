@@ -3,7 +3,8 @@
 		"manhunt:lurker/lurk/lurk",
 		"origins:fragile",
 		"manhunt:lurker/shadow/shadow",
-		"manhunt:lurker/sleepless"
+		"manhunt:lurker/sleepless",
+		"manhunt:lurker/visions"
 	],
 	"icon": {
 		"item": "minecraft:sculk_sensor",

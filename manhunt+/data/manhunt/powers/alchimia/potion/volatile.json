@@ -1,0 +1,279 @@
+{
+    "type": "origins:multiple",
+    "shaking": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 3 1.5"
+                },
+                {
+                    "type": "origins:give",
+                    "stack": {
+                        "item": "minecraft:potion",
+                        "tag": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/potion/volatile_shaking",
+                    "change": -8
+                }
+            ]
+        }
+    },
+    "shaking_down": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/volatile_shaking",
+            "change": -8
+        },
+        "interval": 4,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "shaking_active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.witch.throw player @a ~ ~ ~ 2 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/potion/volatile_shaking",
+                    "change": 1
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+        },
+        "cooldown": 4,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/volatile_shaking",
+                    "comparison": "<",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:potion"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{CustomPotionColor:9004728,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Concoction\",\"italic\":false,\"color\":\"dark_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "volatile_throw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.witch.throw player @a ~ ~ ~ 2 0.7"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:potion",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 1,
+                    "tag": "{Passengers:[{id:\"minecraft:armor_stand\",Silent:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,Tags:[\"volatile\"]}],Item:{id:\"minecraft:splash_potion\",Count:1b,tag:{Enchantments:[{}],CustomModelData:1}}}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run power grant @s manhunt:alchimia/potion/volatile_pot",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:potion"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "tooltip":{
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:potion"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                }
+            ]
+        },
+        "text": "Explosive and not to be confused with sparkling water."
+    },
+    "shaking_movement": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.4,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/volatile_shaking",
+                    "comparison": "<",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:potion"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{CustomPotionColor:9004728,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Concoction\",\"italic\":false,\"color\":\"dark_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "no_drink":{
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:potion"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                }
+            ]
+        }
+    },
+    "name": "Volatile Potion",
+    "description": "[placeholder]"
+}

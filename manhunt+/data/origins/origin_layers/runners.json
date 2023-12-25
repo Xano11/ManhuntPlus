@@ -11,6 +11,7 @@
           },
               "origins": [
                 "manhunt:none",
+                "manhunt:runners/alchimia",
                 "manhunt:runners/celeritas",
                 "manhunt:runners/sanguis",
                 "manhunt:runners/damned",

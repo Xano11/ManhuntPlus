@@ -9,6 +9,12 @@
                 "custom_model_data": 1
             },
             "model": "manhunt:item/throwing_hatchet"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "manhunt:item/explosion_wave"
         }
     ]
 }

@@ -95,6 +95,9 @@
             ]
         }
     },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
     "no_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
@@ -115,6 +118,13 @@
     },
     "item_pickup":{
         "type": "eggolib:prevent_item_pickup"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
     },
     "hidden": true
 }

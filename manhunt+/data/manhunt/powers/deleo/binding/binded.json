@@ -1,0 +1,37 @@
+{
+    "type":"origins:multiple",
+    "keep":{
+        "type": "origins:keep_inventory",
+        "slots": [
+            40,
+            39,
+            38,
+            37,
+            36
+        ]
+    }, 
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action":{
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:deleo/binding/binded",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/binding/binded_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

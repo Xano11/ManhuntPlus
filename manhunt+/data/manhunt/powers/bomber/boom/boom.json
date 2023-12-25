@@ -1,0 +1,169 @@
+{
+    "type": "origins:multiple",
+    "charges": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/cannon_packs.png",
+            "bar_index": 0
+        }
+    },
+    "recharge": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomber/boom/boom_charges",
+                    "change": 1
+                }
+            ]
+        },
+        "interval": 900
+    },
+    "badge":{
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:bomber/boom/boom_badge"
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "throw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @e[tag=boompack,type=armor_stand] if score @s boompack = @p boompack",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:bomber/boom/boom_charges",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:fire_projectile",
+                                "entity_type": "minecraft:armor_stand",
+                                "divergence": 0,
+                                "count": 1,
+                                "speed": 0.5,
+                                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"boompack\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Passengers:[{id:\"minecraft:item_display\",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.35f,0f],scale:[0.45f,0.3f,0.45f]},item:{id:\"minecraft:tnt\",Count:1b}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.4f,0f],scale:[0.75f,0.3f,0.75f]},item:{id:\"minecraft:netherite_block\",Count:1b}}]}",
+                                "projectile_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @p boompack run data get entity @p UUID[0] 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @s boompack run data get entity @p UUID[0] 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:bomber/boom/boompack",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.nether_wart.plant player @a ~ ~ ~ 3 0.8"
+                            },
+                            {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:bomber/boom/boom_charges",
+                                "change": -1
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @e[tag=boompack,type=armor_stand] if score @s boompack = @p boompack run resource set @s manhunt:bomber/boom/boompack_detonate 0",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "cooldown": 2,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "name": "BOOM (packs)",
+    "description": "You've mastered your craft of the infamous BOOMpacks™ and can use them to move at incredible speeds.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Boompacks detonate by themselves after 3 seconds."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s and Left click to throw a boompack!\nTo detonate, press the same keys."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Max 2 charges\nCharge: 1 every 45s"
+        }
+    ]
+}

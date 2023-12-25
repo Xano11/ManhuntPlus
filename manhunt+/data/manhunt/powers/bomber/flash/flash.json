@@ -65,8 +65,15 @@
         "sprite_location": "manhunt:textures/flash.png",
         "bar_index": 0
     },
+    "condition": {
+        "type": "apugli:key_pressed",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
     "key": {
-        "key": "key.origins.secondary_active"
+        "key": "key.use"
     },
     "name": "Flashbang",
     "description": "Throw a flash bang that blinds enemies.",
@@ -79,7 +86,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Throw with %s!"
+            "text": "Hold %s and press Right Click to throw!"
         },
         {
             "type": "origins:tooltip",

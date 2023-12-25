@@ -2,7 +2,10 @@
 	"powers": [
         "manhunt:deleo/menacing",
 		"manhunt:deleo/shutdown/shutdown",
-		"manhunt:deleo/disable/disable"
+		"manhunt:deleo/disable/disable",
+		"manhunt:deleo/cursed",
+		"manhunt:deleo/binding/binding",
+		"origins:unwieldy"
 	],
 	"icon": {
 		"item": "minecraft:music_disc_5",
@@ -10,6 +13,6 @@
 	},
 	"order": 10,
 	"impact": 1,
-	"name": "Deleo ▼",
+	"name": "Deleo 🚫",
 	"description": "The Deleo specializes in disrupting the enemies; disabling their abilities and combat potential."
 }

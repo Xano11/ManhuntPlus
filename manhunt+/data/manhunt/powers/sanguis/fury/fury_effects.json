@@ -69,7 +69,7 @@
             "operation": "multiply_total"
         }
     },
-    "no_attack": {
+    "more_attack": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "addition",

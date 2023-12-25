@@ -12,7 +12,7 @@
 				{
 					"type": "origins:change_resource",
 					"resource": "manhunt:ritualist/sacrifice_souls",
-					"change": -15
+					"change": -14
 				}
 			]
 		},
@@ -23,7 +23,7 @@
 			"type": "origins:resource",
 			"resource": "manhunt:ritualist/sacrifice_souls",
 			"comparison": "==",
-			"compare_to": 15
+			"compare_to": 14
 		},
 		"cooldown": 1800,
 		"hud_render": {

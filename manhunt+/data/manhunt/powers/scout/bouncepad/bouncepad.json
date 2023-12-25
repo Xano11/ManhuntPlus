@@ -17,6 +17,11 @@
                         "actions": [
                             {
                                 "type": "origins:execute_command",
+                                "command": "scale set pehkui:width 6",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
                                 "command": "power grant @s manhunt:scout/bouncepad/bouncepad_effects",
                                 "permission_level": 4
                             },

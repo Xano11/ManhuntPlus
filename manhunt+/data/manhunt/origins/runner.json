@@ -1,6 +1,7 @@
 {
 	"powers": [
-		"manhunt:runner_effects"
+		"manhunt:runner_effects",
+		"manhunt:global"
 	],
 	"icon": {
 		"item": "minecraft:ender_eye",

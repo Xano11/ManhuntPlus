@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:alchimia/potion/volatile",
+        "manhunt:alchimia/potion/refill",
+		"manhunt:alchimia/potion/heal",
+		"manhunt:alchimia/potion/eyes",
+		"manhunt:alchimia/potion/strength",
+		"manhunt:alchimia/feeble"
+	],
+	"icon": {
+		"item": "minecraft:brewing_stand",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Alchimia 🧪",
+	"description": "The Alchimia is a master of potions and alchemy."
+}

@@ -3,8 +3,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 140,
-        "start_value": 140,
+        "max": 200,
+        "start_value": 200,
         "hud_render": {
             "should_render": false
         },
@@ -30,7 +30,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:area_of_effect",
-            "radius": 6,
+            "radius": 8,
             "bientity_action": {
                 "type": "origins:and",
                 "actions": [

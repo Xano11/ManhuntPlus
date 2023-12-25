@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:hunter_effects",
+		"manhunt:global",
 		"manhunt:compass"
 	],
 	"icon": {

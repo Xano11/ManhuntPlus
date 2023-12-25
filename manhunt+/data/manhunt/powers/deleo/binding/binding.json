@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+    "on_hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:deleo/binding/binded",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:deleo/binding/binded_duration",
+                        "change": 10
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunter",
+                "layer": "origins:origin"
+            }
+        }
+    },
+    "name": "Binding Vows (see what I did there)",
+    "description": "Hunters you kill keep their armors and their ",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You sink in water and lose some movement."
+        }
+    ]
+}

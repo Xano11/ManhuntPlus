@@ -54,7 +54,7 @@
             ]
         },
         "key": {
-            "key": "key.origins.primary_active",
+            "key": "key.origins.secondary_active",
             "continuous": true
         },
         "cooldown": 1,
@@ -258,7 +258,7 @@
         "condition": {
             "type": "apugli:key_pressed",
             "key": {
-                "key": "key.origins.primary_active",
+                "key": "key.origins.secondary_active",
                 "continuous": true
             },
             "inverted": true
