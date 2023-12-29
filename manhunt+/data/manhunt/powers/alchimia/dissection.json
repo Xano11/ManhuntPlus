@@ -1,0 +1,96 @@
+{
+    "type": "origins:multiple",
+    "kill": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/dissection_duration",
+                    "change": 5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a[tag=hunter] [\"\",{\"text\":\"They\",\"bold\":true,\"color\":\"dark_purple\"},\" see your ethereal form...\"]"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "target_condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/dissection_duration",
+                    "change": -1
+                }
+            ]
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/dissection_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter",
+                        "layer": "origins:origin"
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:alchimia/dissection_duration",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0
+    },
+    "name": "Ethereal Dissection",
+    "description": "Upon killing a hunter, you catch a glimpse of the hunters ethereal forms.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Ethereal Glimpse: Glowing for 5 seconds on hunter kill."
+        }
+    ]
+}

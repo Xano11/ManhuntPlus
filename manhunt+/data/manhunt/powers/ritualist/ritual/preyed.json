@@ -61,7 +61,7 @@
             "type": "origins:actor_condition",
             "condition": {
                 "type": "origins:origin",
-                "origin": "manhunt:ritualist",
+                "origin": "manhunt:hunters/ritualist",
                 "layer": "origins:hunters"
             }
         }
@@ -72,7 +72,7 @@
             "type": "origins:target_condition",
             "condition": {
                 "type": "origins:origin",
-                "origin": "manhunt:ritualist",
+                "origin": "manhunt:hunters/ritualist",
                 "layer": "origins:hunters"
             }
         },

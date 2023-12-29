@@ -1,11 +1,12 @@
 {
 	"powers": [
+		"manhunt:alchimia/potion/refill",
 		"manhunt:alchimia/potion/volatile",
-        "manhunt:alchimia/potion/refill",
 		"manhunt:alchimia/potion/heal",
 		"manhunt:alchimia/potion/eyes",
 		"manhunt:alchimia/potion/strength",
-		"manhunt:alchimia/feeble"
+		"manhunt:alchimia/feeble",
+		"manhunt:alchimia/dissection"
 	],
 	"icon": {
 		"item": "minecraft:brewing_stand",

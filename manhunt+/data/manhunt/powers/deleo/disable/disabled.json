@@ -86,7 +86,7 @@
         "type": "eggolib:modify_label_render",
         "text": {
             "text": "Impostor",
-            "bold": true,
+           "bold": true,
             "obfuscated": true
         }
     },
@@ -97,7 +97,7 @@
             "command": "playsound minecraft:item.spyglass.use player @s ~ ~ ~ 3 0.5"
         },
         "interval": 7
-    },
+    }, 
     "animation": {
         "type": "origins:resource",
         "min": 0,

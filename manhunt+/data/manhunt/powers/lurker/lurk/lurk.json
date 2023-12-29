@@ -93,7 +93,7 @@
                         },
                         "else_action": {
                             "type": "origins:execute_command",
-                            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker run tp @p @s",
+                            "command": "execute at @e[tag=lurk_eye,type=item_display] if score @s lurker = @e[tag=lurk_eye,type=item_display,limit=1,sort=nearest] lurker run tp @s ~ ~ ~ ~ ~",
                             "permission_level": 4
                         }
                     },

@@ -38,7 +38,7 @@
         }
     },
     "name": "BACON-T",
-    "description": "You can summon your little friend: BACON-T! Interacting with them will put yourself and the closest runneer into a simulation. Whomever wins, gets a temporary buff",
+    "description": "You can summon your little friend: BACON-T! Interacting with them will put yourself and the closest runner into a simulation. Whomever wins, gets a temporary buff",
     "badges": [
         {
             "type": "origins:tooltip",

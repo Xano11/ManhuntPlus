@@ -36,7 +36,24 @@
             "x",
             "y",
             "z"
-        ]
+        ],
+        "condition": {
+            "type": "origins:creative_flying"
+        }
+    },
+    "no_fall":{
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -1,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "y"
+        ],
+        "condition": {
+            "type": "origins:creative_flying",
+            "inverted": true
+        }
     },
     "fog": {
         "type": "moborigins:fog",
