@@ -99,6 +99,5 @@
             "value": 2
         }
     },
-    "name": "Potion of Strength",
-    "description": "[placeholder]"
+    "hidden": true
 }

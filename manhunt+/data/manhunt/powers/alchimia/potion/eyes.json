@@ -106,7 +106,7 @@
                     "type": "origins:target_condition",
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:runner",
+                        "origin": "manhunt:hunter",
                         "layer": "origins:origin"
                     }
                 },
@@ -126,6 +126,5 @@
         "green": 1.0,
         "blue": 0.0
     },
-    "name": "Potion of Sight",
-    "description": "[placeholder]"
+    "hidden": true
 }

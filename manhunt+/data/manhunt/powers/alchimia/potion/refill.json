@@ -83,6 +83,23 @@
             "compare_to": 4
         }
     },
-    "name": "Potion Refill",
-    "description": "[placeholder]"
+    "name": "Alchemical Expert",
+    "description": "Your prowess for potion-making grants you the supernatural power to generate special concoctions.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You naturally generate special concoctions every 45 seconds.\nUsing those, you can craft extra potions with different materials! (See other badges)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/strength.png",
+            "text": "Using §6blaze powder§r you can make a strength potion. \n(+2 damage for 10 seconds)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "Using §eglow berries§r you can make a glowing eyes potion. \n(See hunters through surfaces in a 24 block radius)"
+        }
+    ]
 }

@@ -92,5 +92,6 @@
             "type": "origins:riding",
             "inverted": true
         }
-    }
+    },
+    "hidden": true
 }

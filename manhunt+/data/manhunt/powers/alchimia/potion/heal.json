@@ -67,6 +67,5 @@
             "compare_to": 0
         }
     },
-    "name": "Healing Potion",
-    "description": "[placeholder]"
+    "hidden": true
 }

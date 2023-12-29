@@ -8,5 +8,12 @@
         }
     },
     "name": "Feeble",
-    "description": "[placeholder]"
+    "description": "You initially learned alchemy to rejuvenate your dying and feeble body.\nWithout them, your body struggles.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Feeble: -75% natural regeneration. To heal, it is suggested to drink your regular concoctions."
+        }
+    ]
 }
