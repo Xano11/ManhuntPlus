@@ -1,27 +1,53 @@
 {
-    "type":"origins:multiple",
-    "keep":{
+    "type": "origins:multiple",
+    "keep": {
         "type": "origins:keep_inventory",
         "slots": [
-            40,
             39,
             38,
             37,
-            36
+            36,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
         ]
-    }, 
+    },
+    "no_inv": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.inventory",
+            "key.origins.primary_active",
+            "key.origins.secondary_active"
+        ]
+    },
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 10,
-        "start_value": 10,
+        "max": 16,
+        "start_value": 16,
         "hud_render": {
             "should_render": false
         },
-        "min_action":{
-            "type": "origins:execute_command",
-            "command": "power remove @s manhunt:deleo/binding/binded",
-            "permission_level": 4
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "damage @s 1000 minecraft:generic_kill",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:deleo/binding/binded",
+                    "permission_level": 4
+                }
+            ]
         }
     },
     "duration_down": {
@@ -31,7 +57,294 @@
             "resource": "manhunt:deleo/binding/binded_duration",
             "change": -1
         },
+        "interval": 10
+    },
+    "label1": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "text": "Impostor",
+                "bold": true,
+                "obfuscated": true
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": ">",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+    "label2": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "text": "I",
+                "bold": true,
+                "obfuscated": true,
+                "color": "dark_aqua"
+            },
+            {
+                "text": "mposto",
+                "bold": true,
+                "obfuscated": true,
+                "color": "white"
+            },
+            {
+                "text": "r",
+                "bold": true,
+                "obfuscated": true,
+                "color": "dark_aqua"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": "<=",
+                    "compare_to": 12
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": ">",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+    "label3": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "text": "Imp",
+                "bold": true,
+                "obfuscated": true,
+                "color": "dark_aqua"
+            },
+            {
+                "text": "os",
+                "bold": true,
+                "obfuscated": true,
+                "color": "white"
+            },
+            {
+                "text": "tor",
+                "bold": true,
+                "obfuscated": true,
+                "color": "dark_aqua"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": "<=",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": ">",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "label4": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "text": "Impostor",
+                "bold": true,
+                "obfuscated": true,
+                "color": "dark_aqua"
+            }
+        ],
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": "<=",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "model1":{
+        "type": "origins:model_color",
+        "alpha": 0.75,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": ">",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+    "model2":{
+        "type": "origins:model_color",
+        "alpha": 0.60,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": "<=",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+    "model3":{
+        "type": "origins:model_color",
+        "alpha": 0.45,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": ">",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": "<=",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+    "model4":{
+        "type": "origins:model_color",
+        "alpha": 0.30,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/binding/binded_duration",
+                    "comparison": "<=",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "levitate": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute if block ~ ~2 ~ minecraft:air run tp ~ ~0.04 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0 0 ~ ~1 ~ 0.4 0.05 0.4 1 5",
+                    "permission_level": 4
+                }
+            ]
+        },
         "interval": 1
+    },
+    "no_move": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -1,
+            "operation": "multiply_total"
+        }
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/binding/binded_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use"
+    },
+    "no_exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "No exhaustion",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_pickup": {
+        "type": "eggolib:prevent_item_pickup",
+        "item_condition": {
+            "type": "eggolib:block_item"
+        }
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
     },
     "hidden": true
 }
