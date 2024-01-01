@@ -7,8 +7,8 @@
 		"manhunt:lurker/visions"
 	],
 	"icon": {
-		"item": "minecraft:sculk_sensor",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"item": "minecraft:ender_eye",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
 	},
 	"order": 10,
 	"impact": 2,

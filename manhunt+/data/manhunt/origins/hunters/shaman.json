@@ -7,7 +7,7 @@
 		"manhunt:shaman/regenerate"
 	],
 	"icon": {
-		"item": "minecraft:sculk_shrieker",
+		"item": "minecraft:soul_lantern",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,

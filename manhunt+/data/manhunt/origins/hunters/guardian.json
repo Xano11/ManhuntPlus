@@ -8,7 +8,7 @@
 		"manhunt:guardian/launch/pickup"
 	],
 	"icon": {
-		"item": "minecraft:beacon",
+		"item": "minecraft:tide_armor_trim_smithing_template",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,

@@ -5,11 +5,11 @@
 		"manhunt:deleo/disable/disable",
 		"manhunt:deleo/cursed",
 		"manhunt:deleo/binding/binding",
-		"origins:unwieldy"
+		"origins:no_shield"
 	],
 	"icon": {
-		"item": "minecraft:music_disc_5",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"item": "minecraft:echo_shard",
+		"tag": "{Enchantments:[{}],CustomModelData:3}"
 	},
 	"order": 10,
 	"impact": 1,
