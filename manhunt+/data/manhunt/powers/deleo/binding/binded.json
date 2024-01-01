@@ -18,6 +18,15 @@
             8
         ]
     },
+    "remove":{
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:deleo/binding/binded",
+            "permission_level": 4
+        },
+        "execute_chosen_when_orb": true
+    },
     "no_inv": {
         "type": "eggolib:prevent_key_use",
         "keys": [
@@ -35,19 +44,9 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "damage @s 1000 minecraft:generic_kill",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:deleo/binding/binded",
-                    "permission_level": 4
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "kill @s",
+            "permission_level": 4
         }
     },
     "duration_down": {
