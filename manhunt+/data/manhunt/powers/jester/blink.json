@@ -1,0 +1,69 @@
+{
+    "name": "Don't blink twice!",
+    "description": "You can teleport in front of you in the blink of an eye.",
+    "type": "origins:multiple",
+    "move": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 7,
+                    "block": true,
+                    "entity": false,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "before_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.experience_orb.pickup player @a ~ ~ ~ 2 0.7"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.firework_rocket.twinkle player @a ~ ~ ~ 2 1.4"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.firework_rocket.large_blast player @a ~ ~ ~ 2 1.4"
+                            },
+                            {
+                                "type": "origins:set_fall_distance",
+                                "fall_distance": 0
+                            }
+                        ]
+                    },
+                    "command_along_ray": "tp @s ~ ~ ~",
+                    "command_step": 0.5,
+                    "command_along_ray_only_on_hit": false
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:firework ~ ~1 ~ 0 0 0 0.15 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1 1 0.5 0.5 ~ ~1 ~ 0.3 0.3 0.3 0.15 30"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.2,
+                    "space": "velocity"
+                }
+            ]
+        },
+        "cooldown": 100,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 18,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png"
+        }
+    },
+    "hidden": false
+}

@@ -33,7 +33,7 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:jester/smoke/smoke_bombing_duration",
+                    "resource": "manhunt:artisan/smoke/smoke_bombing_duration",
                     "change": -10
                 }
             ]
@@ -79,12 +79,12 @@
                             "actions": [
                                 {
                                     "type": "origins:change_resource",
-                                    "resource": "manhunt:jester/smoke/smoked_duration",
+                                    "resource": "manhunt:artisan/smoke/smoked_duration",
                                     "change": 30
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "power grant @s manhunt:jester/smoke/smoked",
+                                    "command": "power grant @s manhunt:artisan/smoke/smoked",
                                     "permission_level": 4
                                 }
                             ]
