@@ -42,7 +42,7 @@
             "fluid_handling": "none",
             "bientity_action": {
                 "type": "origins:add_velocity",
-                "z": -0.95,
+                "z": -1.25,
                 "client": false
             },
             "hit_action": {
@@ -59,7 +59,7 @@
                     {
                         "type": "origins:add_velocity",
                         "space": "local",
-                        "z": 0.8
+                        "z": 1.1
                     },
                     {
                         "type": "origins:change_resource",
