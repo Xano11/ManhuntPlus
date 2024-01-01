@@ -12,41 +12,6 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:if_else",
-                        "condition": {
-                            "type": "apugli:entity_in_radius",
-                            "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "apoli:entity_type",
-                                        "entity_type": "minecraft:player"
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "manhunt:lurker/lurk/lurk_effects"
-                                    }
-                                ]
-                            },
-                            "radius": 3.0,
-                            "comparison": ">=",
-                            "compare_to": 1
-                        },
-                        "if_action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power remove @p manhunt:lurker/lurk/lurk_effects"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run tp @p @s"
-                                }
-                            ]
-                        }
-                    },
-                    {
                         "type": "origins:execute_command",
                         "command": "execute on vehicle at @s run particle minecraft:dragon_breath ~ ~ ~ 0.3 0.3 0.3 0.1 50"
                     },
@@ -64,10 +29,10 @@
                     }
                 ]
             }
-        },
-        "no_interact":{
-            "type": "origins:prevent_entity_use"
         }
+    },
+    "no_interact":{
+        "type": "origins:prevent_entity_use"
     },
     "hidden": true
 }

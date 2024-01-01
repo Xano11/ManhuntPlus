@@ -23,13 +23,13 @@
             ]
         }
     },
-    "flight":{
+    "flight": {
         "type": "origins:creative_flight"
     },
     "slowflight": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -0.1,
+            "value": 0.2,
             "operation": "multiply_total"
         },
         "axes": [
@@ -41,19 +41,9 @@
             "type": "origins:creative_flying"
         }
     },
-    "no_fall":{
-        "type": "origins:modify_velocity",
-        "modifier": {
-          "value": -1,
-          "operation": "multiply_total"
-        },
-        "axes": [
-          "y"
-        ],
-        "condition": {
-            "type": "origins:creative_flying",
-            "inverted": true
-        }
+    "no_fall": {
+        "type": "origins:modify_falling",
+        "velocity": 0.005
     },
     "fog": {
         "type": "moborigins:fog",
@@ -71,6 +61,33 @@
             "permission_level": 4
         },
         "interval": 1
+    },
+    "no_eye": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run tp @p @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:lurker/lurk/lurk_effects"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker",
+            "comparison": "==",
+            "compare_to": 0
+        }
     },
     "no_atk_speed": {
         "type": "origins:attribute",
@@ -129,11 +146,14 @@
     "prevent_block": {
         "type": "origins:prevent_block_use"
     },
-    "no_ability":{
+    "no_ability": {
         "type": "eggolib:prevent_key_use",
-        "key": "key.origins.primary_active"
+        "keys": [
+            "key.origins.primary_active",
+            "key.attack"
+        ]
     },
-    "item_pickup":{
+    "item_pickup": {
         "type": "eggolib:prevent_item_pickup"
     },
     "no_break": {
