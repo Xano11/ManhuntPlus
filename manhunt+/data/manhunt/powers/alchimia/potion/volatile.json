@@ -262,13 +262,6 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    }
-                },
-                {
                     "type": "origins:ingredient",
                     "ingredient": {
                         "item": "minecraft:potion"
@@ -279,6 +272,13 @@
                     "nbt": "{CustomPotionColor:9004728,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Concoction\",\"italic\":false,\"color\":\"dark_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
                 }
             ]
+        },
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            }
         }
     },
     "no_drink":{

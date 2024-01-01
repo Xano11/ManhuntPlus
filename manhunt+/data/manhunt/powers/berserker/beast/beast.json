@@ -51,7 +51,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Sacrifice all your health to become unkillable for 15 seconds."
+            "text": "Sacrifice all your health to become unkillable for 15 seconds.\nAfter 15 seconds, if you do not hit a runner five times with an axe, you will die."
         },
         {
             "type": "origins:tooltip",
