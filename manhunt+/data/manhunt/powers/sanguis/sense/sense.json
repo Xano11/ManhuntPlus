@@ -35,7 +35,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Upon using the ability, the voices will speak and you will be granted Hunter vision.\nIn your chat, the voices will speak.\nA §2green§r message indicates no hunters in a 100 block radius.\nAn §6orange§r message indicates a hunter player between 30 and 100 block radius.\nA §4red§r message indicates a hunter player in a 30 block radius.\nHunter Vision: Hunters leave traces of their movements which can be followed."
+            "text": "Upon using the ability, the voices will speak and you will be granted Hunter vision.\nIn your chat, the voices will speak.\nA §2green§r message indicates no hunters in a 100 block radius.\nAn §6orange§r message indicates a hunter player between 30 and 100 block radius.\nA §4red§r message indicates a hunter player in a 30 block radius.\nHunter Vision: Hunters glow in a 30 block radius."
         },
         {
             "type": "origins:keybind",

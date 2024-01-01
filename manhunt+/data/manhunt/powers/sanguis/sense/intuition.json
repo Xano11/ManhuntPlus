@@ -32,32 +32,31 @@
         "type": "origins:shader",
         "shader": "minecraft:shaders/post/desaturate.json"
     },
-    "trace_glow":{
+    "hunter_glow":{
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:can_see"
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 30
                 },
                 {
                     "type": "origins:target_condition",
                     "condition": {
-                        "type": "origins:passenger",
-                        "bientity_condition": {
-                            "type": "origins:actor_condition",
-                            "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:entity_type",
-                                        "entity_type": "minecraft:armor_stand"
-                                    }
-                                ]
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
                             }
-                        },
-                        "compare_to": 1,
-                        "comparison": ">="
+                        ]
                     }
                 }
             ]

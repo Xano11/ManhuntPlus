@@ -10,12 +10,8 @@
                     "command": "tag @s add hunter"
                 },
                 {
-                    "type": "origins:delay",
-                    "ticks": 1,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "execute store result score @s hunters run execute if entity @a[tag=hunter]"
-                    }
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s hunters run execute if entity @a[tag=hunter]"
                 }
             ]
         },
@@ -41,56 +37,6 @@
             ]
         },
         "execute_chosen_when_orb": true
-    },
-    "traces_sanguis": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:spawn_entity",
-                    "entity_type": "minecraft:item_display",
-                    "tag": "{Tags:[\"sanguis_trace\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"delete_trace\"],ArmorItems:[{},{},{},{id:\"minecraft:air\",Count:1b,tag:{display:{Name:'{\"text\":\"check\"}'}}}]}],transformation:{left_rotation:[1f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:netherite_upgrade_smithing_template\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}",
-                    "entity_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "execute on passengers run power grant @s manhunt:sanguis/sense/delete_trace",
-                                "permission_level": 4
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 1,
-                                "action": {
-                                    "type": "origins:execute_command",
-                                    "command": "execute as @s at @s facing entity @p feet run tp @s ~ ~ ~ ~ ~",
-                                    "permission_level": 4
-                                }
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "interval": 60,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:fluid_height",
-                    "fluid": "minecraft:water",
-                    "comparison": "==",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:fluid_height",
-                    "fluid": "minecraft:lava",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        }
     },
     "hidden": true
 }
