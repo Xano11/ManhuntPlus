@@ -1,0 +1,24 @@
+{
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "modifier": {
+            "name": "Weak to falls",
+            "operation": "multiply_total",
+            "value": 1
+        }
+    },
+    "name": "Fear of Heights",
+    "description": "You crafted your cape for one and only reason : Your feeble legs. You fear falling due to the damage it would cause.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Heights: 200% fall damage."
+        }
+    ]
+}

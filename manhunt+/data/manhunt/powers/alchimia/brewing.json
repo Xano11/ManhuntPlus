@@ -1,0 +1,52 @@
+{
+    "type": "origins:multiple",
+    "bad_effects": {
+        "type": "origins:modify_status_effect_duration",
+        "status_effects": [
+            "minecraft:wither",
+            "minecraft:poison",
+            "minecraft:slowness",
+            "minecraft:mining_fatigue",
+            "minecraft:nausea",
+            "minecraft:blindness",
+            "minecraft:weakness",
+            "minecraft:hunger",
+            "minecraft:darkness"
+        ],
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "value": -0.4
+        }
+    },
+    "good_effects": {
+        "type": "origins:modify_status_effect_duration",
+        "status_effects": [
+            "minecraft:strength",
+            "minecraft:regeneration",
+            "minecraft:speed",
+            "minecraft:haste",
+            "minecraft:jump_boost",
+            "minecraft:resistance",
+            "minecraft:fire_resistance",
+            "minecraft:water_breathing",
+            "minecraft:invisibility",
+            "minecraft:night_vision",
+            "minecraft:absorption",
+            "minecraft:dolphins_grace",
+            "minecraft:slow_falling"
+        ],
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "value": 0.4
+        }
+    },
+    "name": "Brew-time",
+    "description": "Your alchemical expertise in the field grants you a longer duration for benecificial effects, whilst a shorter duration for the enfeeblements.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Brew-time: +40% duration on positive potion effects. (Strength, Speed, etc)\n-40% duration on negative potion effects (Weakness, poison, etc)"
+        }
+    ]
+}

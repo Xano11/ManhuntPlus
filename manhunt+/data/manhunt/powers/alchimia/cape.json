@@ -1,0 +1,293 @@
+{
+    "type": "origins:multiple",
+    "durability": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:alchimia/cape_durability",
+                "comparison": "<",
+                "compare_to": 100
+            }
+        }
+    },
+    "durability_gain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_durability",
+            "change": 1
+        },
+        "interval": 20
+    },
+    "charge": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.insert player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ^ ^1.2 ^-0.4 0 0 0 0.01 5"
+                }
+            ]
+        }
+    },
+    "charging_down": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_charge",
+            "change": -3
+        },
+        "interval": 1,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.secondary_active",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "deploy": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "change": 1
+                }
+            ]
+        },
+        "cooldown": 3,
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_durability",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "durability_use": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_durability",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "comparison": "==",
+                    "compare_to": 3
+                }
+            ]
+        }
+    },
+    "charging_movement": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.4,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_durability",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "glide":{
+        "type": "origins:modify_falling",
+        "velocity": 0.005,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_durability",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "glide_horizontal":{
+        "type": "origins:modify_velocty",
+        "modifier": {
+            "value": 1,
+            "operation": "multiply_total"
+          },
+          "axes": [
+            "x",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_durability",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "cape":{
+        "type": "origins:elytra_flight",
+        "render_elytra": true,
+        "texture_location": "manhunt:textures/item/cape.png",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_charge",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_durability",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "no_elytra":{
+        "type": "origins:prevent_elytra_flight"
+    },
+    "name": "Self-Made Cape",
+    "description": "Deploy your self-made cape to glide around like a flying rodent.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Takes 0.45s to deploy your cape before it reduces your fall."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "5 seconds worth of gliding.\nRecharge your cape fully after 1m 40s."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s to deploy your cape!"
+        }
+    ]
+}
