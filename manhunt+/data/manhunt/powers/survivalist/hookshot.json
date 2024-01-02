@@ -3,7 +3,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
+        "max": 240,
         "start_value": 0,
         "hud_render":  {
             "sprite_location": "manhunt:textures/survivalist.png",
@@ -64,7 +64,7 @@
                     {
                         "type": "origins:change_resource",
                         "resource": "manhunt:survivalist/hookshot_cooldown",
-                        "change": 300
+                        "change": 240
                     }
                 ]
             },
@@ -145,7 +145,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 15s"
+            "text": "Cooldown: 12s"
         }
     ]
 }

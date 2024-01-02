@@ -6,7 +6,15 @@
         "max": 900,
         "start_value": 900,
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:guardian/launch/launch_cooldown",
+                "comparison": "<",
+                "compare_to": 900
+            }
         }
     },
     "cooldown_up": {

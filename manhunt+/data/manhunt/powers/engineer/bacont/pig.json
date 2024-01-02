@@ -240,6 +240,23 @@
                     }
                 }
             ]
+        },
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @a[tag=hunter_simulated]",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @a[tag=runner_simulated]",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "hidden": true
