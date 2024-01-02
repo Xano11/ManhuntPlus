@@ -9,7 +9,7 @@
 	],
 	"icon": {
 		"item": "minecraft:crossbow",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"tag": "{Enchantments:[{}],Charged:1b,CustomModelData:1}"
 	},
 	"order": 10,
 	"impact": 2,

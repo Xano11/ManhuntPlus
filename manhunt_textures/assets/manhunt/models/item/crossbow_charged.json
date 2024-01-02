@@ -1,0 +1,6 @@
+{
+    "parent": "item/crossbow",
+    "textures": {
+        "layer0": "manhunt:item/crossbow_charged"
+    }
+}

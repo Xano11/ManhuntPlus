@@ -66,9 +66,37 @@
                 {
                     "type": "origins:actor_action",
                     "action": {
-                        "type": "origins:change_resource",
-                        "resource": "manhunt:captain/blunderbuss_loaded",
-                        "change": -1
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:captain/blunderbuss_loaded",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:captain/blunderbuss_loaded_timer",
+                                "change": -200
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData:2}"
+                                        },
+                                        {
+                                            "type": "origins:damage",
+                                            "amount": 25,
+                                            "ignore_unbreaking": true
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -113,10 +141,19 @@
                                 "type": "origins:equipped_item",
                                 "equipment_slot": "mainhand",
                                 "item_condition": {
-                                    "type": "origins:ingredient",
-                                    "ingredient": {
-                                        "item": "minecraft:crossbow"
-                                    }
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:ingredient",
+                                            "ingredient": {
+                                                "item": "minecraft:crossbow"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:1}"
+                                        }
+                                    ]
                                 }
                             }
                         ]
@@ -139,10 +176,10 @@
         "min": 0,
         "max": 200,
         "start_value": 0,
-        "hud_render":  {
+        "hud_render": {
+            "sprite_location": "manhunt:textures/captain.png",
+            "bar_index": 0,
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-            "bar_index": 14,
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:captain/blunderbuss_loaded_timer",
@@ -151,9 +188,71 @@
             }
         },
         "min_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:captain/blunderbuss_loaded",
-            "change": -1
+            "type": "origins:if_else",
+            "condition":  {
+                "type": "origins:resource",
+                "resource": "manhunt:captain/blunderbuss_loaded",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:modify_inventory",
+                        "inventory_type": "inventory",
+                        "item_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:merge_nbt",
+                                    "nbt": "{CustomModelData:2}"
+                                },
+                                {
+                                    "type": "origins:damage",
+                                    "amount": 25,
+                                    "ignore_unbreaking": true
+                                }
+                            ]
+                        },
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:crossbow"
+                                    }
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{CustomModelData:1}"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:explode",
+                        "power": 2,
+                        "destruction_type": "break",
+                        "damage_self": true,
+                        "create_fire": true
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:explosion ~ ~ ~ 0 0 0 1 1"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:captain/blunderbuss_loaded",
+                        "change": -1
+                    }
+                ]
+            }
         }
     },
     "duration_down": {
@@ -161,9 +260,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:captain/blunderbuss_loaded_timer",
-            "change": -20
+            "change": -2
         },
-        "interval": 20
+        "interval": 2
     },
     "activate": {
         "type": "origins:active_self",
@@ -179,6 +278,22 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:captain/blunderbuss_loaded_timer",
                     "change": 200
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:merge_nbt",
+                        "nbt": "{CustomModelData:1}"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.flintandsteel.use player @a ~ ~ ~ 2 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.tnt.primed player @a ~ ~ ~ 2 2"
                 }
             ]
         },
@@ -186,7 +301,26 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "hud_render":  {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Charged: 1b}"
+                    }
+                ]
+            }
+        },
+        "hud_render": {
             "sprite_location": "manhunt:textures/captain.png",
             "bar_index": 0,
             "should_render": true,
@@ -267,17 +401,17 @@
         }
     },
     "name": "Explosive Ammunition",
-    "description": "Load your next crossbow arrow with a TNT charge. Explodes when hitting entities.",
+    "description": "Load your next crossbow arrow with a TNT charge. Explodes when hitting entities or with remote detonating.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Press the key again to detonate if it lands on a block.\n"
+            "text": "Press the key again to detonate if it lands on a block.\nAfter loading, you have 10 seconds to shoot or else you will explode yourself."
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Load your crossbow with %s!"
+            "text": "Load your crossbow with %s! Must be used on a arrow-loaded crossbow!"
         },
         {
             "type": "origins:tooltip",
