@@ -1,23 +1,12 @@
 {
     "type": "origins:multiple",
     "slower": {
-        "type": "origins:modify_velocity",
-        "axes": [
-            "z",
-            "x"
-        ],
+        "type": "origins:attribute",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -0.2
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
-                }
-            ]
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -4,
+            "operation": "addition"
         }
     },
     "drop_offhand": {
@@ -40,12 +29,12 @@
         }
     },
     "name": "Sea Rascal",
-    "description": "Your crippled body doesn't allow you to use your offhand and to keep up with others as well.",
+    "description": "You body is really... crippled. Like, did you think about, uh, vitamin C?",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Crippled Leg: -20% air movement speed\n\nLost Hand: No offhand usage."
+            "text": "Crippled body: -2 hearts.\n\nLost Hand: No offhand usage."
         }
     ]
 }
