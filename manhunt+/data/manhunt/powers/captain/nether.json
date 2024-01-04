@@ -1,19 +1,5 @@
 {
     "type": "origins:multiple",
-    "slowness": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "attribute": "minecraft:generic.movement_speed",
-            "operation": "multiply_total",
-            "value": -0.4,
-            "name": "Slower"
-        },
-        "tick_rate": 20,
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
-        }
-    },
     "food": {
         "type": "origins:modify_exhaustion",
         "modifier": {
@@ -26,13 +12,27 @@
             "dimension": "minecraft:the_nether"
         }
     },
+    "health":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "addition",
+            "value": -2,
+            "name": "Decreased health."
+        },
+        "tick_rate": 20,
+        "condition":  {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
     "name": "No Water, No Captain",
     "description": "The lack of water in the Nether weakens your soul.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Nether-sick: 40% slower and 3x Exhaustion."
+            "text": "Nether-sick: -1 heart and 3x Exhaustion."
         }
     ]
 }

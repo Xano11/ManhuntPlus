@@ -297,7 +297,7 @@
                 }
             ]
         },
-        "cooldown": 1200,
+        "cooldown": 900,
         "key": {
             "key": "key.origins.primary_active"
         },
@@ -416,7 +416,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "Cooldown: 45s"
         }
     ]
 }
