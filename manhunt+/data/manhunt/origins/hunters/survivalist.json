@@ -1,11 +1,11 @@
 {
 	"powers": [
-		"manhunt:survivalist/pouch",
-        "manhunt:survivalist/gatherfast",
 		"manhunt:survivalist/hookshot",
+		"manhunt:survivalist/pouch",
+		"manhunt:survivalist/supply/supply",
+        "manhunt:survivalist/gatherfast",
 		"manhunt:survivalist/explorer_weakness",
 		"origins:nine_lives",
-		"manhunt:survivalist/supply/supply",
 		"manhunt:survivalist/fod"
 	],
 	"icon": {

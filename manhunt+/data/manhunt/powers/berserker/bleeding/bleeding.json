@@ -402,7 +402,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s and hold right click to charge!"
+            "text": "Hold %s to charge your axe!"
         }
     ]
 }

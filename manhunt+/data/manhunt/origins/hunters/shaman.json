@@ -1,9 +1,9 @@
 {
 	"powers": [
 		"manhunt:shaman/totem/totem",
+		"manhunt:shaman/grasp",
 		"manhunt:shaman/absorbed",
 		"manhunt:shaman/sculk",
-		"manhunt:shaman/grasp",
 		"manhunt:shaman/regenerate"
 	],
 	"icon": {

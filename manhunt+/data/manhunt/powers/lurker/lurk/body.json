@@ -20,7 +20,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a if score @s lurker = @e[tag=lurk_eye,limit=1,sort=nearest] lurker run power remove @s manhunt:lurker/lurk/lurk_effects"
+                    "command": "execute as @a if score @s lurker = @e[tag=lurk_eye,type=allay,limit=1,sort=nearest] lurker run power remove @s manhunt:lurker/lurk/lurk_effects"
                 },
                 {
                     "type": "origins:execute_command",
@@ -30,12 +30,22 @@
         },
         "cooldown": 1,
         "damage_condition": {
-            "type": "origins:name",
-            "name": "generic",
-            "inverted": true
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "generic",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:name",
+                    "name": "generic.player",
+                    "inverted": true
+                }
+            ]
         }
     },
-    "damage":{
+    "damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
             "name": "Invuln",
@@ -46,7 +56,7 @@
             "type": "origins:attacker"
         }
     },
-    "invuln":{
+    "invuln": {
         "type": "origins:modify_damage_taken",
         "modifier": {
             "name": "Invuln",

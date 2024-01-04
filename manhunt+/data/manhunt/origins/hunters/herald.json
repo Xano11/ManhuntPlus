@@ -2,10 +2,10 @@
 	"powers": [
 		"manhunt:herald/boost/boost",
 		"manhunt:herald/bark/bark_shield",
+		"manhunt:herald/cleric",
 		"origins:more_exhaustion",
 		"origins:nine_lives",
-		"manhunt:herald/fire_weak",
-		"manhunt:herald/cleric"
+		"manhunt:herald/fire_weak"
 	],
 	"icon": {
 		"item": "minecraft:wild_armor_trim_smithing_template",

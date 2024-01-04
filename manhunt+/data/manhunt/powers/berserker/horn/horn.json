@@ -12,6 +12,14 @@
         ],
         "recurrent": true
     },
+    "lose_horn":{
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "clear @s minecraft:goat_horn"
+        },
+        "execute_chosen_when_orb": false
+    },
     "using": {
         "type": "origins:active_self",
         "entity_action": {

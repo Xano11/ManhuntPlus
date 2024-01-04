@@ -17,6 +17,14 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "execute at @p[tag=runner_simulated] as @e[limit=1,sort=nearest,tag=simulation_recall] on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @p[tag=runner_simulated] run kill @e[limit=1,sort=nearest,tag=simulation_recall]"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "tp @p[tag=hunter_simulated] @s"
                 },
                 {

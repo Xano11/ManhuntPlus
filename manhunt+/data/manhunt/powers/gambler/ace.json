@@ -57,6 +57,14 @@
                     "command": "power remove @s manhunt:gambler/ace"
                 }
             ]
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:power",
+                "power": "manhunt:engineer/bacont/simulated"
+            },
+            "inverted": true
         }
     },
     "name": "Extra Ace.",

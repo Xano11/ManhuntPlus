@@ -47,6 +47,10 @@
                             },
                             {
                                 "type": "origins:execute_command",
+                                "command": "execute at @p[tag=runner] run power grant @p manhunt:engineer/bacont/recall"
+                            },
+                            {
+                                "type": "origins:execute_command",
                                 "command": "tag @s add hunter_simulated"
                             },
                             {

@@ -31,6 +31,20 @@
         },
         "interval": 1
     },
+    "keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:survivalist/hookshot_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
     "grappling_hook": {
         "type": "origins:active_self",
         "entity_action": {

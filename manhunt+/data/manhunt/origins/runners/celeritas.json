@@ -1,8 +1,8 @@
 {
 	"powers": [
 		"manhunt:celeritas/boots/boots",
+		"manhunt:celeritas/checkpoint/checkpoint",
 		"origins:fragile",
-        "manhunt:celeritas/checkpoint/checkpoint",
 		"manhunt:celeritas/more_adrenaline",
 		"manhunt:celeritas/frames"
 	],

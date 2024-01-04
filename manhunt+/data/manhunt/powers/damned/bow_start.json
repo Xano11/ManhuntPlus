@@ -17,6 +17,23 @@
         ],
         "recurrent": true
     },
+    "lose_bow": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:bow"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:arrow"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": false
+    },
     "name": "The Whisperer",
     "description": "Spawn in with a bow that shoots special arrows.",
     "badges": [

@@ -222,7 +222,7 @@
             ]
         }
     },
-    "chose_ready": {
+    "chose_ready_hunter": {
         "type": "eggolib:modify_label_render",
         "text": [
             {
@@ -260,13 +260,53 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:runners",
+                            "layer": "origins:hunters",
                             "inverted": true
-                        },
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "chose_ready_runner": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " ["
+            },
+            {
+                "text": "✔",
+                "color": "dark_red"
+            },
+            {
+                "text": "]"
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_timer",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:start_ready",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:hunters",
+                            "layer": "origins:runners",
                             "inverted": true
                         }
                     ]
@@ -289,7 +329,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "clear @s"
+                    "command": "clear @s minecraft:compass"
                 }
             ]
         },

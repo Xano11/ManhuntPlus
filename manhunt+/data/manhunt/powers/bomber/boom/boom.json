@@ -23,7 +23,13 @@
                 }
             ]
         },
-        "interval": 900
+        "interval": 900,
+        "condition":  {
+            "type": "origins:resource",
+            "resource": "manhunt:bomber/boom/boom_charges",
+            "comparison": "<",
+            "compare_to": 2
+        }
     },
     "badge":{
         "type": "origins:active_self",

@@ -1,11 +1,11 @@
 {
     "powers": [
         "manhunt:imp/flight",
+        "manhunt:imp/portal/portal",
+        "manhunt:imp/pitchfork",
         "manhunt:imp/body",
         "manhunt:imp/bad_swimmer",
-        "manhunt:imp/pitchfork",
-        "manhunt:imp/infernal",
-        "manhunt:imp/portal/portal"
+        "manhunt:imp/infernal"
     ],
     "icon": {
 		"item": "minecraft:trident",

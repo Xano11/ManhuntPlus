@@ -1,5 +1,19 @@
 {
     "type": "origins:multiple",
+    "keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:engineer/scan/scan_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {

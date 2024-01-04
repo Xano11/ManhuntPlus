@@ -1,11 +1,11 @@
 {
 	"powers": [
         "manhunt:guardian/savior/savior",
-		"manhunt:guardian/slow",
-		"manhunt:guardian/hungry",
 		"manhunt:guardian/protector",
 		"manhunt:guardian/launch/launch",
-		"manhunt:guardian/launch/pickup"
+		"manhunt:guardian/launch/pickup",
+		"manhunt:guardian/slow",
+		"manhunt:guardian/hungry"
 	],
 	"icon": {
 		"item": "minecraft:tide_armor_trim_smithing_template",

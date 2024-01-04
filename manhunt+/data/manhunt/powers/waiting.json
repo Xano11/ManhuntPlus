@@ -132,7 +132,8 @@
         "type": "eggolib:prevent_key_use",
         "keys": [
             "key.origins.primary_active",
-            "key.origins.secondary_active"
+            "key.origins.secondary_active",
+            "key.drop"
         ]
     },
     "no_pickup": {

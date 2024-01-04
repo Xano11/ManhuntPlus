@@ -1,10 +1,10 @@
 {
 	"powers": [
-        "manhunt:deleo/menacing",
 		"manhunt:deleo/shutdown/shutdown",
 		"manhunt:deleo/disable/disable",
-		"manhunt:deleo/cursed",
 		"manhunt:deleo/binding/binding",
+		"manhunt:deleo/menacing",
+		"manhunt:deleo/cursed",
 		"origins:no_shield"
 	],
 	"icon": {

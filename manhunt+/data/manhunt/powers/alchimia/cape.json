@@ -22,7 +22,7 @@
             "resource": "manhunt:alchimia/cape_durability",
             "change": 1
         },
-        "interval": 20
+        "interval": 10
     },
     "charge": {
         "type": "origins:resource",
@@ -282,7 +282,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "5 seconds worth of gliding.\nRecharge your cape fully after 1m 40s."
+            "text": "5 seconds worth of gliding.\nRecharge your cape fully after 50s."
         },
         {
             "type": "origins:keybind",

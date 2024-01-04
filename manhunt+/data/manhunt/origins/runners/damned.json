@@ -1,9 +1,9 @@
 {
 	"powers": [
-		"manhunt:damned/undead",
+		"manhunt:damned/chains/chains",
         "manhunt:damned/bow/bow",
+		"manhunt:damned/undead",
 		"manhunt:damned/bow_start",
-        "manhunt:damned/chains/chains",
         "manhunt:damned/bone_arms"
 	],
 	"icon": {
