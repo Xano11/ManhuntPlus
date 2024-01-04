@@ -232,6 +232,11 @@
             "text": "Your eye can go through solid blocks and fly around. If in a 12 block radius of a player,\nit will shoot a beam that slows and reveals (glow) the runner.\n(Watch out! Your eye can be broken.)"
         },
         {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/lurker_eye.png",
+            "text": "Whilst controlling the eye, hold your [Primary Ability Key] to charge a laser. The laser leaves a pool of energy that slows and inflicts glow to all entities in it."
+        },
+        {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": "Summon or control your eye with %s!\nSneak and hold the key to retrieve it!"

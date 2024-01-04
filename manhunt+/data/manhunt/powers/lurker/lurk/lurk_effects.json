@@ -30,7 +30,7 @@
             "power": "manhunt:lurker/lurk/lurk_effects_flight"
         }
     },
-    "slowflight": {
+    "fastflight": {
         "type": "origins:modify_velocity",
         "modifier": {
             "value": 0.2,
@@ -57,10 +57,40 @@
         "start": -1,
         "end": 14
     },
+    "laser_slow": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.6,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
     "laser": {
         "type": "origins:resource",
         "min": 0,
-        "max": 10,
+        "max": 20,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -94,27 +124,27 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:lurker/lurk/lurk_effects_laser",
-                                "change": -10
+                                "change": -20
                             },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
                                 "change": 200
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 3 0.5"
                             }
                         ]
                     },
                     "miss_action": {
                         "type": "origins:change_resource",
                         "resource": "manhunt:lurker/lurk/lurk_effects_laser",
-                        "change": 10
+                        "change": 20
                     },
                     "command_along_ray": "function manhunt:lurk_laser",
                     "command_step": 0.2,
                     "command_along_ray_only_on_hit": true
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 3 0.5"
                 }
             ]
         }
@@ -125,17 +155,26 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:lurker/lurk/lurk_effects_laser",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.sonic_charge player @a ~ ~ ~ 2 1.4"
+                    }
+                },
+                {
                     "type": "origins:change_resource",
                     "resource": "manhunt:lurker/lurk/lurk_effects_laser",
                     "change": 1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 3 2"
                 }
             ]
         },
-        "cooldown": 2,
+        "cooldown": 1,
         "hud_render": {
             "should_render": false
         },
@@ -158,11 +197,11 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:lurker/lurk/lurk_effects_laser",
-                    "change": -10
+                    "change": -20
                 }
             ]
         },
-        "interval": 2,
+        "interval": 1,
         "condition": {
             "type": "apugli:key_pressed",
             "key": {
