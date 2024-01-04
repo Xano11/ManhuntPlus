@@ -24,7 +24,11 @@
         }
     },
     "flight": {
-        "type": "origins:creative_flight"
+        "type": "origins:creative_flight",
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:lurker/lurk/lurk_effects_flight"
+        }
     },
     "slowflight": {
         "type": "origins:modify_velocity",
@@ -53,12 +57,163 @@
         "start": -1,
         "end": 14
     },
+    "laser": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 13,
+                    "block": true,
+                    "entity": false,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "block_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "summon minecraft:armor_stand ~ ~ ~ {NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"lurk_slow\"]}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @e[limit=1,sort=nearest,type=armor_stand,tag=lurk_slow] manhunt:lurker/lurk/slow"
+                            }
+                        ]
+                    },
+                    "hit_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:lurker/lurk/lurk_effects_laser",
+                                "change": -10
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
+                                "change": 200
+                            }
+                        ]
+                    },
+                    "miss_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:lurker/lurk/lurk_effects_laser",
+                        "change": 10
+                    },
+                    "command_along_ray": "function manhunt:lurk_laser",
+                    "command_step": 0.2,
+                    "command_along_ray_only_on_hit": true
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 3 0.5"
+                }
+            ]
+        }
+    },
+    "charge": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/lurk/lurk_effects_laser",
+                    "change": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 3 2"
+                }
+            ]
+        },
+        "cooldown": 2,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "stop_charge": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/lurk/lurk_effects_laser",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 2,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "laser_ticking": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "laser_cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
     "move_eye": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker run tp @s ~ ~ ~ ~ ~",
-            "permission_level": 4
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk_eye,type=allay] if score @s lurker = @p lurker run tp @s ~ ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk_eye,type=allay] if score @s lurker = @p lurker on passengers run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,type=minecraft:allay,tag=lurk_eye] Rotation",
+                    "permission_level": 4
+                }
+            ]
         },
         "interval": 1
     },
@@ -69,11 +224,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run tp @p @s"
+                    "command": "execute as @e[tag=lurk,type=wither_skeleton] if score @s lurker = @p lurker run tp @p @s"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run kill @s"
+                    "command": "execute as @e[tag=lurk,type=wither_skeleton] if score @s lurker = @p lurker run kill @s"
                 },
                 {
                     "type": "origins:execute_command",
@@ -149,7 +304,6 @@
     "no_ability": {
         "type": "eggolib:prevent_key_use",
         "keys": [
-            "key.origins.primary_active",
             "key.attack"
         ]
     },

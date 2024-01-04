@@ -23,7 +23,7 @@
             "type": "origins:resource",
             "resource": "manhunt:lurker/lurk/lurked_stacks",
             "comparison": ">=",
-            "compare_to": 10
+            "compare_to": 5
         }
     },
     "stacks_down": {
@@ -47,7 +47,7 @@
             "type": "origins:resource",
             "resource": "manhunt:lurker/lurk/lurked_stacks",
             "comparison": ">=",
-            "compare_to": 10
+            "compare_to": 5
         }
     },
     "less_air_speed": {
@@ -71,7 +71,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:lurker/lurk/lurked_stacks",
                     "comparison": ">=",
-                    "compare_to": 10
+                    "compare_to": 5
                 }
             ]
         }

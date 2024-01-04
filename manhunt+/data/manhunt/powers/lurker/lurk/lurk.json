@@ -51,22 +51,22 @@
                         },
                         "if_action": {
                             "type": "origins:spawn_entity",
-                            "entity_type": "minecraft:item_display",
-                            "tag": "{Tags:[\"lurk_eye\"],Passengers:[{id:\"minecraft:allay\",NoGravity:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"lurk_eye\"]}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[2f,2f,2f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:2}}}",
+                            "entity_type": "minecraft:allay",
+                            "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"lurk_eye\"],Passengers:[{id:\"minecraft:item_display\",NoGravity:1b,Silent:1b,Tags:[\"lurk_eye\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.2f,0f],scale:[2f,2f,2f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:2}}}]}",
                             "entity_action": {
                                 "type": "origins:and",
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "execute on passengers run power grant @s manhunt:lurker/lurk/eye_main"
+                                        "command": "power grant @s manhunt:lurker/lurk/eye_main"
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "execute on passengers run scale set pehkui:height 2.2"
+                                        "command": "scale set pehkui:height 2.2"
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "execute on passengers run scale set pehkui:width 3"
+                                        "command": "scale set pehkui:width 3"
                                     },
                                     {
                                         "type": "origins:execute_command",

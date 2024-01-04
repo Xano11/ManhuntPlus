@@ -13,7 +13,7 @@
                 "actions": [
                     {
                         "type": "origins:execute_command",
-                        "command": "execute on vehicle at @s run particle minecraft:dragon_breath ~ ~ ~ 0.3 0.3 0.3 0.1 50"
+                        "command": "particle minecraft:dragon_breath ~ ~ ~ 0.3 0.3 0.3 0.1 50"
                     },
                     {
                         "type": "origins:execute_command",
@@ -21,7 +21,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "execute on vehicle run kill @s"
+                        "command": "execute on passengers run kill @s"
                     },
                     {
                         "type": "origins:execute_command",

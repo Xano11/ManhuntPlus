@@ -12,7 +12,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on vehicle run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,type=minecraft:allay,tag=lurk_eye] Rotation",
+                    "command": "execute on passengers run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,type=minecraft:allay,tag=lurk_eye] Rotation",
                     "permission_level": 4
                 },
                 {

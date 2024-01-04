@@ -19,7 +19,12 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "cooldown": 700,
+        "cooldown": 400,
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:lurker/lurk/lurk_effects",
+            "inverted": true
+        },
         "hud_render": {
             "sprite_location": "manhunt:textures/lurker.png",
             "bar_index": 0,
@@ -218,7 +223,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 35s"
+            "text": "Cooldown: 20s"
         }
     ]
 }
