@@ -1,0 +1,9 @@
+{
+    "type": "origins:multiple",
+    "footstep": {
+        "type": "apugli:custom_footstep",
+        "volume": 2.0
+    },
+    "name": "Loud",
+    "description": "Carrying numerous explosives causes you to sink in deep water."
+}
