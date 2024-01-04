@@ -42,7 +42,7 @@
     "levels": {
         "type": "origins:resource",
         "min": 0,
-        "max": 2,
+        "max": 3,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -73,7 +73,7 @@
                     },
                     "if_action": {
                         "type": "origins:execute_command",
-                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/shipwreck_treasure",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/spawn_bonus_chest",
                         "permission_level": 4
                     }
                 },
@@ -87,7 +87,7 @@
                     },
                     "if_action": {
                         "type": "origins:execute_command",
-                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/village/village_weaponsmith",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/shipwreck_treasure",
                         "permission_level": 4
                     }
                 },
@@ -98,6 +98,20 @@
                         "resource": "manhunt:survivalist/supply/loot_levels",
                         "comparison": "==",
                         "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/village/village_weaponsmith",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition":  {
+                        "type": "origins:resource",
+                        "resource": "manhunt:survivalist/supply/loot_levels",
+                        "comparison": "==",
+                        "compare_to": 3
                     },
                     "if_action": {
                         "type": "origins:execute_command",
