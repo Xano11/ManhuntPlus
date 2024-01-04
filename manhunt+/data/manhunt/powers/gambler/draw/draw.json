@@ -241,7 +241,13 @@
             "resource": "manhunt:gambler/draw/draw_deck",
             "change": 1
         },
-        "interval": 900
+        "interval": 900,
+        "condition":  {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_deck",
+            "comparison": "<",
+            "compare_to": 3
+        }
     },
     "name": "Draw a Card",
     "description": "Draw a card. The different suits grant you different buffs. Draw up to 3 cards simultaneously.",
