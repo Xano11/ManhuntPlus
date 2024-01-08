@@ -98,7 +98,7 @@
 			}
 		]
 	},
-	"cooldown": 20,
+	"cooldown": 4,
 	"name": "Instant Transmission",
 	"description": "Teleport yourself forward at the cost of three souls.",
 	"badges": [
@@ -115,7 +115,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "manhunt:textures/icons/cooldown.png",
-			"text": "Requires 3 souls.\nCooldown: 1s."
+			"text": "Requires 3 souls."
 		}
 	]
 }

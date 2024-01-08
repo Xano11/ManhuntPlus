@@ -380,7 +380,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Preyed: Runners affected by Prey drop an extra soul on critical hit.\nAdditionally, they take 50% more damage from Ritualists."
+            "text": "Preyed: Runners affected by Prey drop an extra soul on critical hit.\nAdditionally, they take 50% more damage from Ritualists.\n(Preyed duration: 15s)"
         },
         {
 			"type": "origins:keybind",
