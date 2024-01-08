@@ -21,6 +21,10 @@
                     },
                     {
                         "type": "origins:execute_command",
+                        "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,type=allay,tag=lurk_eye] lurker run resource set @s manhunt:lurker/lurk/lurk_cooldown 300"
+                    },
+                    {
+                        "type": "origins:execute_command",
                         "command": "execute on passengers run kill @s"
                     },
                     {
