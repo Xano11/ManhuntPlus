@@ -2,7 +2,7 @@
     "type": "origins:multiple",
     "default": {
         "type": "origins:action_on_callback",
-        "entity_action_added": {
+        "entity_action_gained": {
             "type": "origins:and",
             "actions": [
                 {
@@ -15,7 +15,7 @@
                 }
             ]
         },
-        "entity_action_removed": {
+        "entity_action_lost": {
             "type": "origins:and",
             "actions": [
                 {
