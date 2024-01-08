@@ -76,7 +76,7 @@
                                             "if_action":{
                                                 "type": "origins:change_resource",
                                                 "resource": "manhunt:herald/bark/bark_shield_cooldown",
-                                                "change": 60
+                                                "change": 45
                                             }
                                         }
                                     ]
@@ -173,7 +173,7 @@
                     "if_action":{
                         "type": "origins:change_resource",
                         "resource": "manhunt:herald/bark/bark_shield_cooldown",
-                        "change": 60
+                        "change": 45
                     }
                 }
             ]
@@ -217,8 +217,8 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 60,
-        "start_value": 60,
+        "max": 45,
+        "start_value": 45,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
@@ -241,7 +241,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:herald/bark/bark_shield_cooldown",
-                    "change": 60
+                    "change": 45
                 }
             ]
         }
@@ -253,7 +253,13 @@
             "resource": "manhunt:herald/bark/bark_shield_cooldown",
             "change": -1
         },
-        "interval": 20
+        "interval": 20,
+        "condition":{
+            "type": "origins:resource",
+            "resource": "manhunt:herald/bark/bark_shield_charges",
+            "comparison": "<",
+            "compare_to": 2
+        }
     },
     "overlay": {
         "type": "origins:status_bar_texture",
@@ -322,7 +328,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Max Charges: 2\nCooldown: 1m per charge"
+            "text": "Max Charges: 2\nCooldown: 45s per charge"
         }
     ]
 }
