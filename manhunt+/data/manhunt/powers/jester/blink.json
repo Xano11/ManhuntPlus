@@ -61,7 +61,7 @@
         },
         "hud_render": {
             "should_render": true,
-            "bar_index": 18,
+            "bar_index": 17,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png"
         }
     },

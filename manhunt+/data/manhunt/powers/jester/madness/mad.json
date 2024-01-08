@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:jester/madness/mad"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:jester/madness/mad_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "quick_teleport": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:jester/blink_move",
+            "change": -3
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

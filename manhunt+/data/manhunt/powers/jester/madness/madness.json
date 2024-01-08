@@ -1,0 +1,25 @@
+{
+    "type": "origins:multiple",
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:jester/madness/mad",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+    "name": "Circus",
+    "description": "[Placeholder]"
+}

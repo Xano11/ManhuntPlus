@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:jester/blink",
+		"manhunt:jester/madness/madness",
 		"manhunt:jester/switch/switch",
 		"manhunt:jester/compass",
 		"manhunt:jester/glow",
