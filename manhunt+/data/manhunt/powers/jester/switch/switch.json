@@ -45,11 +45,9 @@
                 }
             ]
         },
-        "cooldown": 3000,
+        "cooldown": 65,
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 0
+            "should_render": false
         },
         "key": {
             "key": "key.origins.primary_active"
@@ -138,11 +136,6 @@
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": "Switch with %s!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 2m and 30s"
         }
     ]
 }
