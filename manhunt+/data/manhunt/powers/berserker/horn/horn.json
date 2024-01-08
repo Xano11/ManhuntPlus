@@ -1,19 +1,15 @@
 {
     "type": "origins:multiple",
-    "equipment": {
-        "type": "origins:starting_equipment",
-        "stacks": [
-            {
-                "item": "minecraft:goat_horn",
-                "amount": 1,
-                "slot": 4,
-                "tag": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
-            }
-        ],
-        "recurrent": true
-    },
-    "lose_horn":{
+    "horn":{
         "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "give @s minecraft:goat_horn{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
+        },
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "give @s minecraft:goat_horn{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
+        },
         "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "clear @s minecraft:goat_horn"
@@ -30,12 +26,12 @@
                     "equipment_slot": "mainhand",
                     "action": {
                         "type": "apugli:cooldown",
-                        "ticks": 3600
+                        "ticks": 1200
                     }
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter,distance=..20] manhunt:berserker/horn/horn_effects"
+                    "command": "power grant @a[tag=hunter,distance=..24] manhunt:berserker/horn/horn_effects"
                 },
                 {
 					"type": "origins:spawn_entity",
@@ -89,7 +85,7 @@
             "key": "key.use",
             "continuous": false
         },
-        "cooldown": 3600
+        "cooldown": 1200
     },
     "name": "Horny (Wait a minute-)",
     "description": "Spawn with a horn, which when blown will grant a boon to your fellow hunters.",
@@ -97,12 +93,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Boon: 20s defense and attack speed up in a 20 block radius."
+            "text": "Boon: 15s defense and attack speed up in a 24 block radius."
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3m"
+            "text": "Cooldown: 1m"
         }
     ]
 }
