@@ -37,50 +37,6 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:actor_action",
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"simulation_recall\"],Passengers:[{id:\"minecraft:item_display\",Rotation:[0f,90f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:\"minecraft:porkchop\",Count:1b}}]}"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "execute at @p[tag=runner] run power grant @p manhunt:engineer/bacont/recall"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "tag @s add hunter_simulated"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "tag @s add simulated"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "execute as @p[tag=runner] run tag @s add runner_simulated"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "execute as @p[tag=runner] run tag @s add simulated"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power grant @s manhunt:engineer/bacont/simulated"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power grant @p[tag=runner] manhunt:engineer/bacont/simulated"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "tp @p[tag=runner] @s"
-                            }
-                        ]
-                    }
-                },
-                {
                     "type": "origins:target_action",
                     "action": {
                         "type": "origins:and",
@@ -227,6 +183,54 @@
                                 "type": "origins:execute_command",
                                 "command": "power remove @s manhunt:engineer/bacont/pig",
                                 "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @p[tag=runner] run summon armor_stand ~ ~ ~ {NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"simulation_recall\"],Passengers:[{id:\"minecraft:item_display\",Rotation:[0f,90f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:\"minecraft:porkchop\",Count:1b}}]}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @p[tag=runner] run power grant @p manhunt:engineer/bacont/recall"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add hunter_simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @p[tag=runner] run tag @s add runner_simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @p[tag=runner] run tag @s add simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:engineer/bacont/simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @p[tag=runner] manhunt:engineer/bacont/simulated"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @p[tag=hunter_simulated] ~ ~ ~-3 0 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @p[tag=runner_simulated] ~ ~ ~3 180 0"
                             }
                         ]
                     }

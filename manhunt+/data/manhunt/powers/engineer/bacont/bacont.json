@@ -30,7 +30,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 12000,
+        "cooldown": 6000,
         "hud_render":{
             "sprite_location": "manhunt:textures/engineer.png",
             "bar_index": 2,
@@ -53,7 +53,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 10m"
+            "text": "Cooldown: 5m"
         }
     ]
 }
