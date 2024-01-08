@@ -1,0 +1,172 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 180,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:shaper_armor_trim_smithing_template",
+                                    "tag": "{display:{Name:'[{\"text\":\"Speed\",\"italic\":true,\"bold\":true,\"color\":\"yellow\"},{\"text\":\" \"},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ⋙\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+                                }
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:raiser_armor_trim_smithing_template",
+                                    "tag": "{display:{Name:'[{\"text\":\"Attack \",\"italic\":true,\"color\":\"red\",\"bold\":true},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ✗\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+                                }
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:host_armor_trim_smithing_template",
+                                    "tag": "{display:{Name:'[{\"text\":\"Defense \",\"italic\":true,\"color\":\"gray\",\"bold\":true},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ✦\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+                                }
+                            },
+                            "weight": 1
+                        },
+                        {
+                            "element": {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:wayfinder_armor_trim_smithing_template",
+                                    "tag": "{display:{Name:'[{\"text\":\"Health \",\"italic\":true,\"color\":\"light_purple\",\"bold\":true},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ♡\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+                                }
+                            },
+                            "weight": 1
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:artisan/runes/grant_cooldown",
+                    "change": -180
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.allay.item_thrown player @s ~ ~ ~ 3 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.elder_guardian.curse player @s ~ ~ ~ 0.1 2",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:artisan/runes/grant_cooldown",
+            "change": 1
+        },
+        "interval": 20
+    },
+    "apply_speed":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:boots"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Speed\",\"italic\":true,\"bold\":true,\"color\":\"yellow\"},{\"text\":\" \"},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ⋙\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+        },
+        "result_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:runes/speed"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
+    },
+    "apply_attack":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:leggings"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Attack \",\"italic\":true,\"color\":\"red\",\"bold\":true},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ✗\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+        },
+        "result_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:runes/attack"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
+    },
+    "apply_defense":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:chestplates"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Defense \",\"italic\":true,\"color\":\"gray\",\"bold\":true},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ✦\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+        },
+        "result_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:runes/defense"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
+    },
+    "apply_health":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:helmets"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Health \",\"italic\":true,\"color\":\"light_purple\",\"bold\":true},{\"text\":\"Rune\",\"italic\":false},{\"text\":\" ♡\",\"italic\":false,\"bold\":false}]'},Enchantments:[{}]}"
+        },
+        "result_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:runes/health"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
+    },
+    "name": "Runic Knowledge",
+    "description": "[placeholder]"
+}

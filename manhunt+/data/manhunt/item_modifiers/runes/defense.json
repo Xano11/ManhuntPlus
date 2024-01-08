@@ -1,0 +1,6 @@
+{
+    "function": "apoli:add_power",
+    "power": "manhunt:artisan/runes/defense",
+    "slot": "chest",
+    "negative": false
+}

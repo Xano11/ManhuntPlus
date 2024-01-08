@@ -1,0 +1,11 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Defense increase",
+        "attribute": "minecraft:generic.armor",
+        "value": 2,
+        "operation": "addition"
+    },
+    "name": "Defense increase ↑",
+    "description": "(+2 Armor)"
+}
