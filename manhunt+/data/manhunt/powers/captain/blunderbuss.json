@@ -1,37 +1,50 @@
 {
     "type": "origins:multiple",
     "hit": {
-        "type": "apugli:action_on_projectile_hit",
-        "bientity_action": {
-            "type": "origins:target_action",
-            "action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:explode",
-                        "power": 2,
-                        "destruction_type": "break",
-                        "damage_self": true,
-                        "create_fire": true
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "particle minecraft:explosion ~ ~ ~ 0 0 0 1 1"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "kill @e[tag=tnt_tip,limit=1,sort=nearest]"
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "kill @e[tag=bomb_arrow,limit=1,sort=nearest]"
-                    }
-                ]
+        "type": "origins:modify_projectile_damage",
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile_condition": {
+              "type": "origins:and",
+              "conditions": [
+                {
+                  "type": "origins:entity_type",
+                  "entity_type": "minecraft:arrow"
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags: ['bomb_arrow']}"
+                }
+              ]
             }
+        },
+        "target_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 2,
+                    "destruction_type": "break",
+                    "damage_self": true,
+                    "create_fire": true
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~ ~ 0 0 0 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=tnt_tip,limit=1,sort=nearest]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=bomb_arrow,limit=1,sort=nearest]"
+                }
+            ]
         }
     },
     "tag": {
