@@ -166,6 +166,183 @@
             ]
         }
     },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:imp/pitchfork_teleport",
+                    "change": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.thunder player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dragon_breath ~ ~1 ~ 0.3 0 0.3 0.01 100",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 15,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png"
+        },
+        "condition": {
+            "type": "origins:using_item",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:trident"
+                }
+            }
+        }
+    },
+    "teleport": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "incarnated": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "invis":{
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_incarnated",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "particles":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute on vehicle run particle minecraft:dust_color_transition 0.5 0 0.7 1 0.7 0 0.9 ~ ~ ~ 0.5 0.5 0.5 0 10",
+            "permission_level": 4
+        },
+        "interval": 2,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_incarnated",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "trident": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:imp/pitchfork_incarnated",
+                    "change": -1
+                },
+                {
+                    "type": "origins:dismount"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:trident"
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{inGround:0b}"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "tag": {
+        "type": "apugli:projectile_action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:mount"
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:imp/pitchfork_teleport",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:imp/pitchfork_incarnated",
+                                "change": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:trident"
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:imp/pitchfork_teleport",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                }
+            ]
+        }
+    },
     "iron_projectile_dmg": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
@@ -241,33 +418,6 @@
             "value": 7.0
         }
     },
-    "netherite_piercing": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute if entity @s[scores={trident=1..}] run data modify entity @e[limit=1,sort=nearest,type=minecraft:trident] PierceLevel set value 3"
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 1,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "execute if entity @s[scores={trident=1..}] run scoreboard players set @s trident 0"
-                    }
-                }
-            ]
-        },
-        "interval": 1,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:imp/pitchfork_levels",
-            "comparison": "==",
-            "compare_to": 3
-        }
-    },
     "scoreboard": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -283,12 +433,17 @@
         "hidden": true
     },
     "name": "Imp's Recipe",
-    "description": "Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid. This pitchfork can be upgraded with resources. (see badges)",
+    "description": "Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid. This pitchfork can be upgraded with resources and be incarnated. (see badges)",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "To upgrade, simply right click with the material while hovering on the trident in your inventory.\n§7Iron Upgrade: 1 Iron Ingot\n§3Diamond Upgrade: 1 Diamond\n§6Netherite Upgrade: 1 Netherite Scrap§r\nUpgrades increase the damage of the trident (Netherite also has piercing)."
+            "text": "Whilst holding your trident, press %s to incarnate your next trident throw!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "To upgrade, simply right click with the material while hovering on the trident in your inventory.\n§7Iron Upgrade: 1 Iron Ingot\n§3Diamond Upgrade: 1 Diamond\n§6Netherite Upgrade: 1 Netherite Scrap§r\nUpgrades increase the damage of the trident."
         },
         {
             "type": "origins:crafting_recipe",

@@ -11,14 +11,14 @@
             "bar_index": 4
         }
     },
-    "gain_resource": {
+    "gain_energy": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:imp/flight_energy",
             "change": 1
         },
-        "interval": 5,
+        "interval": 2,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -86,10 +86,25 @@
             "should_render": false
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:imp/flight_energy",
-            "comparison": ">=",
-            "compare_to": 3
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:imp/flight_energy",
+                    "comparison": ">=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:using_item",
+                    "inverted": true,
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:trident"
+                        }
+                    }
+                }
+            ]
         }
     },
     "name": "Infernal flight",
@@ -108,7 +123,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "6%/sec energy recharge whilst on the ground."
+            "text": "16.5%/sec energy recharge whilst on the ground."
         }
     ]
 }
