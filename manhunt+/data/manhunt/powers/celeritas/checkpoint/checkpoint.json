@@ -39,7 +39,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 6000,
+        "cooldown": 3000,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 1,
@@ -52,17 +52,17 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Recall: Returns you after 15s."
+            "text": "Recall: Returns you after 15s.\nAdditionally, refills your boots entirely."
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger with %s! Pressing the key again will trigger Recall early."
+            "text": "Trigger with %s! Pressing the key again will trigger Recall early.\n(Recalling early has a small delay)"
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 5m"
+            "text": "Cooldown: 2m30s"
         }
     ]
 }

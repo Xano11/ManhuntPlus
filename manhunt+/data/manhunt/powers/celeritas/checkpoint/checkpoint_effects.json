@@ -14,6 +14,11 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:celeritas/boots/boots_energy",
+                    "change": 140
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.bell.resonate player @s ~ ~ ~ 1 0.8",
                     "permission_level": 4
@@ -76,7 +81,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:celeritas/checkpoint/checkpoint_effects_duration 50"
+                    "command": "resource set @s manhunt:celeritas/checkpoint/checkpoint_effects_duration 20"
                 },
                 {
                     "type": "origins:execute_command",

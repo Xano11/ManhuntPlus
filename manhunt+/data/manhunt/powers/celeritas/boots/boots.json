@@ -115,11 +115,6 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:power",
-                    "power": "manhunt:boots_exhausted",
-                    "inverted": true
-                },
-                {
                     "type": "origins:moving",
                     "inverted": true
                 },
@@ -129,128 +124,44 @@
             ]
         }
     },
-    "dash_left": {
-        "type": "eggolib:action_on_key_sequence",
-        "success_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:add_velocity",
-                    "x": 2,
-                    "space": "velocity_horizontal"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 2",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:poof ~ ~1 ~ 0.2 0.2 0.2 0.1 10",
-                    "permission_level": 4
-                }  
-            ]
-        },
-        "cooldown": 10,
-        "hud_render": {
-            "should_render": false
-        },
-        "keys": [
-            {
-                "key": "key.left",
-                "continuous": false
-            }
-        ],
-        "key_sequence": [
-            "key.left",
-            "key.left"
-        ],
-        "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.origins.primary_active",
-                "continuous": true
-            }
-        }
-    },
-    "reset_left": {
+    "walking": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "eggolib:modify_key_sequence",
-            "power": "manhunt:celeritas/boots/boots_dash_left",
-            "operation": "set",
-            "keys": []
+            "type": "origins:change_resource",
+            "resource": "manhunt:celeritas/boots/boots_energy",
+            "change": 1
         },
-        "interval": 5,
+        "interval": 3,
         "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.left",
-                "continuous": true
-            },
-            "inverted": true
-        }
-    },
-    "dash_right": {
-        "type": "eggolib:action_on_key_sequence",
-        "success_action": {
             "type": "origins:and",
-            "actions": [
+            "conditions": [
                 {
-                    "type": "origins:add_velocity",
-                    "x": -2,
-                    "space": "velocity_horizontal"
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    },
+                    "inverted": true
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 2",
-                    "permission_level": 4
+                    "type": "origins:sprinting",
+                    "inverted": true
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:poof ~ ~1 ~ 0.2 0.2 0.2 0.1 10",
-                    "permission_level": 4
-                }  
+                    "type": "origins:on_block"
+                }
             ]
-        },
-        "cooldown": 10,
-        "hud_render": {
-            "should_render": false
-        },
-        "keys": [
-            {
-                "key": "key.right",
-                "continuous": false
-            }
-        ],
-        "key_sequence": [
-            "key.right",
-            "key.right"
-        ],
-        "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.origins.primary_active",
-                "continuous": true
-            }
         }
     },
-    "reset_right": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "eggolib:modify_key_sequence",
-            "power": "manhunt:celeritas/boots/boots_dash_right",
-            "operation": "set",
-            "keys": []
-        },
-        "interval": 5,
-        "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.right",
-                "continuous": true
-            },
-            "inverted": true
+    "crit":{
+        "type": "eggolib:action_on_critical_hit",
+        "bientity_action": {
+            "type": "apoli:actor_action",
+            "action":  {
+                "type": "origins:change_resource",
+                "resource": "manhunt:celeritas/boots/boots_energy",
+                "change": 10
+            }
         }
     },
     "speed": {
@@ -480,7 +391,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "To recharge, simply stop moving."
+            "text": "There's a few ways to recharge:\nStand still: Fast recharge\nWalk: Mild recharge\nDeal a critical hit: Small recharge"
         },
         {
             "type": "origins:keybind",
