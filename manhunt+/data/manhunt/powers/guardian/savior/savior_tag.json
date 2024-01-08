@@ -33,6 +33,12 @@
         "cooldown": 1,
         "hud_render": {
             "should_render":  false
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @s[tag=saved]",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "hidden": true

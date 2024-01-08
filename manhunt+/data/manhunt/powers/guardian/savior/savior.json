@@ -3,7 +3,7 @@
     "windup": {
         "type": "origins:resource",
         "min": 0,
-        "max": 160,
+        "max": 100,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -137,7 +137,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:guardian/savior/savior_windup 160"
+                    "command": "resource set @s manhunt:guardian/savior/savior_windup 100"
                 },
                 {
                     "type": "origins:spawn_entity",
@@ -177,12 +177,12 @@
         }
     },
     "name": "Savior of All",
-    "description":"Drag your team to your side by teleporting to them to you.",
+    "description":"Drag your team to your side and heal them by teleporting to them to you.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "After 8 seconds, those that accepted will teleport to you and be healed.\n(Taking damage whilst casting the teleport will cancel it)"
+            "text": "After 5 seconds, those that accepted will teleport to you and be healed.\n(Taking damage whilst casting the teleport will cancel it)"
         },
         {
             "type": "origins:keybind",
@@ -192,7 +192,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3m"
+            "text": "Cooldown: 1m30s"
         }
     ]
 }
