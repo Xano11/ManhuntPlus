@@ -3,8 +3,8 @@
     "slower":{
         "type": "origins:modify_swim_speed",
         "modifier": {
-            "operation": "addition",
-            "value": -0.5
+            "operation": "multiply_total",
+            "value": -0.6
         }
     },
     "name": "Heavy",
@@ -13,7 +13,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heavy: -50% Swim speed"
+            "text": "Heavy: -60% Swim speed"
         }
     ]
 }
