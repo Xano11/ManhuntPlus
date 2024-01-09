@@ -30,6 +30,18 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @a add playing"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:joining"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
                 },
                 {
@@ -157,7 +169,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "kill @s"
+                    "command": "tag @a remove ready"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:setup_armorstand"
                 }
             ]
         }

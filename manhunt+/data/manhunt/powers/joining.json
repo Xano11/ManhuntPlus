@@ -1,0 +1,30 @@
+{
+    "type": "origins:multiple",
+    "ready_timer_tick": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing] run origin set @s origins:origin manhunt:spectator"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run tellraw @s \"A run is currently ongoing. Feel free to spectate!\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run tag @s add spectating"
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=!playing,tag=!spectating]",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    }
+}
