@@ -29,11 +29,34 @@
                         "type": "origins:and",
                         "conditions": [
                             {
-                                "type": "origins:living"
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:living"
+                                    },
+                                    {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:tnt"
+                                    },
+                                    {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:boat"
+                                    }
+                                ]
                             },
                             {
-                                "type": "origins:power",
-                                "power": "manhunt:hunter_effects"
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:power",
+                                        "power": "manhunt:hunter_effects"
+                                    },
+                                    {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:player",
+                                        "inverted": true
+                                    }
+                                ]
                             }
                         ]
                     }

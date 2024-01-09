@@ -1,7 +1,7 @@
 {
 	"powers": [
         "manhunt:guardian/savior/savior",
-		"manhunt:guardian/protector",
+		"manhunt:guardian/protector/protector",
 		"manhunt:guardian/launch/launch",
 		"manhunt:guardian/launch/pickup",
 		"manhunt:guardian/slow",

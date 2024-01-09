@@ -1,0 +1,136 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.allay.item_thrown player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 12,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:apply_effect",
+                                    "effect": {
+                                        "effect": "minecraft:resistance",
+                                        "duration": 300,
+                                        "amplifier": 0
+                                    }
+                                },
+                                {
+                                    "type": "origins:spawn_entity",
+                                    "entity_type": "minecraft:item_display",
+                                    "tag": "{view_range:12f,Tags:[\"shield_guardian\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"shield_guardian\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:iron_chestplate\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}",
+                                    "entity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute on passengers run power grant @s manhunt:guardian/protector/shield_icon",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tp @s ~ ~3 ~ ~ ~",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify entity @s Rotation[1] set value 0f",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{view_range:12f,Tags:[\"shield_guardian\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"shield_guardian\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:iron_chestplate\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run power grant @s manhunt:guardian/protector/shield_icon",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~3 ~ ~ ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "condition": {
+            "type": "origins:using_item",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:shield"
+                }
+            }
+        },
+        "cooldown": 1200,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0,
+            "should_render": true
+        }
+    },
+    "name": "Protector",
+    "description": "Using a shield, you can grant your team additional protection.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Protection: 15s of 20% mitigation in a 12 block radius."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Whilst using a shield, press %s to use!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
+}

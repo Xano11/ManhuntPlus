@@ -73,12 +73,12 @@
                         "actions": [
                             {
                                 "type": "origins:execute_command",
-                                "command": "ride @p[tag=riding] mount @s",
+                                "command": "ride @e[limit=1,sort=nearest,tag=riding] mount @s",
                                 "permission_level": 4
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "power grant @p[tag=riding] manhunt:guardian/launch/thrown",
+                                "command": "power grant @e[limit=1,sort=nearest,tag=riding] manhunt:guardian/launch/thrown",
                                 "permission_level": 4
                             },
                             {
