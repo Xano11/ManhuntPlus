@@ -12,22 +12,88 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter] manhunt:deleo/shutdown/shutdown_effects"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter] manhunt:deleo/disable/disabled"
-                },
-                {
                     "type": "origins:area_of_effect",
                     "radius": 32,
                     "bientity_action": {
-                        "type": "origins:add_velocity",
-                        "z": 6
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 6
+                            }
+                        ]
                     },
                     "bientity_condition": {
                         "type": "origins:can_see"
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 20,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:deleo/shutdown/shutdown_effects"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:deleo/disable/disabled"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 128,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:deleo/shutdown/shutdown_effects"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:deleo/disable/disabled"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:can_see"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            }
+                        ]
                     }
                 },
                 {

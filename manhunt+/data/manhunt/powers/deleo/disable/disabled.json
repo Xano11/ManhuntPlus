@@ -73,7 +73,7 @@
     "slowed": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -0.35,
+            "value": -0.10,
             "operation": "multiply_total"
         },
         "axes": [
