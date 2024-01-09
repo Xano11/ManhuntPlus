@@ -65,6 +65,11 @@
 						}
 					]
 				}
+			},
+			{
+				"type": "origins:add_velocity",
+				"space": "local",
+				"z": 0.2
 			}
 		]
 	},
