@@ -185,9 +185,18 @@
                     "compare_to": 3
                 },
                 {
-                    "type": "origins:health",
-                    "comparison": ">",
-                    "compare_to": 1
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:health",
+                            "comparison": ">",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:power",
+                            "power": "manhunt:berserker/beast/beast_effects"
+                        }
+                    ]
                 },
                 {
                     "type": "origins:resource",
@@ -290,10 +299,10 @@
             ]
         }
     },
-    "windup_indicator1":{
+    "windup_indicator1": {
         "type": "origins:status_bar_texture",
         "texture": "manhunt:textures/gui/bleeding_axe1.png",
-        "condition":{
+        "condition": {
             "type": "origins:and",
             "conditions": [
                 {
@@ -322,10 +331,10 @@
             ]
         }
     },
-    "windup_indicator2":{
+    "windup_indicator2": {
         "type": "origins:status_bar_texture",
         "texture": "manhunt:textures/gui/bleeding_axe2.png",
-        "condition":{
+        "condition": {
             "type": "origins:and",
             "conditions": [
                 {
@@ -354,10 +363,10 @@
             ]
         }
     },
-    "windup_indicator3":{
+    "windup_indicator3": {
         "type": "origins:status_bar_texture",
         "texture": "manhunt:textures/gui/bleeding_axe3.png",
-        "condition":{
+        "condition": {
             "type": "origins:and",
             "conditions": [
                 {

@@ -6,14 +6,81 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:damage",
-                    "amount": 19,
-                    "damage_type": "manhunt:bleeding"
-                },
-                {
                     "type": "origins:execute_command",
                     "command": "power grant @s manhunt:berserker/beast/beast_effects"
                 },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:health",
+                                "comparison": ">=",
+                                "compare_to": 12
+                            },
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/beast/beast_effects_duration",
+                                "change": -100
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:health",
+                                "comparison": ">=",
+                                "compare_to": 10
+                            },
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/beast/beast_effects_duration",
+                                "change": -80
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:health",
+                                "comparison": ">=",
+                                "compare_to": 8
+                            },
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/beast/beast_effects_duration",
+                                "change": -60
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:health",
+                                "comparison": ">=",
+                                "compare_to": 6
+                            },
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/beast/beast_effects_duration",
+                                "change": -40
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:health",
+                                "comparison": ">=",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/beast/beast_effects_duration",
+                                "change": -20
+                            }
+                        }
+                    ]
+                },   
+                {
+                    "type": "eggolib:modify_health",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 1
+                    }
+                },           
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.hoglin.converted_to_zombified player @a ~ ~ ~ 5 0.5"
@@ -30,19 +97,6 @@
         "cooldown": 10,
         "hud_render": {
             "should_render": false
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:health",
-                    "comparison": ">=",
-                    "compare_to": 20
-                },
-                {
-                    "type": "origins:on_block"
-                }
-            ]
         }
     },
     "name": "THE BEAST INSIDE",
@@ -51,12 +105,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Sacrifice all your health to become unkillable for 15 seconds.\nAfter 15 seconds, if you do not hit a runner five times with an axe, you will die."
+            "text": "Sacrifice all your health to become unkillable for 10 seconds.\nAfter 10 seconds, if you do not hit a runner five times with an axe, you will die.\nIf you use the ability at lower health, you will get more duration (Below 5 hearts, one heart equals 1 second)"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Unstoppable: 10 seconds of +3 damage and 30% more movement speed."
+            "text": "Unstoppable: 10 seconds of +3 damage and 30% more movement speed.\nAdditionally, you can use bleeding axe indefinitely."
         },
         {
             "type": "origins:keybind",
