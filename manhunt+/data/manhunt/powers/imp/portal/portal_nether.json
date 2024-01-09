@@ -26,7 +26,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:imp/portal/portal_overworld_duration",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
             "change": -10
         },
         "interval": 10
@@ -55,7 +55,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/portal/portal_overworld_duration",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
             "comparison": "==",
             "compare_to": 580
         }
@@ -84,7 +84,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/portal/portal_overworld_duration",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
             "comparison": "==",
             "compare_to": 560
         }
@@ -113,7 +113,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/portal/portal_overworld_duration",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
             "comparison": "==",
             "compare_to": 540
         }
@@ -142,7 +142,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/portal/portal_overworld_duration",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
             "comparison": "==",
             "compare_to": 520
         }
@@ -190,7 +190,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:imp/portal/portal_overworld_duration",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
             "comparison": "==",
             "compare_to": 500
         }

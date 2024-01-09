@@ -71,6 +71,11 @@
                                                     "type": "origins:execute_command",
                                                     "command": "power grant @s manhunt:imp/portal/portal_nether",
                                                     "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tp @s ~ ~1.5 ~",
+                                                    "permission_level": 4
                                                 }
                                             ]
                                         }
