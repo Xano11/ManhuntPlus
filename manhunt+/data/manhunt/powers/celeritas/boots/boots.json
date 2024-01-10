@@ -294,63 +294,19 @@
         }
     },
     "less_fall_damage": {
-        "type": "origins:modify_damage_taken",
-        "modifier": {
-            "name": "More damage",
-            "operation": "multiply_total",
-            "value": -0.35
+        "condition": {
+            "type": "origins:fall_distance",
+            "comparison": "<=",
+            "compare_to": 6
         },
+        "type": "origins:modify_damage_taken",
         "damage_condition": {
             "type": "origins:name",
             "name": "fall"
         },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    }
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:celeritas/boots/boots_energy",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            ]
-        }
-    },
-    "less_fall_damage_player": {
-        "type": "origins:modify_damage_taken",
         "modifier": {
-            "name": "More damage",
             "operation": "multiply_total",
-            "value": -0.35
-        },
-        "damage_condition": {
-            "type": "origins:name",
-            "name": "fall.player"
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    }
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:celeritas/boots/boots_energy",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            ]
+            "value": -1
         }
     },
     "particles": {

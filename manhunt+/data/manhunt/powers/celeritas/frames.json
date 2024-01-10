@@ -1,9 +1,27 @@
 {
-    "type": "eggolib:modify_hurt_ticks",
-    "modifier": {
-        "operation": "multiply_total",
-        "value": -0.25
+    "type": "origins:multiple",
+    "life_is_a_highway": {
+        "type": "eggolib:modify_hurt_ticks",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
     },
-    "name":"Life is a highway",
-    "description":"You have 25% less invincibility frames."
+    "feeble": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "addition",
+            "value": -6
+        }
+    },
+    "name": "Life is a Highway",
+    "description": "Your priority for speed has left your own healh to decline.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Life is a highway: §c-25%§r invincibility frames\nFeeble: §c-3§r hearts"
+        }
+    ]
 }

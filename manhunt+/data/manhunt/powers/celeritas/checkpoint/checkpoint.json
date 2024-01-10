@@ -52,7 +52,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Recall: Returns you after 15s.\nAdditionally, refills your boots entirely."
+            "text": "Recall: Returns you after §e15s§r.\nAdditionally, refills your boots entirely."
         },
         {
             "type": "origins:keybind",

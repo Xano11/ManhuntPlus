@@ -11,7 +11,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Adrenaline: -50% exhaustion"
+            "text": "Adrenaline: §a-50%§r exhaustion"
         }
     ]
 }

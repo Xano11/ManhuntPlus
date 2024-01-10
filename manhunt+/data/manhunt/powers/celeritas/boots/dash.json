@@ -1,0 +1,128 @@
+{
+    "type": "origins:multiple",
+    "dash_left": {
+        "type": "eggolib:action_on_key_sequence",
+        "success_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "x": 2,
+                    "space": "velocity"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~1 ~ 0.2 0.2 0.2 0.1 10",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "keys": [
+            {
+                "key": "key.left",
+                "continuous": false
+            }
+        ],
+        "key_sequence": [
+            "key.left",
+            "key.left"
+        ],
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            }
+        }
+    },
+    "reset_left": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "eggolib:modify_key_sequence",
+            "power": "manhunt:celeritas/boots/dash_dash_left",
+            "operation": "set",
+            "keys": []
+        },
+        "interval": 5,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.left",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "dash_right": {
+        "type": "eggolib:action_on_key_sequence",
+        "success_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "x": -2,
+                    "space": "velocity_horizontal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~1 ~ 0.2 0.2 0.2 0.1 10",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "keys": [
+            {
+                "key": "key.right",
+                "continuous": false
+            }
+        ],
+        "key_sequence": [
+            "key.right",
+            "key.right"
+        ],
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            }
+        }
+    },
+    "reset_right": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "eggolib:modify_key_sequence",
+            "power": "manhunt:celeritas/boots/dash_dash_right",
+            "operation": "set",
+            "keys": []
+        },
+        "interval": 5,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.right",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "hidden": true
+}
