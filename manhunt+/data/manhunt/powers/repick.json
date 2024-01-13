@@ -1,0 +1,101 @@
+{
+    "type": "origins:multiple",
+    "repick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [\"\",\"Click [\",{\"keybind\":\"key.jump\",\"bold\":true,\"color\":\"gold\"},\"] to use the Last Pick.\"]"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "repick_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin gui @s origins:hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.repair player @a ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:totem_of_undying ~ ~1 ~ 0 0 0 3 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add last_pick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=!last_pick] manhunt:repick"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.jump"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "restart_timer": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove last_pick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:repick"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=last_pick]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {   
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "origins:hunters",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

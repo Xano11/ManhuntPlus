@@ -17,11 +17,20 @@
         },
         "execute_chosen_when_orb": true
     },
-    "ready_timer": {
+    "repick": {
         "type": "origins:resource",
         "min": 0,
-        "max": 10,
-        "start_value": 10,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "repick_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
         "hud_render": {
             "should_render": false
         },
@@ -30,19 +39,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "forceload add ~ ~ ~ ~"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @a add playing"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:joining"
-                },
-                {
-                    "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove repick"
                 },
                 {
                     "type": "origins:if_else_list",
@@ -100,6 +101,299 @@
             ]
         }
     },
+    "repick_timer_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:setup_armorstand_repick_timer",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:setup_armorstand_repick_timer",
+            "comparison": ">=",
+            "compare_to": 20
+        }
+    },
+    "repick_msg1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a \"Now, time to reveal the runner!\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @a"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:setup_armorstand_repick_timer",
+            "comparison": "==",
+            "compare_to": 80
+        }
+    },
+    "repick_msg2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag = runner]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:if_else_list",
+                            "actions": [
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/celeritas",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Celeritas!\"]"
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/alchimia",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Alchimia!\"]"
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/sanguis",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Sanguis Deus!\"]"
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/damned",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Inmortuae!\"]"
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/gambler",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Fortuna!\"]"
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/jester",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Balatro!\"]"
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/deleo",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Deleo!\"]"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @a"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:setup_armorstand_repick_timer",
+            "comparison": "==",
+            "compare_to": 60
+        }
+    },
+    "repick_msg3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a \"Time for the hunters to use their Last Pick!\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=hunter] manhunt:repick"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:setup_armorstand_repick_timer",
+            "comparison": "==",
+            "compare_to": 20
+        }
+    },
+    "ready_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @a add playing"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:joining"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:start_repick_key"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:setup_armorstand_repick",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add repick"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:setup_armorstand_repick_timer",
+                                "change": 100
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "manhunt:setup_armorstand_countdown",
+                                            "comparison": "==",
+                                            "compare_to": 30
+                                        },
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "execute as @a run resource set @s manhunt:countdown_effects_timer 600"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "manhunt:setup_armorstand_countdown",
+                                            "comparison": "==",
+                                            "compare_to": 15
+                                        },
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "execute as @a run resource set @s manhunt:countdown_effects_timer 300"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "manhunt:setup_armorstand_countdown",
+                                            "comparison": "==",
+                                            "compare_to": 10
+                                        },
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "execute as @a run resource set @s manhunt:countdown_effects_timer 200"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function manhunt:countdown"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @a manhunt:start"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:setup_armorstand_ready_timer_tick"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
     "ready_timer_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -122,10 +416,21 @@
         },
         "interval": 20,
         "condition": {
-            "type": "origins:command",
-            "command": "execute unless entity @a[tag=!ready]",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute unless entity @a[tag=!ready]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:setup_armorstand_ready_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "ready_timer_reset": {
@@ -323,10 +628,21 @@
         },
         "interval": 20,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:setup_armorstand_ready_timer",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:setup_armorstand_ready_timer",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=!repick]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
         }
     }
 }
