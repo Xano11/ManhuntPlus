@@ -16,7 +16,7 @@
     },
     "left_click": {
         "type": "origins:active_self",
-        "cooldown": 5,
+        "cooldown": 1,
         "hud_render": {
             "should_render": false
         },
@@ -132,7 +132,7 @@
     },
     "right_click": {
         "type": "origins:active_self",
-        "cooldown": 5,
+        "cooldown": 1,
         "hud_render": {
             "should_render": false
         },

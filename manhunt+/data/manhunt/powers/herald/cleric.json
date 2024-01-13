@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "use": {
-        "type": "eggolib:prevent_critical_hit",
+        "type": "eggolib:action_on_critical_hit",
         "bientity_action": {
             "type": "origins:target_action",
             "action": {

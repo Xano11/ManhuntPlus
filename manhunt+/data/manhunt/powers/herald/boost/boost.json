@@ -22,7 +22,7 @@
 				},
 				{
 					"type": "origins:area_of_effect",
-					"radius": 7,
+					"radius": 10,
 					"bientity_action": {
 						"type": "origins:target_action",
 						"action": {
@@ -30,12 +30,12 @@
 							"actions": [
 								{
 									"type": "origins:execute_command",
-									"command": "effect give @s minecraft:speed 7 1 true",
+									"command": "power grant @s manhunt:herald/boost/boost_effects",
 									"permission_level": 4
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "effect give @s minecraft:regeneration 7 1 true",
+									"command": "effect give @s minecraft:regeneration 10 1 true",
 									"permission_level": 4
 								},
 								{
@@ -93,7 +93,7 @@
 							},
 							{
 								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s transformation.scale set value [10f,10f,1f]",
+								"command": "execute on passengers run data modify entity @s transformation.scale set value [20f,20f,1f]",
 								"permission_level": 4
 							}
 						]
@@ -115,7 +115,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Aura: Regeneration II and Speed II for 7 seconds.\nRadius: 7 blocks."
+			"text": "Aura: Regeneration II and +40% speed for 10 seconds.\nRadius: 10 blocks."
 		},
 		{
 			"type": "origins:keybind",
