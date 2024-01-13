@@ -9,6 +9,23 @@
                     "type": "origins:distance",
                     "comparison": ">",
                     "compare_to": 32
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:runner",
+                                "layer": "origins:origin",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:living"
+                            }                            
+                        ]
+                    }
                 }
             ]
         }

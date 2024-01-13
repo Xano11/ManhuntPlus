@@ -7,19 +7,100 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:jester/madness/mad",
+                    "command": "power grant @a[tag=playing] manhunt:jester/madness/mad",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=playing]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:armor_stand",
+                        "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"jester_paranoia\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,shadow_radius:100f,shadow_strength:100f,billboard:\"center\",Tags:[\"jester_paranoia\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2f,2f,2f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:3}}}]}",
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute store result score @p laugh run data get entity @p UUID[0] 1",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers store result score @s laugh run data get entity @p UUID[0] 1",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:jester/madness/icon",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"jester_paranoia\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,shadow_radius:100f,shadow_strength:100f,billboard:\"center\",Tags:[\"jester_paranoia\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[20f,20f,20f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:3}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ 120 ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:jester/madness/icon",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
                 }
             ]
         },
-        "cooldown": 1800,
+        "cooldown": 3600,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "sprite_location":"origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1
         },
         "key": {
             "key": "key.origins.secondary_active"
         }
     },
-    "name": "Circus",
-    "description": "[Placeholder]"
+    "name": "Jester's Madness",
+    "description": "Spread your madness and create chaos on the battlefield :)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Madness: All hunters see players as grey glowing silhouettes.\n"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Make everyone mad with %s!"
+        },
+		{
+			"type": "origins:tooltip",
+			"sprite": "manhunt:textures/icons/cooldown.png",
+			"text": "Cooldown: 3m"
+		}
+    ]
 }

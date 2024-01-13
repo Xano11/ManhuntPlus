@@ -8,7 +8,22 @@
                 {
                     "type": "origins:distance",
                     "comparison": "<=",
-                    "compare_to": 32
+                    "compare_to": 48
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:jester/madness/mad",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
                 }
             ]
         },
@@ -18,5 +33,5 @@
         "blue": 0.0
     },
     "name": "Dynamic Aura",
-    "description": "Hunters in a 32 block radius of the Balatro will be able to see you glowing through walls, revealing your current position."
+    "description": "Hunters in a 48 block radius of the Balatro will be able to see you glowing through walls, revealing your current position."
 }

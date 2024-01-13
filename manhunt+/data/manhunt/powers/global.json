@@ -155,5 +155,41 @@
             }
         }
     },
+    "prevent_other_paranoias":{
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "eggolib:compare_score",
+                    "actor_objective": "laugh",
+                    "target_objective": "laugh",
+                    "comparison": "!="
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:item_display"
+                            },
+                            {
+                                "type": "origins:riding",
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition":  {
+                                        "type": "origins:power",
+                                        "power": "manhunt:jester/madness/icon"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
     "hidden": true
 }

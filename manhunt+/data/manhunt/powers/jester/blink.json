@@ -63,6 +63,22 @@
             "should_render": true,
             "bar_index": 17,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:compass"
+                        }
+                    },
+                    "inverted": true
+                }
+            ]
         }
     },
     "hidden": false

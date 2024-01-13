@@ -23,6 +23,16 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:fire_resistance 7 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:slow_falling 7 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power remove @s manhunt:jester/switch/switch_effects"
                 }
             ]
@@ -120,10 +130,20 @@
         "green": 0.0,
         "blue": 0.0,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:jester/switch/switch_effects_red_white",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/switch/switch_effects_red_white",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:jester/madness/mad",
+                    "inverted": true
+                }
+            ]
         }
     },
     "glow_white": {
@@ -133,10 +153,20 @@
         "green": 1.0,
         "blue": 1.0,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:jester/switch/switch_effects_red_white",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/switch/switch_effects_red_white",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:jester/madness/mad",
+                    "inverted": true
+                }
+            ]
         }
     },
     "hidden": true
