@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "type": "origins:raycast",
-                    "distance": 64,
+                    "distance": 96,
                     "block": false,
                     "entity": true,
                     "shape_type": "visual",
@@ -94,7 +94,7 @@
                             {
                                 "type": "origins:distance",
                                 "comparison": "<=",
-                                "compare_to": 64
+                                "compare_to": 96
                             }
                         ]
                     },
@@ -127,7 +127,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:shaman/regenerate_windup",
                     "comparison": "==",
-                    "compare_to": 30
+                    "compare_to": 20
                 }
             ]
         }
@@ -169,7 +169,7 @@
                                 "type": "origins:resource",
                                 "resource": "manhunt:shaman/regenerate_windup",
                                 "comparison": "==",
-                                "compare_to": 30
+                                "compare_to": 20
                             },
                             {
                                 "type": "apugli:entity_in_radius",
@@ -202,7 +202,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": "<=",
-                    "compare_to": 64
+                    "compare_to": 96
                 }
             ]
         },
@@ -219,7 +219,7 @@
             "conditions": [
                 {
                     "type": "origins:raycast",
-                    "distance": 64,
+                    "distance": 96,
                     "block": false,
                     "entity": true,
                     "shape_type": "visual",
@@ -253,7 +253,7 @@
                             {
                                 "type": "origins:distance",
                                 "comparison": "<=",
-                                "compare_to": 64
+                                "compare_to": 96
                             }
                         ]
                     }
@@ -262,7 +262,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:shaman/regenerate_windup",
                     "comparison": "==",
-                    "compare_to": 30
+                    "compare_to": 20
                 }
             ]
         }

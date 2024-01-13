@@ -41,7 +41,7 @@
     "windup": {
         "type": "origins:resource",
         "min": 0,
-        "max": 30,
+        "max": 20,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -113,7 +113,7 @@
             "type": "origins:resource",
             "resource": "manhunt:shaman/regenerate_windup",
             "comparison": "==",
-            "compare_to": 30
+            "compare_to": 20
         }
     },
     "heal": {
@@ -127,7 +127,7 @@
             "type": "origins:resource",
             "resource": "manhunt:shaman/regenerate_windup",
             "comparison": "==",
-            "compare_to": 30
+            "compare_to": 20
         }
     },
     "no_jump": {
@@ -168,7 +168,7 @@
             "type": "origins:resource",
             "resource": "manhunt:shaman/regenerate_windup",
             "comparison": "==",
-            "compare_to": 30
+            "compare_to": 20
         }
     },
     "fog": {

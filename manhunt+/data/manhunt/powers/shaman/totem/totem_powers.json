@@ -52,12 +52,77 @@
     "effects": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:area_of_effect",
-            "radius": 8,
-            "bientity_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 8,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:sculk_soul ~ ~ ~ 0.3 1 0.3 0.1 20",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.evoker.cast_spell player @s ~ ~ ~ 0.4 2",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.sculk_sensor.clicking player @s ~ ~ ~ 3 2",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:heal",
+                                            "amount": 4
+                                        },
+                                        {
+                                            "type": "origins:feed",
+                                            "food": 4,
+                                            "saturation": 2
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:sculk_soul ~ ~2.7 ~ 0.3 0 0.3 0.04 20",
+                                    "permission_level": 4
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 8,
+                    "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
                             "type": "origins:and",
@@ -69,52 +134,35 @@
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "playsound minecraft:entity.evoker.cast_spell player @s ~ ~ ~ 0.4 2",
+                                    "command": "execute as @a[tag=hunter] if score @s soul = @e[limit=1,sort=nearest,type=minecraft:armor_stand] soul run tp @s ~ ~ ~ ~ ~",
                                     "permission_level": 4
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "playsound minecraft:block.sculk_sensor.clicking player @s ~ ~ ~ 3 2",
+                                    "command": "execute at @a[tag=hunter] if score @s soul = @p soul run kill @s",
                                     "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:heal",
-                                    "amount": 4
-                                },
-                                {
-                                    "type": "origins:feed",
-                                    "food": 4,
-                                    "saturation": 2
                                 }
                             ]
                         }
                     },
-                    {
-                        "type": "origins:actor_action",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "particle minecraft:sculk_soul ~ ~2.7 ~ 0.3 0 0.3 0.04 20",
-                            "permission_level": 4
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:shaman/totem/soul"
+                                }
+                            ]
                         }
                     }
-                ]
-            },
-            "bientity_condition": {
-                "type": "origins:target_condition",
-                "condition": {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:living"
-                        },
-                        {
-                            "type": "origins:origin",
-                            "origin": "manhunt:hunter",
-                            "layer": "origins:origin"
-                        }
-                    ]
                 }
-            }
+            ]
         },
         "interval": 30
     },

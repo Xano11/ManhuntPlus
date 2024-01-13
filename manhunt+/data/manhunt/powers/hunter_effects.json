@@ -38,5 +38,61 @@
         },
         "execute_chosen_when_orb": true
     },
+    "shaman": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag = hunter]",
+            "bientity_action": {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:armor_stand",
+                            "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"shaman_soul\"]}",
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute store result score @p soul run data get entity @p UUID[0] 1"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute store result score @s soul run data get entity @p UUID[0] 1"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:shaman/totem/soul"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s Rotation set value [0f,0f]",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:origin",
+                    "origin": "manhunt:hunters/shaman",
+                    "layer": "origins:hunters"
+                }
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:health",
+            "comparison": "<=",
+            "compare_to": 0
+        }
+    },
     "hidden": true
 }
