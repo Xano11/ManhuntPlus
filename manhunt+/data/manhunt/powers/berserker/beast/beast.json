@@ -105,7 +105,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Sacrifice all your health to become unkillable for 10 seconds.\nAfter 10 seconds, if you do not hit a runner five times with an axe, you will die.\nIf you use the ability at lower health, you will get more duration (Below 5 hearts, one heart equals 1 second)"
+            "text": "Sacrifice all your health to become unkillable for 10 seconds.\nAfter 10 seconds, you will become weakened (see \"weakened\" badge).\nIf you use the ability at lower health, you will get more duration (Below 5 hearts, one heart equals 1 second)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Weakened: 7s of 30% less speed and inability to heal."
         },
         {
             "type": "origins:tooltip",

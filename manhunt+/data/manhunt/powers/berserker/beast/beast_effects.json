@@ -3,8 +3,8 @@
     "roar": {
         "type": "origins:resource",
         "min": 0,
-        "max": 80,
-        "start_value": 80,
+        "max": 60,
+        "start_value": 60,
         "hud_render": {
             "should_render": false
         }
@@ -21,8 +21,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 380,
-        "start_value": 380,
+        "max": 350,
+        "start_value": 350,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
@@ -36,21 +36,9 @@
                     "command": "power remove @s manhunt:berserker/beast/beast_effects_unstoppable"
                 },
                 {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "manhunt:berserker/beast/beast_effects_hits",
-                        "comparison": "<",
-                        "compare_to": 5
-                    },
-                    "if_action": {
-                        "type": "origins:execute_command",
-                        "command": "kill @s"
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:berserker/beast/beast_effects"
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_weaker",
+                    "change": 140
                 }
             ]
         }
@@ -64,10 +52,64 @@
         },
         "interval": 10
     },
+    "weaker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:berserker/beast/beast_effects"
+        }
+    },
+    "slower_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase movement speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -0.3,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "slower_air": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.15
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_weaker",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
     "hits": {
         "type": "origins:resource",
         "min": 0,
-        "max": 5,
+        "max": 3,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -99,8 +141,8 @@
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:berserker/beast/beast_effects_roar",
-            "comparison": ">",
-            "compare_to": 0
+            "comparison": ">=",
+            "compare_to": 40
         }
     },
     "particle": {
@@ -196,10 +238,21 @@
             "operation": "multiply_total"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:berserker/beast/beast_effects_roar",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_roar",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "air_speed": {
@@ -224,6 +277,12 @@
                     "resource": "manhunt:berserker/beast/beast_effects_roar",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         }
@@ -235,10 +294,21 @@
             "value": 3
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:berserker/beast/beast_effects_roar",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_roar",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "no_heal": {
@@ -247,54 +317,6 @@
             "operation": "multiply_total",
             "value": -1
         }
-    },
-    "axe_hit": {
-        "type": "origins:action_on_hit",
-        "bientity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:actor_action",
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:berserker/beast/beast_effects_hits",
-                                "change": 1
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:actor_condition",
-                    "condition": {
-                        "type": "origins:equipped_item",
-                        "equipment_slot": "mainhand",
-                        "item_condition": {
-                            "type": "origins:ingredient",
-                            "ingredient": {
-                                "tag": "manhunt:axes"
-                            }
-                        }
-                    }
-                },
-                {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:origin",
-                        "origin": "manhunt:runner",
-                        "layer": "origins:origin"
-                    }
-                }
-            ]
-        },
-        "cooldown": 5
     },
     "particles": {
         "type": "origins:particle",

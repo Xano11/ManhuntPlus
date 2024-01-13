@@ -31,7 +31,7 @@
             "amount": 1,
             "damage_type": "manhunt:bleeding"
         },
-        "interval": 20,
+        "interval": 10,
         "condition": {
             "type": "origins:moving"
         }
