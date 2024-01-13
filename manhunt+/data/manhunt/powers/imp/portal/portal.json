@@ -115,7 +115,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 9600,
+        "cooldown": 6000,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 7,
@@ -138,7 +138,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 8m"
+            "text": "Cooldown: 5m"
         }
     ]
 }

@@ -343,7 +343,7 @@
             ]
         }
     },
-    "iron_projectile_dmg": {
+    "flint_projectile_dmg": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
             "type": "origins:and",
@@ -365,7 +365,7 @@
         },
         "modifier": {
             "operation": "addition",
-            "value": 3.0
+            "value": -4.0
         }
     },
     "diamond_projectile_dmg": {
@@ -390,7 +390,7 @@
         },
         "modifier": {
             "operation": "addition",
-            "value": 5.0
+            "value": 3.0
         }
     },
     "netherite_projectile_dmg": {
@@ -415,7 +415,7 @@
         },
         "modifier": {
             "operation": "addition",
-            "value": 7.0
+            "value": 5.0
         }
     },
     "scoreboard": {
@@ -436,8 +436,8 @@
     "description": "Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid. This pitchfork can be upgraded with resources and be incarnated. (see badges)",
     "badges": [
         {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
             "text": "Whilst holding your trident, press %s to incarnate your next trident throw!"
         },
         {
