@@ -115,7 +115,7 @@
         }
     },
     "name": "Chainmail favoritism",
-    "description": "When it comes to armor, you are restrained to wearing lighter armors.\nIn return, you've engineered how to craft chainmail by yourself.",
+    "description": "When it comes to armor, you are restrained to wearing §clighter§r armors.\nIn return, you've engineered how to craft chainmail by yourself.",
     "badges": [
         {
             "type": "origins:crafting_recipe",

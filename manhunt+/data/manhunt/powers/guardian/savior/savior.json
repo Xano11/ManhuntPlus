@@ -24,12 +24,24 @@
                     "command": "tp @a[tag=saved] @s"
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "effect give @a[tag=saved] minecraft:instant_health 1 2"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "effect give @a[tag=saved] minecraft:slowness 15 2"
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=saved]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:heal",
+                                    "amount": 8
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "effect give @s minecraft:slowness 15 2"
+                                }
+                            ]
+                        }
+                    }
                 },
                 {
                     "type": "origins:set_fall_distance",
@@ -81,7 +93,7 @@
             "compare_to": 0
         }
     },
-    "particles":{
+    "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
@@ -177,7 +189,7 @@
         }
     },
     "name": "Savior of All",
-    "description":"Drag your team to your side and heal them by teleporting to them to you.",
+    "description": "Drag your team to your side and heal them by teleporting to them to you.",
     "badges": [
         {
             "type": "origins:tooltip",

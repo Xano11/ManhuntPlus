@@ -75,7 +75,7 @@
                 }
             ]
         },
-        "cooldown": 3,
+        "cooldown": 2,
         "key": {
             "key": "key.origins.secondary_active",
             "continuous": true
@@ -203,7 +203,7 @@
     "glide_horizontal":{
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": 0.3,
+            "value": 0.15,
             "operation": "multiply_total"
           },
           "axes": [

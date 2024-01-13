@@ -120,10 +120,6 @@
                                         {
                                             "type": "origins:execute_command",
                                             "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 1 0.5 1"
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "effect give @s minecraft:slowness 5 3"
                                         }
                                     ]
                                 }

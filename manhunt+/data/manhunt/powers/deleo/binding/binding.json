@@ -6,7 +6,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hunters you kill have a delayed respawn but\nthey keep their armors and the items in their hotbar."
+            "text": "Hunters you kill have a §adelayed§r respawn but\nthey §ckeep§r their armors and the items in their hotbar."
         }
     ]
 }
