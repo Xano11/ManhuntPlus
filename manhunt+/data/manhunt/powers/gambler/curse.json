@@ -17,6 +17,80 @@
     },
     "execute_chosen_when_orb": true
   },
+  "no_death": {
+    "type": "origins:prevent_death",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "moborigins:show_floating_item",
+          "item_stack": {
+            "item": "minecraft:totem_of_undying",
+            "tag": "{CustomModelData:1}"
+          }
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:entity.vex.charge player @s ~ ~ ~ 1 0.5"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "function manhunt:death_msg_gambler"
+        },
+        {
+          "type": "origins:heal",
+          "amount": 6
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust 0 0 0 1 ~ ~ ~ 2 1 2 1 400"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust 1 1 1 1 ~ ~ ~ 2 1 2 1 400"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust 1 0 0 1 ~ ~ ~ 2 1 2 1 400"
+        },
+        {
+          "type": "origins:apply_effect",
+          "effect": {
+            "effect": "minecraft:weakness",
+            "duration": 100,
+            "amplifier": 0
+          }
+        },
+        {
+          "type": "origins:apply_effect",
+          "effect": {
+            "effect": "minecraft:resistance",
+            "duration": 40,
+            "amplifier": 100
+          }
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "power remove @s manhunt:gambler/curse"
+        }
+      ]
+    },
+    "damage_condition": {
+      "type": "origins:attacker",
+      "entity_condition": {
+        "type": "origins:power",
+        "power": "manhunt:engineer/bacont/simulated"
+      },
+      "inverted": true
+    }
+  },
   "name": "Devil's Deal",
-  "description": "You traded 2 of your hearts to the Devil in exchange for your special abilities."
+  "description": "You traded 2 of your hearts to the Devil in exchange for your special abilities.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/badge/star.png",
+      "text": "Devil's Deal: §c-2§r hearts\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
+    }
+  ]
 }
