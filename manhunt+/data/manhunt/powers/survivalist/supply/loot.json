@@ -96,7 +96,7 @@
                     "condition":  {
                         "type": "origins:resource",
                         "resource": "manhunt:survivalist/supply/loot_levels",
-                        "comparison": "==",
+                        "comparison": ">=",
                         "compare_to": 2
                     },
                     "if_action": {
@@ -110,7 +110,7 @@
                     "condition":  {
                         "type": "origins:resource",
                         "resource": "manhunt:survivalist/supply/loot_levels",
-                        "comparison": "==",
+                        "comparison": ">=",
                         "compare_to": 3
                     },
                     "if_action": {

@@ -18,6 +18,18 @@
         },
         {
             "predicate": {
+                "custom_model_data": 3
+            },
+            "model": "manhunt:item/jester_paranoia"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4
+            },
+            "model": "manhunt:item/jester_paranoia2"
+        },
+        {
+            "predicate": {
                 "custom_model_data": 99
             },
             "model": "manhunt:item/dude_getting_flashbanged_like_3_times"
