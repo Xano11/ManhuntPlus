@@ -15,20 +15,13 @@
                     "type": "origins:equipped_item_action",
                     "equipment_slot": "mainhand",
                     "action": {
-                        "type": "origins:consume",
-                        "amount": 1
+                        "type": "origins:merge_nbt",
+                        "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
                     }
                 },
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 3 1.5"
-                },
-                {
-                    "type": "origins:give",
-                    "stack": {
-                        "item": "minecraft:potion",
-                        "tag": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
-                    }
                 },
                 {
                     "type": "origins:change_resource",

@@ -22,21 +22,14 @@
             "ingredient": {
                 "item": "minecraft:glow_berries"
             }
-        },
-        "result_item_action":  {
-            "type": "origins:consume",
-            "amount": 1
+        }, 
+        "result_item_action": {
+            "type": "origins:merge_nbt",
+            "nbt": "{CustomPotionColor:16706109,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Awakened Eyes\",\"italic\":false,\"color\":\"yellow\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
         },
         "using_item_action": {
             "type": "origins:consume",
             "amount": 1
-        },
-        "entity_action": {
-            "type": "origins:give",
-            "stack": {
-                "item": "minecraft:potion",
-                "tag": "{CustomPotionColor:16706109,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Awakened Eyes\",\"italic\":false,\"color\":\"yellow\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
-            }
         }
     },
     "drink": {
@@ -45,7 +38,7 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:alchimia/potion/eyes_duration",
-            "change": 10
+            "change": 15
         },
         "item_condition": {
             "type": "origins:and",
@@ -66,7 +59,7 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 10,
+        "max": 15,
         "start_value": 0,
         "hud_render": {
             "should_render": false
