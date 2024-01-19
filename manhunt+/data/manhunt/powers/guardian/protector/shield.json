@@ -1,0 +1,58 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:guardian/protector/shield"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/protector/shield_duration",
+            "change": 20
+        },
+        "interval": 20
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.01 3"
+        },
+        "interval": 4
+    },
+    "kb_resistance":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Knockback Resistance",
+            "attribute": "minecraft:generic.knockback_resistance",
+            "value": 99,
+            "operation": "addition"
+        }
+    },
+    "protection": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:attacker"
+        },
+        "modifier": {
+            "name": "Protection",
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "self_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:guardian/protector/shield"
+        }
+    },
+    "hidden": true
+}

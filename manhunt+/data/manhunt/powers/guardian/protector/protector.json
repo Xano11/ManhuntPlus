@@ -24,12 +24,8 @@
                             "type": "origins:and",
                             "actions": [
                                 {
-                                    "type": "origins:apply_effect",
-                                    "effect": {
-                                        "effect": "minecraft:resistance",
-                                        "duration": 300,
-                                        "amplifier": 0
-                                    }
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:guardian/protector/shield"
                                 },
                                 {
                                     "type": "origins:spawn_entity",
@@ -115,12 +111,12 @@
         }
     },
     "name": "Protector",
-    "description": "Using a shield, you can grant your team additional protection.",
+    "description": "Using a shield, you can grant your team additional protection on their next instance of damage.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Protection: 15s of 20% mitigation in a 12 block radius."
+            "text": "Protection: 50% mitigation on next hit. Lasts for 15s."
         },
         {
             "type": "origins:keybind",
