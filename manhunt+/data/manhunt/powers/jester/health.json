@@ -5,10 +5,10 @@
       "modifier": {
         "name": "Max health decrease",
         "attribute": "minecraft:generic.max_health",
-        "value": -2,
+        "value": -4,
         "operation": "addition"
       }
     },
     "name": "Jester's soul",
-    "description": "Balatro lost a heart because... they misplaced it? I don't know, ask them."
+    "description": "Balatro lost two of their hearts because... they misplaced them? I don't know, ask them."
   }
