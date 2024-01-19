@@ -79,12 +79,26 @@
                 }
             },
             "bientity_condition": {
-                "type": "origins:target_condition",
-                "condition": {
-                    "type": "origins:origin",
-                    "origin": "manhunt:hunters/shaman",
-                    "layer": "origins:hunters"
-                }
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunters/shaman",
+                            "layer": "origins:hunters"
+                        }
+                    },
+                    {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunters/shaman",
+                            "layer": "origins:hunters",
+                            "inverted": true
+                        }
+                    }
+                ]
             }
         },
         "interval": 1,
