@@ -1,0 +1,29 @@
+{
+    "type": "origins:multiple",
+    "restrict":{
+        "type": "origins:conditioned_restrict_armor",
+        "head": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 2
+        },
+        "chest": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 5
+        },
+        "legs": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 4
+        },
+        "feet": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 1
+        },
+        "tick_rate": 20
+    },
+    "name": "Survivalist Issue",
+    "description": "When it comes to armor, you are restrained to wearing §clighter§r armors.\n",
+}

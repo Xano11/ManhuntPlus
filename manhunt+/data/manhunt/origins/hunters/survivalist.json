@@ -6,7 +6,7 @@
         "manhunt:survivalist/gatherfast",
 		"manhunt:survivalist/explorer_weakness",
 		"origins:nine_lives",
-		"manhunt:survivalist/fod"
+		"manhunt:survivalist/armor"
 	],
 	"icon": {
 		"item": "minecraft:crafting_table",
