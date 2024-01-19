@@ -25,7 +25,7 @@
     "less_speed": {
         "type": "origins:attribute",
         "modifier": {
-            "name": "Increase speed",
+            "name": "Decrease speed",
             "attribute": "minecraft:generic.movement_speed",
             "value": -0.6,
             "operation": "multiply_total"

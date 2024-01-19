@@ -60,20 +60,11 @@
             "operation": "addition"
         }
     },
-    "movement_speed": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increase movement speed",
-            "attribute": "minecraft:generic.movement_speed",
-            "value": 0.2,
-            "operation": "multiply_total"
-        }
-    },
     "more_attack": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "addition",
-            "value": 3
+            "value": 1
         }
     },
     "particles":{

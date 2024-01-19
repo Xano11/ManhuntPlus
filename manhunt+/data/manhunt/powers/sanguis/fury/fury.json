@@ -23,22 +23,22 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.beacon.power_select player @a[distance=..16] ~ ~ ~ 0.6 0.5 0.6"
+                    "command": "playsound minecraft:block.beacon.power_select player @a ~ ~ ~ 2 0.5"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.axe.scrape player @a[distance=..16] ~ ~ ~ 1 0.5 1"
+                    "command": "playsound minecraft:item.axe.scrape player @a ~ ~ ~ 2 0.5"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.totem.use player @a[distance=..16] ~ ~ ~ 0.4 1.7 0.4"
+                    "command": "playsound minecraft:item.totem.use player @a ~ ~ ~ 2 1.7"
                 }
             ]
         },
         "key": {
             "key": "key.origins.primary_active"
         },
-        "cooldown": 1800,
+        "cooldown": 1200,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 1,
@@ -51,7 +51,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Fury: +3 damage, +20% speed and +20% attack speed for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 5 seconds."
+            "text": "Fury: +1 damage and +0.2 attack speed for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 5 seconds."
         },
         {
             "type": "origins:keybind",
@@ -61,7 +61,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m and 30s"
+            "text": "Cooldown: 1m"
         }
     ]
 }
