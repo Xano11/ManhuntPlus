@@ -4,7 +4,7 @@
         "type": "origins:resource",
         "min": 0,
         "max": 2,
-        "start_value": 0,
+        "start_value": 2,
         "hud_render": {
             "should_render": true,
             "sprite_location": "manhunt:textures/cannon_packs.png",

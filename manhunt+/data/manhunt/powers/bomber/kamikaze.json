@@ -43,12 +43,12 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:flame ~ ~1 ~ 0.2 0.2 0.2 0.3 3",
+                    "command": "particle minecraft:flame ~ ~1 ~ 0.2 0.2 0.2 0.3 3 force @a[distance=1..]",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:campfire_cosy_smoke ~ ~1 ~ 0.2 0.2 0.2 0.1 1",
+                    "command": "particle minecraft:campfire_cosy_smoke ~ ~1 ~ 0.2 0.2 0.2 0.1 1 force @a[distance=1..]",
                     "permission_level": 4
                 }
             ]
