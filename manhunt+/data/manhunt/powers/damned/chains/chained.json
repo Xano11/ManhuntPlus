@@ -56,7 +56,18 @@
                     {
                         "type": "origins:target_condition",
                         "condition": {
-                            "type": "origins:living"
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:runner",
+                                    "layer": "origins:origin",
+                                    "inverted": true
+                                }
+                            ]
                         }
                     }
                 ]
