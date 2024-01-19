@@ -37,11 +37,6 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:engineer/scan/scanning_upload",
-                    "change": 1
-                },
-                {
                     "type": "origins:if_else_list",
                     "actions": [
                         {
@@ -171,6 +166,11 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/scan/scanning_upload",
+                    "change": 1
                 }
             ]
         },
@@ -178,7 +178,7 @@
     },
     "ping":{
         "type": "origins:action_over_time",
-        "entity_action": {
+        "rising_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -187,11 +187,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @a[tag=runner] manhunt:engineer/scan/scanning"
+                    "command": "power remove @s manhunt:engineer/scan/scanning"
                 }
             ]
         }, 
-        "interval": 4,
+        "interval": 5,
         "condition": {
             "type": "origins:and",
             "conditions": [

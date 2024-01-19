@@ -175,23 +175,7 @@
                 },
                 {
                     "type": "apoli:execute_command",
-                    "command": "execute on attacker run effect give @s minecraft:health_boost 1 10 false"
-                },
-                {
-                    "type": "apoli:execute_command",
-                    "command": "execute on attacker run effect give @s minecraft:strength 15 0 false"
-                },
-                {
-                    "type": "apoli:execute_command",
-                    "command": "execute on attacker run effect give @s minecraft:speed 15 2 false"
-                },
-                {
-                    "type": "apoli:execute_command",
-                    "command": "execute on attacker run effect give @s minecraft:resistance 15 0 false"
-                },
-                {
-                    "type": "apoli:execute_command",
-                    "command": "execute on attacker run effect give @s minecraft:saturation 1 10 false"
+                    "command": "execute on attacker run power grant @s manhunt:engineer/bacont/winner"
                 }
             ]
         }

@@ -198,7 +198,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute at @p[tag=runner] run power grant @p manhunt:engineer/bacont/recall"
+                                "command": "execute at @p[tag=runner] run power grant @e[tag=simulation_recall,limit=1,sort=nearest,type=armor_stand] manhunt:engineer/bacont/porkchop"
                             },
                             {
                                 "type": "origins:execute_command",

@@ -1,0 +1,38 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:heal",
+                "amount": 20
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "effect give @s minecraft:health_boost 1 10 false"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "effect give @s minecraft:strength 15 1 false"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "effect give @s minecraft:speed 15 2 false"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "effect give @s minecraft:resistance 15 0 false"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "effect give @s minecraft:saturation 1 10 false"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "power remove @s manhunt:engineer/bacont/winner"
+            }
+        ]
+    },
+    "execute_chosen_when_orb": false,
+    "hidden": true
+}

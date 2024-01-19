@@ -43,7 +43,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Winner Buff: Increase Max Health, Strength I, Speed III, Resistance I.\nLoser Nerf: Slowness III, Weakness II, Glowing."
+            "text": "Winner Buff: Increase Max Health, Strength II, Speed III, Resistance I.\nLoser Nerf: Slowness III, Weakness II, Glowing."
         },
         {
             "type": "origins:keybind",
