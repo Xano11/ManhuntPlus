@@ -44,12 +44,12 @@
         }
     },
     "name": "Trained For The Sea",
-    "description": "Grants water affinity to you and nearby hunters, and does work in the nether",
+    "description": "Grants \"Water Striders\" to you and nearby hunters, and does work in the nether",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Water Affinity: 30s of +30% swim speed, also in effect while in lava"
+            "text": "Water Strider: 30s of +30% swim speed, also in effect while in lava"
         },
         {
             "type": "origins:keybind",
