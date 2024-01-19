@@ -29,7 +29,7 @@
     "repick_timer": {
         "type": "origins:resource",
         "min": 0,
-        "max": 100,
+        "max": 400,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -37,6 +37,10 @@
         "min_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=hunter] manhunt:repick"
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
@@ -115,10 +119,55 @@
         },
         "interval": 10,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:setup_armorstand_repick_timer",
-            "comparison": ">=",
-            "compare_to": 20
+            "type": "origins:command",
+            "command": "execute if entity @s[tag=repick]",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "repick_timer_scoreboard": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players remove @s repick_timer 1"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:setup_armorstand_repick_timer",
+                        "comparison": "<=",
+                        "compare_to": 300
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "title @a title [\"\"]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "title @a[tag=hunter] subtitle [\"\",\"[\",{\"score\":{\"name\":\"@s\",\"objective\":\"repick_timer\"},\"bold\":true},\"⏱]\"]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.note_block.hat player @a[tag=hunter] ~ ~ ~ 3 1"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @s[tag=repick]",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
     "repick_msg1": {
@@ -128,7 +177,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @a \"Now, time to reveal the runner!\""
+                    "command": "tellraw @a \"Now, time to reveal the runner(s)!\""
                 },
                 {
                     "type": "origins:execute_command",
@@ -141,7 +190,7 @@
             "type": "origins:resource",
             "resource": "manhunt:setup_armorstand_repick_timer",
             "comparison": "==",
-            "compare_to": 80
+            "compare_to": 380
         }
     },
     "repick_msg2": {
@@ -249,7 +298,7 @@
             "type": "origins:resource",
             "resource": "manhunt:setup_armorstand_repick_timer",
             "comparison": "==",
-            "compare_to": 60
+            "compare_to": 360
         }
     },
     "repick_msg3": {
@@ -276,7 +325,7 @@
             "type": "origins:resource",
             "resource": "manhunt:setup_armorstand_repick_timer",
             "comparison": "==",
-            "compare_to": 20
+            "compare_to": 320
         }
     },
     "ready_timer": {
@@ -307,6 +356,10 @@
                     "command": "power remove @a manhunt:start_repick_key"
                 },
                 {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:start_repick"
+                },
+                {
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
@@ -324,7 +377,11 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:setup_armorstand_repick_timer",
-                                "change": 100
+                                "change": 400
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "scoreboard players set @s repick_timer 20"
                             }
                         ]
                     },

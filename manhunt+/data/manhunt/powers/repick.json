@@ -24,6 +24,14 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer_tick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer_scoreboard"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.iron_golem.repair player @a ~ ~ ~ 3 0.5"
                 },
                 {
@@ -33,10 +41,6 @@
                 {
                     "type": "origins:execute_command",
                     "command": "tag @s add last_pick"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a[tag=!last_pick] manhunt:repick"
                 }
             ]
         },
@@ -48,9 +52,15 @@
             "should_render": false
         }
     },
-    "restart_timer": {
-        "type": "origins:action_over_time",
-        "rising_action": {
+    "timer":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -64,6 +74,130 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power remove @s manhunt:repick"
+                }
+            ]
+        }
+    },
+    "timer_tick":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:repick_timer",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "restart_timer": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:repick_repick_key"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:default",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:0,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:amethyst",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:1,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:slime",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:2,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:bomb",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:3,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:emerald",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:4,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:cod",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:5,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:shulker",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:6,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:suspicious",
+                                "layer": "origins:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:7,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:repick_timer",
+                    "change": 60
                 }
             ]
         },
@@ -95,6 +229,29 @@
                     ]
                 }
             ]
+        }
+    },
+    "restart_msg1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a \"Hunters have now used Repick! Runners, get ready!\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @a"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:repick_timer",
+            "comparison": "==",
+            "compare_to": 30
         }
     },
     "hidden": true

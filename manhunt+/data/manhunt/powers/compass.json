@@ -71,6 +71,18 @@
                                     {
                                         "condition": {
                                             "type": "origins:command",
+                                            "command": "execute if score @s tracking matches 0",
+                                            "comparison": "==",
+                                            "compare_to": 1
+                                        },
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "scoreboard players set @s tracking 1"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:command",
                                             "command": "execute if score @s tracking matches 1",
                                             "comparison": "==",
                                             "compare_to": 1

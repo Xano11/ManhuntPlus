@@ -12,5 +12,6 @@ scoreboard objectives add lurker dummy
 scoreboard objectives add boompack dummy
 scoreboard objectives add timer dummy
 scoreboard objectives add ready_timer dummy
+scoreboard objectives add repick_timer dummy
 scoreboard objectives add laugh dummy
 scoreboard objectives add soul dummy
