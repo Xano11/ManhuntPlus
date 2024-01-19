@@ -65,6 +65,15 @@
             "command": "power remove @s manhunt:berserker/beast/beast_effects"
         }
     },
+    "weaker_tick":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "change": -10
+        },
+        "interval": 10
+    },
     "slower_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -221,13 +230,8 @@
             "compare_to": 0
         }
     },
-    "unstoppable": {
-        "type": "origins:modify_damage_taken",
-        "modifier": {
-            "name": "no death",
-            "operation": "multiply_total",
-            "value": -1
-        }
+    "unstoppable":{
+        "type": "origins:prevent_death"
     },
     "movement_speed": {
         "type": "origins:conditioned_attribute",
