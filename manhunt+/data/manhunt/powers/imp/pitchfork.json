@@ -253,7 +253,7 @@
     },
     "trident": {
         "type": "origins:action_over_time",
-        "falling_action": {
+        "rising_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -280,7 +280,7 @@
                         },
                         {
                             "type": "origins:nbt",
-                            "nbt": "{inGround:0b}"
+                            "nbt": "{inGround:1b}"
                         }
                     ]
                 }

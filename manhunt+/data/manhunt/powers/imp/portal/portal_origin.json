@@ -164,15 +164,15 @@
                                     "type": "origins:if_else",
                                     "condition": {
                                         "type": "origins:dimension",
-                                        "dimension": "minecraft:overworld"
+                                        "dimension": "minecraft:the-nether"
                                     },
                                     "if_action": {
                                         "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:imp/portal/overworld_effects"
+                                        "command": "power grant @s manhunt:imp/portal/nether_effects"
                                     },
                                     "else_action": {
                                         "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:imp/portal/nether_effects"
+                                        "command": "power grant @s manhunt:imp/portal/overworld_effects"
                                     }
                                 },
                                 {
