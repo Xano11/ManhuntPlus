@@ -62,17 +62,5 @@
         },
         "tick_rate": 1
     },
-    "overlay": {
-        "type": "origins:overlay",
-        "texture": "minecraft:textures/misc/forcefield.png",
-        "strength": 0.2,
-        "red": 0.1,
-        "green": 0.8,
-        "blue": 0.1,
-        "draw_mode": "texture",
-        "draw_phase": "below_hud",
-        "hide_with_hud": false,
-        "visible_in_third_person": false
-    },
     "hidden": true
 }

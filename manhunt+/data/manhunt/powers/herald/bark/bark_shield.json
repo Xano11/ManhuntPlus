@@ -126,7 +126,36 @@
                         "key": "key.origins.primary_active",
                         "continuous": true
                     }
-                }
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 20,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:herald/bark/bark_effects",
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    }
+                } 
             ]
         }
     },
