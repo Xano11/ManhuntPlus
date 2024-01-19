@@ -20,19 +20,6 @@
     "sink":{
         "type": "origins:ignore_water"
     },
-    "no_jump":{
-        "type": "origins:modify_jump",
-        "modifier": {
-            "operation": "addition",
-            "value": -0.2
-        },
-        "condition": {
-            "type": "origins:fluid_height",
-            "fluid": "minecraft:water",
-            "comparison": ">=",
-            "compare_to": 1
-        }
-    },
     "name": "Cursed",
     "description": "Your cursed energy comes with a downside; You can't swim.",
     "badges": [
