@@ -8,14 +8,9 @@
         "hud_render": {
             "should_render": false
         },
-        "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:ritualist/ritual/preyed"
-                }
-            ]
+        "min_action": { 
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:ritualist/ritual/preyed"
         }
     },
     "duration_down": {
@@ -65,21 +60,6 @@
                 "layer": "origins:hunters"
             }
         }
-    },
-    "glow":{
-        "type": "origins:self_glow",
-        "bientity_condition": {
-            "type": "origins:target_condition",
-            "condition": {
-                "type": "origins:origin",
-                "origin": "manhunt:hunters/ritualist",
-                "layer": "origins:hunters"
-            }
-        },
-        "use_teams": false,
-        "red": 1.0,
-        "green": 0.0,
-        "blue": 0.0
     },
     "hidden": true
 }

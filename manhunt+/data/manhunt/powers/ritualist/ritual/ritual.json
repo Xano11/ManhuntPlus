@@ -351,6 +351,20 @@
             "inverted": true
         }
     },
+    "preyed_glow":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:ritualist/ritual/preyed"
+            }
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0
+    },
     "no_move": {
         "type": "origins:modify_velocity",
         "modifier": {
