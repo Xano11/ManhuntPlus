@@ -5,7 +5,7 @@
     "modifier": {
       "name": "Max health decrease",
       "attribute": "minecraft:generic.max_health",
-      "value": -4,
+      "value": -2,
       "operation": "addition"
     }
   },
@@ -90,7 +90,7 @@
     {
       "type": "origins:tooltip",
       "sprite": "origins:textures/gui/badge/star.png",
-      "text": "Devil's Deal: §c-2§r hearts\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
+      "text": "Devil's Deal: §c-1§r hearts\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
     }
   ]
 }
