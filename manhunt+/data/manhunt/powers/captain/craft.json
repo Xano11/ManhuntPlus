@@ -20,7 +20,7 @@
         }
     },
     "name": "Father's Recipe",
-    "description": "Craft a crossbow by putting a iron, sting and stick in a crafting grid",
+    "description": "Craft a crossbow by putting a iron ingot, string and stick in a crafting grid.",
     "badges": [
         {
             "type": "origins:crafting_recipe",

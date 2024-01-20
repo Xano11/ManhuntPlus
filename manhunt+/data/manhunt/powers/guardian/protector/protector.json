@@ -116,7 +116,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Protection: 50% mitigation on next hit. Lasts for 15s."
+            "text": "Protection: 50% mitigation and immunity to knockback on next hit. Lasts for 15s."
         },
         {
             "type": "origins:keybind",
