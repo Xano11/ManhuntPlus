@@ -126,7 +126,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Thrown hunters do not take fall damage."
+            "text": "Thrown hunters do not take fall damage. You can also pick up most living entities and primed TNT."
         },
         {
             "type": "origins:keybind",

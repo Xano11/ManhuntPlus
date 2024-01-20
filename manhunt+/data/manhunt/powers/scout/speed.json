@@ -309,7 +309,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(20% speed increase)\n(Icon on top of the hotbar indicates its current state)"
+            "text": "(30% speed increase and 10% velocity increase)\n(Icon on top of the hotbar indicates its current state)"
         }
     ]
 }

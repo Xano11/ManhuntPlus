@@ -24,7 +24,7 @@
             "should_render": false
         }
     },
-    "name": "Achilles' heel",
+    "name": "Achilles' Heel",
     "description": "Taking a hit of damage will trigger your dash cooldown and delay your bouncepad cooldown.",
     "badges": [
         {

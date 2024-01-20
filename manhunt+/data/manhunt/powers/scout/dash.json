@@ -64,7 +64,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(Can be used to negate fall damage)"
+            "text": "(Can be used to negate fall damage when used near the ground.)"
         },
         {
             "type": "origins:keybind",
