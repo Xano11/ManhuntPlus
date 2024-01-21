@@ -1,5 +1,8 @@
 {
 	"powers": [
+		"manhunt:scanner/solar_battery",
+		"manhunt:scanner/radar_visor",
+		"manhunt:scanner/laser_pointer",
 		"manhunt:scanner/tungsten"
 	],
 	"icon": {
@@ -7,6 +10,7 @@
 	},
 	"order": 10,
 	"impact": 2,
+	"unchoosable": true,
 	"name": "5C4NN3R",
-	"description": "     [§dINTELLIGENCE ₪§r]\nLOG: M4NHUNT.\nPrime directive: Supply all Hunter units with scan guidance. Conquer all Runner targets. "
+	"description": "     [§dINTELLIGENCE ₪§r]\nL0G: M4NHUNT.\nRobot partner 'Scanner' sucessfully deployed.\n- Prime Directive: Supply allied Hunter units with radar guidance. Conquer all Runner targets. "
 }

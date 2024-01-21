@@ -22,7 +22,8 @@
                 "manhunt:hunters/engineer",
                 "manhunt:hunters/ritualist",
                 "manhunt:hunters/berserker",
-                "manhunt:hunters/shaman"
+                "manhunt:hunters/shaman",
+                "manhunt:hunters/scanner"
               ]
           }
       ],
