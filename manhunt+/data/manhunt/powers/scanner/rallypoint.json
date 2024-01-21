@@ -1,0 +1,99 @@
+{
+    "type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 10
+        }
+    },
+    "gain_energy_nether": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "change": 1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "gain_energy_fire": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "change": 2
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_fire"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "moreheal": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "comparison": ">",
+            "compare_to": 80
+        }
+    },
+    "lessheal": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "comparison": "<",
+            "compare_to": 50
+        }
+    },
+    "name": "R4LLYP01NT",
+    "description": "Gain 'Rallypoint' after hitting a Runner or Hunter with your laser. This provides a speed boost aura and powers up your next Laser Pointer use.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Rallypoint lasts for 10 seconds. A radius of 10 blocks around you provides +20% Movement Speed for all Hunters while active.\nLaser Pointer on Hunters will teleport you to them.\nLaser Pointer on Runners will inform you of their current HP."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Rallypoint is consumed after using a powered up laser."
+        }
+    ]
+}

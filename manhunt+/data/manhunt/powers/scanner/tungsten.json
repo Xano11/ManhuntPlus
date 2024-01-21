@@ -1,0 +1,61 @@
+{
+  "type": "origins:multiple",
+  "lessdmgfirefall": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "value": -0.7,
+      "operation": "multiply_total"
+    },
+    "damage_condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+          "type": "origins:name",
+          "name": "inFire"
+        },
+        {
+          "type": "origins:name",
+          "name": "inFire.player"
+        },
+        {
+          "type": "origins:name",
+          "name": "lava"
+        },
+        {
+          "type": "origins:name",
+          "name": "lava.player"
+        },
+        {
+          "type": "origins:name",
+          "name": "fall"
+        },
+        {
+          "type": "origins:name",
+          "name": "fall.player"
+        }
+      ]
+    }
+  },
+  "life_is_a_highway": {
+    "type": "eggolib:modify_hurt_ticks",
+    "modifier": {
+      "operation": "multiply_total",
+      "value": 0.25
+    },
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:lava",
+      "comparison": "==",
+      "compare_to": 0.5
+    }
+  },
+  "name": "TUNGST3N-UN1T",
+  "description": "You are supplied with a superior metallic form. Take heavily reduced damage from fire and falls.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/badge/star.png",
+      "text": "Fire Damage, Lava Damage, and Fall Damage are all reduced by 70%.\nAdditionally, gain §a+25%§r invincibility frames while in Lava."
+    }
+  ]
+}

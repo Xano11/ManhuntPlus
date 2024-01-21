@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"manhunt:scanner/solar_battery",
+		"manhunt:scanner/radar_visor",
+		"manhunt:scanner/laser_pointer",
+		"manhunt:scanner/tungsten"
+	],
+	"icon": {
+		"item": "minecraft:music_disc_otherside"
+	},
+	"order": 10,
+	"impact": 2,
+	"unchoosable": true,
+	"name": "5C4NN3R",
+	"description": "     [§dINTELLIGENCE ₪§r]\nL0G: M4NHUNT.\nRobot partner 'Scanner' sucessfully deployed.\n- Prime Directive: Supply allied Hunter units with radar guidance. Conquer all Runner targets. "
+}

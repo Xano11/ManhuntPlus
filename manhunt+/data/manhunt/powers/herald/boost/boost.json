@@ -110,7 +110,7 @@
 		}
 	},
 	"name": "Encouraging Aura",
-	"description": "Channeling your inner powers, you release a powerful aura.",
+	"description": "Channeling your inner powers, you release a powerful aura to buff you and allies.",
 	"badges": [
 		{
 			"type": "origins:tooltip",
