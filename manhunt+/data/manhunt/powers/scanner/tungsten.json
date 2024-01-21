@@ -1,0 +1,45 @@
+{
+    "type":"origins:modify_damage_taken",
+    "modifier":{
+      "value": 0.9,
+      "operation":"multiply_total"
+    },
+    "damage_condition":{
+      "type":"origins:or",
+      "conditions":[
+        {
+          "type": "origins:name",
+          "name": "inFire"
+        },
+        {
+          "type": "origins:name",
+          "name": "inFire.player"
+        },
+        {
+          "type": "origins:name",
+          "name": "lava"
+        },
+        {
+          "type": "origins:name",
+          "name": "lava.player"
+        },
+        {
+          "type": "origins:name",
+          "name": "fall"
+        },
+        {
+          "type": "origins:name",
+          "name": "fall.player"
+        }
+      ]
+    },
+    "name": "TUNGSTEN-UNIT",
+    "description": "You are supplied with a superior metallic form. Take heavily reduced damage from fire and falls.",
+    "badges": [
+      {
+          "type": "origins:tooltip",
+          "sprite": "origins:textures/gui/badge/star.png",
+          "text": "Fire Damage, Lava Damage, and Fall Damage are all reduced by 90%."
+      }
+  ]
+}

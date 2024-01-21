@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"manhunt:scanner/tungsten"
+	],
+	"icon": {
+		"item": "minecraft:music_disc_otherside"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "5C4NN3R",
+	"description": "     [§dINTELLIGENCE ₪§r]\nLOG: M4NHUNT.\nPrime directive: Supply all Hunter units with scan guidance. Conquer all Runner targets. "
+}
