@@ -4,6 +4,20 @@
         "type": "origins:invisibility",
         "render_armor": false
     },
+    "phase":{
+        "type": "origins:phasing",
+        "blacklist": false,
+        "render_type": "blindness",
+        "view_distance": 10
+    },
+    "no_damage":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Immune",
+            "operation": "multiply_total",
+            "value": -0.99
+        }
+    },
     "break": {
         "type": "origins:action_when_hit",
         "bientity_action": {

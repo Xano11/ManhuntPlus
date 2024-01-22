@@ -218,7 +218,14 @@
             "resource": "manhunt:lurker/lurk/lurk_effects_laser_cooldown",
             "change": -10
         },
-        "interval": 10
+        "interval": 10,
+        "condition": {
+            "type": "origins:in_block",
+            "block_condition":{
+                "type": "origins:movement_blocking"
+            },
+            "inverted": true
+        }
     },
     "laser_cooldown": {
         "type": "origins:resource",

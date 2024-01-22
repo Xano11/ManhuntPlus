@@ -52,7 +52,7 @@
                         "if_action": {
                             "type": "origins:spawn_entity",
                             "entity_type": "minecraft:allay",
-                            "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"lurk_eye\"],Passengers:[{id:\"minecraft:item_display\",NoGravity:1b,Silent:1b,Tags:[\"lurk_eye\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.2f,0f],scale:[2f,2f,2f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:2}}}]}",
+                            "tag": "{NoGravity:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"lurk_eye\"],Passengers:[{id:\"minecraft:item_display\",NoGravity:1b,Silent:1b,Tags:[\"lurk_eye\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.2f,0f],scale:[2f,2f,2f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:2}}}]}",
                             "entity_action": {
                                 "type": "origins:and",
                                 "actions": [
