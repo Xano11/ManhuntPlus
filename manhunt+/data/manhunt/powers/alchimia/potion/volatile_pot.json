@@ -40,7 +40,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:witch ~ ~-0.7 ~ 0.2 0.2 0.2 1 5",
+                    "command": "particle minecraft:instant_effect ~ ~-0.7 ~ 0.2 0.2 0.2 1 5",
                     "permission_level": 4
                 }
             ]

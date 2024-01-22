@@ -16,7 +16,7 @@
                     "equipment_slot": "mainhand",
                     "action": {
                         "type": "origins:merge_nbt",
-                        "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                        "nbt": "{CustomPotionColor:16777214,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
                     }
                 },
                 {
@@ -126,7 +126,7 @@
                     "divergence": 0,
                     "count": 1,
                     "speed": 1,
-                    "tag": "{Passengers:[{id:\"minecraft:armor_stand\",Silent:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,Tags:[\"volatile\"]}],Item:{id:\"minecraft:splash_potion\",Count:1b,tag:{Enchantments:[{}],CustomModelData:1}}}",
+                    "tag": "{Passengers:[{id:\"minecraft:armor_stand\",Silent:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,Tags:[\"volatile\"]}],Item:{id:\"minecraft:splash_potion\",Count:1b,tag:{CustomPotionColor:16777215,Enchantments:[{}],CustomModelData:1}}}",
                     "projectile_action": {
                         "type": "origins:and",
                         "actions": [
@@ -173,7 +173,7 @@
                             },
                             {
                                 "type": "origins:nbt",
-                                "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                                "nbt": "{CustomPotionColor:16777214,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
                             }
                         ]
                     }
@@ -194,7 +194,7 @@
                 },
                 {
                     "type": "origins:nbt",
-                    "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                    "nbt": "{CustomPotionColor:16777214,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
                 }
             ]
         },
@@ -287,7 +287,7 @@
                 },
                 {
                     "type": "origins:nbt",
-                    "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
+                    "nbt": "{CustomPotionColor:16777214,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
                 }
             ]
         }
