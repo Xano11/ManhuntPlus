@@ -115,7 +115,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Aura: Regeneration II and +40% speed for 10 seconds.\nRadius: 10 blocks."
+			"text": "Aura: Regeneration II and +20% speed for 10 seconds.\nRadius: 10 blocks."
 		},
 		{
 			"type": "origins:keybind",

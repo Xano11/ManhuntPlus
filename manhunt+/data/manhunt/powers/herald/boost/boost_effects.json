@@ -27,7 +27,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.4,
+            "value": 0.2,
             "operation": "multiply_base"
         }
     },
@@ -39,7 +39,7 @@
         ],
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.15
+            "value": 0.10
         }
     },
     "hidden": true
