@@ -145,7 +145,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @a[tag=!guardian] [\"\",\"Accept teleport from \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"gold\"},\"?    \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.saveToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
+                    "command": "tellraw @a[tag=!guardian,tag=hunter] [\"\",\"Accept teleport from \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"gold\"},\"?    \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.saveToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
                 },
                 {
                     "type": "origins:execute_command",
