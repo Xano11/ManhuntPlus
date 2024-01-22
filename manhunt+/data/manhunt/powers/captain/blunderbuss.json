@@ -1,21 +1,45 @@
 {
+    "name": "Blunderbuss",
+    "description": "Load your next crossbow arrow with a TNT charge. Explodes when hitting entities or with remote detonating.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": "Press the key again to detonate if it lands on a block.\nAfter loading, you have 10 seconds to shoot or else you will explode yourself.",
+            "sprite": "origins:textures/gui/badge/star.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": "Hearts of the sea will make your loaded arrows have the additional effect of\nmaking any entity in a 24 block radius glow upon detonation.",
+            "sprite": "minecraft:textures/item/heart_of_the_sea.png"
+        },
+        {
+            "type": "origins:keybind",
+            "text": "Load your crossbow with %s! Must be used on a arrow-loaded crossbow!",
+            "sprite": "origins:textures/gui/badge/toggle.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": "Cooldown: 45s",
+            "sprite": "manhunt:textures/icons/cooldown.png"
+        }
+    ],
     "type": "origins:multiple",
     "hit": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
             "type": "origins:projectile",
             "projectile_condition": {
-              "type": "origins:and",
-              "conditions": [
-                {
-                  "type": "origins:entity_type",
-                  "entity_type": "minecraft:arrow"
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags: ['bomb_arrow']}"
-                }
-              ]
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:arrow"
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['bomb_arrow']}"
+                    }
+                ]
             }
         },
         "target_action": {
@@ -43,6 +67,110 @@
                 {
                     "type": "origins:execute_command",
                     "command": "kill @e[tag=bomb_arrow,limit=1,sort=nearest]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['echo_arrow']}"
+                    },
+                    "if_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 24,
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:apply_effect",
+                                        "effect": {
+                                            "effect": "minecraft:glowing",
+                                            "duration": 200,
+                                            "amplifier": 0,
+                                            "show_particles": true,
+                                            "show_icon": true
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "particle minecraft:glow_squid_ink ~ ~ ~ 0.3 0.3 0.3 2 100"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "particle minecraft:dust_color_transition 0 1 0.5 1.5 1 1 1 ~ ~ ~ 3 2 3 1 100"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 1.5"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "echohit": {
+        "type": "origins:modify_projectile_damage",
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:arrow"
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['bomb_arrow']}"
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['echo_arrow']}"
+                    }
+                ]
+            }
+        },
+        "target_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 2,
+                    "destruction_type": "break",
+                    "damage_self": true,
+                    "create_fire": true
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~ ~ 0 0 0 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=tnt_tip,limit=1,sort=nearest]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=bomb_arrow,limit=1,sort=nearest]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:blunderbussglow"
                 }
             ]
         }
@@ -215,9 +343,9 @@
         "max": 200,
         "start_value": 0,
         "hud_render": {
+            "should_render": true,
             "sprite_location": "manhunt:textures/captain.png",
             "bar_index": 0,
-            "should_render": true,
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:captain/blunderbuss_loaded_timer",
@@ -267,7 +395,10 @@
                                     "nbt": "{CustomModelData:1}"
                                 }
                             ]
-                        }
+                        },
+                        "slots": [],
+                        "process_mode": "items",
+                        "limit": 0
                     },
                     {
                         "type": "origins:explode",
@@ -287,7 +418,8 @@
                     {
                         "type": "origins:change_resource",
                         "resource": "manhunt:captain/blunderbuss_loaded",
-                        "change": -1
+                        "change": -1,
+                        "operation": "add"
                     }
                 ]
             }
@@ -295,14 +427,34 @@
     },
     "duration_down": {
         "type": "origins:action_over_time",
+        "interval": 2,
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:captain/blunderbuss_loaded_timer",
-            "change": -2
-        },
-        "interval": 2
+            "change": -2,
+            "operation": "add"
+        }
     },
     "activate": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Charged: 1b}"
+                    }
+                ]
+            }
+        },
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
@@ -310,12 +462,14 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:captain/blunderbuss_loaded",
-                    "change": 1
+                    "change": 1,
+                    "operation": "add"
                 },
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:captain/blunderbuss_loaded_timer",
-                    "change": 200
+                    "change": 200,
+                    "operation": "add"
                 },
                 {
                     "type": "origins:equipped_item_action",
@@ -336,38 +490,19 @@
             ]
         },
         "cooldown": 900,
-        "key": {
-            "key": "key.origins.primary_active"
-        },
-        "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "mainhand",
-            "item_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "minecraft:crossbow"
-                        }
-                    },
-                    {
-                        "type": "origins:nbt",
-                        "nbt": "{Charged: 1b}"
-                    }
-                ]
-            }
-        },
         "hud_render": {
+            "should_render": true,
             "sprite_location": "manhunt:textures/captain.png",
             "bar_index": 0,
-            "should_render": true,
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:captain/blunderbuss_loaded_timer",
                 "comparison": "==",
                 "compare_to": 0
             }
+        },
+        "key": {
+            "key": "key.origins.primary_active"
         }
     },
     "detonate": {
@@ -378,6 +513,27 @@
                 {
                     "type": "origins:area_of_effect",
                     "radius": 64,
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:arrow"
+                                        },
+                                        {
+                                            "type": "origins:nbt",
+                                            "nbt": "{Tags: ['bomb_arrow']}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
@@ -399,42 +555,12 @@
                                     "if_action": {
                                         "type": "origins:area_of_effect",
                                         "radius": 24,
-                                        "shape": "sphere",
                                         "bientity_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:target_action",
-                                                    "action": {
-                                                        "type": "origins:apply_effect",
-                                                        "effect": {
-                                                            "effect": "minecraft:glowing",
-                                                            "duration": 200,
-                                                            "amplifier": 0
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "origins:actor_action",
-                                                    "action": {
-                                                        "type": "origins:and",
-                                                        "actions": [
-                                                            {
-                                                                "type": "origins:execute_command",
-                                                                "command": "particle minecraft:glow_squid_ink ~ ~ ~ 0.3 0.3 0.3 2 100"
-                                                            },
-                                                            {
-                                                                "type": "origins:execute_command",
-                                                                "command": "particle minecraft:dust_color_transition 0 1 0.5 1.5 1 1 1 ~ ~ ~ 3 2 3 1 100"
-                                                            },
-                                                            {
-                                                                "type": "origins:execute_command",
-                                                                "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 1.5"
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "function manhunt:blunderbussglow"
+                                            }
                                         }
                                     }
                                 },
@@ -456,27 +582,6 @@
                                 }
                             ]
                         }
-                    },
-                    "bientity_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:and",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:entity_type",
-                                            "entity_type": "minecraft:arrow"
-                                        },
-                                        {
-                                            "type": "origins:nbt",
-                                            "nbt": "{Tags: ['bomb_arrow']}"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
                     }
                 }
             ]
@@ -486,7 +591,20 @@
             "should_render": false
         }
     },
-    "tooltip_echo":{
+    "tooltip_echo": {
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:heart_of_the_sea"
+                }
+            },
+            "slots": [],
+            "comparison": ">=",
+            "compare_to": 1
+        },
         "type": "origins:tooltip",
         "item_condition": {
             "type": "origins:ingredient",
@@ -497,42 +615,6 @@
         "text": {
             "text": "You feel the Heart pulsating into the wooden body.",
             "color": "dark_aqua"
-        },
-        "condition":{
-            "type": "origins:inventory",
-            "process_mode": "items",
-            "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": {
-                    "item": "minecraft:heart_of_the_sea"
-                }
-            },
-            "comparison": ">=",
-            "compare_to": 1
         }
-    },
-    "name": "Blunderbuss",
-    "description": "Load your next crossbow arrow with a TNT charge. Explodes when hitting entities or with remote detonating.",
-    "badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Press the key again to detonate if it lands on a block.\nAfter loading, you have 10 seconds to shoot or else you will explode yourself."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/heart_of_the_sea.png",
-            "text": "Hearts of the sea will make your loaded arrows have the additional effect of\nmaking any entity in a 24 block radius glow upon detonation."
-        },
-        {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Load your crossbow with %s! Must be used on a arrow-loaded crossbow!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s"
-        }
-    ]
+    }
 }
