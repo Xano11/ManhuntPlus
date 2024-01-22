@@ -257,11 +257,6 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:imp/pitchfork_incarnated",
-                    "change": -1
-                },
-                {
                     "type": "origins:dismount"
                 }
             ]
@@ -283,6 +278,30 @@
                             "nbt": "{inGround:1b}"
                         }
                     ]
+                }
+            }
+        }
+    },
+    "remove_incarnate": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:imp/pitchfork_incarnated",
+                    "change": -1
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:trident"
                 }
             }
         }
