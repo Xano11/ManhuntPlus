@@ -1,0 +1,227 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 16,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:angler/fishing/fishout_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/fishing/fishout_cooldown",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=fishing_bobber,limit=1,sort=nearest]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:armor_stand",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"fishout\"],Passengers:[{id:\"minecraft:item_display\",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,6f,0f],scale:[4f,4f,4f]},item:{id:\"minecraft:cod\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                                            "entity_action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "ride @s mount @e[type=fishing_bobber,limit=1,sort=nearest]"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s manhunt:angler/fishing/cod"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:angler/fishing/fishout_cooldown",
+                                            "change": 600
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 2"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s add angler"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tellraw @a[tag=!angler] [\"\",\"Take \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"dark_aqua\"},\"'s bait and teleport?   \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.loadToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove angler"
+                                        },
+                                        {
+                                            "type": "origins:selector_action",
+                                            "selector": "@a[tag = hunter]",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s manhunt:angler/fishing/bait"
+                                                }
+                                            },
+                                            "bientity_condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    { 
+                                                        "type": "origins:target_condition",
+                                                        "condition": {
+                                                            "type": "origins:origin",
+                                                            "origin": "manhunt:hunter",
+                                                            "layer": "origins:origin"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "eggolib:equal",
+                                                        "inverted": true
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:water",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Unbreakable:1,CustomModelData:1,Tags:[\"angler\"],display:{Name:'[{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \"},{\"text\":\"Rod\",\"color\":\"aqua\"}]'},Enchantments:[{}]}"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/fishing/fishout_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "cooldown": 1
+    },
+    "kill_bobber": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "kill @s"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:fishing_bobber"
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{OnGround:1b}"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:firework ~ ~ ~ 0.3 0.1 0.3 0.01 1"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:fishing_bobber"
+                }
+            }
+        }
+    },
+    "name": "Hook Surfing",
+    "description": "[placeholder]"
+}

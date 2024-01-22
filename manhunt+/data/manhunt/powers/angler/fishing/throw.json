@@ -83,6 +83,11 @@
                                                 "change": 300
                                             },
                                             {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:angler/fishing/throw_fall",
+                                                "change": 1
+                                            },
+                                            {
                                                 "type": "origins:execute_command",
                                                 "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 2"
                                             }
@@ -129,6 +134,51 @@
             "continuous": false
         },
         "cooldown": 1
+    },
+    "fall": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "fall_immune":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "fall_effect": {
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "stop_fall": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
     },
     "kill_bobber": {
         "type": "origins:action_over_time",
