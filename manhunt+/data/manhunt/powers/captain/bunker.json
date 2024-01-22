@@ -46,7 +46,7 @@
                     "action": {
                         "type": "origins:add_velocity",
                         "z": 2.0,
-                        "space": "local",
+                        "space": "local_horizontal",
                         "set": false
                     },
                     "bientity_condition": {
@@ -94,7 +94,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:captain/bunker_boost",
-                    "change": 6
+                    "change": 4
                 },
                 {
                     "type": "origins:execute_command",
@@ -106,8 +106,8 @@
             "key": "key.origins.secondary_active",
             "continuous": false
         },
-        "cooldown": 100,
-        "hud_render":  {
+        "cooldown": 60,
+        "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
             "bar_index": 10
@@ -134,6 +134,105 @@
             }
         }
     },
+    "strider": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:boat",
+                        "tag": "{Type:\"oak\",Tags:[\"striderboat\"]}",
+                        "entity_action": {
+                            "type": "origins:selector_action",
+                            "selector": "@e[type=strider,limit=1,sort=nearest]",
+                            "bientity_action": {
+                                "type": "origins:mount"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:strider"
+            }
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:boats"
+            }
+        },
+        "hands": [
+            "main_hand"
+        ]
+    },
+    "strider_move": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers on passengers run data modify entity @e[limit=1,sort=nearest,type=minecraft:strider] Rotation[0] set from entity @s Rotation[0]"
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 0.5,
+                                "space": "local_horizontal_normalized",
+                                "set": true
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:strider"
+                        }
+                    },
+                    "recursive": true
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:riding_root",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:strider"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:boat"
+                        }
+                    }
+                }
+            ]
+        }
+    },
     "name": "Cap'ain of the sea",
     "description": "Boats that you ride offer protection and can dash.",
     "badges": [
@@ -150,7 +249,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 5s"
+            "text": "Cooldown: 3s"
         }
     ]
 }
