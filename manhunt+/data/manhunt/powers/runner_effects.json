@@ -11,6 +11,10 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "team join Runners"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "execute store result score @s runners run execute if entity @a[tag=runner]"
                 }
             ]
@@ -21,6 +25,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "tag @s remove runner"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team leave Runners"
                 },
                 {
                     "type": "origins:execute_command",
