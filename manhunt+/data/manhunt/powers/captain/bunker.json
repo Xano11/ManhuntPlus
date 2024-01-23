@@ -18,36 +18,25 @@
             }
         }
     },
-    "boost": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 6,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "boost_down": {
+    "speedboat": {
         "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:captain/bunker_boost",
-            "change": -1
-        },
-        "interval": 1
-    },
-    "momentum": {
-        "type": "origins:action_over_time",
-        "entity_action": {
+        "rising_action": {
             "type": "origins:and",
             "actions": [
                 {
                     "type": "origins:riding_action",
                     "action": {
-                        "type": "origins:add_velocity",
-                        "z": 2.0,
-                        "space": "local_horizontal",
-                        "set": false
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add speedboat"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "scale set pehkui:motion 1.4 @s"
+                            }
+                        ]
                     },
                     "bientity_condition": {
                         "type": "origins:target_condition",
@@ -67,51 +56,98 @@
                             ]
                         }
                     }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0.4 1 1 0 1 1 ~ ~0.4 ~ 0.5 0 0.5 1 30"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:enchanted_hit ~ ~0.4 ~ 0.5 0 0.5 0.1 30"
                 }
             ]
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:captain/bunker_boost",
-            "compare_to": 0,
-            "comparison": ">"
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:boat"
+                        },
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:water",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            }
         }
     },
-    "speedboat": {
-        "type": "origins:active_self",
+    "speedboat_remove": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[limit=1,sort=nearest,type=boat,tag=speedboat]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove speedboat"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scale set pehkui:motion 1 @s"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:boat"
+                        },
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:water",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "speedboat_particles": {
+        "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:captain/bunker_boost",
-                    "change": 4
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.2 1 1 1 1 1 ^0.5 ^0.2 ^-1 0 0 0 1 1"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.riptide_2 player @a ~ ~ ~ 3 1.4"
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.2 1 1 1 1 1 ^-0.5 ^0.2 ^-1 0 0 0 1 1"
                 }
             ]
         },
-        "key": {
-            "key": "key.origins.secondary_active",
-            "continuous": false
-        },
-        "cooldown": 60,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 10
-        },
+        "interval": 1,
         "condition": {
             "type": "origins:riding",
             "bientity_condition": {
@@ -234,22 +270,12 @@
         }
     },
     "name": "Cap'ain of the sea",
-    "description": "Boats that you ride offer protection and can dash.",
+    "description": "Boats that you ride offer protection and navigate quicker.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Boat Riding: 50% mitigation."
-        },
-        {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Dash with %s!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3s"
+            "text": "Boat Riding: 50% mitigation and +40% speed."
         }
     ]
 }
