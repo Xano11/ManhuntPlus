@@ -46,7 +46,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.wood.break player @a ~ ~ ~ 1 0.5 1"
+                    "command": "playsound minecraft:block.wood.break player @a ~ ~ ~ 1 0.5"
                 }
             ]
         },

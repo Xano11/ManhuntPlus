@@ -16,7 +16,7 @@
     },
     "left_click": {
         "type": "origins:active_self",
-        "cooldown": 1,
+        "cooldown": 0,
         "hud_render": {
             "should_render": false
         },
