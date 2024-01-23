@@ -1,0 +1,130 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render":  {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 2,
+            "should_render": true,
+            "condition":  {
+                "type": "origins:resource",
+                "resource": "manhunt:survivalist/bomb/throw_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:survivalist/bomb/throw_cooldown",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:survivalist/bomb/throw_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:survivalist/bomb/throw_cooldown",
+                    "change": 1200
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "divergence": 1,
+                    "speed": 1,
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"survivalist_bomb\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"survivalist_bomb\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.9f,0f],scale:[1.2f,1.2f,1.2f]},item:{id:\"minecraft:black_concrete_powder\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"survivalist_bomb\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.3f,0f],scale:[0.3f,0.2f,0.3f]},item:{id:\"minecraft:tnt\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"survivalist_bomb\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.35f,0f],scale:[0.6f,0.2f,0.6f]},item:{id:\"minecraft:white_concrete\",Count:1b}},{id:\"minecraft:block_display\",Tags:[\"survivalist_bomb\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.6f,-0.3f,-0.6f],scale:[1.2f,1.2f,1.2f]},block_state:{Name:\"minecraft:black_candle\",Properties:{lit:\"true\"}}}]}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:survivalist/bomb/bombing",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:passenger_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "data modify entity @s Rotation set value [0f,0f]",
+                                    "permission_level": 4
+                                },
+                                "recursive": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:survivalist/bomb/throw_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Makeshift Bomb",
+    "description": "Deploy a makeshift bomb that destroys blocks.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s and right click to throw your bomb!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
+}

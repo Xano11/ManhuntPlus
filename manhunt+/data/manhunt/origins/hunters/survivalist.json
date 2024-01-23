@@ -2,6 +2,7 @@
 	"powers": [
 		"manhunt:survivalist/hookshot",
 		"manhunt:survivalist/pouch",
+		"manhunt:survivalist/bomb/throw",
 		"manhunt:survivalist/supply/supply",
         "manhunt:survivalist/gatherfast",
 		"manhunt:survivalist/explorer_weakness",
