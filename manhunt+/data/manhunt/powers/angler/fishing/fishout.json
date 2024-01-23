@@ -222,6 +222,23 @@
             }
         }
     },
-    "name": "Hook Surfing",
-    "description": "[placeholder]"
+    "name": "Hunter Bait",
+    "description": "Those left behind can always be appealed by your fishing line; turning them into your true catch.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Whilst your fishing hook is in water, you can activate the ability.\nIt will allow one hunter to teleport to you after a short duration."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hook a teammate with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 30s\nWindup: 8s"
+        }
+    ]
 }

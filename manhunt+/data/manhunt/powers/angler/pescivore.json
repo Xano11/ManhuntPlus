@@ -1,0 +1,52 @@
+{
+    "type": "origins:multiple",
+    "fishless": {
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:eating_fish"
+            },
+            "inverted": true
+        },
+        "food_modifier": {
+            "name": "Decreased food points",
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "saturation_modifier": {
+            "name": "Decreased saturation points",
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+    "fishful": {
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:eating_fish"
+            }
+        },
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "addition",
+            "value": 2
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "addition",
+            "value": 0.4
+        },
+        "prevent_effects": true
+    },    
+    "name": "Pescivore",
+    "description": "Your refined palette is exclusively used to fish. Anything else is not your cup of tea.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Fishlover: Fish gives slightly more food but anything else offers half the food and saturation.\nAdditionally, pufferfish doesn't poison you."
+        }
+    ]
+}

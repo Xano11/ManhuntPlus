@@ -27,6 +27,27 @@
             "type": "origins:and",
             "conditions": [
                 {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    },
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
@@ -49,6 +70,72 @@
         },
         "cooldown": 900
     },
-    "name": "Swordfish",
-    "description": "[placeholder]"
+    "limit":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "eggolib:drop_inventory",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:iron_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"swordfish\"]}"
+                    }
+                ]
+            },
+            "amount": 1
+        },
+        "interval": 5,
+        "condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    },
+                    "comparison": ">",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+    "name": "EvoFish",
+    "description": "With enough energy, any fish can become a fierce weapon of war in your hands.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The Swordfish deals 3 damage per hit, but has high durability. Can also be used for \"Fierce Fish Dash\" (see badge)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Turn any fish into a weapon of war with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Transform a fish every 45s.\n(You can only have two in your inventory at the same time)"
+        }
+    ]
 }
