@@ -45,6 +45,10 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,type=armor_stand] Rotation"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "particle minecraft:witch ~ ~-1.2 ~ 0.1 0.1 0.1 0 10"
                 }
             ]

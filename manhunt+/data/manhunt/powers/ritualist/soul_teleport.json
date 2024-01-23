@@ -26,7 +26,7 @@
 					]
 				},
 				"command_step": 1,
-				"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ air run tp @p[tag=tping] ~ ~ ~",
+				"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ #minecraft:replaceable run tp @p[tag=tping] ~ ~ ~",
 				"miss_action": {
 					"type": "origins:and",
 					"actions": [
