@@ -353,10 +353,19 @@
                 {
                     "type": "origins:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
-                        "resource": "manhunt:imp/pitchfork_teleport",
-                        "comparison": "==",
-                        "compare_to": 1
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:imp/pitchfork_teleport",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            }
+                        ]
                     }
                 }
             ]
@@ -491,7 +500,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Whilst holding your trident, press %s to incarnate your next trident throw!"
+            "text": "Whilst holding your trident, press %s to incarnate your next trident throw!]\n(Doesn't work whilst sneaking)"
         },
         {
             "type": "origins:tooltip",
