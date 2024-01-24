@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "glow": {
+    "entity_glow": {
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:and",
@@ -36,7 +36,7 @@
             "power": "manhunt:scanner/radar_visor_toggle"
         }
     },
-    "hunter_glow": {
+    "hunter_glow_near": {
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:and",
@@ -74,7 +74,45 @@
             "power": "manhunt:scanner/radar_visor_toggle"
         }
     },
-    "runner_glow": {
+    "hunter_glow_far": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 51
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 1.0,
+        "blue": 0.5,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "manhunt:scanner/radar_visor_toggle"
+        }
+    },
+    "runner_glow_near": {
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:and",
@@ -106,6 +144,44 @@
         "use_teams": false,
         "red": 1.0,
         "green": 0.0,
+        "blue": 0.0,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "manhunt:scanner/radar_visor_toggle"
+        }
+    },
+    "runner_glow_far": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 51
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:runner",
+                                "layer": "origins:origin"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.5,
         "blue": 0.0,
         "condition": {
             "type": "origins:power_active",
@@ -222,7 +298,7 @@
             "type": "origins:resource",
             "resource": "manhunt:scanner/solar_battery_energy",
             "comparison": ">",
-            "compare_to": 0
+            "compare_to": 10
         }
     },
     "name": "R4D4R-V1S0R",

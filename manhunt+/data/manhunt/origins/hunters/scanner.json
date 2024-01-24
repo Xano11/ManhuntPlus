@@ -3,7 +3,9 @@
 		"manhunt:scanner/solar_battery",
 		"manhunt:scanner/radar_visor",
 		"manhunt:scanner/laser_pointer",
-		"manhunt:scanner/tungsten"
+		"manhunt:scanner/tungsten",
+		"manhunt:scanner/occupied_oculars",
+		"manhunt:scanner/reboot_sequence"
 	],
 	"icon": {
 		"item": "minecraft:music_disc_otherside"
