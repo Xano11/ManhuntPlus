@@ -16,6 +16,7 @@ scoreboard objectives add ready_timer dummy
 scoreboard objectives add repick_timer dummy
 scoreboard objectives add laugh dummy
 scoreboard objectives add soul dummy
+scoreboard objectives add scanner_health dummy
 
 team add Runners ["",{"text":"RUNNER","bold":true,"color":"gold"}]
 team add Hunters ["",{"text":"HUNTER","bold":true,"color":"dark_red"}]

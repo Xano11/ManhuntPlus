@@ -8,7 +8,8 @@
 		"manhunt:scanner/reboot_sequence"
 	],
 	"icon": {
-		"item": "minecraft:music_disc_otherside"
+		"item": "minecraft:emerald",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
 	"impact": 2,

@@ -1,0 +1,143 @@
+{
+    "type": "origins:multiple",
+    "laser": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 50,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "outline",
+                    "fluid_handling": "none",
+                    "command_along_ray": "particle minecraft:dust_color_transition 1 1 1 0.6 1 1 0 ~ ~ ~ 0.1 0.1 0.1 1 10",
+                    "command_along_ray_only_on_hit": true,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add read_health",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:hunter",
+                                        "layer": "origins:origin"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s add tp_pointer",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    },
+                                    "else_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute store result score @s scanner_health run data get entity @s Health",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "title @a[tag=read_health] actionbar [\"\",{\"selector\":\"@s\",\"color\":\"dark_red\"},\"'s vitals indicate: [\",{\"score\":{\"name\":\"@s\",\"objective\":\"scanner_health\"},\"color\":\"red\"},\"HP]\"]",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove read_health",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s @p[tag=tp_pointer]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @p[tag=tp_pointer] remove tp_pointer",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.shulker.shoot player @a ~ ~ ~ 2 1.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.firework_rocket.blast player @a ~ ~ ~ 2 1.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.ender_dragon.hurt player @a ~ ~ ~ 2 2",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:scanner/solar_battery_energy",
+                                            "change": -30
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        }
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 30,
+            "comparison": ">",
+            "resource": "manhunt:scanner/solar_battery_energy"
+        }
+    },
+    "name": "L4S3R-P01NT3R",
+    "description": "Fire a targeting laser for a large sum of power. The laser reveals Runner location and HP on contact, and allows you to teleport to other Hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The targeting laser has a 50 block range.\nNote: Radar Visor is useful for defining when Runners and Hunters are within range!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Consumes 30% of your Battery."
+        }
+    ]
+}

@@ -1,5 +1,78 @@
 {
     "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 900,
+        "start_value": 900,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:angler/sword/transfish_cooldown",
+                        "comparison": "<",
+                        "compare_to": 900
+                    },
+                    {
+                        "type": "origins:inventory",
+                        "process_mode": "items",
+                        "item_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:iron_sword"
+                                    }
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"swordfish\"]}"
+                                }
+                            ]
+                        },
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            }
+        }
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:angler/sword/transfish_cooldown",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:iron_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"swordfish\"]}"
+                    }
+                ]
+            },
+            "comparison": "<",
+            "compare_to": 1
+        }
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -7,7 +80,12 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "item replace entity @s weapon.mainhand with iron_sword{RepairCost:9999,CustomModelData:1,Tags:[\"swordfish\"],display:{Name:'[{\"text\":\"Sword\",\"italic\":false,\"color\":\"white\"},{\"text\":\"Fish\",\"color\":\"blue\"}]'}} 1"
+                    "command": "item replace entity @s weapon.mainhand with iron_sword{Enchantments:[{}],RepairCost:9999,CustomModelData:1,Tags:[\"swordfish\"],display:{Name:'[{\"text\":\"Sword\",\"italic\":false,\"color\":\"white\"},{\"text\":\"Fish\",\"color\":\"blue\"}]'}} 1"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_cooldown",
+                    "change": -900
                 },
                 {
                     "type": "origins:execute_command",
@@ -27,6 +105,12 @@
             "type": "origins:and",
             "conditions": [
                 {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_cooldown",
+                    "comparison": "==",
+                    "compare_to": 900
+                },
+                {
                     "type": "origins:inventory",
                     "process_mode": "items",
                     "item_condition": {
@@ -45,32 +129,132 @@
                         ]
                     },
                     "comparison": "<",
-                    "compare_to": 2
+                    "compare_to": 1
                 },
                 {
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "tag": "manhunt:fish"
-                        }
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:fish"
+                                }
+                            },
+                            {
+                                "type": "origins:amount",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        ]
                     }
                 }
             ]
         },
         "hud_render": {
-            "should_render": true,
-            "bar_index": 1,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png"
+            "should_render": false
         },
         "key": {
             "key": "key.origins.primary_active",
             "continuous": false
         },
-        "cooldown": 900
+        "cooldown": 1
     },
-    "limit":{
+    "damage": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "<=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "modifier": {
+            "name": "Less damage",
+            "operation": "addition",
+            "value": -3
+        }
+    },
+    "damage_water": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "modifier": {
+            "name": "Less damage",
+            "operation": "addition",
+            "value": -1
+        }
+    },
+    "limit": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "eggolib:drop_inventory",
@@ -92,7 +276,7 @@
             "amount": 1
         },
         "interval": 5,
-        "condition":{
+        "condition": {
             "type": "origins:and",
             "conditions": [
                 {
@@ -114,7 +298,7 @@
                         ]
                     },
                     "comparison": ">",
-                    "compare_to": 2
+                    "compare_to": 1
                 }
             ]
         }
@@ -125,7 +309,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "The Swordfish deals 3 damage per hit, but has high durability. Can also be used for \"Fierce Fish Dash\" (see badge)"
+            "text": "The Swordfish deals 3 damage per hit outside of water. Whilst submerged in water, you deal 5 instead.\nCan also be used for \"Fierce Fish Dash\" (see badge)"
         },
         {
             "type": "origins:keybind",
@@ -135,7 +319,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Transform a fish every 45s.\n(You can only have two in your inventory at the same time)"
+            "text": "Transform a fish every 45s.\n(You can only have one in your inventory at a time)"
         }
     ]
 }

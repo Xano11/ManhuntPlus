@@ -18,7 +18,7 @@
             "resource": "manhunt:imp/flight_energy",
             "change": 1
         },
-        "interval": 2,
+        "interval": 3,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -123,7 +123,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "16.5%/sec energy recharge whilst on the ground."
+            "text": "8.5%/sec energy recharge whilst on the ground."
         }
     ]
 }
