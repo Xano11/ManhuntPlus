@@ -72,7 +72,7 @@
             ]
         }
     },
-    "prevent_soul_pickup":{
+    "prevent_soul_pickup": {
         "type": "eggolib:prevent_item_pickup",
         "bientity_condition": {
             "type": "origins:target_condition",
@@ -83,7 +83,7 @@
                 "inverted": true
             }
         },
-        "item_condition":  {
+        "item_condition": {
             "type": "origins:and",
             "conditions": [
                 {
@@ -99,16 +99,16 @@
             ]
         }
     },
-    "bonk":{
+    "bonk": {
         "type": "origins:action_on_hit",
         "bientity_action": {
             "type": "origins:target_action",
-            "action":{
+            "action": {
                 "type": "origins:execute_command",
                 "command": "playsound manhunt:bonk player @a ~ ~ ~ 2 1"
             }
         },
-        "bientity_condition":{
+        "bientity_condition": {
             "type": "origins:and",
             "conditions": [
                 {
@@ -131,7 +131,7 @@
             ]
         }
     },
-    "deleo_death":{
+    "deleo_death": {
         "type": "origins:prevent_death",
         "entity_action": {
             "type": "origins:and",
@@ -155,7 +155,7 @@
             }
         }
     },
-    "prevent_other_paranoias":{
+    "prevent_other_paranoias": {
         "type": "origins:prevent_entity_render",
         "bientity_condition": {
             "type": "origins:and",
@@ -179,7 +179,7 @@
                                 "type": "origins:riding",
                                 "bientity_condition": {
                                     "type": "origins:target_condition",
-                                    "condition":  {
+                                    "condition": {
                                         "type": "origins:power",
                                         "power": "manhunt:jester/madness/icon"
                                     }
@@ -191,31 +191,66 @@
             ]
         }
     },
-    "swordfish":{
+    "swordfish": {
         "type": "origins:modify_damage_dealt",
         "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "mainhand",
-            "item_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "minecraft:iron_sword"
-                        }
-                    },
-                    {
-                        "type": "origins:nbt",
-                        "nbt": "{Tags:[\"swordfish\"]}"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
                     }
-                ]
-            }
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "manhunt:hunters/angler",
+                    "layer": "origins:hunters",
+                    "inverted": true
+                }
+            ]
         },
         "modifier": {
             "name": "Less damage",
             "operation": "addition",
             "value": -4
+        }
+    },
+    "survivalist_bomb_dmg":{
+        "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:armor_stand"
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['survivalist_bomb']}"
+                    }
+                ]
+            }
+        },
+        "modifier": {
+            "name": "Less bomb dmg",
+            "operation": "multiply_total",
+            "value": -0.9
         }
     },
     "hidden": true

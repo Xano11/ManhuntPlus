@@ -6,6 +6,7 @@
         "manhunt:angler/sword/transfish",
         "manhunt:angler/pescivore",
 		"manhunt:angler/fishing/fishloot",
+		"manhunt:angler/health",
         "origins:no_shield"
 	],
 	"icon": {

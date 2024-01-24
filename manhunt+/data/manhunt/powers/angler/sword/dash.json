@@ -30,46 +30,6 @@
         },
         "interval": 1
     },
-    "damage":{
-        "type": "origins:modify_damage_dealt",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    },
-                    "inverted": true
-                },
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:iron_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:[\"swordfish\"]}"
-                            }
-                        ]
-                    }
-                }
-            ]
-        },
-        "modifier": {
-            "name": "Less damage",
-            "operation": "addition",
-            "value": -3
-        }
-    },
     "winding": {
         "type": "origins:resource",
         "min": 0,
