@@ -9,6 +9,9 @@
                     "type": "origins:distance",
                     "comparison": "<=",
                     "compare_to": 100
+                },
+                {
+                    "type": "origins:living"
                 }
             ]
         },
@@ -104,6 +107,14 @@
         "red": 1.0,
         "green": 0.0,
         "blue": 0.0,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "manhunt:scanner/radar_visor_toggle"
+        }
+    },
+    "nightvision": {
+        "type": "origins:night_vision",
+        "strength": 0.5,
         "condition": {
             "type": "origins:power_active",
             "power": "manhunt:scanner/radar_visor_toggle"
@@ -215,12 +226,12 @@
         }
     },
     "name": "R4D4R-V1S0R",
-    "description": "Highlight all nearby entities, even through walls. Allied Hunters and Runner targets are especially highlighted nearby.",
+    "description": "Gain increased vision and highlight all nearby entities, even through walls. Allied Hunters and Runner targets are especially highlighted nearby.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Applies glowing to all entities in a 100 block radius.\nHunters glow green when within 50 blocks of you.\nRunners glow red when within 50 blocks of you.\nNote: Toggling the visor consumes a small burst of power, so don't spam it."
+            "text": "Grants partial night & water vision, Applies glowing to all entities in a 100 block radius.\nHunters glow green when within 50 blocks of you.\nRunners glow red when within 50 blocks of you.\nToggling the visor consumes a small burst of power, and cannot be used at below 10% power."
         },
         {
             "type": "origins:keybind",
