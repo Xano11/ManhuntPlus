@@ -1,0 +1,33 @@
+{
+  "type": "origins:action_on_callback",
+  "entity_action_respawned": {
+    "type": "origins:apply_effect",
+    "effects": [
+      {
+        "effect": "minecraft:blindness",
+        "amplifier": 0,
+        "duration": 300,
+        "is_ambient": false,
+        "show_particles": false,
+        "show_icon": true
+      },
+      {
+        "effect": "minecraft:slowness",
+        "amplifier": 1,
+        "duration": 300,
+        "is_ambient": false,
+        "show_particles": false,
+        "show_icon": true
+      }
+    ]
+  },
+  "name": "R3B00T-S3QU3NC3",
+  "description": "A system reboot is initiated on death, reducing movement and sensory measures for a period of time.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/badge/star.png",
+      "text": "When respawning, you are blinded and have slowness II for 15 seconds."
+    }
+  ]
+}

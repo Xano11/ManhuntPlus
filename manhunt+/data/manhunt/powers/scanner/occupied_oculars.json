@@ -1,0 +1,17 @@
+{
+  "type": "origins:restrict_armor",
+  "head": {
+    "type": "origins:armor_value",
+    "comparison": ">",
+    "compare_to": 0
+  },
+  "name": "0CCUP13D-0CUL4R5",
+  "description": "The Radar-Visor module prevents standard headgear from being equipped.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/badge/star.png",
+      "text": "You cannot wear helmets."
+    }
+  ]
+}
