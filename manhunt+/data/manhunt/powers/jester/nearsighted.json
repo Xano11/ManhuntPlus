@@ -8,7 +8,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": ">",
-                    "compare_to": 32
+                    "compare_to": 48
                 },
                 {
                     "type": "origins:target_condition",
@@ -31,5 +31,5 @@
         }
     },
     "name": "Nearsighted",
-    "description": "You can only see entities that are at most 32 blocks away from you."
+    "description": "You can only see entities that are at most 48 blocks away from you."
 }
