@@ -13,5 +13,45 @@
       "sounds": [
         "misc/bonk"
       ]
+    },
+    "amogus": {
+      "sounds": [
+        "misc/amogus"
+      ]
+    },
+    "ballin": {
+      "sounds": [
+        "misc/ballin"
+      ]
+    },
+    "battlepass": {
+      "sounds": [
+        "misc/battlepass"
+      ]
+    },
+    "chugjug": {
+      "sounds": [
+        "misc/chugjug"
+      ]
+    },
+    "wide": {
+      "sounds": [
+        "misc/wide"
+      ]
+    },
+    "crab": {
+      "sounds": [
+        "misc/crab"
+      ]
+    },
+    "enemy": {
+      "sounds": [
+        "misc/enemy"
+      ]
+    },
+    "coffin": {
+      "sounds": [
+        "misc/coffin"
+      ]
     }
   }
