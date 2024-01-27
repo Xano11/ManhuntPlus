@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "cant_see": {
+    "sounds": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:and",
@@ -268,6 +268,11 @@
         "rising_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,tag=lurk_eye,type=item_display] lurker run resource set @s manhunt:lurker/lurk/lurk_lurking 0",
+                    "permission_level": 4
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "execute as @e[tag=lurk,type=wither_skeleton] if score @s lurker = @p lurker run tp @p @s"

@@ -39,6 +39,11 @@
                     },
                     {
                         "type": "origins:execute_command",
+                        "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,tag=lurk_eye,type=item_display] lurker run resource set @s manhunt:lurker/lurk/lurk_lurking 0",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
                         "command": "execute on passengers run kill @s"
                     },
                     {
