@@ -11,6 +11,16 @@
                     "permission_level": 4
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_max_health",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_max_speed",
+                    "change": 5
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "scale delay set pehkui:eye_height 0",
                     "permission_level": 4
@@ -66,6 +76,67 @@
                 }
             ]
         }
+    },
+    "keepinv": {
+        "type": "origins:keep_inventory",
+        "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            36,
+            37,
+            38,
+            39,
+            40
+            
+        ]
+    },
+    "max_health": {
+        "type": "origins:resource",
+        "min": 10,
+        "max": 20,
+        "start_value": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "health": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "set_total",
+            "resource": "manhunt:relentless/eternal/undead_max_health",
+            "value": 0
+        }
+    },
+    "max_speed": {
+        "type": "origins:resource",
+        "min": 100,
+        "max": 150,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifiers": [{
+            "operation": "set_total",
+            "resource": "manhunt:relentless/eternal/undead_max_speed",
+            "value": 0
+        },
+        {
+            "operation": "multiply_total",
+            "resource": "manhunt:relentless/eternal/undead_max_speed",
+            "value": -0.999
+        }]
     },
     "hidden": true
 }
