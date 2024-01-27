@@ -11,7 +11,10 @@
                     "compare_to": 100
                 },
                 {
-                    "type": "origins:living"
+                    "type": "origins:target_condition",
+                    "condition": {
+                       "type": "origins:living"
+                    }
                 }
             ]
         },
@@ -82,7 +85,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": ">=",
-                    "compare_to": 51
+                    "compare_to": 50
                 },
                 {
                     "type": "origins:target_condition",
@@ -157,8 +160,8 @@
             "conditions": [
                 {
                     "type": "origins:distance",
-                    "comparison": ">=",
-                    "compare_to": 51
+                    "comparison": ">",
+                    "compare_to": 50
                 },
                 {
                     "type": "origins:target_condition",
