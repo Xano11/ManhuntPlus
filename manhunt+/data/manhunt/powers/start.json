@@ -558,7 +558,8 @@
         "keys": [
             "key.origins.primary_active",
             "key.origins.secondary_active",
-            "key.drop"
+            "key.drop",
+            "key.inventory"
         ]
     },
     "no_pickup": {

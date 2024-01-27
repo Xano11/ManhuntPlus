@@ -24,6 +24,18 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "tag @s add repick_hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=hunter,tag=!repick_hunter] manhunt:repick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove repick_hunter"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer_tick"
                 },
                 {

@@ -535,6 +535,14 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:celebration"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=runner] run scoreboard players add @e[limit=1,sort=nearest,type=minecraft:armor_stand] runners_alive 1"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power remove @s manhunt:setup_armorstand"
                 }
             ]
