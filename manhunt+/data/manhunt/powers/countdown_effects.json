@@ -101,6 +101,11 @@
                 {
                     "type": "origins:trigger_cooldown",
                     "power": "manhunt:engineer/bacont/bacont_activate"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish",
+                    "change": -900
                 }
             ]
         },

@@ -19,7 +19,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
+        "max": 400,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -82,7 +82,7 @@
                                     "type": "origins:target_action",
                                     "action": {
                                         "type": "origins:add_velocity",
-                                        "z": 1.4,
+                                        "z": 1,
                                         "space": "velocity"
                                     }
                                 },
@@ -94,7 +94,7 @@
                                             {
                                                 "type": "origins:change_resource",
                                                 "resource": "manhunt:angler/fishing/throw_cooldown",
-                                                "change": 300
+                                                "change": 400
                                             },
                                             {
                                                 "type": "origins:change_resource",
@@ -261,7 +261,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 15s"
+            "text": "Cooldown: 20s"
         }
     ]
 }
