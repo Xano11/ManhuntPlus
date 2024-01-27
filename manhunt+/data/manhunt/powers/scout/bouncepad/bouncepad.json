@@ -44,7 +44,7 @@
                 }
             ]
         },
-        "cooldown": 1200,
+        "cooldown": 900,
         "hud_render": {
 			"should_render": true,
 			"sprite_location": "manhunt:textures/bars1.png",
@@ -71,7 +71,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "Cooldown: 45s"
         }
     ]
 }

@@ -20,12 +20,22 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "offhand",
-            "item_condition": {
-                "type": "origins:empty",
-                "inverted": true
-            }
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:empty",
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
         }
     },
     "name": "Sea Rascal",
