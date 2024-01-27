@@ -410,8 +410,13 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/lurker_eye.png",
+            "sprite": "origins:textures/gui/badge/star.png",
             "text": "Whilst controlling the eye, hold your [Primary Ability Key] to charge a laser. The laser leaves a pool of energy that slows and inflicts glow to all entities in it."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/lurker_eye.png",
+            "text": "You are granted 40% additional speed if your eye is currently looking at a runner."
         },
         {
             "type": "origins:keybind",

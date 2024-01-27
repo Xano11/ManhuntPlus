@@ -1,0 +1,151 @@
+{
+    "type": "origins:multiple",
+    "set_timer": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "scoreboard players set @s relentless_death 20",
+            "permission_level": 4
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 400,
+        "start_value": 400,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=relentless,distance=..2]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:eye_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:relentless/eternal/limbo",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/limbo_duration",
+                    "change": -20
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players remove @s relentless_death 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [\"\",\"Take control again in [\",{\"score\":{\"name\":\"@s\",\"objective\":\"relentless_death\"},\"bold\":true,\"color\":\"dark_red\"},\"s]\"]",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 20
+    },
+    "fog": {
+        "type": "moborigins:fog",
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+        "start": -1,
+        "end": 14
+    },
+    "velocity": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -3,
+            "operation": "multiply_total"
+        }
+    },
+    "no_collision": {
+        "type": "origins:prevent_entity_collision"
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use"
+    },
+    "prevent_block": {
+        "type": "origins:prevent_block_use"
+    },
+    "no_ability": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.attack",
+            "key.origins.primary_active",
+            "key.origins.secondary_active"
+        ]
+    },
+    "item_pickup": {
+        "type": "eggolib:prevent_item_pickup"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_regen":{
+        "type": "origins:disable_regen"
+    },
+    "hidden": true
+}

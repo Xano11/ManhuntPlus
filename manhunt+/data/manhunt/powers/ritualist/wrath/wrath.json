@@ -1,5 +1,14 @@
 {
 	"type": "origins:multiple",
+    "soul_cost": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:ritualist/wrath/wrath_effects_duration",
+            "change": -1
+        },
+        "interval": 20
+    },
 	"activate": {
 		"type": "origins:active_self",
 		"entity_action": {
