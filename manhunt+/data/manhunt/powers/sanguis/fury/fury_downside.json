@@ -3,8 +3,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 100,
-        "start_value": 100,
+        "max": 60,
+        "start_value": 60,
         "hud_render": {
             "should_render": false
         },
