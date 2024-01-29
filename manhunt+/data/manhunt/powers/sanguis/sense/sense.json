@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @s at @s run function manhunt:sense"
+                    "command": "execute as @s at @s run function manhunt:abilities/sense"
                 },
                 {
                     "type": "origins:execute_command",

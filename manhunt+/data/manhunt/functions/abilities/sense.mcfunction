@@ -1,0 +1,3 @@
+execute if entity @e[type=minecraft:player,distance=1..30,limit=1,sort=nearest,tag=hunter] run tellraw @s ["",{"text":"They are close... \n"},{"text":"Watch out.","italic":true,"color":"dark_red"}]
+execute if entity @e[type=minecraft:player,distance=31..100,limit=1,sort=nearest,tag=hunter] run tellraw @s ["",{"text":"They aren't so far away... \n"},{"text":"Keep watch.","italic":true,"color":"gold"}]
+execute if entity @e[type=minecraft:player,distance=100..,limit=1,sort=nearest,tag=hunter] run tellraw @s ["",{"text":"It has stopped... \n"},{"text":"You can remain calm.","italic":true,"color":"dark_green"}]

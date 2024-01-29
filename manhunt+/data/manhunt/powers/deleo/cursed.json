@@ -1,6 +1,5 @@
 {
     "type":"origins:multiple",
-
     "permanent":{
         "type": "origins:conditioned_attribute",
         "modifier": {

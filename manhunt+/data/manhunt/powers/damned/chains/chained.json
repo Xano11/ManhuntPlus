@@ -87,7 +87,7 @@
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "function manhunt:chains_sphere"
+                                    "command": "function manhunt:abilities/chains_sphere"
                                 },
                                 {
                                     "type": "origins:execute_command",

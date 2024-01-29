@@ -35,7 +35,7 @@
         },
         {
           "type": "origins:execute_command",
-          "command": "function manhunt:death_msg_gambler"
+          "command": "function manhunt:abilities/death_msg_gambler"
         },
         {
           "type": "origins:heal",

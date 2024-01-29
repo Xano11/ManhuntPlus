@@ -1,0 +1,1 @@
+tellraw @s ["",{"text":"You've used your second life.","italic":true},{"text":"\n"},{"text":"Now ","bold":true},{"text":"it's","bold":true,"color":"dark_red"},{"text":" time ","bold":true},{"text":"to","bold":true,"color":"dark_red"},{"text":" go ","bold":true},{"text":"all","bold":true,"color":"dark_red"},{"text":" in.","bold":true}]

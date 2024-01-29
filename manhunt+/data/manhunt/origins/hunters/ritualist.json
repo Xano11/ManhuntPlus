@@ -12,6 +12,7 @@
 		"item": "minecraft:cyan_dye",
 		"tag": "{Enchantments:[{}],CustomModelData:2}"
 	},
+	"unchoosable": true,
 	"order": 10,
 	"impact": 1,
 	"name": "Ritualist",

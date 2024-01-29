@@ -4,6 +4,16 @@
         "type": "origins:and",
         "actions": [
             {
+                "type": "origins:execute_command",
+                "command": "execute store result score @s deleo_hatchet run data get entity @s UUID[0] 1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s add deleo",
+                "permission_level": 4
+            },
+            {
                 "type": "origins:fire_projectile",
                 "entity_type": "minecraft:armor_stand",
                 "divergence": 0,
@@ -13,6 +23,11 @@
                 "projectile_action": {
                     "type": "origins:and",
                     "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute store result score @s deleo_hatchet run data get entity @p[tag=deleo] UUID[0] 1",
+                            "permission_level": 4
+                        },
                         {
                             "type": "origins:execute_command",
                             "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=armor_stand,tag=hatchet] Rotation[0]",
@@ -30,6 +45,11 @@
                         }
                     ]
                 }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s remove deleo",
+                "permission_level": 4
             },
             {
                 "type": "origins:swing_hand",
@@ -52,7 +72,7 @@
             }
         ]
     },
-    "cooldown": 1200,
+    "cooldown": 900,
     "hud_render": {
         "should_render": true,
         "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -77,7 +97,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "Cooldown: 45s\nEvery hunter affected will reduce the cooldown by 10s."
         }
     ]
 }

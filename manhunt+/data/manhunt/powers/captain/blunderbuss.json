@@ -170,7 +170,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "function manhunt:blunderbussglow"
+                    "command": "function manhunt:abilities/blunderbussglow"
                 }
             ]
         }
@@ -559,7 +559,7 @@
                                             "type": "origins:actor_action",
                                             "action": {
                                                 "type": "origins:execute_command",
-                                                "command": "function manhunt:blunderbussglow"
+                                                "command": "function manhunt:abilities/blunderbussglow"
                                             }
                                         }
                                     }
