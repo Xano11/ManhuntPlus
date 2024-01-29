@@ -1,0 +1,3 @@
+gamerule sendCommandFeedback false
+tellraw @s ["","Repick?","\n","[",{"text":"TRUE","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/function manhunt:options/repick_true"},"hoverEvent":{"action":"show_text","contents":[{"text":"Turns \"Repick\" on","italic":true}]}},"]  [",{"text":"FALSE","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/function manhunt:options/repick_false"},"hoverEvent":{"action":"show_text","contents":[{"text":"Turns \"Repick\" off","italic":true}]}},"]"]
+schedule function manhunt:feedback 1t append
