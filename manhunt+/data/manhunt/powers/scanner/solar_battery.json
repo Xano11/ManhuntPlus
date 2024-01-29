@@ -20,9 +20,20 @@
         },
         "interval": 10,
         "condition": {
-            "type": "origins:power_active",
-            "power": "manhunt:scanner/radar_visor_toggle",
-            "inverted": true
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
         }
     },
     "gain_energy_sun": {
@@ -118,13 +129,31 @@
             "compare_to": 50
         }
     },
+    "lessspeed": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.15,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "comparison": "<",
+            "compare_to": 50
+        }
+    },
     "name": "S0L4R-B4TT3RY",
-    "description": "A unit like yours requires fuel, charge up while in sunlight or heat to exert your power.\nYou heal more or less depending on your charge.",
+    "description": "A unit like yours requires fuel. Charge up while in sunlight or heat to exert your power.\nHeal more at high power, but heal less and move slower at low power.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Passively gain 1% of your Battery every 0.5s\nWhile above 80% power, heal 20% more.\nWhile below 50% power, heal 50% less."
+            "text": "Passively gain 1% of your Battery every 0.5s\nGain +20% Healing while power is >80%.\nLose -50% Healing & -15% Velocity while power is <50%"
         },
         {
             "type": "origins:tooltip",

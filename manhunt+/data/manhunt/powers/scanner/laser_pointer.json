@@ -54,7 +54,7 @@
                                             },
                                             {
                                                 "type": "origins:execute_command",
-                                                "command": "title @a[tag=read_health] actionbar [\"\",{\"selector\":\"@s\",\"color\":\"dark_red\"},\"'s vitals indicate: [\",{\"score\":{\"name\":\"@s\",\"objective\":\"scanner_health\"},\"color\":\"red\"},\"HP]\"]",
+                                                "command": "title @a[tag=read_health] actionbar [\"\",{\"selector\":\"@s\",\"color\":\"dark_red\"},\"'s Vitals Indicate: [\",{\"score\":{\"name\":\"@s\",\"objective\":\"scanner_health\"},\"color\":\"red\"},\"HP]\"]",
                                                 "permission_level": 4
                                             }
                                         ]
@@ -99,7 +99,7 @@
                                         {
                                             "type": "origins:change_resource",
                                             "resource": "manhunt:scanner/solar_battery_energy",
-                                            "change": -30
+                                            "change": -40
                                         }
                                     ]
                                 }
@@ -125,10 +125,11 @@
         },
         "condition": {
             "type": "origins:resource",
-            "compare_to": 30,
+            "compare_to": 40,
             "comparison": ">",
             "resource": "manhunt:scanner/solar_battery_energy"
-        }
+        },
+        "cooldown": 50
     },
     "name": "L4S3R-P01NT3R",
     "description": "Fire a targeting laser for a large sum of power. The laser reveals Runner location and HP on contact, and allows you to teleport to other Hunters.",
@@ -141,7 +142,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Consumes 30% of your Battery."
+            "text": "Consumes 40% of your Battery."
         }
     ]
 }
