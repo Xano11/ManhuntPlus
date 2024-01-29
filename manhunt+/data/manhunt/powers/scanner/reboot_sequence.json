@@ -53,7 +53,7 @@
     {
       "type": "origins:tooltip",
       "sprite": "origins:textures/gui/badge/star.png",
-      "text": "When respawning, you are blinded and have slowness II for 15 seconds."
+      "text": "When respawning, you are blinded and have Slowness IV for 15 seconds.\nYou also start at 0 Power."
     }
   ]
 }
