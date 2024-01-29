@@ -92,7 +92,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "tellraw @a[tag=!angler] [\"\",\"Take \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"dark_aqua\"},\"'s bait and teleport?   \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.loadToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
+                                            "command": "tellraw @a[tag=!angler,tag=hunter] [\"\",\"Take \",{\"selector\":\"@s\",\"bold\":true,\"color\":\"dark_aqua\"},\"'s bait and teleport?   \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.loadToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
                                         },
                                         {
                                             "type": "origins:execute_command",

@@ -1,0 +1,142 @@
+{
+    "type": "origins:multiple",
+    "death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:relentless/eternal/limbo",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_max_health",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_max_speed",
+                    "change": 5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:eye_height 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:eye_height 0.2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"relentless\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"skull\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.7f,1.2f],scale:[1f,1f,1f]},item:{id:\"minecraft:skeleton_skull\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone1\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.2f,0f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone2\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.6f,0f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone3\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.2f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone4\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.4f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:passenger_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=skull] run data modify entity @s Rotation set value [0f,30f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone1] run data modify entity @s Rotation set value [40f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone2] run data modify entity @s Rotation set value [50f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone3] run data modify entity @s Rotation set value [70f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone4] run data modify entity @s Rotation set value [-60f,90f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                },
+                                "recursive": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "keepinv": {
+        "type": "origins:keep_inventory",
+        "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            36,
+            37,
+            38,
+            39,
+            40
+            
+        ]
+    },
+    "max_health": {
+        "type": "origins:resource",
+        "min": 10,
+        "max": 20,
+        "start_value": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "health": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "set_total",
+            "resource": "manhunt:relentless/eternal/undead_max_health",
+            "value": 0
+        }
+    },
+    "max_speed": {
+        "type": "origins:resource",
+        "min": 100,
+        "max": 150,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifiers": [{
+            "operation": "set_total",
+            "resource": "manhunt:relentless/eternal/undead_max_speed",
+            "value": 0
+        },
+        {
+            "operation": "multiply_total",
+            "resource": "manhunt:relentless/eternal/undead_max_speed",
+            "value": -0.999
+        }]
+    },
+    "hidden": true
+}

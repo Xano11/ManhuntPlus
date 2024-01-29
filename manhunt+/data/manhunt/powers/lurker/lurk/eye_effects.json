@@ -16,6 +16,11 @@
                     "permission_level": 4
                 },
                 {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,tag=lurk_eye,type=item_display] lurker run resource change @s manhunt:lurker/lurk/lurk_lurking 1",
+                    "permission_level": 4
+                },
+                {
                     "type": "origins:raycast",
                     "distance": 13,
                     "block": true,
@@ -76,6 +81,46 @@
             "radius": 12.0,
             "comparison": ">=",
             "compare_to": 1
+        }
+    },
+    "remove_lurking":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,tag=lurk_eye,type=item_display] lurker run resource change @s manhunt:lurker/lurk/lurk_lurking -1",
+            "permission_level": 4
+        },
+        "interval": 4,
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:can_see"
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "apoli:entity_type",
+                                    "entity_type": "minecraft:player"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:runner",
+                                    "layer": "origins:origin"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "radius": 12.0,
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "hidden": true

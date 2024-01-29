@@ -1,0 +1,83 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @a title [\"\",{\"text\":\"HUNTERS\",\"bold\":true,\"color\":\"gold\"},\" WON!\"]"
+                },
+                {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:amogus player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:ballin player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:battlepass player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:chugjug player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:wide player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:enemy player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:coffin player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:crab player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        }
+                    ]
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if score @s runners_alive matches 0",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    }
+}

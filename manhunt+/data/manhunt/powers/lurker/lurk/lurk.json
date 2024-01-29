@@ -260,6 +260,146 @@
             ]
         }
     },
+    "lurking":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.nearby_closest player @s ~ ~ ~ 1 2"
+        }
+    },
+    "no_eye": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:lurker/lurk/lurk_lurking 0"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "more_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.4,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "more_air_speed": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/lurk/lurk_lurking",
+                    "comparison": "==",
+                    "compare_to": 3
+                }
+            ]
+        }
+    },
+    "overlay_inactive":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/lurking_inactive.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "overlay1":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/lurking1.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "overlay2":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/lurking2.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "overlay3":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/lurking3.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
     "name": "The Watching Eye",
     "description": "Control your ever-so lurking presence through your all-seeing eye.",
     "badges": [
@@ -270,8 +410,13 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/lurker_eye.png",
+            "sprite": "origins:textures/gui/badge/star.png",
             "text": "Whilst controlling the eye, hold your [Primary Ability Key] to charge a laser. The laser leaves a pool of energy that slows and inflicts glow to all entities in it."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/lurker_eye.png",
+            "text": "You are granted 40% additional speed if your eye is currently looking at a runner."
         },
         {
             "type": "origins:keybind",
