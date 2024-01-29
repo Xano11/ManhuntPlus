@@ -4,7 +4,7 @@
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
-            "command": "scoreboard players set @s relentless_death 20",
+            "command": "execute store result score @s relentless_death run resource get @s manhunt:relentless/eternal/undead_max_health",
             "permission_level": 4
         }
     },

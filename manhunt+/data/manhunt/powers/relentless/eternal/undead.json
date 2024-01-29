@@ -21,6 +21,19 @@
                     "change": 5
                 },
                 {
+                    "type": "origins:modify_resource",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 0,
+                        "resource": "manhunt:relentless/eternal/undead_max_health",
+                        "modifier": {
+                            "operation": "multiply_total",
+                            "value": 20
+                        }
+                    },
+                    "resource": "manhunt:relentless/eternal/limbo_duration"
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "scale delay set pehkui:eye_height 0",
                     "permission_level": 4
@@ -94,7 +107,6 @@
             38,
             39,
             40
-            
         ]
     },
     "max_health": {
@@ -127,16 +139,17 @@
     "speed": {
         "type": "origins:modify_attribute",
         "attribute": "minecraft:generic.movement_speed",
-        "modifiers": [{
-            "operation": "set_total",
-            "resource": "manhunt:relentless/eternal/undead_max_speed",
-            "value": 0
-        },
-        {
-            "operation": "multiply_total",
-            "resource": "manhunt:relentless/eternal/undead_max_speed",
-            "value": -0.999
-        }]
+        "modifiers": [
+            {
+                "operation": "set_total",
+                "resource": "manhunt:relentless/eternal/undead_max_speed",
+                "value": 0,
+                "modifier": {
+                    "operation": "multiply_total",
+                    "value": -0.999
+                }
+            }
+        ]
     },
     "hidden": true
 }
