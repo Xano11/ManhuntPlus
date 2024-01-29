@@ -81,8 +81,8 @@
             "conditions": [
                 {
                     "type": "origins:distance",
-                    "comparison": ">=",
-                    "compare_to": 51
+                    "comparison": ">",
+                    "compare_to": 50
                 },
                 {
                     "type": "origins:target_condition",
@@ -157,8 +157,8 @@
             "conditions": [
                 {
                     "type": "origins:distance",
-                    "comparison": ">=",
-                    "compare_to": 51
+                    "comparison": ">",
+                    "compare_to": 50
                 },
                 {
                     "type": "origins:target_condition",
@@ -238,13 +238,8 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "/particle minecraft:dust_color_transition 1 1 1 1 1 0 0 ~ ~1 ~ 0.4 0.6 0.4 1 60",
+                    "command": "particle minecraft:dust_color_transition 1 1 1 1 1 0 0 ~ ~1 ~ 0.4 0.6 0.4 1 60",
                     "permission_level": 4
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:scanner/solar_battery_energy",
-                    "change": -2
                 }
             ]
         },
@@ -276,6 +271,11 @@
                     "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 1 1 1 1 0 1 0 ~ ~1 ~ 0.4 0.6 0.4 1 60",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/solar_battery_energy",
+                    "change": -5
                 }
             ]
         },

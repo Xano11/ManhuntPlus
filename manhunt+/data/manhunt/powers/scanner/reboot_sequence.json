@@ -1,25 +1,51 @@
 {
-  "type": "origins:action_on_callback",
-  "entity_action_respawned": {
-    "type": "origins:apply_effect",
-    "effects": [
-      {
-        "effect": "minecraft:blindness",
-        "amplifier": 0,
-        "duration": 300,
-        "is_ambient": false,
-        "show_particles": false,
-        "show_icon": true
-      },
-      {
-        "effect": "minecraft:slowness",
-        "amplifier": 1,
-        "duration": 300,
-        "is_ambient": false,
-        "show_particles": false,
-        "show_icon": true
-      }
-    ]
+  "type": "origins:multiple",
+  "slow_blind": {
+    "type": "origins:action_on_callback",
+    "entity_action_respawned": {
+      "type": "origins:apply_effect",
+      "effects": [
+        {
+          "effect": "minecraft:blindness",
+          "amplifier": 0,
+          "duration": 300,
+          "is_ambient": false,
+          "show_particles": false,
+          "show_icon": true
+        },
+        {
+          "effect": "minecraft:slowness",
+          "amplifier": 3,
+          "duration": 300,
+          "is_ambient": false,
+          "show_particles": false,
+          "show_icon": true
+        }
+      ]
+    }
+  },
+  "no_power": {
+    "type": "origins:action_on_callback",
+    "entity_action_respawned": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:ash ~ ~1 ~ 0.3 0.5 0.3 0 150",
+          "permission_level": 4
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:block.beacon.deactivate player @a ~ ~ ~ 2 0.8",
+          "permission_level": 4
+        },
+        {
+          "type": "origins:change_resource",
+          "resource": "manhunt:scanner/solar_battery_energy",
+          "change": -100
+        }
+      ]
+    }
   },
   "name": "R3B00T-S3QU3NC3",
   "description": "A system reboot is initiated on death, reducing movement and sensory measures for a period of time.",
