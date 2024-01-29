@@ -251,7 +251,7 @@
                         ]
                     },
                     "command_step": 0.5,
-                    "command_along_ray": "function manhunt:dashing",
+                    "command_along_ray": "function manhunt:abilities/dashing",
                     "miss_action": {
                         "type": "origins:and",
                         "actions": [

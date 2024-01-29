@@ -94,7 +94,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "function manhunt:nether"
+                    "command": "function manhunt:compass/nether"
                 },
                 {
                     "type": "origins:execute_command",
@@ -120,7 +120,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "function manhunt:end"
+                    "command": "function manhunt:compass/end"
                 },
                 {
                     "type": "origins:execute_command",
