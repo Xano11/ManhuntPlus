@@ -18,10 +18,17 @@ scoreboard objectives add laugh dummy
 scoreboard objectives add soul dummy
 scoreboard objectives add scanner_health dummy
 scoreboard objectives add relentless_death dummy
+scoreboard objectives add relentless_uuid dummy
+scoreboard objectives add skull_uuid dummy
+scoreboard objectives add boneshield_uuid dummy
 scoreboard objectives add runners_alive dummy
 scoreboard objectives add deleo_hatchet dummy
 
+#teams
 team add Runners ["",{"text":"RUNNER","bold":true,"color":"gold"}]
 team add Hunters ["",{"text":"HUNTER","bold":true,"color":"dark_red"}]
 team modify Hunters seeFriendlyInvisibles false
 team modify Runners seeFriendlyInvisibles false
+
+#weird glow bug
+scoreboard objectives setdisplay sidebar.team.yellow skull_uuid

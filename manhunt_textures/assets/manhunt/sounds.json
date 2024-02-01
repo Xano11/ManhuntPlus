@@ -53,5 +53,15 @@
       "sounds": [
         "misc/coffin"
       ]
+    },
+    "whistle": {
+      "sounds": [
+        "misc/whistle"
+      ]
+    },
+    "fnaf": {
+      "sounds": [
+        "misc/fnaf"
+      ]
     }
   }
