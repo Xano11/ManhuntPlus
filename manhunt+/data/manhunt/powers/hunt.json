@@ -55,7 +55,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "manhunt:setup_armorstand_countdown",
+                                "resource": "manhunt:hunt_countdown",
                                 "comparison": "==",
                                 "compare_to": 30
                             },
@@ -67,7 +67,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "manhunt:setup_armorstand_countdown",
+                                "resource": "manhunt:hunt_countdown",
                                 "comparison": "==",
                                 "compare_to": 15
                             },
@@ -79,7 +79,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "manhunt:setup_armorstand_countdown",
+                                "resource": "manhunt:hunt_countdown",
                                 "comparison": "==",
                                 "compare_to": 10
                             },
@@ -100,7 +100,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:setup_armorstand_ready_timer_tick"
+                    "command": "power remove @s manhunt:hunt_ready_timer_tick"
                 }
             ]
         }
@@ -112,7 +112,7 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:setup_armorstand_repick_timer",
+                    "resource": "manhunt:hunt_repick_timer",
                     "change": -10
                 }
             ]
@@ -138,7 +138,7 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:setup_armorstand_repick_timer",
+                        "resource": "manhunt:hunt_repick_timer",
                         "comparison": "<=",
                         "compare_to": 300
                     },
@@ -188,7 +188,7 @@
         "interval": 10,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:setup_armorstand_repick_timer",
+            "resource": "manhunt:hunt_repick_timer",
             "comparison": "==",
             "compare_to": 380
         }
@@ -296,7 +296,7 @@
         "interval": 10,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:setup_armorstand_repick_timer",
+            "resource": "manhunt:hunt_repick_timer",
             "comparison": "==",
             "compare_to": 360
         }
@@ -323,7 +323,7 @@
         "interval": 10,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:setup_armorstand_repick_timer",
+            "resource": "manhunt:hunt_repick_timer",
             "comparison": "==",
             "compare_to": 320
         }
@@ -363,7 +363,7 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:setup_armorstand_repick",
+                        "resource": "manhunt:hunt_repick",
                         "comparison": "==",
                         "compare_to": 1
                     },
@@ -376,7 +376,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "manhunt:setup_armorstand_repick_timer",
+                                "resource": "manhunt:hunt_repick_timer",
                                 "change": 400
                             },
                             {
@@ -398,7 +398,7 @@
                                     {
                                         "condition": {
                                             "type": "origins:resource",
-                                            "resource": "manhunt:setup_armorstand_countdown",
+                                            "resource": "manhunt:hunt_countdown",
                                             "comparison": "==",
                                             "compare_to": 30
                                         },
@@ -410,7 +410,7 @@
                                     {
                                         "condition": {
                                             "type": "origins:resource",
-                                            "resource": "manhunt:setup_armorstand_countdown",
+                                            "resource": "manhunt:hunt_countdown",
                                             "comparison": "==",
                                             "compare_to": 15
                                         },
@@ -422,7 +422,7 @@
                                     {
                                         "condition": {
                                             "type": "origins:resource",
-                                            "resource": "manhunt:setup_armorstand_countdown",
+                                            "resource": "manhunt:hunt_countdown",
                                             "comparison": "==",
                                             "compare_to": 10
                                         },
@@ -443,9 +443,22 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "power remove @s manhunt:setup_armorstand_ready_timer_tick"
+                                "command": "power remove @s manhunt:hunt_ready_timer_tick"
                             }
                         ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=convert_runners]",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @a[tag=runner] add convert"
                     }
                 }
             ]
@@ -462,7 +475,7 @@
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:setup_armorstand_ready_timer",
+                    "resource": "manhunt:hunt_ready_timer",
                     "change": -1
                 },
                 {
@@ -483,7 +496,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "manhunt:setup_armorstand_ready_timer",
+                    "resource": "manhunt:hunt_ready_timer",
                     "comparison": ">",
                     "compare_to": 0
                 }
@@ -497,7 +510,7 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:setup_armorstand_ready_timer",
+                    "resource": "manhunt:hunt_ready_timer",
                     "change": 10
                 },
                 {
@@ -526,6 +539,19 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=second_chance]",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @a[tag=runner] manhunt:second_chance"
+                    }
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "power remove @a[tag=hunter] manhunt:countdown_effects"
                 },
@@ -543,7 +569,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:setup_armorstand"
+                    "command": "power remove @s manhunt:hunt"
                 }
             ]
         }
@@ -559,7 +585,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "manhunt:setup_armorstand_countdown",
+                                "resource": "manhunt:hunt_countdown",
                                 "comparison": ">",
                                 "compare_to": 5
                             },
@@ -587,13 +613,13 @@
                                 "conditions": [
                                     {
                                         "type": "origins:resource",
-                                        "resource": "manhunt:setup_armorstand_countdown",
+                                        "resource": "manhunt:hunt_countdown",
                                         "comparison": "<=",
                                         "compare_to": 5
                                     },
                                     {
                                         "type": "origins:resource",
-                                        "resource": "manhunt:setup_armorstand_countdown",
+                                        "resource": "manhunt:hunt_countdown",
                                         "comparison": ">",
                                         "compare_to": 2
                                     }
@@ -623,13 +649,13 @@
                                 "conditions": [
                                     {
                                         "type": "origins:resource",
-                                        "resource": "manhunt:setup_armorstand_countdown",
+                                        "resource": "manhunt:hunt_countdown",
                                         "comparison": "<=",
                                         "compare_to": 2
                                     },
                                     {
                                         "type": "origins:resource",
-                                        "resource": "manhunt:setup_armorstand_countdown",
+                                        "resource": "manhunt:hunt_countdown",
                                         "comparison": ">",
                                         "compare_to": 0
                                     }
@@ -656,7 +682,7 @@
                         {
                             "condition": {
                                 "type": "origins:resource",
-                                "resource": "manhunt:setup_armorstand_countdown",
+                                "resource": "manhunt:hunt_countdown",
                                 "comparison": "==",
                                 "compare_to": 0
                             },
@@ -686,7 +712,7 @@
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:setup_armorstand_countdown",
+                    "resource": "manhunt:hunt_countdown",
                     "change": -1
                 }
             ]
@@ -697,7 +723,7 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "manhunt:setup_armorstand_ready_timer",
+                    "resource": "manhunt:hunt_ready_timer",
                     "comparison": "==",
                     "compare_to": 0
                 },

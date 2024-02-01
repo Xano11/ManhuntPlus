@@ -36,11 +36,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer_tick"
+                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:hunt_repick_timer_tick"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer_scoreboard"
+                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:hunt_repick_timer_scoreboard"
                 },
                 {
                     "type": "origins:execute_command",
@@ -77,7 +77,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:setup_armorstand_repick_timer 0"
+                    "command": "resource set @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:hunt_repick_timer 0"
                 },
                 {
                     "type": "origins:execute_command",

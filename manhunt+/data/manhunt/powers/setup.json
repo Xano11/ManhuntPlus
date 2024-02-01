@@ -9,7 +9,7 @@
                 "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"setup\"]}",
                 "entity_action":{
                     "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:setup_armorstand"
+                    "command": "power grant @s manhunt:hunt"
                 }
             },
             {

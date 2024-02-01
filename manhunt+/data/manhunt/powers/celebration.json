@@ -67,6 +67,20 @@
                                 "command": "execute as @a run playsound manhunt:crab player @s ~ ~ ~ 1 1 1"
                             },
                             "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:whistle player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:fnaf player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
                         }
                     ]
                 }
