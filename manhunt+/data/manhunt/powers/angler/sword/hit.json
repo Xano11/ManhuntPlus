@@ -85,9 +85,7 @@
             "operation": "multiply_total"
         },
         "axes": [
-            "x",
-            "y",
-            "z"
+            "y"
         ]
     },
     "hidden": true
