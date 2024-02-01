@@ -78,7 +78,7 @@
         "cooldown": 1200,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "manhunt:textures/flash.png",
+            "sprite_location": "manhunt:textures/bars/bomber/flash.png",
             "bar_index": 0
         },
         "condition": {

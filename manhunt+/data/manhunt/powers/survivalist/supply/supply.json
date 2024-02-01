@@ -155,7 +155,7 @@
         },
         "cooldown": 7200,
         "hud_render": {
-            "sprite_location": "manhunt:textures/survivalist.png",
+            "sprite_location": "manhunt:textures/bars/survivalist/survivalist.png",
             "bar_index": 1,
             "should_render": true
         }

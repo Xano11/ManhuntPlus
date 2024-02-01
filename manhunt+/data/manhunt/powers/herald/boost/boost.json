@@ -105,7 +105,7 @@
 		"key": "key.origins.secondary_active",
 		"hud_render": {
 			"should_render": true,
-			"sprite_location": "manhunt:textures/bars1.png",
+			"sprite_location": "manhunt:textures/bars/herald/boost.png",
 			"bar_index": 0
 		}
 	},

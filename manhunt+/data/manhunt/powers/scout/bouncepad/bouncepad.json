@@ -47,8 +47,8 @@
         "cooldown": 900,
         "hud_render": {
 			"should_render": true,
-			"sprite_location": "manhunt:textures/bars1.png",
-			"bar_index": 2
+			"sprite_location": "manhunt:textures/bars/scout/scout.png",
+			"bar_index": 1
 		},
         "key": {
             "key": "key.origins.secondary_active",

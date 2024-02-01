@@ -7,7 +7,7 @@
         "start_value": 2,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "manhunt:textures/cannon_packs.png",
+            "sprite_location": "manhunt:textures/bars/bomber/cannon_packs.png",
             "bar_index": 0
         }
     },

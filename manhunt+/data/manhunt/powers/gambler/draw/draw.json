@@ -229,7 +229,7 @@
         "max": 3,
         "start_value": 3,
         "hud_render": {
-            "sprite_location": "manhunt:textures/gambler_01.png",
+            "sprite_location": "manhunt:textures/bars/gambler/draw.png",
             "bar_index": 0,
             "should_render": true
         }

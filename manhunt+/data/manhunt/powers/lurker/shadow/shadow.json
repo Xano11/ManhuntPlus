@@ -26,7 +26,7 @@
             "inverted": true
         },
         "hud_render": {
-            "sprite_location": "manhunt:textures/lurker.png",
+            "sprite_location": "manhunt:textures/bars/lurker/lurker.png",
             "bar_index": 0,
             "should_render": true
         }

@@ -6,7 +6,7 @@
         "max": 300,
         "start_value": 300,
         "hud_render": {
-            "sprite_location": "manhunt:textures/gambler_02.png",
+            "sprite_location": "manhunt:textures/bars/gambler/effects.png",
             "bar_index": 1,
             "should_render": true
         },

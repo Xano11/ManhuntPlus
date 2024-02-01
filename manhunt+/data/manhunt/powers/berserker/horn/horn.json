@@ -26,7 +26,7 @@
                     "equipment_slot": "mainhand",
                     "action": {
                         "type": "apugli:cooldown",
-                        "ticks": 1200
+                        "ticks": 900
                     }
                 },
                 {
@@ -79,13 +79,15 @@
             }
         },
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
+            "bar_index": 0
         },
         "key": {
             "key": "key.use",
             "continuous": false
         },
-        "cooldown": 1200
+        "cooldown": 900
     },
     "name": "Horny (Wait a minute-)",
     "description": "Spawn with a horn, which when blown will grant a boon to your fellow hunters.",
@@ -98,7 +100,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "Cooldown: 45s"
         }
     ]
 }

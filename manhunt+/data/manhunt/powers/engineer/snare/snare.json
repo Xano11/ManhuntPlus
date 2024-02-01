@@ -62,7 +62,7 @@
         },
         "cooldown": 1200,
         "hud_render": {
-            "sprite_location": "manhunt:textures/engineer.png",
+            "sprite_location": "manhunt:textures/bars/engineer/engineer.png",
             "bar_index": 0,
             "should_render": true
         },

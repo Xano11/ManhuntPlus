@@ -238,7 +238,7 @@
         "max": 2,
         "start_value": 2,
         "hud_render": {
-            "sprite_location": "manhunt:textures/bark_shields.png",
+            "sprite_location": "manhunt:textures/bars/herald/bark_shields.png",
             "bar_index": 0,
             "should_render": true
         }

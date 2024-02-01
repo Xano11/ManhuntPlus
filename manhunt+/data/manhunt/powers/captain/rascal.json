@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "slower": {
+    "health": {
         "type": "origins:attribute",
         "modifier": {
             "name": "Max health decrease",
