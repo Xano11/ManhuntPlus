@@ -70,5 +70,11 @@
             "compare_to": 0
         }
     },
+    "no_item_give":{
+        "type": "origins:prevent_being_used"
+    },
+    "no_collision":{
+        "type": "origins:prevent_entity_collision"
+    },
     "hidden": true
 }

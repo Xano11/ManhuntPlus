@@ -1,18 +1,18 @@
 {
     "name": "PARKOUR PARKOUR",
     "description": "Due to your parkour skills, you have immunity to damage from falls of 8 blocks or lower.",
-        "condition": {
-            "type": "origins:fall_distance",
-            "comparison": "<=",
-            "compare_to": 8
-        },
-        "type": "origins:modify_damage_taken",
-        "damage_condition": {
-            "type": "origins:name",
-            "name": "fall"
-        },
-        "modifier": {
-            "operation": "multiply_total",
-            "value": -1
-        }
+    "condition": {
+        "type": "origins:fall_distance",
+        "comparison": "<=",
+        "compare_to": 8
+    },
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:name",
+        "name": "fall"
+    },
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -1
+    }
 }
