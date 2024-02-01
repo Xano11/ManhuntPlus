@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"manhunt:relentless/eternal/undead",
+		"manhunt:relentless/skullthrow/throw",
+		"manhunt:relentless/bonemade",
+		"manhunt:relentless/shield/bone"
+	],
+	"icon": {
+		"item": "minecraft:bone",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Relentless",
+	"description": "      [§bPACEKEEPER ╬§r]\nA pile of bones yet; animated with an unstoppable and unforgiving soul that has one goal: Kill the runner."
+}

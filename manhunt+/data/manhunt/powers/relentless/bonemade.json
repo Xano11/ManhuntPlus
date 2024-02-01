@@ -1,0 +1,69 @@
+{
+    "type": "origins:multiple",
+    "undead": {
+        "type": "origins:entity_group",
+        "group": "undead"
+    },
+    "natural_regen": {
+        "type": "origins:disable_regen"
+    },
+    "no_exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "No exhaustion",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "food": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:feed",
+            "food": 20,
+            "saturation": 20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:food_level",
+            "comparison": "<=",
+            "compare_to": 19
+        }
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 40,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:health",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type":"origins:power",
+                    "power": "manhunt:relentless/eternal/limbo",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "name": "Made in Bones",
+    "description": "Bones do not require direct sustenance but your high calcium density is enough.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You do not require food, yet you only regenerate half a heart per 2 seconds."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You are classified as an undead.\n(No drowning, extra smite damage, etc)"
+        }
+    ]
+}

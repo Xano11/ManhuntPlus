@@ -1,0 +1,82 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=minecraft:item_display,tag=boneshield1] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=minecraft:item_display,tag=boneshield2] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:relentless/shield/bones_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "spin": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:relentless/shield/bones_spin",
+            "change": -360
+        }
+    },
+    "spinning": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/shield/bones_spin",
+                    "change": 24
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result entity @s Rotation[0] float 1 run resource get @s manhunt:relentless/shield/bones_spin"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=minecraft:item_display,tag=boneshield1] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run tp @s ^ ^ ^1.1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=minecraft:item_display,tag=boneshield2] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run tp @s ^ ^ ^-1.1"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

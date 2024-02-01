@@ -1,18 +1,10 @@
 {
     "type": "origins:multiple",
-    "set_timer": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "execute store result score @s relentless_death run resource get @s manhunt:relentless/eternal/undead_max_health",
-            "permission_level": 4
-        }
-    },
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 400,
-        "start_value": 400,
+        "max": 32,
+        "start_value": 32,
         "hud_render": {
             "should_render": false
         },
@@ -20,8 +12,50 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
                     "type": "origins:execute_command",
-                    "command": "kill @e[tag=relentless,distance=..2]",
+                    "command": "forceload remove ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:fire_resistance",
+                            "duration": 300,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:resistance",
+                            "duration": 60,
+                            "amplifier": 5,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:slowness",
+                            "duration": 60,
+                            "amplifier": 2,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 3 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=relentless] if score @s relentless_uuid = @p relentless_uuid run kill @s",
                     "permission_level": 4
                 },
                 {
@@ -37,6 +71,32 @@
             ]
         }
     },
+    "set_timer": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 0,
+                        "resource": "manhunt:relentless/eternal/undead_max_health",
+                        "modifier": {
+                            "operation": "multiply_total",
+                            "value": 1
+                        }
+                    },
+                    "resource": "manhunt:relentless/eternal/limbo_duration"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s relentless_death run resource get @s manhunt:relentless/eternal/limbo_duration",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
     "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -45,15 +105,16 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:relentless/eternal/limbo_duration",
-                    "change": -20
-                },
-                {
-                    "type": "origins:heal",
-                    "amount": 1
+                    "change": -1
                 },
                 {
                     "type": "origins:execute_command",
                     "command": "scoreboard players remove @s relentless_death 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s relentless_death run resource get @s manhunt:relentless/eternal/limbo_duration",
                     "permission_level": 4
                 },
                 {
@@ -64,6 +125,23 @@
             ]
         },
         "interval": 20
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 40
+    },
+    "bones": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[type=minecraft:armor_stand,tag=relentless] if score @s relentless_uuid = @p relentless_uuid run tp @p @s",
+            "permission_level": 4
+        },
+        "interval": 1
     },
     "fog": {
         "type": "moborigins:fog",
@@ -129,10 +207,18 @@
     "no_ability": {
         "type": "eggolib:prevent_key_use",
         "keys": [
-            "key.attack",
             "key.origins.primary_active",
-            "key.origins.secondary_active"
+            "key.origins.secondary_active",
+            "key.drop",
+            "key.inventory"
         ]
+    },
+    "no_camera": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        }
     },
     "item_pickup": {
         "type": "eggolib:prevent_item_pickup"
@@ -144,7 +230,7 @@
             "value": -1
         }
     },
-    "no_regen":{
+    "no_regen": {
         "type": "origins:disable_regen"
     },
     "hidden": true
