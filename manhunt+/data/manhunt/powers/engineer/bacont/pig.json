@@ -57,7 +57,7 @@
                             {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:item_display",
-                                "tag": "{Tags:[\"wall_simulationzpos\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationzpos\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[50f,100f,0.1f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "tag": "{Tags:[\"wall_simulationzpos\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationzpos\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[20f,100f,0.1f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
                                 "entity_action": {
                                     "type": "origins:and",
                                     "actions": [
@@ -68,7 +68,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "tp @s ~ ~ ~25",
+                                            "command": "tp @s ~ ~ ~10",
                                             "permission_level": 4
                                         },
                                         {
@@ -82,7 +82,7 @@
                             {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:item_display",
-                                "tag": "{Tags:[\"wall_simulationzneg\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationzneg\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[50f,100f,0.1f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "tag": "{Tags:[\"wall_simulationzneg\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationzneg\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[20f,100f,0.1f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
                                 "entity_action": {
                                     "type": "origins:and",
                                     "actions": [
@@ -93,7 +93,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "tp @s ~ ~ ~-25",
+                                            "command": "tp @s ~ ~ ~-10",
                                             "permission_level": 4
                                         },
                                         {
@@ -107,7 +107,7 @@
                             {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:item_display",
-                                "tag": "{Tags:[\"wall_simulationxpos\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationxpos\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,100f,50f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "tag": "{Tags:[\"wall_simulationxpos\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationxpos\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,100f,20f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
                                 "entity_action": {
                                     "type": "origins:and",
                                     "actions": [
@@ -118,7 +118,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "tp @s ~25 ~ ~",
+                                            "command": "tp @s ~10 ~ ~",
                                             "permission_level": 4
                                         },
                                         {
@@ -132,7 +132,7 @@
                             {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:item_display",
-                                "tag": "{Tags:[\"wall_simulationxneg\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationxneg\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,100f,50f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "tag": "{Tags:[\"wall_simulationxneg\",\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_simulationxneg\",\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,100f,20f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
                                 "entity_action": {
                                     "type": "origins:and",
                                     "actions": [
@@ -143,7 +143,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "tp @s ~-25 ~ ~",
+                                            "command": "tp @s ~-10 ~ ~",
                                             "permission_level": 4
                                         },
                                         {
@@ -157,7 +157,7 @@
                             {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:item_display",
-                                "tag": "{Tags:[\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[50f,0.1f,50f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
+                                "tag": "{Tags:[\"wall_simulation\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"wall_render\"]}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[20f,0.1f,20f]},item:{id:\"minecraft:white_concrete_powder\",Count:1b}}",
                                 "entity_action": {
                                     "type": "origins:and",
                                     "actions": [
