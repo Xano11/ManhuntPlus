@@ -1,0 +1,45 @@
+{
+    "name": "Infernal Debut",
+	"description": "WIP",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "."
+		}
+	],
+    "type": "origins:multiple",
+
+    "fuel_resource": {
+        "type": "origins:resource",
+		"min": 0,
+		"max": 36000,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 7
+		}
+    },
+
+    "eat_fuel": {
+        "type": "origins:edible_item",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:coal"
+            }
+        },
+        "food_component": {
+            "hunger": 2.0,
+            "saturation": 0,
+            "snack": true
+        },
+        "use_action": "eat",
+        "entity_action": {
+            "type": "origins:change_resource",
+			"resource": "manhunt:geologist/infernal_debut_fuel_resource",
+			"change": 1600
+        }
+    }
+}
