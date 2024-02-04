@@ -1,0 +1,28 @@
+[
+    {
+      "function": "minecraft:set_nbt",
+      "tag": "{Tags:[\"cursed\"]}"
+    },
+    {
+      "function": "minecraft:set_enchantments",
+      "enchantments": {
+        "minecraft:vanishing_curse": 1,
+        "minecraft:aqua_affinity": 0,
+        "minecraft:binding_curse": 0,
+        "minecraft:blast_protection": 0,
+        "minecraft:depth_strider": 0,
+        "minecraft:feather_falling": 0,
+        "minecraft:fire_protection": 0,
+        "minecraft:frost_walker": 0,
+        "minecraft:mending": 0,
+        "minecraft:projectile_protection": 0,
+        "minecraft:protection": 0,
+        "minecraft:respiration": 0,
+        "minecraft:soul_speed": 0,
+        "minecraft:swift_sneak": 0,
+        "minecraft:thorns": 0,
+        "minecraft:unbreaking": 0
+      }
+    }
+  ]
+  

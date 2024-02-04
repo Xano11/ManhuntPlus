@@ -1,116 +1,138 @@
 {
-	"type": "origins:active_self",
-	"entity_action": {
-		"type": "origins:and",
-		"actions": [
-			{
-				"type": "origins:change_resource",
-				"resource": "manhunt:ritualist/sacrifice_souls",
-				"change": -1
-			},
-			{
-				"type": "origins:raycast",
-				"distance": 4,
-				"entity": false,
-				"before_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:execute_command",
-							"command": "tag @s add tping"
-						},
-						{
-							"type": "origins:set_fall_distance",
-							"fall_distance": 0
-						}
-					]
+	"type": "origins:multiple",
+	"keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:ritualist/soul_teleport_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+	"use": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:ritualist/sacrifice_souls",
+					"change": -1
 				},
-				"command_step": 1,
-				"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ #minecraft:replaceable run tp @p[tag=tping] ~ ~ ~",
-				"miss_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:execute_command",
-							"command": "tag @s remove tping"
-						},
-						{
-							"type": "origins:add_velocity",
-							"space": "local",
-							"z": 0.02
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "particle minecraft:soul ~ ~0.2 ~ 0.1 0.1 0.1 0.1 10",
-							"permission_level": 4
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
-							"permission_level": 4
-						}
-					]
+				{
+					"type": "origins:raycast",
+					"distance": 4,
+					"entity": false,
+					"before_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s add tping"
+							},
+							{
+								"type": "origins:set_fall_distance",
+								"fall_distance": 0
+							}
+						]
+					},
+					"command_step": 1,
+					"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ #minecraft:replaceable run tp @p[tag=tping] ~ ~ ~",
+					"miss_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s remove tping"
+							},
+							{
+								"type": "origins:add_velocity",
+								"space": "local",
+								"z": 0.02
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "particle minecraft:soul ~ ~0.2 ~ 0.1 0.1 0.1 0.1 10",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
+								"permission_level": 4
+							}
+						]
+					},
+					"hit_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:add_velocity",
+								"space": "local",
+								"y": 0.01
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s remove tping"
+							}
+						]
+					}
 				},
-				"hit_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:add_velocity",
-							"space": "local",
-							"y": 0.01
-						},
-						{
-							"type": "origins:execute_command",
-							"command": "tag @s remove tping"
-						}
-					]
+				{
+					"type": "origins:add_velocity",
+					"space": "local",
+					"z": 0.2
 				}
-			},
-			{
-				"type": "origins:add_velocity",
-				"space": "local",
-				"z": 0.2
-			}
-		]
-	},
-	"key": {
-		"key": "key.attack"
-	},
-	"hud_render": {
-		"should_render": false
-	},
-	"condition": {
-		"type": "origins:and",
-		"conditions": [
-			{
-				"type": "origins:resource",
-				"resource": "manhunt:ritualist/sacrifice_souls",
-				"comparison": ">=",
-				"compare_to": 1
-			},
-			{
-				"type": "apugli:key_pressed",
-				"key": {
-					"key": "key.origins.primary_active",
-					"continuous": true
+			]
+		},
+		"key": {
+			"key": "key.attack"
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:ritualist/sacrifice_souls",
+					"comparison": ">=",
+					"compare_to": 1
+				},
+				{
+					"type": "apugli:key_pressed",
+					"key": {
+						"key": "key.origins.primary_active",
+						"continuous": true
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:ritualist/ritual/ritual_windup",
+					"compare_to": 0,
+					"comparison": "=="
+				},
+				{
+					"type": "origins:power",
+					"power": "manhunt:ritualist/wrath/wrath_effects",
+					"inverted": true
 				}
-			},
-			{
-				"type": "origins:resource",
-				"resource": "manhunt:ritualist/ritual/ritual_windup",
-				"compare_to": 0,
-				"comparison": "=="
-			}
-		]
+			]
+		},
+		"cooldown": 4
 	},
-	"cooldown": 4,
 	"name": "Instant Transmission",
 	"description": "Teleport yourself forward at the cost of three souls.",
 	"badges": [
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Teleport distance: 5 blocks."
+			"text": "Teleport distance: 5 blocks.\nDuring \"Wrath\", your teleport is set on a 1.5s cooldown but doesn't consume souls."
 		},
 		{
 			"type": "origins:keybind",
