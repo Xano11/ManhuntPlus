@@ -25,7 +25,8 @@
                 "manhunt:hunters/shaman",
                 "manhunt:hunters/angler",
                 "manhunt:hunters/scanner",
-                "manhunt:hunters/relentless"
+                "manhunt:hunters/relentless",
+                "manhunt:hunters/geologist"
               ]
           }
       ],
