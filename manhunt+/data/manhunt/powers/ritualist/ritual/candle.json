@@ -34,26 +34,19 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "tp @s ~ ~ ~ ~10 ~1"
+                    "command": "tp @s ~ ~ ~ ~10 ~"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:soul_fire_flame ^ ^ ^1 0 0 0 0 1"
+                    "command": "particle minecraft:soul_fire_flame ^ ^1.2 ^1 0 0 0 0 1"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:soul_fire_flame ^ ^ ^-1 0 0 0 0 1"
+                    "command": "particle minecraft:soul_fire_flame ^ ^1.2 ^-1 0 0 0 0 1"
                 }
             ]
         },
-        "interval": 1,
-        "condition":  {
-            "type": "origins:command",
-            "command": "data get entity @s Rotation[1] 1",
-            "comparison": "==",
-            "compare_to": 0,
-            "inverted": true
-        }
+        "interval": 1
     },
     "hidden": true
 }

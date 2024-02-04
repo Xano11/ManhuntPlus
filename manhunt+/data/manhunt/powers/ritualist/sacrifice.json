@@ -165,18 +165,9 @@
 							"power": "manhunt:ritualist/wrath/wrath_effects"
 						},
 						"if_action": {
-							"type": "origins:and",
-							"actions": [
-								{
-									"type": "origins:heal",
-									"amount": 2.0
-								},
-								{
-									"type": "origins:change_resource",
-									"resource": "manhunt:ritualist/wrath/wrath_effects_duration",
-									"change": 10
-								}
-							]
+							"type": "origins:change_resource",
+							"resource": "manhunt:ritualist/sacrifice_souls",
+							"change": 1
 						},
 						"else_action": {
 							"type": "origins:change_resource",
@@ -187,7 +178,7 @@
 					{
 						"type": "origins:feed",
 						"food": 2,
-						"saturation": 0.2
+						"saturation": 0.1
 					},
 					{
 						"type": "origins:execute_command",
@@ -206,6 +197,48 @@
 		},
 		"interval": 1
 	},
+	"lose_soul":{
+		"type": "origins:action_when_hit",
+		"bientity_action": {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:change_resource",
+				"resource": "manhunt:ritualist/sacrifice_souls",
+				"change": -1
+			}
+		},
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:player"
+					},
+					{
+						"type": "origins:origin",
+						"origin": "manhunt:runner",
+						"layer": "origins:origin"
+					}
+				]
+			}
+		}
+	},
+	"weakened":{
+		"type": "origins:modify_damage_taken",
+		"modifier": {
+			"name": "Soul-less",
+			"operation": "multiply_total",
+			"value": 0.5
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:ritualist/sacrifice_souls",
+			"comparison": "==",
+			"compare_to": 0
+		}
+	},
 	"name": "Sacrifice",
 	"description": "Sacrifice and store the souls of those you vanquish. Up to 14 of them may be stored at once.",
 	"badges": [
@@ -213,6 +246,11 @@
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
 			"text": "Hitting a runner or killing an entity grants one soul.\nAdditionally, doing a critical hit grants two instead."
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "Being hit by a runner drains a soul away from you.\nAdditionally; having no souls increases all damage intake by 50%."
 		}
 	]
 }

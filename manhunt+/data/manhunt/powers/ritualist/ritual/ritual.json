@@ -1,5 +1,14 @@
 {
     "type": "origins:multiple",
+    "teleporting": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -26,7 +35,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "tp @e[limit=1,sort=nearest,tag=candle] @s"
+                                "command": "execute as @e[limit=2,sort=nearest,tag=candle] run tp ~ ~0.05 ~ ~7 ~"
                             }
                         ]
                     }
@@ -50,7 +59,7 @@
                     "if_action": {
                         "type": "origins:spawn_entity",
                         "entity_type": "minecraft:armor_stand",
-                        "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Rotation:[0f,-90f],Tags:[\"candle\"]}",
+                        "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Rotation:[0f,0f],Tags:[\"candle\"]}",
                         "entity_action": {
                             "type": "origins:and",
                             "actions": [
@@ -60,7 +69,7 @@
                                 },
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "data modify entity @s Rotation set value [0f,-90f]",
+                                    "command": "data modify entity @s Rotation set value [0f,0f]",
                                     "permission_level": 4
                                 }
                             ]
@@ -114,7 +123,7 @@
     },
     "windup_stop": {
         "type": "origins:action_over_time",
-        "rising_action": {
+        "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -136,10 +145,9 @@
         "condition": {
             "type": "apugli:key_pressed",
             "key": {
-                "key": "key.origins.primary_active",
+                "key": "key.origins.secondary_active",
                 "continuous": true
-            },
-            "inverted": true
+            }
         }
     },
     "preyed_glow":{
@@ -153,6 +161,20 @@
         },
         "use_teams": false,
         "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0
+    },
+    "vessel_glow":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:ritualist/ritual/vessel"
+            }
+        },
+        "use_teams": false,
+        "red": 0.8,
         "green": 0.0,
         "blue": 0.0
     },
@@ -175,7 +197,7 @@
         }
     },
     "name": "Ritual",
-    "description": "Your talent with inner energies allows you to prey on a runner.",
+    "description": "Your talent with inner energies allows you to prey on a runner and make surrounding souls echo within you.",
     "badges": [
         {
             "type": "origins:tooltip",
@@ -183,9 +205,14 @@
             "text": "Preyed: Runners affected by Prey drop an extra soul on critical hit.\nAdditionally, they take 50% more damage from Ritualists.\n(Preyed duration: 15s)"
         },
         {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Echoing Souls: Preyed Runners allow you to teleport to any living entity in a 24 block radius of them."
+        },
+        {
 			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/toggle.png",
-			"text": "Hold %s to start the ritual!"
+			"text": "Hold %s to start the ritual!\n Left click to select a glowing runner/entity.\nMarking a runner consumes 7 souls."
 		}
     ]
 }

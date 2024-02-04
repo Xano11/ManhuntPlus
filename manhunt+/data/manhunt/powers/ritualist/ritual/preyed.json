@@ -3,8 +3,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
-        "start_value": 300,
+        "max": 200,
+        "start_value": 200,
         "hud_render": {
             "should_render": false
         },
@@ -50,7 +50,7 @@
         "modifier": {
             "name": "More damage",
             "operation": "multiply_total",
-            "value": 0.5
+            "value": 0.25
         },
         "bientity_condition":{
             "type": "origins:actor_condition",

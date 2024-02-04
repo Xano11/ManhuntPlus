@@ -253,5 +253,24 @@
             "value": -0.9
         }
     },
+    "crit_ritualist":{
+        "type": "eggolib:action_on_critical_hit",
+        "bientity_action": {
+            "type": "apoli:target_action",
+            "action":  {
+				"type": "origins:change_resource",
+				"resource": "manhunt:ritualist/sacrifice_souls",
+				"change": -1
+			}
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunters/ritualist",
+                "layer": "origins:hunters"
+            }
+        }
+    },
     "hidden": true
 }

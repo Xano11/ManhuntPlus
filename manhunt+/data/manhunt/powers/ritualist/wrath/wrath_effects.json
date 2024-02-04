@@ -1,33 +1,66 @@
 {
     "type": "origins:multiple",
-    "duration": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 200,
-        "start_value": 200,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-            "bar_index": 1
-        },
-        "min_action": {
+    "stop": {
+        "type": "origins:action_over_time",
+        "rising_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 2 2"
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "power remove @s manhunt:ritualist/wrath/wrath_effects"
                 }
             ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:ritualist/sacrifice_souls",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
-    "duration_down": {
+    "soul_cost": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:ritualist/wrath/wrath_effects_duration",
-            "change": -10
+            "resource": "manhunt:ritualist/sacrifice_souls",
+            "change": -1
         },
-        "interval": 10
+        "interval": 15
+    },
+    "cancel": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 2 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:ritualist/wrath/wrath_effects"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.primary_active",
+                "continuous": true
+            }
+        }
     },
     "phase_duration": {
         "type": "origins:resource",
@@ -50,17 +83,44 @@
     "phase_usage": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
-            "change": -1
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.5 0.9 ~ ~1 ~ 0.3 0.3 0.3 1 10"
+                }
+            ]
         },
-        "interval": 1
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
     },
     "shader": {
         "type": "origins:shader",
         "shader": "minecraft:shaders/post/desaturate.json",
         "condition": {
-            "type":"origins:resource",
+            "type": "origins:resource",
+            "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "no_atk":{
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.attack"
+        ],
+        "condition": {
+            "type": "origins:resource",
             "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
             "compare_to": 0,
             "comparison": ">"
@@ -70,7 +130,7 @@
         "type": "origins:invisibility",
         "render_armor": false,
         "condition": {
-            "type":"origins:resource",
+            "type": "origins:resource",
             "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
             "compare_to": 0,
             "comparison": ">"
@@ -81,7 +141,7 @@
         "modifier": {
             "attribute": "minecraft:generic.attack_speed",
             "operation": "addition",
-            "value": 0.3,
+            "value": 0.2,
             "name": "Increased attack speed."
         }
     },
@@ -90,7 +150,7 @@
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_total",
-            "value": 0.4,
+            "value": 0.2,
             "name": "Increased movement speed."
         }
     },
@@ -98,31 +158,126 @@
         "type": "origins:self_glow",
         "use_teams": false,
         "red": 0,
-        "green": 0,
-        "blue": 0.4
+        "green": 0.9,
+        "blue": 1.0
     },
     "phase": {
-        "type": "origins:self_action_on_hit",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
-                    "change": 15
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.5 0.9 ~ ~1 ~ 0.3 0.3 0.3 1 100"
-                }
-            ]
-        },
-        "damage_condition": {
-            "type": "origins:amount",
-            "comparison": ">=",
-            "compare_to": 4
-        },
-        "cooldown": 20
+        "type": "eggolib:action_on_critical_hit",
+        "bientity_action": {
+            "type": "apoli:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:ritualist/wrath/wrath_effects_phase_duration",
+                        "change": 15
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.5 0.9 ~ ~1 ~ 0.3 0.3 0.3 1 100"
+                    }
+                ]
+            }
+        }
     },
+    "tp": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:raycast",
+					"distance": 4,
+					"entity": false,
+					"before_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s add tping"
+							},
+							{
+								"type": "origins:set_fall_distance",
+								"fall_distance": 0
+							}
+						]
+					},
+					"command_step": 1,
+					"command_along_ray": "execute positioned ~ ~ ~ if block ~ ~ ~ #minecraft:replaceable run tp @p[tag=tping] ~ ~ ~",
+					"miss_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s remove tping"
+							},
+							{
+								"type": "origins:add_velocity",
+								"space": "local",
+								"z": 0.02
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "particle minecraft:soul ~ ~0.2 ~ 0.1 0.1 0.1 0.1 10",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
+								"permission_level": 4
+							}
+						]
+					},
+					"hit_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:add_velocity",
+								"space": "local",
+								"y": 0.01
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s remove tping"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:add_velocity",
+					"space": "local",
+					"z": 0.2
+				}
+			]
+		},
+		"key": {
+			"key": "key.attack"
+		},
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "manhunt:textures/bars/ritualist/ritualist.png",
+			"bar_index": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "apugli:key_pressed",
+					"key": {
+						"key": "key.origins.primary_active",
+						"continuous": true
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:ritualist/ritual/ritual_windup",
+					"compare_to": 0,
+					"comparison": "=="
+				}
+			]
+		},
+		"cooldown": 30
+	},
     "hidden": true
 }

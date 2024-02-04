@@ -1,0 +1,94 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.emerge player @a ~ ~ ~ 3 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s ritual = @e[limit=1,sort=nearest] ritual run resource set @s manhunt:ritualist/ritual/ritual_teleporting 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s ritual = @e[limit=1,sort=nearest] ritual run tp @s ~ ~ ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "death": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @a if score @s ritual = @e[limit=1,sort=nearest] ritual run resource set @s manhunt:ritualist/ritual/ritual_teleporting 0"
+        },
+        "interval": 1,
+        "condition": {
+            "type":"origins:health",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "no_move": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:ritualist/ritual/vessel_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "animation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute if block ~ ~1.5 ~ #minecraft:replaceable run tp @s ~ ~0.05 ~ ~8 ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ^ ^0.5 ^1 0 0 0 0 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ^ ^0.5 ^-1 0 0 0 0 1"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "swirl":{
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/soul.png",
+        "speed": 0.01
+    },
+    "hidden": true
+}
