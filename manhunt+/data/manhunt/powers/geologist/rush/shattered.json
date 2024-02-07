@@ -1,42 +1,39 @@
 {
     "type": "origins:multiple",
-
     "more_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
-            "name": "more damage",
+            "name": "More damage",
             "operation": "multiply_base",
             "value": 0.15
         }
     },
-
-    "resource": {
+    "duration": {
         "type": "origins:resource",
-		"min": 0,
-		"max": 5,
-		"start_value": 0,
-		"hud_render": {
-			"should_render": true,
-			"sprite_location": "origins:textures/gui/resource_bar.png",
-			"bar_index": 4
-		},
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4
+        },
         "min_action": {
             "type": "origins:execute_command",
-            "command": "power remove @s manhunt:geologist/shattered_effects"
+            "command": "power remove @s manhunt:geologist/rush/shattered"
         }
     },
-
     "resource_drain": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-			"resource": "manhunt:geologist/shattered_effects_resource",
-			"change": -1
+            "resource": "manhunt:geologist/rush/shattered_duration",
+            "change": -1
         },
         "interval": 20,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:geologist/shattered_effects_resource",
+            "resource": "manhunt:geologist/rush/shattered_duration",
             "comparison": ">",
             "compare_to": 0
         }

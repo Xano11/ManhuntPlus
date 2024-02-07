@@ -1,5 +1,5 @@
 {
-    "name": "Dwarfism",
+	"name": "Dwarfism",
 	"description": "The Geologist is a descendant of dwarves, born for the mines. Dwarves stand at a sturdy 5'9\"",
 	"badges": [
 		{
@@ -9,7 +9,6 @@
 		}
 	],
 	"type": "origins:multiple",
-
 	"size": {
 		"type": "origins:action_on_callback",
 		"entity_action_respawned": {
@@ -23,7 +22,7 @@
 					"type": "origins:execute_command",
 					"command": "scale set pehkui:height 0.85 @p"
 				}
-			]  
+			]
 		},
 		"entity_action_gained": {
 			"type": "origins:and",
@@ -52,24 +51,22 @@
 			]
 		}
 	},
-
 	"health": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "lower health",
-            "attribute": "minecraft:generic.max_health",
-            "value": -6,
-            "operation": "addition"
-        }
-    },
-
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Lower health",
+			"attribute": "minecraft:generic.max_health",
+			"value": -6,
+			"operation": "addition"
+		}
+	},
 	"slowness": {
 		"type": "origins:attribute",
-        "modifier": {
-            "name": "lower health",
-            "attribute": "minecraft:generic.movement_speed",
-            "value": -0.15,
-            "operation": "multiply_base"
-        }
+		"modifier": {
+			"name": "Lower speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": -0.15,
+			"operation": "multiply_base"
+		}
 	}
 }

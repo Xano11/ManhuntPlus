@@ -24,6 +24,7 @@ scoreboard objectives add boneshield_uuid dummy
 scoreboard objectives add runners_alive dummy
 scoreboard objectives add deleo_hatchet dummy
 scoreboard objectives add ritual dummy
+scoreboard objectives add digging dummy
 
 #teams
 team add Runners ["",{"text":"RUNNER","bold":true,"color":"gold"}]

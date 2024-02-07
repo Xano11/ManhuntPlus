@@ -1,0 +1,236 @@
+{
+    "name": "Gold Rush",
+    "description": "Cull the powers of the depths, granting your pickaxe increased mining speed and imbuing a attack during the duration shattering the unfortunate opponents defenses.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You must hold a pickaxe to activate, 2.5x mining speed and fortune on blocks broken."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "15% more damage take on shatter."
+        }
+    ],
+    "type": "origins:multiple",
+    "activation": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:geologist/rush/gold_rush_duration",
+                    "change": 5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:lava ~ ~ ~ 0.5 0.001 0.5 0.1 15 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flame ~ ~ ~ 0.5 0.1 0.5 0.01 30 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0.1 0.1 2 1 0.5 0.1 ~ ~ ~ 0.5 0.001 0.5 0.001 35 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0.5 0.1 2 1 0.1 0.1 ~ ~ ~ 0.5 0.001 0.5 0.001 35 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.death player @a ~ ~ ~ 2 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 2 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.ambient player @a ~ ~ ~ 2 0.1"
+                }
+            ]
+        },
+        "cooldown": 600,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 7
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "manhunt:pickaxe"
+                }
+            }
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 6,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:geologist/rush/gold_rush_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:geologist/rush/gold_rush_duration",
+            "change": -1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:geologist/rush/gold_rush_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "active_mining_speed": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 1.50
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "manhunt:pickaxe"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:geologist/rush/gold_rush_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "active_fortune": {
+        "type": "apugli:modify_enchantment_level",
+        "enchantment": "minecraft:fortune",
+        "modifier": {
+            "operation": "addition",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:geologist/rush/gold_rush_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "active_shatter": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:geologist/rush/gold_rush_duration",
+                                "change": -5
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 20,
+                                    "ignore_unbreaking": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.4
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:geologist/rush/shattered"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:electric_spark ~ ~1 ~ 0.1 0.05 0.1 0.6 50 normal"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.anvil.land player @a ~ ~ ~ 2 2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.anvil.destroy player @a ~ ~ ~ 2 0.5"
+                            },
+                            {
+                                "type": "origins:damage",
+                                "amount": 1,
+                                "damage_type": "minecraft:cramming"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "manhunt:pickaxe"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:geologist/rush/gold_rush_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    }
+}

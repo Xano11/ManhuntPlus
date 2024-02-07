@@ -1,0 +1,174 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:passenger_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:armor_stand",
+                                "inverted": true
+                            }
+                        },
+                        "recursive": true
+                    }
+                },
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @e[type=item_display,tag=tunnel_main_display,limit=1,sort=nearest]"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:geologist/tunnel/tunnels_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "teleport": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 1.5,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s add teleport",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.suspicious_gravel.break player @a ~ ~ ~ 1 0.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.camel.saddle player @a ~ ~ ~ 1 0.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:geologist/tunnel/dug",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=tunnel1] as @e[type=armor_stand,tag=tunnel2] if score @s digging = @e[type=armor_stand,limit=1,sort=nearest,tag=tunnel1] digging run tp @p[tag=teleport] @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=tunnel2] as @e[type=armor_stand,tag=tunnel1] if score @s digging = @e[type=armor_stand,limit=1,sort=nearest,tag=tunnel2] digging run tp @p[tag=teleport] @s",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove teleport",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.camel.saddle player @a ~ ~ ~ 1 0.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.suspicious_gravel.break player @a ~ ~ ~ 1 0.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunters/geologist",
+                                    "layer": "origins:hunters"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:geologist/tunnel/dug",
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "rotation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:block minecraft:deepslate ~ ~0.3 ~ 0.4 0.1 0.4 10 10",
+            "permission_level": 4
+        },
+        "interval": 4
+    },
+    "hidden": true
+}

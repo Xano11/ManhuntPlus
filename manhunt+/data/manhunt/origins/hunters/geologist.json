@@ -1,6 +1,7 @@
 {
 	"powers": [
-        "manhunt:geologist/gold_rush",
+        "manhunt:geologist/rush/gold_rush",
+		"manhunt:geologist/tunnel/dig",
 		"manhunt:geologist/infernal_debut",
 		"manhunt:geologist/black_lung",
 		"manhunt:geologist/dwarfism"
@@ -9,7 +10,6 @@
 		"item": "minecraft:golden_pickaxe",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
-	"unchoosable": true,
 	"order": 10,
 	"impact": 2,
 	"name": "Geologist",
