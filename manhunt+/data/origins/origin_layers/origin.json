@@ -8,5 +8,9 @@
     "manhunt:start"
   ],
   "default_origin": "manhunt:start",
-  "name":"role"
+  "name": "role",
+  "gui_title": {
+    "choose_origin": "Choose your role!",
+    "view_origin": "This is the role that you chose."
+  }
 }

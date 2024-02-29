@@ -1,35 +1,39 @@
 {
-    "order": 2,
-    "replace": false,
-    "allow_random": true,
-    "origins": [
-          {
-            "condition": {
-              "type": "origins:origin",
-              "origin": "manhunt:hunter",
-              "layer": "origins:origin"
-          },
-              "origins": [
-                "manhunt:none",
-                "manhunt:hunters/lurker",
-                "manhunt:hunters/herald",
-                "manhunt:hunters/scout",
-                "manhunt:hunters/bomber",
-                "manhunt:hunters/survivalist",
-                "manhunt:hunters/guardian",
-                "manhunt:hunters/imp",
-                "manhunt:hunters/captain",
-                "manhunt:hunters/engineer",
-                "manhunt:hunters/ritualist",
-                "manhunt:hunters/berserker",
-                "manhunt:hunters/shaman",
-                "manhunt:hunters/angler",
-                "manhunt:hunters/scanner",
-                "manhunt:hunters/relentless",
-                "manhunt:hunters/geologist"
-              ]
-          }
-      ],
-      "default_origin": "manhunt:none",
-      "name": "hunter"
+  "order": 2,
+  "replace": false,
+  "allow_random": true,
+  "origins": [
+    {
+      "condition": {
+        "type": "origins:origin",
+        "origin": "manhunt:hunter",
+        "layer": "origins:origin"
+      },
+      "origins": [
+        "manhunt:none",
+        "manhunt:hunters/lurker",
+        "manhunt:hunters/herald",
+        "manhunt:hunters/scout",
+        "manhunt:hunters/bomber",
+        "manhunt:hunters/survivalist",
+        "manhunt:hunters/guardian",
+        "manhunt:hunters/imp",
+        "manhunt:hunters/captain",
+        "manhunt:hunters/engineer",
+        "manhunt:hunters/ritualist",
+        "manhunt:hunters/berserker",
+        "manhunt:hunters/shaman",
+        "manhunt:hunters/angler",
+        "manhunt:hunters/scanner",
+        "manhunt:hunters/relentless",
+        "manhunt:hunters/geologist"
+      ]
+    }
+  ],
+  "default_origin": "manhunt:none",
+  "name": "hunter",
+  "gui_title": {
+    "choose_origin": "Choose a hunter!",
+    "view_origin": "This is the hunter that you chose."
+  }
 }

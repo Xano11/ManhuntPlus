@@ -1,27 +1,30 @@
 {
-    "order": 3,
-    "replace": false,
-    "allow_random": true,
-    "origins": [
-          {
-            "condition": {
-              "type": "origins:origin",
-              "origin": "manhunt:hunter",
-              "layer": "origins:origin"
-          },
-              "origins": [
-                "ringtones:default",
-                "ringtones:amethyst",
-                "ringtones:slime",
-                "ringtones:bomb",
-                "ringtones:emerald",
-                "ringtones:cod",
-                "ringtones:shulker",
-                "ringtones:suspicious"
-              ]
-          }
-      ],
-      "default_origin": "manhunt:none",
-      "name": "ringtone"
+  "order": 3,
+  "replace": false,
+  "allow_random": true,
+  "origins": [
+    {
+      "condition": {
+        "type": "origins:origin",
+        "origin": "manhunt:hunter",
+        "layer": "origins:origin"
+      },
+      "origins": [
+        "ringtones:default",
+        "ringtones:amethyst",
+        "ringtones:slime",
+        "ringtones:bomb",
+        "ringtones:emerald",
+        "ringtones:cod",
+        "ringtones:shulker",
+        "ringtones:suspicious"
+      ]
+    }
+  ],
+  "default_origin": "manhunt:none",
+  "name": "ringtone",
+  "gui_title": {
+    "choose_origin": "Choose a ringtone!",
+    "view_origin": "This is the ringtone that you chose."
+  }
 }
-  
