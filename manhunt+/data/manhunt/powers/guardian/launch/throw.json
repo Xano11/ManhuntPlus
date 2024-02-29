@@ -12,11 +12,6 @@
                         "actions": [
                             {
                                 "type": "origins:dismount"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power remove @s manhunt:guardian/launch/thrown",
-                                "permission_level": 4
                             }
                         ]
                     },
@@ -38,7 +33,8 @@
                             {
                                 "type": "origins:target_condition",
                                 "condition": {
-                                    "type": "origins:riding"
+                                    "type": "origins:riding",
+                                    "inverted": true
                                 }
                             }
                         ]
