@@ -195,7 +195,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "summon block_display ~ ~ ~ {Tags:[\"tnt_tip\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[1f,0f,0f,1f],translation:[-0.1f,-0.3f,0f],scale:[0.1f,0.1f,0.1f]},block_state:{Name:\"minecraft:tnt\"}}"
+                                "command": "summon block_display ~ ~ ~ {Tags:[\"tnt_tip\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[1f,0f,0f,1f],translation:[-0.1f,-0.8f,0f],scale:[0.1f,0.1f,0.1f]},block_state:{Name:\"minecraft:tnt\"}}"
                             },
                             {
                                 "type": "origins:execute_command",
@@ -516,6 +516,9 @@
                     "bientity_condition": {
                         "type": "origins:and",
                         "conditions": [
+                            {
+                                "type": "origins:owner"
+                            },
                             {
                                 "type": "origins:target_condition",
                                 "condition": {

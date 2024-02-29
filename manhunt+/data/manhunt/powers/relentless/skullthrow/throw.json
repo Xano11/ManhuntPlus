@@ -30,7 +30,7 @@
                     "divergence": 0,
                     "count": 1,
                     "speed": 4,
-                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"skull\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",view_range:10f,shadow_radius:1f,shadow_strength:1f,Tags:[\"skull\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:player_head\",Count:1b,tag:{SkullOwner:\"1\"}}}]}",
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"skull\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",view_range:10f,shadow_radius:1f,shadow_strength:1f,Tags:[\"skull\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:player_head\",Count:1b,tag:{SkullOwner:\"1\"}}}]}",
                     "projectile_action": {
                         "type": "origins:and",
                         "actions": [
@@ -166,35 +166,16 @@
         }
     },
     "air_speed": {
-        "type": "origins:modify_velocity",
+        "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
             "value": 0.4
         },
-        "axes": [
-            "x",
-            "z"
-        ],
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:fluid_height",
-                    "fluid": "minecraft:water",
-                    "comparison": "<=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:relentless/skullthrow/throw_thrown",
-                    "compare_to": 0,
-                    "comparison": ">"
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:relentless/skullthrow/throw_thrown",
+            "compare_to": 0,
+            "comparison": ">"
         }
     },
     "render": {

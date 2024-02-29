@@ -33,7 +33,7 @@
                         "divergence": 0,
                         "count": 1,
                         "speed": 2,
-                        "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"flashbang\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"center\",Tags:[\"flashbang\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:1}}}]}",
+                        "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"flashbang\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"center\",Tags:[\"flashbang\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-2f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:1}}}]}",
                         "projectile_action": {
                             "type": "origins:and",
                             "actions": [
@@ -51,7 +51,7 @@
                         "divergence": 0,
                         "count": 1,
                         "speed": 2,
-                        "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"flashbang\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"center\",Tags:[\"flashbang\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:1}}}]}",
+                        "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"flashbang\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"center\",Tags:[\"flashbang\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-2f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:1}}}]}",
                         "projectile_action": {
                             "type": "origins:and",
                             "actions": [

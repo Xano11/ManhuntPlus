@@ -421,12 +421,12 @@
         "blue": 0.0
     },
     "name": "Tunnel Trouble",
-    "description": "Dig your way to your teammates to exit your hard work in the mines.",
+    "description": "THE EARTH SHAKES UNDER MY STRENGTH! (cue the Clash Royale miner MP3)",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "After activating the ability, hunters in a 144 block radius will be selectable for your target destination.\nAfter a short duration, the tunnel opens and can be used for 30s.\n(Only Geologists can use the portal.)\n(You must be below Y level 30 to use the ability)"
+            "text": "After activating the ability, hunters in a 144 block radius will be selectable for your target destination.\nAfter a short duration, a tunnel opens and can be used for 30s.\n(Only Geologists can use the portal.)\n(You must be below Y level 30 to use the ability)"
         },
         {
             "type": "origins:keybind",

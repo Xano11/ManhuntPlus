@@ -5,7 +5,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You must hold a pickaxe to activate, 2.5x mining speed and fortune on blocks broken."
+            "text": "Gold Rush: 2.5x mining speed and Fortune I on blocks broken."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold a pickaxe in your mainhand and cull with %s!"
         },
         {
             "type": "origins:tooltip",
@@ -142,7 +147,7 @@
         }
     },
     "active_fortune": {
-        "type": "apugli:modify_enchantment_level",
+        "type": "origins:modify_enchantment_level",
         "enchantment": "minecraft:fortune",
         "modifier": {
             "operation": "addition",
