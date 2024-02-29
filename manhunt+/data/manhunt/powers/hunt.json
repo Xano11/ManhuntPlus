@@ -282,6 +282,17 @@
                                         "type": "origins:execute_command",
                                         "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Deleo!\"]"
                                     }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/draco",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Draconis!\"]"
+                                    }
                                 }
                             ]
                         }
