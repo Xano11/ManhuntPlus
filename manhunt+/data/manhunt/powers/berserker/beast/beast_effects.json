@@ -260,11 +260,7 @@
         }
     },
     "air_speed": {
-        "type": "origins:modify_velocity",
-        "axes": [
-            "z",
-            "x"
-        ],
+        "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
             "value": 0.15
@@ -272,10 +268,6 @@
         "condition": {
             "type": "origins:and",
             "conditions": [
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
-                },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:berserker/beast/beast_effects_roar",

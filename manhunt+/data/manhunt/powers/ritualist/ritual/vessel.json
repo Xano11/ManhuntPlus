@@ -31,16 +31,13 @@
         }
     },
     "death": {
-        "type": "origins:action_over_time",
-        "rising_action": {
-            "type": "origins:execute_command",
-            "command": "execute as @a if score @s ritual = @e[limit=1,sort=nearest] ritual run resource set @s manhunt:ritualist/ritual/ritual_teleporting 0"
-        },
-        "interval": 1,
-        "condition": {
-            "type":"origins:health",
-            "compare_to": 0,
-            "comparison": "=="
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "execute as @a if score @s ritual = @e[limit=1,sort=nearest] ritual run resource set @s manhunt:ritualist/ritual/ritual_teleporting 0"
+            }
         }
     },
     "no_move": {
@@ -85,7 +82,7 @@
         },
         "interval": 1
     },
-    "swirl":{
+    "swirl": {
         "type": "apugli:energy_swirl",
         "texture_location": "manhunt:textures/swirls/soul.png",
         "speed": 0.01

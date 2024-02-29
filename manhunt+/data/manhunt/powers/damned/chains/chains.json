@@ -166,6 +166,9 @@
                                 "type": "origins:distance",
                                 "comparison": "<=",
                                 "compare_to": 96
+                            },
+                            {
+                                "type": "origins:owner"
                             }
                         ]
                     },

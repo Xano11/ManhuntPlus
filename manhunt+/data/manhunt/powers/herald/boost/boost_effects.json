@@ -31,15 +31,11 @@
             "operation": "multiply_base"
         }
     },
-    "air_speed": {
-        "type": "origins:modify_velocity",
-        "axes": [
-            "z",
-            "x"
-        ],
+    "air_speed":{
+        "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.10
+            "value": 0.1
         }
     },
     "hidden": true

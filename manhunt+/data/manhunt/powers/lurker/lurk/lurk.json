@@ -302,30 +302,17 @@
             "compare_to": 3
         }
     },
-    "more_air_speed": {
-        "type": "origins:modify_velocity",
-        "axes": [
-            "z",
-            "x"
-        ],
+    "more_air_speed":{
+        "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.2
+            "value": 0.1
         },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:lurker/lurk/lurk_lurking",
-                    "comparison": "==",
-                    "compare_to": 3
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 3
         }
     },
     "overlay_inactive":{

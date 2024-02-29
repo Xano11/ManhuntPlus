@@ -4,24 +4,17 @@
         "type": "origins:modify_damage_taken",
         "damage_condition": {
             "type": "origins:in_tag",
-            "tag": "is_fall"
+            "tag": "minecraft:is_fall"
         },
         "modifier": {
             "name": "No fall damage",
             "operation": "multiply_total",
             "value": -1
-        }
-    },
-    "land": {
-        "type": "origins:action_over_time",
-        "rising_action": {
+        },
+        "self_action": {
             "type": "origins:execute_command",
             "command": "power remove @s manhunt:guardian/launch/thrown",
             "permission_level": 4
-        },
-        "interval": 1,
-        "condition": {
-            "type": "origins:on_block"
         }
     },
     "no_dismount": {

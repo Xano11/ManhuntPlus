@@ -31,7 +31,7 @@
         }
     },
     "eat_coal": {
-        "type": "apugli:edible_item",
+        "type": "origins:edible_item",
         "item_condition": {
             "type": "origins:or",
             "conditions": [
@@ -51,10 +51,13 @@
         },
         "food_component": {
             "hunger": 2.0,
-            "saturation": 0,
-            "snack": true
+            "saturation": 0
         },
-        "use_action": "eat",
+        "consume_action": "eat",
+        "consuming_time_modifier":{
+			"value": -0.5,
+			"operation": "multiply_base"
+		},
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:geologist/infernal_debut_fuel",
@@ -62,7 +65,7 @@
         }
     },
     "drink_lava": {
-        "type": "apugli:edible_item",
+        "type": "origins:edible_item",
         "item_condition": {
             "type": "origins:ingredient",
             "ingredient": {
@@ -70,15 +73,19 @@
             }
         },
         "food_component": {
-            "hunger": 1.0,
-            "saturation": 0,
-            "snack": true
+            "hunger": 2.0,
+            "saturation": 0
         },
+        "consume_action": "drink",
+        "consume_sound": "minecraft:block.pointed_dripstone.drip_lava_into_cauldron",
+        "consuming_time_modifier":{
+			"value": 0.25,
+			"operation": "multiply_base"
+		},
         "return_stack": {
             "item": "minecraft:bucket",
             "amount": 1
         },
-        "use_action": "drink",
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:geologist/infernal_debut_fuel",
@@ -202,6 +209,19 @@
                     "comparison": "=="
                 }
             ]
+        }
+    },
+    "particles":{
+        "type": "origins:particle",
+        "particle": "minecraft:lava",
+        "count": 2,
+        "frequency": 4,
+        "speed": 0.05,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:geologist/infernal_debut_fuel",
+            "compare_to": 36000,
+            "comparison": "=="
         }
     }
 }

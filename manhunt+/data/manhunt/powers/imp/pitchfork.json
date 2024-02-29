@@ -195,8 +195,8 @@
         "cooldown": 1800,
         "hud_render": {
             "should_render": true,
-            "bar_index": 15,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png"
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/imp/trident.png"
         },
         "condition": {
             "type": "origins:using_item",

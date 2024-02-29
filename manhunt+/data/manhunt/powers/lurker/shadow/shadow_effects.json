@@ -82,23 +82,10 @@
         }
     },
     "more_air_speed": {
-        "type": "origins:modify_velocity",
-        "axes": [
-            "z",
-            "x"
-        ],
+        "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
             "value": 0.3
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
-                }
-            ]
         }
     },
     "no_atk_speed": {
