@@ -147,7 +147,8 @@
             "key": {
                 "key": "key.origins.secondary_active",
                 "continuous": true
-            }
+            },
+            "inverted": true 
         }
     },
     "preyed_glow":{
