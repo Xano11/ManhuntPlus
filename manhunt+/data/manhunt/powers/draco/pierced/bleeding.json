@@ -1,0 +1,45 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:draco/pierced/bleeding"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:draco/pierced/bleeding_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "bleed_recurrent": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "manhunt:bleeding"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1 0.4 0 0 ~ ~1 ~ 0.4 0.5 0.4 0.1 30",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 20
+    },
+    "hidden": true
+}

@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "carnivore": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "type": "origins:meat",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base_multiplicative",
+            "value": 1.0
+        }
+    },
+    "name": "Avid Carnivore",
+    "description": "Eating meat is the only thing that your gargantuan appetite is used to.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Avid: 2x Exhaustion and Carnivore."
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:draco/wings/fly",
+		"manhunt:draco/dragonblood/rage",
+		"manhunt:draco/greed",
+		"manhunt:draco/pierced/pierced",
+		"manhunt:draco/avid",
+		"manhunt:draco/scales"
+	],
+	"icon": {
+		"item": "minecraft:netherite_chestplate",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Draconis 🐉",
+	"description": "Half-Human, Half-Dragon; Revenge fuels your desire to be the winner."
+}

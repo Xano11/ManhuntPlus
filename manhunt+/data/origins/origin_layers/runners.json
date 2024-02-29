@@ -1,26 +1,31 @@
 {
-    "order": 2,
-    "replace": false,
-    "allow_random": true,
-    "origins": [
-          {
-            "condition": {
-              "type": "origins:origin",
-              "origin": "manhunt:runner",
-              "layer": "origins:origin"
-          },
-              "origins": [
-                "manhunt:none",
-                "manhunt:runners/alchimia",
-                "manhunt:runners/celeritas",
-                "manhunt:runners/sanguis",
-                "manhunt:runners/damned",
-                "manhunt:runners/gambler",
-                "manhunt:runners/deleo",
-                "manhunt:runners/jester"
-              ]
-          }
-      ],
-      "default_origin": "manhunt:none",
-      "name": "runner"
+  "order": 2,
+  "replace": false,
+  "allow_random": true,
+  "origins": [
+    {
+      "condition": {
+        "type": "origins:origin",
+        "origin": "manhunt:runner",
+        "layer": "origins:origin"
+      },
+      "origins": [
+        "manhunt:none",
+        "manhunt:runners/alchimia",
+        "manhunt:runners/celeritas",
+        "manhunt:runners/sanguis",
+        "manhunt:runners/damned",
+        "manhunt:runners/gambler",
+        "manhunt:runners/deleo",
+        "manhunt:runners/jester",
+        "manhunt:runners/draco"
+      ]
+    }
+  ],
+  "default_origin": "manhunt:none",
+  "name": "runner",
+  "gui_title": {
+    "choose_origin": "Choose a runner!",
+    "view_origin": "This is the runner that you chose."
+  }
 }
