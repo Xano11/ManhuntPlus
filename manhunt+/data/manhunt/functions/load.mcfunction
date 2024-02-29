@@ -10,7 +10,6 @@ scoreboard objectives add lodestone dummy
 scoreboard objectives add simulation dummy
 scoreboard objectives add recall dummy
 scoreboard objectives add lurker dummy
-scoreboard objectives add boompack dummy
 scoreboard objectives add timer dummy
 scoreboard objectives add ready_timer dummy
 scoreboard objectives add repick_timer dummy

@@ -63,5 +63,15 @@
       "sounds": [
         "misc/fnaf"
       ]
+    },
+    "flap": {
+      "sounds": [
+        "entity/flap"
+      ]
+    },
+    "roar": {
+      "sounds": [
+        "entity/roar"
+      ]
     }
   }
