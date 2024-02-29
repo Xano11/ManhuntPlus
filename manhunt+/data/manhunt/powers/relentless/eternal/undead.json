@@ -207,7 +207,7 @@
         ]
     },
     "air_speed":{
-        "type": "origins:modify_velocity",
+        "type": "origins:modify_air_speed",
         "modifiers": [
             {
                 "operation": "multiply_total",
@@ -218,15 +218,7 @@
                     "value": -0.998
                 }
             }
-        ],
-        "axes": [
-          "x",
-          "z"
-        ],
-        "condition": {
-            "type":"origins:on_block",
-            "inverted": true
-        }
+        ]
     },
     "name": "Bite the Dust",
     "description": "You never truly die. The flame might get dimmer but it will never ever be extinguished.",

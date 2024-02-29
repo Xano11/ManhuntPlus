@@ -3,7 +3,8 @@
 		"manhunt:relentless/eternal/undead",
 		"manhunt:relentless/skullthrow/throw",
 		"manhunt:relentless/bonemade",
-		"manhunt:relentless/shield/bone"
+		"manhunt:relentless/shield/bone",
+		"manhunt:relentless/masochist"
 	],
 	"icon": {
 		"item": "minecraft:bone",
