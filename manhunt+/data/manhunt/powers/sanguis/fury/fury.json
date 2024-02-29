@@ -42,7 +42,12 @@
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 1,
-            "should_render": true
+            "should_render": true,
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:sanguis/fury/fury_effects",
+                "inverted": true
+            }
         }
     },
     "name": "Fury",
