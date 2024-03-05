@@ -293,6 +293,17 @@
                                         "type": "origins:execute_command",
                                         "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Draconis!\"]"
                                     }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/fortis",
+                                        "layer": "origins:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Fortis!\"]"
+                                    }
                                 }
                             ]
                         }
