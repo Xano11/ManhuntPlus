@@ -1,8 +1,8 @@
 {
 	"powers": [
+		"manhunt:sanguis/fury/fury",
+		"manhunt:sanguis/sense/sense",
 		"manhunt:sanguis/bloodlust",
-        "manhunt:sanguis/fury/fury",
-        "manhunt:sanguis/sense/sense",
         "manhunt:sanguis/awful",
 		"manhunt:sanguis/unusable",
 		"origins:carnivore"
@@ -14,5 +14,5 @@
 	"order": 10,
 	"impact": 2,
 	"name": "Sanguis Deus ⚔",
-	"description": "The Blood God. Specializes in killing players, dominating the field with it's agressive abilities."
+	"description": "The name itself sends shivers down the hunters spine, but the Blood God himself comes back with a thirst for vengeance."
 }

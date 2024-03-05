@@ -1,7 +1,7 @@
 {
 	"powers": [
-		"manhunt:deleo/shutdown/shutdown",
 		"manhunt:deleo/disable/disable",
+		"manhunt:deleo/shutdown/shutdown",
 		"manhunt:deleo/binding/binding",
 		"manhunt:deleo/menacing",
 		"manhunt:deleo/cursed",
@@ -14,5 +14,5 @@
 	"order": 10,
 	"impact": 1,
 	"name": "Deleo 🚫",
-	"description": "The Deleo specializes in disrupting the enemies; disabling their abilities and combat potential."
+	"description": "Those that think are so special crumble when they face Deleo's curses."
 }

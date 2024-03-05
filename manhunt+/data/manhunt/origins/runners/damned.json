@@ -1,7 +1,7 @@
 {
 	"powers": [
+		"manhunt:damned/bow/bow",
 		"manhunt:damned/chains/chains",
-        "manhunt:damned/bow/bow",
 		"manhunt:damned/undead",
 		"manhunt:damned/bow_start",
         "manhunt:damned/bone_arms"
