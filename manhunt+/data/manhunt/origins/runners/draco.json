@@ -2,10 +2,10 @@
 	"powers": [
 		"manhunt:draco/wings/fly",
 		"manhunt:draco/dragonblood/rage",
+		"manhunt:draco/scales",
 		"manhunt:draco/greed",
 		"manhunt:draco/pierced/pierced",
-		"manhunt:draco/avid",
-		"manhunt:draco/scales"
+		"manhunt:draco/avid"
 	],
 	"icon": {
 		"item": "minecraft:netherite_chestplate",
@@ -14,5 +14,5 @@
 	"order": 10,
 	"impact": 2,
 	"name": "Draconis 🐉",
-	"description": "Half-Human, Half-Dragon; Revenge fuels your desire to be the winner."
+	"description": "Half-Human, Half-Dragon; Revenge fuels Draconis' desire for victory."
 }

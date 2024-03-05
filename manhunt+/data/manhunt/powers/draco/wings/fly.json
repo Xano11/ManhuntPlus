@@ -18,7 +18,7 @@
         "type": "origins:elytra_flight",
         "render_elytra": true,
         "texture_location": "manhunt:textures/item/dragon_wings.png",
-        "condition":{
+        "condition": {
             "type": "origins:power",
             "power": "manhunt:start",
             "inverted": true
@@ -33,15 +33,7 @@
         "max": 900,
         "start_value": 0,
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 1,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "manhunt:draco/wings/fly_charges",
-                "comparison": "<",
-                "compare_to": 2
-            }
+            "should_render": false
         },
         "min_action": {
             "type": "origins:and",
@@ -68,23 +60,359 @@
             {
                 "sprite_location": "manhunt:textures/bars/draco/wings.png",
                 "bar_index": 0,
+                "icon_index": 0,
                 "should_render": true,
                 "condition": {
-                    "type": "origins:resource",
-                    "resource": "manhunt:draco/dragonblood/rage_duration",
-                    "comparison": "==",
-                    "compare_to": 0
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:draco/wings/fly_cooldown",
+                                    "comparison": "==",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:draco/wings/fly_charges",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/wings.png",
+                "bar_index": 0,
+                "icon_index": 1,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 180
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/wings.png",
+                "bar_index": 0,
+                "icon_index": 2,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 180
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 360
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/wings.png",
+                "bar_index": 0,
+                "icon_index": 3,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 360
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 540
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/wings.png",
+                "bar_index": 0,
+                "icon_index": 4,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 540
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 720
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/wings.png",
+                "bar_index": 0,
+                "icon_index": 5,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 720
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 900
+                        }
+                    ]
                 }
             },
             {
                 "sprite_location": "manhunt:textures/bars/draco/blood_wings.png",
                 "bar_index": 0,
+                "icon_index": 0,
                 "should_render": true,
                 "condition": {
-                    "type": "origins:resource",
-                    "resource": "manhunt:draco/dragonblood/rage_duration",
-                    "comparison": ">",
-                    "compare_to": 0
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:draco/wings/fly_cooldown",
+                                    "comparison": "==",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:draco/wings/fly_charges",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/blood_wings.png",
+                "bar_index": 0,
+                "icon_index": 1,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 180
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/blood_wings.png",
+                "bar_index": 0,
+                "icon_index": 2,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 180
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 360
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/blood_wings.png",
+                "bar_index": 0,
+                "icon_index": 3,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 360
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 540
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/blood_wings.png",
+                "bar_index": 0,
+                "icon_index": 4,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 540
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 720
+                        }
+                    ]
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/draco/blood_wings.png",
+                "bar_index": 0,
+                "icon_index": 5,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/dragonblood/rage_duration",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": ">",
+                            "compare_to": 720
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:draco/wings/fly_cooldown",
+                            "comparison": "<=",
+                            "compare_to": 900
+                        }
+                    ]
                 }
             }
         ]
@@ -721,6 +1049,15 @@
                 }
             ]
         }
+    },
+    "removing_wings": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:draco/wings/fly_wings",
+            "permission_level": 4
+        },
+        "execute_chosen_when_orb": true
     },
     "name": "Wyvern Wings",
     "description": "You've inherited the wings of your elders. Use those to shape the wind currents in your favor.",

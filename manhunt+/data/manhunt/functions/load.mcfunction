@@ -24,7 +24,7 @@ scoreboard objectives add runners_alive dummy
 scoreboard objectives add deleo_hatchet dummy
 scoreboard objectives add ritual dummy
 scoreboard objectives add digging dummy
-
+scoreboard objectives add draco_scales minecraft.custom:minecraft.damage_taken
 #teams
 team add Runners ["",{"text":"RUNNER","bold":true,"color":"gold"}]
 team add Hunters ["",{"text":"HUNTER","bold":true,"color":"dark_red"}]
