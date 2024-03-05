@@ -8,38 +8,12 @@
         "hud_render": {
             "should_render": true,
             "bar_index": 1,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "sprite_location": "manhunt:textures/bars/angler/angler.png",
             "condition": {
-                "type": "origins:or",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "manhunt:angler/sword/transfish_cooldown",
-                        "comparison": "<",
-                        "compare_to": 900
-                    },
-                    {
-                        "type": "origins:inventory",
-                        "process_mode": "items",
-                        "item_condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:ingredient",
-                                    "ingredient": {
-                                        "item": "minecraft:iron_sword"
-                                    }
-                                },
-                                {
-                                    "type": "origins:nbt",
-                                    "nbt": "{Tags:[\"swordfish\"]}"
-                                }
-                            ]
-                        },
-                        "comparison": "==",
-                        "compare_to": 0
-                    }
-                ]
+                "type": "origins:resource",
+                "resource": "manhunt:angler/sword/transfish_cooldown",
+                "comparison": "<",
+                "compare_to": 900
             }
         }
     },

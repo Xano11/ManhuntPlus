@@ -23,8 +23,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 2,
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/angler/angler.png",
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:angler/fishing/throw_cooldown",
