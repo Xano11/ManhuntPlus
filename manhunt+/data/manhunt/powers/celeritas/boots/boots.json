@@ -56,6 +56,9 @@
             ]
         }
     },
+    "walk_snow":{
+        "type": "moborigins:walk_on_powder_snow"
+    },
     "energy": {
         "type": "origins:resource",
         "min": 0,
@@ -344,7 +347,7 @@
         }
     },
     "name": "Legendary Boots",
-    "description": "Your boots can make you faster and walk on water/lava.",
+    "description": "Its said that those boots are replica's of Hermes' boots. With those speed enhancing boots, walking on water, lava and powder snow is a simple feat.",
     "badges": [
         {
             "type": "origins:tooltip",
