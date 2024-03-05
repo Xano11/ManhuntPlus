@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:fortis/warcry/war",
+		"manhunt:fortis/heal",
+		"manhunt:fortis/shield/shield",
+		"manhunt:fortis/majestic",
+		"manhunt:fortis/prideful",
+		"manhunt:fortis/weighted",
+		"manhunt:fortis/stamina"
+	],
+	"icon": {
+		"item": "minecraft:blue_dye",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Fortis 🔰",
+	"description": "From the ashes, Fortis returns as the sturdiest runner."
+}

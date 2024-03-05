@@ -18,7 +18,8 @@
         "manhunt:runners/gambler",
         "manhunt:runners/deleo",
         "manhunt:runners/jester",
-        "manhunt:runners/draco"
+        "manhunt:runners/draco",
+        "manhunt:runners/fortis"
       ]
     }
   ],

@@ -1,0 +1,150 @@
+{
+    "type": "origins:multiple",
+    "unleash": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.evoker.prepare_attack player @a ~ ~ ~ 2 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.55 0.55 0.65 1 0.7 0.7 0.9 ~ ~1 ~ 0.3 0.3 0.3 0.3 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~1 ~ 0 0 0 0.3 30",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:vex",
+                    "tag": "{Invulnerable:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                    "entity_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:fortis/warcry/shield",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 20,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 0.5
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:fortis/warcry/disabled",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:modify_inventory",
+                                            "item_condition": {
+                                                "type": "origins:ingredient",
+                                                "ingredient": {
+                                                    "tag": "manhunt:fortis_disable"
+                                                }
+                                            },
+                                            "item_action": {
+                                                "type": "apugli:cooldown",
+                                                "ticks": 200
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+					"type": "origins:spawn_entity",
+					"entity_type": "minecraft:armor_stand",
+					"tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"fortis_wave\"],Passengers:[{id:\"minecraft:item_display\",shadow_radius:1f,start_interpolation:-1,shadow_strength:1f,Tags:[\"fortis_wave\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2f,2f,2f]},item:{id:\"minecraft:redstone\",Count:1b,tag:{CustomModelData:2,Enchantments:[{}]}}}]}",
+					"entity_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tp @s ~ ~2.4 ~",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "power grant @s manhunt:fortis/warcry/anim",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s interpolation_duration set value 20",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s transformation.scale set value [8f,8f,8f]",
+								"permission_level": 4
+							}
+						]
+					}
+				}
+            ]
+        },
+        "cooldown": 1800,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": true
+        }
+    },
+    "name": "War Cry",
+    "description": "Unleash a battle cry, disabling Hunters' tools for a short while.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "War Cry: Disabes shields, bows, crossbows, & tridents for 10s"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Unleash with %s!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m30s"
+        }
+    ]
+}

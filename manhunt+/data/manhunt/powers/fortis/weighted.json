@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+    "fall_speed": {
+        "type": "origins:modify_falling",
+        "velocity": 0.12,
+        "take_fall_damage": true
+    },
+    "atk_speed":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Less atk speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -0.2,
+            "operation": "multiply_base"
+        }
+    },
+    "name": "Weighted Armor",
+    "description": "Your heavy armor weighs down on your actions.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-20% Attack Speed & +50% Fall Speed"
+        }
+    ]
+}
