@@ -9,10 +9,10 @@
 	],
 	"icon": {
 		"item": "minecraft:netherite_axe",
-		"tag": "{Enchantments:[{}]}"
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
 	"impact": 2,
 	"name": "Sanguis Deus ⚔",
-	"description": "The name itself sends shivers down the hunters spine, but the Blood God himself comes back with a thirst for vengeance."
+	"description": "The name itself sends shivers down the hunters spine... Unfortunately, the Blood God himself hasn't satiated it's thirst for vengeance."
 }

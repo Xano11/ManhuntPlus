@@ -10,7 +10,7 @@
 		"manhunt:survivalist/armor"
 	],
 	"icon": {
-		"item": "minecraft:crafting_table",
+		"item": "minecraft:brush",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,

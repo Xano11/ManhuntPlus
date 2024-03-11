@@ -9,7 +9,7 @@
 		"manhunt:bomber/break_speed"
 	],
 	"icon": {
-		"item": "minecraft:tnt",
+		"item": "minecraft:tnt_minecart",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,

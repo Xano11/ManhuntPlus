@@ -7,8 +7,8 @@
 		"manhunt:shaman/regenerate"
 	],
 	"icon": {
-		"item": "minecraft:soul_lantern",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"item": "minecraft:echo_shard",
+		"tag": "{Enchantments:[{}],CustomModelData:4}"
 	},
 	"order": 10,
 	"impact": 2,
