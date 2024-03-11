@@ -125,7 +125,9 @@
         "cooldown": 1800,
         "key": "key.origins.primary_active",
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/fortis/warcry.png"
         }
     },
     "name": "War Cry",
@@ -134,7 +136,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "War Cry: Disabes shields, bows, crossbows, & tridents for 10s"
+            "text": "War Cry: Disables shields, bows, crossbows, & tridents in a 10 block radius for 10s"
         },
         {
             "type": "origins:keybind",

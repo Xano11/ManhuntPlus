@@ -11,6 +11,16 @@
                     "change": -100
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/shield/shield_cooldown",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/heal_flash",
+                    "change": -100
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 1 2",
                     "permission_level": 4

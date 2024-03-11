@@ -127,7 +127,29 @@
     },
     "fire": {
         "type": "origins:modify_damage_taken",
-        "self_action": {
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fire"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "modifier": {
+            "name": "Max damage",
+            "operation": "set_total",
+            "value": 2
+        }
+    },
+    "lava_except":{
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -166,11 +188,7 @@
                 }
             ]
         },
-        "modifier": {
-            "name": "Max damage",
-            "operation": "set_total",
-            "value": 2
-        }
+        "cooldown": 10
     },
     "other": {
         "type": "origins:modify_damage_taken",
