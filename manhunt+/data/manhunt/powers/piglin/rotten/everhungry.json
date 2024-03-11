@@ -1,0 +1,194 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:piglin/rotten/everhungry_immune",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@a[tag=hunter]",
+                        "bientity_action": {
+                            "type": "origins:invert",
+                            "action": {
+                                "type": "origins:remove_from_set",
+                                "set": "manhunt:piglin/rotten/rot_rotted"
+                            }
+                        },
+                        "bientity_condition": {
+                            "type": "origins:invert",
+                            "condition": {
+                                "type": "origins:in_set",
+                                "set": "manhunt:piglin/rotten/rot_rotted"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:piglin/rotten/everhungry",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/rotten/everhungry_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "immune": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:remove_from_set",
+                            "set": "manhunt:piglin/rotten/rot_rotted"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:piglin/rotten/rot_rotted"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:piglin/rotten/everhungry",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "immune_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/rotten/everhungry_immune",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "famine": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:exhaust",
+            "amount": 4
+        },
+        "interval": 60,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sprinting"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/rotten/everhungry_immune",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "damaged":{
+        "type": "origins:action_when_damage_taken",
+        "entity_action":{
+            "type": "origins:exhaust",
+            "amount": 4
+        },
+        "cooldown": 1
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:sneeze",
+        "speed": 0.03,
+        "frequency": 4,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/rotten/everhungry_immune",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "weak_food": {
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Decreased food points",
+            "operation": "multiply_base",
+            "value": -0.25
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "multiply_base",
+            "value": -0.25
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:piglin/rotten/everhungry_immune",
+                    "change": 200
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:piglin/rotten/rot_angry",
+                                    "change": 200
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:piglin/rotten/rot_rotted"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

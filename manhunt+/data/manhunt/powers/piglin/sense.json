@@ -1,0 +1,65 @@
+{
+    "type": "origins:multiple",
+    "brutes":{
+        "type": "origins:entity_set"
+    },
+    "glow":{
+        "type": "origins:entity_glow",
+        "red": 0.5,
+        "green": 0.4,
+        "blue": 0,
+        "bientity_condition": {
+            "type": "origins:in_set",
+            "set": "manhunt:piglin/sense_brutes"
+        }
+    },
+    "use": {
+        "type": "origins:action_on_block_use",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s piglin_bell run locate structure minecraft:bastion_remnant",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [\"\",\"The closest bastion is \",{\"score\":{\"name\":\"@s\",\"objective\":\"piglin_bell\"},\"bold\":true,\"color\":\"dark_red\"},\" blocks away.\"]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=piglin_brute]",
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:piglin/sense_brutes",
+                        "time_limit": 100
+                    },
+                    "bientity_condition": {
+                        "type": "origins:distance",
+                        "comparison": "<=",
+                        "compare_to": 128
+                    }
+                }
+            ]
+        },
+        "block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:bell"
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
+    "name": "Piglin's Sense",
+    "description": "Using a simple gold bell, you're able to sense the closest Bastion.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Right click a bell in the Nether to find the closest bastion."
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "type": "origins:multiple",
+    "rotted": {
+        "type": "origins:entity_set"
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_to_set",
+                    "set": "manhunt:piglin/rotten/rot_rotted"
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:piglin/rotten/everhungry",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:runner",
+                "layer": "origins:origin"
+            }
+        }
+    },
+    "angry": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.zombified_piglin.angry player @a ~ ~ ~ 2 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crimson_spore ~ ~1 ~ 0 0 0 10 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.3 0 0 1 0.7 0 0 ~ ~1 ~ 0.3 0.3 0.3 1 100",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "angry_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/rotten/rot_angry",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": 0.20,
+            "name": "Increased sprinting speed"
+        },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/rotten/rot_angry",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.20
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/rotten/rot_angry",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "glow":{
+        "type": "origins:entity_glow",
+        "red": 0.5,
+        "green": 0,
+        "blue": 0,
+        "bientity_condition": {
+            "type": "origins:in_set",
+            "set": "manhunt:piglin/rotten/rot_rotted"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/rotten/rot_angry",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Rotten Pork",
+    "description": "Your flesh wrecks immense famine to those that come in contact with you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Famine: Hitting a runner will grant the effect \"Bane of the Flesh\" for 30 seconds."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "Bane of the Flesh: Sprinting and taking damage causes extra exhaustion.\n\nTo remove the effect, it must be either waited out or dealt by eating food. Eaten food will grant -25% less food value than usual and frustrate the piglin.\n\n\"Frustrated\" will make you 20% quicker."
+        }
+    ]
+}
