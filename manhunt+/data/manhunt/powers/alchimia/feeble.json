@@ -13,7 +13,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Feeble: -75% natural regeneration. To heal, it is suggested to drink your regular concoctions."
+            "text": "Feeble: §l§c-75%§r natural regeneration. To heal, it is suggested to drink your regular concoctions."
         }
     ]
 }

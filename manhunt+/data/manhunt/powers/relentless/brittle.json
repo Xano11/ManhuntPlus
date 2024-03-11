@@ -18,7 +18,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You take 50% more fall damage."
+            "text": "You take §l§c50%§r more fall damage."
         }
     ]
 }

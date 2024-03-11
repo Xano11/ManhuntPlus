@@ -553,7 +553,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Scales: Reduce incoming damage by 30% when dealt by a mob or player.\nHaving no scales leaves you invulnerable and increases damage intake by 25%"
+            "text": "Scales: Reduce incoming damage by §l§a30%§l§c when dealt by a mob or player.\nHaving no scales leaves you vulnerable and increases damage intake by §l§c25%§r"
         },
         {
             "type": "origins:tooltip",

@@ -14,7 +14,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "All food gives half the expected amount of sustenance.\n(Saturation is NOT affected)"
+			"text": "All food gives §l§chalf§r the expected amount of sustenance.\n(Saturation is NOT affected)"
 		}
 	]
 }

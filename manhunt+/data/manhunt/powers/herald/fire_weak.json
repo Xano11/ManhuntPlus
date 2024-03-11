@@ -29,7 +29,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(Fire deals double damage)\nAlso, fire doesnt't naturally extinguish itself."
+            "text": "(Fire deals §l§cdouble§r damage)\nAlso, fire doesnt't naturally extinguish itself."
         }
     ]
 }

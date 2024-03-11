@@ -29,7 +29,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Avid: 2x Exhaustion and Carnivore."
+            "text": "Avid: §l§c2x§r Exhaustion and Carnivore."
         }
     ]
 }

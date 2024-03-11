@@ -21,7 +21,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Frail: Deal 25% less damage and receive 25% more damage."
+            "text": "Frail: Deal §l§c25%§r less damage and receive §l§c25%§r more damage."
         }
     ]
 }

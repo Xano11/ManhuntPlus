@@ -21,7 +21,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Life is a highway: §c-25%§r invincibility frames\nFeeble: §c-3§r hearts"
+            "text": "Life is a highway: §c-25%§r invincibility frames\nFeeble: §c-3§r §l§c❤§r"
         }
     ]
 }

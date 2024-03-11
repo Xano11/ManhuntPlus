@@ -5,7 +5,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "2x hunger exhaustion, 2x drowning speed."
+            "text": "§l§c2x§r hunger exhaustion, §l§c2x§r drowning speed."
         }
     ],
     "type": "origins:multiple",

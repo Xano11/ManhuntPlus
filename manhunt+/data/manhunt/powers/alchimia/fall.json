@@ -18,7 +18,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heights: 200% fall damage."
+            "text": "Heights: §l§c200%§r fall damage."
         }
     ]
 }

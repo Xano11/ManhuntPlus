@@ -27,7 +27,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have -25% less invincibility frames and take more knockback from hits."
+            "text": "You have §l§c-25%§r less invincibility frames and take more knockback from hits."
         }
     ]
 }

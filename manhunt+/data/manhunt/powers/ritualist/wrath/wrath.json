@@ -17,7 +17,7 @@
 	"winding": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 10,
+		"max": 4,
 		"start_value": 0,
 		"hud_render": {
 			"should_render": false
@@ -32,7 +32,7 @@
 				{
 					"type": "origins:change_resource",
 					"resource": "manhunt:ritualist/wrath/wrath_winding",
-					"change": -10
+					"change": -4
 				}
 			]
 		}
@@ -42,7 +42,7 @@
 		"rising_action": {
 			"type": "origins:change_resource",
 			"resource": "manhunt:ritualist/wrath/wrath_winding",
-			"change": -10
+			"change": -4
 		},
 		"interval": 1,
 		"condition": {
@@ -92,7 +92,7 @@
 								"type": "origins:resource",
 								"resource": "manhunt:ritualist/wrath/wrath_winding",
 								"comparison": "==",
-								"compare_to": 9
+								"compare_to": 3
 							},
 							"action": {
 								"type": "origins:execute_command",
@@ -136,7 +136,7 @@
 					"type": "origins:resource",
 					"resource": "manhunt:ritualist/wrath/wrath_winding",
 					"comparison": "<",
-					"compare_to": 10
+					"compare_to": 4
 				},
 				{
 					"type": "origins:power",
@@ -184,7 +184,7 @@
 					"type": "origins:resource",
 					"resource": "manhunt:ritualist/wrath/wrath_winding",
 					"comparison": "<",
-					"compare_to": 10
+					"compare_to": 4
 				},
 				{
 					"type": "origins:power",

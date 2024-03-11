@@ -32,7 +32,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Nether-sick: -1 heart and 3x Exhaustion."
+            "text": "Nether-sick: §l§c-1§r heart and §l§c3x§r Exhaustion."
         }
     ]
 }

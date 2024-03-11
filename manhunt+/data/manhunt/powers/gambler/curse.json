@@ -90,7 +90,7 @@
     {
       "type": "origins:tooltip",
       "sprite": "origins:textures/gui/badge/star.png",
-      "text": "Devil's Deal: §c-1§r hearts\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
+      "text": "Devil's Deal: §c-1§r heart\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
     }
   ]
 }

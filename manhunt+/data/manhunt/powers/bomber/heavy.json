@@ -13,7 +13,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heavy: -60% Swim speed"
+            "text": "Heavy: §l§c-60%§r Swim speed"
         }
     ]
 }

@@ -28,7 +28,7 @@
         {
           "type": "origins:tooltip",
           "sprite": "origins:textures/gui/badge/star.png",
-          "text": "90% blast damage mitigation."
+          "text": "§l§a90%§r blast damage mitigation."
       }
       ]
   }

@@ -55,7 +55,7 @@
     {
       "type": "origins:tooltip",
       "sprite": "origins:textures/gui/badge/star.png",
-      "text": "Fire Damage, Lava Damage, and Fall Damage are all reduced by 70%.\nAdditionally, gain §a+25%§r invincibility frames while in Lava."
+      "text": "Fire Damage, Lava Damage, and Fall Damage are all reduced by §l§a70%§r.\nAdditionally, gain §l§a+25%§r invincibility frames while in Lava."
     }
   ]
 }

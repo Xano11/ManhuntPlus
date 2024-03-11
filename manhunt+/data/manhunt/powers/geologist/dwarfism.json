@@ -5,7 +5,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "3 less hearts, 15% less movement speed."
+			"text": "3 less §l§c❤§r, 15% less movement speed."
 		}
 	],
 	"type": "origins:multiple",

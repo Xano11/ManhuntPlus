@@ -246,22 +246,6 @@
             "compare_to": 0
         }
     },
-    "movement_speed": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "name": "Speed decrease",
-            "attribute": "minecraft:generic.movement_speed",
-            "value": -0.4,
-            "operation": "multiply_total"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:fortis/stamina_exhausted",
-            "comparison": ">",
-            "compare_to": 0
-        },
-        "tick_rate": 1
-    },
     "prevent_sprint":{
         "type": "origins:prevent_sprinting",
         "condition": {
@@ -282,7 +266,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Exhaustion: -30% to Movement, Air, Swim Speed and gains a 4x Exhaustion multiplier."
+            "text": "Exhaustion: Prevents sprinting, §l§c-30%§r to Air/Swim Speed and gains a §l§c4x§r Exhaustion multiplier."
         }
     ]
 }
