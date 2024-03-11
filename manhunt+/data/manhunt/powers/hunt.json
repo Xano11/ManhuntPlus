@@ -108,14 +108,9 @@
     "repick_timer_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:hunt_repick_timer",
-                    "change": -10
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunt_repick_timer",
+            "change": -10
         },
         "interval": 10,
         "condition": {
@@ -185,7 +180,7 @@
                 }
             ]
         },
-        "interval": 10,
+        "interval": 1,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:hunt_repick_timer",
@@ -315,7 +310,7 @@
                 }
             ]
         },
-        "interval": 10,
+        "interval": 1,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:hunt_repick_timer",
@@ -342,7 +337,7 @@
                 }
             ]
         },
-        "interval": 10,
+        "interval": 1,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:hunt_repick_timer",
@@ -541,7 +536,7 @@
                 }
             ]
         },
-        "interval": 20,
+        "interval": 1,
         "condition": {
             "type": "origins:command",
             "command": "execute unless entity @a[tag=!ready]",

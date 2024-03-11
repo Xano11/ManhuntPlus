@@ -266,7 +266,7 @@
     },
     "compass":{
         "type": "origins:action_on_callback",
-        "entity_action_gained": {
+        "entity_action_chosen": {
             "type": "origins:if_else_list",
             "actions": [
                 {
@@ -452,8 +452,7 @@
                 }
             ]
         },
-        "execute_chosen_when_orb": true,
-        "hidden": true
+        "execute_chosen_when_orb": true
     },
     "hidden": true
 }
