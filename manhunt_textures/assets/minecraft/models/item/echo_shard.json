@@ -21,6 +21,12 @@
                 "custom_model_data": 3
             },
             "model": "manhunt:item/deleo_icon"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4
+            },
+            "model": "manhunt:item/shaman_icon"
         }
     ]
 }
