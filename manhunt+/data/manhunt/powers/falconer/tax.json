@@ -1,0 +1,20 @@
+{
+	"type": "origins:multiple",
+    "less_food":{
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Decreased food points",
+            "operation": "multiply_total",
+            "value": -0.35
+        }
+    },
+	"name": "THE OSHA TAX",
+	"description": "Osha is hungry too, ya know?",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "All food gives -35% the expected amount of sustenance.\n(Saturation is NOT affected)"
+		}
+	]
+}

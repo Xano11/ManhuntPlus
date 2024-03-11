@@ -1,0 +1,41 @@
+{
+	"type": "origins:multiple",
+    "drop_fiber":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:blocks/grass": "manhunt:blocks/falconer_grass"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "manhunt:swords"
+                }
+            }
+        }
+    },
+    "arrows":{
+        "type": "origins:modify_crafting",
+        "recipe": "minecraft:arrow",
+        "result": {
+            "item": "minecraft:arrow",
+            "amount": 12
+        }
+    },
+	"name": "Handy",
+	"description": "Your time spent in the wilds as attuned you further with it's resources.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/item/arrow.png",
+			"text": "Crafting arrows grant you 3x the regular amount!"
+		},
+        {
+			"type": "origins:tooltip",
+			"sprite": "manhunt:textures/item/plant_fiber.png",
+			"text": "Breaking grass with a sword may drop plant fiber.\nPlant fiber can be used as string for any recipe."
+		}
+	]
+}

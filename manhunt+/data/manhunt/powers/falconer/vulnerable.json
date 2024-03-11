@@ -1,0 +1,40 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -4,
+            "operation": "addition"
+        }
+    },
+    "dependence": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:passenger",
+            "bientity_condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:parrot"
+                }
+            },
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "name": "Emotionally Dependent",
+    "description": "Without Osha, something within you is amiss.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-2 §l§c❤§r overall.\n-50% Health regeneration whilst Osha isn't on your shoulder."
+        }
+    ]
+}

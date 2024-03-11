@@ -1,0 +1,787 @@
+{
+    "type": "origins:multiple",
+    "change": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=osha] if score @s osha_owner = @p osha_owner run ride @s dismount",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=osha] if score @s osha_owner = @p osha_owner run kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:action_on_set",
+                "set": "manhunt:falconer/falcon/forth_osha",
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[tag=osha_target,type=armor_stand] if score @s osha_target = @e[limit=1,sort=nearest,type=parrot] osha_target run resource set @s manhunt:falconer/falcon/target_duration 0",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 5,
+                            "action": {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:falconer/falcon/osha_scout",
+                                        "change": -900
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:falconer/falcon/osha_fly",
+                                        "change": -15
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:falconer/falcon/osha_lend",
+                                        "change": -600
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s NoAI set value 1b",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": [
+            {
+                "should_render": true,
+                "bar_index": 0,
+                "icon_index": 0,
+                "sprite_location": "manhunt:textures/bars/falconer/osha.png",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:passenger",
+                            "bientity_condition": {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:parrot"
+                                }
+                            },
+                            "compare_to": 1,
+                            "comparison": "=="
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:falconer/falcon/forth_cooldown",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            },
+            {
+                "should_render": true,
+                "bar_index": 0,
+                "icon_index": 1,
+                "sprite_location": "manhunt:textures/bars/falconer/osha.png",
+                "condition": {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:passenger",
+                                    "bientity_condition": {
+                                        "type": "origins:actor_condition",
+                                        "condition": {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:parrot"
+                                        }
+                                    },
+                                    "compare_to": 0,
+                                    "comparison": "=="
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:falconer/falcon/forth_cooldown",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:falconer/falcon/forth_recovering",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "recovering": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "recovering_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:falconer/falcon/forth_recovering",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:falconer/falcon/forth_cooldown",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "osha": {
+        "type": "origins:entity_set"
+    },
+    "summon": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:passenger",
+                        "bientity_condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:parrot"
+                            }
+                        },
+                        "compare_to": 0,
+                        "comparison": "=="
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add forth_summon",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s osha_owner run data get entity @s UUID[0]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:parrot",
+                                "tag": "{DeathLootTable:\"minecraft:empty\",FallFlying:0b,NoAI:1b,CanPickUpLoot:0b,Variant:1,Tags:[\"osha\"],CustomName:'{\"text\":\"OSHA!!\"}'}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:selector_action",
+                                            "selector": "@p[tag=forth_summon]",
+                                            "bientity_action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:invert",
+                                                        "action": {
+                                                            "type": "origins:add_to_set",
+                                                            "set": "manhunt:falconer/falcon/forth_osha"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:mount"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @s osha_owner run data get entity @p[tag=forth_summon] UUID[0]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:hitbox_width 0 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:hitbox_height 0 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:base 0 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale set pehkui:base 1.15 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:falconer/falcon/osha",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:poof ~ ~0.2 ~ 0 0 0 0.05 10",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.parrot.fly player @a ~ ~ ~ 1 0.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.item.pickup player @a ~ ~ ~ 0.4 0.8",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove forth_summon",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:falconer/falcon/forth_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:falconer/falcon/forth_osha",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:falconer/falcon/forth_recovering",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "send": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:falconer/falcon/forth_cooldown",
+                    "change": 300,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:passenger_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:dismount"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:falconer/falcon/osha_fly",
+                                "change": 15,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s NoAI set value 1b",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:falconer/falcon/forth_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:parrot"
+                        }
+                    },
+                    "compare_to": 1,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
+    "grapple": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:falconer/falcon/forth_osha",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:raycast",
+                            "distance": 24,
+                            "block": true,
+                            "entity": true,
+                            "shape_type": "collider",
+                            "fluid_handling": "none",
+                            "bientity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:add_velocity",
+                                        "z": -2
+                                    },
+                                    {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:block.chain.hit player @a ~ ~ ~ 1 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:block.tripwire.detach player @a ~ ~ ~ 1 2",
+                                                    "permission_level": 4
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            "command_along_ray": "particle minecraft:dust_color_transition 1 1 0 1.2 0.4 0.4 0 ~ ~ ~",
+                            "command_step": 0.5,
+                            "command_along_ray_only_on_hit": true,
+                            "bientity_condition": {
+                                "type": "origins:invert",
+                                "condition": {
+                                    "type": "origins:in_set",
+                                    "set": "manhunt:falconer/falcon/forth_osha"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 30,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:parrot"
+                        }
+                    },
+                    "compare_to": 0,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
+    "scout": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:falconer/falcon/forth_cooldown",
+                    "change": 300,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@p[tag=runner]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute store result score @s osha_target run data get entity @s UUID[0]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:spawn_entity",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"osha_target\"]}",
+                                    "entity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "power grant @s manhunt:falconer/falcon/target",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tp @s ~ ~12 ~",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute store result score @s osha_target run data get entity @p[tag=runner] UUID[0]",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    },
+                                    "bientity_action": {
+                                        "type": "origins:invert",
+                                        "action": {
+                                            "type": "origins:add_to_set",
+                                            "set": "manhunt:falconer/falcon/target_preyed"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:passenger_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:dismount"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:falconer/falcon/osha_scout",
+                                "change": 900,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s NoAI set value 0b",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:falconer/falcon/forth_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:parrot"
+                        }
+                    },
+                    "compare_to": 1,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
+    "recalling": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:falconer/falcon/forth_recalling",
+                    "change": -2
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:falconer/falcon/forth_osha",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute as @e[tag=osha_target,type=armor_stand] if score @s osha_target = @e[limit=1,sort=nearest,type=parrot] osha_target run resource set @s manhunt:falconer/falcon/target_duration 0",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:falconer/falcon/osha_scout",
+                                            "change": -900
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:falconer/falcon/osha_fly",
+                                            "change": -15
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:falconer/falcon/osha_lend",
+                                            "change": -600
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s NoAI set value 1b",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "cancel_recall": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:falconer/falcon/forth_recalling",
+            "change": -2
+        },
+        "interval": 10,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.sneak",
+                "continuous": true
+            }
+        }
+    },
+    "recall": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:falconer/falcon/forth_recalling",
+            "change": 1
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.sneak",
+            "continuous": false
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:parrot"
+                        }
+                    },
+                    "compare_to": 0,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
+    "name": "Forth: Osha",
+    "description": "Summon forth your trusted falcon: Osha. With this little rascal at your side, you can show who truly is humanity's best friend. (its Osha of course)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Osha is your trusted companion! On your shoulder, he can be ordered to do two things:\n\n§l§eLEND§r will send Osha forward. After a short while, he will stop and let you grapple to him! Pressing the same key will grapple.\n\n§l§6SCOUT§r will send Osha to find the closest runner and reveal their position to you."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s to summon Osha to your shoulder!\nLeft click to use §l§eLEND§r\nRight click to use §l§6SCOUT§r\n(Press sneak twice to recall Osha!)\n(Osha can't be sent to scout in the Nether)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 15s per Osha Order\nIf Osha takes near fatal damage, he will come back to you and take a full minute to come back."
+        }
+    ]
+}
