@@ -45,6 +45,11 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "particle minecraft:flash ~ ~ ~ 0 0 0 1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "playsound manhunt:flashbang player @a ~ ~ ~ 2 1.5",
                     "permission_level": 4
                 },
