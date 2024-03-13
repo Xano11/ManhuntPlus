@@ -58,7 +58,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You do not require food, yet you only regenerate half a heart per 2 seconds."
+            "text": "You do not require food and cannot heal naturally. Instead, you passively regenerate half a heart every 2 seconds."
         },
         {
             "type": "origins:tooltip",

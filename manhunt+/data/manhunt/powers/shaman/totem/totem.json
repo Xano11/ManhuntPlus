@@ -75,7 +75,7 @@
             "type":"origins:on_block"
         }
     },
-    "name": "Totem of life",
+    "name": "Totem of Life",
     "description": "Summon a totem that feeds the soul (and body) of nearby hunters, dead or alive.",
     "badges": [
         {

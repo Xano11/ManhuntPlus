@@ -25,7 +25,7 @@
         }
     },
 	"name": "Handy",
-	"description": "Your time spent in the wilds as attuned you further with it's resources.",
+	"description": "Your time spent in the wilds has attuned you further with it's resources.",
 	"badges": [
 		{
 			"type": "origins:tooltip",

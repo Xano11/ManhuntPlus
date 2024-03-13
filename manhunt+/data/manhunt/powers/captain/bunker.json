@@ -269,13 +269,13 @@
             ]
         }
     },
-    "name": "Cap'ain of the sea",
+    "name": "Cap'ain of the Sea",
     "description": "Boats that you ride offer protection and navigate quicker.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Boat Riding: 50% mitigation and +40% speed."
+            "text": "Boat Riding: 50% damage mitigation and +40% boat speed."
         }
     ]
 }

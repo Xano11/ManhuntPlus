@@ -267,13 +267,13 @@
             ]
         }
     },
-    "name": "Sculk's grasp",
+    "name": "Sculk's Grasp",
     "description": "Whilst in the totem and fully reposed, you can teleport teammates to you.",
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "After fully resting with Cursed Link (whilst in the totem radius),\nright-click highlighted teammates to pull them."
+            "text": "After fully resting with Cursed Link (whilst in the totem radius),\nright-click highlighted teammates to pull them within a 96 block distance."
         }
     ]
 }

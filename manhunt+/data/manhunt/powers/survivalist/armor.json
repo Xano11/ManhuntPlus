@@ -25,5 +25,12 @@
         "tick_rate": 20
     },
     "name": "Survivalist Issue",
-    "description": "When it comes to armor, you are restrained to wearing §l§clighter§r armors.\n"
+    "description": "When it comes to protection, you are restrained to wearing lighter armors.",
+    "badges": [
+        {
+          "type": "origins:tooltip",
+          "sprite": "origins:textures/gui/badge/star.png",
+          "text": "Armors with higher protection than chainmail §l§ccannot§r be worn."
+        }
+      ]
 }
