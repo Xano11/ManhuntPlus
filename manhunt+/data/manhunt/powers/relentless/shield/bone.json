@@ -187,7 +187,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Bone Shield: 40% damage mitigation the next hit. (Lasts 7 seconds)"
+            "text": "Bone Shield: 40% damage mitigation on the next hit you take. (Lasts for 7 seconds.)"
         },
         {
             "type": "origins:keybind",

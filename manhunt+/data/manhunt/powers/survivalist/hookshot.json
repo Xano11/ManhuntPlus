@@ -149,7 +149,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(Hitting an entity with the hook will additionally pull them towards you)"
+            "text": "(Hitting an entity with the hook will pull them towards you instead.)"
         },
         {
             "type": "origins:keybind",

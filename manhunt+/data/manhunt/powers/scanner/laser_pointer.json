@@ -129,7 +129,7 @@
             "comparison": ">",
             "resource": "manhunt:scanner/solar_battery_energy"
         },
-        "cooldown": 50
+        "cooldown": 20
     },
     "name": "L4S3R-P01NT3R",
     "description": "Fire a targeting laser for a large sum of power. The laser reveals Runner location and HP on contact, and allows you to teleport to other Hunters.",

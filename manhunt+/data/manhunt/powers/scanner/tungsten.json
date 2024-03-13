@@ -10,43 +10,14 @@
       "type": "origins:or",
       "conditions": [
         {
-          "type": "origins:name",
-          "name": "inFire"
+          "type": "origins:in_tag",
+          "tag": "minecraft:is_fire"
         },
         {
-          "type": "origins:name",
-          "name": "inFire.player"
-        },
-        {
-          "type": "origins:name",
-          "name": "lava"
-        },
-        {
-          "type": "origins:name",
-          "name": "lava.player"
-        },
-        {
-          "type": "origins:name",
-          "name": "fall"
-        },
-        {
-          "type": "origins:name",
-          "name": "fall.player"
+          "type": "origins:in_tag",
+          "tag": "minecraft:is_fall"
         }
       ]
-    }
-  },
-  "life_is_a_highway": {
-    "type": "eggolib:modify_hurt_ticks",
-    "modifier": {
-      "operation": "multiply_total",
-      "value": 0.25
-    },
-    "condition": {
-      "type": "origins:fluid_height",
-      "fluid": "minecraft:lava",
-      "comparison": "==",
-      "compare_to": 0.5
     }
   },
   "name": "TUNGST3N-UN1T",
@@ -55,7 +26,7 @@
     {
       "type": "origins:tooltip",
       "sprite": "origins:textures/gui/badge/star.png",
-      "text": "Fire Damage, Lava Damage, and Fall Damage are all reduced by §l§a70%§r.\nAdditionally, gain §l§a+25%§r invincibility frames while in Lava."
+      "text": "Fire Damage, Lava Damage, and Fall Damage are all reduced by §l§a70%§r."
     }
   ]
 }

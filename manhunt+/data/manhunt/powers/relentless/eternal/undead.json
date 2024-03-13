@@ -231,7 +231,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Rugged Bones: Every death additionally grants you more speed.\n Dying also only drops your inventory, but keeps their hotbar and armor."
+            "text": "Rugged Bones: Every death additionally grants you more speed.\nOn death, you keep your worn armor and any items in your hotbar."
         }
     ]
 }
