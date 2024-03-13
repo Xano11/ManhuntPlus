@@ -40,6 +40,11 @@
                     "type": "origins:execute_command",
                     "command": "execute on passengers run data modify entity @s transformation.scale set value [0.8f,1.3f,1.0f]",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 0.6",
+                    "permission_level": 4
                 }
             ]
         },
@@ -59,6 +64,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "execute on passengers run data modify entity @s transformation.scale set value [1.1f,1.6f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 0.7",
                     "permission_level": 4
                 }
             ]
@@ -80,6 +90,11 @@
                     "type": "origins:execute_command",
                     "command": "execute on passengers run data modify entity @s transformation.scale set value [1.5f,2.0f,1.0f]",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 0.8",
+                    "permission_level": 4
                 }
             ]
         },
@@ -94,9 +109,19 @@
     "grow4": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:execute_command",
-            "command": "execute on passengers run data modify entity @s transformation.scale set value [1.8f,2.3f,1.0f]",
-            "permission_level": 4
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.8f,2.3f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 0.9",
+                    "permission_level": 4
+                }
+            ]
         },
         "interval": 1,
         "condition": {
@@ -124,6 +149,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:dragon_breath ~ ~1.5 ~ 1 1 1 0.3 100 force @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 1",
+                    "permission_level": 4
                 }
             ]
         },
@@ -144,51 +174,72 @@
                     "type": "origins:area_of_effect",
                     "radius": 2,
                     "bientity_action": {
-                        "type": "origins:target_action",
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 1 30 force @a"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "tp @s @e[limit=1,sort=nearest,tag=imp_portal2,type=armor_stand]"
-                                },
-                                {
-                                    "type": "origins:if_else",
-                                    "condition": {
-                                        "type": "origins:dimension",
-                                        "dimension": "minecraft:the-nether"
-                                    },
-                                    "if_action": {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:imp/portal/nether_effects"
-                                    },
-                                    "else_action": {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:imp/portal/overworld_effects"
-                                    }
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 1 30 force @a"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "playsound minecraft:entity.wither.break_block player @a ~ ~ ~ 300 1.4"
-                                }       
-                            ]
-                        }
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 1 30 force @a"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:imp/portal/portal_effects"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s @e[limit=1,sort=nearest,tag=imp_portal2,type=armor_stand]"
+                                        },
+                                        {
+                                            "type": "origins:random_teleport",
+                                            "area_width": 5,
+                                            "area_height": 5,
+                                            "success_action": {
+                                                "type": "origins:spawn_particles",
+                                                "particle": "minecraft:witch",
+                                                "count": 8
+                                            },
+                                            "landing_block_condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:block",
+                                                        "block": "minecraft:bedrock",
+                                                        "inverted": true
+                                                    },
+                                                    {
+                                                        "type": "origins:movement_blocking"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 1 30 force @a"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.wither.break_block player @a ~ ~ ~ 300 1.4"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     },
                     "bientity_condition": {
                         "type": "origins:target_condition",

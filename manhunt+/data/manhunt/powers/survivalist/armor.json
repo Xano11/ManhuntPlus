@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "restrict":{
+    "restrict": {
         "type": "origins:conditioned_restrict_armor",
         "head": {
             "type": "origins:armor_value",
@@ -24,6 +24,192 @@
         },
         "tick_rate": 20
     },
+    "craft_helmet": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_helmet",
+            "pattern": [
+                "###",
+                "y y"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_helmet"
+            }
+        }
+    },
+    "craft_chestplate": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_chestplate",
+            "pattern": [
+                "y y",
+                "#y#",
+                "###"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_chestplate"
+            }
+        }
+    },
+    "craft_leggings": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_leggings",
+            "pattern": [
+                "###",
+                "# #",
+                "y y"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_leggings"
+            }
+        }
+    },
+    "craft_boots": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_boots",
+            "pattern": [
+                "# #",
+                "y y"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_boots"
+            }
+        }
+    },
     "name": "Survivalist Issue",
-    "description": "When it comes to armor, you are restrained to wearing §l§clighter§r armors.\n"
+    "description": "When it comes to armor, you are restrained to wearing §l§clighter§r armors.\nIn return, you can craft chainmail armor.",
+    "badges": [
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_helmet.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_helmet",
+                "pattern": [
+                    "###",
+                    "y y"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_helmet"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_chestplate.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_chestplate",
+                "pattern": [
+                    "y y",
+                    "#y#",
+                    "###"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_chestplate"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_leggings.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_leggings",
+                "pattern": [
+                    "###",
+                    "# #",
+                    "y y"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_leggings"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_boots.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_boots",
+                "pattern": [
+                    "# #",
+                    "y y"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_boots"
+                }
+            }
+        }
+    ]
 }

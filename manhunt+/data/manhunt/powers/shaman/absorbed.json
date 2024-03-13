@@ -7,15 +7,39 @@
             "value": -1
         },
         "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.origins.secondary_active",
-                "continuous": true
-            },
-            "inverted": true
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:armor_stand"
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "manhunt:shaman/totem/totem_powers"
+                            }
+                        ]
+                    },
+                    "radius": 8.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
         }
     },
-    "disable_regen":{
+    "disable_regen": {
         "type": "origins:disable_regen"
     },
     "name": "Absorbed",

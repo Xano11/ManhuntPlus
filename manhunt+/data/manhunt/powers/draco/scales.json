@@ -126,7 +126,7 @@
     "recharge": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
+        "max": 400,
         "start_value": 1,
         "hud_render": {
             "should_render": false
@@ -142,7 +142,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:draco/scales_recharge",
-                    "change": 300
+                    "change": 400
                 }
             ]
         }
@@ -150,7 +150,7 @@
     "durability": {
         "type": "origins:resource",
         "min": 0,
-        "max": 200,
+        "max": 140,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -166,7 +166,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:draco/scales_recharge",
-                    "change": 300
+                    "change": 400
                 },
                 {
                     "type": "origins:execute_command",

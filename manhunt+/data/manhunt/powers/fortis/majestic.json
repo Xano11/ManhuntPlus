@@ -250,7 +250,7 @@
         "modifier": {
             "name": "Max damage",
             "operation": "set_total",
-            "value": 8
+            "value": 10
         }
     },
     "immunity":{
@@ -266,7 +266,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/absorption.png",
-            "text": "Majestic Guard:\nDamage from Explosions is capped at 12\nDamage from Falling is capped at 8\nDamage from Fire/Lava is capped at 2\nAll other damage sources are capped at 8"
+            "text": "Majestic Guard:\nDamage from Explosions is capped at 12\nDamage from Falling is capped at 8\nDamage from Fire/Lava is capped at 2\nAll other damage sources are capped at 10"
         },
         {
             "type": "origins:tooltip",

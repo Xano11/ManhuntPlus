@@ -82,12 +82,12 @@
                                         },
                                         {
                                             "type": "origins:heal",
-                                            "amount": 4
+                                            "amount": 2
                                         },
                                         {
                                             "type": "origins:feed",
-                                            "food": 4,
-                                            "saturation": 2
+                                            "food": 2,
+                                            "saturation": 1
                                         }
                                     ]
                                 }
@@ -182,7 +182,7 @@
                 }
             ]
         },
-        "interval": 30
+        "interval": 10
     },
     "duration_down": {
         "type": "origins:action_over_time",

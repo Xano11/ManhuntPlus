@@ -1,0 +1,159 @@
+{
+    "type": "origins:multiple",
+    "admiring": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:gold_ingot"
+                            }
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "loot give @s loot minecraft:gameplay/piglin_bartering",
+                                "permission_level": 4
+                            }
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.piglin.celebrate player @a ~ ~ ~ 1 1",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.piglin.angry player @a ~ ~ ~ 1 0.7",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        }
+    },
+    "admiring_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/gold_admiring",
+            "change": -1
+        },
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/gold_admiring",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/gold_admiring",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:gold_ingot"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "no_mouse": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/gold_admiring",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "barter": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:piglin/gold_admiring",
+                    "change": 50
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~ 40",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.piglin.admiring_item player @a ~ ~ ~ 1 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 600,
+        "hud_render": {
+            "should_render": true
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:gold_ingot"
+                }
+            }
+        }
+    },
+    "name": "24K Magic",
+    "description": "In the Overworld, your flesh zombifies and your behavior changes.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/rotten_flesh.png",
+            "text": "In the Overworld, you have resistance to fire and you are considered \"undead\""
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/porkchop.png",
+            "text": "In the Nether, you have less health but you are quicker and have further proficiency with gold."
+        }
+    ]
+}
