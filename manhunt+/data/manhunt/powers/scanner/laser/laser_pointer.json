@@ -1,0 +1,507 @@
+{
+    "type": "origins:multiple",
+    "keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:scanner/laser/laser_pointer_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "tracked": {
+        "type": "origins:entity_set"
+    },
+    "scanned": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/scanner_scan1.png",
+        "strength": 1,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/scanner_scan2.png",
+        "strength": 1,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "overlay3": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/scanner_completed.png",
+        "strength": 1,
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "laser": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 50,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "outline",
+                    "fluid_handling": "none",
+                    "command_along_ray": "particle minecraft:dust_color_transition 1 1 1 0.6 1 1 0 ~ ~ ~ 0.1 0.1 0.1 1 10",
+                    "command_along_ray_only_on_hit": true,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runner",
+                                        "layer": "origins:origin"
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:in_set",
+                                        "set": "manhunt:scanner/laser/laser_pointer_tracked"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+                                            "change": 1
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "origins:action_on_set",
+                                                    "set": "manhunt:scanner/laser/laser_pointer_tracked",
+                                                    "bientity_action": {
+                                                        "type": "origins:remove_from_set",
+                                                        "set": "manhunt:scanner/laser/laser_pointer_tracked"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:add_to_set",
+                                                "set": "manhunt:scanner/laser/laser_pointer_tracked"
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+                                                    "change": 1,
+                                                    "operation": "set"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runner",
+                                        "layer": "origins:origin"
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "effect give @s minecraft:glowing 2 0 true",
+                                        "permission_level": 4
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add read_health",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:hunter",
+                                        "layer": "origins:origin"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s add tp_pointer",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    },
+                                    "else_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute store result score @s scanner_health run data get entity @s Health",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "title @a[tag=read_health] actionbar [\"\",{\"selector\":\"@s\",\"color\":\"dark_red\"},\"'s Vitals Indicate: [\",{\"score\":{\"name\":\"@s\",\"objective\":\"scanner_health\"},\"color\":\"red\"},\"HP]\"]",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove read_health",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s @p[tag=tp_pointer]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @p[tag=tp_pointer] remove tp_pointer",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.shulker.shoot player @a ~ ~ ~ 2 1.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.firework_rocket.blast player @a ~ ~ ~ 2 1.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.ender_dragon.hurt player @a ~ ~ ~ 2 2",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:scanner/solar_battery_energy",
+                                            "change": -40
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "compare_to": 40,
+                    "comparison": ">",
+                    "resource": "manhunt:scanner/solar_battery_energy"
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "beam": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "beam_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/laser/laser_pointer_beam",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.1 0 0.1 0.05 2",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/laser_pointer_beam",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_move": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/laser_pointer_beam",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_mouse": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/laser_pointer_beam",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "beamstrike": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~ 180",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.throw player @a ~ ~ ~ 10 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.beacon.activate player @a ~ ~ ~ 10 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:scanner/laser/laser_pointer_tracked",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add protocol_orbital",
+                            "permission_level": 4
+                        }
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"scanner_laser\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:0,interpolation_duration:0,Tags:[\"scanner_laser\"],brightness:{sky:10,block:10},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:red_stained_glass\",Count:1b}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~-2 ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:scanner/laser/first_laser",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [0.8f,300f,0.8f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s interpolation_duration set value 70",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/solar_battery_energy",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/laser/laser_pointer_beam",
+                    "change": 70
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+                    "change": -3
+                }
+            ]
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "compare_to": 100,
+                    "comparison": "==",
+                    "resource": "manhunt:scanner/solar_battery_energy"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.secondary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "name": "L4S3R-P01NT3R",
+    "description": "Fire a targeting laser for a large sum of power. The laser reveals Runner location and HP on contact, and allows you to teleport to other Hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The targeting laser has a 50 block range.\nNote: Radar Visor is useful for defining when Runners and Hunters are within range!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/scanner_icon.png",
+            "text": "Every time a runner is hit with the laser, you will get a scan tier.\nUpon reaching three, you can deploy your \"T3rm1n4l Pr0t0c0l\", nuking the runner's position in a 9x9 radius."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Consumes 40% of your Battery."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s and Left Click to shoot your laser!\nRight Click instead to deploy your Pr0t0c0l!"
+        }
+    ]
+}

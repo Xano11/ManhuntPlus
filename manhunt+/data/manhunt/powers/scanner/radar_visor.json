@@ -247,7 +247,7 @@
             ]
         },
         "key": {
-            "key": "key.origins.primary_active"
+            "key": "key.origins.secondary_active"
         },
         "condition": {
             "type": "origins:power_active",
@@ -283,7 +283,7 @@
             ]
         },
         "key": {
-            "key": "key.origins.primary_active"
+            "key": "key.origins.secondary_active"
         },
         "condition": {
             "type": "origins:power_active",
@@ -295,7 +295,7 @@
         "active_by_default": false,
         "retain_state": false,
         "key": {
-            "key": "key.origins.primary_active"
+            "key": "key.origins.secondary_active"
         },
         "condition": {
             "type": "origins:resource",
