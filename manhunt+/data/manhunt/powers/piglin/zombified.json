@@ -82,7 +82,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/rotten_flesh.png",
-			"text": "In the Overworld, you have resistance to fire and you are considered \"undead\""
+			"text": "In the Overworld, you have resistance to fire and you are considered \"undead\"."
 		},
 		{
 			"type": "origins:tooltip",
