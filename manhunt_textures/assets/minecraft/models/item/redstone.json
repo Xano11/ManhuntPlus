@@ -15,6 +15,12 @@
                 "custom_model_data": 2
             },
             "model": "manhunt:item/fortis_wave"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 3
+            },
+            "model": "manhunt:item/laser_wave"
         }
     ]
 }

@@ -1,4 +1,6 @@
 {
     "death.attack.bleeding": "%s bled out",
-    "death.attack.drown.player": "%s bled out trying to flee from %s"
+    "death.attack.bleeding.player": "%s bled out trying to flee from %s",
+    "death.attack.laser": "%s was desintegrated",
+    "death.attack.laser.player": "%s was desintegrated whilst trying to avoid %s"
 }
