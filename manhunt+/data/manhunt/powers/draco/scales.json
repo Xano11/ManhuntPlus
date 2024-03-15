@@ -386,7 +386,17 @@
     "mitigation": {
         "type": "origins:modify_damage_taken",
         "damage_condition": {
-            "type": "origins:attacker"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:attacker"
+                },
+                {
+                    "type": "origins:projectile",
+                    "projectile": "minecraft:spectral_arrow",
+                    "inverted": true
+                }
+            ]
         },
         "modifier": {
             "name": "scale",
@@ -405,7 +415,7 @@
         "modifier": {
             "name": "scaleless",
             "operation": "multiply_base_multiplicative",
-            "value": 0.25
+            "value": 0.3
         },
         "condition": {
             "type": "origins:resource",
@@ -413,6 +423,15 @@
             "comparison": "==",
             "compare_to": 0
         }
+    },
+    "recharge_delay": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:draco/scales_recharge",
+            "change": 400
+        },
+        "cooldown": 1
     },
     "change_render1": {
         "type": "origins:action_over_time",

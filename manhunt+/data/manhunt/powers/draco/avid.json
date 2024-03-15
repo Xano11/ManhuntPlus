@@ -15,6 +15,25 @@
             ]
         }
     },
+    "raw":{
+        "type": "origins:modify_food",
+        "item_condition":  {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:raw_meat"
+            }
+        },
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "addition",
+            "value": 1.0
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "addition",
+            "value": 0.1
+        }
+    },
     "exhaust": {
         "type": "origins:modify_exhaustion",
         "modifier": {
@@ -29,7 +48,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Avid: §l§c2x§r Exhaustion and Carnivore."
+            "text": "Avid: §l§c2x§r Exhaustion and Carnivore.\nIn return, raw meats give +1 food."
         }
     ]
 }

@@ -52,13 +52,13 @@
                     },
                     {
                         "type": "origins:if_else",
-                        "condition":  {
+                        "condition": {
                             "type": "origins:target_condition",
                             "condition": {
                                 "type": "origins:on_fire",
                                 "inverted": true
                             }
-                        },  
+                        },
                         "if_action": {
                             "type": "origins:target_action",
                             "action": {
@@ -89,6 +89,89 @@
                             "type": "origins:entity_type",
                             "entity_type": "minecraft:armor_stand",
                             "inverted": true
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shield"
+                                },
+                                "inverted": true
+                            }
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runners/draco",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "push_shield": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 3,
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:add_velocity",
+                        "z": 0.05
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:on_fire",
+                                "inverted": true
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 3 2",
+                                "permission_level": 4
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:set_on_fire",
+                            "duration": 3
+                        }
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:armor_stand",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shield"
+                                }
+                            }
                         },
                         {
                             "type": "origins:origin",

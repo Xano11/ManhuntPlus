@@ -36,13 +36,8 @@
             "type": "origins:area_of_effect",
             "radius": 3,
             "bientity_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:add_velocity",
-                        "z": 0.2
-                    }
-                ]
+                "type": "origins:add_velocity",
+                "z": 0.2
             },
             "bientity_condition": {
                 "type": "origins:target_condition",
@@ -51,6 +46,54 @@
                     "conditions": [
                         {
                             "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shield"
+                                }
+                            },
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runners/draco",
+                            "layer": "origins:runners",
+                            "inverted": true
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "push_shield": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 3,
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": 0.05
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shield"
+                                }
+                            }
                         },
                         {
                             "type": "origins:origin",

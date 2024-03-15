@@ -6,6 +6,16 @@
             "type": "origins:in_tag",
             "tag": "minecraft:is_projectile"
         },
+        "condition": {
+            "type": "origins:using_item",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:shield"
+                }
+            },
+            "inverted": true
+        },
         "modifier": {
             "name": "Weak to projectiles",
             "operation": "multiply_base_multiplicative",
