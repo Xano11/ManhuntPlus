@@ -39,7 +39,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:bomber/kamikaze_resource",
-                    "change": 1
+                    "change": 4
                 },
                 {
                     "type": "origins:execute_command",
@@ -57,7 +57,7 @@
             "key": "key.origins.secondary_active",
             "continuous": true
         },
-        "cooldown": 1,
+        "cooldown": 4,
         "hud_render": {
             "should_render": false
         },

@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "duration":{
+    "duration": {
         "type": "origins:resource",
         "min": 0,
         "max": 300,
@@ -18,7 +18,7 @@
         },
         "interval": 1
     },
-    "no_footsteps":{
+    "no_footsteps": {
         "type": "apugli:custom_footstep",
         "muted": true,
         "condition": {
@@ -28,7 +28,7 @@
             "compare_to": 0
         }
     },
-    "model":{
+    "model": {
         "type": "origins:model_color",
         "alpha": 0.1,
         "condition": {
@@ -38,7 +38,7 @@
             "compare_to": 0
         }
     },
-    "label":{
+    "label": {
         "type": "eggolib:modify_label_render",
         "render_mode": "hide_completely",
         "condition": {
@@ -48,7 +48,7 @@
             "compare_to": 0
         }
     },
-    "speed":{
+    "speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
@@ -64,7 +64,7 @@
             "compare_to": 0
         }
     },
-    "air_speed":{
+    "air_speed": {
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_base",
@@ -110,6 +110,17 @@
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 14
+        }
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:falconer/sneaky_duration",
+                "change": -300
+            }
         }
     },
     "name": "Sneaky Steps",

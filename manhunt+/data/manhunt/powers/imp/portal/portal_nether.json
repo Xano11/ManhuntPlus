@@ -1,0 +1,199 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "grow1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [0.8f,1.3f,1f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 300 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
+            "comparison": "==",
+            "compare_to": 580
+        }
+    },
+    "grow2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.1f,1.6f,1f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 300 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
+            "comparison": "==",
+            "compare_to": 560
+        }
+    },
+    "grow3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.5f,2.0f,1f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 300 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
+            "comparison": "==",
+            "compare_to": 540
+        }
+    },
+    "grow4": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.8f,2.3f,1f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 300 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
+            "comparison": "==",
+            "compare_to": 520
+        }
+    },
+    "grow5": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2.0f,2.5f,1f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 300 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.set_spawn player @a ~ ~ ~ 300 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.damage player @a ~ ~ ~ 300 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.break_block player @a ~ ~ ~ 300 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:landing_obsidian_tear ~ ~ ~ 10 0.5 10 1 500 force @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block_marker minecraft:nether_portal ~ ~ ~ 10 0.5 10 1 500 force @a"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/portal/portal_nether_duration",
+            "comparison": "==",
+            "compare_to": 500
+        }
+    },
+    "hidden": true
+}
