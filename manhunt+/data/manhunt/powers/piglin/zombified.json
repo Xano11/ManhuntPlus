@@ -51,6 +51,31 @@
 			]
 		}
 	},
+	"speed":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "More speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.20,
+            "operation": "multiply_total"
+        },
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether"
+		}
+    },
+    "air_speed":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.20
+        },
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether"
+		}
+    },
 	"name": "Zombified Flesh",
 	"description": "In the Overworld, your flesh zombifies and your behavior changes.",
 	"badges": [
@@ -62,7 +87,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/porkchop.png",
-			"text": "In the Nether, you have less health but you are quicker and have further proficiency with gold."
+			"text": "In the Nether, you have less health but you are 20% quicker."
 		}
 	]
 }

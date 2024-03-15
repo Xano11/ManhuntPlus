@@ -13,24 +13,45 @@
                         "inverted": true
                     },
                     "if_action": {
-                        "type": "origins:area_of_effect",
-                        "radius": 16,
-                        "shape": "sphere",
-                        "bientity_action": {
-                            "type": "origins:target_action",
-                            "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
                                 "type": "origins:execute_command",
-                                "command": "power grant @s manhunt:piglin/aura/fumes"
+                                "command": "playsound minecraft:item.bottle.fill_dragonbreath player @a ~ ~ ~ 3 1.3"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.squid.squirt player @a ~ ~ ~ 2 0.8"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:sneeze ~ ~1 ~ 0.3 0.3 0.3 0.3 40"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 0 0.5 0.2 1 0 0.3 0.05 ~ ~1 ~ 0.6 0.6 0.6 0.3 60"
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 16,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:piglin/aura/fumes"
+                                    }
+                                },
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:hunter",
+                                        "layer": "origins:origin"
+                                    }
+                                }
                             }
-                        },
-                        "bientity_condition": {
-                            "type": "origins:target_condition",
-                            "condition": {
-                                "type": "origins:origin",
-                                "origin": "manhunt:hunter",
-                                "layer": "origins:origin"
-                            }
-                        }
+                        ]
                     },
                     "else_action": {
                         "type": "origins:and",
@@ -91,12 +112,28 @@
             ]
         },
         "cooldown": 1800,
-        "key": "key.origins.primary_active",
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 5
-        }
+        "key": "key.origins.secondary_active",
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 21,
+                "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index": 5,
+                "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+            }
+        ]
     },
     "rally": {
         "type": "origins:resource",
@@ -185,18 +222,23 @@
             "compare_to": 0
         }
     },
-    "name": "Rotten Aura / Rally",
-    "description": "Keep your vigor in check by quickly healing yourself.",
+    "name": "Rotten Aura/Rally",
+    "description": "Spread your wretched presence or rally your friends to give the runner a run for it's money.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heal 4HP instantly and gain Absorption 1 for 5s."
+            "sprite": "minecraft:textures/mob_effect/poison.png",
+            "text": "In the Overworld, you spread rotten flammable gas to all hunters in a 16 block radius.\nIf a runner hits you, you will set them on fire."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "In the Nether, all hunters (and piglins) in a 16 block radius will have their speed increased by 30%.\nAdditionally, all piglins will target the closest runner."
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Activate with %s!"
+            "text": "Rally with %s!"
         },
         {
             "type": "origins:tooltip",

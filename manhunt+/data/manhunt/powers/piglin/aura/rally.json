@@ -96,5 +96,21 @@
             }
         }
     },
+    "speed":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "More speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.3,
+            "operation": "multiply_total"
+        }
+    },
+    "air_speed":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.3
+        }
+    },
     "hidden": true
 }
