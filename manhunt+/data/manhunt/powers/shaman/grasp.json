@@ -273,7 +273,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "After fully resting with Cursed Link (whilst in the totem radius),\nright-click highlighted teammates to pull them within a 96 block distance."
+            "text": "When fully rested with Cursed Link (whilst in the totem radius),\nright-click highlighted teammates to pull them to you within a 96 block distance.\nFellow Hunters glow when within range."
         }
     ]
 }
