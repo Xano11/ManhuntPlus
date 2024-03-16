@@ -81,7 +81,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s manhunt:celeritas/checkpoint/checkpoint_effects_duration 20"
+                    "command": "resource set @s manhunt:celeritas/checkpoint/checkpoint_effects_duration 1"
                 },
                 {
                     "type": "origins:execute_command",

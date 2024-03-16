@@ -95,7 +95,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Boon: 15s defense and attack speed up in a 24 block radius."
+            "text": "Boon: 15s of 30% more movement and +0.3 attack speed. (24 block radius)"
         },
         {
             "type": "origins:tooltip",

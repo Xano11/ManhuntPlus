@@ -1,0 +1,15 @@
+{
+    "type": "origins:multiple",
+    "tooltip_helmet": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:has_power",
+            "power": "manhunt:enchanter/recall/enchanted"
+        },
+        "text": {
+            "text": "Recalling I",
+            "color": "gray"
+        }
+    },
+    "hidden": true
+}
