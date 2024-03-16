@@ -12,7 +12,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0 0.3 0.1 1"
+                    "command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0.4 0.3 0.03 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.3 0.4 0.3 0.03 1"
                 }
             ]
         },
@@ -51,7 +55,15 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.sculk_sensor.clicking player @s ~ ~ ~ 2 0.5"
+                    "command": "playsound minecraft:entity.warden.nearby_closest player @s ~ ~ ~ 2 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.step player @s ~ ~ ~ 2 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.heartbeat player @s ~ ~ ~ 2 0"
                 }
             ]
         }
@@ -211,7 +223,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Cursed Link: Heal for half a heart every 0.75s\nWhilst resting, you take double damage."
+            "text": "Cursed Link: Heal for half a heart every 0.75s\nWhilst resting, you take double damage, cannot move, and have hindered vision.\nTakes 1s to start healing."
         },
         {
             "type": "origins:keybind",

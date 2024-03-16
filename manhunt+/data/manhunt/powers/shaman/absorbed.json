@@ -48,7 +48,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You do not regenerate outside of Cursed Link."
+            "text": "You do not regenerate outside of Cursed Link.\nTotem of Life can still be used to heal."
         }
     ]
 }
