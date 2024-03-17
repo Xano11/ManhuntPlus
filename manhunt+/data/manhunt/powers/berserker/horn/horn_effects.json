@@ -76,15 +76,6 @@
         },
         "interval": 10
     },
-    "armor": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increase armor",
-            "attribute": "minecraft:generic.armor",
-            "value": 3,
-            "operation": "addition"
-        }
-    },
     "more_atk_speed": {
         "type": "origins:attribute",
         "modifier": {
@@ -92,6 +83,22 @@
             "attribute": "minecraft:generic.attack_speed",
             "value": 0.3,
             "operation": "addition"
+        }
+    },
+    "speed":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "More speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.25,
+            "operation": "multiply_total"
+        }
+    },
+    "air_speed":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
         }
     },
     "particles": {

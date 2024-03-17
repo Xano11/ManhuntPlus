@@ -238,7 +238,7 @@
         "modifier": {
             "name": "Increase movement speed",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.3,
+            "value": 0.1,
             "operation": "multiply_total"
         },
         "condition": {
@@ -263,7 +263,7 @@
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.15
+            "value": 0.05
         },
         "condition": {
             "type": "origins:and",

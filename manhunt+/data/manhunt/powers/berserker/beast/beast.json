@@ -115,7 +115,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Unstoppable: 10 seconds of +3 damage and 30% more movement speed.\nAdditionally, you can use bleeding axe indefinitely."
+            "text": "Unstoppable: 10 seconds of +3 damage and 10% more movement speed.\nAdditionally, you can use bleeding axe indefinitely."
         },
         {
             "type": "origins:keybind",

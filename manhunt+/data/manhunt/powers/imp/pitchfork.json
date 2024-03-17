@@ -236,6 +236,37 @@
             "compare_to": 1
         }
     },
+    "immunity":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "minecraft:in_wall"
+        }
+    },
+    "immune": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "immune_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:imp/pitchfork_immune",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_immune",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -258,6 +289,11 @@
             "actions": [
                 {
                     "type": "origins:dismount"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:imp/pitchfork_immune",
+                    "change": 30
                 }
             ]
         },

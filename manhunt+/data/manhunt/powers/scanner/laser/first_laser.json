@@ -71,13 +71,6 @@
                                 ]
                             }
                         }
-                    },
-                    "bientity_condition": {
-                        "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:dimension",
-                            "dimension": "minecraft:overworld"
-                        }
                     }
                 },
                 {
