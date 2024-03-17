@@ -96,7 +96,22 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.anvil.place player @a ~ ~ ~ 3 2",
+                    "command": "playsound minecraft:ui.toast.in player @a ~ ~ ~ 3 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.snowball.throw player @a ~ ~ ~ 3 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.firework_rocket.launch player @a ~ ~ ~ 3 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:smoke ~ ~2.1 ~ 0.3 0 0.3 0.08 20",
                     "permission_level": 4
                 },
                 {
@@ -126,7 +141,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Thrown hunters do not take fall damage. You can also pick up most living entities and primed TNT."
+            "text": "Thrown hunters do not take fall damage. You can also pick up most living entities and primed TNT.\nPicking up and Throwing entities are two seperate actions. You may carry entities however long you wish!"
         },
         {
             "type": "origins:keybind",

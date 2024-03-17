@@ -13,12 +13,22 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.4 0.4 0.4 0.5 100",
+                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.4 0.4 0.4 0.1 15",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 1 1 1 0 0.7 1 ~ ~1 ~ 0.7 0.7 0.7 1 30",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.beacon.activate player @a ~ ~ ~ 4 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~ ~ 3 1.5",
                     "permission_level": 4
                 },
                 {
@@ -72,7 +82,12 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.4 0.4 0.4 0.2 1",
+                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.4 0.5 0.4 0.1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 1 1 1 0 0.7 1 ~ ~1 ~ 0.7 0.7 0.7 1 2",
                     "permission_level": 4
                 }
             ]
