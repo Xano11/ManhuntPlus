@@ -7,7 +7,7 @@
             "value": -1
         },
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
                     "type": "apugli:key_pressed",
@@ -18,23 +18,10 @@
                     "inverted": true
                 },
                 {
-                    "type": "apugli:entity_in_radius",
-                    "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "apoli:entity_type",
-                                "entity_type": "minecraft:armor_stand"
-                            },
-                            {
-                                "type": "origins:power",
-                                "power": "manhunt:shaman/totem/totem_powers"
-                            }
-                        ]
-                    },
-                    "radius": 8.0,
-                    "comparison": ">=",
-                    "compare_to": 1
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=totem,type=minecraft:block_display,distance=..8]",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }

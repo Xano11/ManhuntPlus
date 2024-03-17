@@ -7,8 +7,8 @@
         "manhunt:damned/bone_arms"
 	],
 	"icon": {
-		"item": "minecraft:bone",
-		"tag": "{Enchantments:[{}]}"
+		"item": "minecraft:bow",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
 	"impact": 3,

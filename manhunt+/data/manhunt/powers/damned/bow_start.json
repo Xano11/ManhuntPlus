@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s minecraft:bow{Unbreakable:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]}"
+                    "command": "give @s minecraft:bow{Unbreakable:1,CustomModelData:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]}"
                 },
                 {
                     "type": "origins:execute_command",
