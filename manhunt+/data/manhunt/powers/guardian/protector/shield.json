@@ -25,10 +25,21 @@
     "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:execute_command",
-            "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.01 3"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.4 0.3 0.02 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 1 1 1 0 0.7 1 ~ ~1 ~ 0.3 0.4 0.3 1 2",
+                    "permission_level": 4
+                }
+            ]
         },
-        "interval": 4
+        "interval": 5
     },
     "kb_resistance":{
         "type": "origins:attribute",
