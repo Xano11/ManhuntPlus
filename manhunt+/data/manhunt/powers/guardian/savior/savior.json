@@ -226,7 +226,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "After 5 seconds, those that accepted will teleport to you and be healed.\n(Taking damage whilst casting the teleport will cancel it)"
+            "text": "After 5 seconds, those that accepted will teleport to you and be healed 4 Hearts.\n(Taking damage whilst casting the teleport will cancel it)"
         },
         {
             "type": "origins:keybind",
