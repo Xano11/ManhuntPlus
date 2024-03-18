@@ -40,7 +40,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You sink in water and lose all movement underwater."
+            "text": "You sink and cannot move underwater.\nYou can still use your flight, however."
         }
     ]
 }
