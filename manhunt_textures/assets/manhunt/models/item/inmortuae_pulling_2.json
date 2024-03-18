@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "manhunt:item/inmortuae_pulling_2"
+    }
+}

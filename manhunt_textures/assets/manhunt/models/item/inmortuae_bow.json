@@ -30,22 +30,21 @@
             "predicate": {
                 "pulling": 1
             },
-            "model": "manhunt:item/inmortuae_bow_pulling_0"
+            "model": "manhunt:item/inmortuae_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.65
             },
-            "model": "manhunt:item/inmortuae_bow_pulling_1"
+            "model": "manhunt:item/inmortuae_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.9
             },
-            "model": "manhunt:item/inmortuae_bow_pulling_2"
-        },
-        
+            "model": "manhunt:item/inmortuae_pulling_2"
+        }
     ]
 }
