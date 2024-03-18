@@ -26,7 +26,13 @@
         "hud_render": {
             "should_render": true,
             "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
-            "bar_index": 2
+            "bar_index": 2,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:berserker/beast/beast_effects_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
         },
         "min_action": {
             "type": "origins:and",
@@ -39,6 +45,11 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:berserker/beast/beast_effects_weaker",
                     "change": 140
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+                    "change": 3
                 }
             ]
         }
@@ -65,6 +76,73 @@
             "command": "power remove @s manhunt:berserker/beast/beast_effects"
         }
     },
+    "cycle_anim": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+            "change": 3
+        }
+    },
+    "cycle_tick":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+            "change": -1
+        },
+        "interval": 4,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "weaker_display_bar": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": [
+            {
+                "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
+                "bar_index": 3,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+                    "comparison": "==",
+                    "compare_to": 3
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
+                "bar_index": 4,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
+                "bar_index": 5,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_cycle_anim",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            }
+        ]
+    },
     "weaker_tick":{
         "type": "origins:action_over_time",
         "entity_action": {
@@ -90,29 +168,42 @@
         }
     },
     "slower_air": {
-        "type": "origins:modify_velocity",
-        "axes": [
-            "z",
-            "x"
-        ],
+        "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
             "value": -0.15
         },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:berserker/beast/beast_effects_weaker",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "weak_particle": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 0.5 0 0 0.8 0 0 0 ~ ~1 ~ 0.3 0.3 0.3 1 2",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "swirl":{
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/berserker_weak.png",
+        "speed": 0.01,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "hits": {

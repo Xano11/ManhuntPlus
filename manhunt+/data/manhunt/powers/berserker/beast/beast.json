@@ -97,6 +97,11 @@
         "cooldown": 10,
         "hud_render": {
             "should_render": false
+        },
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:berserker/beast/beast_effects",
+            "inverted": true
         }
     },
     "name": "THE BEAST INSIDE",
