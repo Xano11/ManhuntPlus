@@ -7,7 +7,7 @@
 		"origins:vegetarian"
 	],
 	"icon": {
-		"item": "minecraft:observer",
+		"item": "minecraft:redstone_torch",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
