@@ -1,0 +1,7 @@
+{
+    "function": "apoli:add_power",
+    "power": "manhunt:enchanter/glass/enchanted",
+    "slot": "chest",
+    "negative": false,
+    "hidden": true
+}

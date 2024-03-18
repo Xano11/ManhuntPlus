@@ -1,0 +1,5 @@
+{
+    "function": "apoli:remove_power",
+    "power": "manhunt:enchanter/glass/enchanted",
+    "slot": "chest"
+}
