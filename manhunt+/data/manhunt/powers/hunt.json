@@ -717,6 +717,10 @@
                                     {
                                         "type": "origins:execute_command",
                                         "command": "playsound minecraft:entity.wither.spawn player @a ~ ~ ~ 3 2"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s add started_game"
                                     }
                                 ]
                             }

@@ -1,0 +1,89 @@
+{
+    "type": "origins:multiple",
+    "phase": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "phase_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3600,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "phase_timer_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:difficulty_phase_timer",
+            "change": 1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=started_game]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=phases_enabled]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "easy_phase": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "function manhunt:phases/easy"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:difficulty_phase_timer",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "normal_phase": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "function manhunt:phases/normal"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:difficulty_phase_timer",
+            "comparison": "==",
+            "compare_to": 1800
+        }
+    },
+    "hard_phase": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "function manhunt:phases/hard"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:difficulty_phase_timer",
+            "comparison": "==",
+            "compare_to": 3600
+        }
+    }
+}

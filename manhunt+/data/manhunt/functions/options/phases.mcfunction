@@ -1,0 +1,3 @@
+gamerule sendCommandFeedback false
+tellraw @s ["","Allow Phases?","\n","[",{"text":"TRUE","bold":true,"color":"dark_green","clickEvent":{"action":"run_command","value":"/function manhunt:options/phases_on"},"hoverEvent":{"action":"show_text","contents":[{"text":"Turns \"Phases\" on","italic":true}]}},"]  [",{"text":"FALSE","bold":true,"color":"dark_red","clickEvent":{"action":"run_command","value":"/function manhunt:options/phases_off"},"hoverEvent":{"action":"show_text","contents":[{"text":"Turns \"Phases\" off","italic":true}]}},"]","\n",{"text":"Adds phases to increase the game's speed.","italic":true,"color":"gray"},"\n"]
+schedule function manhunt:feedback 1t append
