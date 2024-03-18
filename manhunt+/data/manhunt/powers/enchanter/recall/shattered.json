@@ -1,0 +1,153 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:has_power",
+                            "power": "manhunt:enchanter/recall/enchanted"
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:damage",
+                                    "amount": 150,
+                                    "ignore_unbreaking": true
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add shatter"
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@a",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tp @p[tag=shatter] @s",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "bientity_condition": {
+                                    "type": "origins:invert",
+                                    "condition": {
+                                        "type": "origins:in_set",
+                                        "set": "manhunt:global_runner_shatter"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove shatter"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove shatter_recall"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:enchanter/recall/shattered"
+                }
+            ]
+        }
+    },
+    "sound": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 1 1.3",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/recall/shattered_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "enchant_color": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "color_switch": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:enchanter/recall/shattered_enchant_color",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:enchanter/recall/shattered_enchant_color",
+                "change": -1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:enchanter/recall/shattered_enchant_color",
+                "change": 1
+            }
+        },
+        "interval": 3
+    },
+    "glow_blue": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0.3,
+        "green": 0.0,
+        "blue": 1.0,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:enchanter/recall/shattered_enchant_color",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "glow_purple": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 1.0,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:enchanter/recall/shattered_enchant_color",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "hidden": true
+}

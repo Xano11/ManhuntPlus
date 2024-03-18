@@ -28,25 +28,17 @@
         "min": 0,
         "max": 100,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png"
         }
     },
     "energy_up": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:enchanter/arcane_energy",
-                    "change": 1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute store result score @s enchanter_stone_energy run resource get @s manhunt:enchanter/arcane_energy",
-                    "permission_level": 4
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/arcane_energy",
+            "change": 1
         },
         "interval": 20,
         "condition": {
@@ -83,7 +75,7 @@
         }
     },
     "tooltip_stone": {
-        "type": "eggolib:tooltip",
+        "type": "origins:tooltip",
         "item_condition": {
             "type": "origins:and",
             "conditions": [
@@ -99,26 +91,72 @@
                 }
             ]
         },
-        "text": [
-            {
-                "text": "Energy:",
-                "color": "dark_purple"
-            },
-            {
-                "score": {
-                    "name": "@s",
-                    "objective": "enchanter_stone_energy"
+        "texts": [
+            [
+                {
+                    "text": "Left-Click to make "
                 },
-                "color": "light_purple",
-                "bold": true
-            },
-            {
-                "text": "%",
-                "color": "light_purple",
-                "bold": true
+                {
+                    "text": "RECALLING",
+                    "color": "light_purple"
+                }
+            ],
+            [
+                {
+                    "text": "Right-Click to make "
+                },
+                {
+                    "text": "GLASS SHIELD",
+                    "color": "light_purple"
+                }
+            ]
+        ]
+    },
+    "shear_books": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:enchanted_book"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"recalling_book\"]}"
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:shears"
             }
-        ],
-        "tick_rate": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:leather 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:paper 6"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.book.page_turn player @a ~ ~ ~ 0.6 1.5"
+                }
+            ]
+        },
+        "click_type": "primary",
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
     },
     "name": "Knowledge of the Unseen",
     "description": "\"I never understood how others don't see the energy that inhabits the 'inanimate'... What a conundrum.\"",
