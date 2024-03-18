@@ -443,6 +443,10 @@
                                             "type": "origins:and",
                                             "actions": [
                                                 {
+                                                    "type": "origins:set_fall_distance",
+                                                    "fall_distance": 0
+                                                },
+                                                {
                                                     "type": "origins:execute_command",
                                                     "command": "playsound minecraft:block.chain.hit player @a ~ ~ ~ 1 0.5",
                                                     "permission_level": 4
@@ -503,6 +507,42 @@
                 }
             ]
         }
+    },
+    "grapple_glow":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:in_set",
+                    "set": "manhunt:falconer/falcon/forth_osha"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 24
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:passenger",
+            "bientity_condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:parrot"
+                }
+            },
+            "compare_to": 0,
+            "comparison": "=="
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.0
     },
     "scout": {
         "type": "origins:active_self",
