@@ -45,11 +45,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a[tag=!playing] run origin set @s origins:origin manhunt:hunter"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "recipe give @s *"
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run origin set @s origins:origin manhunt:hunter"
                 },
                 {
                     "type": "origins:execute_command",
@@ -57,11 +53,19 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run recipe give @s *"
+                }, 
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @a[tag=!playing,tag=!spectating] compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:1,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "execute as @a[tag=!playing,tag=!spectating] run tag @s add playing"
                 }
             ]
         },
-        "interval": 5,
+        "interval": 1,
         "condition": {
             "type": "origins:and",
             "conditions": [

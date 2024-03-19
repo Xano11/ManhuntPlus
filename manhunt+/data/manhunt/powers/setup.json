@@ -7,9 +7,18 @@
                 "type": "origins:spawn_entity",
                 "entity_type": "minecraft:armor_stand",
                 "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"setup\"]}",
-                "entity_action":{
-                    "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:hunt"
+                "entity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:hunt"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:difficulty"
+                        }
+                    ]
                 }
             },
             {
