@@ -14,7 +14,7 @@
         },
         {
             "type": "origins:keybind",
-            "text": "Load your crossbow with %s! Must be used on a arrow-loaded crossbow!",
+            "text": "Load your crossbow with \"%s\"! Must be used on a arrow-loaded crossbow!",
             "sprite": "origins:textures/gui/badge/toggle.png"
         },
         {

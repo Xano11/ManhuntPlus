@@ -882,7 +882,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Charge by pressing %s!"
+            "text": "Charge by pressing \"%s\"!"
         },
         {
             "type": "origins:tooltip",

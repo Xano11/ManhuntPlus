@@ -75,7 +75,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger with %s!"
+            "text": "Trigger with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

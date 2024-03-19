@@ -271,7 +271,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Press %s to unleash your rage!"
+            "text": "Press \"%s\" to unleash your rage!"
         },
         {
             "type": "origins:tooltip",

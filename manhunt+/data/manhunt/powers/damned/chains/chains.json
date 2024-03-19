@@ -196,7 +196,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Chain with %s!"
+            "text": "Chain with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

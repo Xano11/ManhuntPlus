@@ -315,7 +315,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Toggle with %s!"
+            "text": "Toggle with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

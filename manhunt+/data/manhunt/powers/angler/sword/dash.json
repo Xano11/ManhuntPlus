@@ -364,8 +364,23 @@
         },
         {
             "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" with the SwordFish in hand to Dash!"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown between dash: 5s\nBut, hitting an entity will allow an instant recast."
+            "text": "Cooldown between dash: 5s\nBut hitting an entity will allow an instant recast."
         }
     ]
 }

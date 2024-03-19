@@ -260,7 +260,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Draw a Card with %s!"
+            "text": "Draw a Card with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

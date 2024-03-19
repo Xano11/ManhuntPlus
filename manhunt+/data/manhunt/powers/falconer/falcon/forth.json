@@ -814,9 +814,27 @@
             "text": "Osha is your trusted companion! On your shoulder, he can be ordered to do two things:\n\n§l§eLEND§r will send Osha forward. After a short while, he will stop and let you grapple to him! Pressing the same key will grapple.\n\n§l§6SCOUT§r will send Osha to find the closest runner and reveal their position to you."
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s to summon Osha to your shoulder!\nLeft click to use §l§eLEND§r\nRight click to use §l§6SCOUT§r\n(Press sneak twice to recall Osha!)\n(Osha can't be sent to scout in the Nether)"
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" to summon Osha to your shoulder!\n",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to use §l§eLEND§r\n\"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to use §l§6SCOUT§r\n(Press \"",
+                {
+                    "keybind": "key.sneak"
+                },
+                "\" twice to recall Osha!)\n(Osha can't be sent to scout in the Nether)"
+            ]
         },
         {
             "type": "origins:tooltip",

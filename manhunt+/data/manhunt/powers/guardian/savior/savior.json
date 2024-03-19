@@ -231,7 +231,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Drag them with %s!"
+            "text": "Drag them with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

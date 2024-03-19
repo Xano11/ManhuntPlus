@@ -95,7 +95,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Make everyone mad with %s!"
+            "text": "Make everyone mad with \"%s\"!"
         },
 		{
 			"type": "origins:tooltip",

@@ -53,7 +53,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Heal with %s!"
+            "text": "Heal with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

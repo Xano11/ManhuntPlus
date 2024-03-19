@@ -287,12 +287,18 @@
         }
     },
     "name": "Arcane: Recall",
-    "description": "\"I never understood how others don't see the energy that inhabits the 'inanimate'... What a conundrum.\"",
+    "description": "\"Resonance... Is it that I feel?\" Using the Enchanter's stone, you can summon your all enchanted hunters.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/absorption.png",
-            "text": "Taking damage from hunters or hitting a damage cap from Majestic Guard:\n\nAbility cooldowns: -5s\n+30% Stamina meter"
+            "sprite": "manhunt:textures/item/enchanter_book.png",
+            "text": [
+                "Whilst in your inventory, hover with the stone and press \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" to create a Recalling book."
+            ]
         },
         {
             "type": "origins:tooltip",

@@ -287,7 +287,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s to deploy your cape!"
+            "text": "Hold \"%s\" to deploy your cape!"
         }
     ]
 }

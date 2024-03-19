@@ -203,7 +203,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Launch your empty head with %s!"
+            "text": "Launch your empty head with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

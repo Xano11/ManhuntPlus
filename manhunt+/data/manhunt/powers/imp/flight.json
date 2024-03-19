@@ -114,7 +114,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Fly with %s!"
+            "text": "Fly with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

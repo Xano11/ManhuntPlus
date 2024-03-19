@@ -26,20 +26,6 @@
         },
         "interval": 10
     },
-    "keybind": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:trigger_cooldown",
-            "power": "manhunt:survivalist/bomb/throw_keybind"
-        },
-        "cooldown": 1,
-        "hud_render": {
-            "should_render": false
-        },
-        "key": {
-            "key": "key.origins.primary_active"
-        }
-    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -117,9 +103,19 @@
     "description": "Deploy a makeshift bomb that destroys blocks.",
     "badges": [
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s and right click to throw your bomb!"
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to throw your bomb!"
+            ]
         },
         {
             "type": "origins:tooltip",

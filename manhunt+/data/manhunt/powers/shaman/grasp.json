@@ -271,9 +271,15 @@
     "description": "Whilst in the totem and fully reposed, you can teleport teammates to you.",
     "badges": [
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "When fully rested with Cursed Link (whilst in the totem radius),\nright-click highlighted teammates to pull them to you within a 96 block distance.\nFellow Hunters glow when within range."
+            "text": [
+                "When fully rested with Cursed Link whilst in the totem radius, \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" highlighted teammates to pull them to you within a 96 block distance.\nFellow Hunters glow when within range."
+            ]
         }
     ]
 }

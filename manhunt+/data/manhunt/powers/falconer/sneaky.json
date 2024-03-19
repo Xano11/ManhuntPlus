@@ -134,7 +134,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Go sneaky with %s!"
+            "text": "Go sneaky with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

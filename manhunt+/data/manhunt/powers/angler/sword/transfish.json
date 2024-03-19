@@ -288,7 +288,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Turn any fish into a weapon of war with %s!"
+            "text": "Turn any fish into a weapon of war with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

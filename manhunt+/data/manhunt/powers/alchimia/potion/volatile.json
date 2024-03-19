@@ -301,9 +301,19 @@
             "text": "Use the potions to move at extreme speeds or push hunters away!"
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s to shake! Right click to throw the potion."
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" to shake! \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to throw the potion."
+            ]
         }
     ]
 }

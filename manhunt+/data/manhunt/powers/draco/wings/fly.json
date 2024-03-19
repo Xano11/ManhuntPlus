@@ -1,19 +1,5 @@
 {
     "type": "origins:multiple",
-    "keybind": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:trigger_cooldown",
-            "power": "manhunt:draco/wings/fly_keybind"
-        },
-        "cooldown": 1,
-        "hud_render": {
-            "should_render": false
-        },
-        "key": {
-            "key": "key.origins.primary_active"
-        }
-    },
     "wings": {
         "type": "origins:elytra_flight",
         "render_elytra": true,
@@ -1068,9 +1054,23 @@
             "text": "Wyvern Wings is split into two different abilities:\n\nGust: Push air forward to knock away those in your path and push yourself backwards.\nLunge: You leap forward and grant yourself an addition +2 amount of damage if hit in the correct timing.\n(Indicated by a sound cue and cursor change)"
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s and press Left Click to push air forward!\nHold the same key and press Right Click to lunge!"
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and press \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to push air forward!\nHold the same key and press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to lunge!"
+            ]
         },
         {
             "type": "origins:tooltip",

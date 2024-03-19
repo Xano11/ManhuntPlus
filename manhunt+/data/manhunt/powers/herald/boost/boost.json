@@ -120,7 +120,7 @@
 		{
 			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/toggle.png",
-			"text": "Release aura with %s!"
+			"text": "Release aura with \"%s\"!"
 		},
 		{
 			"type": "origins:tooltip",

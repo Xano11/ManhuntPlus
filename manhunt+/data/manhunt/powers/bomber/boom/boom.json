@@ -192,9 +192,19 @@
             "text": "Boompacks detonate by themselves after 3 seconds."
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s and Left click to throw a boompack!\nTo detonate, press the same keys."
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to throw a boompack!\nTo detonate, press the same keys."
+            ]
         },
         {
             "type": "origins:tooltip",

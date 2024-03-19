@@ -91,7 +91,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Summon with %s!"
+            "text": "Summon with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

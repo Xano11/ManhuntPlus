@@ -406,9 +406,19 @@
             "text": "You are granted 40% additional speed if your eye is currently looking at a runner."
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Summon or control your eye with %s!\nSneak and hold the key to retrieve it!"
+            "text": [
+                "Summon or control your eye with \"",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "\"\n\"",
+                {
+                    "keybind": "key.sneak"
+                },
+                "\" and hold the key to retrieve it!"
+            ]
         }
     ]
 }

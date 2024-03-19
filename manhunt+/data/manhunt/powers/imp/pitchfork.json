@@ -556,7 +556,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Whilst holding your trident, press %s to incarnate your next trident throw!]\n(Doesn't work whilst sneaking)"
+            "text": "Whilst holding your trident, press \"%s\" to incarnate your next trident throw!]\n(Doesn't work whilst sneaking)"
         },
         {
             "type": "origins:tooltip",

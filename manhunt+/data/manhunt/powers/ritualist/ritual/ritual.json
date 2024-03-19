@@ -211,9 +211,19 @@
             "text": "Echoing Souls: Preyed Runners allow you to teleport to any living entity in a 24 block radius of them."
         },
         {
-			"type": "origins:keybind",
-			"sprite": "origins:textures/gui/badge/toggle.png",
-			"text": "Hold %s to start the ritual!\n Left click to select a glowing runner/entity.\nMarking a runner consumes 7 souls."
-		}
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "\" to start the ritual!\n\"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to select a glowing runner/entity.\nMarking a runner consumes 7 souls."
+            ]
+        }
     ]
 }

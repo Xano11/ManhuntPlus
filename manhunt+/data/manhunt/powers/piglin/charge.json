@@ -111,7 +111,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Charge with %s!"
+            "text": "Charge with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

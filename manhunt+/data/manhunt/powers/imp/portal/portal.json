@@ -173,7 +173,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Open the portal with %s!"
+            "text": "Open the portal with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

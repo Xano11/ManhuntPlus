@@ -4,6 +4,7 @@
 		"manhunt:enchanter/glass/book",
 		"manhunt:enchanter/vanish/activate",
         "manhunt:enchanter/arcane"
+
 	],
 	"icon": {
 		"item": "minecraft:enchanted_book",

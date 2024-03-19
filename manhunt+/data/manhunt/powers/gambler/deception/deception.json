@@ -78,7 +78,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Place lodestone with %s!"
+            "text": "Place lodestone with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

@@ -228,7 +228,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s to let your body rest."
+            "text": "Hold \"%s\" to let your body rest."
         }
     ]
 }

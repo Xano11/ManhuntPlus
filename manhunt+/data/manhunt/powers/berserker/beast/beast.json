@@ -125,7 +125,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Unleash with %s!"
+            "text": "Unleash with \"%s\"!"
         }
     ]
 }

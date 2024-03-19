@@ -146,7 +146,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Pickup by sneaking and interacting.\nThrow with %s!"
+            "text": "Pickup by sneaking and interacting.\nThrow with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

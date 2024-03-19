@@ -1,27 +1,7 @@
 {
     "name": "Grand Arcane: Vanish",
-    "description": "\"Studying \"Curse of Vanishing\" has led to... interesting discoveries.\"\nSend forward vanishing energy to teleport yourself forward.",
-    "badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Upon hitting a block, it will trigger the teleport."
-        },
-        {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Vanish with %s!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 20s"
-        }
-    ],
+    "description": "You can teleport in front of you in the blink of an eye.",
     "type": "origins:multiple",
-    "slash":{
-        "type":"origins:entity_set"
-    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -87,7 +67,7 @@
                 }
             ]
         },
-        "cooldown": 400,
+        "cooldown": 300,
         "key": {
             "key": "key.origins.primary_active",
             "continuous": false

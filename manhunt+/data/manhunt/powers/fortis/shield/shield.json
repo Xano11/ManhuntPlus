@@ -272,7 +272,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Whilst using a shield, slam/bash with %s!"
+            "text": "Whilst using a shield, slam/bash with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

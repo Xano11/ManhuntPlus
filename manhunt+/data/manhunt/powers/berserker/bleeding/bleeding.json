@@ -411,7 +411,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold %s to charge your axe!"
+            "text": "Hold \"%s\" to charge your axe!"
         }
     ]
 }

@@ -40,7 +40,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Let the voices speak with %s!"
+            "text": "Let the voices speak with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

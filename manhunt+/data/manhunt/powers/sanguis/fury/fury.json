@@ -61,7 +61,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Unleash your fury with %s!"
+            "text": "Unleash your fury with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

@@ -431,7 +431,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold a pickaxe in your mainhand and dig with %s!"
+            "text": "Hold a pickaxe in your mainhand and dig with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

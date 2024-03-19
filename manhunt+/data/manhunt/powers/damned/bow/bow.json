@@ -469,7 +469,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Warp with %s!"
+            "text": "Warp with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

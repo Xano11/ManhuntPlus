@@ -256,7 +256,7 @@
         {
             "type": "origins:keybind",
             "sprite": "minecraft:textures/item/gold_ingot.png",
-            "text": "Barter by holding a gold ingot and pressing %s!"
+            "text": "Barter by holding a gold ingot and pressing \"%s\"!"
         }
     ]
 }

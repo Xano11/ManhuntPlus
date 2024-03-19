@@ -357,7 +357,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Use boots with %s!"
+            "text": "Use boots with \"%s\"!"
         }
     ]
 }

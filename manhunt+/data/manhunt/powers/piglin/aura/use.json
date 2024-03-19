@@ -238,7 +238,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Rally with %s!"
+            "text": "Rally with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

@@ -172,10 +172,20 @@
             "sprite": "origins:textures/gui/badge/star.png",
             "text": "(Can be used to negate fall damage when used near the ground.)\n(Also doesn't work in water/lava)"
         },
-        {
-            "type": "origins:keybind",
+		{
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Dash with %s!\nPress \"JUMP\" in the air to do a second dash before hitting the ground!"
+            "text": [
+                "Dash with \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\"\nPress \"",
+                {
+                    "keybind": "key.jump"
+                },
+                "\" in the air to do a second dash before hitting the ground!"
+            ]
         },
         {
             "type": "origins:tooltip",

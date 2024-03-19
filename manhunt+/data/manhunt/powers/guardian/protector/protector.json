@@ -125,7 +125,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Whilst using a shield, press %s to use!"
+            "text": "Whilst using a shield, press \"%s\" to use!"
         },
         {
             "type": "origins:tooltip",

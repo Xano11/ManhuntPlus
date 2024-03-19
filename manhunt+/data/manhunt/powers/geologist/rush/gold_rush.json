@@ -10,7 +10,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold a pickaxe in your mainhand and cull with %s!"
+            "text": "Hold a pickaxe in your mainhand and cull with \"%s\"!"
         },
         {
             "type": "origins:tooltip",

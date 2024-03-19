@@ -63,7 +63,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "+40+ Invincibility frames"
+            "text": "+40% Invincibility frames"
         }
     ]
 }

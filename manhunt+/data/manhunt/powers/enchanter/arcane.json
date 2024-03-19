@@ -163,13 +163,18 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/absorption.png",
-            "text": "Taking damage from hunters or hitting a damage cap from Majestic Guard:\n\nAbility cooldowns: -5s\n+30% Stamina meter"
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "3x Experience Gain"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "+40+ Invincibility frames"
+            "sprite": "manhunt:textures/item/enchanter_stone.png",
+            "text": "You have access to a special relic: The Enchanter's Stone.\nUsing this relic, you can create two special books: Recalling and Glass Shield.\n\nUsing your abilities will require Enchanting Energy.\n(1% per second)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/shears.png",
+            "text": "Using shears on one of your special books, you are able to collect its many pages.\n(Six paper and one leather)"
         }
     ]
 }
