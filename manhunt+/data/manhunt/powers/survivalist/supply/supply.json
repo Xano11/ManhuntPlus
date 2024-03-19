@@ -180,7 +180,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Press %s to deploy the flare!"
+            "text": "Press \"%s\" to deploy the flare!"
         },
         {
             "type": "origins:tooltip",
