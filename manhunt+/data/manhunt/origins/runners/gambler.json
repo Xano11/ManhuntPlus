@@ -4,7 +4,8 @@
         "manhunt:gambler/deception/deception",
 		"manhunt:gambler/curse",
 		"manhunt:gambler/devil",
-		"manhunt:gambler/hydrophobe"
+		"manhunt:gambler/hydrophobe",
+		"manhunt:gambler/lucky"
 	],
 	"icon": {
 		"item": "minecraft:filled_map",

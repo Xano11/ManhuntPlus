@@ -1,0 +1,28 @@
+{
+    "type": "origins:multiple",
+    "fortune": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:fortune",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        }
+    },
+    "looting": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        }
+    },
+    "name": "Luck of Dream(s)",
+    "description": "Some say that gambling is a skill... and they're right.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Looting I + Fortune I"
+        }
+    ]
+}
