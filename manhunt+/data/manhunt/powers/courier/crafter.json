@@ -1,0 +1,30 @@
+{
+    "type": "origins:multiple",
+    "craft":{
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "manhunt:courier/sack",
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                {
+                    "item": "minecraft:leather"
+                },
+                {
+                    "item": "minecraft:leather"
+                }
+            ],
+            "result": {
+                "item": "minecraft:bundle"
+            }
+        }
+    },
+    "name": "Sack Crafter",
+    "description": "Structure is important in your inventory and you got a solution for that.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/bundle.png",
+            "text": "You can craft bundles with 2 leather."
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "type": "origins:multiple",
+    "reach":{
+        "type": "origins:attribute",
+        "modifiers": [
+          {
+            "name": "Less block reach",
+            "attribute": "reach-entity-attributes:reach",
+            "value": -0.5,
+            "operation": "addition"
+          },
+          {
+            "name": "Less entity reach",
+            "attribute": "reach-entity-attributes:attack_range",
+            "value": -0.5,
+            "operation": "addition"
+          }
+        ]
+    },
+    "name": "Fulfilled Hands",
+    "description": "While you have a capable reach for items and allies, your attacks do not retain this property.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(-0.5 reach)"
+        }
+    ]
+}

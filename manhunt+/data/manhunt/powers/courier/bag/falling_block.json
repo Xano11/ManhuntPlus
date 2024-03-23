@@ -1,0 +1,111 @@
+{
+    "type": "origins:multiple",
+    "rotation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/bag/falling_block_rotation",
+            "change": -360
+        }
+    },
+    "rotate": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:delay",
+            "ticks": 4,
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:choice",
+                        "actions": [
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run item replace entity @s container.0 with stone"
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run item replace entity @s container.0 with cobblestone"
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run item replace entity @s container.0 with blackstone"
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run item replace entity @s container.0 with oak_planks"
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run item replace entity @s container.0 with netherrack"
+                                },
+                                "weight": 10
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:reverse_portal ~ ~3 ~ 0 0 0 5 20"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:dust_color_transition 1 0 1 1 0 0 0 ~ ~3 ~ 0.4 0.1 0.4 5 20"
+                    }
+                ]
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/bag/falling_block_rotation",
+                    "change": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=armor_stand] manhunt:courier/bag/falling_block_rotation"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~3 ~ 0 0 0 1 1 force @a"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "ded": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "execute on passengers run kill @s"
+            }
+        }
+    },
+    "fall": {
+        "type": "origins:modify_falling",
+        "velocity": 0.01,
+        "take_fall_damage": false
+    }
+}

@@ -29,7 +29,8 @@
         "manhunt:hunters/geologist",
         "manhunt:hunters/falconer",
         "manhunt:hunters/piglin",
-        "manhunt:hunters/enchanter"
+        "manhunt:hunters/enchanter",
+        "manhunt:hunters/courier"
       ]
     }
   ],

@@ -1,0 +1,129 @@
+{
+    "type": "origins:multiple",
+    "drop_block": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/bag/generator_drop_block",
+                    "change": -30
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Invisible:1b,Tags:[\"falling_block\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,45F],Tags:[\"falling_block\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:air\",Count:1b,tag:{Enchantments:[{}]}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:courier/bag/falling_block",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:random_teleport",
+                                "area_width": 24,
+                                "area_height": 2,
+                                "success_action": {
+                                    "type": "origins:spawn_particles",
+                                    "particle": "minecraft:witch",
+                                    "count": 8
+                                },
+                                "landing_block_condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:distance_from_coordinates",
+                                            "ignore_y": true,
+                                            "comparison": ">=",
+                                            "compare_to": 16,
+                                            "shape": "sphere"
+                                        },
+                                        {
+                                            "type": "origins:block",
+                                            "block": "minecraft:air"
+                                        }
+                                    ]
+                                },
+                                "fail_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run kill @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "kill @s",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "drop_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/bag/generator_drop_block",
+                    "change": 1
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=item_display,tag=falling_block]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:distance_from_coordinates",
+                            "shape": "sphere",
+                            "comparison": ">",
+                            "compare_to": 60,
+                            "ignore_x": true,
+                            "ignore_z": true
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "jester_check": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "power grant @a[tag=runner,nbt={Dimension:\"manhunt:courier\"}] manhunt:courier/bag/runner",
+            "permission_level": 4
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=runner,nbt={Dimension:\"manhunt:courier\"}]",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "rotation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/bag/floating_block_rotation",
+            "change": -360
+        }
+    },
+    "rotate": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/bag/floating_block_rotation",
+                    "change": 2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=armor_stand] manhunt:courier/bag/floating_block_rotation"
+                }
+            ]
+        },
+        "interval": 1
+    }
+}
