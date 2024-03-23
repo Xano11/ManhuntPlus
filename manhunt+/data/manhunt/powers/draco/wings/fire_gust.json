@@ -72,7 +72,7 @@
                         "type": "origins:target_action",
                         "action": {
                             "type": "origins:set_on_fire",
-                            "duration": 3
+                            "duration": 4
                         }
                     }
                 ]
@@ -96,9 +96,9 @@
                                 "type": "origins:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:shield"
-                                },
-                                "inverted": true
-                            }
+                                }
+                            },
+                            "inverted": true
                         },
                         {
                             "type": "origins:origin",
