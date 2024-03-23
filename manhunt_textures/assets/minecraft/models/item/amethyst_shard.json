@@ -9,6 +9,12 @@
                 "custom_model_data": 1
             },
             "model": "manhunt:item/enchanter_stone"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "manhunt:item/enchanter_stone_broken"
         }
     ]
 }
