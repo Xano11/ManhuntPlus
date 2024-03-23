@@ -17,7 +17,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have 6x yield for any type of fish you catch whilst fishing.\nAdditionally, you have higher luck."
+            "text": "You have 4x yield for any type of fish you catch whilst fishing.\nAdditionally, you have higher luck."
         }
     ]
 }

@@ -3,7 +3,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1800,
+        "max": 3600,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -238,7 +238,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s\nWindup: 8s"
+            "text": "Cooldown: 3m\nWindup: 8s"
         }
     ]
 }
