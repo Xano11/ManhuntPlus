@@ -1,7 +1,8 @@
 {
 	"powers": [
 		"manhunt:sanguis/fury/fury",
-		"manhunt:sanguis/sense/sense",
+		"manhunt:sanguis/leap",
+		"manhunt:sanguis/sense",
 		"manhunt:sanguis/bloodlust",
         "manhunt:sanguis/awful",
 		"manhunt:sanguis/unusable",

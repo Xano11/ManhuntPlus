@@ -1,37 +1,5 @@
 {
     "type": "origins:multiple",
-    "duration": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 400,
-        "start_value": 400,
-        "hud_render": {
-            "should_render": false
-        },
-        "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:sanguis/sense/intuition",
-                    "permission_level": 4
-                }
-            ]
-        }
-    },
-    "remove_resource": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:sanguis/sense/intuition_duration",
-            "change": -10
-        },
-        "interval": 10
-    },
-    "shader":{
-        "type": "origins:shader",
-        "shader": "minecraft:shaders/post/desaturate.json"
-    },
     "hunter_glow":{
         "type": "origins:entity_glow",
         "bientity_condition": {
@@ -40,7 +8,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": "<=",
-                    "compare_to": 30
+                    "compare_to": 10
                 },
                 {
                     "type": "origins:target_condition",
@@ -66,5 +34,13 @@
         "green": 0.0,
         "blue": 0.0
     },
-    "hidden": true
+    "name": "The Voices.",
+    "description": "The Voices weep with words of revenge, hatred and blood thirst.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "The Voices reveal all hunters in a 10 block radius."
+        }
+    ]
 }
