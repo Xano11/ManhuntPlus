@@ -1,0 +1,36 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -6,
+            "operation": "addition"
+        }
+    },
+    "crystal_hearts":{
+        "type": "origins:status_bar_texture",
+        "texture": "manhunt:textures/gui/enchanter_hearts.png"
+    },
+    "name": "Fragile Reality",
+    "description": "\"Urgh... I should maybe go to the gym soon...\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-3 §l§c❤§r overall."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/enchanter_stone.png",
+            "text": [
+                "Whilst holding the Enchanter's Stone, press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to shatter the stone.\nUpon shattering, you will be granted Absorption II crystal hearts.\n\nConsequentially, the stone will go on a 30s cooldown."
+            ]
+        }
+    ]
+}

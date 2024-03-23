@@ -62,7 +62,153 @@
             "compare_to": 100
         }
     },
-    "apply": {
+    "levelup_book": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:enchanted_book"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_book\"]}"
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:amethyst_shard"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"enchanter_stone\"]}"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_xp",
+                    "levels": -5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~1 ~ 3 2"
+                }
+            ]
+        },
+        "click_type": "secondary",
+        "on_item_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{Tags:[\"glass_book_level2\"]}"
+                },
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{display:{Lore:['[{\"text\":\"Glass Shield II\",\"italic\":false,\"color\":\"gray\"}]']}}"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:xp_levels",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    },
+    "levelup_book_again": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:enchanted_book"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_book_level2\"]}"
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:amethyst_shard"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"enchanter_stone\"]}"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_xp",
+                    "levels": -5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~1 ~ 3 2"
+                }
+            ]
+        },
+        "click_type": "secondary",
+        "on_item_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{Tags:[\"glass_book_level3\"]}"
+                },
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{display:{Lore:['[{\"text\":\"Glass Shield III\",\"italic\":false,\"color\":\"gray\"}]']}}"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:xp_levels",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    },
+    "apply_level1": {
         "type": "origins:item_on_item",
         "on_item_condition": {
             "type": "origins:ingredient",
@@ -112,18 +258,148 @@
             "modifier": "manhunt:enchanter/glass"
         }
     },
+    "apply_level2": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:chestplates"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:enchanted_book"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_book_level2\"]}"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~1 ~ 3 2"
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify",
+                    "modifier": "manhunt:enchanter/glass"
+                },
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{Tags:[\"glass_shield_level2\"]}"
+                }
+            ]
+        }
+    },
+    "apply_level3": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:chestplates"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:enchanted_book"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_book_level3\"]}"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~1 ~ 3 2"
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify",
+                    "modifier": "manhunt:enchanter/glass"
+                },
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{Tags:[\"glass_shield_level3\"]}"
+                }
+            ]
+        }
+    },
     "name": "Arcane: Glass Shield",
-    "description": "\"I never understood how others don't see the energy that inhabits the 'inanimate'... What a conundrum.\"",
+    "description": "\"This crystal's structure is quite interesting... Wonder if I can do something with it.\"",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/absorption.png",
-            "text": "Taking damage from hunters or hitting a damage cap from Majestic Guard:\n\nAbility cooldowns: -5s\n+30% Stamina meter"
+            "sprite": "manhunt:textures/item/enchanter_book.png",
+            "text": [
+                "Whilst in your inventory, hover with the stone and press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to create a Glass Shield book.\nThis book can be applied to chestplates by pressing \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" ontop of the chestplate.\nUse the stone again on the book to level it up."
+            ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "+40+ Invincibility frames"
+            "text": [
+                "Hunters with this book can survive a fatal hit at the cost of the chestplate's durability.\nThe Glass Shield book can be leveled up at the cost of 5 experience orb.\n\nTaking a fatal hit removes the enchantment.\nLevel I: No healing\nLevel II: 2.5 hearts restored on fatal hit\nLevel III: 5 hearts restored on fatal hit"
+            ]
         }
     ]
 }

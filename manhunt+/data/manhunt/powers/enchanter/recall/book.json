@@ -28,7 +28,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s enchanted_book{CustomModelData:1,Tags:[\"recalling_book\"],display:{Lore:['[{\"text\":\"Recalling I\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]} 1"
+                    "command": "give @s enchanted_book{CustomModelData:1,Tags:[\"recalling_book\"],display:{Lore:['[{\"text\":\"Recalling\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]} 1"
                 },
                 {
                     "type": "origins:change_resource",
@@ -254,7 +254,7 @@
         "hud_render": {
             "should_render": false
         },
-        "key": "key.use",
+        "key": "key.origins.secondary_active",
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -265,8 +265,8 @@
                     "compare_to": 100
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
+                    "type": "origins:inventory",
+                    "process_mode": "items",
                     "item_condition": {
                         "type": "origins:and",
                         "conditions": [
@@ -281,13 +281,15 @@
                                 "nbt": "{Tags:[\"enchanter_stone\"]}"
                             }
                         ]
-                    }
+                    },
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         }
     },
     "name": "Arcane: Recall",
-    "description": "\"Resonance... Is it that I feel?\" Using the Enchanter's stone, you can summon your all enchanted hunters.",
+    "description": "\"Resonance... Is it that... that I feel?\"\n Using the Enchanter's stone, you can summon all enchanted hunters.",
     "badges": [
         {
             "type": "origins:tooltip",
@@ -295,15 +297,25 @@
             "text": [
                 "Whilst in your inventory, hover with the stone and press \"",
                 {
-                    "keybind": "key.origins.primary_active"
+                    "keybind": "key.attack"
                 },
-                "\" to create a Recalling book."
+                "\" to create a Recalling book.\nThis book can be applied to helmets by pressing \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" ontop of the helmet."
             ]
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "+40+ Invincibility frames"
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Press \"",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "\" whilst on full energy to Recall!\n(Your stone must be intact)"
+            ]
         }
     ]
 }

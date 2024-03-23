@@ -6,11 +6,8 @@
         "frequency": 6
     },
     "shatter": {
-        "type": "origins:modify_damage_taken",
-        "damage_condition": {
-            "type": "origins:attacker"
-        },
-        "self_action": {
+        "type": "apoli:prevent_death",
+        "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -20,6 +17,36 @@
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:block minecraft:glass ~ ~1 ~ 0.3 0.3 0.3 0.01 100"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "chest",
+                        "item_condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"glass_shield_level2\"]}"
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:heal",
+                        "amount": 5
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "chest",
+                        "item_condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"glass_shield_level3\"]}"
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:heal",
+                        "amount": 10
+                    }
                 },
                 {
                     "type": "origins:equipped_item_action",
@@ -40,16 +67,6 @@
                     }
                 }
             ]
-        },
-        "modifier": {
-            "name": "Glass protection",
-            "operation": "multiply_total",
-            "value": -1
-        },
-        "condition": {
-            "type": "origins:relative_health",
-            "comparison": "<=",
-            "compare_to": 0.5
         }
     },
     "hidden": true

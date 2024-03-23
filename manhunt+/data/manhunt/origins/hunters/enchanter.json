@@ -3,14 +3,15 @@
 		"manhunt:enchanter/recall/book",
 		"manhunt:enchanter/glass/book",
 		"manhunt:enchanter/vanish/activate",
-        "manhunt:enchanter/arcane"
+        "manhunt:enchanter/arcane",
+		"manhunt:enchanter/fragile",
+		"manhunt:enchanter/minmax"
 
 	],
 	"icon": {
 		"item": "minecraft:enchanted_book",
 		"tag": "{Enchantments:[{}],CustomModelData:2}"
 	},
-	"unchoosable": true,
 	"order": 10,
 	"impact": 2,
 	"name": "Enchanter",

@@ -17,22 +17,10 @@
             "value": 1
         },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:enchantment",
-                    "enchantment": "minecraft:looting",
-                    "calculation": "sum",
-                    "comparison": "<",
-                    "compare_to": 3
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:global_difficulty",
-                    "comparison": ">=",
-                    "compare_to": 1
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:global_difficulty",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
     "looting_hard": {
@@ -40,25 +28,13 @@
         "enchantment": "minecraft:looting",
         "modifier": {
             "operation": "add_base_early",
-            "value": 1
+            "value": 2
         },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:enchantment",
-                    "enchantment": "minecraft:looting",
-                    "calculation": "sum",
-                    "comparison": "<",
-                    "compare_to": 3
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:global_difficulty",
-                    "comparison": "==",
-                    "compare_to": 2
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:global_difficulty",
+            "comparison": "==",
+            "compare_to": 2
         }
     },
     "prevent_simulation_render": {
@@ -340,122 +316,74 @@
             "power": "manhunt:enchanter/recall/enchanted"
         },
         "text": {
-            "text": "Recalling I",
+            "text": "Recalling",
             "color": "gray"
         }
     },
     "tooltip_chestplate": {
         "type": "origins:tooltip",
         "item_condition": {
-            "type": "origins:has_power",
-            "power": "manhunt:enchanter/glass/enchanted"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:enchanter/glass/enchanted"
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_shield_level2\"]}",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_shield_level3\"]}",
+                    "inverted": true
+                }
+            ]
         },
         "text": {
             "text": "Glass Shield I",
             "color": "gray"
         }
     },
-    "runner_shatter": {
-        "type": "origins:entity_set"
-    },
-    "shatter_stone": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:selector_action",
-                    "selector": "@a[tag=hunter]",
-                    "bientity_action": {
-                        "type": "origins:target_action",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "tag @s add shatter_recall"
-                        }
-                    },
-                    "bientity_condition": {
-                        "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:power",
-                            "power": "manhunt:enchanter/recall/enchanted"
-                        }
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @p[tag=shatter_recall] manhunt:enchanter/recall/shattered"
-                },
-                {
-                    "type": "origins:selector_action",
-                    "selector": "@p[tag=shatter_recall]",
-                    "bientity_action": {
-                        "type": "origins:add_to_set",
-                        "set": "manhunt:global_runner_shatter"
-                    }
-                },
-                {
-                    "type": "origins:equipped_item_action",
-                    "equipment_slot": "mainhand",
-                    "action": {
-                        "type": "origins:consume",
-                        "amount": 1
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.player.big_fall player @a ~ ~ ~ 1 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.amethyst_cluster.fall player @a ~ ~ ~ 1 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.amethyst_cluster.fall player @a ~ ~ ~ 1 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
-                }
-            ]
-        },
-        "cooldown": 5,
-        "hud_render": {
-            "should_render": false
-        },
-        "key": "key.use",
-        "condition": {
+    "tooltip_chestplate_2": {
+        "type": "origins:tooltip",
+        "item_condition": {
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:origin",
-                    "origin": "manhunt:runner",
-                    "layer": "origins:origin"
+                    "type": "origins:has_power",
+                    "power": "manhunt:enchanter/glass/enchanted"
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:amethyst_shard"
-                                }
-                            },
-                            {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:[\"enchanter_stone\"]}"
-                            }
-                        ]
-                    }
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_shield_level2\"]}"
                 }
             ]
+        },
+        "text": {
+            "text": "Glass Shield II",
+            "color": "gray"
+        }
+    },
+    "tooltip_chestplate_3": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:enchanter/glass/enchanted"
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"glass_shield_level3\"]}"
+                }
+            ]
+        },
+        "text": {
+            "text": "Glass Shield III",
+            "color": "gray"
         }
     },
     "hidden": true

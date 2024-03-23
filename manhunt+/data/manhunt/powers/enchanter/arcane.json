@@ -158,8 +158,187 @@
             "amount": 1
         }
     },
-    "name": "Knowledge of the Unseen",
-    "description": "\"I never understood how others don't see the energy that inhabits the 'inanimate'... What a conundrum.\"",
+    "repair": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:enchanter/arcane_repair",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:modify_inventory",
+                    "inventory_type": "inventory",
+                    "item_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{Tags:[\"enchanter_stone\"]}"
+                            },
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData:1}"
+                            }
+                        ]
+                    },
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone_broken\"]}"
+                            }
+                        ]
+                    },
+                    "process_mode": "items",
+                    "limit": 1
+                }
+            ]
+        }
+    },
+    "repair_stone": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/arcane_repair",
+            "change": 1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone_broken\"]}"
+                            }
+                        ]
+                    },
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "shatter_xp": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_xp",
+                    "points": 100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:enchanter/arcane_energy",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:absorption",
+                        "duration": 600,
+                        "amplifier": 1,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{Tags:[\"enchanter_stone_broken\"]}"
+                            },
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData:2}"
+                            },
+                            {
+                                "type": "apugli:cooldown",
+                                "ticks": 600
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 2 1.2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.sculk_sensor.break player @a ~ ~ ~ 1 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/arcane_energy",
+                    "comparison": "==",
+                    "compare_to": 100
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone\"]}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Grand Knowledge",
+    "description": "\"I never understood how others don't see the energy that inhabits the 'inanimate'...\nWhat a conundrum.\"",
     "badges": [
         {
             "type": "origins:tooltip",

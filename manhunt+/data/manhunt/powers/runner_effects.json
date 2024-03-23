@@ -170,5 +170,123 @@
             ]
         }
     },
+    "shatter": {
+        "type": "origins:entity_set"
+    },
+    "tooltip_crystal": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:amethyst_shard"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"enchanter_stone\"]}"
+                }
+            ]
+        },
+        "text": [
+            "Shatter the stone with \"",
+            {
+                "keybind": "key.use"
+            },
+            "\""
+        ]
+    },
+    "shatter_stone": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add shatter_recall"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "manhunt:enchanter/recall/enchanted"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @p[tag=shatter_recall] manhunt:enchanter/recall/shattered"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@p[tag=shatter_recall]",
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:runner_effects_shatter"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.big_fall player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.amethyst_cluster.fall player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.amethyst_cluster.fall player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
+                }
+            ]
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:amethyst_shard"
+                        }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"enchanter_stone\"]}"
+                    }
+                ]
+            }
+        }
+    },
     "hidden": true
 }

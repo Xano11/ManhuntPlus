@@ -1,0 +1,37 @@
+{
+    "type": "origins:multiple",
+    "less_atk":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": -1,
+            "name": "Decreased attack damage"
+        },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.attack_damage",
+            "comparison": ">",
+            "compare_to": 1
+        }
+    }, 
+    "less_crit":{
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "additionalentityattributes:critical_bonus_damage",
+            "operation": "addition",
+            "value": -0.25,
+            "name": "Decreased crit multiplier"
+        }
+    }, 
+    "name": "Min-Maxing Intelligence",
+    "description": "\"Yeah... I §lreally§r should go to the gym.\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-1 damage and -25% crit multiplier"
+        }
+    ]
+}

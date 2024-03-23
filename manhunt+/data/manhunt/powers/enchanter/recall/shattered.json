@@ -52,7 +52,7 @@
                                     "type": "origins:invert",
                                     "condition": {
                                         "type": "origins:in_set",
-                                        "set": "manhunt:global_runner_shatter"
+                                        "set": "manhunt:runner_effects_shatter"
                                     }
                                 }
                             },
