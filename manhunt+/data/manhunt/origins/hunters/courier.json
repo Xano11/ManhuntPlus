@@ -4,7 +4,8 @@
         "manhunt:courier/snatch/snatch",
         "manhunt:courier/crafter",
         "manhunt:courier/keen",
-        "manhunt:courier/weighted"
+        "manhunt:courier/weighted",
+		"manhunt:courier/hands"
 	],
 	"icon": {
 		"item": "minecraft:bundle",

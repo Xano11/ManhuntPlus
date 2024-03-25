@@ -1,0 +1,13 @@
+name = "Manhunt+"
+author = "XaNo11"
+version = "0.1.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "f1406f05d5b9ad5fbdfa38a447dbe8ffa737f989f2d38d5647c01a75655ef31a"
+
+[versions]
+fabric = "0.15.7"
+minecraft = "1.20.2"

@@ -101,7 +101,7 @@
                             },
                             "action": {
                                 "type": "origins:execute_command",
-                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 1",
+                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 2",
                                 "permission_level": 4
                             }
                         },

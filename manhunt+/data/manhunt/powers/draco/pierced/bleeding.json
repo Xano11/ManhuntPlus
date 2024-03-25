@@ -28,9 +28,17 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:damage",
-                    "amount": 1,
-                    "damage_type": "manhunt:bleeding"
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:health",
+                        "comparison": ">=",
+                        "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "damage_type": "manhunt:bleeding"
+                    }
                 },
                 {
                     "type": "origins:execute_command",

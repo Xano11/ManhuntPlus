@@ -1,0 +1,155 @@
+hash-format = "sha256"
+
+[[files]]
+file = "config/openloader/resources/manhunt.zip"
+hash = "44839517948a702a0ddc3428145177f8b41831396108557efa5605c21fbaa1ae"
+
+[[files]]
+file = "mods/apugli.pw.toml"
+hash = "2d2dbe71407d86ebac17e0cb61e4099678e85804da1a5fbced11adeaf341ed10"
+metafile = true
+
+[[files]]
+file = "mods/better-ping-display-fabric.pw.toml"
+hash = "ec31177d5cf656efdff737432455211defb8ee188749e3f53f117f75f83d1b6a"
+metafile = true
+
+[[files]]
+file = "mods/betterf3.pw.toml"
+hash = "7b8d329dc77d9097a6b2060f8efadbb025ec993681d03950004755966c31470c"
+metafile = true
+
+[[files]]
+file = "mods/c2me-fabric.pw.toml"
+hash = "47417b73fa94227651ac63139dddaf6beb937d45aed9ba8221a563a8ad50e209"
+metafile = true
+
+[[files]]
+file = "mods/carpet.pw.toml"
+hash = "de01c608faa6b0fa0f7355c32c56d8bb4f579822d250d644181485c3b0ac4e1a"
+metafile = true
+
+[[files]]
+file = "mods/chat-heads.pw.toml"
+hash = "6fcd1d22ac78eb2c9ac7fb01b7b9f8048485a3009f441b6fa01fdd5108d6b0eb"
+metafile = true
+
+[[files]]
+file = "mods/cloth-config.pw.toml"
+hash = "37fb6871c2e9a4b3596d1e8e83e595f192e5c82241b16d5131f5341af1e1f95d"
+metafile = true
+
+[[files]]
+file = "mods/connectivity.pw.toml"
+hash = "b3e963b8e63c503bb05e20bead5573d441537f0a81992a4850d70e895420b2e8"
+metafile = true
+
+[[files]]
+file = "mods/cupboard.pw.toml"
+hash = "2f07d9c05612217985f9afcf1d11a02dc00e22043274c2e5bc2989ea45b55c6a"
+metafile = true
+
+[[files]]
+file = "mods/eggolib.pw.toml"
+hash = "9389b3d714663665a891b1c327770bbb8381b0c960bc2d70155a23653177fa00"
+metafile = true
+
+[[files]]
+file = "mods/enhanced-block-entities.pw.toml"
+hash = "4350d31a88c0a70af3783fa6e4778628ae42de023fc7dbf92c8286df5f7bc093"
+metafile = true
+
+[[files]]
+file = "mods/entity-model-features.pw.toml"
+hash = "61db7a9f8b6eae443a490a84ecbec079009ecd03046ea5d44b35145ee001e2b0"
+metafile = true
+
+[[files]]
+file = "mods/entity-texture-features-fabric.pw.toml"
+hash = "605e0fe8a92df933c5a65bcfa93460979de2384d3f8644de3fa809d53a0c100a"
+metafile = true
+
+[[files]]
+file = "mods/fabric-api.pw.toml"
+hash = "7b4233be3f73fa648cd81f73e2a67f98bd51efa1c3cc9f7fc490f23af1693002"
+metafile = true
+
+[[files]]
+file = "mods/ferritecore-fabric.pw.toml"
+hash = "28f53f38c111e3d6aa7f6854fa976a1456f4094dc504a929a6d4bf1f9f8cc30a"
+metafile = true
+
+[[files]]
+file = "mods/indium.pw.toml"
+hash = "275e74338b823bb2b06aedc4337ef6866a47dd718fd9ae7d02df0d64da438cca"
+metafile = true
+
+[[files]]
+file = "mods/krypton.pw.toml"
+hash = "a4a9b9adba2d1ba9f3be438a1b304d293b02034c9217496ed7deafb91bcbf4ee"
+metafile = true
+
+[[files]]
+file = "mods/lazydfu.pw.toml"
+hash = "e75515de6f60227e731affe8077018bd68d8556ebd62032a5e5bd5217b28d44f"
+metafile = true
+
+[[files]]
+file = "mods/lithium.pw.toml"
+hash = "ed27ecb297016accc41e9894b6e11d6c46b455211e358afa6218ce629ef56978"
+metafile = true
+
+[[files]]
+file = "mods/logical-zoom.pw.toml"
+hash = "b1a81306d94f551cc889b3d24d5fb7d3f62a85d90a71a64baa405e9705e93c1c"
+metafile = true
+
+[[files]]
+file = "mods/memoryleakfix.pw.toml"
+hash = "3c0945a312aca06a2185b00cb03ae482949b008d72614497148aa2df301af019"
+metafile = true
+
+[[files]]
+file = "mods/mob-origins.pw.toml"
+hash = "a73d2a821762047a9892f3063e479eb3150cfcd5e493dd953f215073c871546c"
+metafile = true
+
+[[files]]
+file = "mods/nvidium.pw.toml"
+hash = "9fabff6208086644b34566d9e8ba1ef992a581bbd9eb5067e4c057eb41129ab2"
+metafile = true
+
+[[files]]
+file = "mods/open-loader.pw.toml"
+hash = "0a6d0808a87167a4c41e415b2d3466472079248574c82e8f26a61da1200a3a12"
+metafile = true
+
+[[files]]
+file = "mods/origins.pw.toml"
+hash = "755bfb27e6d01ea24822757d94c94c315e60141089c3a8ed746bdc77dc9c9eda"
+metafile = true
+
+[[files]]
+file = "mods/pehkui.pw.toml"
+hash = "d6ba97570ac7eb8bc4fcf20b176583c5e4181b388da4f3fe11440828808df96a"
+metafile = true
+
+[[files]]
+file = "mods/reeses-sodium-options.pw.toml"
+hash = "537989e340ab72ac4a74f98667d679efe979223de560bbf3bc3ccf6daf562eb6"
+metafile = true
+
+[[files]]
+file = "mods/skin-layers-3d.pw.toml"
+hash = "87ec306a332a9a58a3937de570b08cafe252bc77d96c5ee0c2deb5f71b6fa723"
+metafile = true
+
+[[files]]
+file = "mods/sodium-extra.pw.toml"
+hash = "8327d98037764fb419e98495a3170cd61b0331f4941adaa399e927b9f0c383df"
+metafile = true
+
+[[files]]
+file = "mods/sodium.pw.toml"
+hash = "ff614f50beb3bc29a699dbcc0a61f65bd6c6154cd374f2763ee57cf578045a8f"
+metafile = true

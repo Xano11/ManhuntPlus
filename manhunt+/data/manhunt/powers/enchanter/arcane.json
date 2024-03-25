@@ -40,7 +40,7 @@
             "resource": "manhunt:enchanter/arcane_energy",
             "change": 1
         },
-        "interval": 20,
+        "interval": 15,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -348,7 +348,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone.png",
-            "text": "You have access to a special relic: The Enchanter's Stone.\nUsing this relic, you can create two special books: Recalling and Glass Shield.\n\nUsing your abilities will require Enchanting Energy.\n(1% per second)"
+            "text": "You have access to a special relic: The Enchanter's Stone.\nUsing this relic, you can create two special books: Recalling and Glass Shield.\n\nUsing your abilities will require Enchanting Energy.\n(1.5% per second)"
         },
         {
             "type": "origins:tooltip",

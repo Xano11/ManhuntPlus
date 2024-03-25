@@ -1,0 +1,14 @@
+{
+	"powers": [
+		"manhunt:chronos/time/slow"
+	],
+	"icon": {
+		"item": "minecraft:clock",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+    "unchoosable": true,
+	"impact": 3,
+	"name": "Chronos⌛",
+	"description": "Stop time"
+}

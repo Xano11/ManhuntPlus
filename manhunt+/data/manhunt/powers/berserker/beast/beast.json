@@ -115,7 +115,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Weakened: 7s of 30% less speed and inability to heal."
+            "text": "Weakened: 7s of 40% less speed and inability to heal."
         },
         {
             "type": "origins:tooltip",

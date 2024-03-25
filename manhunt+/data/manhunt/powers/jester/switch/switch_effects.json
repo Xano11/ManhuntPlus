@@ -33,6 +33,11 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power remove @s manhunt:jester/switch/switch_effects"
                 }
             ]
@@ -43,6 +48,11 @@
         "entity_action_gained": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.vex.charge player @s ~ ~ ~ 3 0.5",

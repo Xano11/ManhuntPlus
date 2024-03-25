@@ -7,8 +7,8 @@
             "actions": [
                 {
                     "type": "origins:add_velocity",
-                    "z": 0.4,
-                    "y": 0.1,
+                    "z": 0.3,
+                    "y": 0.08,
                     "space": "local_horizontal_normalized"
                 },
                 {

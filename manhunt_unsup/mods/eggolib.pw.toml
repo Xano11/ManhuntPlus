@@ -1,0 +1,13 @@
+name = "eggolib"
+filename = "eggolib-1.20.2-1.10.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ae2d9e6986293546ebae4e7c301894647e045a44"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5104065
+project-id = 645296

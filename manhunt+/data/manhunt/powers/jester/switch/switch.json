@@ -6,6 +6,11 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
                     "type": "origins:equipped_item_action",
                     "equipment_slot": "mainhand",
                     "action": {
@@ -110,6 +115,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "execute at @a[tag=hunter] if score @p hunters = @s tracking run tp @s ~ ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~ ~ ~",
                     "permission_level": 4
                 }
             ]

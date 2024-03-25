@@ -177,7 +177,7 @@
                                     "equipment_slot": "head",
                                     "action": {
                                         "type": "origins:damage",
-                                        "amount": 150,
+                                        "amount": 40,
                                         "ignore_unbreaking": true
                                     }
                                 }
