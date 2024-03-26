@@ -3,6 +3,39 @@
     "pledged": {
         "type": "origins:entity_set"
     },
+    "lost":{
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power remove @s manhunt:guardian/pledge/pledged"
+                                }
+                            },
+                            {
+                                "type": "origins:remove_from_set",
+                                "set": "manhunt:guardian/pledge/protector_pledged"
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:in_set",
+                        "set": "manhunt:guardian/pledge/protector_pledged"
+                    }
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
     "pledge": {
         "type": "origins:action_on_entity_use",
         "bientity_action": {

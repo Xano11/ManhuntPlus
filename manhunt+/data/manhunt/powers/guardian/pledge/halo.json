@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute store result entity @s Rotation[0] float 1 run resource get @s manhunt:guardian/pledge/halo_spin"
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=armor_stand] manhunt:guardian/pledge/halo_spin"
                 }
             ]
         },
