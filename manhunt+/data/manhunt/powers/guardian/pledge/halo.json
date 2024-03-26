@@ -1,0 +1,36 @@
+{
+    "type": "origins:multiple",
+    "spin": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/pledge/halo_spin",
+            "change": -360
+        }
+    },
+    "spinning": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/pledge/halo_spin",
+                    "change": 24
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result entity @s Rotation[0] float 1 run resource get @s manhunt:guardian/pledge/halo_spin"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

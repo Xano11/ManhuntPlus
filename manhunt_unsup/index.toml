@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/openloader/resources/manhunt.zip"
-hash = "44839517948a702a0ddc3428145177f8b41831396108557efa5605c21fbaa1ae"
+hash = "224140a3913bcc49dacd90f106b4d3905011ca66689b2e79b59a2c657d7b10b9"
 
 [[files]]
 file = "mods/apugli.pw.toml"
