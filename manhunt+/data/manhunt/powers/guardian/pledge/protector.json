@@ -185,26 +185,18 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have your own dimension where you can safely live in.\nYou cannot use abilities or items but you can use and put blocks down."
+            "sprite": "manhunt:textures/item/guardian_icon.png",
+            "text": "Pledge: You grant 25%(+1) of your own armor to your pledged ally.\nAdditionally, let's you use all your abilities onto that ally."
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Enter (or leave) the Bag™ with \"",
-                {
-                    "keybind": "key.origins.primary_active"
-                },
-                "\"\nTo kidnap others, sneak and \"",
+                "Sneak and press \"",
                 {
                     "keybind": "key.use"
                 },
-                "\"\nWhilst sneaking, press \"",
-                {
-                    "keybind": "key.origins.primary_active"
-                },
-                "\" to kick everyone out the backpack."
+                "\"\n to forge a pledge with somebody."
             ]
         }
     ]

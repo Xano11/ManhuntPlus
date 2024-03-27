@@ -12,6 +12,17 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:add_velocity",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "set": true
+                },
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
                     "type": "origins:action_on_set",
                     "set": "manhunt:guardian/meteor/active_wings",
                     "bientity_action": {
@@ -64,7 +75,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "tp @a[tag=guardian_tp] ~ ~5 ~"
+                                            "command": "tp @a[tag=guardian_tp] ~ ~ ~"
                                         },
                                         {
                                             "type": "origins:area_of_effect",
@@ -76,18 +87,22 @@
                                                 "y": 0.3
                                             },
                                             "bientity_condition": {
-                                                "type": "origins:in_set",
-                                                "set": "manhunt:guardian/pledge/protector_pledged",
-                                                "inverted": true
+                                                "type": "origins:target_condition",
+                                                "condition": {
+                                                    "type": "origins:origin",
+                                                    "origin": "manhunt:hunter",
+                                                    "layer": "origins:origin",
+                                                    "inverted": true
+                                                }
                                             }
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "particle minecraft:end_rod ~ ~ ~ 0.4 0 0.4 0.2 50"
+                                            "command": "particle minecraft:end_rod ~ ~1 ~ 0.4 0 0.4 0.2 50"
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "playsound minecraft:block.anvil.land player @a ~ ~ ~ 3 0.5"
+                                            "command": "particle minecraft:poof ~ ~1 ~ 0.4 0 0.4 1 50"
                                         }
                                     ]
                                 }
@@ -115,11 +130,15 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 3 1.2"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.iron_golem.damage player @a ~ ~ ~ 3 0.7"
                 },
                 {
                     "type": "origins:add_velocity",
-                    "y": 6,
+                    "y": 9,
                     "set": true
                 }
             ]
@@ -131,7 +150,7 @@
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:guardian/meteor/active_windup",
-                    "compare_to": 48,
+                    "compare_to": 46,
                     "comparison": ">="
                 },
                 {
@@ -182,7 +201,7 @@
             "comparison": ">"
         }
     },
-    "camera":{
+    "camera": {
         "type": "eggolib:modify_mouse_sensitivity",
         "modifier": {
             "operation": "multiply_total_multiplicative",
@@ -233,7 +252,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:armor_stand",
-                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"wings\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"wings\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:air\",Count:1b}}]}",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"wings\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"wings\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2f,1.5f,2f]},item:{id:\"minecraft:air\",Count:1b}}]}",
                     "bientity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -271,17 +290,27 @@
             "key": "key.origins.secondary_active"
         },
         "condition": {
-            "type": "origins:set_size",
-            "set": "manhunt:guardian/pledge/protector_pledged",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:guardian/pledge/protector_pledged",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
         },
-        "cooldown": 2400,
+        "cooldown": 1800,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4
         }
     },
-    "name": "Meteor Crush",
+    "name": "Angelic Swoop",
     "description": "I didn’t know it rained strong people, oh wait… Thats just me",
     "badges": [
         {

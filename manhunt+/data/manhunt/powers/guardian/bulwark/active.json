@@ -505,17 +505,22 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Protection: 50% mitigation and immunity to knockback on next hit. Lasts for 15s.\n(12 block radius)"
+            "text": "Bulwarked: You are granted +4 armor and additional knockback resistance.\nIn return, your movement speed is reduced by 40% and your atttack speed is reduced proportional to how long Bulwark is active."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/guardian_icon.png",
+            "text": "Pledged: The Pledge'd ally is reduced by 20% and 40% of the damage is redirected to you.\nIf they die, you will take 3 hearts of true damage."
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Whilst using a shield, press \"%s\" to use!"
+            "text": "Toggle Bulwark with \"%s\"!"
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "Ability lasts indefinitely but toggling it off has a 1m cooldown."
         }
     ]
 }

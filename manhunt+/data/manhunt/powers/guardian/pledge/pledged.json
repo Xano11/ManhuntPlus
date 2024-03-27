@@ -294,7 +294,7 @@
                                     "value": -0.5,
                                     "modifier": {
                                         "operation": "multiply_total_multiplicative",
-                                        "value": 0.6
+                                        "value": 0.4
                                     }
                                 }
                             }
