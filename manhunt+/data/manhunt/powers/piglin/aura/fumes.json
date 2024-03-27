@@ -9,8 +9,25 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "power remove @s manhunt:piglin/aura/fumes"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ghast.shoot player @a ~ ~ ~ 1 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flame ~ ~1 ~ 0 0 0 0.1 40"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:smoke ~ ~1 ~ 0 0 0 0.3 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:piglin/aura/fumes"
+                }
+            ]
         }
     },
     "duration_down": {
@@ -36,7 +53,7 @@
     },
     "particles2": {
         "type": "origins:particle",
-        "particle":{
+        "particle": {
             "type": "minecraft:falling_dust",
             "params": "minecraft:gravel"
         },
@@ -55,18 +72,10 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:invert",
-                    "action": {
-                        "type": "origins:damage",
-                        "amount": 2,
-                        "damage_type": "minecraft:on_fire"
-                    }
-                },
-                {
                     "type": "origins:actor_action",
                     "action": {
-                        "type": "origins:set_on_fire",
-                        "duration": 3
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:piglin/aura/fumes"
                     }
                 },
                 {
@@ -74,18 +83,6 @@
                     "action": {
                         "type": "origins:and",
                         "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:entity.ghast.shoot player @a ~ ~ ~ 1 0.8"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "particle minecraft:flame ~ ~1 ~ 0 0 0 0.1 40"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "particle minecraft:smoke ~ ~1 ~ 0 0 0 0.3 100"
-                            },
                             {
                                 "type": "origins:execute_command",
                                 "command": "power remove @s manhunt:piglin/aura/fumes"

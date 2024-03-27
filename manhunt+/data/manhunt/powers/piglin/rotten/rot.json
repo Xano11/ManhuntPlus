@@ -18,6 +18,11 @@
                         "type": "origins:and",
                         "actions": [
                             {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:piglin/rotten/everhungry_duration",
+                                "change": 100
+                            },
+                            {
                                 "type": "origins:execute_command",
                                 "command": "power grant @s manhunt:piglin/rotten/everhungry",
                                 "permission_level": 4

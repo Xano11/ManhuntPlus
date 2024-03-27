@@ -27,6 +27,12 @@
                 "custom_model_data": 4
             },
             "model": "manhunt:item/spade_card"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 5
+            },
+            "model": "manhunt:item/guardian_wings"
         }
     ]
 }

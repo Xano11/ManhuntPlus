@@ -3,7 +3,7 @@
     "pledged": {
         "type": "origins:entity_set"
     },
-    "lost":{
+    "lost": {
         "type": "origins:action_on_callback",
         "entity_action_lost": {
             "type": "origins:and",
@@ -99,6 +99,15 @@
                             },
                             {
                                 "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.allay.item_given player @a ~ ~ ~ 1 0.8",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
+                            },
+                            {
+                                "type": "origins:execute_command",
                                 "command": "power grant @s manhunt:guardian/pledge/pledged",
                                 "permission_level": 4
                             }
@@ -121,9 +130,19 @@
                 {
                     "type": "origins:target_condition",
                     "condition": {
-                        "type": "origins:origin",
-                        "origin": "manhunt:hunter",
-                        "layer": "origins:origin"
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "manhunt:guardian/pledge/pledged",
+                                "inverted": true
+                            }
+                        ]
                     }
                 },
                 {
@@ -139,13 +158,13 @@
         "hands": [
             "main_hand"
         ],
-        "condition":{
+        "condition": {
             "type": "origins:sneaking"
         }
     },
     "armor_score": {
         "type": "origins:action_over_time",
-        "entity_action":  {
+        "entity_action": {
             "type": "origins:execute_command",
             "command": "execute store result score @s guardian_armor run attribute @s minecraft:generic.armor get",
             "permission_level": 4
@@ -154,7 +173,7 @@
     },
     "toughness_score": {
         "type": "origins:action_over_time",
-        "entity_action":  {
+        "entity_action": {
             "type": "origins:execute_command",
             "command": "execute store result score @s guardian_toughness run attribute @s minecraft:generic.armor_toughness get",
             "permission_level": 4

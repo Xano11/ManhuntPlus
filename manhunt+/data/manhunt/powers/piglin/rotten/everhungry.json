@@ -4,7 +4,7 @@
         "type": "origins:resource",
         "min": 0,
         "max": 600,
-        "start_value": 600,
+        "start_value": 100,
         "hud_render": {
             "should_render": false
         },
@@ -102,25 +102,17 @@
         "interval": 10
     },
     "famine": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:exhaust",
-            "amount": 4
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": 1.0
         },
-        "interval": 60,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:sprinting"
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:piglin/rotten/everhungry_immune",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/rotten/everhungry_immune",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "damaged":{

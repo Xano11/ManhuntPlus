@@ -65,6 +65,103 @@
             "comparison": ">"
         }
     },
+    "shieldless": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"bulwark\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"bulwark\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1.3f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:air\",Count:1b,tag:{Enchantments:[{}]}}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:guardian/bulwark/active_shield_set"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:guardian/bulwark/shield_icon"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run item replace entity @s container.0 with minecraft:iron_chestplate{CustomModelData:1}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/bulwark/active_shieldless",
+                    "change": -4
+                }
+            ]
+        }
+    },
+    "no_shield": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/bulwark/active_shieldless",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/bulwark/active_toggled",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:guardian/bulwark/shield_icon"
+                                }
+                            ]
+                        }
+                    },
+                    "compare_to": 0,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
     "hunger": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -187,6 +284,14 @@
                                 "resource": "manhunt:guardian/bulwark/active_cooldown",
                                 "change": 0,
                                 "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.beacon.deactivate player @a ~ ~ ~ 1 1.6"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 1 1 1 1 0.8 0.8 1 ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
                             },
                             {
                                 "type": "origins:action_on_set",

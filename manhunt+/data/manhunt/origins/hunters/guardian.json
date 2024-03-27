@@ -2,8 +2,9 @@
 	"powers": [
         "manhunt:guardian/bulwark/active",
 		"manhunt:guardian/pledge/protector",
-		"manhunt:guardian/launch/pickup",
+		"manhunt:guardian/meteor/active",
 		"manhunt:guardian/slow",
+		"manhunt:guardian/savior",
 		"manhunt:guardian/hungry"
 	],
 	"icon": {

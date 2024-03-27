@@ -75,6 +75,10 @@
                             "set": "manhunt:guardian/pledge/protector_pledged"
                         }
                     }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:guardian/pledge/pledged"
                 }
             ]
         },
@@ -83,11 +87,11 @@
     "death": {
         "type": "origins:action_on_death",
         "bientity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:actor_action",
-                    "action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
                         "type": "origins:selector_action",
                         "selector": "@a[tag=hunter]",
                         "bientity_action": {
@@ -102,32 +106,129 @@
                                 "set": "manhunt:guardian/pledge/protector_pledged"
                             }
                         }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:guardian/pledge/pledged_bulwarked",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:guardian/pledge/pledged_halo",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on passengers run kill @s"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "haloless": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"bulwark_pledged\"],Passengers:[{id:\"minecraft:item_display\",billboard:\"fixed\",Tags:[\"bulwark_pledged\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,-0.2f],scale:[1f,1f,1f]},item:{id:\"minecraft:air\",Count:1b,tag:{Enchantments:[{}]}}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:guardian/pledge/pledged_halo"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 90f"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:guardian/pledge/halo"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run item replace entity @s container.0 with minecraft:diamond{CustomModelData:2}"
+                            }
+                        ]
                     }
                 },
                 {
                     "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/bulwark/active_haloless",
+                    "change": -4
+                }
+            ]
+        }
+    },
+    "no_halo": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/bulwark/active_haloless",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
                     "resource": "manhunt:guardian/pledge/pledged_bulwarked",
-                    "change": -1
+                    "compare_to": 1,
+                    "comparison": "=="
                 },
                 {
-                    "type": "origins:action_on_set",
-                    "set": "manhunt:guardian/pledge/pledged_halo",
-                    "bientity_action": {
-                        "type": "origins:target_action",
-                        "action": {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
                             "type": "origins:and",
-                            "actions": [
+                            "conditions": [
                                 {
-                                    "type": "origins:execute_command",
-                                    "command": "execute on passengers run kill @s"
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand"
                                 },
                                 {
-                                    "type": "origins:execute_command",
-                                    "command": "kill @s"
+                                    "type": "origins:power",
+                                    "power": "manhunt:guardian/pledge/halo"
                                 }
                             ]
                         }
-                    }
+                    },
+                    "compare_to": 0,
+                    "comparison": "=="
                 }
             ]
         }
@@ -163,7 +264,7 @@
             "value": -0.6
         },
         "bientity_action": {
-            "type": "origins:actor_action",
+            "type": "origins:target_action",
             "action": {
                 "type": "origins:and",
                 "actions": [
@@ -190,7 +291,7 @@
                                 "value": 0,
                                 "modifier": {
                                     "operation": "multiply_total_multiplicative",
-                                    "value": -0.9,
+                                    "value": -0.5,
                                     "modifier": {
                                         "operation": "multiply_total_multiplicative",
                                         "value": 0.6
@@ -232,6 +333,44 @@
             "comparison": "=="
         }
     },
+    "savior":{
+        "type": "origins:self_action_when_hit",
+        "entity_action":  {
+            "type": "origins:selector_action",
+            "selector": "@a[tag=hunter]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/savior_duration",
+                    "change": 60,
+                    "operation": "set"
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:invert",
+                "condition": {
+                    "type": "origins:in_set",
+                    "set": "manhunt:guardian/pledge/protector_pledged"
+                }
+            }
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunter",
+                "layer": "origins:origin"
+            }
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/pledge/pledged_bulwarked",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
     "halo": {
         "type": "origins:entity_set"
     },
@@ -244,29 +383,11 @@
             "should_render": false
         }
     },
-    "toughness": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 10,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        }
-    },
     "armor_transfer": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
             "command": "execute as @a[distance=0.1..,tag=hunter] if score @s guardian_pledge = @p guardian_pledge run resource operation @p manhunt:guardian/pledge/pledged_armor = @s guardian_armor",
-            "permission_level": 4
-        },
-        "interval": 10
-    },
-    "toughness_transfer": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute as @a[distance=0.1..,tag=hunter] if score @s guardian_pledge = @p guardian_pledge run resource operation @p manhunt:guardian/pledge/pledged_toughness = @s guardian_toughness",
             "permission_level": 4
         },
         "interval": 10
@@ -286,19 +407,6 @@
         "modifier": {
             "operation": "add_base_early",
             "resource": "manhunt:guardian/pledge/pledged_armor",
-            "value": 0,
-            "modifier": {
-                "operation": "multiply_total_multiplicative",
-                "value": -0.75
-            }
-        }
-    },
-    "toughness_portion": {
-        "type": "origins:modify_attribute",
-        "attribute": "minecraft:generic.armor_toughness",
-        "modifier": {
-            "operation": "add_base_early",
-            "resource": "manhunt:guardian/pledge/pledged_toughness",
             "value": 0,
             "modifier": {
                 "operation": "multiply_total_multiplicative",
