@@ -5,6 +5,11 @@
         "particle": "minecraft:enchant",
         "frequency": 6
     },
+    "swirl":{
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/block/cobweb.png",
+        "speed": 0.01
+    },
     "shatter": {
         "type": "apoli:prevent_death",
         "entity_action": {
@@ -13,6 +18,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.damage player @a ~ ~ ~ 1 0.5"
                 },
                 {
                     "type": "origins:execute_command",
