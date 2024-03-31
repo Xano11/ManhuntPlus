@@ -232,7 +232,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/poison.png",
-            "text": "In the Overworld, you spread rotten flammable gas to all hunters in a 16 block radius.\nIf a runner hits you, you will set them on fire."
+            "text": "In the Overworld, you spread rotten flammable fumes to all hunters in a 16 block radius.\nAfter 10 seconds, the fumes will light on fire. If you are hit whilst having fumes, you will transfer the fumes to the attacker.\n(It's like hot potato)"
         },
         {
             "type": "origins:tooltip",
