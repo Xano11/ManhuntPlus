@@ -72,6 +72,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:step_height 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "scale add pehkui:step_height 1",
                     "permission_level": 4
                 },
