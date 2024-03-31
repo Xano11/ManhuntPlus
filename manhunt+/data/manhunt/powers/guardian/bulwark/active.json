@@ -489,10 +489,21 @@
             "key": "key.origins.primary_active"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:guardian/bulwark/active_cooldown",
-            "compare_to": 1200,
-            "comparison": "=="
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/bulwark/active_cooldown",
+                    "compare_to": 1200,
+                    "comparison": "=="
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:guardian/pledge/protector_pledged",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         },
         "cooldown": 5,
         "hud_render": {
@@ -510,7 +521,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/guardian_icon.png",
-            "text": "Pledged: The Pledge'd ally is reduced by 20% and 40% of the damage is redirected to you.\nIf they die, you will take 3 hearts of true damage."
+            "text": "Pledged: The Pledge'd ally is reduced by 20% and 40% of the damage is redirected to you.\nIf they die, you will take 3 hearts of true damage.\n\n(This only works in a 32 block radius)"
         },
         {
             "type": "origins:keybind",

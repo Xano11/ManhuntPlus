@@ -29,11 +29,15 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "tp @s ~ ~0.3 ~ ~12 ~1.54"
+                    "command": "tp @s ~ ~0.3 ~ ~12 ~1.7"
                 },
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:end_rod ^ ^ ^1.5 0 0 0 0 1 force @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^ ^ ^-1.5 0 0 0 0 1 force @a"
                 }
             ]
         },

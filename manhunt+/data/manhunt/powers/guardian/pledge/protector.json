@@ -138,6 +138,12 @@
                                 "layer": "origins:origin"
                             },
                             {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunters/guardian",
+                                "layer": "origins:hunters",
+                                "inverted": true
+                            },
+                            {
                                 "type": "origins:power",
                                 "power": "manhunt:guardian/pledge/pledged",
                                 "inverted": true

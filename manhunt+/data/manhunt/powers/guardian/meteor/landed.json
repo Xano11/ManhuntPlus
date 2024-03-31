@@ -1,0 +1,38 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:guardian/meteor/landed"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/meteor/landed_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "velocity":{
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -0.5,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "x",
+          "y",
+          "z"
+        ]
+    },
+    "hidden": true
+}
