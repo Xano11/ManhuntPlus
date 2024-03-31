@@ -208,7 +208,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:falconer/falcon/osha_lend",
-                    "change": 600
+                    "change": 140
                 }
             ]
         }
@@ -216,7 +216,7 @@
     "lend": {
         "type": "origins:resource",
         "min": 0,
-        "max": 600,
+        "max": 140,
         "start_value": 0,
         "hud_render": {
             "should_render": false
