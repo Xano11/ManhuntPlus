@@ -100,8 +100,11 @@
                                 }
                             },
                             {
-                                "type": "origins:remove_from_set",
-                                "set": "manhunt:courier/bag/void_bag_contents"
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:remove_from_set",
+                                    "set": "manhunt:courier/bag/void_bag_contents"
+                                }
                             }
                         ]
                     },
