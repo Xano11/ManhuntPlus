@@ -103,6 +103,42 @@
             ]
         }
     },
+    "no_spam": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:imp/flight_energy",
+            "change": -6
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:imp/flight_energy",
+                    "comparison": ">=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:using_item",
+                    "inverted": true,
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:trident"
+                        }
+                    }
+                }
+            ]
+        }
+    },
     "name": "Infernal flight",
     "description": "Fly at high speeds in the direction you are looking.",
     "badges": [
