@@ -1,10 +1,10 @@
 {
     "type": "origins:multiple",
-    "duration": {
+    "emerge": {
         "type": "origins:resource",
         "min": 0,
-        "max": 600,
-        "start_value": 600,
+        "max": 15,
+        "start_value": 15,
         "hud_render": {
             "should_render": false
         },
@@ -13,24 +13,17 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on vehicle run kill @s"
+                    "command": "execute on passengers if entity @s[tag=totem_lantern] run data modify entity @s block_state.Name set value \"minecraft:soul_lantern\""
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "kill @e[tag=totem_ring,distance=..0.1]"
+                    "command": "execute on passengers on passengers run data modify entity @s item set value {id:\"minecraft:candle\",tag:{CustomModelData:1},Count:1b}"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "kill @e[tag=totem,distance=..0.1]"
-                }
-            ]
-        }
-    },
-    "activation": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:and",
-            "actions": [
+                    "command": "execute on passengers on passengers run data modify entity @s Rotation[1] set value 90f",
+                    "permission_level": 4
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:shriek 1 ~ ~2 ~ 0.1 0 0.1 1 10 normal",
@@ -64,11 +57,228 @@
             ]
         }
     },
-    "effects": {
+    "emerge_down": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_emerge",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~0.1 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block minecraft:sculk_shrieker ~ ~ ~ 0.6 0 0.6 0 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block minecraft:reinforced_deepslate ~ ~ ~ 0.6 0 0.6 0 5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/totem/totem_powers_emerge",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "tunnel": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add totem_duration",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:modify_resource",
+                    "modifier": {
+                        "operation": "multiply_total_multiplicative",
+                        "value": -0.5
+                    },
+                    "resource": "manhunt:shaman/totem/totem_powers_duration"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s totem_duration run resource get @s manhunt:shaman/totem/totem_powers_duration",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:action_on_set",
+                            "set": "manhunt:shaman/grasp_owner",
+                            "bientity_action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:armor_stand",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"totem\",\"weak_totem\"],Passengers:[{id:\"minecraft:block_display\",view_range:100f,Tags:[\"totem\",\"totem_lantern\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,1.5f,-1f],scale:[2f,2f,2f]},block_state:{Name:\"minecraft:air\"}},{id:\"minecraft:block_display\",view_range:100f,shadow_radius:1f,shadow_strength:0.2f,Tags:[\"totem\",\"totem_base\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,90F],Tags:[\"totem\",\"totem_ring\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0.5f],scale:[15f,15f,0.1f]},item:{id:\"minecraft:air\",Count:1b,tag:{CustomModelData:1}}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.5f,-0.5f,-0.5f],scale:[1f,2f,1f]},block_state:{Name:\"minecraft:sculk_shrieker\"}}]}",
+                                            "entity_action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "data modify entity @s Rotation set value [0f,0f]",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s manhunt:shaman/totem/totem_powers",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "tp @s ~ ~-1 ~ ~ ~",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "resource operation @s manhunt:shaman/totem/totem_powers_duration = @e[limit=1,sort=nearest,tag=totem_duration] totem_duration",
+                                                        "permission_level": 4
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "kill @s"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:shaman/totem/totem_owner"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "tunnel_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_tunnel",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~-0.1 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block minecraft:sculk_shrieker ~ ~0.25 ~ 0.6 0 0.6 0 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block minecraft:reinforced_deepslate ~ ~0.25 ~ 0.6 0 0.6 0 10",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/totem/totem_powers_tunnel",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "heal": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_heal",
+                    "change": 0,
+                    "operation": "set"
+                },
                 {
                     "type": "origins:area_of_effect",
                     "radius": 8,
@@ -206,48 +416,72 @@
                     }
                 }
             ]
-        },
-        "interval": 10
-    },
-    "duration_down": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:shaman/totem/totem_powers_duration",
-            "change": -10
-        },
-        "interval": 10
+        }
     },
     "rotation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:shaman/totem/totem_powers_rotation",
+            "change": 0,
+            "operation": "set"
+        }
+    },
+    "overtime": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:selector_action",
-            "selector": "@e[limit=1,sort=nearest,type=item_display,tag=totem_ring]",
-            "bientity_action": {
-                "type": "origins:target_action",
-                "action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "tp @s ~ ~ ~ ~3 ~",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "particle minecraft:sculk_soul ^ ^7 ^-1 0.05 0.05 0.05 0 1",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "particle minecraft:sculk_soul ^ ^-7 ^-1 0.05 0.05 0.05 0 1",
-                            "permission_level": 4
-                        }
-                    ]
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_heal",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_rotation",
+                    "change": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~4 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers store result entity @s Rotation[0] float 1 run resource get @e[type=armor_stand,tag=totem,limit=1,sort=nearest] manhunt:shaman/totem/totem_powers_rotation",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run particle minecraft:sculk_soul ^ ^-0.4 ^7 0.05 0.05 0.05 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run particle minecraft:sculk_soul ^ ^-0.4 ^-7 0.05 0.05 0.05 0 1",
+                    "permission_level": 4
                 }
-            }
+            ]
         },
-        "interval": 1
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/totem/totem_powers_emerge",
+            "comparison": "==",
+            "compare_to": 0
+        }
     },
     "hidden": true
 }

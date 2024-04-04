@@ -1,6 +1,9 @@
 {
     "type": "origins:multiple",
-    "activate": {
+    "owner": {
+        "type": "origins:entity_set"
+    },
+    "pull": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
@@ -132,6 +135,177 @@
             ]
         }
     },
+    "tunnel": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add owner_tunnel"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:armor_stand",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"totem_tunnel\"]}",
+                                            "entity_action": {
+                                                "type": "origins:selector_action",
+                                                "selector": "@a[tag=owner_tunnel]",
+                                                "bientity_action": {
+                                                    "type": "origins:invert",
+                                                    "action": {
+                                                        "type": "origins:add_to_set",
+                                                        "set": "manhunt:shaman/grasp_owner"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.sculk_catalyst.bloom player @a ~ ~ ~ 3 2"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 1 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:dust_color_transition 0 1 1 1 1 1 1 ~ ~1 ~ 0.5 0.2 0.5 1 100"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove owner_tunnel"
+                                        },
+                                        {
+                                            "type": "origins:action_on_set",
+                                            "set": "manhunt:shaman/totem/totem_owner",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:change_resource",
+                                                            "resource": "manhunt:shaman/totem/totem_powers_tunnel",
+                                                            "change": 15,
+                                                            "operation": "set"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "execute on passengers if entity @s[tag=totem_lantern] run data modify entity @s block_state.Name set value \"minecraft:air\""
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "execute on passengers on passengers run data modify entity @s item set value {id:\"minecraft:air\",Count:1b}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "miss_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:shaman/grasp_tunnel",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:hunter",
+                                            "layer": "origins:origin"
+                                        },
+                                        {
+                                            "type": "apugli:entity_in_radius",
+                                            "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags: ['totem']}"
+                                            },
+                                            "radius": 8.0,
+                                            "comparison": "==",
+                                            "compare_to": 0
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 96
+                            }
+                        ]
+                    },
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "cooldown": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['totem']}"
+                    },
+                    "radius": 8.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "comparison": "==",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
     "glow_blue": {
         "type": "origins:entity_glow",
         "bientity_condition": {
@@ -179,23 +353,17 @@
                             {
                                 "type": "apugli:entity_in_radius",
                                 "condition": {
-                                    "type": "origins:passenger",
-                                    "bientity_condition": {
-                                        "type": "origins:actor_condition",
-                                        "condition": {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:entity_type",
-                                                    "entity_type": "minecraft:armor_stand"
-                                                },
-                                                {
-                                                    "type": "origins:power",
-                                                    "power": "manhunt:shaman/totem/totem_powers"
-                                                }
-                                            ]
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
                                         }
-                                    }
+                                    ]
                                 },
                                 "radius": 8.0,
                                 "comparison": ">=",
@@ -268,23 +436,17 @@
                             {
                                 "type": "apugli:entity_in_radius",
                                 "condition": {
-                                    "type": "origins:passenger",
-                                    "bientity_condition": {
-                                        "type": "origins:actor_condition",
-                                        "condition": {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:entity_type",
-                                                    "entity_type": "minecraft:armor_stand"
-                                                },
-                                                {
-                                                    "type": "origins:power",
-                                                    "power": "manhunt:shaman/totem/totem_powers"
-                                                }
-                                            ]
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
                                         }
-                                    }
+                                    ]
                                 },
                                 "radius": 8.0,
                                 "comparison": ">=",
@@ -357,23 +519,17 @@
                             {
                                 "type": "apugli:entity_in_radius",
                                 "condition": {
-                                    "type": "origins:passenger",
-                                    "bientity_condition": {
-                                        "type": "origins:actor_condition",
-                                        "condition": {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:entity_type",
-                                                    "entity_type": "minecraft:armor_stand"
-                                                },
-                                                {
-                                                    "type": "origins:power",
-                                                    "power": "manhunt:shaman/totem/totem_powers"
-                                                }
-                                            ]
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
                                         }
-                                    }
+                                    ]
                                 },
                                 "radius": 8.0,
                                 "comparison": ">=",
@@ -441,23 +597,17 @@
                             {
                                 "type": "apugli:entity_in_radius",
                                 "condition": {
-                                    "type": "origins:passenger",
-                                    "bientity_condition": {
-                                        "type": "origins:actor_condition",
-                                        "condition": {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:entity_type",
-                                                    "entity_type": "minecraft:armor_stand"
-                                                },
-                                                {
-                                                    "type": "origins:power",
-                                                    "power": "manhunt:shaman/totem/totem_powers"
-                                                }
-                                            ]
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
                                         }
-                                    }
+                                    ]
                                 },
                                 "radius": 8.0,
                                 "comparison": ">=",
@@ -535,7 +685,7 @@
         }
     },
     "name": "Sculk's Grasp",
-    "description": "Whilst in the totem and fully reposed, you can teleport teammates to you.",
+    "description": "Whilst in the totem and fully reposed, you can teleport teammates to you or bring your totem to them.",
     "badges": [
         {
             "type": "origins:tooltip",
@@ -545,7 +695,11 @@
                 {
                     "keybind": "key.use"
                 },
-                "\" highlighted teammates to pull them to you within a 96 block distance.\nFellow Hunters glow when within range."
+                "\" highlighted teammates to pull them to you within a 96 block distance.\nFellow Hunters glow when within range.\nWith \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" you will instead teleport your totem to the ally, reducing it's duration by half."
             ]
         }
     ]

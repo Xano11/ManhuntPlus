@@ -1,5 +1,8 @@
 {
     "type": "origins:multiple",
+    "owner": {
+        "type": "origins:entity_set"
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -7,57 +10,41 @@
             "actions": [
                 {
                     "type": "origins:spawn_entity",
-                    "entity_type": "minecraft:block_display",
-                    "tag": "{Tags:[\"totem\"],Passengers:[{id:\"minecraft:armor_stand\",Marker:1b,Invisible:1b,Tags:[\"totem\"]}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,2f,-1f],scale:[2f,2f,2f]},block_state:{Name:\"minecraft:soul_lantern\",Properties:{hanging:\"false\"}}}",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"totem\"],Passengers:[{id:\"minecraft:block_display\",view_range:100f,Tags:[\"totem\",\"totem_lantern\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,1.5f,-1f],scale:[2f,2f,2f]},block_state:{Name:\"minecraft:air\"}},{id:\"minecraft:block_display\",view_range:100f,shadow_radius:1f,shadow_strength:0.2f,Tags:[\"totem\",\"totem_base\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,90F],Tags:[\"totem\",\"totem_ring\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0.5f],scale:[15f,15f,0.1f]},item:{id:\"minecraft:air\",Count:1b,tag:{CustomModelData:1}}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.5f,-0.5f,-0.5f],scale:[1f,2f,1f]},block_state:{Name:\"minecraft:sculk_shrieker\"}}]}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute on passengers run power grant @s manhunt:shaman/totem/totem_powers",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
                                 "permission_level": 4
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute as @s at @s facing entity @p feet run tp @s ~ ~ ~ ~ ~",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
                                 "permission_level": 4
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:spawn_entity",
-                    "entity_type": "minecraft:block_display",
-                    "tag": "{Tags:[\"totem\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.5f,0f,-0.5f],scale:[1f,2f,1f]},block_state:{Name:\"minecraft:sculk_shrieker\"}}",
-                    "entity_action": {
-                        "type": "origins:and",
-                        "actions": [
+                            },
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute as @s at @s facing entity @p feet run tp @s ~ ~ ~ ~ ~",
+                                "command": "power grant @s manhunt:shaman/totem/totem_powers",
                                 "permission_level": 4
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:spawn_entity",
-                    "entity_type": "minecraft:item_display",
-                    "tag": "{view_range:100f,Tags:[\"totem_ring\"],brightness:{sky:15,block:15},Rotation:[0f,90f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[15f,15f,0.5f]},item:{id:\"minecraft:candle\",Count:1b,tag:{CustomModelData:1}}}",
-                    "entity_action": {
-                        "type": "origins:and",
-                        "actions": [
+                            },
                             {
                                 "type": "origins:execute_command",
-                                "command": "data modify entity @s Rotation[1] set value 90f",
+                                "command": "tp @s ~ ~-1 ~ ~ ~",
                                 "permission_level": 4
                             }
                         ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:shaman/totem/totem_owner"
                     }
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "forceload add ~ ~ ~ ~",
+                    "command": "playsound minecraft:entity.warden.emerge player @a ~ ~ ~ 2 2",
                     "permission_level": 4
                 }
             ]
