@@ -6,7 +6,7 @@
             {
                 "type": "origins:spawn_entity",
                 "entity_type": "minecraft:armor_stand",
-                "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"setup\"]}",
+                "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"setup\",\"phases_enabled\"]}",
                 "entity_action": {
                     "type": "origins:and",
                     "actions": [
