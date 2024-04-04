@@ -49,14 +49,6 @@
         "type": "origins:modify_falling",
         "velocity": 0.005
     },
-    "fog": {
-        "type": "moborigins:fog",
-        "red": 0,
-        "green": 0,
-        "blue": 0,
-        "start": -1,
-        "end": 14
-    },
     "laser_slow": {
         "type": "origins:modify_velocity",
         "modifier": {
