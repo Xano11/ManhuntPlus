@@ -13,7 +13,7 @@
     "type": "origins:action_on_callback",
     "entity_action_removed": {
       "type": "origins:execute_command",
-      "command": "power revokeall @s apoli:command"
+      "command": "power remove @s manhunt:gambler/curse"
     },
     "execute_chosen_when_orb": true
   },
