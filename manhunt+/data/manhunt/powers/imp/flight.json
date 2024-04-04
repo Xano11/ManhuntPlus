@@ -88,7 +88,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:imp/flight_energy",
                     "comparison": ">=",
-                    "compare_to": 3
+                    "compare_to": 2
                 },
                 {
                     "type": "origins:using_item",
@@ -124,7 +124,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:imp/flight_energy",
                     "comparison": ">=",
-                    "compare_to": 3
+                    "compare_to": 5
                 },
                 {
                     "type": "origins:using_item",
@@ -139,7 +139,7 @@
             ]
         }
     },
-    "name": "Infernal flight",
+    "name": "Infernal Flight",
     "description": "Fly at high speeds in the direction you are looking.",
     "badges": [
         {
