@@ -424,51 +424,60 @@
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
-                            "type": "origins:raycast",
-                            "distance": 24,
-                            "block": true,
-                            "entity": true,
-                            "shape_type": "collider",
-                            "fluid_handling": "none",
-                            "bientity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:add_velocity",
-                                        "z": -2
-                                    },
-                                    {
-                                        "type": "origins:target_action",
-                                        "action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:set_fall_distance",
-                                                    "fall_distance": 0
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "playsound minecraft:block.chain.hit player @a ~ ~ ~ 1 0.5",
-                                                    "permission_level": 4
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "playsound minecraft:block.tripwire.detach player @a ~ ~ ~ 1 2",
-                                                    "permission_level": 4
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:falconer/falcon/osha_lend",
+                                "comparison": ">",
+                                "compare_to": 0
                             },
-                            "command_along_ray": "particle minecraft:dust_color_transition 1 1 0 1.2 0.4 0.4 0 ~ ~ ~",
-                            "command_step": 0.5,
-                            "command_along_ray_only_on_hit": true,
-                            "bientity_condition": {
-                                "type": "origins:invert",
-                                "condition": {
-                                    "type": "origins:in_set",
-                                    "set": "manhunt:falconer/falcon/forth_osha"
+                            "if_action": {
+                                "type": "origins:raycast",
+                                "distance": 24,
+                                "block": true,
+                                "entity": true,
+                                "shape_type": "collider",
+                                "fluid_handling": "none",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "z": -2
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:set_fall_distance",
+                                                        "fall_distance": 0
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:block.chain.hit player @a ~ ~ ~ 1 0.5",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:block.tripwire.detach player @a ~ ~ ~ 1 2",
+                                                        "permission_level": 4
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                "command_along_ray": "particle minecraft:dust_color_transition 1 1 0 1.2 0.4 0.4 0 ~ ~ ~",
+                                "command_step": 0.5,
+                                "command_along_ray_only_on_hit": true,
+                                "bientity_condition": {
+                                    "type": "origins:invert",
+                                    "condition": {
+                                        "type": "origins:in_set",
+                                        "set": "manhunt:falconer/falcon/forth_osha"
+                                    }
                                 }
                             }
                         }
@@ -508,7 +517,7 @@
             ]
         }
     },
-    "grapple_glow":{
+    "grapple_glow": {
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:and",
