@@ -18,6 +18,13 @@
             "value": -0.99
         }
     },
+    "pos": {
+        "type": "eggolib:modify_riding_position",
+        "y_modifier": {
+            "operation": "addition",
+            "value": -0.7
+        }
+    },
     "break": {
         "type": "origins:action_when_hit",
         "bientity_action": {
@@ -25,6 +32,11 @@
             "action": {
                 "type": "origins:and",
                 "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "kill @e[type=armor_stand,tag=bug_fix,limit=1m,sort=nearest]",
+                        "permission_level": 4
+                    },
                     {
                         "type": "origins:execute_command",
                         "command": "particle minecraft:dragon_breath ~ ~ ~ 0.3 0.3 0.3 0.1 50"
@@ -56,6 +68,9 @@
     },
     "no_interact":{
         "type": "origins:prevent_entity_use"
+    },
+    "no_item_give":{
+        "type": "origins:prevent_being_used"
     },
     "hidden": true
 }

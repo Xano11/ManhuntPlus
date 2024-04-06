@@ -52,38 +52,49 @@
         },
         "interval": 4,
         "condition": {
-            "type": "apugli:entity_in_radius",
-            "bientity_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:can_see"
-                    },
-                    {
-                        "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "apoli:entity_type",
-                                    "entity_type": "minecraft:player"
-                                },
-                                {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:runner",
-                                    "layer": "origins:origin"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:entity_in_radius",
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:can_see"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "apoli:entity_type",
+                                            "entity_type": "minecraft:player"
+                                        },
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:runner",
+                                            "layer": "origins:origin"
+                                        }
+                                    ]
                                 }
-                            ]
-                        }
-                    }
-                ]
-            },
-            "radius": 12.0,
-            "comparison": ">=",
-            "compare_to": 1
+                            }
+                        ]
+                    },
+                    "radius": 12.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/lurk/eye_effects_teleporting",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
-    "remove_lurking":{
+    "remove_lurking": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
@@ -120,6 +131,117 @@
             },
             "radius": 12.0,
             "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "teleporting": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=armor_stand,tag=bug_fix,limit=1m,sort=nearest]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "booms": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sonic_boom ~ ~0.75 ~ 0.5 0.5 0.5 0.2 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/lurk/eye_effects_booms",
+                    "change": -3
+                }
+            ]
+        }
+    },
+    "tp_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/lurk/eye_effects_teleporting",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/lurk/eye_effects_booms",
+                    "change": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result entity @s Rotation[0] float 1 run random value -90..90",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result entity @s Rotation[1] float 1 run random value -90..90",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s Rotation set from entity @e[limit=1,sort=nearest,type=minecraft:allay,tag=lurk_eye] Rotation",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_charge_pop ~ ~0.75 ~ 0.2 0.2 0.2 0.2 20",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~0.75 ~ 0.2 0.2 0.2 0.2 20",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 4,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "command_along_ray": "particle minecraft:dust_color_transition 0 0.5 0.7 1.5 0 0.9 0.7 ~ ~ ~ 0 0 0 1 1",
+                    "command_step": 0.3
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/eye_effects_teleporting",
+            "comparison": ">",
             "compare_to": 0
         }
     },

@@ -56,22 +56,30 @@
             "bientity_condition": {
                 "type": "origins:target_condition",
                 "condition": {
-                    "type": "origins:and",
+                    "type": "origins:or",
                     "conditions": [
                         {
-                            "type": "origins:entity_type",
-                            "entity_type": "minecraft:armor_stand",
-                            "inverted": true
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:player",
+                                    "inverted": true
+                                }
+                            ]
                         },
                         {
-                            "type": "origins:entity_type",
-                            "entity_type": "minecraft:block_display",
-                            "inverted": true
-                        },
-                        {
-                            "type": "origins:entity_type",
-                            "entity_type": "minecraft:item_display",
-                            "inverted": true
+                            "type": "origins:origin",
+                            "origin": "manhunt:runner",
+                            "layer": "origins:origin"
                         }
                     ]
                 }
