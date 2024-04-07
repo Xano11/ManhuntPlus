@@ -8,8 +8,8 @@
         "manhunt:imp/infernal"
     ],
     "icon": {
-		"item": "minecraft:trident",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"item": "minecraft:purple_dye",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
 	},
     "impact": 3,
     "name": "Imp",
