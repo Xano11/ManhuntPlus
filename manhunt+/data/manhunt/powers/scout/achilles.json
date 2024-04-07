@@ -30,7 +30,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(§l§a-10%§r total bouncepad cooldown)"
+            "text": "Bouncepad cooldown is increased by §l§c+6s§r when hit."
         }
     ]
 }

@@ -1,14 +1,15 @@
 {
     "type": "origins:multiple",
-    "weaker": {
-        "type": "origins:modify_damage_taken",
+    "lesshp": {
+        "type": "origins:attribute",
         "modifier": {
-            "name": "More damage",
-            "operation": "multiply_total",
-            "value": 0.25
+        "name": "less health",
+        "attribute": "minecraft:generic.max_health",
+        "value": -4,
+        "operation": "addition"
         }
     },
-    "weakened":{
+    "weakened": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "multiply_total",
@@ -21,7 +22,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Frail: Deal §l§c25%§r less damage and receive §l§c25%§r more damage."
+            "text": "Frail: §l§c25%§r Less damage dealt and §l§c-2§r Hearts."
         }
     ]
 }
