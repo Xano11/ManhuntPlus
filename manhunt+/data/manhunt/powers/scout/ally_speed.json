@@ -1,0 +1,57 @@
+{
+    "type": "origins:multiple",
+    "more_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.25,
+            "operation": "multiply_total"
+        }
+    },
+    "more_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.08
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 1 1 1 0.7 0.7 0.7 ~ ~1 ~ 0.2 0.2 0.2 1 1"
+        },
+        "interval": 10
+    },
+    "remove": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:scout/ally_speed"
+        },
+        "interval": 10,
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:entity_type",
+                        "entity_type": "minecraft:player"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter/scout",
+                        "layer": "origins:origin"
+                    }
+                ]
+            },
+            "radius": 24.0,
+            "comparison": "<=",
+            "compare_to": 1,
+            "inverted": true
+        }
+    },
+    "hidden": true
+}

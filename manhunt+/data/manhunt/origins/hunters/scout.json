@@ -1,11 +1,11 @@
 {
 	"powers": [
 		"manhunt:scout/speed",
+		"manhunt:scout/fall_reduction",
 		"manhunt:scout/dash",
 		"manhunt:scout/bouncepad/bouncepad",
 		"manhunt:scout/weak",
-		"manhunt:scout/achilles",
-		"manhunt:scout/fall_reduction"
+		"manhunt:scout/achilles"
 	],
 	"icon": {
 		"item": "minecraft:feather",
@@ -14,5 +14,5 @@
 	"order": 10,
 	"impact": 1,
 	"name": "Scout",
-	"description": "      [§bPACEKEEPER ╬§r]\nWhile not as formidable as the others, the Scout pursues runners at a constant pace with their athletics and spatial awareness."
+	"description": "      [§bPACEKEEPER ╬§r]\nWhile not as formidable as the others, the Scout pursues runners at a constant pace with their athletics and lookout abilities for allies."
 }
