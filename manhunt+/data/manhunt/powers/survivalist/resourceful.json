@@ -1,0 +1,211 @@
+{
+    "type": "origins:multiple",
+    "fast": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.2
+        }
+    },
+    "looting": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        }
+    },
+    "craft_helmet": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_helmet",
+            "pattern": [
+                "###",
+                "y y"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_helmet"
+            }
+        }
+    },
+    "craft_chestplate": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_chestplate",
+            "pattern": [
+                "y y",
+                "#y#",
+                "###"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_chestplate"
+            }
+        }
+    },
+    "craft_leggings": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_leggings",
+            "pattern": [
+                "###",
+                "# #",
+                "y y"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_leggings"
+            }
+        }
+    },
+    "craft_boots": {
+        "type": "origins:recipe",
+        "recipe": {
+            "type": "minecraft:crafting_shaped",
+            "id": "manhunt:chainmail_boots",
+            "pattern": [
+                "# #",
+                "y y"
+            ],
+            "key": {
+                "y": {
+                    "item": "minecraft:iron_nugget"
+                },
+                "#": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:chainmail_boots"
+            }
+        }
+    },
+    "name": "Resourceful",
+    "description": "You make the most of your gatherings, giving you more loot, more mining speed, and the ability to craft chainmail armor.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§l§a+20%§r Mining Speed and passive Looting I."
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_helmet.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_helmet",
+                "pattern": [
+                    "###",
+                    "y y"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_helmet"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_chestplate.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_chestplate",
+                "pattern": [
+                    "y y",
+                    "#y#",
+                    "###"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_chestplate"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_leggings.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_leggings",
+                "pattern": [
+                    "###",
+                    "# #",
+                    "y y"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_leggings"
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/chainmail_boots.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:chainmail_boots",
+                "pattern": [
+                    "# #",
+                    "y y"
+                ],
+                "key": {
+                    "y": {
+                        "item": "minecraft:iron_nugget"
+                    },
+                    "#": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:chainmail_boots"
+                }
+            }
+        }
+    ]
+}

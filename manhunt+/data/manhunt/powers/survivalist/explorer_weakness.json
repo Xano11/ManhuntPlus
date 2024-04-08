@@ -25,8 +25,8 @@
       }
     ]
   },
-  "name": "Explorer's weakness",
-  "description": "Through exploration, you've come to one conclusion: Explosions and arrows are your main weaknesses.",
+  "name": "Vulnerable Armor",
+  "description": "For whatever the case may be, arrows and explosions seem to always bypass your defences.",
   "badges": [
     {
       "type": "origins:tooltip",

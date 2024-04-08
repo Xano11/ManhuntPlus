@@ -1,0 +1,18 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": -2 ,
+        "operation": "addition"
+      },
+  "name": "Slender Form",
+  "description": "While you've been gathering, you didn't leave much time for the gym, making you a bit frail.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/badge/star.png",
+      "text": "§l§c-1§r Maximum Heart."
+    }
+  ]
+}

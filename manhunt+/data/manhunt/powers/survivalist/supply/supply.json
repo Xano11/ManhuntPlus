@@ -175,7 +175,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "After a short delay, a loot box will drop from the sky and drop its contents on impact.\n1st: Shipwreck treasure loot.\n2nd: Village Weaponsmith and previous shipwreck loot.\n3rd+: All previous loot with buried treasure loot."
+            "text": "After a short delay, a loot box will drop from the sky and drop its contents on impact.\n1st: Bonus Chest loot.\n2nd: Shipwreck treasure loot.\n3rd: Village Weaponsmith and previous loot.\n3rd+: All previous loot with buried treasure loot."
         },
         {
             "type": "origins:keybind",
