@@ -4,9 +4,9 @@
 		"manhunt:survivalist/pouch",
 		"manhunt:survivalist/bomb/throw",
 		"manhunt:survivalist/supply/supply",
-        "manhunt:survivalist/gatherfast",
+        "manhunt:survivalist/resourceful",
 		"manhunt:survivalist/explorer_weakness",
-		"origins:nine_lives",
+		"manhunt:survivalist/slender",
 		"manhunt:survivalist/armor"
 	],
 	"icon": {
