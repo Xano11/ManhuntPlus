@@ -1081,7 +1081,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Drawing the same suit multiplies the suits' effects. Cards can be maxed out up to three.\n§5Clubs: Speed↑\n§7Spades: Damage↑\n§cHearts: Regeneration\n§bDiamonds: Armor↑"
+            "text": "Drawing the same suit multiplies the suits' effects. Cards can be maxed out up to three.\n§5Clubs§r: Speed§a↑§r\n§7Spades§r: Damage§a↑§r\n§cHearts§r: Regeneration§a↑§r\n§bDiamonds§r: Armor§a↑§r"
         },
         {
             "type": "origins:tooltip",
