@@ -1,14 +1,5 @@
 {
   "type": "origins:multiple",
-  "health": {
-    "type": "origins:attribute",
-    "modifier": {
-      "name": "Max health decrease",
-      "attribute": "minecraft:generic.max_health",
-      "value": -2,
-      "operation": "addition"
-    }
-  },
   "gambler_revoke": {
     "type": "origins:action_on_callback",
     "entity_action_removed": {
@@ -16,6 +7,175 @@
       "command": "power remove @s manhunt:gambler/curse"
     },
     "execute_chosen_when_orb": true
+  },
+  "hearts": {
+    "type": "origins:resource",
+    "min": 0,
+    "max": 8,
+    "start_value": 0,
+    "hud_render": {
+      "should_render": false
+    }
+  },
+  "regain_heart": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:change_resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "change": -2
+    },
+    "interval": 1800,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">",
+      "compare_to": 1
+    }
+  },
+  "health":{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": -2,
+        "operation": "addition"
+    }
+},
+  "health1": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 1
+    }
+  },
+  "health2": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 2
+    }
+  },
+  "health3": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 3
+    }
+  },
+  "health4": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 4
+    }
+  },
+  "health5": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 5
+    }
+  },
+  "health6": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 6
+    }
+  },
+  "health7": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 7
+    }
+  },
+  "health8": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:gambler/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 8
+    }
   },
   "no_death": {
     "type": "origins:prevent_death",
@@ -71,7 +231,7 @@
         },
         {
           "type": "origins:execute_command",
-          "command": "power remove @s manhunt:gambler/curse"
+          "command": "power remove @s manhunt:gambler/curse_no_death"
         }
       ]
     },
@@ -85,7 +245,7 @@
     }
   },
   "name": "Devil's Deal",
-  "description": "You traded 2 of your hearts to the Devil in exchange for your special abilities.",
+  "description": "You traded a heart of yours to the Devil in exchange for your special abilities.",
   "badges": [
     {
       "type": "origins:tooltip",
