@@ -25,13 +25,13 @@
             "compare_to": 1
         }
     },
-    "name": "Dripless Drip.",
+    "name": "Dripless Drip",
     "description": "You don't want your drip to get drenched. And the Devil agrees with you.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Drenched: 1 §cdamage§r per 1.5s + §cSlowness§r I"
+            "text": "Take §c2 Damage§r per 1.5s when submerged in water.\nYou also swim §c50%§r slower."
         }
     ]
 }

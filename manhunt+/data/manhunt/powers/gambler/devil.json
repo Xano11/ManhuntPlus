@@ -128,18 +128,13 @@
             "compare_to": 0
         }
     },
-    "name": "Devil",
-    "description": "Immune to fire damage with a small caveat.",
+    "name": "Hell's Bargain",
+    "description": "The fires of hell are nothing but a warm welcome to you, thanks to your deals.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Immune to lava damage for a short duration.\n+Additionally, you can see through lava."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "(Your lava immunity lasts 7 seconds)"
+            "text": "Immunity to lava damage for 7s at a time.\n+Additionally, you can see through lava."
         }
     ]
 }
