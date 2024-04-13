@@ -79,7 +79,7 @@
                 "type": "origins:actor_action",
                 "action": {
                     "type": "origins:execute_command",
-                    "command": "execute at @s anchored eyes run tp @e[limit=1,sort=nearest,type=minecraft:armor_stand] ^ ^ ^2"
+                    "command": "execute at @s anchored eyes run tp @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=jester_paranoia] ^ ^ ^2"
                 }
             },
             "bientity_condition": {
