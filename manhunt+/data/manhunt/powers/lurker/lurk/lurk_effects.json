@@ -317,6 +317,10 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "forceload add ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power grant @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] manhunt:lurker/lurk/eye_effects"
                 },
                 {

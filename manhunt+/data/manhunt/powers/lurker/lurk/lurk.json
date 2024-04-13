@@ -272,6 +272,10 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "playsound minecraft:block.end_portal.spawn player @a ~ ~ ~ 0.5 1.4"
                 },
                 {
