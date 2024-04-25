@@ -47,6 +47,21 @@
                     "change": 10
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/shield/shield_cooldown",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/heal_flash",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/stamina_gauge",
+                    "change": 200
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:glow ~ ~1 ~ 0.2 0.3 0.2 0.05 10",
                     "permission_level": 4
@@ -92,6 +107,21 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:fortis/majestic_duration",
                     "change": 10
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/shield/shield_cooldown",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/heal_flash",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/stamina_gauge",
+                    "change": 200
                 },
                 {
                     "type": "origins:execute_command",
@@ -163,6 +193,21 @@
                     "change": 10
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/shield/shield_cooldown",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/heal_flash",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/stamina_gauge",
+                    "change": 200
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:glow ~ ~1 ~ 0.2 0.3 0.2 0.05 10",
                     "permission_level": 4
@@ -204,6 +249,21 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:fortis/majestic_duration",
                     "change": 10
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/shield/shield_cooldown",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/heal_flash",
+                    "change": -100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/stamina_gauge",
+                    "change": 200
                 },
                 {
                     "type": "origins:execute_command",

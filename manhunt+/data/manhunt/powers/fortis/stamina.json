@@ -112,6 +112,30 @@
             "change": 140
         }
     },
+    "warcry": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "warcry_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/stamina_warcry",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/stamina_warcry",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "gauge_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -171,9 +195,23 @@
     "recharge": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:fortis/stamina_gauge",
-            "change": 5
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:fortis/stamina_warcry",
+                "comparison": ">",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:fortis/stamina_gauge",
+                "change": 10
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:fortis/stamina_gauge",
+                "change": 5
+            }
         },
         "interval": 1,
         "condition": {
@@ -246,7 +284,7 @@
             "compare_to": 0
         }
     },
-    "prevent_sprint":{
+    "prevent_sprint": {
         "type": "origins:prevent_sprinting",
         "condition": {
             "type": "origins:resource",

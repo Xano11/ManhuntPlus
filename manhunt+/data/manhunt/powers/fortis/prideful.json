@@ -21,6 +21,11 @@
                     "change": -100
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/stamina_gauge",
+                    "change": 200
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 1 2",
                     "permission_level": 4

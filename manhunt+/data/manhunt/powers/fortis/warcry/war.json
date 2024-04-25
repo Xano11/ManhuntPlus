@@ -6,6 +6,22 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:exhaust",
+                    "amount": 1.5
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/stamina_warcry",
+                    "change": 300,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/warcry/war_armor",
+                    "change": 140,
+                    "operation": "set"
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.evoker.prepare_attack player @a ~ ~ ~ 2 2",
                     "permission_level": 4
@@ -23,7 +39,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:vex",
-                    "tag": "{Invulnerable:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                    "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
                     "entity_action": {
                         "type": "origins:execute_command",
                         "command": "power grant @s manhunt:fortis/warcry/shield",
@@ -130,13 +146,51 @@
             "sprite_location": "manhunt:textures/bars/fortis/warcry.png"
         }
     },
+    "armor": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "armor_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/warcry/war_armor",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/warcry/war_armor",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "defense":{
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.armor",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/warcry/war_armor",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "name": "War Cry",
     "description": "Unleash a battle cry, disabling Hunters' tools for a short while.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "War Cry: Disables shields, bows, crossbows, & tridents in a 10 block radius for 10s"
+            "text": "War Cry: Disables shields, bows, crossbows, & tridents in a 10 block radius for 10s\nAdditionally, +3 armor and 2x Stamina bar replenishing speed!"
         },
         {
             "type": "origins:keybind",
