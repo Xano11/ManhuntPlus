@@ -4,5 +4,7 @@
     "death.attack.laser": "%s was desintegrated",
     "death.attack.laser.player": "%s was desintegrated whilst trying to avoid %s",
     "death.attack.redirect": "%s was too focused being based",
-    "death.attack.redirect.player": "%s died whilst protecting %s"
+    "death.attack.redirect.player": "%s died whilst protecting %s",
+    "death.attack.curse": "%s died from excess curse energy",
+    "death.attack.curse.player": "%s died under the curse of %s"
 }

@@ -9,6 +9,18 @@
                 "custom_model_data": 1
             },
             "model": "manhunt:item/deleo_area"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "manhunt:item/deleo_area_weak"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 3
+            },
+            "model": "manhunt:item/deleo_area_charging"
         }
     ]
 }
