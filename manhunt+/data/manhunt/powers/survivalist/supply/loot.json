@@ -51,7 +51,7 @@
     "fall_slow": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -0.8,
+            "value": -0.6,
             "operation": "multiply_total"
         },
         "axes": [
@@ -93,7 +93,7 @@
                 },
                 {
                     "type": "origins:if_else",
-                    "condition":  {
+                    "condition": {
                         "type": "origins:resource",
                         "resource": "manhunt:survivalist/supply/loot_levels",
                         "comparison": ">=",
@@ -107,7 +107,7 @@
                 },
                 {
                     "type": "origins:if_else",
-                    "condition":  {
+                    "condition": {
                         "type": "origins:resource",
                         "resource": "manhunt:survivalist/supply/loot_levels",
                         "comparison": ">=",
@@ -167,7 +167,18 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:on_block"
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "hidden": true

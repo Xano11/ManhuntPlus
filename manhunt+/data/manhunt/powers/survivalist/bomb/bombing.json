@@ -12,11 +12,14 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:explode",
+                    "type": "apugli:explode",
                     "power": 4,
                     "destruction_type": "break",
-                    "damage_self": false,
-                    "create_fire": false
+                    "create_fire": false,
+                    "knockback_modifier": {
+                        "value": 2,
+                        "operation": "multiply_total"
+                    }
                 },
                 {
                     "type": "origins:execute_command",
