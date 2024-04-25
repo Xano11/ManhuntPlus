@@ -57,7 +57,7 @@
             "condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:hunters/ritualist",
-                "layer": "origins:hunters"
+                "layer": "manhunt:hunters"
             }
         }
     },

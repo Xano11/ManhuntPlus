@@ -25,7 +25,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "manhunt:hunters/berserker",
-                        "layer": "origins:hunters",
+                        "layer": "manhunt:hunters",
                         "inverted": true
                     },
                     "if_action": {

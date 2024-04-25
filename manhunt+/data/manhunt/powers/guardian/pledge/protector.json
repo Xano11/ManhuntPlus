@@ -140,7 +140,7 @@
                             {
                                 "type": "origins:origin",
                                 "origin": "manhunt:hunters/guardian",
-                                "layer": "origins:hunters",
+                                "layer": "manhunt:hunters",
                                 "inverted": true
                             },
                             {

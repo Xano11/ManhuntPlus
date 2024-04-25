@@ -11,7 +11,7 @@
             "condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:hunters/falconer",
-                "layer": "origins:hunters"
+                "layer": "manhunt:hunters"
             }
         }
     },

@@ -103,7 +103,7 @@
                         {
                             "type": "origins:origin",
                             "origin": "manhunt:runners/draco",
-                            "layer": "origins:runners",
+                            "layer": "manhunt:runners",
                             "inverted": true
                         }
                     ]
@@ -176,7 +176,7 @@
                         {
                             "type": "origins:origin",
                             "origin": "manhunt:runners/draco",
-                            "layer": "origins:runners",
+                            "layer": "manhunt:runners",
                             "inverted": true
                         }
                     ]

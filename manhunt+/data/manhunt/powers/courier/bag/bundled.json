@@ -121,7 +121,7 @@
         "condition": {
             "type": "origins:origin",
             "origin": "manhunt:hunters/courier",
-            "layer": "origins:hunters",
+            "layer": "manhunt:hunters",
             "inverted": true
         }
     },
