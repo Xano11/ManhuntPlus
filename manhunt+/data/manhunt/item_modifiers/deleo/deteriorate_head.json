@@ -1,0 +1,7 @@
+{
+    "function": "apoli:add_power",
+    "power": "manhunt:deleo/binding/deteriorate/head",
+    "slot": "head",
+    "negative": false,
+    "hidden": true
+}

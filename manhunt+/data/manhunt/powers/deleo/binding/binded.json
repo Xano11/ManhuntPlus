@@ -2,28 +2,89 @@
     "type": "origins:multiple",
     "keep": {
         "type": "origins:keep_inventory",
-        "slots": [
-            39,
-            38,
-            37,
-            36,
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8
-        ]
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:is_equippable"
+                },
+                {
+                    "type": "origins:is_damageable"
+                }
+            ]
+        }
     },
-    "remove":{
+    "remove": {
         "type": "origins:action_on_callback",
         "entity_action_respawned": {
-            "type": "origins:execute_command",
-            "command": "power remove @s manhunt:deleo/binding/binded",
-            "permission_level": 4
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "head",
+                    "action": {
+                        "type": "origins:modify",
+                        "modifier": "manhunt:deleo/deteriorate_head"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "chest",
+                    "action": {
+                        "type": "origins:modify",
+                        "modifier": "manhunt:deleo/deteriorate_chest"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "legs",
+                    "action": {
+                        "type": "origins:modify",
+                        "modifier": "manhunt:deleo/deteriorate_legs"
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "feet",
+                    "action": {
+                        "type": "origins:modify",
+                        "modifier": "manhunt:deleo/deteriorate_feet"
+                    }
+                },
+                {
+                    "type": "origins:modify_inventory",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:is_damageable"
+                            },
+                            {
+                                "type": "origins:is_equippable",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "item_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:modify",
+                                "modifier": "manhunt:deleo/deteriorate_mainhand"
+                            },
+                            {
+                                "type": "origins:modify",
+                                "modifier": "manhunt:deleo/deteriorate_offhand"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:deleo/binding/binded",
+                    "permission_level": 4
+                }
+            ]
         },
         "execute_chosen_when_orb": true
     },
@@ -185,7 +246,7 @@
             ]
         }
     },
-    "model1":{
+    "model1": {
         "type": "origins:model_color",
         "alpha": 0.75,
         "condition": {
@@ -200,7 +261,7 @@
             ]
         }
     },
-    "model2":{
+    "model2": {
         "type": "origins:model_color",
         "alpha": 0.60,
         "condition": {
@@ -221,7 +282,7 @@
             ]
         }
     },
-    "model3":{
+    "model3": {
         "type": "origins:model_color",
         "alpha": 0.45,
         "condition": {
@@ -242,7 +303,7 @@
             ]
         }
     },
-    "model4":{
+    "model4": {
         "type": "origins:model_color",
         "alpha": 0.30,
         "condition": {

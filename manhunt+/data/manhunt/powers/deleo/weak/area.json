@@ -1,0 +1,160 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/weak/area_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action":  {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^4.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^-4.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~8 ~",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/weak/area_duration",
+            "compare_to": 10,
+            "comparison": ">"
+        }
+    },
+    "texture_change": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bee.hurt player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/weak/area_duration",
+            "compare_to": 30,
+            "comparison": "=="
+        }
+    },
+    "texture_change2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bee.hurt player @a ~ ~ ~ 3 0.6",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/weak/area_duration",
+            "compare_to": 20,
+            "comparison": "=="
+        }
+    },
+    "grant_effect": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.camel.eat player @a ~ ~ ~ 3 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~0.5 ~ 0 0 0 3 300",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:deleo/weak/weakened",
+                            "permission_level": 4
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:living"
+                        }              
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type":"origins:resource",
+            "resource": "manhunt:deleo/weak/area_duration",
+            "compare_to": 10,
+            "comparison": "=="
+        }
+    }
+}

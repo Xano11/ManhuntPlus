@@ -1,0 +1,45 @@
+{
+    "type": "origins:multiple",
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "disable": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@p[tag=shield_disable]",
+                    "bientity_action": {
+                        "type": "origins:damage",
+                        "amount": 1,
+                        "damage_type": "minecraft:player_attack"
+                    },
+                    "bientity_condition":{
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    }
+}

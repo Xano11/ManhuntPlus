@@ -461,7 +461,7 @@
         "modifier": {
             "name": "No damage",
             "operation": "multiply_total",
-            "value": -0.99
+            "value": -1
         }
     },
     "hidden": true

@@ -1,0 +1,294 @@
+{
+    "type": "origins:multiple",
+    "key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/weak/active_key_check",
+                    "change": 3,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_key_check",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/weak/active_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "windup_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/weak/active_windup",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/weak/active_key_check",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/weak/active_windup",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/weak/active_key_check",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.agitated player @a ~ ~ ~ 1 2"
+        }
+    },
+    "windup_speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.6
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/weak/active_windup",
+                    "comparison": "<",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/weak/active_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "windup_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:deleo_crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/weak/active_windup",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<",
+                    "compare_to": 24
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:living"
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.6,
+        "blue": 0.5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/weak/active_windup",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "invoke": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "block": true,
+                    "entity": true,
+                    "distance": 24,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:spawn_entity",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"deleo_area\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"deleo_area\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,-0.5f],scale:[9f,9f,0.1f]},item:{id:\"minecraft:ender_pearl\",Count:1b,tag:{CustomModelData:2}}}]}",
+                                    "entity_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "power grant @s manhunt:deleo/weak/area",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
+                                                "permission_level": 4
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:deleo/disable/disable_energy",
+                                    "change": -50
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:living"
+                        }
+                    },
+                    "command_step": 0.5
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/weak/active_windup",
+                    "comparison": "==",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": ">=",
+                    "compare_to": 50
+                }
+            ]
+        }
+    },
+    "name": "Non-Emotional Breakdown",
+    "description": "Break whatever they have left to make every strike decisive",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Breakdown will invoke a 5 block radius AOE on the target selected.\n\nBREAKDOWN: Increases damage taken by 50% for 4s"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" for 2s and press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to breakdown a target."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Energy Cost: 50% per breakdown"
+        }
+    ]
+}

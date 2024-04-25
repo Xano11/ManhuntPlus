@@ -1,103 +1,598 @@
 {
-    "type": "origins:active_self",
-    "entity_action": {
-        "type": "origins:and",
-        "actions": [
+    "type": "origins:multiple",
+    "energy": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": [
             {
-                "type": "origins:execute_command",
-                "command": "execute store result score @s deleo_hatchet run data get entity @s UUID[0] 1",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "tag @s add deleo",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:fire_projectile",
-                "entity_type": "minecraft:armor_stand",
-                "divergence": 0,
-                "count": 1,
-                "speed": 5,
-                "tag": "{Silent:1b,Small:1b,Invulnerable:1b,Invisible:1b,Tags:[\"hatchet\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"hatchet\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,-1f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.7f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:echo_shard\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
-                "projectile_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "execute store result score @s deleo_hatchet run data get entity @p[tag=deleo] UUID[0] 1",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=armor_stand,tag=hatchet] Rotation[0]",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "scale set pehkui:hitbox_width 2",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "power grant @s manhunt:deleo/disable/hatchet",
-                            "permission_level": 4
-                        }
-                    ]
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/deleo/deleo.png",
+                "bar_index": 0,
+                "icon_index": 0,
+                "condition":{
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": "==",
+                    "compare_to": 100
                 }
             },
             {
-                "type": "origins:execute_command",
-                "command": "tag @s remove deleo",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:swing_hand",
-                "hand": "MAIN_HAND"
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:item.axe.scrape player @a ~ ~ ~ 3 0.5",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:item.axe.wax_off player @a ~ ~ ~ 3 0.5",
-                "permission_level": 4
-            },
-            {
-                "type": "origins:execute_command",
-                "command": "playsound minecraft:item.trident.throw player @a ~ ~ ~ 3 0.5",
-                "permission_level": 4
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/deleo/deleo.png",
+                "bar_index": 0,
+                "icon_index": 1,
+                "condition":{
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": "<",
+                    "compare_to": 100
+                }
             }
         ]
     },
-    "cooldown": 900,
-    "hud_render": {
-        "should_render": true,
-        "sprite_location": "manhunt:textures/bars/deleo/deleo.png",
-        "bar_index": 0
+    "energy_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disable_energy",
+            "change": 1
+        },
+        "interval": 10
     },
-    "key": {
-        "key": "key.origins.primary_active"
+    "key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
     },
-    "name": "Cursed Hatchet",
-    "description": "Throw a hatchet which puts a curse on runners",
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/disable/disable_key_check",
+                    "change": 3,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/weak/active_key_check",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disable_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "windup_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disable_windup",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disable_key_check",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disable_windup",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disable_key_check",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 1 0.7"
+        }
+    },
+    "windup_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:deleo_crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disable_windup",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "target": {
+        "type": "origins:entity_set"
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:in_set",
+                    "set": "manhunt:deleo/disable/disable_target"
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.6,
+        "blue": 0.5
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:set_fall_distance",
+                                "fall_distance": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:deleo/disable/disable_energy",
+                                "change": -10
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:deleo/disable/disable_gap",
+                                "change": 1,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:action_on_set",
+                                "set": "manhunt:deleo/disable/disable_target",
+                                "bientity_action": {
+                                    "type": "origins:remove_from_set",
+                                    "set": "manhunt:deleo/disable/disable_target"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:add_to_set",
+                    "set": "manhunt:deleo/disable/disable_target"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 1,
+                    "y": 0.1
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "manhunt:curse"
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:power",
+                                    "power": "manhunt:deleo/disable/disabled"
+                                },
+                                "if_action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:deleo/disable/disabled_hits",
+                                    "change": 1
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:deleo/disable/disabled"
+                                }
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:deleo/disable/disabled_decay",
+                                "change": 30,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.bell.use player @a ~ ~ ~ 1 1.2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 1.4 1.2"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:living"
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_windup",
+                    "comparison": "==",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": ">=",
+                    "compare_to": 10
+                }
+            ]
+        }
+    },
+    "break_shield": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add shield_disable",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:vex",
+                                            "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                                            "entity_action": {
+                                                "type": "origins:execute_command",
+                                                "command": "power grant @s manhunt:deleo/disable/shield",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:deleo/disable/disable_energy",
+                                            "change": -20
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove shield_disable",
+                                    "permission_level": 4
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:using_item",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:shield"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "command_step": 0.5
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_windup",
+                    "comparison": "==",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": ">=",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
+    "gap": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "slowfall": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "min_action": {
+            "type": "origins:set_fall_distance",
+            "fall_distance": 0
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "slowfall_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disable_slowfall",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disable_slowfall",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "velocity_slowfall": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.5,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disable_slowfall",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_fall": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disable_slowfall",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "closer": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "change": -10
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/disable/disable_gap",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/disable/disable_slowfall",
+                    "change": 10
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bat.takeoff player @a ~ ~ ~ 1 1.8"
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:deleo/disable/disable_target",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:add_velocity",
+                            "z": -0.8
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_energy",
+                    "comparison": ">=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_windup",
+                    "comparison": "==",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_gap",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:deleo/disable/disable_target",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "name": "Cursed Fists",
+    "description": "Conduct the neverending energy within you to pack a curse-filled punch",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Curse: No abilities for 10s and slowed by 35%."
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "Your punches disable shields for an extra 10% energy cost!"
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Throw hatchet with \"%s\"!"
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and punch an entity to build curse energy. Press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" instead after a punch to dash forward towards your target."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Curse: No abilities for 7s and slowed by 10%."
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s\nEvery hunter affected will reduce the cooldown by 10s."
+            "text": "Energy cost: Uses 10% per punch/dash"
         }
     ]
 }
