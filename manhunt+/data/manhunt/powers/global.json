@@ -37,7 +37,7 @@
             "compare_to": 2
         }
     },
-    "glow_lurker_eye":{
+    "glow_lurker_eye": {
         "type": "origins:entity_glow",
         "entity_condition": {
             "type": "origins:and",
@@ -144,7 +144,7 @@
             "condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:hunters/ritualist",
-                "layer": "origins:hunters",
+                "layer": "manhunt:hunters",
                 "inverted": true
             }
         },
@@ -216,7 +216,7 @@
             "entity_condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:runners/deleo",
-                "layer": "origins:runners"
+                "layer": "manhunt:runners"
             }
         }
     },
@@ -283,7 +283,7 @@
                 {
                     "type": "origins:origin",
                     "origin": "manhunt:hunters/angler",
-                    "layer": "origins:hunters",
+                    "layer": "manhunt:hunters",
                     "inverted": true
                 }
             ]
@@ -333,11 +333,47 @@
             "condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:hunters/ritualist",
-                "layer": "origins:hunters"
+                "layer": "manhunt:hunters"
             }
         }
     },
-    "tooltip_helmet": {
+    "tooltip_deteriorate": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/head"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/chest"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/legs"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/feet"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/mainhand"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/offhand"
+                }
+            ]
+        },
+        "text": {
+            "text": "Curse of Deterioration",
+            "color": "red"
+        }
+    },
+    "tooltip_recall": {
         "type": "origins:tooltip",
         "item_condition": {
             "type": "origins:has_power",
@@ -348,7 +384,7 @@
             "color": "gray"
         }
     },
-    "tooltip_chestplate": {
+    "tooltip_glass_shield": {
         "type": "origins:tooltip",
         "item_condition": {
             "type": "origins:and",
@@ -374,7 +410,7 @@
             "color": "gray"
         }
     },
-    "tooltip_chestplate_2": {
+    "tooltip_glass_shield2": {
         "type": "origins:tooltip",
         "item_condition": {
             "type": "origins:and",
@@ -394,7 +430,7 @@
             "color": "gray"
         }
     },
-    "tooltip_chestplate_3": {
+    "tooltip_glass_shield3": {
         "type": "origins:tooltip",
         "item_condition": {
             "type": "origins:and",
@@ -412,6 +448,26 @@
         "text": {
             "text": "Glass Shield III",
             "color": "gray"
+        }
+    },
+    "no_imp_trident": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "time set day"
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "minecraft:flowers"
+                }
+            },
+            "comparison": "<",
+            "compare_to": 16
         }
     },
     "hidden": true
