@@ -11,6 +11,67 @@
                     "change": -1
                 },
                 {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was turned into bones (:skull:)\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" got boned (damn)\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5 
+                        },
+                        {
+                            "element":{
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was too busy cosplaying Dry Bones\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element":{
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" fell apart\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element":{
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was bad to the bone\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element":{
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" had a bone to pick in Hell\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element":{
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\"... more like... uh... a pile of bones.\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        }
+                    ]
+                },
+                {
                     "type": "origins:change_resource",
                     "resource": "manhunt:relentless/eternal/undead_max_speed",
                     "change": 5
