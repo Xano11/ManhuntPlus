@@ -253,6 +253,9 @@
                                             "layer": "origins:origin"
                                         },
                                         {
+                                            "type":"origins:on_block"
+                                        },
+                                        {
                                             "type": "apugli:entity_in_radius",
                                             "condition": {
                                                 "type": "origins:nbt",
@@ -699,7 +702,7 @@
                 {
                     "keybind": "key.attack"
                 },
-                "\" you will instead teleport your totem to the ally, reducing it's duration by half."
+                "\" you will instead teleport your totem to the ally, reducing it's duration by half. (Ally must be touching the ground)"
             ]
         }
     ]

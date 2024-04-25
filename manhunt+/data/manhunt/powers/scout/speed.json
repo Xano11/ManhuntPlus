@@ -9,20 +9,20 @@
             "should_render": false
         },
         "max_action": {
-			"type": "origins:and",
-			"actions": [
+            "type": "origins:and",
+            "actions": [
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.phantom.flap player @s ~ ~ ~ 3 2",
                     "permission_level": 4
                 },
-				{
+                {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 3 2",
                     "permission_level": 4
                 }
-			]
-		}
+            ]
+        }
     },
     "charging_up": {
         "type": "origins:action_over_time",
@@ -97,7 +97,7 @@
             "compare_to": 9
         }
     },
-    "more_air_speed":{
+    "more_air_speed": {
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
@@ -121,12 +121,41 @@
     "ally_speed_grant": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:execute_command",
-            "command": "power grant @e[type=minecraft:player,tag=hunter,distance=..24] manhunt:scout/ally_speed"
+            "type": "origins:area_of_effect",
+            "radius": 24,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:scout/ally_speed",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:scout/ally_speed"
+                    },
+                    "else_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:scout/ally_speed_duration",
+                        "change": 30
+                    }
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:origin",
+                    "origin": "manhunt:hunter",
+                    "layer": "origins:origin"
+                }
+            }
         },
-        "interval": 10
+        "interval": 1
     },
-    "overlay_inactive":{
+    "overlay_inactive": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_inactive.png",
         "strength": 1.0,
@@ -144,7 +173,7 @@
             "compare_to": 0
         }
     },
-    "overlay1":{
+    "overlay1": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim1.png",
         "strength": 1.0,
@@ -162,7 +191,7 @@
             "compare_to": 1
         }
     },
-    "overlay2":{
+    "overlay2": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim2.png",
         "strength": 1.0,
@@ -180,7 +209,7 @@
             "compare_to": 2
         }
     },
-    "overlay3":{
+    "overlay3": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim3.png",
         "strength": 1.0,
@@ -198,7 +227,7 @@
             "compare_to": 3
         }
     },
-    "overlay4":{
+    "overlay4": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim4.png",
         "strength": 1.0,
@@ -216,7 +245,7 @@
             "compare_to": 4
         }
     },
-    "overlay5":{
+    "overlay5": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim5.png",
         "strength": 1.0,
@@ -234,7 +263,7 @@
             "compare_to": 5
         }
     },
-    "overlay6":{
+    "overlay6": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim6.png",
         "strength": 1.0,
@@ -252,7 +281,7 @@
             "compare_to": 6
         }
     },
-    "overlay7":{
+    "overlay7": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim7.png",
         "strength": 1.0,
@@ -270,7 +299,7 @@
             "compare_to": 7
         }
     },
-    "overlay8":{
+    "overlay8": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout_anim8.png",
         "strength": 1.0,
@@ -288,7 +317,7 @@
             "compare_to": 8
         }
     },
-    "overlay_active":{
+    "overlay_active": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/scout.png",
         "strength": 1.0,

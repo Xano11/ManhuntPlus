@@ -273,7 +273,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:default",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -284,7 +284,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:amethyst",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -295,7 +295,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:slime",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -306,7 +306,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:bomb",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -317,7 +317,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:emerald",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -328,7 +328,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:cod",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -339,7 +339,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:shulker",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -350,7 +350,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:suspicious",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -366,7 +366,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:default",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -377,7 +377,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:amethyst",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -388,7 +388,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:slime",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -399,7 +399,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:bomb",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -410,7 +410,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:emerald",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -421,7 +421,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:cod",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -432,7 +432,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:shulker",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",
@@ -443,7 +443,7 @@
                     "condition": {
                         "type": "origins:origin",
                         "origin": "ringtones:suspicious",
-                        "layer": "origins:ringtones"
+                        "layer": "manhunt:ringtones"
                     },
                     "action": {
                         "type": "origins:execute_command",

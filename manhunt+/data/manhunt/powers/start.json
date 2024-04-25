@@ -153,12 +153,12 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:runners"
+                            "layer": "manhunt:runners"
                         },
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:hunters"
+                            "layer": "manhunt:hunters"
                         }
                     ]
                 }
@@ -203,13 +203,13 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:runners",
+                            "layer": "manhunt:runners",
                             "inverted": true
                         },
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:hunters",
+                            "layer": "manhunt:hunters",
                             "inverted": true
                         }
                     ]
@@ -255,7 +255,7 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:hunters",
+                            "layer": "manhunt:hunters",
                             "inverted": true
                         }
                     ]
@@ -301,7 +301,7 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:runners",
+                            "layer": "manhunt:runners",
                             "inverted": true
                         }
                     ]
@@ -340,13 +340,13 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:runners",
+                            "layer": "manhunt:runners",
                             "inverted": true
                         },
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:hunters",
+                            "layer": "manhunt:hunters",
                             "inverted": true
                         }
                     ]
@@ -381,13 +381,13 @@
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:runners",
+                            "layer": "manhunt:runners",
                             "inverted": true
                         },
                         {
                             "type": "origins:origin",
                             "origin": "origins:empty",
-                            "layer": "origins:hunters",
+                            "layer": "manhunt:hunters",
                             "inverted": true
                         }
                     ]

@@ -89,11 +89,11 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "origin set @s origins:runners origins:empty"
+                                            "command": "origin set @s manhunt:runners origins:empty"
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "origin gui @s origins:hunters"
+                                            "command": "origin gui @s manhunt:hunters"
                                         }
                                     ]
                                 },
@@ -106,7 +106,7 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "origin set @s origins:runners origins:empty"
+                                            "command": "origin set @s manhunt:runners origins:empty"
                                         }
                                     ]
                                 }
@@ -169,6 +169,78 @@
                 }
             ]
         }
+    },
+    "glow": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:runner_effects_glow_check",
+            "change": 2,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.playerlist",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:runner_effects_glow",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "glow_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:runner_effects_glow_check",
+            "change": -1,
+            "operation": "add"
+        },
+        "interval": 1
+    },
+    "glow_overlay": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:runner",
+                "layer": "origins:origin"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:runner_effects_glow_check",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0
     },
     "shatter": {
         "type": "origins:entity_set"

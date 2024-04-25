@@ -87,14 +87,12 @@
         }
     },
     "crit_damage": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "attribute": "additionalentityattributes:critical_bonus_damage",
-            "operation": "addition",
-            "value": 0.20,
-            "name": "Increased crit damage"
+        "type": "origins:modify_attribute",
+        "attribute":"additionalentityattributes:critical_bonus_damage",
+        "modifier":{
+            "operation": "add_base_early",
+            "value": 0.2
         },
-        "tick_rate": 1,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:sanguis/leap_crit",
@@ -134,7 +132,7 @@
                             "condition": {
                                 "type": "origins:origin",
                                 "origin": "manhunt:runners/sanguis",
-                                "layer": "origins:runners",
+                                "layer": "manhunt:runners",
                                 "inverted": true
                             }
                         }

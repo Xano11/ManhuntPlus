@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "more_speed": {
-        "type": "origins:conditioned_attribute",
+        "type": "origins:attribute",
         "modifier": {
             "name": "Increase speed",
             "attribute": "minecraft:generic.movement_speed",
@@ -24,34 +24,27 @@
         },
         "interval": 10
     },
-    "remove": {
-        "type": "origins:action_over_time",
-        "rising_action": {
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
             "type": "origins:execute_command",
             "command": "power remove @s manhunt:scout/ally_speed"
-        },
-        "interval": 10,
-        "condition": {
-            "type": "apugli:entity_in_radius",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "apoli:entity_type",
-                        "entity_type": "minecraft:player"
-                    },
-                    {
-                        "type": "origins:origin",
-                        "origin": "manhunt:hunter/scout",
-                        "layer": "origins:origin"
-                    }
-                ]
-            },
-            "radius": 24.0,
-            "comparison": "<=",
-            "compare_to": 1,
-            "inverted": true
         }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scout/ally_speed_duration",
+            "change": -1
+        },
+        "interval": 1
     },
     "hidden": true
 }
