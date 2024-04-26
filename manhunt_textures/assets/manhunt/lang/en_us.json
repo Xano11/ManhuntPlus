@@ -6,5 +6,10 @@
     "death.attack.redirect": "%s was too focused being based",
     "death.attack.redirect.player": "%s died whilst protecting %s",
     "death.attack.curse": "%s died from excess curse energy",
-    "death.attack.curse.player": "%s died under the curse of %s"
+    "death.attack.curse.player": "%s died under the curse of %s",
+
+
+    "layer.manhunt.runners.name": "Runner",
+    "layer.manhunt.hunters.name": "Hunter",
+    "layer.manhunt.ringtones.name": "Ringtone"
 }
