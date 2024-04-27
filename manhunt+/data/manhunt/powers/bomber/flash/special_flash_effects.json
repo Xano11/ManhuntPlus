@@ -2,7 +2,7 @@
     "type": "origins:multiple",
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 1,
         "red": 1,
         "green": 1,
@@ -31,7 +31,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 0.95,
         "red": 1,
         "green": 1,
@@ -60,7 +60,7 @@
     },
     "overlay3": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 0.9,
         "red": 1,
         "green": 1,
@@ -89,7 +89,7 @@
     },
     "overlay4": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 0.85,
         "red": 1,
         "green": 1,
@@ -118,7 +118,7 @@
     },
     "overlay5": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 0.8,
         "red": 1,
         "green": 1,
@@ -147,7 +147,7 @@
     },
     "overlay6": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 0.7,
         "red": 1,
         "green": 1,
@@ -176,7 +176,7 @@
     },
     "overlay7": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/cdn.png",
+        "texture": "manhunt:textures/gui/overlays/cdn.png",
         "strength": 0.4,
         "red": 1,
         "green": 1,

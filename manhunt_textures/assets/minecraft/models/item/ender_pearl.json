@@ -21,6 +21,12 @@
                 "custom_model_data": 3
             },
             "model": "manhunt:item/deleo_area_charging"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4
+            },
+            "model": "manhunt:item/sicarius_pearl"
         }
     ]
 }

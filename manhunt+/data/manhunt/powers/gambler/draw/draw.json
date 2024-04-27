@@ -116,7 +116,7 @@
     },
     "overlay_blank": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/gambler_blank.png",
+        "texture": "manhunt:textures/gui/overlays/gambler_blank.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -134,7 +134,7 @@
     },
     "overlay_heart": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/gambler_heart.png",
+        "texture": "manhunt:textures/gui/overlays/gambler_heart.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -152,7 +152,7 @@
     },
     "overlay_diamond": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/gambler_diamond.png",
+        "texture": "manhunt:textures/gui/overlays/gambler_diamond.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -170,7 +170,7 @@
     },
     "overlay_club": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/gambler_club.png",
+        "texture": "manhunt:textures/gui/overlays/gambler_club.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -188,7 +188,7 @@
     },
     "overlay_spade": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/gambler_spade.png",
+        "texture": "manhunt:textures/gui/overlays/gambler_spade.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,

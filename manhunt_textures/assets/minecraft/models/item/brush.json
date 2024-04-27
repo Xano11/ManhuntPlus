@@ -79,7 +79,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/survivalist_icon"
+            "model": "manhunt:item/icons/survivalist_icon"
         }
     ]
 }

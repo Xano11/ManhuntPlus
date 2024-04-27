@@ -9,7 +9,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/gambler_icon"
+            "model": "manhunt:item/icons/gambler_icon"
         }
     ]
 }

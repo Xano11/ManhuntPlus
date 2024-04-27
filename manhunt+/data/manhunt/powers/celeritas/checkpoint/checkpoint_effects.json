@@ -104,7 +104,7 @@
     },
     "overlay": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/celeritas.png",
+        "texture": "manhunt:textures/gui/overlays/celeritas.png",
         "strength": 0.6,
         "red": 1.0,
         "green": 1.0,

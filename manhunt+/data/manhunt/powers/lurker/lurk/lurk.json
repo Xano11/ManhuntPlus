@@ -438,7 +438,7 @@
     },
     "overlay_inactive": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/lurking_inactive.png",
+        "texture": "manhunt:textures/gui/overlays/lurking_inactive.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -456,7 +456,7 @@
     },
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/lurking1.png",
+        "texture": "manhunt:textures/gui/overlays/lurking1.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -474,7 +474,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/lurking2.png",
+        "texture": "manhunt:textures/gui/overlays/lurking2.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -492,7 +492,7 @@
     },
     "overlay3": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/lurking3.png",
+        "texture": "manhunt:textures/gui/overlays/lurking3.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,

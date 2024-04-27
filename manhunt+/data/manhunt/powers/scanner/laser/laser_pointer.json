@@ -25,7 +25,7 @@
     },
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/scanner_scan1.png",
+        "texture": "manhunt:textures/gui/overlays/scanner_scan1.png",
         "strength": 1,
         "red": 1,
         "green": 1,
@@ -43,7 +43,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/scanner_scan2.png",
+        "texture": "manhunt:textures/gui/overlays/scanner_scan2.png",
         "strength": 1,
         "red": 1,
         "green": 1,
@@ -61,7 +61,7 @@
     },
     "overlay3": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/scanner_completed.png",
+        "texture": "manhunt:textures/gui/overlays/scanner_completed.png",
         "strength": 1,
         "red": 1,
         "green": 1,

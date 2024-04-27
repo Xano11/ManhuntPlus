@@ -65,7 +65,7 @@
       "predicate": {
           "custom_model_data": 1
       },
-      "model": "manhunt:item/celeritas_icon"
+      "model": "manhunt:item/icons/celeritas_icon"
   }
   ],
   "textures": {

@@ -8,7 +8,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/scout_icon"
+            "model": "manhunt:item/icons/scout_icon"
         }
     ]
 }
