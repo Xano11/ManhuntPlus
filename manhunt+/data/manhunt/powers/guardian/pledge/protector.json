@@ -191,7 +191,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/guardian_icon.png",
+            "sprite": "manhunt:textures/item/icons/guardian_icon.png",
             "text": "Pledge: You grant 25%(+1) of your own armor to your pledged ally.\nAdditionally, let's you use all your abilities onto that ally."
         },
         {

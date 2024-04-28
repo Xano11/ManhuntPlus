@@ -26,7 +26,7 @@
             "predicate": {
                 "custom_model_data": 4
             },
-            "model": "manhunt:item/shaman_icon"
+            "model": "manhunt:item/icons/shaman_icon"
         }
     ]
 }

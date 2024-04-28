@@ -216,7 +216,7 @@
         },
 		{
 			"type": "origins:tooltip",
-			"sprite": "manhunt:textures/item/soul_icon.png",
+			"sprite": "manhunt:textures/item/icons/soul_icon.png",
 			"text": "Requires 7 or more souls.\nConsumes 1 soul per second."
 		}
 	]

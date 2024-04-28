@@ -520,7 +520,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/guardian_icon.png",
+            "sprite": "manhunt:textures/item/icons/guardian_icon.png",
             "text": "Pledged: The Pledge'd ally is reduced by 20% and 40% of the damage is redirected to you.\nIf they die, you will take 3 hearts of true damage.\n\n(This only works in a 32 block radius)"
         },
         {
