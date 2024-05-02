@@ -90,7 +90,7 @@
             "change": 3
         }
     },
-    "cycle_tick":{
+    "cycle_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
@@ -143,7 +143,7 @@
             }
         ]
     },
-    "weaker_tick":{
+    "weaker_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
@@ -195,7 +195,7 @@
             "compare_to": 0
         }
     },
-    "swirl":{
+    "swirl": {
         "type": "apugli:energy_swirl",
         "texture_location": "manhunt:textures/swirls/berserker_weak.png",
         "speed": 0.01,
@@ -321,7 +321,7 @@
             "compare_to": 0
         }
     },
-    "unstoppable":{
+    "unstoppable": {
         "type": "origins:prevent_death"
     },
     "movement_speed": {
@@ -380,6 +380,34 @@
             "operation": "addition",
             "value": 3
         },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_roar",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "one_hp": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "addition",
+            "value": -19,
+            "name": "one hp"
+        },
+        "tick_rate": 10,
+        "update_health": false,
         "condition": {
             "type": "origins:and",
             "conditions": [

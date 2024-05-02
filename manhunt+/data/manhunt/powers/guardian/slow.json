@@ -9,21 +9,6 @@
             "name": "Decreased attack speed."
         }
     },
-    "slow": {
-        "type": "origins:modify_attribute",
-        "attribute": "minecraft:generic.movement_speed",
-        "modifier": {
-            "operation": "multiply_total_multiplicative",
-            "value": -0.15
-        }
-    },
-    "air_speed": {
-        "type": "origins:modify_air_speed",
-        "modifier": {
-            "operation": "multiply_total",
-            "value": -0.15
-        }
-    },
     "break":{
         "type": "origins:modify_break_speed",
         "modifier": {
@@ -43,7 +28,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Steady: §l§c-0.3§r Attack Speed value.\n§l§c-15%§r Movement Speed.\n§l§c-40%§r Mining Speed."
+            "text": "Steady: §l§c-0.3§r Attack Speed value.\n§l§c-40%§r Mining Speed."
         }
     ]
 }
