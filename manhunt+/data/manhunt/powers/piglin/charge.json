@@ -55,6 +55,16 @@
             "compare_to": 0
         }
     },
+    "fall_speed": {
+        "type": "origins:modify_falling",
+        "velocity": 1.0,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/charge_charging",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "no_jump": {
         "type": "eggolib:prevent_key_use",
         "key": "key.jump",
@@ -111,7 +121,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/poison.png",
-            "text": "Charging: 200% speed for 3.5s\nAdditionally, you can walk up 1 block ledges (+1 step height)."
+            "text": "Charging: 200% Speed for 3.5s\nWhile charging, you can walk up full blocks and fall quicker, but cannot jump. (+1 Block Step Height)"
         },
         {
             "type": "origins:keybind",
