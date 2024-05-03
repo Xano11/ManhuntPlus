@@ -73,5 +73,10 @@
       "sounds": [
         "entity/roar"
       ]
+    },
+    "relentless": {
+      "sounds": [
+        "misc/roar"
+      ]
     }
   }
