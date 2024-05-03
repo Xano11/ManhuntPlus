@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"manhunt:sicarius/impersonate/clone",
+        "manhunt:sicarius/pearl/pearl"
+	],
+	"icon": {
+		"item": "minecraft:iron_sword",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+    "unchoosable": true,
+	"order": 10,
+	"impact": 3,
+	"name": "Sicarius 🔪",
+	"description": "Hunters can't even trust their shadows when Sicarius lurks around..."
+}

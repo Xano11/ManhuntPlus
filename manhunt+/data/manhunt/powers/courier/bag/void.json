@@ -393,7 +393,17 @@
             "main_hand"
         ],
         "condition": {
-            "type": "origins:sneaking"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
         }
     },
     "name": "The Bag™",

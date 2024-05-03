@@ -65,78 +65,6 @@
         "green": 1.0,
         "blue": 0.7
     },
-    "prevent_simulation_render": {
-        "type": "origins:prevent_entity_render",
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:passenger",
-                        "bientity_condition": {
-                            "type": "origins:actor_condition",
-                            "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:entity_type",
-                                        "entity_type": "minecraft:armor_stand"
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "manhunt:engineer/bacont/render_wall"
-                                    }
-                                ]
-                            }
-                        },
-                        "compare_to": 1,
-                        "comparison": ">="
-                    }
-                },
-                {
-                    "type": "origins:actor_condition",
-                    "condition": {
-                        "type": "origins:power",
-                        "power": "manhunt:engineer/bacont/simulated",
-                        "inverted": true
-                    }
-                }
-            ]
-        }
-    },
-    "prevent_simulation_players": {
-        "type": "origins:prevent_entity_render",
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:entity_type",
-                                "entity_type": "minecraft:player"
-                            },
-                            {
-                                "type": "origins:power",
-                                "power": "manhunt:engineer/bacont/simulated"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:actor_condition",
-                    "condition": {
-                        "type": "origins:power",
-                        "power": "manhunt:engineer/bacont/simulated",
-                        "inverted": true
-                    }
-                }
-            ]
-        }
-    },
     "prevent_soul_pickup": {
         "type": "eggolib:prevent_item_pickup",
         "bientity_condition": {
@@ -448,26 +376,6 @@
         "text": {
             "text": "Glass Shield III",
             "color": "gray"
-        }
-    },
-    "no_imp_trident": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "time set day"
-        },
-        "interval": 10,
-        "condition": {
-            "type": "origins:inventory",
-            "process_mode": "items",
-            "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": {
-                    "tag": "minecraft:flowers"
-                }
-            },
-            "comparison": "<",
-            "compare_to": 16
         }
     },
     "hidden": true

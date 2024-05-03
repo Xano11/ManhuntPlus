@@ -1,6 +1,23 @@
 {
     "name": "Don't blink twice!",
     "description": "You can teleport in front of you in the blink of an eye.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The teleport has a distance of 7 blocks and resets fall distance."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Teleport with \"%s\"!"
+        },
+		{
+			"type": "origins:tooltip",
+			"sprite": "manhunt:textures/icons/cooldown.png",
+			"text": "Cooldown: 5s"
+		}
+    ],
     "type": "origins:multiple",
     "move": {
         "type": "origins:active_self",

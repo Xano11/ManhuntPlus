@@ -85,6 +85,25 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:hunter_effects"
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition":{
+                                                "type": "origins:resource",
+                                                "resource": "manhunt:runner_effects_glow",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            },
+                                            "if_action": {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:hunter_effects_glow",
+                                                "change": 1,
+                                                "operation": "set"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
                                             "command": "origin set @s origins:origin manhunt:hunter"
                                         },
                                         {
@@ -94,6 +113,10 @@
                                         {
                                             "type": "origins:execute_command",
                                             "command": "origin gui @s manhunt:hunters"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "origin set @s manhunt:ringtones ringtones:default"
                                         }
                                     ]
                                 },

@@ -31,83 +31,27 @@
         },
         "interval": 1
     },
-    "activate": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:bomber/kamikaze_resource",
-                    "change": 3
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:flame ~ ~1 ~ 0.2 0.2 0.2 0.3 3 force @a[distance=1..]",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:campfire_cosy_smoke ~ ~1 ~ 0.2 0.2 0.2 0.1 1 force @a[distance=1..]",
-                    "permission_level": 4
-                }
-            ]
-        },
-        "key": {
-            "key": "key.origins.secondary_active",
-            "continuous": true
-        },
-        "cooldown": 4,
-        "hud_render": {
-            "should_render": false
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:bomber/kamikaze_cooldown",
-            "comparison": "==",
-            "compare_to": 0
-        }
-    },
-    "resource": {
+    "windup": {
         "type": "origins:resource",
         "min": 0,
-        "max": 100,
+        "max": 30,
         "start_value": 0,
         "hud_render": {
             "should_render": false
-        }
-    },
-    "levels": {
-        "type": "origins:action_over_time",
-        "rising_action": {
+        },
+        "min_action": {
             "type": "origins:if_else_list",
             "actions": [
                 {
                     "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": ">",
-                                "compare_to": 0
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": "<=",
-                                "compare_to": 33
-                            }
-                        ]
+                        "type": "origins:resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "comparison": "==",
+                        "compare_to": 1
                     },
                     "action": {
                         "type": "origins:and",
                         "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_strength",
-                                "change": 1
-                            },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_timer",
@@ -117,41 +61,20 @@
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
                                 "change": 1800
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "change": -100
                             }
                         ]
                     }
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": ">",
-                                "compare_to": 33
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": "<=",
-                                "compare_to": 66
-                            }
-                        ]
+                        "type": "origins:resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "comparison": "==",
+                        "compare_to": 2
                     },
                     "action": {
                         "type": "origins:and",
                         "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_strength",
-                                "change": 2
-                            },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_timer",
@@ -161,41 +84,20 @@
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
                                 "change": 1800
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "change": -100
                             }
                         ]
                     }
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": ">",
-                                "compare_to": 66
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": "<=",
-                                "compare_to": 99
-                            }
-                        ]
+                        "type": "origins:resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "comparison": "==",
+                        "compare_to": 3
                     },
                     "action": {
                         "type": "origins:and",
                         "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_strength",
-                                "change": 3
-                            },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_timer",
@@ -205,35 +107,20 @@
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
                                 "change": 1800
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "change": -100
                             }
                         ]
                     }
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "comparison": "==",
-                                "compare_to": 100
-                            }
-                        ]
+                        "type": "origins:resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "comparison": "==",
+                        "compare_to": 4
                     },
                     "action": {
                         "type": "origins:and",
                         "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_strength",
-                                "change": 4
-                            },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_timer",
@@ -243,25 +130,67 @@
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
                                 "change": 1800
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:bomber/kamikaze_resource",
-                                "change": -100
                             }
                         ]
                     }
                 }
             ]
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/kamikaze_windup",
+            "change": -1
         },
         "interval": 1,
+        "condition":  {
+            "type": "origins:resource",
+            "resource": "manhunt:bomber/kamikaze_windup",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "comparison": "<",
+                        "compare_to": 4
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "change": 1
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomber/kamikaze_windup",
+                    "change": 30,
+                    "operation": "set"
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 2,
+        "hud_render": {
+            "should_render": false
+        },
         "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.origins.secondary_active",
-                "continuous": true
-            },
-            "inverted": true
+            "type": "origins:resource",
+            "resource": "manhunt:bomber/kamikaze_cooldown",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "sound1": {
@@ -284,9 +213,9 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:bomber/kamikaze_resource",
+            "resource": "manhunt:bomber/kamikaze_strength",
             "comparison": "==",
-            "compare_to": 3
+            "compare_to": 1
         }
     },
     "sound2": {
@@ -309,9 +238,9 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:bomber/kamikaze_resource",
+            "resource": "manhunt:bomber/kamikaze_strength",
             "comparison": "==",
-            "compare_to": 36
+            "compare_to": 2
         }
     },
     "sound3": {
@@ -334,9 +263,9 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:bomber/kamikaze_resource",
+            "resource": "manhunt:bomber/kamikaze_strength",
             "comparison": "==",
-            "compare_to": 69
+            "compare_to": 3
         }
     },
     "sound4": {
@@ -359,9 +288,9 @@
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:bomber/kamikaze_resource",
+            "resource": "manhunt:bomber/kamikaze_strength",
             "comparison": "==",
-            "compare_to": 100
+            "compare_to": 4
         }
     },
     "strength": {
@@ -877,12 +806,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Small Explosion: 0s\nMedium Explosion: 1.65s\nLarge Explosion: 3.3s\nMax Explosions: 5s"
+            "text": "Kamikaze has 4 tiers. Every time you click the key, the explosion goes 1 tier up!\nTier 1: Power II\nTier 2: Power III\nTier 3: Power IV\nTier 4: Power VIII"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Charge by pressing \"%s\"!"
+            "text": "Charge by pressing \"%s\"!\nAfter clicking, you have 1.5s to click again and increase the tier of the explosion."
         },
         {
             "type": "origins:tooltip",

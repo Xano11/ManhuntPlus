@@ -31,12 +31,6 @@
                     "command": "give @s enchanted_book{CustomModelData:1,Tags:[\"glass_book\"],display:{Lore:['[{\"text\":\"Glass Shield I\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]} 1"
                 },
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:enchanter/arcane_energy",
-                    "change": 0,
-                    "operation": "set"
-                },
-                {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
                 },
@@ -56,10 +50,9 @@
             "amount": 1
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:enchanter/arcane_energy",
-            "comparison": "==",
-            "compare_to": 100
+            "type": "origins:xp_points",
+            "comparison": ">=",
+            "compare_to": 55
         }
     },
     "levelup_book": {
@@ -98,8 +91,8 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:add_xp",
-                    "levels": -5
+                    "type": "origins:execute_command",
+                    "command": "xp add @s -55 points"
                 },
                 {
                     "type": "origins:execute_command",
@@ -130,9 +123,9 @@
             ]
         },
         "condition": {
-            "type": "origins:xp_levels",
+            "type": "origins:xp_points",
             "comparison": ">=",
-            "compare_to": 5
+            "compare_to": 55
         }
     },
     "levelup_book_again": {
@@ -171,8 +164,8 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:add_xp",
-                    "levels": -5
+                    "type": "origins:execute_command",
+                    "command": "xp add @s -55 points"
                 },
                 {
                     "type": "origins:execute_command",
@@ -203,9 +196,9 @@
             ]
         },
         "condition": {
-            "type": "origins:xp_levels",
+            "type": "origins:xp_points",
             "comparison": ">=",
-            "compare_to": 5
+            "compare_to": 55
         }
     },
     "apply_level1": {
@@ -398,7 +391,7 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
             "text": [
-                "Hunters with this book can survive a fatal hit at the cost of the chestplate's durability.\nThe Glass Shield book can be leveled up at the cost of 5 experience orb.\n\nTaking a fatal hit removes the enchantment.\nLevel I: No healing\nLevel II: 2.5 hearts restored on fatal hit\nLevel III: 5 hearts restored on fatal hit"
+                "Hunters with this book can survive a fatal hit at the cost of the chestplate's durability.\nThe Glass Shield book can be leveled up at the cost of 55 experience orb (~5 lvls).\n\nTaking a fatal hit removes the enchantment.\nLevel I: No healing\nLevel II: 2.5 hearts restored on fatal hit\nLevel III: 5 hearts restored on fatal hit"
             ]
         }
     ]

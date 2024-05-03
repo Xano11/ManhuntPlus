@@ -3,7 +3,7 @@
     "keep": {
         "type": "origins:keep_inventory",
         "item_condition": {
-            "type": "origins:and",
+            "type": "origins:or",
             "conditions": [
                 {
                     "type": "origins:is_equippable"
@@ -77,6 +77,16 @@
                                 "modifier": "manhunt:deleo/deteriorate_offhand"
                             }
                         ]
+                    }
+                },
+                {
+                    "type": "origins:modify_inventory",
+                    "item_condition": {
+                        "type": "origins:is_equippable"
+                    },
+                    "item_action": {
+                        "type": "origins:modify",
+                        "modifier": "manhunt:deleo/binding"
                     }
                 },
                 {

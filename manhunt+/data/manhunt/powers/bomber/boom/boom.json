@@ -31,19 +31,18 @@
             "compare_to": 2
         }
     },
-    "badge": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:trigger_cooldown",
-            "power": "manhunt:bomber/boom/boom_badge"
+    "crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:bomber/crosshair"
         },
-        "cooldown": 1,
-        "key": {
-            "key": "key.origins.primary_active"
-        },
-        "hud_render": {
-            "should_render": false
-        }
+        "condition": {
+			"type": "apugli:key_pressed",
+			"key": {
+				"key": "key.origins.primary_active",
+				"continuous": true
+			}
+		}
     },
     "packs": {
         "type": "origins:entity_set"

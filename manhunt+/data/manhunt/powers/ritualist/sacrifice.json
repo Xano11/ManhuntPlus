@@ -11,6 +11,19 @@
 			"bar_index": 0
 		}
 	},
+	"crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:ritualist/crosshair"
+        },
+        "condition": {
+			"type": "apugli:key_pressed",
+			"key": {
+				"key": "key.origins.primary_active",
+				"continuous": true
+			}
+		}
+    },
 	"soul_gain": {
 		"type": "origins:action_on_hit",
 		"bientity_action": {

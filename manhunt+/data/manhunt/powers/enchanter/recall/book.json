@@ -31,10 +31,8 @@
                     "command": "give @s enchanted_book{CustomModelData:1,Tags:[\"recalling_book\"],display:{Lore:['[{\"text\":\"Recalling\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]} 1"
                 },
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:enchanter/arcane_energy",
-                    "change": 0,
-                    "operation": "set"
+                    "type": "origins:execute_command",
+                    "command": "xp add @s -55 points"
                 },
                 {
                     "type": "origins:execute_command",
@@ -56,10 +54,9 @@
             "amount": 1
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:enchanter/arcane_energy",
-            "comparison": "==",
-            "compare_to": 100
+            "type": "origins:xp_points",
+            "comparison": ">=",
+            "compare_to": 55
         }
     },
     "apply": {

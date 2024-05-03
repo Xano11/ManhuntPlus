@@ -8,7 +8,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:pig",
-                    "tag": "{Saddle:1b,Passengers:[{id:\"minecraft:armor_stand\",Invulnerable:1b,Tags:[\"bacont\"],DisabledSlots:4144959,CustomName:'{\"text\":\"bacont\"}'}]}",
+                    "tag": "{Saddle:1b,NoAI:1b,Passengers:[{id:\"minecraft:armor_stand\",Invulnerable:1b,Tags:[\"bacont\"],DisabledSlots:4144959,CustomName:'{\"text\":\"bacont\"}'}]}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -38,12 +38,12 @@
         }
     },
     "name": "BACON-T",
-    "description": "You can summon your little friend: BACON-T! Interacting with them will put yourself and the closest runner into a simulation. Whomever wins, gets a temporary buff",
+    "description": "You can summon your little friend: BACON-T! Interacting with them will create a dome that can't be trespassed for 30s!",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Winner Buff: Increase Max Health, Strength II, Speed III, Resistance I.\nLoser Nerf: Slowness III, Weakness II, Glowing."
+            "text": "Sphere of glass of 100 block radius."
         },
         {
             "type": "origins:keybind",

@@ -535,6 +535,11 @@
             "name": "No damage",
             "operation": "multiply_total",
             "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "manhunt:update_health",
+            "inverted": true
         }
     },
     "prevent_item": {

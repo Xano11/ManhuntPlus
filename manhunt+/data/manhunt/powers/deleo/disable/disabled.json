@@ -244,6 +244,14 @@
             "comparison": ">"
         }
     },
+    "more_damage":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Weakened",
+            "operation": "multiply_total",
+            "value": 0.20
+        }
+    },
     "slowed": {
         "type": "origins:modify_velocity",
         "modifier": {

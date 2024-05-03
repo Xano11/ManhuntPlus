@@ -22,7 +22,20 @@
                         }
                     },
                     "bientity_condition": {
-                        "type": "origins:can_see"
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:can_see"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:runner",
+                                    "layer": "origins:origin"
+                                }
+                            }
+                        ]
                     }
                 },
                 {

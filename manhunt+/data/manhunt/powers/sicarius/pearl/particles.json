@@ -1,0 +1,69 @@
+{
+    "type": "origins:multiple",
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action":  {
+                            "type": "origins:action_on_set",
+                            "set": "manhunt:sicarius/pearl/pearl_owner",
+                            "bientity_action": {
+                                "type": "origins:remove_from_set",
+                                "set": "manhunt:sicarius/pearl/pearl_owner"
+                            }
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:sicarius/pearl/pearl_owner"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ender_eye.death player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.elder_guardian.hurt player @a ~ ~ ~ 0.5 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:reverse_portal ~ ~1 ~ 0 0 0 5 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 1 1.5 0.3 0 0.3 ~ ~1 ~ 0.3 0.3 0.3 5 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 0 1 1 0.3 0 0.3 ~ ~ ~ 0.1 0.1 0.1 5 2",
+            "permission_level": 4
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

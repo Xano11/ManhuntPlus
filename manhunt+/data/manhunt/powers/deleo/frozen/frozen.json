@@ -1,0 +1,81 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 90,
+        "start_value": 90,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:deleo/frozen/frozen",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/frozen/frozen_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "parts": {
+        "type": "origins:particle",
+        "particle": "minecraft:enchant",
+        "frequency": 1,
+        "count": 5
+    },
+    "damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "immune",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "model": {
+        "type": "origins:model_color",
+        "green": 0.5,
+        "blue": 0.5,
+        "red": 0,
+        "alpha": 0.9
+    },
+    "move": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "mouse": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        }
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            "key.origins.secondary_active",
+            "key.use"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "hidden": true
+}

@@ -28,7 +28,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:deleo/weak/area_duration",
+            "resource": "manhunt:deleo/frozen/area_duration",
             "change": -10
         },
         "interval": 10
@@ -58,7 +58,7 @@
         "interval": 1,
         "condition": {
             "type":"origins:resource",
-            "resource": "manhunt:deleo/weak/area_duration",
+            "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 10,
             "comparison": ">"
         }
@@ -83,7 +83,7 @@
         "interval": 1,
         "condition": {
             "type":"origins:resource",
-            "resource": "manhunt:deleo/weak/area_duration",
+            "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 30,
             "comparison": "=="
         }
@@ -108,7 +108,7 @@
         "interval": 1,
         "condition": {
             "type":"origins:resource",
-            "resource": "manhunt:deleo/weak/area_duration",
+            "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 20,
             "comparison": "=="
         }
@@ -130,13 +130,13 @@
                 },
                 {
                     "type": "origins:area_of_effect",
-                    "radius": 5,
+                    "radius": 9,
                     "shape": "sphere",
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
                             "type": "origins:execute_command",
-                            "command": "power grant @s manhunt:deleo/weak/weakened",
+                            "command": "power grant @s manhunt:deleo/frozen/frozen",
                             "permission_level": 4
                         }
                     },
@@ -152,7 +152,7 @@
         "interval": 1,
         "condition": {
             "type":"origins:resource",
-            "resource": "manhunt:deleo/weak/area_duration",
+            "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 10,
             "comparison": "=="
         }

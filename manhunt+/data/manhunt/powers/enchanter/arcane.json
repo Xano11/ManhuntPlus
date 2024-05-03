@@ -27,11 +27,30 @@
         "type": "origins:resource",
         "min": 0,
         "max": 100,
-        "hud_render": {
+        "hud_render": [
+        {
             "should_render": true,
             "bar_index": 0,
-            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png"
+            "icon_index": 0,
+            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png",
+            "condition":{
+                "type": "origins:xp_points",
+                "comparison": "<",
+                "compare_to": 55
+            }
+        },
+        {
+            "should_render": true,
+            "bar_index": 0,
+            "icon_index": 1,
+            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png",
+            "condition":{
+                "type": "origins:xp_points",
+                "comparison": ">=",
+                "compare_to": 55
+            }
         }
+        ]
     },
     "energy_up": {
         "type": "origins:action_over_time",
@@ -40,7 +59,7 @@
             "resource": "manhunt:enchanter/arcane_energy",
             "change": 1
         },
-        "interval": 15,
+        "interval": 10,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -343,12 +362,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "3x Experience Gain"
+            "text": "Your arcane bar indicates whether you can use your special enchants!\n Additionally, you have 3x Experience Gain."
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone.png",
-            "text": "You have access to a special relic: The Enchanter's Stone.\nUsing this relic, you can create two special books: Recalling and Glass Shield.\n\nUsing your abilities will require Enchanting Energy.\n(1.5% per second)"
+            "text": "You have access to a special relic: The Enchanter's Stone.\nUsing this relic, you can create two special books: Recalling and Glass Shield.\n\nUsing your abilities will require Experience.\n(2% per second)"
         },
         {
             "type": "origins:tooltip",

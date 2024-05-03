@@ -72,6 +72,18 @@
     "prevent_block": {
         "type": "origins:prevent_block_use"
     },
+    "slowed":{
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -0.35,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "x",
+          "y",
+          "z"
+        ]
+    },
     "deaf":{
         "type": "apugli:prevent_sound",
         "categories": [

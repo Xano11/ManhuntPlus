@@ -19,6 +19,19 @@
         },
         "execute_chosen_when_orb": true
     },
+    "crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:falconer/crosshair"
+        },
+        "condition": {
+			"type": "apugli:key_pressed",
+			"key": {
+				"key": "key.origins.primary_active",
+				"continuous": true
+			}
+		}
+    },
     "death": {
         "type": "origins:action_on_death",
         "bientity_action": {
