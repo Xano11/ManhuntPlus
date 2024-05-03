@@ -3,8 +3,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 220,
-        "start_value": 200,
+        "max": 140,
+        "start_value": 140,
         "hud_render": {
             "should_render": false
         },
@@ -113,6 +113,16 @@
                                             "type": "origins:execute_command",
                                             "command": "particle minecraft:item minecraft:bone ~ ~1.5 ~ 0.2 0.2 0.2 0.15 20",
                                             "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:relentless/eternal/undead_max_health",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:relentless/eternal/undead_max_speed",
+                                            "change": 5
                                         }
                                     ]
                                 }

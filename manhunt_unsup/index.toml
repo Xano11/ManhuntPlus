@@ -1,8 +1,8 @@
 hash-format = "sha256"
 
 [[files]]
-file = "config/openloader/resources/manhunt7.zip"
-hash = "1e030e823c8c26cea6d4e8f42f5738f3bd332ffdf5dcaa1228fe161f26f08259"
+file = "config/openloader/resources/manhunt8.zip"
+hash = "258246986a04bd55e4eb324f011f6fdcf47ecc5002afa6138b340019929ba24a"
 
 [[files]]
 file = "mods/altorigingui.pw.toml"

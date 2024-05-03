@@ -1,5 +1,14 @@
 {
     "type": "origins:multiple",
+    "update_health": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:damage",
+            "amount": 0.01,
+            "damage_type": "manhunt:update_health"
+        },
+        "execute_chosen_when_orb": true
+    },
     "death": {
         "type": "origins:prevent_death",
         "entity_action": {
@@ -8,7 +17,12 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:relentless/eternal/undead_max_health",
-                    "change": -1
+                    "change": -2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound manhunt:relentless player @a ~ ~ ~ 1.5 1",
+                    "permission_level": 4
                 },
                 {
                     "type": "origins:choice",
@@ -74,7 +88,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:relentless/eternal/undead_max_speed",
-                    "change": 5
+                    "change": 10
                 },
                 {
                     "type": "origins:execute_command",
@@ -84,35 +98,12 @@
                 {
                     "type": "eggolib:drop_inventory",
                     "inventory_type": "inventory",
-                    "slots": [
-                        "container.9",
-                        "container.10",
-                        "container.11",
-                        "container.12",
-                        "container.13",
-                        "container.14",
-                        "container.15",
-                        "container.16",
-                        "container.17",
-                        "container.18",
-                        "container.19",
-                        "container.20",
-                        "container.21",
-                        "container.22",
-                        "container.23",
-                        "container.24",
-                        "container.25",
-                        "container.26",
-                        "container.27",
-                        "container.28",
-                        "container.29",
-                        "container.30",
-                        "container.31",
-                        "container.32",
-                        "container.33",
-                        "container.34",
-                        "container.35"
-                    ]
+                    "item_condition": {
+                        "type": "origins:enchantment",
+                        "enchantment": "minecraft:binding_curse",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
                 },
                 {
                     "type": "origins:execute_command",
@@ -206,28 +197,9 @@
             ]
         }
     },
-    "keepinv": {
-        "type": "origins:keep_inventory",
-        "slots": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            36,
-            37,
-            38,
-            39,
-            40
-        ]
-    },
     "max_health": {
         "type": "origins:resource",
-        "min": 10,
+        "min": 8,
         "max": 16,
         "start_value": 16,
         "hud_render": {
@@ -287,12 +259,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will lose half a heart of permanent health to as low as 5 hearts.\nYour respawn speed is faster with lower health."
+            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will lose a heart of permanent health to as low as 4 hearts.\nYour respawn speed is faster with lower health."
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Rugged Bones: Every death additionally grants you more speed.\nOn death, you keep your worn armor and any items in your hotbar."
+            "text": "Rugged Bones: You start the game with 8 hearts. Every death additionally grants you more speed."
         }
     ]
 }
