@@ -73,7 +73,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "The lodestone lasts for 1m. Hunters can break the lodestone."
+            "text": "The lodestone lasts for 1m. Hunters can break the lodestone by right clicking!\n(The lodestone can only be seen within a 8 block radius)"
         },
         {
             "type": "origins:keybind",

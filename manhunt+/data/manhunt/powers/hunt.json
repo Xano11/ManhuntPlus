@@ -465,6 +465,17 @@
                                         "type": "origins:execute_command",
                                         "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Fortis!\"]"
                                     }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/sicarius",
+                                        "layer": "manhunt:runners"
+                                    },
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Sicarius!\"]"
+                                    }
                                 }
                             ]
                         }
@@ -484,7 +495,7 @@
             "compare_to": 360
         }
     },
-    "repick_msg3": {
+    "repick_msg3": { 
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:and",
@@ -500,6 +511,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter] manhunt:repick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a manhunt:start_ready_key"
                 }
             ]
         },

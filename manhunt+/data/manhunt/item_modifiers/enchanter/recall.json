@@ -1,7 +1,7 @@
 {
     "function": "apoli:add_power",
     "power": "manhunt:enchanter/recall/enchanted",
-    "slot": "head",
+    "slot": "mainhand",
     "negative": false,
     "hidden": true
 }

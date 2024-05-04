@@ -1,24 +1,12 @@
 {
     "type": "origins:multiple",
-    "kill": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 5,
-        "start_value": 5,
-        "hud_render": {
-            "should_render": false
-        },
-        "min_action": {
-            "type": "origins:execute_command",
-            "command": "kill @s"
-        }
-    },
     "check_arrow": {
         "type": "origins:action_over_time",
-        "entity_action": {
+        "rising_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:damned/bow/bow_arrow_kill",
-            "change": -1
+            "resource": "manhunt:damned/bow/bow_arrow_duration",
+            "change": 0,
+            "operation": "set"
         },
         "interval": 1,
         "condition": {

@@ -27,8 +27,17 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "give @s enchanted_book{CustomModelData:1,Tags:[\"recalling_book\"],display:{Lore:['[{\"text\":\"Recalling\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]} 1"
+                    "type": "origins:give",
+                    "stack": {
+                        "item": "minecraft:enchanted_book",
+                        "amount": 1,
+                        "tag": "{CustomModelData:1,Tags:[\"recalling_book\"],display:{Lore:['[{\"text\":\"Recalling\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]}"
+                    },
+                    "item_action": {
+                        "type": "origins:modify",
+                        "modifier": "manhunt:enchanter/recall"
+                    },
+                    "preferred_slot": "mainhand"
                 },
                 {
                     "type": "origins:execute_command",
@@ -57,56 +66,6 @@
             "type": "origins:xp_points",
             "comparison": ">=",
             "compare_to": 55
-        }
-    },
-    "apply": {
-        "type": "origins:item_on_item",
-        "on_item_condition": {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "tag": "manhunt:helmets"
-            }
-        },
-        "using_item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:ingredient",
-                    "ingredient": {
-                        "item": "minecraft:enchanted_book"
-                    }
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"recalling_book\"]}"
-                }
-            ]
-        },
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0.1 0 0.9 1.2 0.5 0 1 ~ ~1 ~ 0.4 0.4 0.4 1 30"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0 0 0 1 10"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.player.levelup player @a ~ ~1 ~ 3 2"
-                }
-            ]
-        },
-        "click_type": "primary",
-        "using_item_action": {
-            "type": "origins:consume",
-            "amount": 1
-        },
-        "on_item_action": {
-            "type": "origins:modify",
-            "modifier": "manhunt:enchanter/recall"
         }
     },
     "resonance": {
@@ -159,26 +118,12 @@
                 },
                 {
                     "type": "origins:selector_action",
-                    "selector": "@a[tag=hunter]",
+                    "selector": "@e",
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "tp @s @p[tag=enchanted_recall]"
-                                },
-                                {
-                                    "type": "origins:equipped_item_action",
-                                    "equipment_slot": "head",
-                                    "action": {
-                                        "type": "origins:damage",
-                                        "amount": 40,
-                                        "ignore_unbreaking": true
-                                    }
-                                }
-                            ]
+                            "type": "origins:execute_command",
+                            "command": "tp @s @p[tag=enchanted_recall]"
                         }
                     },
                     "bientity_condition": {
@@ -191,48 +136,62 @@
                             {
                                 "type": "origins:target_condition",
                                 "condition": {
-                                    "type": "origins:power",
-                                    "power": "manhunt:enchanter/recall/enchanted"
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:living"
+                                        },
+                                        {
+                                            "type": "origins:inventory",
+                                            "process_mode": "items",
+                                            "comparison": ">=",
+                                            "compare_to": 1,
+                                            "item_condition": {
+                                                "type": "origins:has_power",
+                                                "power": "manhunt:enchanter/recall/enchanted"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         ]
                     }
                 },
                 {
-					"type": "origins:spawn_entity",
-					"entity_type": "minecraft:armor_stand",
-					"tag": "{Marker:1b,Invisible:1b,Tags:[\"enchanter_icon\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"enchanter_icon\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:amethyst_shard\",Count:1b,tag:{CustomModelData:1}}}]}",
-					"entity_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "tp @s ~ ~2 ~",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "power grant @s manhunt:enchanter/recall/anim",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s transformation.scale set value [4f,4f,4f]",
-								"permission_level": 4
-							}
-						]
-					}
-				},
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Marker:1b,Invisible:1b,Tags:[\"enchanter_icon\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"enchanter_icon\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:amethyst_shard\",Count:1b,tag:{CustomModelData:1}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~2 ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:enchanter/recall/anim",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [4f,4f,4f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "tag @s remove enchanted_recall"
@@ -296,11 +255,7 @@
                 {
                     "keybind": "key.attack"
                 },
-                "\" to create a Recalling book.\nThis book can be applied to helmets by pressing \"",
-                {
-                    "keybind": "key.attack"
-                },
-                "\" ontop of the helmet."
+                "\" to create a Recalling book."
             ]
         },
         {
@@ -311,7 +266,7 @@
                 {
                     "keybind": "key.origins.secondary_active"
                 },
-                "\" whilst on full energy to Recall!\n(Your stone must be intact)"
+                "\" whilst on full energy to Recall anyone with your book in their inventory!\n(Your stone must be intact)"
             ]
         }
     ]

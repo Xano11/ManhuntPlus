@@ -20,16 +20,39 @@
     "cooldown_down": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:bomber/kamikaze_cooldown",
-                    "change": -1
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/kamikaze_cooldown",
+            "change": -1
         },
         "interval": 1
+    },
+    "death":{
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:bomber/kamikaze_strength",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:bomber/kamikaze_cooldown",
+                        "change": 1800
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:bomber/kamikaze_timer",
+                        "change": 0,
+                        "operation": "set"
+                    }
+                ]
+            }
+        }
     },
     "windup": {
         "type": "origins:resource",
