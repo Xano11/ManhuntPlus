@@ -35,6 +35,31 @@
 			"dimension": "minecraft:the_nether"
 		}
 	},
+	"healing": {
+		"type": "origins:modify_healing",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.4
+		},
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether",
+			"inverted": true
+		}
+	},
+	"more_exhaust":{
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": 1.0
+        },
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether",
+			"inverted": true
+		}
+    },
 	"ignore": {
 		"type": "apugli:mobs_ignore",
 		"mob_condition": {
@@ -76,18 +101,18 @@
 			"dimension": "minecraft:the_nether"
 		}
     },
-	"name": "Zombified Flesh",
-	"description": "In the Overworld, your flesh zombifies and your behavior changes.",
+	"name": "Piglin Flesh",
+	"description": "As you reside within different dimensions, your behavior changes.",
 	"badges": [
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/rotten_flesh.png",
-			"text": "In the Overworld, you have resistance to fire and you are considered \"undead\"."
+			"text": "You zombify when not in the nether, giving resistance to fire and becoming \"undead\", but also §l§c-30%§r Healing and §l§c2x§r Exhaustion."
 		},
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/porkchop.png",
-			"text": "In the Nether, you have less health but you are 20% quicker."
+			"text": "In the Nether, you have -2 §l§c❤§r but you are 20% quicker."
 		}
 	]
 }
