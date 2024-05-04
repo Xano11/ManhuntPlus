@@ -37,6 +37,11 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
             "text": "The Whisperer's arrows allow you to use your abilities.\n(Arrows are tagged for 30s)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "After charging your bow for a full three seconds, your next shot is empowered with piercing and the ability to deal extra damage! (Power I equivalent)\nAdditionally, the arrow will break the user's shield."
         }
     ]
 }

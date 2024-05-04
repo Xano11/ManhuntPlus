@@ -3,8 +3,8 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 2400,
-        "start_value": 2400,
+        "max": 1800,
+        "start_value": 1800,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 17,
@@ -13,7 +13,7 @@
                 "type": "origins:resource",
                 "resource": "manhunt:damned/bow/bow_cooldown",
                 "comparison": "<",
-                "compare_to": 2400
+                "compare_to": 1800
             }
         }
     },
@@ -25,6 +25,89 @@
             "change": 20
         },
         "interval": 20
+    },
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.arrow.hit_player player @a ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.6 0 0.5 0.9 0.4 0 0.4 ~ ~1 ~ 0.3 0.2 0.3 1 50",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "windup_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:damned/bow/bow_windup",
+            "change": 1
+        },
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:damned/bow/bow_windup",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:using_item",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:bow"
+                }
+            }
+        }
+    },
+    "power_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "power": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:power",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:damned/bow/bow_power_check",
+            "compare_to": 1,
+            "comparison": "=="
+        }
+    },
+    "crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:damned/crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:damned/bow/bow_windup",
+            "compare_to": 50,
+            "comparison": "=="
+        }
     },
     "tag_arrow": {
         "type": "apugli:projectile_action_over_time",
@@ -42,11 +125,11 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "scale set pehkui:interaction_box_height 2.5"
+                                "command": "scale set pehkui:interaction_box_height 3"
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "scale set pehkui:interaction_box_width 2.5"
+                                "command": "scale set pehkui:interaction_box_width 3"
                             },
                             {
                                 "type": "origins:spawn_entity",
@@ -61,6 +144,48 @@
                             {
                                 "type": "origins:execute_command",
                                 "command": "ride @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=skele_tp] mount @s"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:damned/bow/bow_windup",
+                            "compare_to": 50,
+                            "comparison": "=="
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:damned/bow/bow_power_check",
+                                    "change": 1
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s PierceLevel set value 1b",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s add piercing_arrow"
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -113,14 +238,41 @@
             ]
         }
     },
-    "remove_resource": {
-        "type": "origins:action_over_time",
-        "entity_action": {
+    "disable": {
+        "type": "origins:modify_projectile_damage",
+        "self_action":  {
             "type": "origins:change_resource",
-            "resource": "manhunt:damned/bow/bow_resource",
-            "change": -10
+            "resource": "manhunt:damned/bow/bow_power_check",
+            "change": -1
         },
-        "interval": 10
+        "target_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add pierce_shield",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:vex",
+                    "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                    "entity_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:damned/bow/disable",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "minecraft:arrow",
+            "projectile_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags: ['piercing_arrow']}"
+            }
+        }
     },
     "sound": {
         "type": "origins:action_over_time",
@@ -272,7 +424,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:damned/bow/bow_cooldown",
                     "comparison": "==",
-                    "compare_to": 2400
+                    "compare_to": 1800
                 }
             ]
         }
@@ -417,7 +569,7 @@
             ]
         }
     },
-    "selecting_indicator":{
+    "selecting_indicator": {
         "type": "origins:status_bar_texture",
         "texture": "manhunt:textures/gui/damned_teleport.png",
         "condition": {
@@ -474,7 +626,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 2m"
+            "text": "Cooldown: 1m30s"
         }
     ]
 }
