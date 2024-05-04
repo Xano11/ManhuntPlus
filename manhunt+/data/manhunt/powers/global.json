@@ -301,17 +301,6 @@
             "color": "red"
         }
     },
-    "tooltip_recall": {
-        "type": "origins:tooltip",
-        "item_condition": {
-            "type": "origins:has_power",
-            "power": "manhunt:enchanter/recall/enchanted"
-        },
-        "text": {
-            "text": "Recalling",
-            "color": "gray"
-        }
-    },
     "tooltip_glass_shield": {
         "type": "origins:tooltip",
         "item_condition": {
@@ -376,6 +365,41 @@
         "text": {
             "text": "Glass Shield III",
             "color": "gray"
+        }
+    },
+    "particles":{
+        "type": "origins:particle",
+        "particle": "minecraft:enchant",
+        "frequency": 6,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "comparison": ">=",
+            "compare_to": 1,
+            "item_condition": { 
+                "type": "origins:has_power",
+                "power": "manhunt:enchanter/recall/enchanted"
+            }
+        }
+    },
+    "lodestone_fortuna":{
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:gambler/deception/deception_lodestone"
+                    }
+                }
+            ]
         }
     },
     "hidden": true
