@@ -41,10 +41,10 @@
                                 "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" got boned (damn)\"]",
                                 "permission_level": 4
                             },
-                            "weight": 5 
+                            "weight": 5
                         },
                         {
-                            "element":{
+                            "element": {
                                 "type": "origins:execute_command",
                                 "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was too busy cosplaying Dry Bones\"]",
                                 "permission_level": 4
@@ -52,7 +52,7 @@
                             "weight": 5
                         },
                         {
-                            "element":{
+                            "element": {
                                 "type": "origins:execute_command",
                                 "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" fell apart\"]",
                                 "permission_level": 4
@@ -60,7 +60,7 @@
                             "weight": 5
                         },
                         {
-                            "element":{
+                            "element": {
                                 "type": "origins:execute_command",
                                 "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was bad to the bone\"]",
                                 "permission_level": 4
@@ -68,7 +68,7 @@
                             "weight": 5
                         },
                         {
-                            "element":{
+                            "element": {
                                 "type": "origins:execute_command",
                                 "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" had a bone to pick in Hell\"]",
                                 "permission_level": 4
@@ -76,7 +76,7 @@
                             "weight": 5
                         },
                         {
-                            "element":{
+                            "element": {
                                 "type": "origins:execute_command",
                                 "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\"... more like... uh... a pile of bones.\"]",
                                 "permission_level": 4
@@ -98,11 +98,77 @@
                 {
                     "type": "eggolib:drop_inventory",
                     "inventory_type": "inventory",
+                    "slots": [
+                        "container.9",
+                        "container.10",
+                        "container.11",
+                        "container.12",
+                        "container.13",
+                        "container.14",
+                        "container.15",
+                        "container.16",
+                        "container.17",
+                        "container.18",
+                        "container.19",
+                        "container.20",
+                        "container.21",
+                        "container.22",
+                        "container.23",
+                        "container.24",
+                        "container.25",
+                        "container.26",
+                        "container.27",
+                        "container.28",
+                        "container.29",
+                        "container.30",
+                        "container.31",
+                        "container.32",
+                        "container.33",
+                        "container.34",
+                        "container.35",
+                        "container.40"
+                    ],
                     "item_condition": {
                         "type": "origins:enchantment",
                         "enchantment": "minecraft:binding_curse",
                         "comparison": "==",
                         "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "head",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 130,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "chest",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 190,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "legs",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 190,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "feet",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 150,
+                        "ignore_unbreaking": true
                     }
                 },
                 {
@@ -133,7 +199,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:armor_stand",
-                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"relentless\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"skull\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.2f,1.2f],scale:[1f,1f,1f]},item:{id:\"minecraft:skeleton_skull\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone1\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.2f,-0.5f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone2\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.6f,-0.5f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone3\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.3f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone4\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.1f,1.5f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:text_display\",view_range:10f,shadow_radius:1f,shadow_strength:1f,billboard:\"vertical\",Tags:[\"relentless\",\"text\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,1f,1f]},text:'{\"selector\":\"@p[tag=limbo_dead]\"}'},]}",
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"relentless\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"skull\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.2f,1.2f],scale:[1f,1f,1f]},item:{id:\"minecraft:skeleton_skull\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone1\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.2f,-0.5f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone2\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.6f,-0.5f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone3\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.3f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone4\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.1f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:text_display\",view_range:10f,shadow_radius:1f,shadow_strength:1f,billboard:\"vertical\",Tags:[\"relentless\",\"text\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,1f,1f]},text:'{\"selector\":\"@p[tag=limbo_dead]\"}'},]}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -218,7 +284,7 @@
     "max_speed": {
         "type": "origins:resource",
         "min": 100,
-        "max": 130,
+        "max": 140,
         "start_value": 100,
         "hud_render": {
             "should_render": false
@@ -239,7 +305,7 @@
             }
         ]
     },
-    "air_speed":{
+    "air_speed": {
         "type": "origins:modify_air_speed",
         "modifiers": [
             {
@@ -259,7 +325,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will lose a heart of permanent health to as low as 4 hearts.\nYour respawn speed is faster with lower health."
+            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will lose a heart of permanent health to as low as 4 hearts.\nYour respawn speed is faster with lower health.\nAdditionally, you keep your hotbar on death."
         },
         {
             "type": "origins:tooltip",

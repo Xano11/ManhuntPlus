@@ -93,6 +93,11 @@
                     "change": 140
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/shield/bone_hits",
+                    "change": 2
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "tag @s remove ride_shield",
                     "permission_level": 4
@@ -127,6 +132,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.skeleton.death player @a ~ ~ ~ 1 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "execute on passengers if entity @s[tag=boneshield] as @e[type=minecraft:item_display,tag=boneshield1] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run kill @s",
                     "permission_level": 4
                 },
@@ -152,12 +162,36 @@
         },
         "interval": 1
     },
-    "mitigation":{
-        "type": "origins:modify_damage_taken",
-        "self_action":{
+    "hits": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:relentless/shield/bone_duration",
             "change": -140
+        }
+    },
+    "mitigation": {
+        "type": "origins:modify_damage_taken",
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/shield/bone_hits",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.skeleton.hurt player @a ~ ~ ~ 1 0.7",
+                    "permission_level": 4
+                }
+            ]
         },
         "damage_condition": {
             "type": "origins:attacker"
@@ -188,7 +222,7 @@
             "comparison": ">"
         }
     },
-    "air_speed":  {
+    "air_speed": {
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
