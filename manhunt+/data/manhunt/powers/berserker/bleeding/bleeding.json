@@ -150,7 +150,7 @@
     "winding_movement": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -0.4,
+            "value": -0.3,
             "operation": "multiply_total"
         },
         "axes": [
