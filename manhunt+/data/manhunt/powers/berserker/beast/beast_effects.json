@@ -184,7 +184,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "particle minecraft:dust_color_transition 0.5 0 0 0.8 0 0 0 ~ ~1 ~ 0.3 0.3 0.3 1 2",
+            "command": "particle smoke ~ ~1 ~ 0.2 0.4 0.2 0.05 2",
             "permission_level": 4
         },
         "interval": 1,
@@ -378,7 +378,7 @@
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "addition",
-            "value": 3
+            "value": 1
         },
         "condition": {
             "type": "origins:and",
@@ -433,10 +433,30 @@
             "value": -1
         }
     },
-    "particles": {
-        "type": "origins:particle",
-        "particle": "minecraft:crimson_spore",
-        "frequency": 1
+    "particle_active": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1 0.4 0 0 ~ ~1 ~ 0.4 0.1 0.4 0.1 20",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/beast/beast_effects_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
     },
     "hidden": true
 }

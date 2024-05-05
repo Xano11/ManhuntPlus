@@ -43,7 +43,7 @@
             ]
         }
     },
-    "sound": {
+    "indicator": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:and",
@@ -56,6 +56,16 @@
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.vex.charge player @s ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.bell player @s ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [{\"text\":\"You are \"},{\"bold\":true,\"color\":\"red\",\"text\":\"SWAPPING!!\"}]",
                     "permission_level": 4
                 }
             ]
