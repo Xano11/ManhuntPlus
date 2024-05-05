@@ -5,7 +5,8 @@
         "manhunt:piglin/gold",
         "manhunt:piglin/zombified",
         "manhunt:piglin/rotten/rot",
-        "manhunt:piglin/sense"
+        "manhunt:piglin/sense",
+        "manhunt:piglin/antipathy"
     ],
     "icon": {
 		"item": "minecraft:gold_ingot",

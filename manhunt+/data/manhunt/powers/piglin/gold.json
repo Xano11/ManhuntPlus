@@ -128,16 +128,26 @@
             "sprite_location": "manhunt:textures/bars/piglin/piglin.png"
         },
         "key": "key.use",
-        "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "mainhand",
-            "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": {
-                    "item": "minecraft:gold_ingot"
-                }
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:dimension",
+                        "dimension": "minecraft:overworld",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:gold_ingot"
+                            }
+                        }
+                    }
+                ]
             }
-        }
     },
     "no_movement":{
         "type": "origins:conditioned_attribute",
@@ -246,7 +256,7 @@
         }
     },
     "name": "24K Magic",
-    "description": "There's nothing shinier and better than gold.",
+    "description": "To you, there's nothing shinier and better than gold.",
     "badges": [
         {
             "type": "origins:tooltip",
@@ -256,7 +266,7 @@
         {
             "type": "origins:keybind",
             "sprite": "minecraft:textures/item/gold_ingot.png",
-            "text": "Barter by holding a gold ingot and pressing \"%s\"!"
+            "text": "While in the Nether, Barter with yourself by holding a gold ingot and pressing \"%s\"!"
         }
     ]
 }

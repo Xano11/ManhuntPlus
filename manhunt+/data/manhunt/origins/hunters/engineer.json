@@ -1,7 +1,6 @@
 {
 	"powers": [
 		"manhunt:engineer/scan/scan",
-        "manhunt:engineer/bacont/bacont",
 		"manhunt:engineer/snare/snare",
 		"manhunt:engineer/armor",
 		"origins:vegetarian"
