@@ -84,7 +84,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Flashbang: 32 block radius. You are immune to the effect."
+            "text": "Flashbang: 32 block radius. You and other Hunters are immune to the effect."
         },
         {
             "type": "origins:tooltip",

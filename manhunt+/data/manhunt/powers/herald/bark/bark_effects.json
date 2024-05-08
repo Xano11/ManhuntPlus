@@ -21,15 +21,15 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:herald/bark/bark_effects_duration",
-                    "change": -30
+                    "change": -20
                 },
                 {
                     "type": "origins:heal",
-                    "amount": 2
+                    "amount": 1
                 }
             ]
         },
-        "interval": 30
+        "interval": 20
     },
     "particles": {
         "type": "origins:action_over_time",
@@ -38,11 +38,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~1 ~ 0.2 0.4 0.2 1 40"
+                    "command": "particle minecraft:dust_color_transition 0.1 0.1 0.1 1 0 1 0 ~ ~0.7 ~ 0.2 0.1 0.2 1 30"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:block minecraft:oak_log ~ ~1 ~ 0.2 0.4 0.2 1 100"
+                    "command": "particle minecraft:block minecraft:oak_log ~ ~0.7 ~ 0.2 0.1 0.2 1 60"
                 },
                 {
                     "type": "origins:execute_command",
@@ -50,7 +50,7 @@
                 }
             ]
         },
-        "interval": 30
+        "interval": 20
     },
     "defense": {
         "type": "origins:attribute",
