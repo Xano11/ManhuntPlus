@@ -52,7 +52,7 @@
         "modifier": {
             "name": "Increased exhaustion",
             "operation": "multiply_base",
-            "value": 1.0
+            "value": 0.6
         },
 		"condition": {
 			"type": "origins:dimension",
@@ -107,7 +107,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/rotten_flesh.png",
-			"text": "You zombify when not in the nether, giving resistance to fire and becoming \"undead\", but also §l§c-30%§r Healing and §l§c2x§r Exhaustion."
+			"text": "You zombify when not in the nether, giving resistance to fire and becoming \"undead\", but also §l§c-30%§r Healing and §l§c+60%§r Exhaustion."
 		},
 		{
 			"type": "origins:tooltip",

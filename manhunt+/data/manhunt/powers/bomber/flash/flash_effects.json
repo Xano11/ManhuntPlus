@@ -226,7 +226,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:bomber/flash/flash_effects_duration",
-                    "change": -5
+                    "change": -6
                 },
                 {
                     "type": "origins:execute_command",
