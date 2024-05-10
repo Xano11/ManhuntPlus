@@ -75,11 +75,6 @@ hash = "605e0fe8a92df933c5a65bcfa93460979de2384d3f8644de3fa809d53a0c100a"
 metafile = true
 
 [[files]]
-file = "mods/extra-thicc-packets.pw.toml"
-hash = "4abe2f719878f0ac44b288cd2804da49d487b9d5481fd0217bd396284bf43725"
-metafile = true
-
-[[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "7b4233be3f73fa648cd81f73e2a67f98bd51efa1c3cc9f7fc490f23af1693002"
 metafile = true
@@ -137,6 +132,11 @@ metafile = true
 [[files]]
 file = "mods/origins.pw.toml"
 hash = "755bfb27e6d01ea24822757d94c94c315e60141089c3a8ed746bdc77dc9c9eda"
+metafile = true
+
+[[files]]
+file = "mods/packet-fixer.pw.toml"
+hash = "aeea963a3bee95072e1f0cb6dd7d73a6a2708ee479dda47c3c5fba6c3c511fb7"
 metafile = true
 
 [[files]]
