@@ -1,0 +1,160 @@
+{
+    "type": "origins:multiple",
+    "clicked": {
+        "type": "origins:action_on_being_used",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:choice",
+                "actions": [
+                    {
+                        "element": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "stopsound @a player manhunt:pitbull"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound manhunt:pitbull player @a ~ ~ ~ 1 1"
+                                }
+                            ]
+                        },
+                        "weight": 99
+                    },
+                    {
+                        "element": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound manhunt:fireball player @a ~ ~ ~ 99 1"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:pitbull_flying",
+                                    "change": 620,
+                                    "operation": "set"
+                                }
+                            ]
+                        },
+                        "weight": 1
+                    }
+                ]
+            }
+        }
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "flying": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 620,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flame ~ ~15 ~ 0 0 0 3 10000 force @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~ ~ 3 3 3 1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=item_display,tag=fireball,limit=1,sort=nearest]"
+                }
+            ]
+        }
+    },
+    "fly": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:pitbull_flying",
+                    "change": -1
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:pitbull_flying",
+                        "comparison": ">",
+                        "compare_to": 15
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~0.1 ~ ~12 ~"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=minecraft:zombie,tag=pitbull] Rotation[0]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.2 0.2 0 2"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:pitbull_flying",
+                        "comparison": "==",
+                        "compare_to": 10
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "title @a title {\"text\":\"FIREBALL\",\"bold\":true,\"color\":\"gold\"}"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "summon item_display ~ ~15 ~ {billboard:\"center\",Tags:[\"fireball\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[10f,10f,1f]},item:{id:\"minecraft:fire_charge\",Count:1b}}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:pitbull_flying",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "title @a clear"
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:pitbull_flying",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}
