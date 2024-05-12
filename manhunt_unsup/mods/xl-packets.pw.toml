@@ -1,8 +1,0 @@
-name = "XLLPackets"
-filename = "xlpackets-robin.jar"
-side = "both"
-
-[download]
-url = https://github.com/Xano11/ManhuntPlus/raw/main/xlpackets-robin.jar
-hash-format = "sha256"
-hash = "cafebc82fe147d01b0b9e4161f0191b9de0678f1ecb996fb3bdd7d5e93990b97"

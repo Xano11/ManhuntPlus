@@ -160,6 +160,5 @@ hash = "ff614f50beb3bc29a699dbcc0a61f65bd6c6154cd374f2763ee57cf578045a8f"
 metafile = true
 
 [[files]]
-file = "mods/xl-packets.pw.toml"
-hash = "ee56970cdc820357cfbefff5cd96b72257391abc7616a73f28cc1e22d05f5ae5"
-metafile = true
+file = "mods/xlpackets-robin.jar"
+hash = "cafebc82fe147d01b0b9e4161f0191b9de0678f1ecb996fb3bdd7d5e93990b97"
