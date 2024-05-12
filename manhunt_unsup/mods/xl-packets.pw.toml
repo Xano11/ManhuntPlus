@@ -3,5 +3,6 @@ filename = "xlpackets-robin.jar"
 side = "both"
 
 [download]
+url = https://github.com/Xano11/ManhuntPlus/blob/540becbd788a21f77842d3d5906fe1833857da81/xlpackets-robin.jar
 hash-format = "sha1"
 hash = "b7b6600f968449f65b2620d8d41fc2ae0c3dcd0e"
