@@ -11,17 +11,10 @@
             "bar_index": 5
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:sanguis/fury/fury_downside"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:sanguis/fury/fury_effects"
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+            "change": 60,
+            "operation": "set"
         }
     },
     "duration_down": {
@@ -33,22 +26,122 @@
         },
         "interval": 10
     },
+    "weak_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:sanguis/fury/fury_effects"
+        }
+    },
+    "weak_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "less_speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "name": "Decrease speed",
+            "value": -0.6,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "atk_speed": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "attribute @s minecraft:generic.attack_speed base set 4"
+        }
+    },
+    "atk_speed_reset": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_atk_speed",
+            "change": -1
+        },
+        "interval": 1
+    },
     "kill": {
         "type": "origins:self_action_on_kill",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:sanguis/fury/fury_effects_duration",
-            "change": 300
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_duration",
+                    "change": 300,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_atk_speed",
+                    "change": 100,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "attribute @s minecraft:generic.attack_speed base set 1000"
+                }
+            ]
         },
         "cooldown": 1,
         "hud_render": {
-            "should_render": false,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 5
+            "should_render": false
         },
         "target_condition": {
             "type": "origins:entity_type",
             "entity_type": "minecraft:player"
+        }
+    },
+    "hit_reset": {
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/fury/fury_effects_atk_speed",
+            "change": 0,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_atk_speed",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_atk_speed",
+                    "compare_to": 90,
+                    "comparison": "<="
+                }
+            ]
         }
     },
     "more_attack_speed": {
@@ -60,14 +153,33 @@
             "operation": "addition"
         }
     },
-    "more_attack": {
-        "type": "origins:modify_damage_dealt",
-        "modifier": {
-            "operation": "addition",
-            "value": 2
+    "faster_leap": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sanguis/leap_activate",
+            "change": -2
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+                    "compare_to": 0,
+                    "comparison": "=="
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/leap_activate",
+                    "compare_to": 2,
+                    "comparison": ">"
+                }
+            ]
         }
     },
-    "particles":{
+    "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
@@ -75,7 +187,7 @@
         },
         "interval": 2
     },
-    "swirl":{
+    "swirl": {
         "type": "apugli:energy_swirl",
         "texture_location": "manhunt:textures/swirls/fury.png",
         "speed": 0.005

@@ -88,8 +88,8 @@
     },
     "crit_damage": {
         "type": "origins:modify_attribute",
-        "attribute":"additionalentityattributes:critical_bonus_damage",
-        "modifier":{
+        "attribute": "additionalentityattributes:critical_bonus_damage",
+        "modifier": {
             "operation": "add_base_early",
             "value": 0.2
         },
@@ -98,6 +98,31 @@
             "resource": "manhunt:sanguis/leap_crit",
             "comparison": "==",
             "compare_to": 1
+        }
+    },
+    "crit_damage_fury": {
+        "type": "origins:modify_attribute",
+        "attribute": "additionalentityattributes:critical_bonus_damage",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 0.2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/leap_crit",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+                    "compare_to": 0,
+                    "comparison": "=="
+                }
+            ]
         }
     },
     "leap_kb": {

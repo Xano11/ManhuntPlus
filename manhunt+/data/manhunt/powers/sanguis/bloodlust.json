@@ -1,26 +1,56 @@
 {
     "type": "origins:self_action_on_kill",
     "entity_action": {
-    "type": "origins:and",
-    "actions": [{
-        "type": "origins:apply_effect",
-        "effects": [
+        "type": "origins:and",
+        "actions": [
             {
-                "effect": "minecraft:strength",
-                "duration": 140,
-                "is_ambient": false,
-                "show_particles": false,
-                "show_icon": true
-            },
-            {
-                "effect": "minecraft:regeneration",
-                "duration": 100,
-                "amplifier": 1,
-                "is_ambient": false,
-                "show_particles": false,
-                "show_icon": true
+                "type": "origins:if_else",
+                "condition":  {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_duration",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                "if_action":  {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:strength",
+                            "duration": 140,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:regeneration",
+                            "duration": 100,
+                            "amplifier": 2,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                },
+                "else_action":  {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:strength",
+                            "duration": 140,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:regeneration",
+                            "duration": 100,
+                            "amplifier": 1,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
                 }
-                ]
             },
             {
                 "type": "origins:feed",

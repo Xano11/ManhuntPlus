@@ -56,7 +56,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Fury: +2 damage and +0.3 attack speed for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 3 seconds."
+            "text": "Fury: +0.3 attack speed and faster leap cooldown for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 3 seconds."
         },
         {
             "type": "origins:keybind",
