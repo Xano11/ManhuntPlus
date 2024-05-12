@@ -26,6 +26,15 @@
                 "type": "origins:movement_blocking"
             }
         },
+        "entity_action":{
+            "type": "origins:area_of_effect",
+            "radius": 5,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": 2
+            }
+        },
         "modifier":{
             "operation": "multiply_total",
             "value": 0.5
@@ -33,6 +42,9 @@
         "block_condition": {
             "type": "origins:movement_blocking"
         }
+    },
+    "ignore_water":{
+        "type": "origins:ignore_water"
     },
     "invuln":{
         "type": "origins:modify_damage_taken",

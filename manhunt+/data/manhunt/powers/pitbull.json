@@ -41,6 +41,10 @@
                                 },
                                 {
                                     "type": "origins:execute_command",
+                                    "command": "tp @a ~ 240 ~ ~ ~"
+                                },
+                                {
+                                    "type": "origins:execute_command",
                                     "command": "tp @s ~ 240 ~ ~ ~"
                                 },
                                 {

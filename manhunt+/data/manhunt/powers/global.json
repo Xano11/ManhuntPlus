@@ -402,5 +402,17 @@
             ]
         }
     },
+    "oneshot_prot":{
+        "type": "origins:prevent_death",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:sicarius/cloak_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
     "hidden": true
 }
