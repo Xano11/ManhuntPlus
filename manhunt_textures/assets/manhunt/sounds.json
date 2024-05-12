@@ -78,5 +78,18 @@
       "sounds": [
         "misc/relentless"
       ]
+    },
+    "pitbull": {
+      "sounds": [
+        "misc/dale",
+        "misc/305",
+        "misc/whee",
+        "misc/worlwide"
+      ]
+    },
+    "fireball": {
+      "sounds": [
+        "misc/fireball"
+      ]
     }
   }
