@@ -1,0 +1,27 @@
+{
+    "type": "origins:multiple",
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            "key.origins.secondary_active",
+            "key.sneak"
+        ]
+    },
+    "pos": {
+        "type": "eggolib:modify_riding_position",
+        "y_modifier": {
+            "operation": "addition",
+            "value": 0.3
+        },
+        "z_modifier": {
+            "operation": "addition",
+            "value": 0.4
+        },
+        "x_modifier": {
+            "operation": "addition",
+            "value": 0.2
+        }
+    },
+    "hidden": true
+}

@@ -1,0 +1,193 @@
+{
+    "type": "origins:multiple",
+    "key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/pillars/throw_key_check",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/pillars/throw_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "charges": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/engineer/engineer_packs.png",
+            "bar_index": 0
+        }
+    },
+    "recharge": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/pillars/throw_charges",
+            "change": 1
+        },
+        "interval": 1200,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/throw_charges",
+            "comparison": "<",
+            "compare_to": 2
+        }
+    },
+    "crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:engineer/crosshair"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/throw_key_check",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "packs": {
+        "type": "origins:entity_set"
+    },
+    "throw": {
+        "type": "origins:active_self",
+        "entity_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add pillar",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 2,
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"engineer_pillar\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"engineer_pillar\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.8f,0f],scale:[1f,0.3125f,1f]},item:{id:\"minecraft:light_blue_concrete_powder\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"engineer_pillar\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[0.6875f,0.5625f,0.6875f]},item:{id:\"minecraft:beacon\",Count:1b}},{id:\"minecraft:block_display\",Tags:[\"engineer_pillar\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.46f,-1.6f,-0.46f],scale:[1f,1f,1f]},block_state:{Name:\"minecraft:tube_coral_fan\"}},{id:\"minecraft:item_display\",Tags:[\"engineer_pillar\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.87f,0f],scale:[1.015f,0.25f,1.015f]},item:{id:\"minecraft:dark_prismarine_slab\",Count:1b}}]}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:engineer/pillars/pack",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@p[tag=pillar]",
+                                "bientity_action": {
+                                    "type": "origins:invert",
+                                    "action": {
+                                        "type": "origins:add_to_set",
+                                        "set": "manhunt:engineer/pillars/throw_packs"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove pillar",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.nether_wart.plant player @a ~ ~ ~ 3 0.8"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/pillars/throw_charges",
+                    "change": -1
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.attack"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:engineer/pillars/throw_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:engineer/pillars/throw_charges",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "name": "STOP\n(Staming Tiring Overclock Pillar)",
+    "description": "Self-constructing machine that overclocks people's fatigue.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Overclocked: Movement speed decreased per 15% for every wave hit (max of 45%)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and press \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to throw the pillar down!"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m per pillar\nPillar stock: 2 pillars."
+        }
+    ]
+}
