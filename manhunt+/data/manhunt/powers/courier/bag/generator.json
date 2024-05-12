@@ -109,7 +109,7 @@
                 }
             ]
         },
-        "interval": 1
+        "interval": 4
     },
     "jester_check": {
         "type": "origins:action_over_time",

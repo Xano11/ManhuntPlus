@@ -29,7 +29,7 @@
     },
     "winding_down": {
         "type": "origins:action_over_time",
-        "entity_action": {
+        "falling_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:berserker/bleeding/bleeding_winding",
             "change": -3
