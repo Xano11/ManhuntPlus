@@ -1,7 +1,8 @@
 {
 	"powers": [
+		"manhunt:engineer/pillars/throw",
+		"manhunt:engineer/portal/activate",
 		"manhunt:engineer/scan/scan",
-		"manhunt:engineer/snare/snare",
 		"manhunt:engineer/armor",
 		"origins:vegetarian"
 	],

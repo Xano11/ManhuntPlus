@@ -222,14 +222,6 @@
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
                                             "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 1 30 force @a"
                                         },
                                         {
