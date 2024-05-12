@@ -161,5 +161,5 @@ metafile = true
 
 [[files]]
 file = "mods/xl-packets.pw.toml"
-hash = "9b211dfc6f1e785cd716e47d7ea4ffb7427f58d3708e3a51a7b6781447a392c8"
+hash = "ee56970cdc820357cfbefff5cd96b72257391abc7616a73f28cc1e22d05f5ae5"
 metafile = true
