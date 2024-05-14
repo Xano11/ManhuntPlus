@@ -35,11 +35,6 @@
 								},
 								{
 									"type": "origins:execute_command",
-									"command": "effect give @s minecraft:regeneration 10 1 true",
-									"permission_level": 4
-								},
-								{
-									"type": "origins:execute_command",
 									"command": "particle minecraft:heart ~ ~1 ~ 0.5 1 0.5 1 10",
 									"permission_level": 4
 								}
@@ -115,7 +110,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Aura: Regeneration II and +20% speed for 10 seconds.\nRadius: 10 blocks."
+			"text": "Aura: Regeneration II and overtime saturation for 10 seconds.\nRadius: 10 blocks."
 		},
 		{
 			"type": "origins:keybind",
