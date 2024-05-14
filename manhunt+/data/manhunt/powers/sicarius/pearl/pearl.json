@@ -118,9 +118,32 @@
             ]
         },
         "cooldown": 900,
-        "hud_render": {
-            "should_render": false
-        },
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
+                "bar_index": 0,
+                "icon_index": 0,
+                "condition": {
+                    "type": "origins:set_size",
+                    "set": "manhunt:sicarius/pearl/pearl_owner",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
+                "bar_index": 0,
+                "icon_index": 1,
+                "condition":  {
+                    "type": "origins:set_size",
+                    "set": "manhunt:sicarius/pearl/pearl_owner",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            }
+        ],
         "key": {
             "key": "key.attack"
         },
@@ -168,6 +191,15 @@
                     }
                 },
                 {
+                    "type": "origins:area_of_effect",
+                    "radius": 4,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 1
+                    }
+                },
+                {
                     "type": "origins:set_fall_distance",
                     "fall_distance": 0
                 },
@@ -203,22 +235,32 @@
         }
     },
     "name": "Perla de Sombra",
-    "description": "Keep your vigor in check by quickly healing yourself.",
+    "description": "Send forth a shadowy pearl that teleports you as would an ender pearl",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heal 4HP instantly and gain Absorption 1 for 5s."
+            "text": "The Shadow pearl you send can be interrupted middair by re-pressing the ability key.\nUpon landing or interrupting, the pearl pushes close-by entities away."
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Heal with \"%s\"!"
+            "text": [
+                "Throw your pearl by holding \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and pressing \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\"!\nPress again to teleport mid-usage!"
+            ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s"
+            "text": "Cooldown: 45s"
         }
     ]
 }

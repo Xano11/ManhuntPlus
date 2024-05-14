@@ -60,6 +60,23 @@
                     "bientity_action": {
                         "type": "origins:add_velocity",
                         "z": 1.5
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin",
+                                    "inverted": true
+                                }
+                            ]
+                        }
                     }
                 },
                 {

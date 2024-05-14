@@ -137,6 +137,12 @@
         },
         "key": {
             "key": "key.use"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:sicarius/pearl/pearl_key_check",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "cancel_cloak": {
@@ -353,22 +359,32 @@
         }
     },
     "name": "Disimulad",
-    "description": "Keep your vigor in check by quickly healing yourself.",
+    "description": "Dissimulating requires great diligence... and sometimes just a special cloak",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heal 4HP instantly and gain Absorption 1 for 5s."
+            "text": "Become entirely invisible and immune to glowing for 15s.\nAdditionally, your speed is increased and you can use §1§l\"BACKSTAB\"§r\n\n§1§l\"BACKSTAB\"§r allows you to deal 1.5x damage if the entity is hit from the back.\n(Being hit or hitting an entity will uncloak you)"
         },
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Heal with \"%s\"!"
+            "text": [
+                "Cloak yourself by holding \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and pressing \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\"!\nPress again to cancel."
+            ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s"
+            "text": "Cooldown: 1m"
         }
     ]
 }

@@ -38,6 +38,8 @@
     { "predicate": { "angle": 0.953125 }, "model": "item/compass_15" },
     { "predicate": { "angle": 0.984375 }, "model": "item/compass" },
     
+    { "predicate": { "angle": 0.000000, "custom_model_data":8 }, "model": "item/broken_compass" },
+    
       { "predicate": { "angle": 0.000000, "custom_model_data":1 }, "model": "item/amethyst_compass" },
       { "predicate": { "angle": 0.015625, "custom_model_data":1 }, "model": "item/amethyst_compass_17" },
       { "predicate": { "angle": 0.046875, "custom_model_data":1 }, "model": "item/amethyst_compass_18" },
