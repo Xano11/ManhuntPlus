@@ -98,6 +98,15 @@
             ]
         }
     },
+    "regen": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:celeritas/boots/boots_energy",
+            "change": 1
+        },
+        "interval": 10
+    },
     "replenish": {
         "type": "origins:action_over_time",
         "entity_action": {
