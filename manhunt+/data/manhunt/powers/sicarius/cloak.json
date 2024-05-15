@@ -3,7 +3,7 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
+        "max": 240,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -106,7 +106,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:sicarius/cloak_duration",
-                    "change": 300,
+                    "change": 240,
                     "operation": "set"
                 },
                 {
@@ -174,6 +174,12 @@
                     "resource": "manhunt:sicarius/cloak_duration",
                     "comparison": "<=",
                     "compare_to": 280
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/cloak_duration",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
@@ -194,7 +200,7 @@
         "attribute": "minecraft:generic.movement_speed",
         "modifier": {
             "operation": "multiply_total_multiplicative",
-            "value": 1.4
+            "value": 1.15
         },
         "condition": {
             "type": "origins:resource",
@@ -207,7 +213,7 @@
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total_multiplicative",
-            "value": 1
+            "value": 0.8
         },
         "condition": {
             "type": "origins:resource",
@@ -310,13 +316,23 @@
                     "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0.2 0.1 0.2 0.4 30"
                 }
             ]
-        },
-        "self_action": {
+        }
+    },
+    "hit":{
+        "type": "origins:self_action_on_hit",
+        "entity_action":{
             "type": "origins:change_resource",
             "resource": "manhunt:sicarius/cloak_duration",
             "change": 2,
             "operation": "set"
-        }
+        },
+        "condition":{
+            "type": "origins:resource",
+            "resource": "manhunt:sicarius/cloak_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "cooldown": 1
     },
     "crosshair_texture": {
         "type": "origins:status_bar_texture",
@@ -364,7 +380,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Become entirely invisible and immune to glowing for 15s.\nAdditionally, your speed is increased and you can use §1§l\"BACKSTAB\"§r\n\n§1§l\"BACKSTAB\"§r allows you to deal 1.5x damage if the entity is hit from the back.\n(Being hit or hitting an entity will uncloak you)"
+            "text": "Become entirely invisible and immune to glowing for 12s.\nAdditionally, your speed is increased and you can use §1§l\"BACKSTAB\"§r\n\n§1§l\"BACKSTAB\"§r allows you to deal 1.5x damage if the entity is hit from the back.\n(Being hit or hitting an entity will uncloak you)"
         },
         {
             "type": "origins:tooltip",

@@ -248,5 +248,20 @@
         },
         "interval": 1
     },
+    "disabled_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:overworld_track_disabled",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:overworld_track_disabled",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "hidden": true
 }

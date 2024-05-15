@@ -10,7 +10,6 @@
 		"item": "minecraft:iron_sword",
 		"tag": "{Enchantments:[{}],CustomModelData:2}"
 	},
-    "unchoosable": true,
 	"order": 10,
 	"impact": 3,
 	"name": "Sicarius 🔪",
