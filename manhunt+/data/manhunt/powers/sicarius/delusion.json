@@ -7,15 +7,15 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 400"
+                    "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 300"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 600"
+                    "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 300"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 600"
+                    "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 300"
                 },
                 {
                     "type": "origins:selector_action",

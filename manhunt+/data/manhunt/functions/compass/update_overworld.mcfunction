@@ -1,0 +1,4 @@
+execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.Z int 1 run data get entity @p Pos[2]
+execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.Y int 1 run data get entity @p Pos[1]
+execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners store result entity @s HandItems[0].tag.LodestonePos.X int 1 run data get entity @p Pos[0]
+execute as @e[type=minecraft:armor_stand,tag=tracking_overworld] if score @s tracking = @p runners run data modify storage lode Track1 merge from entity @s HandItems[0]

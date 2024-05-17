@@ -48,6 +48,9 @@
             "compare_to": 0
         }
     },
+    "ignore_water":{
+        "type": "origins:ignore_water"
+    },    
     "dropped": {
         "type": "origins:action_over_time",
         "rising_action": {
@@ -113,18 +116,7 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:or",
-            "conditions": [
-                {
-                    "type": "origins:on_block"
-                },
-                {
-                    "type": "origins:fluid_height",
-                    "fluid": "minecraft:water",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            ]
+            "type": "origins:on_block"
         }
     },
     "particles": {

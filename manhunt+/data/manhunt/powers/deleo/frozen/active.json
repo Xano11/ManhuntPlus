@@ -133,7 +133,7 @@
     "windup_texture": {
         "type": "origins:status_bar_texture",
         "texture_map": {
-            "minecraft:hud/crosshair": "manhunt:deleo_crosshair"
+            "minecraft:hud/crosshair": "manhunt:deleo/crosshair"
         },
         "condition": {
             "type": "origins:resource",

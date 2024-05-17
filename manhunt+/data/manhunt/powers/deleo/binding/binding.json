@@ -10,7 +10,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/deleo_icon.png",
+            "sprite": "manhunt:textures/item/icons/deleo_icon.png",
             "text": "Curse of Deterioration: Items equipped/held lose durability over time and exhaust you."
         }
     ]

@@ -402,11 +402,6 @@
                     }
                 },
                 {
-                    "type": "origins:distance",
-                    "comparison": "<=",
-                    "compare_to": 2
-                },
-                {
                     "type": "origins:actor_condition",
                     "condition": {
                         "type": "origins:and",

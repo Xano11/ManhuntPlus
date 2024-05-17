@@ -218,11 +218,35 @@
                     "set": true
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:deleo/shutdown/shutdown_windup"
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
+                    "change": 30,
+                    "operation": "set"
                 }
             ]
         }
+    },
+    "invuln": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:deleo/shutdown/shutdown_windup"
+        }
+    },
+    "invuln_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
+            "change": 1
+        },
+        "interval": 1
     },
     "push": {
         "type": "origins:action_over_time",
@@ -242,11 +266,20 @@
     "charge_windup": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
-            "change": 5
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+                    "change": 10
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 2
+                }
+            ]
         },
-        "interval": 5
+        "interval": 10
     },
     "glowswitch1": {
         "type": "origins:action_over_time",
