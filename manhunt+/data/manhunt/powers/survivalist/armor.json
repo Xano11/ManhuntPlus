@@ -68,13 +68,101 @@
             }
         }
     },
+    "no_sprint_helmet":{
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 12,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "head",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 2
+                    }
+                }
+            ]
+        }
+    },
+    "no_sprint_chestplate":{
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 12,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "legs",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 4
+                    }
+                }
+            ]
+        }
+    },
+    "no_sprint_leggings":{
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 12,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "legs",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 2
+                    }
+                }
+            ]
+        }
+    },
+    "no_sprint_boots":{
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "compare_to": 12,
+                    "comparison": "<="
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "feet",
+                    "item_condition": {
+                        "type": "origins:armor_value",
+                        "comparison": ">",
+                        "compare_to": 2
+                    }
+                }
+            ]
+        }
+    },
     "name": "Heavy Deficiency",
-    "description": "When wearing tougher armors, you exhaust much quicker.",
+    "description": "When wearing tougher armors, you exhaust much quicker and cannot sprint at higher levels of hunger.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "For every peice of armor worn that is stronger than chainmail, you are inflicted with §l§c+50%§r Exhaustion.\n(Max §l§cx3§r Exhaustion)"
+            "text": "For every peice of armor worn that is stronger than chainmail, you are inflicted with §l§c+50%§r Exhaustion(Stacks) and cannot sprint with 6 or less hunger shanks."
         }
     ]
 }

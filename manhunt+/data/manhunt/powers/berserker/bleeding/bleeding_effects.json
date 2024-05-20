@@ -24,6 +24,13 @@
         },
         "interval": 10
     },
+    "immunity_frames": {
+        "type": "eggolib:modify_hurt_ticks",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
     "bleed_recurrent": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -31,10 +38,7 @@
             "amount": 1,
             "damage_type": "manhunt:bleeding"
         },
-        "interval": 10,
-        "condition": {
-            "type": "origins:moving"
-        }
+        "interval": 15
     },
     "particles": {
         "type": "origins:action_over_time",

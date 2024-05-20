@@ -158,9 +158,6 @@
                 }
             ]
         },
-        "item_condition": {
-            "type": "origins:empty"
-        },
         "hands": [
             "main_hand"
         ],
