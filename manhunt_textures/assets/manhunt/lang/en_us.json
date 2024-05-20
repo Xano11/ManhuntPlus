@@ -11,5 +11,7 @@
 
     "layer.manhunt.runners.name": "Runner",
     "layer.manhunt.hunters.name": "Hunter",
-    "layer.manhunt.ringtones.name": "Ringtone"
+    "layer.manhunt.ringtones.name": "Ringtone",
+    "layer.manhunt.bans_hunters.name": "Ban",
+    "layer.manhunt.bans_runners.name": "Ban"
 }

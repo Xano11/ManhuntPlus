@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:firework_rocket",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Balatro ⚜",
+	"description": "Fooling around might sound useless, but Balatro knows that why even bother if there is no fun to be had."
+}

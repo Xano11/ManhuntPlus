@@ -1,11 +1,5 @@
 {
 	"powers": [
-		"manhunt:sicarius/impersonate/clone",
-        "manhunt:sicarius/pearl/pearl",
-		"manhunt:sicarius/cloak",
-		"manhunt:sicarius/delusion",
-		"manhunt:sicarius/weak",
-		"manhunt:sicarius/light"
 	],
 	"icon": {
 		"item": "minecraft:iron_sword",

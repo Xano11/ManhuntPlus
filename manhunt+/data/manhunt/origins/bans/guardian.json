@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:tide_armor_trim_smithing_template",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 3,
+	"name": "Guardian",
+	"description": "       [§eASSISTANCE ✦§r]\nThe Guardian can use their abilities to keep their teammates alive and ready for combat at any time."
+}

@@ -22,7 +22,7 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:deleo/disable/disable_energy",
-            "change": 1
+            "change": -1
         },
         "interval": 1,
         "condition": {

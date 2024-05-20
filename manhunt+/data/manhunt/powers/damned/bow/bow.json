@@ -29,7 +29,7 @@
     "windup": {
         "type": "origins:resource",
         "min": 0,
-        "max": 50,
+        "max": 40,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -105,7 +105,7 @@
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:damned/bow/bow_windup",
-            "compare_to": 50,
+            "compare_to": 40,
             "comparison": "=="
         }
     },
@@ -155,7 +155,7 @@
                         "condition": {
                             "type": "origins:resource",
                             "resource": "manhunt:damned/bow/bow_windup",
-                            "compare_to": 50,
+                            "compare_to": 40,
                             "comparison": "=="
                         }
                     },

@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:redstone_torch",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Engineer",
+	"description": "     [§dINTELLIGENCE ₪§r]\nThe Engineer excels at using their mechanical prowess to help it's teammates and ruin the plans of the runner."
+}

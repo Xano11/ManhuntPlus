@@ -1,0 +1,13 @@
+{
+	"powers": [
+
+	],
+	"icon": {
+		"item": "minecraft:enchanted_book",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Enchanter",
+	"description": "         [§7PILLAR 回§r]\nThey called the Enchanter a nerd in highschool. Little did they know, the Enchanter now gets mad (minecraft) hoes."
+}

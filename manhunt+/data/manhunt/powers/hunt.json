@@ -784,6 +784,10 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:ban"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "execute as @a[tag=runner] run scoreboard players add @e[limit=1,sort=nearest,type=minecraft:armor_stand] runners_alive 1"
                 },
                 {

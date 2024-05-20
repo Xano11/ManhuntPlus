@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:diamond_boots",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Celeritas ⋙",
+	"description": "Speed incarnate and true speedrunner, Celeritas swiftly paces to it's next win."
+}

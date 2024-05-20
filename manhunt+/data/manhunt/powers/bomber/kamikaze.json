@@ -9,7 +9,7 @@
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 2,
             "should_render": true,
-            "condition":{
+            "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:bomber/kamikaze_cooldown",
                 "comparison": ">",
@@ -26,7 +26,7 @@
         },
         "interval": 1
     },
-    "death":{
+    "death": {
         "type": "origins:action_on_death",
         "bientity_action": {
             "type": "origins:target_action",
@@ -168,7 +168,7 @@
             "change": -1
         },
         "interval": 1,
-        "condition":  {
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:bomber/kamikaze_windup",
             "comparison": ">",
@@ -357,11 +357,27 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:explode",
-                                        "power": 2,
-                                        "destruction_type": "break",
-                                        "damage_self": true,
-                                        "create_fire": false
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:fluid_height",
+                                            "fluid": "minecraft:water",
+                                            "comparison": ">",
+                                            "compare_to": 1.5
+                                        },
+                                        "if_action": {
+                                            "type": "origins:explode",
+                                            "power": 1,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        },
+                                        "else_action": {
+                                            "type": "origins:explode",
+                                            "power": 2,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        }
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -392,11 +408,27 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:explode",
-                                        "power": 3,
-                                        "destruction_type": "break",
-                                        "damage_self": true,
-                                        "create_fire": false
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:fluid_height",
+                                            "fluid": "minecraft:water",
+                                            "comparison": ">",
+                                            "compare_to": 1.5
+                                        },
+                                        "if_action": {
+                                            "type": "origins:explode",
+                                            "power": 2,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        },
+                                        "else_action": {
+                                            "type": "origins:explode",
+                                            "power": 3,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        }
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -427,11 +459,27 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:explode",
-                                        "power": 4,
-                                        "destruction_type": "break",
-                                        "damage_self": true,
-                                        "create_fire": false
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:fluid_height",
+                                            "fluid": "minecraft:water",
+                                            "comparison": ">",
+                                            "compare_to": 1.5
+                                        },
+                                        "if_action": {
+                                            "type": "origins:explode",
+                                            "power": 3,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        },
+                                        "else_action": {
+                                            "type": "origins:explode",
+                                            "power": 4,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        }
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -462,11 +510,27 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:explode",
-                                        "power": 8,
-                                        "destruction_type": "break",
-                                        "damage_self": true,
-                                        "create_fire": false
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:fluid_height",
+                                            "fluid": "minecraft:water",
+                                            "comparison": ">",
+                                            "compare_to": 1.5
+                                        },
+                                        "if_action": {
+                                            "type": "origins:explode",
+                                            "power": 6,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        },
+                                        "else_action": {
+                                            "type": "origins:explode",
+                                            "power": 8,
+                                            "destruction_type": "break",
+                                            "damage_self": true,
+                                            "create_fire": false
+                                        }
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -781,7 +845,7 @@
             ]
         }
     },
-    "less_air_speed":{
+    "less_air_speed": {
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
@@ -829,7 +893,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Kamikaze has 4 tiers. Every time you click the key, the explosion goes 1 tier up!\nTier 1: Power II\nTier 2: Power III\nTier 3: Power IV\nTier 4: Power VIII"
+            "text": "Kamikaze has 4 tiers. Every time you click the key, the explosion goes 1 tier up!\nTier 1: Power II\nTier 2: Power III\nTier 3: Power IV\nTier 4: Power VIII\n(Being submerged in water reduces the explosion strength)"
         },
         {
             "type": "origins:keybind",

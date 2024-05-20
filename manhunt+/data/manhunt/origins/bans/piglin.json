@@ -1,0 +1,11 @@
+{
+    "powers": [
+    ],
+    "icon": {
+		"item": "minecraft:gold_ingot",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+    "impact": 1,
+    "name": "Piglin",
+    "description": "      [§bPACEKEEPER ╬§r]\nA gold-addicted beast, the Piglin outshines it's competition in the Nether whilst rotting in it's antithesis."
+}

@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:tnt_minecart",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Bomber",
+	"description": "      [§bPACEKEEPER ╬§r]\nABSOLUTE CRACKHEAD. With explosive powers, you will wonder if they're by your side or not."
+}

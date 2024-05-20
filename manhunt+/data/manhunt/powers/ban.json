@@ -1,0 +1,508 @@
+{
+    "type": "origins:multiple",
+    "alchimia": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "angler": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "berserker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "bomber": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "captain": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "celeritas": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "courier": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "damned": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "deleo": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "draco": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "enchanter": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "engineer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "falconer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "fortis": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "gambler": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "geologist": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "guardian": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "herald": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "imp": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "jester": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "lurker": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "piglin": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "relentless": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "ritualist": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "sanguis": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "scanner": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "scout": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "shaman": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "sicarius": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "survivalist": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "ban_transfer": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/alchimia",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_alchimia 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/angler",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_angler 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/berserker",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_berserker 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/bomber",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_bomber 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/captain",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_captain 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/celeritas",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_celeritas 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/courier",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_courier 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/damned",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_damned 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/deleo",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_deleo 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/draco",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_draco 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/enchanter",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_enchanter 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/engineer",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_engineer 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/falconer",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_falconer 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/falconer",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_falconer 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/fortis",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_fortis 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/gambler",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_gambler 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/geologist",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_geologist 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/guardian",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_guardian 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/herald",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_herald 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/imp",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_imp 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/jester",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_jester 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/lurker",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_lurker 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/piglin",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_piglin 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/relentless",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_relentless 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/ritualist",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_ritualist 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/sanguis",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_sanguis 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/scanner",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_scanner 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/scout",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_scout 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/shaman",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_shaman 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/sicarius",
+                        "layer": "manhunt:bans_runners"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_sicarius 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/survivalist",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_survivalist 1"
+                    }
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:player"
+        }
+    },
+    "hidden": true
+}

@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:ender_eye",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Lurker",
+	"description": "     [§dINTELLIGENCE ₪§r]\nNo matter the distance or space, you lurk without a trace. You halt the runner's commence, with your omnipotent sense."
+}
