@@ -172,6 +172,15 @@
                     }
                 },
                 {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 75,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "scale delay set pehkui:eye_height 0",
                     "permission_level": 4
