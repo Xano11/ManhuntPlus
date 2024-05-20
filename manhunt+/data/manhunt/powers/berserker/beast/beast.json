@@ -8,79 +8,7 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power grant @s manhunt:berserker/beast/beast_effects"
-                },
-                {
-                    "type": "origins:if_else_list",
-                    "actions": [
-                        {
-                            "condition": {
-                                "type": "origins:health",
-                                "comparison": ">=",
-                                "compare_to": 12
-                            },
-                            "action": {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:berserker/beast/beast_effects_duration",
-                                "change": -100
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:health",
-                                "comparison": ">=",
-                                "compare_to": 10
-                            },
-                            "action": {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:berserker/beast/beast_effects_duration",
-                                "change": -80
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:health",
-                                "comparison": ">=",
-                                "compare_to": 8
-                            },
-                            "action": {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:berserker/beast/beast_effects_duration",
-                                "change": -60
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:health",
-                                "comparison": ">=",
-                                "compare_to": 6
-                            },
-                            "action": {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:berserker/beast/beast_effects_duration",
-                                "change": -40
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:health",
-                                "comparison": ">=",
-                                "compare_to": 4
-                            },
-                            "action": {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:berserker/beast/beast_effects_duration",
-                                "change": -20
-                            }
-                        }
-                    ]
-                },   
-                {
-                    "type": "eggolib:modify_health",
-                    "modifier": {
-                        "operation": "set_total",
-                        "value": 1
-                    }
-                },           
+                },              
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.hoglin.converted_to_zombified player @a ~ ~ ~ 5 0.5"
@@ -94,9 +22,11 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 10,
+        "cooldown": 1200,
         "hud_render": {
-            "should_render": false
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1,
+            "should_render": true
         },
         "condition": {
             "type": "origins:power",
@@ -110,17 +40,17 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Sacrifice all your health to become unkillable for 10 seconds.\nAfter 10 seconds, you will become weakened (see \"weakened\" badge).\nIf you use the ability at lower health, you will get more duration (Below 5 hearts, one heart equals 1 second)"
+            "text": "Sacrifice the ability to regenerate to become enraged, increasing your speed.\nAfter 10 seconds, you will become weakened (see \"weakened\" badge)."
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Weakened: 7s of 40% less speed and inability to heal."
+            "text": "Weakened: 7s of 40% less speed and remain unable to heal."
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Unstoppable: 10 seconds of +3 damage and 10% more movement speed.\nAdditionally, you can use bleeding axe indefinitely."
+            "text": "Unstoppable: +10% Movement Speed & +5% Air Speed. Heal 1 Heart on crit, doubles to 2 Hearts if target is Wounded.\nAdditionally, you can use wounding axe without being slowed down."
         },
         {
             "type": "origins:keybind",

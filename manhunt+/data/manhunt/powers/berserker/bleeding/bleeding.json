@@ -384,7 +384,7 @@
             ]
         }
     },
-    "name": "Bleeding Axe",
+    "name": "Wounding Axe",
     "description": "Sacrifice your lifeforce to deliver a deep wound axe hit.",
     "badges": [
         {
@@ -395,7 +395,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Bleeding: Entities affected with bleeding are slowed and lose health if they are moving.\nLasts 10 seconds."
+            "text": "Wounded: Entities affected with wounded take damage and lose -25% invincibility frames.\nLasts 3 seconds."
         },
         {
             "type": "origins:keybind",

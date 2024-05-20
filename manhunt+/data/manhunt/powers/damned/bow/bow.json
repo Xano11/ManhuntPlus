@@ -39,7 +39,12 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.arrow.hit_player player @a ~ ~ ~ 1 0.5",
+                    "command": "playsound minecraft:item.spyglass.use player @a ~ ~ ~ 2 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.bell player @a ~ ~ ~ 2 1.2",
                     "permission_level": 4
                 },
                 {
