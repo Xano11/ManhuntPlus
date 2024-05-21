@@ -132,7 +132,7 @@
             "type": "origins:execute_command",
             "command": "particle minecraft:dust_color_transition 1 1 1 1 0.7 0.7 0.7 ~ ~1 ~ 0.2 0.2 0.2 1 1"
         },
-        "interval": 10
+        "interval": 20
     },
     "ally_speed_grant": {
         "type": "origins:action_over_time",
@@ -163,9 +163,20 @@
             "bientity_condition": {
                 "type": "origins:target_condition",
                 "condition": {
-                    "type": "origins:origin",
-                    "origin": "manhunt:hunter",
-                    "layer": "origins:origin"
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter/scout",
+                            "layer": "origins:origin",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    ]
                 }
             }
         },
@@ -357,7 +368,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§l§a+15%§r Speed and §l§a+5%§r Velocity increase.\nIncreases to §l§a+30%§r Speed and §l§a+10%§r Velocity when not within 32 blocks of a Runner.\n§l§a+25%§r Speed and §l§a+8%§r Velocity for allies in a 24 block radius of you while active.\n(Icon over hotbar shows when active.)"
+            "text": "§l§a+15%§r Speed and §l§a+5%§r Velocity increase.\nIncreases to §l§a+30%§r Speed and §l§a+10%§r Velocity when not within 32 blocks of a Runner.\n§l§a+25%§r Speed and §l§a+8%§r Velocity for allies in a 24 block radius of you while active.(does not apply for other Scouts.)\n(Icon over hotbar shows when active.)"
         }
     ]
 }

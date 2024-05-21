@@ -181,7 +181,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.8,
+            "value": 1,
             "operation": "multiply_base"
         },
         "tick_rate": 1,
@@ -209,7 +209,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.75,
+            "value": 0.9,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
@@ -243,7 +243,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.75,
+            "value": 0.9,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
@@ -276,7 +276,7 @@
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.45
+            "value": 0.55
         },
         "condition": {
             "type": "origins:and",
@@ -298,8 +298,36 @@
         }
     },
     "air_walk": {
+        "type": "origins:grounded",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:celeritas/boots/boots_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "air_walk_fallspeed": {
         "type": "origins:modify_falling",
-        "velocity": -0.001,
+        "velocity": 0.001,
         "take_fall_damage": false,
         "condition": {
             "type": "origins:and",
@@ -312,33 +340,26 @@
                     }
                 },
                 {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    }
+                },
+                {
                     "type": "origins:resource",
                     "resource": "manhunt:celeritas/boots/boots_energy",
                     "comparison": ">",
                     "compare_to": 0
-                },
-                {
-                    "type": "origins:sprinting",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
                 }
             ]
         }
     },
-    "air_walk_particles": {
-        "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:cloud ~ ~0.1 ~ 0 0 0 0 1",
-                    "permission_level": 4
-                }
-            ]
+    "air_walk_jump": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "addition",
+            "value": -0.09
         },
         "condition": {
             "type": "origins:and",
@@ -351,25 +372,86 @@
                     }
                 },
                 {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    }
+                },
+                {
                     "type": "origins:resource",
                     "resource": "manhunt:celeritas/boots/boots_energy",
                     "comparison": ">",
                     "compare_to": 0
-                },
-                {
-                    "type": "origins:sprinting",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:on_block",
-                    "inverted": true
                 }
             ]
+        }
+    },
+    "air_walk_lessspeed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Movement speed increase",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -0.6,
+            "operation": "multiply_base"
         },
-        "cooldown": 1,
-        "key": {
-            "key": "key.origins.primary_active",
-            "continuous": true
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:celeritas/boots/boots_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "air_walk_lessairspeed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.6
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:celeritas/boots/boots_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "particles": {
@@ -420,7 +502,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Gain §l§a+80%§r Speed & §l§a+45%§r Air Speed while active.\nWhen not sprinting, you can even walk on air!\nThere's a few ways to recharge:\nStand still: 28%/1s Recharge\nWalk: 5%/1s Recharge\nDeal a critical hit: 7% Recharge"
+            "text": "Gain §l§a+80%§r Speed & §l§a+45%§r Air Speed while active.\nYou can even walk on air while holding right-click! Air Walking reduces your air speed when used.\nThere's a few ways to recharge:\nStand still: 28%/1s Recharge\nWalk: 5%/1s Recharge\nDeal a critical hit: 7% Recharge"
         },
         {
             "type": "origins:keybind",
