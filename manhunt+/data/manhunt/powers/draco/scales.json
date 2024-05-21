@@ -454,6 +454,11 @@
                     "resource": "manhunt:draco/dragonblood/rage_duration",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
                 }
             ]
         }
@@ -479,6 +484,11 @@
                     "resource": "manhunt:draco/dragonblood/rage_duration",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
                 }
             ]
         }
@@ -504,6 +514,11 @@
                     "resource": "manhunt:draco/dragonblood/rage_duration",
                     "comparison": ">",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
                 }
             ]
         }
@@ -529,6 +544,11 @@
                     "resource": "manhunt:draco/dragonblood/rage_duration",
                     "comparison": ">",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
                 }
             ]
         }
