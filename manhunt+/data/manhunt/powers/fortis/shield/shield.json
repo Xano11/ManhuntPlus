@@ -14,9 +14,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:fortis/shield/shield_cooldown",
-            "change": -10
+            "change": -1
         },
-        "interval": 10
+        "interval": 1
     },
     "bash": {
         "type": "origins:active_self",
@@ -31,7 +31,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:fortis/shield/shield_cooldown",
-                    "change": 140,
+                    "change": 135,
                     "operation": "set"
                 },
                 {
