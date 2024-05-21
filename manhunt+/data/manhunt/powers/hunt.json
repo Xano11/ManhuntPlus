@@ -21,21 +21,259 @@
         "type": "origins:resource",
         "min": 0,
         "max": 1,
-        "start_value": 1,
-        "hud_render": {
-            "should_render": false
-        }
+        "start_value": 1
     },
     "glow": {
         "type": "origins:resource",
         "min": 0,
         "max": 1,
-        "start_value": 1,
-        "hud_render": {
-            "should_render": false
+        "start_value": 1
+    },
+    "ban_start": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "moborigins:show_floating_item",
+                    "item_stack": {
+                      "item": "minecraft:barrier"
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:hunt_ban_timer",
+                    "change": 5,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.experience_orb.pickup player @a ~ ~ ~ 10 0.5"
+                }
+            ]
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function manhunt:setup/ban"
         }
     },
-    "apply_hunter_glow":  {
+    "ban_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "min_action":{
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action":{
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:hunter",
+                                        "layer": "origins:origin"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "origin gui @s manhunt:hunters"
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runner",
+                                        "layer": "origins:origin"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "origin gui @s manhunt:runners"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "ban_timer_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunt_ban_timer",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ban_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "ban_gui": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:selector_action",
+            "selector": "@a",
+            "bientity_action": {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:hunt_ban_timer",
+                    "change": 10,
+                    "operation": "set"
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:runner",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "origins:empty",
+                                    "layer": "manhunt:bans_hunters"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "origins:empty",
+                                    "layer": "manhunt:bans_runnners"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:ban"
+        }
+    },
+    "ban_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunt_ban_start",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ban_start",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "ban_msg1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 10 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a \"TIME FOR BANS!1!11!!\""
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ban_start",
+            "comparison": "==",
+            "compare_to": 60
+        }
+    },
+    "ban_msg2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 10 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @r[tag=hunter] add ban_pick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a \"All runners are given a ban vote...\""
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ban_start",
+            "comparison": "==",
+            "compare_to": 40
+        }
+    },
+    "ban_msg3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 10 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a [\"\",\".. AND \",{\"selector\":\"@p[tag=ban_pick]\",\"bold\":true},\" CAN BAN A RUNNER!!!!\"]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @a remove ban_pick"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ban_start",
+            "comparison": "==",
+            "compare_to": 20
+        }
+    },
+    "apply_hunter_glow": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:if_else",
@@ -495,7 +733,7 @@
             "compare_to": 360
         }
     },
-    "repick_msg3": { 
+    "repick_msg3": {
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:and",

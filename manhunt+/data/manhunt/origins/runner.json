@@ -1,8 +1,7 @@
 {
 	"powers": [
 		"manhunt:runner_effects",
-		"manhunt:global",
-		"manhunt:ban"
+		"manhunt:global"
 	],
 	"icon": {
 		"item": "minecraft:ender_eye",

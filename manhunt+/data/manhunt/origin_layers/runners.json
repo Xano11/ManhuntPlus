@@ -5,22 +5,211 @@
   "origins": [
     {
       "condition": {
-        "type": "origins:origin",
-        "origin": "manhunt:runner",
-        "layer": "origins:origin"
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_alchimia",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
       },
       "origins": [
-        "manhunt:none",
-        "manhunt:runners/alchimia",
-        "manhunt:runners/celeritas",
-        "manhunt:runners/sanguis",
-        "manhunt:runners/damned",
-        "manhunt:runners/gambler",
-        "manhunt:runners/deleo",
-        "manhunt:runners/jester",
-        "manhunt:runners/draco",
-        "manhunt:runners/fortis",
-        "manhunt:runners/chronos",
+        "manhunt:runners/alchimia"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_celeritas",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/celeritas"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_damned",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/damned"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_deleo",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/deleo"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_draco",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/draco"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_fortis",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/fortis"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_gambler",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/gambler"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_jester",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/jester"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_sanguis",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:runners/sanguis"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_sicarius",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
         "manhunt:runners/sicarius"
       ]
     }

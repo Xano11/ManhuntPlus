@@ -1,154 +1,1931 @@
 {
     "type": "origins:multiple",
-    "alchimia": {
+    "banned": {
         "type": "origins:resource",
         "min": 0,
         "max": 1
+    },
+    "banned_action": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:ban_banned 1"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runner",
+                            "layer": "origins:origin"
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:no_ban",
+                            "layer": "manhunt:bans_hunters",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "manhunt:bans_hunters",
+                            "inverted": true
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:no_ban",
+                            "layer": "manhunt:bans_runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "manhunt:bans_runnners",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "alchimia": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Alchimia \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "eggolib:close_screen"
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:hunter",
+                                            "layer": "origins:origin"
+                                        },
+                                        "if_action": {
+                                            "type": "origins:execute_command",
+                                            "command": "origin gui @s manhunt:hunters"
+                                        },
+                                        "else_action": {
+                                            "type": "origins:execute_command",
+                                            "command": "origin gui @s manhunt:runners"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "angler": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Angler \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "berserker": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Berserker \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "bomber": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Bomber \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "captain": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Captain \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "celeritas": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Celeritas \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "courier": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Courier \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "damned": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Inmortuae \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "deleo": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Deleo \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "draco": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Draco \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "enchanter": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Enchanter \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "engineer": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Engineer \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "falconer": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Falconer \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "fortis": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Fortis \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "gambler": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Gambler \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "geologist": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Geologist \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "guardian": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Guardian \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "herald": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Herald \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "imp": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Imp \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "jester": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Jester \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "lurker": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Lurker \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "piglin": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Piglin \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "relentless": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Relentless \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "ritualist": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Ritualist \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "sanguis": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Sanguis \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "scanner": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Scanner \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "scout": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Scout \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "shaman": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Shaman \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "sicarius": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Sicarius \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "survivalist": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Survivalist \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
     },
     "ban_transfer": {
         "type": "origins:action_over_time",
@@ -502,6 +2279,409 @@
         "condition": {
             "type": "origins:entity_type",
             "entity_type": "minecraft:player"
+        }
+    },
+    "ban_armor_stand": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_alchimia",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_alchimia 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_angler",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_angler 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_berserker",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_berserker 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_bomber",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_bomber 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_captain",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_captain 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_celeritas",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_celeritas 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_courier",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_courier 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_damned",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_damned 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_deleo",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_deleo 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_draco",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_draco 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_enchanter",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_enchanter 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_engineer",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_engineer 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_falconer",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_falconer 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_fortis",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_fortis 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_gambler",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_gambler 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_geologist",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_geologist 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_guardian",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_guardian 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_herald",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_herald 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_imp",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_imp 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_jester",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_jester 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_lurker",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_lurker 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_piglin",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_piglin 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_relentless",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_relentless 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_ritualist",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_ritualist 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_sanguis",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_sanguis 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_scanner",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_scanner 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_scout",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_scout 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_shaman",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_shaman 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_sicarius",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_sicarius 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_survivalist",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_survivalist 1"
+                    }
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:armor_stand"
         }
     },
     "hidden": true

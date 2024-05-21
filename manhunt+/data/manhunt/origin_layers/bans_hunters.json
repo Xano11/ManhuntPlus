@@ -9,12 +9,18 @@
                 "conditions": [
                     {
                         "type": "origins:origin",
-                        "origin": "manhunt:hunter",
+                        "origin": "manhunt:runner",
                         "layer": "origins:origin"
                     },
                     {
                         "type": "origins:power",
                         "power": "manhunt:start"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_banned",
+                        "comparison": "==",
+                        "compare_to": 0
                     }
                 ]
             },
