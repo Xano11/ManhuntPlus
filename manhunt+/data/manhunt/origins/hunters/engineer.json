@@ -4,6 +4,7 @@
 		"manhunt:engineer/portal/activate",
 		"manhunt:engineer/scan/scan",
 		"manhunt:engineer/armor",
+		"manhunt:engineer/weakling",
 		"origins:vegetarian"
 	],
 	"icon": {

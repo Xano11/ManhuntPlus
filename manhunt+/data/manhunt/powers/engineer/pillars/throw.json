@@ -35,6 +35,28 @@
         },
         "interval": 1
     },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 1200,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/pillars/throw_charges",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/pillars/throw_cooldown",
+                    "change": 1200,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
     "charges": {
         "type": "origins:resource",
         "min": 0,
@@ -50,10 +72,10 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:engineer/pillars/throw_charges",
-            "change": 1
+            "resource": "manhunt:engineer/pillars/throw_cooldown",
+            "change": -20
         },
-        "interval": 1200,
+        "interval": 20,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:engineer/pillars/throw_charges",
@@ -78,7 +100,7 @@
     },
     "throw": {
         "type": "origins:active_self",
-        "entity_action":{
+        "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
