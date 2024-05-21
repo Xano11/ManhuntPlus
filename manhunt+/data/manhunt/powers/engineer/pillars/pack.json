@@ -48,7 +48,7 @@
     "construct": {
         "type": "origins:resource",
         "min": 0,
-        "max": 15,
+        "max": 12,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -78,7 +78,7 @@
                         "type": "origins:resource",
                         "resource": "manhunt:engineer/pillars/pack_construct",
                         "comparison": "==",
-                        "compare_to": 5
+                        "compare_to": 4
                     },
                     "if_action": {
                         "type": "origins:execute_command",
@@ -91,7 +91,7 @@
                         "type": "origins:resource",
                         "resource": "manhunt:engineer/pillars/pack_construct",
                         "comparison": "==",
-                        "compare_to": 10
+                        "compare_to": 8
                     },
                     "if_action": {
                         "type": "origins:execute_command",
@@ -158,6 +158,23 @@
                                 "command": "power grant @s manhunt:engineer/pillars/slowed",
                                 "permission_level": 4
                             }
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin",
+                                    "inverted": true
+                                }
+                            ]
                         }
                     }
                 },
@@ -238,7 +255,7 @@
             "type": "origins:resource",
             "resource": "manhunt:engineer/pillars/pack_construct",
             "comparison": "==",
-            "compare_to": 15
+            "compare_to": 12
         }
     },
     "waves": {
