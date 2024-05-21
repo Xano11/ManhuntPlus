@@ -171,12 +171,15 @@
         }
     },
     "defense":{
-        "type": "origins:modify_attribute",
+        "type": "origins:conditioned_attribute",
         "attribute": "minecraft:generic.armor",
         "modifier": {
-            "operation": "add_base_early",
+            "operation": "addition",
+            "attribute": "minecraft:generic.armor",
+            "name": "armor",
             "value": 3
         },
+        "tick_rate": 1,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:fortis/warcry/war_armor",
