@@ -1,0 +1,46 @@
+{
+    "type": "origins:multiple",
+    "life_is_a_highway": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "power grant @s manhunt:celeritas/feeble",
+            "permission_level": 4
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:entity_type",
+                        "entity_type": "minecraft:player"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter",
+                        "layer": "origins:origin"
+                    }
+                ]
+            }
+        },
+        "cooldown": 1
+    },
+    "feeble": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "addition",
+            "value": -4
+        }
+    },
+    "name": "Life is a Highway",
+    "description": "Your priority for speed has left your own healh to decline.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Feeble: §c-2§r §l§c❤§r\nWhen taking damage from a Hunter, you lose §c-25%§r Invincibility Frames for 10s."
+        }
+    ]
+}

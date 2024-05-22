@@ -372,6 +372,11 @@
         "start_value": 1,
         "hud_render": {
             "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.zoglin.death player @a ~ ~ ~ 1 1.5",
+            "permission_level": 4
         }
     },
     "unstoppable": {
