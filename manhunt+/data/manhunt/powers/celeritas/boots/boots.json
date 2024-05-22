@@ -127,6 +127,14 @@
                     "inverted": true
                 },
                 {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    },
+                    "inverted": true
+                },
+                {
                     "type": "origins:moving",
                     "inverted": true
                 },
@@ -209,7 +217,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.9,
+            "value": 0.8,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
@@ -243,7 +251,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.9,
+            "value": 0.8,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
@@ -428,6 +436,40 @@
             "operation": "multiply_total",
             "value": -0.6
         },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.use",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:celeritas/boots/boots_energy",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "air_walk_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+        "type": "origins:change_resource",
+        "resource": "manhunt:celeritas/boots/boots_energy",
+        "change": -1
+        },
+        "interval": 1,
         "condition": {
             "type": "origins:and",
             "conditions": [
