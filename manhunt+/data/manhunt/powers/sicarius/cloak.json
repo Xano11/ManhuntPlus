@@ -3,7 +3,7 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 240,
+        "max": 140,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -49,27 +49,36 @@
             "compare_to": 0
         }
     },
-    "particles":{
+    "particles": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:spawn_particles",
-            "particle": {
-                "type": "minecraft:dust_color_transition",
-                "params": "0 0.06 0.2 1.2 0 0.3 0.7"
-            },
-            "bientity_condition": {
-                "type": "origins:distance",
-                "comparison": "<=",
-                "compare_to": 7
-            },
-            "count": 10,
-            "speed": 0.0,
-            "force": true,
-            "spread": {
-                "x": 0.3,
-                "y": 0.2,
-                "z": 0.3
-            }
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": {
+                        "type": "minecraft:dust_color_transition",
+                        "params": "0 0.06 0.2 1.2 0 0.3 0.7"
+                    },
+                    "bientity_condition": {
+                        "type": "origins:distance",
+                        "comparison": "<=",
+                        "compare_to": 7
+                    },
+                    "count": 10,
+                    "speed": 0.0,
+                    "force": true,
+                    "spread": {
+                        "x": 0.3,
+                        "y": 0.2,
+                        "z": 0.3
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.4 0.7"
+                }
+            ]
         },
         "interval": 20,
         "condition": {
@@ -142,7 +151,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:sicarius/cloak_duration",
-                    "change": 240,
+                    "change": 140,
                     "operation": "set"
                 },
                 {
@@ -155,7 +164,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.flap player @a ~ ~ ~ 1 1.6"
+                    "command": "playsound minecraft:entity.phantom.flap player @a ~ ~ ~ 4 1.6"
                 }
             ]
         },
@@ -209,7 +218,7 @@
                     "type": "origins:resource",
                     "resource": "manhunt:sicarius/cloak_duration",
                     "comparison": "<=",
-                    "compare_to": 280
+                    "compare_to": 130
                 },
                 {
                     "type": "origins:resource",
@@ -354,15 +363,15 @@
             ]
         }
     },
-    "hit":{
+    "hit": {
         "type": "origins:self_action_on_hit",
-        "entity_action":{
+        "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:sicarius/cloak_duration",
             "change": 2,
             "operation": "set"
         },
-        "condition":{
+        "condition": {
             "type": "origins:resource",
             "resource": "manhunt:sicarius/cloak_duration",
             "comparison": ">",
@@ -436,7 +445,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "Cooldown: 1m\nDuration: 7s"
         }
     ]
 }

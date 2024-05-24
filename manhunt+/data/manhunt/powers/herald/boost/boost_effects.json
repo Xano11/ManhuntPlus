@@ -27,9 +27,32 @@
         "entity_action": {
             "type": "origins:feed",
             "food": 1,
-            "saturation": 0.2
+            "saturation": 0.1
         },
-        "interval": 5
+        "interval": 10
+    },
+    "absorption": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:absorption 10 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:herald/boost/boost_effects"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition":  {
+            "type": "origins:food_level",
+            "comparison": "==",
+            "compare_to": 20
+        }
     },
     "hidden": true
 }

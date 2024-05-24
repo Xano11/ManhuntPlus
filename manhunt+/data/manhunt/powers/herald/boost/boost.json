@@ -110,7 +110,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Aura: Regeneration II and overtime saturation for 10 seconds.\nRadius: 10 blocks."
+			"text": "Aura: Food/Saturation overtime for 10 seconds. If full food, Absorption I is given.\nRadius: 10 blocks."
 		},
 		{
 			"type": "origins:keybind",
