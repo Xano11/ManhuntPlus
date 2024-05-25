@@ -91,5 +91,10 @@
       "sounds": [
         "misc/fireball"
       ]
+    },
+    "notlikeus": {
+      "sounds": [
+        "misc/notlikeus"
+      ]
     }
   }

@@ -85,6 +85,13 @@
                         {
                             "element": {
                                 "type": "origins:execute_command",
+                                "command": "execute as @a run playsound manhunt:notlikeus player @s ~ ~ ~ 1 1 1"
+                            },
+                            "weight": 10
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
                                 "command": "function manhunt:pitbull"
                             },
                             "weight": 5

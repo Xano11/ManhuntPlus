@@ -7,6 +7,8 @@
     "death.attack.redirect.player": "%s died whilst protecting %s",
     "death.attack.curse": "%s died from excess curse energy",
     "death.attack.curse.player": "%s died under the curse of %s",
+    "death.attack.vanish": "%s vanished",
+    "death.attack.vanish.player": "%s vanished",
 
 
     "layer.manhunt.runners.name": "Runner",

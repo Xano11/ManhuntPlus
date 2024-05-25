@@ -195,5 +195,96 @@
             }
         }
     },
+    "xolotl_tp": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 152,
+            "block": false,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:add_to_set",
+                            "set": "manhunt:xolotl/wolf/wolves_offered"
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:xolotl/wolf/wolves_life",
+                                    "change": 40,
+                                    "operation": "set"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:xolotl/wolf/wolves_howling",
+                                    "change": 1,
+                                    "operation": "set"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:power",
+                            "power": "manhunt:xolotl/wolf/wolves"
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:xolotl/wolf/wolves_offering",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            },
+            "command_step": 1
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "origins:meat"
+                }
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.use"
+    },
     "hidden": true
 }

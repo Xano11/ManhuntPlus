@@ -148,7 +148,7 @@
                                     {
                                         "type": "origins:change_resource",
                                         "resource": "manhunt:engineer/pillars/slowed_duration",
-                                        "change": 30,
+                                        "change": 50,
                                         "operation": "set"
                                     }
                                 ]

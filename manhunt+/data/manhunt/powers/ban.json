@@ -1927,6 +1927,68 @@
             ]
         }
     },
+    "xolotl": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Xolotl \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "origins:empty",
+                                "layer": "manhunt:bans_runners",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:hunters"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "origin gui @s manhunt:runners"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
     "ban_transfer": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -2271,6 +2333,17 @@
                     "action": {
                         "type": "origins:execute_command",
                         "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_survivalist 1"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:bans/xolotl",
+                        "layer": "manhunt:bans_hunters"
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_xolotl 1"
                     }
                 }
             ]
@@ -2674,6 +2747,19 @@
                     "if_action": {
                         "type": "origins:execute_command",
                         "command": "execute as @a run resource set @s manhunt:ban_survivalist 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_xolotl",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a run resource set @s manhunt:ban_xolotl 1"
                     }
                 }
             ]

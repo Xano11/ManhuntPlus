@@ -70,11 +70,27 @@
             "compare_to": 3
         }
     },
+    "glow":{
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0,
+        "green": 0.6,
+        "blue": 0.6,
+        "bientity_condition": {
+            "type": "origins:can_see"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/slowed_duration",
+            "comparison": ">=",
+            "compare_to": 45
+        }
+    },
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 30,
-        "start_value": 30,
+        "max": 50,
+        "start_value": 50,
         "hud_render": {
             "should_render": false
         },

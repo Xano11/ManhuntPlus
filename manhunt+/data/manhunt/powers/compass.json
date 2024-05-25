@@ -9,9 +9,9 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:command",
-                        "command": "execute if score @s tracking matches 0",
+                        "command": "execute if score @s tracking matches 0..",
                         "comparison": "==",
-                        "compare_to": 1
+                        "compare_to": 0
                     },
                     "if_action": {
                         "type": "origins:execute_command",

@@ -1,0 +1,104 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:xolotl/wolf/howled",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/howled_duration",
+                    "change": -2
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter",
+                        "layer": "origins:origin"
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:dust_color_transition 0.7 0.4 0 1.2 0.8 0.5 0 ~ ~1 ~ 0.4 0.4 0.4 1 4",
+                        "permission_level": 4
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:crit ~ ~1 ~ 0.2 0.2 0.2 0.5 3",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "interval": 2
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": 0.15,
+            "name": "Increased sprinting speed"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+        }
+    },
+    "atk_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_base",
+            "value": 0.15,
+            "name": "Increased attack speed"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.15
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+        }
+    },
+    "vulnerable": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin",
+            "inverted": true
+        }
+    }
+}

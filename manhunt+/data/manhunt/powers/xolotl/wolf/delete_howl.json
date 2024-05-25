@@ -1,0 +1,45 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "tp": {
+        "type": "origins:action_over_time",
+        "entity_action":  {
+            "type": "origins:execute_command",
+            "command": "tp @s ~ ~0.8 ~",
+            "permission_level": 4
+        },
+        "interval": 1
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/wolf/delete_howl_duration",
+            "change": -1
+        },
+        "interval": 1
+    }
+}

@@ -1,7 +1,5 @@
 {
 	"powers": [
-		"manhunt:xolotl/wolf/wolfpack",
-		"manhunt:xolotl/offering"
 	],
 	"icon": {
 		"item": "minecraft:cooked_beef",
@@ -9,7 +7,6 @@
 	},
 	"order": 10,
 	"impact": 2,
-    "unchoosable": true,
 	"name": "Xolotl",
 	"description": "         [§7PILLAR 回§r]\nOften confused for an Axolotl, Xolotl is simply put:\n A GOOD BOI!1!!11!!"
 }
