@@ -23,6 +23,14 @@
         },
         "interval": 10
     },
+    "exhaust": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:exhaust",
+            "amount": 0.4
+        },
+        "interval": 5
+    },
     "parts": {
         "type": "origins:particle",
         "particle": "minecraft:enchant",

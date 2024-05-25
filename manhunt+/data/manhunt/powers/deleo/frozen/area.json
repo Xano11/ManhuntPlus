@@ -35,7 +35,7 @@
     },
     "particles": {
         "type": "origins:action_over_time",
-        "entity_action":  {
+        "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -57,7 +57,7 @@
         },
         "interval": 1,
         "condition": {
-            "type":"origins:resource",
+            "type": "origins:resource",
             "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 10,
             "comparison": ">"
@@ -82,7 +82,7 @@
         },
         "interval": 1,
         "condition": {
-            "type":"origins:resource",
+            "type": "origins:resource",
             "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 30,
             "comparison": "=="
@@ -107,7 +107,7 @@
         },
         "interval": 1,
         "condition": {
-            "type":"origins:resource",
+            "type": "origins:resource",
             "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 20,
             "comparison": "=="
@@ -143,15 +143,26 @@
                     "bientity_condition": {
                         "type": "origins:target_condition",
                         "condition": {
-                            "type": "origins:living"
-                        }              
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:runner",
+                                    "layer": "origins:origin",
+                                    "inverted": true
+                                }
+                            ]
+                        }
                     }
                 }
             ]
         },
         "interval": 1,
         "condition": {
-            "type":"origins:resource",
+            "type": "origins:resource",
             "resource": "manhunt:deleo/frozen/area_duration",
             "compare_to": 10,
             "comparison": "=="

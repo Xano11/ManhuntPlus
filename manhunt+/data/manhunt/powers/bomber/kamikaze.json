@@ -519,14 +519,14 @@
                                         },
                                         "if_action": {
                                             "type": "origins:explode",
-                                            "power": 6,
+                                            "power": 5,
                                             "destruction_type": "break",
                                             "damage_self": true,
                                             "create_fire": false
                                         },
                                         "else_action": {
                                             "type": "origins:explode",
-                                            "power": 8,
+                                            "power": 6,
                                             "destruction_type": "break",
                                             "damage_self": true,
                                             "create_fire": false

@@ -268,7 +268,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Breakdown will invoke a 5 block radius AOE on the target selected.\n\nBREAKDOWN: Freezes you in place and prevents actions.\n(They do not take damage whilst broken down)"
+            "text": "Breakdown will invoke a 5 block radius AOE on the target selected.\n\nBREAKDOWN: Freezes you in place, exhausts you massively and prevents actions.\n(They do not take damage whilst broken down)"
         },
         {
             "type": "origins:tooltip",

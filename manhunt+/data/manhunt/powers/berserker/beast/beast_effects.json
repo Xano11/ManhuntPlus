@@ -321,6 +321,20 @@
             "compare_to": 0
         }
     },
+    "roar_invincibility": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Weak to cursed items",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "faster_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -358,6 +372,11 @@
         "start_value": 1,
         "hud_render": {
             "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.zoglin.death player @a ~ ~ ~ 1 1.5",
+            "permission_level": 4
         }
     },
     "unstoppable": {
