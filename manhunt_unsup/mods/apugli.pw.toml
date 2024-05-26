@@ -1,13 +1,13 @@
 name = "Apugli"
-filename = "Apugli-2.10.1+1.20.2-fabric.jar"
+filename = "Apugli-2.10.2+1.20.2-fabric.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "1fca889342802b050716f401867c34c109ca6882"
+hash = "37790a319e62b730cb23e840ca3936623ef97f79"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 5183119
+file-id = 5354496
 project-id = 579886
