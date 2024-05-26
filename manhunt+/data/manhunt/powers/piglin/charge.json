@@ -75,6 +75,22 @@
             "compare_to": 0
         }
     },
+    "less_damage": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "More speed",
+            "attribute": "minecraft:generic.attack_damage",
+            "value": -2,
+            "operation": "addition"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/charge_charging",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -121,7 +137,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/poison.png",
-            "text": "Charging: 200% Speed for 3.5s\nWhile charging, you can walk up full blocks and fall quicker, but cannot jump. (+1 Block Step Height)"
+            "text": "Charging: 200% Speed for 3.5s\nWhile charging, you can walk up full blocks and fall quicker, but cannot jump and deal -2 less damage. (+1 Block Step Height)"
         },
         {
             "type": "origins:keybind",

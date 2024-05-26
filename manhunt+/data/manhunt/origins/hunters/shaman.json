@@ -2,9 +2,9 @@
 	"powers": [
 		"manhunt:shaman/totem/totem",
 		"manhunt:shaman/grasp",
+		"manhunt:shaman/regenerate",
 		"manhunt:shaman/absorbed",
-		"manhunt:shaman/sculk",
-		"manhunt:shaman/regenerate"
+		"manhunt:shaman/sculk"
 	],
 	"icon": {
 		"item": "minecraft:echo_shard",
