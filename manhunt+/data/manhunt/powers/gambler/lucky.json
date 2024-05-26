@@ -16,13 +16,49 @@
             "value": 1
         }
     },
+    "bartering":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:gameplay/piglin_bartering": "manhunt:gameplay/gambler_bartering"
+        }
+    },
+    "bastion_treasure":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:chests/bastion_treasure": "manhunt:gameplay/gambler_bastion_treasure"
+        }
+    },
+    "bastion_bridge":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:chests/bastion_bridge": "manhunt:gameplay/gambler_bastion_bridge"
+        }
+    },
+    "bastion_stable":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:chests/bastion_hoglin_stable": "manhunt:gameplay/gambler_bastion_stable"
+        }
+    },
+    "bastion_other":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:chests/bastion_other": "manhunt:gameplay/gambler_other"
+        }
+    },
+    "bastion_fortress":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:chests/nether_bridge": "manhunt:gameplay/gambler_fortress"
+        }
+    },
     "name": "Luck of Dream(s)",
     "description": "Some say that gambling is a skill... and they're right.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Looting I + Fortune I"
+            "text": "Looting I + Fortune I\nAdditionally, Piglins and all Nether structure chests do +1 roll!\n(If you don't know how minecraft loot table rolls, look it up)"
         }
     ]
 }
