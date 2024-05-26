@@ -24,34 +24,6 @@
 			}
 		}
     },
-	"soul_gain": {
-		"type": "origins:action_on_hit",
-		"bientity_action": {
-			"type": "origins:target_action",
-			"action": {
-				"type": "origins:spawn_entity",
-				"entity_type": "minecraft:item",
-				"tag": "{Age:5800,PickupDelay:10,Invulnerable:1b,Tags:[\"soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{display:{Name:'{\"text\":\"Soul\",\"color\":\"aqua\",\"bold\":true}'},CustomModelData:1}}}"
-			}
-		},
-		"bientity_condition": {
-			"type": "origins:target_condition",
-			"condition": {
-				"type": "origins:and",
-				"conditions": [
-					{
-						"type": "origins:entity_type",
-						"entity_type": "minecraft:player"
-					},
-					{
-						"type": "origins:origin",
-						"origin": "manhunt:runner",
-						"layer": "origins:origin"
-					}
-				]
-			}
-		}
-	},
 	"soul_kill": {
 		"type": "apugli:action_on_target_death",
 		"bientity_action": {
@@ -109,7 +81,7 @@
 				}
 			]
 		},
-		"interval": 300
+		"interval": 600
 	},
 	"ritual": {
 		"type": "eggolib:action_on_critical_hit",
@@ -276,7 +248,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Hitting a runner or killing an entity grants one soul.\nAdditionally, doing a critical hit grants two instead.\nYou passively gain 1 soul every 15s."
+			"text": "Hitting a runner with a crit or killing an entity grants one soul.\nYou passively gain 1 soul every 30s."
 		},
 		{
 			"type": "origins:tooltip",
