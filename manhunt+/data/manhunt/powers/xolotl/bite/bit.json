@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:xolotl/bite/bit",
+            "permission_level": 4
+        }
+    },
+    "duration_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/bite/bit_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 0 0 0.8 0.4 0 0 ~ ~1 ~ 0.4 0.4 0.4 1 5",
+            "permission_level": 4
+        },
+        "interval": 1
+    },
+    "weakness": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Vulnerable",
+            "operation": "multiply_total",
+            "value": 0.25
+        }
+    },
+    "healing":{
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+    "hidden": true
+}

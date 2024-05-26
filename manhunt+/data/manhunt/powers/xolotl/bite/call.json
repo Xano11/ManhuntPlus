@@ -1,0 +1,76 @@
+{
+    "type": "origins:multiple",
+    "command": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:xolotl/wolf/wolfpack_wolves",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:xolotl/wolf/wolves_bite",
+                                "change": 1,
+                                "operation": "set"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.wolf.ambient player @a ~ ~ ~ 2 0.5",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:xolotl/wolf/wolfpack_key_check",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "cooldown": 900,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 22,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png"
+        }
+    },
+    "name": "Rage Against the Runners",
+    "description": "Being bit by a wild wolf isn't necessarily the best idea...",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Using the ability makes all your wolves have an empowered bite for the next 10s.\n\nBite: -50% healing and 25% more damage intake"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and press \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to empower your wolf's bite!"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 45s"
+        }
+    ]
+}

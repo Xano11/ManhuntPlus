@@ -1,0 +1,76 @@
+{
+    "type": "origins:multiple",
+    "carnivore": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "type": "origins:meat",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "meat":{
+        "type": "origins:modify_food",
+        "item_condition":  {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "type": "origins:meat"
+            }
+        },
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "addition",
+            "value": 1.0
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "addition",
+            "value": 0.1
+        }
+    },
+    "cow":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/cow": "manhunt:entities/xolotl_cow"
+        }
+    },
+    "pig":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/pig": "manhunt:entities/xolotl_pig"
+        }
+    },
+    "sheep":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/sheep": "manhunt:entities/xolotl_sheep"
+        }
+    },
+    "chicken":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/chicken": "manhunt:entities/xolotl_chicken"
+        }
+    },
+    "rabbit":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/rabbit": "manhunt:entities/xolotl_rabbit"
+        }
+    },
+    "name": "carnivore :3",
+    "description": "you only meat but meat better",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You are a §l§cCarnivore§r but meat gives +1 food.\nAdditionally animals drop more meat! (fish aren't affected)."
+        }
+    ]
+}

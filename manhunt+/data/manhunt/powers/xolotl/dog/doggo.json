@@ -1,0 +1,103 @@
+{
+    "type": "origins:multiple",
+    "invuln": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Invuln",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 110,
+        "start_value": 110,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run ride @s dismount"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.7 0.5 0 2 0.8 0.55 0 ~ ~0.5 ~ 2 1 1 1 100"
+                }
+            ]
+        }
+    },
+    "disappear": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:damage",
+            "amount": 9999,
+            "damage_type": "manhunt:vanish"
+        }
+    },
+    "invis":{
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "collision":{
+        "type": "origins:prevent_entity_collision",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "ticking_disappear": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/dog/doggo_disappear",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "interval": 1
+    },
+    "sneak": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "change": 0,
+            "operation": "set"
+        },
+        "condition": {
+            "type": "origins:passenger",
+            "inverted": true
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

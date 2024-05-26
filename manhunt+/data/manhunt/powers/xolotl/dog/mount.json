@@ -11,9 +11,14 @@
                     "permission_level": 4
                 },
                 {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wolf.growl player @a ~ ~ ~ 3 0.8",
+                    "permission_level": 4
+                },
+                {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:wolf",
-                    "tag": "{PersistenceRequired:1b,CanPickUpLoot:0b,Age:0,CollarColor:1b,Tags:[\"xolotl_mount\"]}",
+                    "tag": "{AngerTime:150,PersistenceRequired:1b,CanPickUpLoot:0b,Age:0,CollarColor:1b,Tags:[\"xolotl_mount\"]}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -24,7 +29,12 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "scale set pehkui:base 4 @s",
+                                "command": "scale set pehkui:base 3 @s",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:xolotl/dog/doggo",
                                 "permission_level": 4
                             }
                         ]
@@ -44,7 +54,9 @@
             "key": "key.origins.secondary_active"
         },
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "bar_index": 7,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png"
         }
     },
     "riding": {
@@ -55,14 +67,28 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
-                        "command": "execute on vehicle as @s at @s rotated as @p[tag=riding_wolf] run tp @s ~ ~ ~ ~ ~"
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:xolotl/dog/doggo_duration",
+                        "change": -2
                     },
                     {
-                        "type": "origins:add_velocity",
-                        "z": 1,
-                        "set": true,
-                        "space": "local_horizontal_normalized"
+                        "type": "origins:execute_command",
+                        "command": "data modify entity @s Rotation[0] set from entity @p[tag=riding_wolf] Rotation[0]"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:dust_color_transition 0.7 0.5 0 1.5 0.8 0.55 0 ^ ^1 ^ 0.7 0.5 0.7 1 10"
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:on_block"
+                        },
+                        "if_action": {
+                            "type": "origins:add_velocity",
+                            "z": 0.18,
+                            "space": "local_horizontal_normalized"
+                        }
                     }
                 ]
             }
@@ -88,33 +114,29 @@
             }
         }
     },
-    "name": "Packleader",
-    "description": "Wolves respond to your call and serve you wherever you go.",
+    "name": "IM THE BIGGEST DAWG",
+    "description": "Call upon forth the biggest of wolves to move at high speeds!",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Overclocked: Movement speed decreased per 15% for every wave hit (max of 45%)"
+            "text": "Summon a big wolf that grants great movement for 5.5s! Sneak to cancel early."
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "Press \"",
                 {
-                    "keybind": "key.origins.primary_active"
+                    "keybind": "key.origins.secondary_active"
                 },
-                "\" and press \"",
-                {
-                    "keybind": "key.attack"
-                },
-                "\" to throw the pillar down!"
+                "\" to ride the wolf!"
             ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m per pillar\nPillar stock: 2 pillars."
+            "text": "Cooldown: 1m"
         }
     ]
 }

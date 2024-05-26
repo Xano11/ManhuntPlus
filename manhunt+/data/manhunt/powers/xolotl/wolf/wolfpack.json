@@ -173,7 +173,9 @@
             "key": "key.use"
         },
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/xolotl/xolotl.png"
         },
         "condition": {
             "type": "origins:and",
@@ -203,7 +205,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Overclocked: Movement speed decreased per 15% for every wave hit (max of 45%)"
+            "text": "Wolves summoned have 4 lesser hearts and deal 40% less damage.\nIf killed, the wolves will howl; buffing all hunters with 15% extra movement and attack speed.\nRunners are instead debuffed with 15% less attack damage."
         },
         {
             "type": "origins:tooltip",
@@ -215,15 +217,15 @@
                 },
                 "\" and press \"",
                 {
-                    "keybind": "key.attack"
+                    "keybind": "key.use"
                 },
-                "\" to throw the pillar down!"
+                "\" to summon your wolf pack!"
             ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m per pillar\nPillar stock: 2 pillars."
+            "text": "Cooldown: 3m per wolf pack.\nWolves summoned last for 2m before vanishing."
         }
     ]
 }

@@ -89,10 +89,10 @@
         }
     },
     "vulnerable": {
-        "type": "origins:modify_damage_taken",
+        "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.1
+            "value": -0.15
         },
         "condition": {
             "type": "origins:origin",

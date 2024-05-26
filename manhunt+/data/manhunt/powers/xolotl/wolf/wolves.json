@@ -65,6 +65,12 @@
                     "resource": "manhunt:xolotl/wolf/wolves_howling",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_offering",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
@@ -98,6 +104,11 @@
                     }
                 },
                 {
+                    "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
                     "type": "origins:damage",
                     "amount": 9999,
                     "damage_type": "manhunt:vanish"
@@ -126,6 +137,12 @@
         "max": 1,
         "start_value": 0
     },
+    "glow_color": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
     "howl": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -134,7 +151,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:armor_stand",
-                    "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"howl\"],Passengers:[{id:\"minecraft:item_display\",start_interpolation:-1,Tags:[\"howl\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,2.4f,0f],scale:[0.5f,0.5f,1f]},item:{id:\"minecraft:bone\",Count:1b,tag:{CustomModelData:2}}}]}",
+                    "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"howl\"],Passengers:[{id:\"minecraft:item_display\",start_interpolation:-1,Tags:[\"howl\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,2f],scale:[0.5f,0.5f,1f]},item:{id:\"minecraft:bone\",Count:1b,tag:{CustomModelData:2}}}]}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -173,6 +190,27 @@
                             "permission_level": 4
                         }
                     }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:xolotl/wolf/wolves_glow_color",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:xolotl/wolf/wolves_glow_color",
+                        "change": 1,
+                        "operation": "set"
+                    },
+                    "else_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:xolotl/wolf/wolves_glow_color",
+                        "change": 0,
+                        "operation": "set"
+                    }
                 }
             ]
         },
@@ -184,24 +222,69 @@
             "compare_to": 1
         }
     },
-    "howl_glow": {
+    "howl_glow_orange": {
         "type": "origins:self_glow",
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:xolotl/wolf/wolves_howling",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_howling",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_glow_color",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         },
         "use_teams": false,
         "red": 0.8,
         "green": 0.55,
         "blue": 0
     },
+    "howl_glow_white": {
+        "type": "origins:self_glow",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_howling",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_glow_color",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 1,
+        "blue": 1
+    },
     "offering": {
         "type": "origins:resource",
         "min": 0,
         "max": 1,
-        "start_value": 0
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "forceload add ~ ~ ~ ~",
+            "permission_level": 4
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "forceload remove ~ ~ ~ ~",
+            "permission_level": 4
+        }
     },
     "offering_ticking": {
         "type": "origins:action_over_time",
@@ -210,7 +293,7 @@
             "resource": "manhunt:xolotl/wolf/wolves_life",
             "change": -10
         },
-        "interval": 30,
+        "interval": 20,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:xolotl/wolf/wolves_offering",
@@ -230,6 +313,163 @@
             "comparison": "==",
             "compare_to": 1
         }
+    },
+    "bite": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "bite_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_bite",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
+                    "change": 0
+                }
+            ]
+        }
+    },
+    "bite_ready": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 25,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_bite_duration",
+                    "change": 200,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 0.8 0.4 0 0 ~ ~1 ~ 0.4 0.4 0.4 1 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bee.sting player @a ~ ~ ~ 0.8 0.5",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "bite_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/wolf/wolves_bite",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "bite_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/wolf/wolves_bite_duration",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/wolf/wolves_bite_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "bite_effect": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:xolotl/wolf/wolves_bite",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.fox.bite player @a ~ ~ ~ 1 0.5",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:power",
+                                    "power": "manhunt:xolotl/bite/bit"
+                                },
+                                "if_action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:xolotl/bite/bit_duration",
+                                    "change": 140,
+                                    "operation": "set"
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:xolotl/bite/bit",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:exhaust",
+                                "amount": 4.0
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
+                "comparison": "==",
+                "compare_to": 25
+            }
+        },
+        "cooldown": 1
     },
     "glow_hunters": {
         "type": "origins:self_glow",
@@ -262,7 +502,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": "<=",
-                    "compare_to": 152
+                    "compare_to": 151
                 }
             ]
         },

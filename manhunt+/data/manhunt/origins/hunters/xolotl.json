@@ -1,7 +1,12 @@
 {
 	"powers": [
 		"manhunt:xolotl/wolf/wolfpack",
-		"manhunt:xolotl/offering"
+		"manhunt:xolotl/bite/call",
+		"manhunt:xolotl/dog/mount",
+		"manhunt:xolotl/offering",
+		"manhunt:xolotl/hunter",
+		"manhunt:xolotl/nose",
+		"manhunt:xolotl/carnivore"
 	],
 	"icon": {
 		"item": "minecraft:cooked_beef",

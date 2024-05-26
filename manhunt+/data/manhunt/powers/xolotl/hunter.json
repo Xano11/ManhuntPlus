@@ -1,0 +1,184 @@
+{
+    "type": "origins:multiple",
+    "heal": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:action_on_set",
+            "set": "manhunt:xolotl/wolf/wolfpack_wolves",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:heal",
+                    "amount": 2
+                }
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "slow": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "slowed": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/hunter_slow",
+                    "change": -1
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:xolotl/hunter_slow",
+                            "change": 30,
+                            "operation": "set"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equal",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 32
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=wolf]",
+                    "bientity_action": {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:xolotl/hunter_slow",
+                            "change": 30,
+                            "operation": "set"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:power",
+                                    "power": "manhunt:xolotl/wolf/wolves"
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 32
+                            }
+                        ]
+                    }     
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/xolotl_speed_active.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/hunter_slow",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/xolotl_speed_inactive.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/hunter_slow",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": -0.2,
+            "name": "Increased sprinting speed"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/hunter_slow",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/hunter_slow",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "name": "Pack Hunter",
+    "description": "A true alpha stays with the group and protects it's friends (omg that's so cringe).",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "If there is no hunter or wolf in a 32 block radius, your speed is reduced by 20%.\nAdditionally, Killing an entity will heal all wolves for a heart."
+        }
+    ]
+
+}

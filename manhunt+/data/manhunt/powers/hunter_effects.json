@@ -222,7 +222,7 @@
                                 {
                                     "type": "origins:change_resource",
                                     "resource": "manhunt:xolotl/wolf/wolves_life",
-                                    "change": 40,
+                                    "change": 20,
                                     "operation": "set"
                                 },
                                 {
@@ -237,12 +237,21 @@
                     {
                         "type": "origins:actor_action",
                         "action": {
-                            "type": "origins:equipped_item_action",
-                            "equipment_slot": "mainhand",
-                            "action": {
-                                "type": "origins:consume",
-                                "amount": 1
-                            }
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:consume",
+                                        "amount": 1
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.generic.eat player @a ~ ~ ~ 1 0.5"
+                                }
+                            ]
                         }
                     }
                 ]
@@ -264,6 +273,12 @@
                             "resource": "manhunt:xolotl/wolf/wolves_offering",
                             "comparison": "==",
                             "compare_to": 1
+                        },
+                        {
+                            "type": "origins:set_size",
+                            "set": "manhunt:xolotl/wolf/wolves_offered",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 }
