@@ -30,21 +30,6 @@
             "power": "manhunt:lurker/lurk/lurk_effects_flight"
         }
     },
-    "fastflight": {
-        "type": "origins:modify_velocity",
-        "modifier": {
-            "value": 0.2,
-            "operation": "multiply_total"
-        },
-        "axes": [
-            "x",
-            "y",
-            "z"
-        ],
-        "condition": {
-            "type": "origins:creative_flying"
-        }
-    },
     "no_fall": {
         "type": "origins:modify_falling",
         "velocity": 0.005
@@ -52,7 +37,7 @@
     "laser_slow": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -0.6,
+            "value": -0.8,
             "operation": "multiply_total"
         },
         "axes": [
@@ -398,6 +383,14 @@
                     "resource": "manhunt:lurker/lurk/lurk_effects_lurk",
                     "comparison": "==",
                     "compare_to": 1800
+                },
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "apoli:entity_type",
+                        "entity_type": "minecraft:player"
+                    },
+                    "radius": 50.0
                 }
             ]
         }
