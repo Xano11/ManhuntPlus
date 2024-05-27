@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:brush",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Wisp",
+	"description": "       [§eASSISTANCE ✦§r]\nThe Wisp has risen from its eternal slumber, to the runners this senario must be a bummer, buffing its allies and nerfing its foes, where is this odd spirit?- only the keen shall know."
+}
