@@ -3,7 +3,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 3600,
+        "max": 6000,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -80,7 +80,7 @@
                                         {
                                             "type": "origins:change_resource",
                                             "resource": "manhunt:angler/fishing/fishout_cooldown",
-                                            "change": 3600
+                                            "change": 6000
                                         },
                                         {
                                             "type": "origins:execute_command",
@@ -238,7 +238,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3m\nWindup: 8s"
+            "text": "Cooldown: 5m\nWindup: 8s"
         }
     ]
 }

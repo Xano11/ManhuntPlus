@@ -15,7 +15,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hearts at sea: -2 §l§c❤§r"
+            "text": "Hearts at Sea: -2 §l§c❤§r"
         }
     ]
   }

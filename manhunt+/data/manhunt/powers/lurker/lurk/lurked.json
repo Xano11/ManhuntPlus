@@ -40,8 +40,8 @@
         "modifier": {
             "name": "Decrease speed",
             "attribute": "minecraft:generic.movement_speed",
-            "value": -0.25,
-            "operation": "multiply_total"
+            "value": -0.20,
+            "operation": "multiply_base"
         },
         "condition":  {
             "type": "origins:resource",
@@ -53,8 +53,8 @@
     "less_air_speed": {
         "type": "origins:modify_air_speed",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -0.15
+            "operation": "multiply_base",
+            "value": -0.10
         },
         "condition": {
             "type": "origins:resource",

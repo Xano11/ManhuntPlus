@@ -54,10 +54,10 @@
             "saturation": 0
         },
         "consume_action": "eat",
-        "consuming_time_modifier":{
-			"value": -0.5,
-			"operation": "multiply_base"
-		},
+        "consuming_time_modifier": {
+            "value": -0.5,
+            "operation": "multiply_base"
+        },
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:geologist/infernal_debut_fuel",
@@ -78,10 +78,10 @@
         },
         "consume_action": "drink",
         "consume_sound": "minecraft:block.pointed_dripstone.drip_lava_into_cauldron",
-        "consuming_time_modifier":{
-			"value": 0.25,
-			"operation": "multiply_base"
-		},
+        "consuming_time_modifier": {
+            "value": 0.25,
+            "operation": "multiply_base"
+        },
         "return_stack": {
             "item": "minecraft:bucket",
             "amount": 1
@@ -141,10 +141,18 @@
             }
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:geologist/infernal_debut_fuel",
-            "compare_to": 200,
-            "comparison": ">="
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:geologist/infernal_debut_fuel",
+                    "compare_to": 200,
+                    "comparison": ">="
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
         },
         "interval": 10
     },
@@ -211,11 +219,11 @@
             ]
         }
     },
-    "particles":{
+    "particles": {
         "type": "origins:particle",
         "particle": "minecraft:lava",
-        "count": 2,
-        "frequency": 4,
+        "count": 1,
+        "frequency": 5,
         "speed": 0.05,
         "condition": {
             "type": "origins:resource",
