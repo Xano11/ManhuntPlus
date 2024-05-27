@@ -38,6 +38,14 @@
             "name": "Vulnerable",
             "operation": "multiply_total",
             "value": 0.25
+        },
+        "damage_condition":{
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunters/xolotl",
+                "layer": "manhunt:hunters"
+            }
         }
     },
     "healing":{

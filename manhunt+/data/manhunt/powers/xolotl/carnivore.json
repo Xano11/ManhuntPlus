@@ -20,7 +20,7 @@
         "item_condition":  {
             "type": "origins:ingredient",
             "ingredient": {
-                "type": "origins:meat"
+                "tag": "origins:meat"
             }
         },
         "food_modifier": {

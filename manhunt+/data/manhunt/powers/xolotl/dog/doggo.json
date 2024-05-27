@@ -17,8 +17,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 110,
-        "start_value": 110,
+        "max": 140,
+        "start_value": 140,
         "hud_render": {
             "should_render": false
         },
@@ -98,6 +98,17 @@
             "inverted": true
         },
         "interval": 1
+    },
+    "slipperiness":{
+        "type": "origins:modify_slipperiness",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.4
+        },
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:ice"
+        }
     },
     "hidden": true
 }

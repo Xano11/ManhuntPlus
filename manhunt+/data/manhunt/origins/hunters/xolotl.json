@@ -3,10 +3,10 @@
 		"manhunt:xolotl/wolf/wolfpack",
 		"manhunt:xolotl/bite/call",
 		"manhunt:xolotl/dog/mount",
-		"manhunt:xolotl/offering",
 		"manhunt:xolotl/hunter",
 		"manhunt:xolotl/nose",
-		"manhunt:xolotl/carnivore"
+		"manhunt:xolotl/carnivore",
+		"manhunt:xolotl/fur"
 	],
 	"icon": {
 		"item": "minecraft:cooked_beef",
