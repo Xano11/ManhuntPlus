@@ -214,7 +214,7 @@
                     "block_condition": {
                         "type": "origins:height",
                         "comparison": "<=",
-                        "compare_to": 30
+                        "compare_to": 40
                     }
                 }
             ]
@@ -426,7 +426,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "After activating the ability, hunters in a 144 block radius will be selectable for your target destination.\nAfter a short duration, a tunnel opens and can be used for 30s.\n(Only Geologists can use the portal.)\n(You must be below Y level 30 to use the ability)"
+            "text": "After activating the ability, hunters in a 144 block radius will be selectable for your target destination.\nAfter a short duration, a tunnel opens and can be used for 30s.\n(Only Geologists can use the portal.)\n(You must be below Y level 40 to use the ability)"
         },
         {
             "type": "origins:keybind",

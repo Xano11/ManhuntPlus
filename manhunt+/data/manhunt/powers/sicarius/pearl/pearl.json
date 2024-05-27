@@ -205,6 +205,11 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:slow_falling 1 0 true",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "tag @s remove pearl_tp"
                 }
             ]
