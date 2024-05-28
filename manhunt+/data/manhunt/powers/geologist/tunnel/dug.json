@@ -10,7 +10,7 @@
         },
         "min_action": {
             "type": "origins:execute_command",
-            "command": "power remove @s manhunt:geologist/tunnel/dug"
+            "command": "power remove @s manhunt:geologist/tunnel/surface"
         }
     },
     "duration_down": {

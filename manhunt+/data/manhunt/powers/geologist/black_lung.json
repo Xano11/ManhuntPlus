@@ -1,11 +1,11 @@
 {
     "name": "Black Lung",
-    "description": "Time in the caves have corrupted your lungs, making you exhaust faster and need more air than most.",
+    "description": "Time in the caves have corrupted your lungs, making you exhaust faster and need much more air than most.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§l§c2x§r hunger exhaustion, §l§c2x§r drowning speed."
+            "text": "§l§c2x§r hunger exhaustion, §l§c3x§r drowning speed."
         }
     ],
     "type": "origins:multiple",
@@ -23,7 +23,7 @@
             "type": "origins:gain_air",
             "value": -20
         },
-        "interval": 20,
+        "interval": 10,
         "condition": {
             "type": "origins:submerged_in",
             "fluid": "minecraft:water"

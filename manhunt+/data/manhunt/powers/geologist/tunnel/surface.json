@@ -1,0 +1,100 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:geologist/tunnel/surface"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @s run spreadplayers ~ ~ 0 1 false @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.shield.break player @a ~ ~ ~ 2 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute atparticle minecraft:block cobblestone ~ ~0.8 ~ 0.2 0.4 0.2 0 80"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block deepslate ~ ~0.2 ~ 0.2 0.2 0.2 0 40"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:geologist/tunnel/surface_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "no_move": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "x",
+            "z"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:geologist/tunnel/surface_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "windup_effects": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block minecraft:stone ~ ~ ~ 0.3 0.05 0.3 0.1 15"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.deepslate.hit player @a ~ ~ ~ 2 0.9"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.stone.hit player @a ~ ~ ~ 1 0.9"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.deepslate.hit player @a ~ ~ ~ 0.5 0.9"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:blindness 2 0 true",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 7,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:geologist/tunnel/surface_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}
