@@ -49,7 +49,7 @@
                 }
             ]
         },
-        "cooldown": 1200,
+        "cooldown": 1800,
         "key": {
             "key": "key.origins.secondary_active"
         },
@@ -86,7 +86,7 @@
                         },
                         "if_action": {
                             "type": "origins:add_velocity",
-                            "z": 0.18,
+                            "z": 0.15,
                             "space": "local_horizontal_normalized"
                         }
                     }
@@ -112,6 +112,49 @@
                     ]
                 }
             }
+        }
+    },
+    "fall_res": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/dog/doggo_disappear",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/dog/mount_fall_res",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type":"origins:on_block"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "fall_dmg":{
+        "type": "origins:modify_damage_taken",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/dog/mount_fall_res",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "modifier": {
+            "name": "Landing",
+            "operation": "multiply_total",
+            "value": -1
         }
     },
     "name": "IM THE BIGGEST DAWG",

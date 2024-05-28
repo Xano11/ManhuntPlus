@@ -46,7 +46,8 @@
                 "manhunt:bans/piglin",
                 "manhunt:bans/enchanter",
                 "manhunt:bans/courier",
-                "manhunt:bans/xolotl"
+                "manhunt:bans/xolotl",
+                "manhunt:bans/wisp"
             ]
         }
     ],

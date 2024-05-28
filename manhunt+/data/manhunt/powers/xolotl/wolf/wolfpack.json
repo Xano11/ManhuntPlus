@@ -69,9 +69,31 @@
                     "permission_level": 4
                 },
                 {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:xolotl/wolf/wolfpack_wolves",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:xolotl/wolf/wolves_life",
+                                    "change": 0,
+                                    "operation": "set"
+                                }
+                            },
+                            {
+                                "type": "origins:remove_from_set",
+                                "set": "manhunt:xolotl/wolf/wolfpack_wolves"
+                            }
+                        ]
+                    }
+                },
+                {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:wolf",
-                    "tag": "{CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Age:0,CollarColor:1b,Tags:[\"xolotl_wolf\"],CustomName:'{\"text\":\"Starbrone\"}'}",
+                    "tag": "{CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Age:9999,CollarColor:1b,Tags:[\"xolotl_wolf\"],CustomName:'{\"text\":\"Starbrone\"}'}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -95,7 +117,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:wolf",
-                    "tag": "{CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Age:0,CollarColor:1b,Tags:[\"xolotl_wolf\"],CustomName:'{\"text\":\"Hexedblade\"}'}",
+                    "tag": "{CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Age:9999,CollarColor:1b,Tags:[\"xolotl_wolf\"],CustomName:'{\"text\":\"Hexedblade\"}'}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -119,7 +141,7 @@
                 {
                     "type": "origins:spawn_entity",
                     "entity_type": "minecraft:wolf",
-                    "tag": "{CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Age:0,CollarColor:1b,Tags:[\"xolotl_wolf\"],CustomName:'{\"text\":\"Unchosen Entropy\"}'}",
+                    "tag": "{CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Age:9999,CollarColor:1b,Tags:[\"xolotl_wolf\"],CustomName:'{\"text\":\"Unchosen Entropy\"}'}",
                     "entity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -189,7 +211,7 @@
             ]
         }
     },
-    "glow":{
+    "glow": {
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:in_set",
@@ -205,7 +227,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Wolves summoned have 4 lesser hearts and deal 40% less damage.\nIf killed, the wolves will howl; buffing all hunters with 15% extra movement and attack speed.\nRunners are instead debuffed with 15% less attack damage."
+            "text": "Wolves summoned have 4 lesser hearts and deal 40% less damage.\nIf killed, the wolves will howl; buffing all hunters with 15% extra movement and attack speed."
         },
         {
             "type": "origins:tooltip",
@@ -219,7 +241,7 @@
                 {
                     "keybind": "key.use"
                 },
-                "\" to summon your wolf pack!"
+                "\" to summon your wolf pack!\n(Summoning wolves will make the last batch vanish)"
             ]
         },
         {

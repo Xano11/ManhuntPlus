@@ -147,7 +147,7 @@
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_base",
-            "value": -0.2,
+            "value": -0.3,
             "name": "Increased sprinting speed"
         },
         "tick_rate": 1,
@@ -162,7 +162,7 @@
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": -0.2
+            "value": -0.3
         },
         "condition": {
             "type": "origins:resource",
@@ -171,13 +171,124 @@
             "compare_to": 0
         }
     },
+    "specter": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "manhunt:xolotl/wolf/wolfpack_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            },
+            "if_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "manhunt:xolotl/wolf/wolves_offering",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:command",
+                                        "command": "execute if data entity @s {Sitting:0b}",
+                                        "comparison": "==",
+                                        "compare_to": 1
+                                    }
+                                ]
+                            },
+                            "if_action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:xolotl/wolf/wolves_offering",
+                                "change": 1,
+                                "operation": "set"
+                            },
+                            "else_action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:xolotl/wolf/wolves_offering",
+                                "change": 0,
+                                "operation": "set"
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:entity.allay.item_given player @a ~ ~ ~ 1 0.6"
+                        }
+                    ]
+                }
+            },
+            "else_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/wolves_offering",
+                    "change": 0,
+                    "operation": "set"
+                }
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:xolotl/wolf/wolves_howling",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:owner"
+                },
+                {
+                    "type": "origins:in_set",
+                    "set": "manhunt:xolotl/wolf/wolfpack_wolves"
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ]
+    },
     "name": "Pack Hunter",
-    "description": "A true alpha stays with the group and protects it's friends (omg that's so cringe).",
+    "description": "Dogs have souls and those souls reciprotate with yours.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "If there is no hunter or wolf in a 32 block radius, your speed is reduced by 20%.\nAdditionally, Killing an entity will heal all wolves for a heart."
+            "text": "If there is no hunter or wolf in a 32 block radius, your speed is reduced by 30%.\nAdditionally, Killing an entity will heal all wolves for a heart.\n\n§6§lOfferings§r\nWolves interacted with rest their souls to sacrifice themselves.\n\nWhilst resting, they glow to all hunters holding meat.\nIf a hunter right-clicks with meat whilst looking at the wolf, they will teleport to the wolf after a brief delay."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "(Resting wolves stay alive twice as long)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and interact with a non-sitting wolf to rest it's soul!"
+            ]
         }
     ]
 

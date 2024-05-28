@@ -195,6 +195,75 @@
             }
         }
     },
+    "tp_times":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
+    "tp_reset":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunter_effects_tp_times",
+            "change": 0,
+            "operation": "set"
+        }
+    },
+    "tp_delay": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunter_effects_tp_reset",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_tp_reset",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "xolotl_crosshair1": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:xolotl/tp1"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_tp_times",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "xolotl_crosshair2": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:xolotl/tp2"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_tp_times",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "xolotl_crosshair3": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:xolotl/tp3"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_tp_times",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
     "xolotl_tp": {
         "type": "origins:active_self",
         "entity_action": {
@@ -208,48 +277,91 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:invert",
-                        "action": {
-                            "type": "origins:add_to_set",
-                            "set": "manhunt:xolotl/wolf/wolves_offered"
-                        }
-                    },
-                    {
-                        "type": "origins:target_action",
-                        "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:hunter_effects_tp_times",
+                                "comparison": "==",
+                                "compare_to": 2
+                            }
+                        },
+                        "if_action": {
                             "type": "origins:and",
                             "actions": [
                                 {
-                                    "type": "origins:change_resource",
-                                    "resource": "manhunt:xolotl/wolf/wolves_life",
-                                    "change": 20,
-                                    "operation": "set"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "manhunt:xolotl/wolf/wolves_howling",
-                                    "change": 1,
-                                    "operation": "set"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "origins:actor_action",
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:equipped_item_action",
-                                    "equipment_slot": "mainhand",
+                                    "type": "origins:invert",
                                     "action": {
-                                        "type": "origins:consume",
-                                        "amount": 1
+                                        "type": "origins:add_to_set",
+                                        "set": "manhunt:xolotl/wolf/wolves_offered"
                                     }
                                 },
                                 {
-                                    "type": "origins:execute_command",
-                                    "command": "playsound minecraft:entity.generic.eat player @a ~ ~ ~ 1 0.5"
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:xolotl/wolf/wolves_life",
+                                                "change": 20,
+                                                "operation": "set"
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:xolotl/wolf/wolves_howling",
+                                                "change": 1,
+                                                "operation": "set"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:hunter_effects_tp_times",
+                                                "change": 3,
+                                                "operation": "set"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:entity.generic.eat player @a ~ ~ ~ 1 0.5"
+                                            }
+                                        ]
+                                    } 
+                                }
+                            ]
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:hunter_effects_tp_times",
+                                                "change": 1
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:hunter_effects_tp_reset",
+                                                "change": 30,
+                                                "operation": "set"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:block.note_block.bell player @s ~ ~ ~ 1 1.4"
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         }
@@ -284,16 +396,6 @@
                 }
             },
             "command_step": 1
-        },
-        "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "mainhand",
-            "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": {
-                    "tag": "origins:meat"
-                }
-            }
         },
         "cooldown": 1,
         "hud_render": {

@@ -1,0 +1,84 @@
+{
+    "type": "origins:multiple",
+    "helmet": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "chestplate": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -2,
+            "name": "Increased armor"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "chest",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "leggings": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -2,
+            "name": "Increased armor"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "legs",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "boots": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "feet",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "name": "Thick Fur",
+    "description": "Your thick fur exposes more weak spots in your armor.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/leather_chestplate.png",
+            "text": "Helmets and leggings have 1 lesser armor.\nChestplates and leggings have -2 lesser armor"
+        }
+    ]
+}
