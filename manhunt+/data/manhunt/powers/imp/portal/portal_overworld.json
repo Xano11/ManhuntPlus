@@ -67,7 +67,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers run data modify entity @s transformation.scale set value [45f,45f,1f]",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [60f,60f,1f]",
                     "permission_level": 4
                 },
                 {
@@ -96,7 +96,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers run data modify entity @s transformation.scale set value [60f,60f,1f]",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [90f,90f,1f]",
                     "permission_level": 4
                 },
                 {
@@ -125,7 +125,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers run data modify entity @s transformation.scale set value [75f,75f,1f]",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [120f,120f,1f]",
                     "permission_level": 4
                 },
                 {
@@ -154,7 +154,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers run data modify entity @s transformation.scale set value [100f,100f,1f]",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [240f,240f,1f]",
                     "permission_level": 4
                 },
                 {
@@ -179,11 +179,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:landing_obsidian_tear ~ ~ ~ 10 0.5 10 1 500 force @a"
+                    "command": "particle minecraft:landing_obsidian_tear ~ ~ ~ 25 0.5 25 1 500 force @a"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:block_marker minecraft:nether_portal ~ ~ ~ 10 0.5 10 1 500 force @a"
+                    "command": "particle minecraft:block_marker minecraft:nether_portal ~ ~ ~ 25 0.5 25 1 500 force @a"
                 }
             ]
         },
