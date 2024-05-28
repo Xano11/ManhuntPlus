@@ -201,16 +201,48 @@
                                         "type": "origins:and",
                                         "conditions": [
                                             {
-                                                "type": "origins:distance",
-                                                "comparison": "<=",
-                                                "compare_to": 540
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:both",
+                                                        "condition": {
+                                                            "type": "origins:dimension",
+                                                            "dimension": "minecraft:overworld"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:both",
+                                                        "condition": {
+                                                            "type": "origins:dimension",
+                                                            "dimension": "minecraft:the_nether"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:both",
+                                                        "condition": {
+                                                            "type": "origins:dimension",
+                                                            "dimension": "minecraft:the_end"
+                                                        }
+                                                    }
+                                                ]
                                             },
                                             {
                                                 "type": "origins:target_condition",
                                                 "condition": {
-                                                    "type": "origins:origin",
-                                                    "origin": "manhunt:hunter",
-                                                    "layer": "origins:origin"
+                                                    "type": "origins:and",
+                                                    "conditions": [
+                                                        {
+                                                            "type": "origins:origin",
+                                                            "origin": "manhunt:hunter",
+                                                            "layer": "origins:origin"
+                                                        },
+                                                        {
+                                                            "type": "origins:scoreboard",
+                                                            "objective": "time_since_death",
+                                                            "comparison": ">=",
+                                                            "compare_to": 6000
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
@@ -299,7 +331,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Whilst outside your backpack, Snatch™ will grab all hunters/items in a 25 block radius. (If you sneak, only items are affected by snatch)\n\nWhilst inside your backpack, Snatch™ will send a request to all hunters to teleport inside the Bag™."
+            "text": "Whilst outside your backpack, Snatch™ will grab all hunters/items in a 25 block radius. (If you sneak, only items are affected by snatch)\n\nWhilst inside your backpack, Snatch™ will send a request to all hunters to teleport inside the Bag™.\n(Request only send to those in the same dimension. Additionally, if they died 5 or less minutes ago, they cannot teleport)"
         },
         {
             "type": "origins:tooltip",

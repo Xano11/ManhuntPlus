@@ -157,7 +157,7 @@
                     "selector": "@e[type=parrot]",
                     "bientity_action": {
                         "type": "origins:add_velocity",
-                        "z": -0.5,
+                        "z": -0.9,
                         "set": true
                     },
                     "bientity_condition": {

@@ -346,6 +346,15 @@
                                             "command": "tp @s @e[limit=1,sort=nearest,tag=dropping,type=armor_stand]"
                                         },
                                         {
+                                            "type": "origins:random_teleport",
+                                            "area_width": 60,
+                                            "area_height": 1,
+                                            "landing_block_condition": {
+                                                "type": "origins:block",
+                                                "block": "minecraft:air"
+                                            }
+                                        },
+                                        {
                                             "type": "origins:execute_command",
                                             "command": "playsound minecraft:block.conduit.activate player @a ~ ~ ~ 2 0.5"
                                         },
