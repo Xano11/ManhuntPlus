@@ -1,0 +1,61 @@
+{
+    "type": "origins:multiple",
+    "no_interact": {
+        "type": "origins:prevent_being_used"
+    },
+    "phase": {
+        "type": "origins:phasing",
+        "blacklist": false,
+        "render_type": "blindness",
+        "view_distance": 10
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunter",
+                "layer": "origins:origin"
+            }
+        },
+        "modifier": {
+            "name": "Immune to Hunters",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @s",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:chef/frog/froggy_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "rotate_head": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "data modify entity @s Rotation set from entity @p Rotation",
+            "permission_level": 4
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding"
+        }
+    },
+    "hidden": true
+}

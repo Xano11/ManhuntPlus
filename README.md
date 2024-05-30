@@ -1,7 +1,7 @@
 ![manhunt](https://github.com/Xano11/ManhuntPlus/assets/79343828/cf3bd395-4168-4ea1-8f49-d1bce4283c1f)
 This Origins Datapack uses the popular concept of Manhunt and essentially turns it into a Hero Shooter style game. 
 
-With currently **13** different hunters and **7** different runners, it adds a new way to tackle Manhunt and it's hurdles whilst keeping the original idea of Manhunt intact. Work together with your fellow hunters to take the runner down or be the underdog as the runner, there's something for everybody.
+With currently **21** different hunters and **10** different runners, it adds a new way to tackle Manhunt and it's hurdles whilst keeping the original idea of Manhunt intact. Work together with your fellow hunters to take the runner down or be the underdog as the runner, there's something for everybody.
 
 **I wanna specify that this pack is still under development**, but it's official release is coming sometime this year once I feel it's polished enough. 
 

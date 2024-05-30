@@ -108,6 +108,27 @@
           },
           {
             "type": "origins:resource",
+            "resource": "manhunt:ban_chef",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/chef"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
             "resource": "manhunt:ban_courier",
             "comparison": "==",
             "compare_to": 0

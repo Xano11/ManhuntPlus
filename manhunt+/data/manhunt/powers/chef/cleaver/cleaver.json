@@ -1,0 +1,202 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData:0}"
+                            },
+                            {
+                                "type": "origins:modify",
+                                "modifier": "manhunt:chef/cleaver_remove"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:chef/cleaver/cleaver_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "kill": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:chef/cleaver/activate_cooldown",
+                "comparison": "<",
+                "compare_to": 580
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:chef/cleaver/activate_cooldown",
+                "change": 580,
+                "operation": "set"
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "cow": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/cow": "manhunt:entities/xolotl_cow"
+        }
+    },
+    "pig": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/pig": "manhunt:entities/xolotl_pig"
+        }
+    },
+    "sheep": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/sheep": "manhunt:entities/xolotl_sheep"
+        }
+    },
+    "chicken": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/chicken": "manhunt:entities/xolotl_chicken"
+        }
+    },
+    "rabbit": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/rabbit": "manhunt:entities/xolotl_rabbit"
+        }
+    },
+    "fire": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:fire_aspect",
+        "modifier": {
+            "operation": "min_total",
+            "value": 1
+        }
+    },
+    "crit": {
+        "type": "origins:modify_attribute",
+        "attribute": "additionalentityattributes:critical_bonus_damage",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 0.25
+        }
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:chef/cleaver/cleaver_duration",
+                        "change": 2,
+                        "operation": "set"
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:using_item",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:shield"
+                                        }
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.shield.break player @a ~ ~ ~ 1"
+                                        },
+                                        {
+                                            "type": "origins:modify_inventory",
+                                            "item_condition": {
+                                                "type": "origins:ingredient",
+                                                "ingredient": {
+                                                    "item": "minecraft:shield"
+                                                }
+                                            },
+                                            "item_action": {
+                                                "type": "apugli:cooldown",
+                                                "ticks": 100
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "crit_hit": {
+        "type": "eggolib:action_on_critical_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:chef/cleaver/activate_key_check",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                },
+                                "if_action": {
+                                    "type": "origins:add_velocity",
+                                    "y": 0.5,
+                                    "space": "local_horizontal_normalized",
+                                    "set": true
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

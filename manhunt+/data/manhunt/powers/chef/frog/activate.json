@@ -1,0 +1,161 @@
+{
+    "type": "origins:multiple",
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:action_on_set",
+                "set": "manhunt:chef/frog/activate_frog",
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @s",
+                        "permission_level": 4
+                    }
+                }
+            }
+        }
+    },
+    "frog": {
+        "type": "origins:entity_set"
+    },
+    "summon": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add frog_own",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:frog",
+                            "tag": "{DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Age:99999,variant:\"minecraft:temperate\",Tags:[\"chef_frog\"],CustomName:'{\"text\":\"froggy\"}'}",
+                            "bientity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:add_to_set",
+                                        "set": "manhunt:chef/frog/activate_frog"
+                                    },
+                                    {
+                                        "type": "origins:invert",
+                                        "action": {
+                                            "type": "origins:mount"
+                                        }
+                                    }
+                                ]
+                            },
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute store result score @s frog_owner run data get entity @p[tag=frog_own] UUID[0]",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale delay set pehkui:hitbox_width 0 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale delay set pehkui:hitbox_height 0 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale delay set pehkui:base 0 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale set pehkui:base 0.65 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:chef/frog/froggy",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:poof ~ ~0.2 ~ 0 0 0 0.05 10",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.frog.ambient player @a ~ ~ ~ 1 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.item.pickup player @a ~ ~ ~ 0.4 0.8",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove frog_own",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 1800,
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "FROGGY",
+    "description": "Before you say it: No, this isn't a Ratatouille reference (hon hon hon)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Osha is your trusted companion! On your shoulder, he can be ordered to do two things:\n\n§l§eLEND§r will send Osha forward. After a short while, he will stop and let you grapple to him with a 50% fall damage reduction when you land! Pressing the same key will grapple.\n\n§l§6SCOUT§r will send Osha to find the closest runner and reveal their position to you."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" to summon Osha to your shoulder!\n\"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to use §l§eLEND§r\n\"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to use §l§6SCOUT§r\n(Press \"",
+                {
+                    "keybind": "key.sneak"
+                },
+                "\" twice to recall Osha!)\n(Osha can't be sent to scout in the Nether)"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 15s per Osha Order\nIf Osha takes near fatal damage, he will come back to you and take a full minute to come back."
+        }
+    ]
+}

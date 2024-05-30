@@ -47,7 +47,8 @@
                 "manhunt:bans/enchanter",
                 "manhunt:bans/courier",
                 "manhunt:bans/xolotl",
-                "manhunt:bans/wisp"
+                "manhunt:bans/wisp",
+                "manhunt:bans/chef"
             ]
         }
     ],

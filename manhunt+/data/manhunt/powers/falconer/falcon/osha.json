@@ -65,7 +65,7 @@
             }
         }
     },
-    "hitbox":{
+    "hitbox": {
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:and",
@@ -125,7 +125,7 @@
         }
     },
     "no_interact": {
-        "type": "origins:prevent_entity_use"
+        "type": "origins:prevent_being_used"
     },
     "glide": {
         "type": "origins:modify_velocity",
