@@ -135,7 +135,7 @@ metafile = true
 
 [[files]]
 file = "mods/origins.pw.toml"
-hash = "755bfb27e6d01ea24822757d94c94c315e60141089c3a8ed746bdc77dc9c9eda"
+hash = "ae31bad458ba69cf89b6fc6d0a347bbd38342036ce90813dc0b6a23b984160af"
 metafile = true
 
 [[files]]
