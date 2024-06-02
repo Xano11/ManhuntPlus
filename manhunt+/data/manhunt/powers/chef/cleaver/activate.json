@@ -89,6 +89,10 @@
                                 "nbt": "{CustomModelData:3}"
                             },
                             {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{Unbreakable:1}"
+                            },
+                            {
                                 "type": "origins:modify",
                                 "modifier": "manhunt:chef/cleaver"
                             }

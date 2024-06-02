@@ -5,21 +5,86 @@
         "bientity_action": {
             "type": "origins:target_action",
             "action": {
-                "type": "origins:action_on_set",
-                "set": "manhunt:chef/frog/activate_frog",
-                "bientity_action": {
-                    "type": "origins:target_action",
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "kill @s",
-                        "permission_level": 4
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:chef/frog/activate_cooldown",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:chef/frog/activate_frog",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s Silent set value 1b",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "effect give @s minecraft:invisibility infinite 0 true",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:modify_death_ticks",
+                                        "modifier": {
+                                            "operation": "set_total",
+                                            "value": 20
+                                        }
+                                    }
+                                ]
+                            }
+                        }
                     }
-                }
+                ]
             }
         }
     },
     "frog": {
         "type": "origins:entity_set"
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "manhunt:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:chef/frog/activate_cooldown",
+                "comparison": "<",
+                "compare_to": 600
+            }
+        }
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:chef/frog/activate_cooldown",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/frog/activate_cooldown",
+            "comparison": "<",
+            "compare_to": 600
+        }
     },
     "summon": {
         "type": "origins:active_self",
@@ -27,98 +92,152 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "tag @s add frog_own",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:spawn_entity",
-                            "entity_type": "minecraft:frog",
-                            "tag": "{DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Age:99999,variant:\"minecraft:temperate\",Tags:[\"chef_frog\"],CustomName:'{\"text\":\"froggy\"}'}",
-                            "bientity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:add_to_set",
-                                        "set": "manhunt:chef/frog/activate_frog"
-                                    },
-                                    {
-                                        "type": "origins:invert",
-                                        "action": {
-                                            "type": "origins:mount"
-                                        }
-                                    }
-                                ]
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:set_size",
+                        "set": "manhunt:chef/frog/activate_frog",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add frog_own",
+                                "permission_level": 4
                             },
-                            "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "execute store result score @s frog_owner run data get entity @p[tag=frog_own] UUID[0]",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "scale delay set pehkui:hitbox_width 0 @s",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "scale delay set pehkui:hitbox_height 0 @s",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "scale delay set pehkui:base 0 @s",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "scale set pehkui:base 0.65 @s",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:chef/frog/froggy",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "particle minecraft:poof ~ ~0.2 ~ 0 0 0 0.05 10",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.frog.ambient player @a ~ ~ ~ 1 0.5",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.item.pickup player @a ~ ~ ~ 0.4 0.8",
-                                        "permission_level": 4
-                                    }
-                                ]
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:frog",
+                                "tag": "{DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Age:99999,variant:\"minecraft:temperate\",Tags:[\"chef_frog\"],CustomName:'{\"text\":\"froggy\"}'}",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_to_set",
+                                            "set": "manhunt:chef/frog/activate_frog"
+                                        },
+                                        {
+                                            "type": "origins:invert",
+                                            "action": {
+                                                "type": "origins:mount"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @s frog_owner run data get entity @p[tag=frog_own] UUID[0]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:hitbox_width 0 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:hitbox_height 0 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:base 0 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale set pehkui:base 0.65 @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:chef/frog/froggy",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:poof ~ ~0.2 ~ 0 0 0 0.05 10",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.frog.ambient player @a ~ ~ ~ 1 0.5",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.item.pickup player @a ~ ~ ~ 0.4 0.8",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove frog_own",
+                                "permission_level": 4
                             }
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "tag @s remove frog_own",
-                            "permission_level": 4
-                        }
-                    ]
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:action_on_set",
+                                "set": "manhunt:chef/frog/activate_frog",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "data modify entity @s Silent set value 1b",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:invisibility infinite 0 true",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "kill @s",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:modify_death_ticks",
+                                                "modifier": {
+                                                    "operation": "set_total",
+                                                    "value": 20
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
                 }
             ]
         },
-        "cooldown": 1800,
+        "cooldown": 10,
         "key": {
             "key": "key.origins.secondary_active"
         },
         "hud_render": {
             "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/frog/activate_cooldown",
+            "comparison": "==",
+            "compare_to": 600
         }
     },
     "name": "FROGGY",

@@ -414,5 +414,22 @@
             }
         }
     },
+    "chef_food":{
+        "type": "origins:edible_item",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:frog_food}"
+        },
+        "food_component": {
+            "hunger": 3,
+            "saturation": 0.1
+        },
+        "consuming_time_modifier":{
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "consume_sound": "minecraft:entity.generic.eat",
+        "use_action": "eat"
+    },
     "hidden": true
 }

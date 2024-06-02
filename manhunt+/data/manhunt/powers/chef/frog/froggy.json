@@ -1,7 +1,15 @@
 {
     "type": "origins:multiple",
     "no_interact": {
-        "type": "origins:prevent_being_used"
+        "type": "origins:prevent_being_used",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunters/chef",
+                "layer": "manhunt:hunters"
+            }
+        }
     },
     "phase": {
         "type": "origins:phasing",
@@ -25,25 +33,88 @@
             "value": -1
         }
     },
-    "duration": {
+    "time_left": {
         "type": "origins:resource",
         "min": 0,
         "max": 600,
         "start_value": 600,
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "kill @s",
-            "permission_level": 4
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:chef/froggy/activate_cooldown",
+                        "change": 0,
+                        "operation": "set"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @s Silent set value 1b",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:invisibility infinite 0 true",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:modify_death_ticks",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 20
+                    }
+                }
+            ]
         }
     },
-    "duration_down": {
+    "dirt_eaten": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 64,
+        "start_value": 0
+    },
+    "dirt_digest": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:chef/frog/froggy_duration",
-            "change": -1
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:chef/frog/froggy_dirt_eaten",
+                    "change": -16
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:chef/frog/froggy_time_left",
+                    "change": -100
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon item ~ ~0.2 ~ {Item:{id:slime_ball,tag:{display:{Name:'[\"\",{\"text\":\"Chef\\'s Fricassée\",\"italic\":false,\"color\":\"dark_green\"}]',Lore:['[\"\",{\"text\":\"Edible for all!\",\"italic\":false,\"color\":\"green\"}]','[\"\",{\"text\":\"(+3 food)\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}],Tags:frog_food},Count:1}}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.frog.lay_spawn player @a ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                }
+            ]
         },
-        "interval": 1
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/frog/froggy_dirt_eaten",
+            "comparison": ">=",
+            "compare_to": 16
+        }
     },
     "rotate_head": {
         "type": "origins:action_over_time",
@@ -55,6 +126,114 @@
         "interval": 1,
         "condition": {
             "type": "origins:riding"
+        }
+    },
+    "exhaust": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:exhaust",
+                "amount": 0.03
+            }
+        },
+        "interval": 2
+    },
+    "eat": {
+        "type": "origins:action_on_being_used",
+        "bientity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:sneaking"
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:amount",
+                                "comparison": ">=",
+                                "compare_to": 16
+                            }
+                        }
+                    ]
+                }
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 16
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:chef/frog/froggy_dirt_eaten",
+                            "change": 16
+                        }
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:consume",
+                                "amount": 1
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:chef/frog/froggy_dirt_eaten",
+                            "change": 1
+                        }
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:dirt"
+                            }
+                        }
+                    }
+                ]
+            }
         }
     },
     "hidden": true

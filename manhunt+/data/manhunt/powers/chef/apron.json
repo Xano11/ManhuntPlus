@@ -1,0 +1,49 @@
+{
+    "type": "origins:multiple",
+    "render_apron": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:leather_chestplate{Trim:{pattern:vex,material:redstone},display:{color:16383998,Name:'[\"\",{\"text\":\"Chef\\'s Apron\",\"italic\":false}]'},Enchantments:[{lvl:1,id:binding_curse}],Unbreakable:1}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "chest",
+                    "item_condition":  {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "fire_mitigation": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fire"
+        },
+        "modifier": {
+            "name": "Less fire damage",
+            "operation": "multiply_total",
+            "value": -0.35
+        }
+    },
+    "name": "Proper Etiquette",
+    "description": "A cook isn't truly a cook without a proper attire",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You cannot wear chestplates and are forced to have the Fiery Apron.\nThe fiery apron only provides 3 armor but reduces fire-related damage by 35%."
+        }
+    ]
+}

@@ -22,6 +22,10 @@
                                 "nbt": "{CustomModelData:0}"
                             },
                             {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{Unbreakable:0}"
+                            },
+                            {
                                 "type": "origins:modify",
                                 "modifier": "manhunt:chef/cleaver_remove"
                             }
@@ -98,6 +102,12 @@
         "modifier": {
             "operation": "min_total",
             "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/cleaver/cleaver_duration",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "crit": {
@@ -106,6 +116,12 @@
         "modifier": {
             "operation": "add_base_early",
             "value": 0.25
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/cleaver/cleaver_duration",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "hit": {

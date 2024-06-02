@@ -2,7 +2,9 @@
 	"powers": [
 		"manhunt:chef/cleaver/activate",
         "manhunt:chef/frog/activate",
-        "manhunt:chef/hops"
+		"manhunt:chef/apron",
+        "manhunt:chef/hops",
+		"manhunt:chef/thrill"
 	],
 	"icon": {
 		"item": "minecraft:bread",
