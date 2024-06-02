@@ -1,5 +1,6 @@
 {
     "type": "origins:multiple",
+
     "tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -12,6 +13,7 @@
         },
         "execute_chosen_when_orb": true
     },
+
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
@@ -21,6 +23,7 @@
             "should_render": false
         }
     },
+
     "cooldown_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -28,8 +31,58 @@
             "resource": "manhunt:angler/sword/dash_cooldown",
             "change": -1
         },
-        "interval": 1
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/sword/dash_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
     },
+
+    "cooldown_crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:angler/crosshair"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/dash_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/dash_winding",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {      
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+
     "winding": {
         "type": "origins:resource",
         "min": 0,
@@ -39,6 +92,7 @@
             "should_render": false
         }
     },
+
     "winding_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -56,6 +110,7 @@
             "inverted": true
         }
     },
+
     "windup": {
         "type": "origins:active_self",
         "entity_action": {
@@ -154,6 +209,7 @@
             ]
         }
     },
+
     "winding_movement": {
         "type": "origins:modify_velocity",
         "modifier": {
@@ -162,7 +218,6 @@
         },
         "axes": [
             "x",
-            "y",
             "z"
         ],
         "condition": {
@@ -209,6 +264,50 @@
             ]
         }
     },
+
+    "winded_crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:angler/crosshair2"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/dash_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/dash_winding",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {      
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
@@ -349,6 +448,7 @@
         },
         "cooldown": 2
     },
+
     "name": "Fierce Fish Dash",
     "description": "One swift swing of the SwordFish is enough to cut the howling wind around you.",
     "badges": [
