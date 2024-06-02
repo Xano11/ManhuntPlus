@@ -425,7 +425,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Become entirely invisible and immune to glowing for 12s.\nAdditionally, your speed is increased and you can use §1§l\"BACKSTAB\"§r\n\n§1§l\"BACKSTAB\"§r allows you to deal 1.5x damage if the entity is hit from the back.\n(Being hit or hitting an entity will uncloak you)"
+            "text": "Become entirely invisible and immune to glowing for 12s.\n(Your held item is still visible)\nAdditionally, your speed is increased and you can use §1§l\"BACKSTAB\"§r\n\n§1§l\"BACKSTAB\"§r allows you to deal 1.5x damage if the entity is hit from the back.\n(Being hit or hitting an entity will uncloak you)"
         },
         {
             "type": "origins:tooltip",

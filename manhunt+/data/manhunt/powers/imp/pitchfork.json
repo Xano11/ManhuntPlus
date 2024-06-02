@@ -256,6 +256,19 @@
             "compare_to": 1
         }
     },
+    "held_item":{
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_incarnated",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
     "immunity":{
         "type": "origins:invulnerability",
         "damage_condition": {

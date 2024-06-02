@@ -122,6 +122,13 @@
         "render_armor": false,
         "render_outline": true
     },
+    "held_item":{
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ]
+    },
     "no_elytra": {
         "type": "origins:prevent_elytra_flight"
     },

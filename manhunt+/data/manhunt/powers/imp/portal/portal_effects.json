@@ -139,6 +139,17 @@
             "dimension": "minecraft:the_nether"
         }
     },
+    "held_item":{
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ],
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
     "particles": {
         "type": "origins:action_over_time",
         "interval": 1,
