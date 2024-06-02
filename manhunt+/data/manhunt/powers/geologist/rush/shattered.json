@@ -12,7 +12,7 @@
         "type": "origins:resource",
         "min": 0,
         "max": 5,
-        "start_value": 0,
+        "start_value": 5,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/resource_bar.png",

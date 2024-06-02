@@ -344,11 +344,6 @@
                     "resource": "manhunt:falconer/falcon/forth_recovering",
                     "comparison": "==",
                     "compare_to": 0
-                },
-                {
-                    "type": "origins:dimension",
-                    "dimension": "minecraft:the_nether",
-                    "inverted": true
                 }
             ]
         }
@@ -838,6 +833,11 @@
                     },
                     "compare_to": 1,
                     "comparison": "=="
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
                 }
             ]
         }

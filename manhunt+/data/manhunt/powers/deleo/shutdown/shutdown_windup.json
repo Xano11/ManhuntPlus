@@ -234,7 +234,7 @@
         "hud_render": {
             "should_render": false
         },
-        "max_action": {
+        "min_action": {
             "type": "origins:execute_command",
             "command": "power remove @s manhunt:deleo/shutdown/shutdown_windup"
         }
@@ -244,9 +244,15 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
-            "change": 1
+            "change": -1
         },
-        "interval": 1
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
+            "comparison": ">",
+            "compare_to": 0
+        }
     },
     "push": {
         "type": "origins:action_over_time",
