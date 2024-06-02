@@ -86,7 +86,7 @@
                         },
                         "if_action": {
                             "type": "origins:add_velocity",
-                            "z": 0.15,
+                            "z": 0.18,
                             "space": "local_horizontal_normalized"
                         }
                     }
