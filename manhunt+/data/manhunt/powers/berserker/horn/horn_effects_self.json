@@ -1,0 +1,110 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render":{
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
+            "bar_index": 1
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:berserker/horn/horn_effects"
+        }
+    },
+    "anim": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/berserker",
+                        "layer": "manhunt:hunters",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:armor_stand",
+                        "tag": "{Marker:1b,Invisible:1b,Tags:[\"horn_effect\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"horn_effect\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:music_disc_pigstep\",Count:1b,tag:{CustomModelData:1}}}]}",
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s ~ ~1.8 ~",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:berserker/horn/anim",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2f,2f,1f]",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/horn/horn_effects_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "more_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Increased attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": 0.15,
+            "operation": "addition"
+        }
+    },
+    "speed":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "More speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.125,
+            "operation": "multiply_total"
+        }
+    },
+    "air_speed":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.125
+        }
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:note",
+        "frequency": 4
+    },
+    "hidden": true
+}
