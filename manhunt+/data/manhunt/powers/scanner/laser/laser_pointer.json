@@ -12,17 +12,6 @@
             "should_render": false
         }
     },
-    "pose":{
-        "type":"eggolib:pose",
-        "pose":"standing",
-        "condition": {
-            "type": "apugli:key_pressed",
-            "key": {
-                "key": "key.origins.primary_active",
-                "continuous": true
-            }
-        }
-    },
     "overlay1": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/overlays/scanner_scan1.png",
