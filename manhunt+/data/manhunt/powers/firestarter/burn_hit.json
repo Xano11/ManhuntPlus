@@ -1,0 +1,52 @@
+{
+    "type": "origins:action_on_hit",
+    "cooldown": 1200,
+    "hud_render": {
+        "should_render": true,
+        "bar_index": 7,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png"
+    },
+    "condition": {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:empty"
+        }
+    },
+    "bientity_action": {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_on_fire",
+                    "duration": 6
+                },
+                {
+                    "type": "origins:grant_power",
+                    "power": "*:firestarter/wildfire",
+                    "source": "manhunt:firestarter_burn_hit"
+                }
+            ]
+        }
+    },
+    "name": "Dial the Heat Up!!",
+    "description": "Channel your inner flame to set the earth ablaze!",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "text": "Your attacks with bare hands ignite enemies, inflicting §6🔥 §nWildfire§r for 6 seconds."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§6🔥 §nWildfire§r: Pierces the Fire Resistance potion effect & spreads itself to nearby entities on kill."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
+}

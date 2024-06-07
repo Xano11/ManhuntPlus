@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "nofiredamage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "is_fire"
+        },
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        }
+    },
+    "damageboost": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "value": 2,
+            "operation": "addition"
+        }
+    },
+    "name": "Praise the Fire!",
+    "description": "Accept the fire, let it permeate through your soul!!",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§6↑ §nInner Passion§r: You are immune to fire damage."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§6↑ §nNatural Ardor§r: You deal §c+2§r damage when on fire."
+        }
+    ]
+}

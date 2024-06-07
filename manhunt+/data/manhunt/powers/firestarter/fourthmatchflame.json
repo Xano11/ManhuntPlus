@@ -1,0 +1,77 @@
+{
+    "type": "origins:multiple",
+    "set": {
+        "type": "origins:entity_set"
+    },
+    "use": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "cooldown": 2400,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:1b,Invisible:1,Tags:['manhunt_firestarter_fmf']}",
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "*:firestarter/fourthmatchflame_set"
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:grant_power",
+                                "power": "manhunt:firestarter/charge",
+                                "source": "apoli:command"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~ ~ ~ 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.ravager.roar player @a[distance=..16] ~ ~ ~ 0.52 0.5"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.blaze.death player @a[distance=..16] ~ ~ ~ 0.52 0.5"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 5,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png"
+        }
+    },
+    "name": "Fourth Match Flame",
+    "description": "Let's lose ourselves in this artful ecstasy of flame!...",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Send a fissure of flame to travel forward, burning everyone who steps into it.\n\nWhen the fissure vanishes (after passing 10 blocks), it will create a small explosion."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Press \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" to use."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "Cooldown: 2m"
+        }
+    ]
+}

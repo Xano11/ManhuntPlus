@@ -422,7 +422,7 @@
         },
         "food_component": {
             "hunger": 3,
-            "saturation": 0.1
+            "saturation": 0.3
         },
         "consuming_time_modifier":{
             "operation": "multiply_total",

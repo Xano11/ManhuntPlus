@@ -1,0 +1,17 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "value": -2,
+        "attribute": "minecraft:generic.max_health",
+        "operation": "addition"
+    },
+    "name": "Worrisome Hobby",
+    "description": "Your love for arson has its downsides, even if you hate to admit them.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "§c↓ §nPlaying with Fire§r: You have §c1❤§r less max health."
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:flint_and_steel",
+		"tag": "{Enchantments:[{}]}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Firestarter",
+	"description": "Turn up the heat!! When the Firestarter's around, embers become wildfires!"
+}

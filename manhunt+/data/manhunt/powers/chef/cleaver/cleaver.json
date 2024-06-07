@@ -96,20 +96,6 @@
             "minecraft:entities/rabbit": "manhunt:entities/xolotl_rabbit"
         }
     },
-    "fire": {
-        "type": "origins:modify_enchantment_level",
-        "enchantment": "minecraft:fire_aspect",
-        "modifier": {
-            "operation": "min_total",
-            "value": 1
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:chef/cleaver/cleaver_duration",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
     "crit": {
         "type": "origins:modify_attribute",
         "attribute": "additionalentityattributes:critical_bonus_damage",

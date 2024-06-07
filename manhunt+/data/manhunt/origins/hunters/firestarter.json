@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"manhunt:firestarter/burn_hit",
+		"manhunt:firestarter/invigorate",
+		"manhunt:firestarter/fourthmatchflame",
+		"manhunt:firestarter/ardorblossomstar",
+		"manhunt:firestarter/fire_immune",
+		"manhunt:firestarter/hydrophobic",
+		"manhunt:firestarter/unfired",
+		"manhunt:firestarter/health"
+	],
+	"icon": {
+		"item": "minecraft:flint_and_steel",
+		"tag": "{Enchantments:[{}]}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Firestarter",
+	"description": "         [§cRIVALS ✘§r]\nTurn up the heat!! When the Firestarter's around, embers become wildfires!"
+}

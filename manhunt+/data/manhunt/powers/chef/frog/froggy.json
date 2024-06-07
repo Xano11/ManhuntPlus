@@ -33,48 +33,6 @@
             "value": -1
         }
     },
-    "time_left": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 600,
-        "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:riding_action",
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "manhunt:chef/froggy/activate_cooldown",
-                        "change": 0,
-                        "operation": "set"
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "data modify entity @s Silent set value 1b",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "effect give @s minecraft:invisibility infinite 0 true",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "kill @s",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:modify_death_ticks",
-                    "modifier": {
-                        "operation": "set_total",
-                        "value": 20
-                    }
-                }
-            ]
-        }
-    },
     "dirt_eaten": {
         "type": "origins:resource",
         "min": 0,
@@ -90,11 +48,6 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:chef/frog/froggy_dirt_eaten",
                     "change": -16
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:chef/frog/froggy_time_left",
-                    "change": -100
                 },
                 {
                     "type": "origins:execute_command",
@@ -138,6 +91,54 @@
             }
         },
         "interval": 2
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:riding_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:chef/frog/activate_cooldown",
+                                    "change": 0,
+                                    "operation": "set"
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Silent set value 1b",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "effect give @s minecraft:invisibility infinite 0 true",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:modify_death_ticks",
+                                "modifier": {
+                                    "operation": "set_total",
+                                    "value": 20
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:exists"
+            }
+        }
     },
     "eat": {
         "type": "origins:action_on_being_used",

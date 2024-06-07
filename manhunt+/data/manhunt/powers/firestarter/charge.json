@@ -1,0 +1,70 @@
+{
+    "type": "origins:multiple",
+    "teleport": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "tp @s ^ ^ ^0.8"
+        }
+    },
+    "spawnparticles": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle flame ~ ~0.25 ~ 0.4 0.1 0.4 0 4"
+        }
+    },
+    "spawnparticles2": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle smoke ~ ~0.25 ~ 0.4 0.1 0.4 0 4"
+        }
+    },
+    "burn": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 1,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:set_on_fire",
+                    "duration": 6
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:invert",
+                "condition": {
+                    "type": "origins:in_set",
+                    "set": "*:firestarter/fourthmatchflame_set",
+                    "inverted": true
+                }
+            }
+        }
+    },
+    "kill": {
+        "type": "origins:action_over_time",
+        "interval": 15,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 1,
+                    "destruction_type": "none",
+                    "damage_self": false,
+                    "create_fire": false
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    }
+}

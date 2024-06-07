@@ -55,7 +55,7 @@
         "hud_render": {
             "should_render": true,
             "bar_index": 1,
-            "sprite_location": "manhunt:textures/bars/angler/angler.png",
+            "sprite_location": "manhunt:textures/bars/chef/chef.png",
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:chef/cleaver/activate_cooldown",
@@ -140,6 +140,17 @@
                             "tag": "manhunt:swords"
                         }
                     }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:wooden_sword"
+                        },
+                        "inverted": true
+                    }
                 }
             ]
         },
@@ -152,23 +163,44 @@
         },
         "cooldown": 1
     },
+    "fire":{
+        "type": "origins:modify_damage_dealt",
+        "condition":  {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:has_power",
+                "power": "manhunt:chef/cleaver/cleaver"
+            }
+        },
+        "target_action":  {
+            "type": "origins:set_on_fire",
+            "duration": 3
+        }
+    },  
     "name": "Chef's Flambée",
     "description": "A true chef is always best equipped to cook a five-star meal...",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "The Swordfish deals 3 damage per hit outside of water. Whilst submerged in water, you deal 5 instead.\nCan also be used for \"Fierce Fish Dash\" (see badge)\nAny other weapon than the swordfish deals -1 damage."
+            "text": [
+                "Your sword can be transformed into a fiery cleaver for 10s.\nWhilst transformed, your next hit deals 20% crit damage and lights up the target for 3s.\nWhilst holding \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\", your next hit will make you bounce upward slightly. (This allows for hit combos)"
+            ]
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Turn your blade into a fiery cleaver with \"%s\"!"
+            "text": "Turn your blade into a fiery cleaver with \"%s\"!\n(DOESN'T WORK ON WOODEN SWORD)"
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Use your cleaver every 30s.\nThe sword remains as a cleaver for only 10s."
+            "text": "Use your cleaver every 30s.\nThe sword remains as a cleaver for only 10s.\n\nKilling an entity with a cleaver will reset the 30s cooldown."
         }
     ]
 }

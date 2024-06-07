@@ -2,11 +2,11 @@
     "type": "origins:multiple",
     "render_apron": {
         "type": "origins:action_over_time",
-        "rising_action": {
+        "entity_action": {
             "type": "origins:execute_command",
-            "command": "item replace entity @s armor.chest with minecraft:leather_chestplate{Trim:{pattern:vex,material:redstone},display:{color:16383998,Name:'[\"\",{\"text\":\"Chef\\'s Apron\",\"italic\":false}]'},Enchantments:[{lvl:1,id:binding_curse}],Unbreakable:1}"
+            "command": "item replace entity @s armor.chest with minecraft:leather_chestplate{Trim:{pattern:vex,material:redstone},display:{color:16383998,Name:'[\"\",{\"text\":\"Chef\\'s Apron\",\"italic\":false,\"color\":\"white\"}]'},Enchantments:[{lvl:1,id:binding_curse},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:chef_apron,AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:1,Slot:chest,Name:\"generic.armor\",UUID:[I;-12455,24926,22310,-49852]}]}"
         },
-        "interval": 1,
+        "interval": 5,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -43,7 +43,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You cannot wear chestplates and are forced to have the Fiery Apron.\nThe fiery apron only provides 3 armor but reduces fire-related damage by 35%."
+            "text": "You cannot wear chestplates and are forced to have the Fiery Apron.\nThe fiery apron only provides 1 armor but reduces fire-related damage by 35%."
         }
     ]
 }

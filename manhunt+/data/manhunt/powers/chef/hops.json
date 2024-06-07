@@ -35,7 +35,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(Can be used to negate fall damage when used near the ground.)\n(Also doesn't work in water/lava)"
+            "text": "You take reduced fall damage and only do so after falling 7 or more blocks."
         }
     ]
 }
