@@ -9,6 +9,8 @@
     "death.attack.curse.player": "%s died under the curse of %s",
     "death.attack.vanish": "%s vanished",
     "death.attack.vanish.player": "%s vanished",
+    "death.attack.twinstrike": "%s was twinstruck!",
+    "death.attack.twinstrike.player": "%s was struck twice by %s",
 
 
     "layer.manhunt.runners.name": "Runner",
