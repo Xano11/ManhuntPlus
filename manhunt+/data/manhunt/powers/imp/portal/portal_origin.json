@@ -198,47 +198,26 @@
                                             "command": "tp @s @e[limit=1,sort=nearest,tag=imp_portal2,type=armor_stand]"
                                         },
                                         {
-                                            "type": "origins:if_else",
-                                            "condition":  {
-                                                "type": "origins:dimension",
-                                                "dimension": "minecraft:the_nether"
+                                            "type": "origins:random_teleport",
+                                            "area_width": 5,
+                                            "area_height": 5,
+                                            "success_action": {
+                                                "type": "origins:spawn_particles",
+                                                "particle": "minecraft:witch",
+                                                "count": 8
                                             },
-                                            "if_action": {
-                                                "type": "origins:random_teleport",
-                                                "area_width": 5,
-                                                "area_height": 5,
-                                                "success_action": {
-                                                    "type": "origins:spawn_particles",
-                                                    "particle": "minecraft:witch",
-                                                    "count": 8
-                                                },
-                                                "landing_block_condition": {
-                                                    "type": "origins:or",
-                                                    "conditions": [
-                                                        {
-                                                            "type": "origins:block",
-                                                            "block": "minecraft:bedrock",
-                                                            "inverted": true
-                                                        },
-                                                        {
-                                                            "type": "origins:movement_blocking"
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            "else_action": {
-                                                "type": "origins:random_teleport",
-                                                "area_width": 100,
-                                                "area_height": 1,
-                                                "success_action": {
-                                                    "type": "origins:spawn_particles",
-                                                    "particle": "minecraft:witch",
-                                                    "count": 8
-                                                },
-                                                "landing_block_condition": {
-                                                    "type": "origins:block",
-                                                    "block": "minecraft:air"
-                                                }
+                                            "landing_block_condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:block",
+                                                        "block": "minecraft:bedrock",
+                                                        "inverted": true
+                                                    },
+                                                    {
+                                                        "type": "origins:movement_blocking"
+                                                    }
+                                                ]
                                             }
                                         },
                                         {
@@ -260,12 +239,13 @@
                             "type": "origins:and",
                             "conditions": [
                                 {
-                                    "type": "origins:living"
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:player"
                                 },
                                 {
-                                    "type": "origins:entity_type",
-                                    "entity_type": "minecraft:armor_stand",
-                                    "inverted": true
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunters/imp",
+                                    "layer": "manhunt:hunters"
                                 }
                             ]
                         }

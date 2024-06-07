@@ -6,124 +6,31 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:if_else_list",
-                    "actions": [
-                        {
-                            "condition": {
-                                "type": "origins:command",
-                                "command": "execute if entity @p[tag=runner,nbt={Dimension:\"minecraft:overworld\"}]",
-                                "comparison": "==",
-                                "compare_to": 1
-                            },
-                            "action": {
-                                "type": "origins:selector_action",
-                                "selector": "@p[tag=runner,nbt={Dimension:\"minecraft:overworld\"}]",
-                                "bientity_action": {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:spawn_entity",
-                                        "entity_type": "minecraft:armor_stand",
-                                        "tag": "{Marker:1b,Invisible:1b,Tags:[\"imp_portal2\"],Passengers:[{id:\"minecraft:item_display\",view_range:10f,Tags:[\"imp_portal2\"],brightness:{sky:15,block:15},Rotation:[0f,90f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[15f,15f,1f]},item:{id:\"minecraft:purple_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
-                                        "entity_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "tp @s ~ 300 ~",
-                                                    "permission_level": 4
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "power grant @s manhunt:imp/portal/portal_overworld",
-                                                    "permission_level": 4
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "execute on passengers run data modify entity @s Rotation[1] set value 90f",
-                                                    "permission_level": 4
-                                                }
-                                            ]
-                                        }
+                    "type": "origins:selector_action",
+                    "selector": "@p[tag=runner]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:armor_stand",
+                            "tag": "{Marker:1b,Invisible:1b,Tags:[\"imp_portal2\"],Passengers:[{id:\"minecraft:item_display\",view_range:10f,billboard:\"vertical\",Tags:[\"imp_portal2\"],brightness:{sky:15,block:15},Rotation:[0f,0f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,1f,1.0f]},item:{id:\"minecraft:purple_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:imp/portal/portal_otherside",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tp @s ~ ~1.5 ~",
+                                        "permission_level": 4
                                     }
-                                }
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:command",
-                                "command": "execute if entity @p[tag=runner,nbt={Dimension:\"minecraft:the_nether\"}]",
-                                "comparison": "==",
-                                "compare_to": 1
-                            },
-                            "action": {
-                                "type": "origins:selector_action",
-                                "selector": "@p[tag=runner,nbt={Dimension:\"minecraft:the_nether\"}]",
-                                "bientity_action": {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:spawn_entity",
-                                        "entity_type": "minecraft:armor_stand",
-                                        "tag": "{Marker:1b,Invisible:1b,Tags:[\"imp_portal2\"],Passengers:[{id:\"minecraft:item_display\",view_range:10f,billboard:\"vertical\",Tags:[\"imp_portal2\"],brightness:{sky:15,block:15},Rotation:[0f,0f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,1f,1.0f]},item:{id:\"minecraft:purple_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
-                                        "entity_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "power grant @s manhunt:imp/portal/portal_nether",
-                                                    "permission_level": 4
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "tp @s ~ ~1.5 ~",
-                                                    "permission_level": 4
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:command",
-                                "command": "execute if entity @p[tag=runner,nbt={Dimension:\"minecraft:the_end\"}]",
-                                "comparison": "==",
-                                "compare_to": 1
-                            },
-                            "action": {
-                                "type": "origins:selector_action",
-                                "selector": "@p[tag=runner,nbt={Dimension:\"minecraft:the_end\"}]",
-                                "bientity_action": {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:spawn_entity",
-                                        "entity_type": "minecraft:armor_stand",
-                                        "tag": "{Marker:1b,Invisible:1b,Tags:[\"imp_portal2\"],Passengers:[{id:\"minecraft:item_display\",view_range:10f,Tags:[\"imp_portal2\"],brightness:{sky:15,block:15},Rotation:[0f,90f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[15f,15f,1f]},item:{id:\"minecraft:purple_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
-                                        "entity_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "power grant @s manhunt:imp/portal/portal_overworld",
-                                                    "permission_level": 4
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "tp @s ~ 200 ~",
-                                                    "permission_level": 4
-                                                },
-                                                {
-                                                    "type": "origins:execute_command",
-                                                    "command": "execute on passengers run data modify entity @s Rotation[1] set value 90f",
-                                                    "permission_level": 4
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
+                                ]
                             }
                         }
-                    ]
+                    }
                 },
                 {
                     "type": "origins:spawn_entity",
@@ -155,7 +62,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 7200,
+        "cooldown": 3600,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 7,
@@ -175,12 +82,12 @@
         }
     },
     "name": "Imp's Gateway",
-    "description": "Open a fracture that lets you and your teammates teleport to the runner.",
+    "description": "Open a fracture that lets you teleport to the runner.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "The teleport works differently depending on the dimension.\nOverworld: Opens a fracture in the sky and allows you to slow fall to safety.\nNether: Opens a fracture on the Runner directly, but weakens you on teleport."
+            "text": "Opens a fracture on the Runner directly and turns you into a flying soul.\nYou fly wherever you look at and after a few seconds, you turn back to your normal self."
         },
         {
             "type": "origins:keybind",
@@ -190,7 +97,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 6m"
+            "text": "Cooldown: 3m"
         }
     ]
 }

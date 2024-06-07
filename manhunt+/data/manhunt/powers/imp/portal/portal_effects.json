@@ -1,45 +1,5 @@
 {
     "type": "origins:multiple",
-    "landing": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "power remove @s manhunt:imp/portal/portal_effects"
-        },
-        "interval": 5,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:on_block"
-                },
-                {
-                    "type": "origins:dimension",
-                    "dimension": "minecraft:the_nether",
-                    "inverted": true
-                }
-            ]
-        }
-    },
-    "prevent_item": {
-        "type": "origins:prevent_item_use",
-        "item_condition": {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "item": "minecraft:ender_pearl"
-            }
-        }
-    },
-    "fall": {
-        "type": "origins:modify_falling",
-        "velocity": 0.02,
-        "take_fall_damage": false,
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether",
-            "inverted": true
-        }
-    },
     "duration": {
         "type": "origins:resource",
         "min": 0,
@@ -60,11 +20,10 @@
             "resource": "manhunt:imp/portal/portal_effects_duration",
             "change": -10
         },
-        "interval": 10,
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
-        }
+        "interval": 10
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use"
     },
     "fly": {
         "type": "origins:active_self",
@@ -81,30 +40,18 @@
         "key": {
             "key": "key.forward",
             "continuous": true
-        },
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
         }
     },
     "air_speed": {
         "type": "origins:modify_falling",
         "velocity": 0.0001,
-        "take_fall_damage": false,
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
-        }
+        "take_fall_damage": false
     },
     "cant_dealdmg": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
             "operation": "multiply_total",
             "value": -1
-        },
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
         }
     },
     "cant_be_damaged": {
@@ -112,10 +59,6 @@
         "modifier": {
             "operation": "multiply_total",
             "value": -1
-        },
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
         }
     },
     "less_speed": {
@@ -125,30 +68,18 @@
             "attribute": "minecraft:generic.movement_speed",
             "value": -1,
             "operation": "multiply_total"
-        },
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
         }
     },
     "invisible": {
         "type": "origins:invisibility",
-        "render_armor": false,
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
-        }
+        "render_armor": false
     },
     "held_item":{
         "type": "origins:prevent_feature_render",
         "features": [
             "armor",
             "held_item"
-        ],
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
-        }
+        ]
     },
     "particles": {
         "type": "origins:action_over_time",
@@ -157,10 +88,6 @@
             "type": "origins:execute_command",
             "permission_level": 4,
             "command": "particle minecraft:soul_fire_flame ~ ~1 ~ 0.1 0.1 0.1 0 1 force @a"
-        },
-        "condition": {
-            "type": "origins:dimension",
-            "dimension": "minecraft:the_nether"
         }
     },
     "hidden": true
