@@ -7,7 +7,7 @@ scoreboard objectives add runners dummy
 scoreboard objectives add hunters dummy
 scoreboard objectives add tracking dummy
 scoreboard objectives add lodestone dummy
-scoreboard objectives add time_since_death dummy
+scoreboard objectives add time_since_death minecraft.custom:minecraft.time_since_death
 scoreboard objectives add simulation dummy
 scoreboard objectives add recall dummy
 scoreboard objectives add lurker dummy

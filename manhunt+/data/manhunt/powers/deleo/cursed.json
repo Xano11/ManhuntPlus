@@ -1,12 +1,15 @@
 {
     "type":"origins:multiple",
     "permanent":{
-        "type": "origins:modify_attribute",
+        "type": "origins:conditioned_attribute",
         "attribute": "minecraft:generic.movement_speed",
         "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_total",
-            "value": -0.5
+            "value": -0.5,
+            "name": "Decreased speed"
         },
+        "tick_rate": 10,
         "condition": {
             "type": "origins:fluid_height",
             "fluid": "minecraft:water",
