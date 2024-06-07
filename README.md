@@ -13,4 +13,23 @@ There is **no requirements** to join the server but I expect those that join to 
 *See you on the server!*
 https://discord.gg/bYsgwmPQyv
 
+CREDITS WHERE CREDIT IS DUE:
+
+Devs/Code contributors: 
+
+// - SlimeWyboy
+// - bonlo
+// - CDN_28
+// - Vibrissae/Ouroboros
+// - null.arbiter
+
+Artists:
+
+// - Sobek500
+// - Bonlo
+
+Special thanks to Jitter for helping me with using Unsup!
+
+With the colossal help of the Manhunt+ community!
+
 - ItsYoBoi
