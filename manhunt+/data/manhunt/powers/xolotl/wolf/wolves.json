@@ -78,8 +78,8 @@
     "life": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1800,
-        "start_value": 1800,
+        "max": 2400,
+        "start_value": 2400,
         "hud_render": {
             "should_render": false
         },
@@ -386,6 +386,22 @@
                     "permission_level": 4
                 }
             ]
+        }
+    },
+    "bite_speed":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.4,
+            "name": "Increased speed"
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
+            "comparison": "==",
+            "compare_to": 25
         }
     },
     "bite_up": {

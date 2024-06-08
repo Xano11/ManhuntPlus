@@ -16,7 +16,7 @@
         "type": "eggolib:modify_bounciness",
         "block_action":  {
             "type": "origins:area_of_effect",
-            "radius": 2,
+            "radius": 7,
             "shape": "sphere",
             "block_action": {
                 "type": "origins:set_block",
@@ -32,7 +32,7 @@
             "shape": "sphere",
             "bientity_action": {
                 "type": "origins:add_velocity",
-                "z": 2
+                "z": 4
             }
         },
         "modifier":{

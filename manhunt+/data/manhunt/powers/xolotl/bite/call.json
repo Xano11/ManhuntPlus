@@ -50,7 +50,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Using the ability makes all your wolves have an empowered bite for the next 10s.\n\nBite: -50% healing and 25% more damage from Xolotl's attacks"
+            "text": "Using the ability makes all your wolves 40% quicker and have an empowered bite for the next 10s.\n\nBite: -50% healing and 25% more damage from Xolotl's attacks"
         },
         {
             "type": "origins:tooltip",

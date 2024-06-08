@@ -39,12 +39,24 @@
             "type": "origins:equipped_item",
             "equipment_slot": "mainhand",
             "item_condition": {
-                "type": "origins:ingredient",
-                "ingredient": {
-                    "tag": "manhunt:axes"
-                }
-            },
-            "inverted": true
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "manhunt:axes"
+                        },
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "manhunt:swords"
+                        },
+                        "inverted": true
+                    }
+                ]
+            }
         }
     },
     "windup": {
@@ -141,10 +153,21 @@
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "tag": "manhunt:axes"
-                        }
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -175,10 +198,21 @@
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "tag": "manhunt:axes"
-                        }
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
                     }
                 },
                 {
@@ -277,10 +311,21 @@
                                 "type": "origins:equipped_item",
                                 "equipment_slot": "mainhand",
                                 "item_condition": {
-                                    "type": "origins:ingredient",
-                                    "ingredient": {
-                                        "tag": "manhunt:axes"
-                                    }
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:ingredient",
+                                            "ingredient": {
+                                                "tag": "manhunt:axes"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:ingredient",
+                                            "ingredient": {
+                                                "tag": "manhunt:swords"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         ]
@@ -318,10 +363,21 @@
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "tag": "manhunt:axes"
-                        }
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -350,10 +406,21 @@
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "tag": "manhunt:axes"
-                        }
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -375,16 +442,27 @@
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "tag": "manhunt:axes"
-                        }
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
                     }
                 }
             ]
         }
     },
-    "name": "Wounding Axe",
+    "name": "Wounding Blade",
     "description": "Sacrifice your lifeforce to deliver a deep wound axe hit.",
     "badges": [
         {
@@ -400,7 +478,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold \"%s\" to charge your axe!"
+            "text": "Hold \"%s\" to charge your blade! (Axes or swords)"
         }
     ]
 }
