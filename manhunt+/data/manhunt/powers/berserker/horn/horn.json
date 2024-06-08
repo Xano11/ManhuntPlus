@@ -110,7 +110,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Boon: 15s of 30% more movement and +0.3 attack speed. (24 block radius)\nThe Berserker blowing gains half of the stats"
+            "text": "grant all nearby hunters (24 block radius) 15s of §e'💬 §nInspire'§r\n§e'💬 §nInspire'§r: 30% more movement and +0.3 attack speed.\nThe Berserker using the horn, gains §4'😡 §nFury of The Hunt'§r for 20s\n§4'😡 §nFury of The Hunt'§r: When being hit by a runner heal 3hp over 3s"
         },
         {
             "type": "origins:tooltip",
