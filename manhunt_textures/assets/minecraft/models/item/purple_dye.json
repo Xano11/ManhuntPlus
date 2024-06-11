@@ -8,11 +8,29 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/imp_portal"
+            "model": "manhunt:item/imp_portal1"
         },
         {
             "predicate": {
                 "custom_model_data": 2
+            },
+            "model": "manhunt:item/imp_portal2"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 3
+            },
+            "model": "manhunt:item/imp_portal3"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 4
+            },
+            "model": "manhunt:item/imp_portal4"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 5
             },
             "model": "manhunt:item/icons/imp_trident"
         }

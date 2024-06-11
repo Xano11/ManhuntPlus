@@ -120,7 +120,7 @@
                     "set": "manhunt:engineer/portal/origin_portal",
                     "bientity_action": {
                         "type": "origins:target_action",
-                        "action":  {
+                        "action": {
                             "type": "origins:execute_command",
                             "command": "execute on passengers run data modify entity @s transformation.scale set value [30f,30f,1f]",
                             "permission_level": 4
@@ -149,6 +149,11 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 0.7",
                     "permission_level": 4
                 },
@@ -157,10 +162,20 @@
                     "set": "manhunt:engineer/portal/origin_portal",
                     "bientity_action": {
                         "type": "origins:target_action",
-                        "action":  {
-                            "type": "origins:execute_command",
-                            "command": "execute on passengers run data modify entity @s transformation.scale set value [45f,45f,1f]",
-                            "permission_level": 4
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [45f,45f,1f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                                    "permission_level": 4
+                                }
+                            ]
                         }
                     }
                 }
@@ -186,6 +201,11 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 1 0.8",
                     "permission_level": 4
                 },
@@ -194,10 +214,20 @@
                     "set": "manhunt:engineer/portal/origin_portal",
                     "bientity_action": {
                         "type": "origins:target_action",
-                        "action":  {
-                            "type": "origins:execute_command",
-                            "command": "execute on passengers run data modify entity @s transformation.scale set value [60f,60f,1f]",
-                            "permission_level": 4
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [60f,60f,1f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 4",
+                                    "permission_level": 4
+                                }
+                            ]
                         }
                     }
                 }
@@ -231,7 +261,7 @@
                     "set": "manhunt:engineer/portal/origin_portal",
                     "bientity_action": {
                         "type": "origins:target_action",
-                        "action":  {
+                        "action": {
                             "type": "origins:execute_command",
                             "command": "execute on passengers run data modify entity @s transformation.scale set value [75f,75f,1f]",
                             "permission_level": 4
@@ -260,6 +290,11 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 0 0 0 1 0.6 0 1 ~ ~1.5 ~ 1 1 1 1 100 force @a",
                     "permission_level": 4
                 },
@@ -277,10 +312,20 @@
                     "set": "manhunt:engineer/portal/origin_portal",
                     "bientity_action": {
                         "type": "origins:target_action",
-                        "action":  {
-                            "type": "origins:execute_command",
-                            "command": "execute on passengers run data modify entity @s transformation.scale set value [100f,100f,1f]",
-                            "permission_level": 4
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [100f,100f,1f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 5",
+                                    "permission_level": 4
+                                }
+                            ]
                         }
                     }
                 }
