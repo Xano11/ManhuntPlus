@@ -1,7 +1,7 @@
 hash-format = "sha256"
 
 [[files]]
-file = "config/openloader/resources/manhunt29.zip"
+file = "config/openloader/resources/manhunt30.zip"
 hash = "1f6e53671e79ca1c4a6948d6ec90016103ae54f87585e27f9e8ae14113b1e2ae"
 
 [[files]]
