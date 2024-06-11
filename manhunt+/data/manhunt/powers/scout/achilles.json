@@ -8,10 +8,6 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:trigger_cooldown",
-                        "power": "manhunt:scout/dash_perform"
-                    },
-                    {
                         "type": "origins:change_resource",
                         "resource": "manhunt:scout/bouncepad/bouncepad_perform",
                         "change": 120
@@ -25,7 +21,7 @@
         }
     },
     "name": "Achilles' Heel",
-    "description": "Taking a hit of damage will trigger your dash cooldown and delay your bouncepad cooldown.",
+    "description": "Taking a hit of damage will delay your bouncepad cooldown.",
     "badges": [
         {
             "type": "origins:tooltip",

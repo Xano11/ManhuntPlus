@@ -5,7 +5,7 @@
         "modifier": {
             "name": "Increase speed",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.25,
+            "value": 0.15,
             "operation": "multiply_total"
         },
         "condition": {
@@ -34,7 +34,7 @@
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.08
+            "value": 0.05
         },
         "condition": {
             "type": "apugli:entity_in_radius",
@@ -64,7 +64,7 @@
             "type": "origins:execute_command",
             "command": "particle minecraft:dust_color_transition 1 1 1 1 0.7 0.7 0.7 ~ ~1 ~ 0.2 0.2 0.2 1 1"
         },
-        "interval": 20
+        "interval": 30
     },
     "duration": {
         "type": "origins:resource",

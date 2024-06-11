@@ -112,7 +112,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/porkchop.png",
-			"text": "In the Nether, you have -2 §l§c❤§r but you are 20% quicker."
+			"text": "In the Nether, you have -2 §l§c❤§r but you are §a20%§r quicker."
 		}
 	]
 }

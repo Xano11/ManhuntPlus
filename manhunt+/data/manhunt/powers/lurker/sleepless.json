@@ -4,6 +4,13 @@
         "type": "origins:prevent_sleep",
         "message": "Sleep was never your thing, huh."
     },
-    "name": "Sleepless",
-    "description": "You're plagued by chronic insomnia and can't sleep at all."
+    "name": "Insomniac",
+    "description": "You're plagued by chronic insomnia, preventing you from sleeping in a bed.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Respawn Anchors are still a usable option to set your spawn point."
+        }
+    ]
 }

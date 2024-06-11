@@ -142,7 +142,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/golden_chestplate.png",
-            "text": "All Armor that isn't Gold is reduced by -1."
+            "text": "All Armor that isn't Gold is reduced by §c-1§r."
         }
     ]
 }
