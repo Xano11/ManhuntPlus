@@ -9,6 +9,11 @@ file = "mods/CITResewnJSONLagPatch-1.1.3.2+1.20.jar"
 hash = "17982741b98d67320141beb19ee12338cd05ed19073e8173ee3dff5b3c6d63d3"
 
 [[files]]
+file = "mods/altorigingui.pw.toml"
+hash = "98df3a44ead5113e7eee670edbbbd7b8e22c7b9db07a6902bfdba044300327a8"
+metafile = true
+
+[[files]]
 file = "mods/apugli.pw.toml"
 hash = "9e9a518bb11dbdf3f3866b370db0bd73eb34b9814ff246aed485ca77938a74c2"
 metafile = true
