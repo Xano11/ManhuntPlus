@@ -444,7 +444,7 @@
             "key": "key.use"
         },
         "condition": {
-            "type": "origins:and",
+            "type": "origins:or",
             "conditions": [
                 {
                     "type": "origins:resource",
