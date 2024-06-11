@@ -138,7 +138,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:area_of_effect",
-            "radius": 24,
+            "radius": 32,
             "shape": "sphere",
             "bientity_action": {
                 "type": "origins:target_action",
@@ -368,7 +368,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§l§a+15%§r Speed and §l§a+5%§r Velocity increase.\nIncreases to §l§a+30%§r Speed and §l§a+10%§r Velocity when not within 32 blocks of a Runner.\n§l§a+25%§r Speed and §l§a+8%§r Velocity for allies in a 24 block radius of you while active.(does not apply for other Scouts.)\n(Icon over hotbar shows when active.)"
+            "text": "§l§a+15%§r Speed and §l§a+5%§r Velocity passively.\nWhen over 32 blocks away from a Runner, you gain §b§l↑§r§bPursuit§r.\n§b§l↑§r§bPursuit§r gives an additional §l§a+15%§r Speed and §l§a+5%§r Velocity bonus.\nWhile you have §b§l↑§r§bPursuit§r, Hunters in a 32 block radius of you also gain §b§l↑§r§bPursuit§r. (Except for other Scouts.)\n(Icon over hotbar shows when active.)"
         }
     ]
 }

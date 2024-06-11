@@ -2,9 +2,11 @@
 	"powers": [
 		"manhunt:lurker/lurk/lurk",
 		"manhunt:lurker/shadow/shadow",
-		"origins:fragile",
+		"manhunt:lurker/visions",
+		"manhunt:lurker/decrepit",
 		"manhunt:lurker/sleepless",
-		"manhunt:lurker/visions"
+		"manhunt:lurker/myodesopsia"
+
 	],
 	"icon": {
 		"item": "minecraft:ender_eye",
@@ -13,5 +15,5 @@
 	"order": 10,
 	"impact": 2,
 	"name": "Lurker",
-	"description": "     [§dINTELLIGENCE ₪§r]\nNo matter the distance or space, you lurk without a trace. You halt the runner's commence, with your omnipotent sense."
+	"description": "     [§dINTELLIGENCE ₪§r]\n'A presence is felt, inflicting fear. You lurk within darkness, approach unclear.'\nThe Lurker seeps into the void or spectates from above.. always watching."
 }

@@ -130,12 +130,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Famine: Hitting a runner will grant the effect \"Bane of the Flesh\" for 30 seconds."
+            "text": "Hitting a runner will inflict §2🥫Famished§r for 30 seconds."
         },
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/hunger.png",
-            "text": "Bane of the Flesh: Sprinting and taking damage causes extra exhaustion.\n\nTo remove the effect, it must be either waited out or dealt by eating food. Eaten food will grant -25% less food value than usual and frustrate the piglin.\n\n\"Frustrated\" will make you 20% quicker."
+            "text": "§2🥫Famished§r: Sprinting and taking damage causes extra exhaustion.\n\nTo remove the effect, it must be either waited out or dealt by eating food. Eaten food will grant §c-25%§r less food value than usual and applies §4💢Frustrated§r to the piglin.\n§4💢Frustrated§r makes you §a20%§r quicker for 10 seconds."
         }
     ]
 }

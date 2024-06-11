@@ -8,7 +8,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": "<=",
-                    "compare_to": 12
+                    "compare_to": 16
                 },
                 {
                     "type": "origins:can_see",
@@ -34,7 +34,7 @@
         },
         "use_teams": false,
         "red": 1.0,
-        "green": 1.0,
+        "green": 0.0,
         "blue": 1.0
     },
     "name": "Visions",
@@ -43,7 +43,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(12 block radius)"
+            "text": "(16 block radius)"
         }
     ]
 }

@@ -137,7 +137,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/poison.png",
-            "text": "Charging: 200% Speed for 3.5s\nWhile charging, you can walk up full blocks and fall quicker, but cannot jump and deal -2 less damage. (+1 Block Step Height)"
+            "text": "§b💨Charging§r: 200% Speed for 3.5s\nWhile §b💨Charging§r, you can walk up full blocks and fall quicker, but cannot jump and deal §c-2§r less damage. (+1 Block Step Height)"
         },
         {
             "type": "origins:keybind",

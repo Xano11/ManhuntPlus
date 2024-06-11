@@ -16,8 +16,8 @@
     "glow": {
         "type": "origins:self_glow",
         "use_teams": false,
-        "red": 0,
-        "green": 0.9,
+        "red": 1.0,
+        "green": 0,
         "blue": 1.0,
         "condition": {
             "type": "origins:resource",
@@ -40,7 +40,7 @@
         "modifier": {
             "name": "Decrease speed",
             "attribute": "minecraft:generic.movement_speed",
-            "value": -0.20,
+            "value": -0.10,
             "operation": "multiply_base"
         },
         "condition":  {

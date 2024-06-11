@@ -22,7 +22,7 @@
                 },
                 {
                     "type": "origins:raycast",
-                    "distance": 13,
+                    "distance": 25,
                     "block": true,
                     "entity": true,
                     "shape_type": "visual",
@@ -44,7 +44,7 @@
                             ]
                         }
                     },
-                    "command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0 0 0 0 1",
+                    "command_along_ray": "particle dust_color_transition 0.267 0.000 0.471 1 0.302 0.008 0.980 ~ ~ ~ 0 0 0 0 1 normal",
                     "command_step": 0.1,
                     "command_along_ray_only_on_hit": true
                 }
@@ -81,7 +81,7 @@
                             }
                         ]
                     },
-                    "radius": 12.0,
+                    "radius": 24.0,
                     "comparison": ">=",
                     "compare_to": 1
                 },
@@ -129,7 +129,7 @@
                     }
                 ]
             },
-            "radius": 12.0,
+            "radius": 24.0,
             "comparison": "==",
             "compare_to": 0
         }
@@ -174,7 +174,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:sonic_boom ~ ~0.75 ~ 0.5 0.5 0.5 0.2 1",
+                    "command": "particle minecraft:block crying_obsidian ~ ~0.75 ~ 0.5 0.5 0.5 0.2 10",
                     "permission_level": 4
                 },
                 {
@@ -217,12 +217,12 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:sculk_charge_pop ~ ~0.75 ~ 0.2 0.2 0.2 0.2 20",
+                    "command": "particle minecraft:block crying_obsidian ~ ~0.75 ~ 0.2 0.2 0.2 0.2 15",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:enchanted_hit ~ ~0.75 ~ 0.2 0.2 0.2 0.2 20",
+                    "command": "particle minecraft:witch ~ ~0.75 ~ 0.2 0.2 0.2 0.2 10",
                     "permission_level": 4
                 },
                 {
@@ -232,7 +232,7 @@
                     "entity": true,
                     "shape_type": "visual",
                     "fluid_handling": "none",
-                    "command_along_ray": "particle minecraft:dust_color_transition 0 0.5 0.7 1.5 0 0.9 0.7 ~ ~ ~ 0 0 0 1 1",
+                    "command_along_ray": "particle minecraft:witch ~ ~ ~ 0 0 0 1 1",
                     "command_step": 0.3
                 }
             ]
