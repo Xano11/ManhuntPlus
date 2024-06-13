@@ -5,7 +5,7 @@
         "min": 0,
         "max": 400,
         "start_value": 400,
-        "hud_render":{
+        "hud_render": {
             "should_render": true,
             "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
             "bar_index": 6
@@ -15,7 +15,6 @@
             "command": "power remove @s manhunt:berserker/horn/horn_effects_self"
         }
     },
-
     "anim": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -68,7 +67,6 @@
             ]
         }
     },
-
     "remove_resource": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -78,7 +76,6 @@
         },
         "interval": 10
     },
-
     "more_atk_speed": {
         "type": "origins:attribute",
         "modifier": {
@@ -88,8 +85,7 @@
             "operation": "addition"
         }
     },
-
-    "quick_regen_register":{
+    "quick_regen_register": {
         "type": "origins:action_when_hit",
         "bientity_action": {
             "type": "origins:target_action",
@@ -100,7 +96,7 @@
             }
         },
         "bientity_condition": {
-        "type": "origins:actor_condition",
+            "type": "origins:actor_condition",
             "condition": {
                 "type": "origins:origin",
                 "origin": "manhunt:runner",
@@ -109,7 +105,6 @@
         },
         "cooldown": 20
     },
-
     "quick_regen_activate": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -119,7 +114,7 @@
                     "type": "origins:heal",
                     "amount": 1
                 },
-                {    
+                {
                     "type": "origins:change_resource",
                     "resource": "manhunt:berserker/horn/horn_effects_self_quick_regen_resource",
                     "change": -1
@@ -139,25 +134,22 @@
             "type": "origins:resource",
             "resource": "manhunt:berserker/horn/horn_effects_self_quick_regen_resource",
             "comparison": ">",
-                "compare_to": 0
+            "compare_to": 0
         }
     },
-
     "quick_regen_resource": {
         "type": "origins:resource",
         "min": 0,
         "max": 12,
         "start_value": 0,
-        "hud_render":{
+        "hud_render": {
             "should_render": false
         }
     },
-
     "particles": {
         "type": "origins:particle",
         "particle": "minecraft:note",
         "frequency": 4
     },
-
     "hidden": true
 }
