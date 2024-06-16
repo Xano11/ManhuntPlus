@@ -7,8 +7,7 @@
 		"manhunt:alchimia/potion/strength",
 		"manhunt:alchimia/cape",
 		"manhunt:alchimia/feeble",
-		"manhunt:alchimia/brewing",
-		"manhunt:alchimia/fall"
+		"manhunt:alchimia/brewing"
 	],
 	"icon": {
 		"item": "minecraft:brewing_stand",
