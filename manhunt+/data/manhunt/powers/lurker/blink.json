@@ -30,7 +30,7 @@
         }
     },
     "atk_speed": {
-        "type": "origins:modify_attribute",
+        "type": "origins:attribute",
         "modifier": {
             "name": "Reduce attack speed",
             "attribute": "minecraft:generic.attack_speed",
