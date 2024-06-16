@@ -25,6 +25,14 @@
             ]
         }
     },
+    "apron_remove":{
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:air"
+        },
+        "execute_chosen_when_orb": true
+    },
     "fire_mitigation": {
         "type": "origins:modify_damage_taken",
         "damage_condition": {
