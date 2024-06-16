@@ -1,0 +1,2 @@
+execute positioned ~ ~ ~ if block ~ ~ ~ #minecraft:replaceable run tp @p[tag=tping] ~ ~ ~
+execute as @e[distance=0.01..2,type=!#manhunt:not_living,type=!minecraft:shulker] run power grant @s manhunt:reaper/soulstruck/exposed

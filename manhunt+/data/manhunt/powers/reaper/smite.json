@@ -4,30 +4,6 @@
 		"type": "origins:entity_group",
 		"group": "undead"
 	},
-	"smite": {
-		"type": "origins:modify_damage_taken",
-		"bientity_action": {
-			"type": "origins:target_action",
-			"action": {
-				"type": "origins:change_resource",
-				"resource": "manhunt:ritualist/sacrifice_souls",
-				"change": -1
-			}
-		},
-		"damage_condition": {
-			"type": "origins:attacker",
-			"entity_condition": {
-				"type": "origins:equipped_item",
-				"equipment_slot": "mainhand",
-				"item_condition": {
-					"type": "origins:enchantment",
-					"enchantment": "minecraft:smite",
-					"comparison": ">=",
-					"compare_to": 1
-				}
-			}
-		}
-	},
 	"curse": {
 		"type": "origins:action_over_time",
 		"rising_action": {
@@ -59,7 +35,7 @@
 					},
 					"item_action": {
 						"type": "origins:modify",
-						"modifier": "manhunt:ritualist/ritualist_curse"
+						"modifier": "manhunt:reaper/reaper_curse"
 					}
 				},
 				{
@@ -121,7 +97,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "(Smite deals §l§c2.5§r extra damage per level and takes one more soul away from you.)"
+			"text": "(Smite deals §l§c2.5§r extra damage per level)"
 		}
 	]
 }

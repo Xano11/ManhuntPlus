@@ -1,0 +1,75 @@
+{
+    "type": "origins:multiple",
+    "soulstruck": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:shulker",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:armor_stand",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:command",
+                        "command": "execute on passengers if entity @s[type=minecraft:shulker]",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:shulker",
+                        "tag": "{NoGravity:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,AttachFace:0b,Passengers:[{id:\"minecraft:item_display\",view_range:100f,Tags:[\"reaper_soul\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.25f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{CustomModelData:1}}}]}",
+                        "bientity_action": {
+                            "type": "origins:invert",
+                            "action": {
+                                "type": "origins:mount"
+                            }
+                        },
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:reaper/soulstruck/soul"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scale set pehkui:base 0.5"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:reaper/soulstruck/exposed"
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "power remove @s manhunt:reaper/soulstruck/exposed"
+            }
+        }
+    },
+    "hidden": true
+}
