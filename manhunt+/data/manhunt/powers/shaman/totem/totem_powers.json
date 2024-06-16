@@ -292,7 +292,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.3 0.5 0.3 0.01 10",
+                                            "command": "particle minecraft:sculk_charge_pop ~ ~0.5 ~ 0.2 0.3 0.2 0.01 8",
                                             "permission_level": 4
                                         },
                                         {
@@ -319,12 +319,32 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "particle minecraft:sculk_soul ~ ~2.7 ~ 0.3 0.3 0.3 0.02 10",
+                                            "command": "execute positioned ~ ~3 ~ facing entity @a eyes run particle minecraft:soul_fire_flame ~ ~ ~ ^ ^ ^1000000 0.0000003 0",
                                             "permission_level": 4
                                         },
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "particle minecraft:soul_fire_flame ~ ~2.7 ~ 0.3 0.3 0.3 0.02 10",
+                                            "command": "execute positioned ~ ~3 ~ facing entity @a eyes run particle minecraft:sculk_soul ~ ~ ~ ^ ^ ^1000000 0.0000003 0",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute positioned ~ ~2.75 ~ facing entity @a eyes run particle minecraft:soul_fire_flame ~ ~ ~ ^ ^ ^1000000 0.0000003 0",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute positioned ~ ~2.75 ~ facing entity @a eyes run particle minecraft:sculk_soul ~ ~ ~ ^ ^ ^1000000 0.0000003 0",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute positioned ~ ~2.5 ~ facing entity @a eyes run particle minecraft:soul_fire_flame ~ ~ ~ ^ ^ ^1000000 0.0000003 0",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute positioned ~ ~2.5 ~ facing entity @a eyes run particle minecraft:sculk_soul ~ ~ ~ ^ ^ ^1000000 0.0000003 0",
                                             "permission_level": 4
                                         },
                                         {
