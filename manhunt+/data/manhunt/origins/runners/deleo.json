@@ -6,7 +6,7 @@
 		"manhunt:deleo/binding/binding",
 		"manhunt:deleo/overflow",
 		"manhunt:deleo/cursed",
-		"origins:no_shield"
+		"manhunt:deleo/forbidden"
 	],
 	"icon": {
 		"item": "minecraft:echo_shard",
