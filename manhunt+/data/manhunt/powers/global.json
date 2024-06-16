@@ -275,10 +275,20 @@
                 }
             ]
         },
-        "text": {
-            "text": "Curse of Deterioration",
-            "color": "red"
-        }
+        "texts": [
+            [
+                {
+                    "text": "Curse of Deterioration",
+                    "color": "red"
+                }
+            ],
+            [
+                "Deleo's curse is destroying this item."
+            ],
+            [
+                "(5 durability lost per 2s whilst equipped)"
+            ]
+        ]
     },
     "tooltip_glass_shield": {
         "type": "origins:tooltip",
@@ -425,7 +435,7 @@
     },
     "imp_trident_inv": {
         "type": "origins:action_over_time",
-        "entity_action":  {
+        "entity_action": {
             "type": "origins:drop_inventory",
             "retain_ownership": false,
             "item_condition": {

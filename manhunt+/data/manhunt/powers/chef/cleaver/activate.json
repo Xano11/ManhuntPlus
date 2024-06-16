@@ -178,6 +178,21 @@
             "duration": 3
         }
     },  
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:has_power",
+            "power": "manhunt:chef/cleaver/cleaver"
+        },
+        "text": [
+            "Hold \"",
+            {
+                "keybind": "key.origins.primary_active",
+                "color": "dark_red"
+            },
+            "\" and attack to launch yourself upwards!"
+        ]
+    },
     "name": "Chef's Flambée",
     "description": "A true chef is always best equipped to cook a five-star meal...",
     "badges": [

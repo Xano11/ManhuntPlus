@@ -403,5 +403,20 @@
         },
         "key": "key.use"
     },
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:manhunt_compass}"
+        },
+        "text": [
+            "Cycle between runners with \"",
+            {
+                "keybind": "key.use",
+                "color": "gold"
+            },
+            "\"!"
+        ]
+    },
     "hidden": true
 }

@@ -448,7 +448,37 @@
         },
         "cooldown": 2
     },
-
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:iron_sword"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"swordfish\"]}"
+                }
+            ]
+        },
+        "text": [
+            "Hold \"",
+            {
+                "keybind": "key.origins.primary_active",
+                "color": "blue"
+            },
+            "\" and \"",
+            {
+                "keybind": "key.attack",
+                "color": "blue"
+            },
+            "\" to Dash!"
+        ]
+    },
     "name": "Fierce Fish Dash",
     "description": "One swift swing of the SwordFish is enough to cut the howling wind around you.",
     "badges": [
