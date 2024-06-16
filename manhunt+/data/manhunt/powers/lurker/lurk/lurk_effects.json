@@ -164,71 +164,6 @@
             ]
         }
     },
-    "lurking_seen": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:area_of_effect",
-            "radius": 100,
-            "bientity_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:actor_action",
-                        "action": {
-                            "type": "origins:change_resource",
-                            "resource": "manhunt:lurker/lurk/lurk_effects_lurk",
-                            "change": -15,
-                            "operation": "add"
-                        }
-                    },
-                    {
-                        "type": "origins:actor_action",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "playsound minecraft:block.note_block.cow_bell player @s ~ ~ ~ 1 2",
-                            "permission_level": 4
-                        }
-                    },
-                    {
-                        "type": "origins:actor_action",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "particle minecraft:witch ~ ~1.5 ~ 0.3 0.5 0.3 0.1 1",
-                            "permission_level": 4
-                        }
-                    }
-                ]
-            },
-            "bientity_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:invert",
-                        "condition": {
-                            "type": "origins:actor_condition",
-                            "condition": {
-                                "type": "origins:raycast",
-                                "distance": 100,
-                                "block": false,
-                                "entity": true,
-                                "shape_type": "visual",
-                                "fluid_handling": "any"
-                            }
-                        }
-                    },
-                    {
-                        "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:origin",
-                            "origin": "manhunt:runner",
-                            "layer": "origins:origin"
-                        }
-                    }
-                ]
-            }
-        },
-        "interval": 1
-    },
     "lurk_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -345,7 +280,20 @@
                 }
             },
             "bientity_condition": {
-                "type": "origins:can_see"
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:can_see"
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runner",
+                            "layer": "origins:origin"
+                        }
+                    }
+                ]
             }
         },
         "cooldown": 400,
@@ -640,7 +588,7 @@
         }
     },
     "item_pickup": {
-        "type": "eggolib:prevent_item_pickup"
+        "type": "origins:prevent_item_pickup"
     },
     "no_break": {
         "type": "origins:modify_break_speed",
