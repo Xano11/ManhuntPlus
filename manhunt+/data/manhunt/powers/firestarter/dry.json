@@ -4,6 +4,7 @@
     "type": "origins:multiple",
     "nowater": {
         "type": "origins:prevent_item_use",
+        "name":"🚫",
         "item_condition": {
             "type": "origins:ingredient",
             "ingredient": {

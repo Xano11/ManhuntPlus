@@ -70,6 +70,7 @@
         }
     },
     "prevent_item": {
+        "name":"🚫",
         "type": "origins:prevent_item_use"
     },
     "prevent_block": {

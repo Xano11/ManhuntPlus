@@ -118,6 +118,7 @@
         }
     },
     "prevent_item": {
+        "name":"🚫",
         "type": "origins:prevent_item_use"
     },
     "no_exhaust": {

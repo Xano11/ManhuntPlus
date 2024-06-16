@@ -23,7 +23,8 @@
         "interval": 10
     },
     "prevent_item": {
-        "type": "origins:prevent_item_use"
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
     },
     "fly": {
         "type": "origins:active_self",

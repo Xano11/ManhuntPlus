@@ -390,7 +390,8 @@
         }
     },
     "prevent_item": {
-        "type": "origins:prevent_item_use"
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
     },
     "no_exhaust": {
         "type": "origins:modify_exhaustion",

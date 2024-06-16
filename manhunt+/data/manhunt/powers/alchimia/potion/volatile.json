@@ -277,13 +277,18 @@
                 }
             ]
         },
-        "text": [
-            "Explosive and not to be confused with sparkling water. Press \"",
-            {
-                "keybind": "key.use",
-                "color": "light_purple"
-            },
-            "\" to throw it!"
+        "texts": [
+            [
+                "Explosive and not to be confused with sparkling water."
+            ],
+            [
+                "Press \"",
+                {
+                    "keybind": "key.use",
+                    "color": "light_purple"
+                },
+                "\" to throw it!"
+            ]
         ]
     },
     "shaking_movement": {
@@ -337,6 +342,7 @@
     },
     "only_shake": {
         "type": "origins:prevent_item_use",
+        "name":"🚫",
         "item_condition": {
             "type": "origins:and",
             "conditions": [
@@ -361,6 +367,7 @@
         }
     },
     "no_drink": {
+        "name":"🚫",
         "type": "origins:prevent_item_use",
         "item_condition": {
             "type": "origins:and",
