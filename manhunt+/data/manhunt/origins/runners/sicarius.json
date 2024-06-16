@@ -1,9 +1,9 @@
 {
 	"powers": [
-		"manhunt:sicarius/impersonate/clone",
         "manhunt:sicarius/pearl/pearl",
 		"manhunt:sicarius/cloak",
 		"manhunt:sicarius/delusion",
+		"manhunt:sicarius/sneaky",
 		"manhunt:sicarius/weak",
 		"manhunt:sicarius/light"
 	],
