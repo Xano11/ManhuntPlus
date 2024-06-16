@@ -246,7 +246,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/icons/chef_icon.png",
-            "text": "Froggy can be summoned for 30s and grants Chef two new abilities when present: §2§lFrench Delicacy§r and §l§aLeapfrog§r.\n\n§2§lFrench Delicacy§r:\nWhen fed a total of 16 dirt, Froggy creates a special edible slime that can be eaten by anybody.\n§l§aLeapfrog§r\nYour jumps are increased by +2 blocks."
+            "text": "§2§lFroggy🐸§r can be summoned for 30s and grants Chef two new abilities when present: §2§lFrench Delicacy§r and §l§aLeapfrog§r.\n\n§2§lFrench Delicacy§r:\nWhen fed a total of 16 dirt, Froggy creates a special edible slime that can be eaten by anybody.\n§l§aLeapfrog§r\nYour jumps are increased by +2 blocks."
         },
         {
             "type": "origins:tooltip",

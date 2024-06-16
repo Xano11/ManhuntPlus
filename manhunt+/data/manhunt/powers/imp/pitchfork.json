@@ -22,7 +22,7 @@
         "recipe": "manhunt:flint_trident",
         "result": {
             "item": "minecraft:trident",
-            "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],Tags:[imp_trident,lvl1],HideFlags:3}"
+            "tag": "{display:{Name:'[\"\",{\"text\":\"Ol Reliable\\'\",\"italic\":false,\"color\":\"dark_red\"},{\"text\":\"☆\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"4 Attack Damage\",\"italic\":false,\"color\":\"dark_gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{lvl:1,id:loyalty},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:[imp_trident,lvl1],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-124516,48340,23928,-96680]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-124516,48640,23928,-97280]}],HideFlags:2}"
         },
         "entity_action": {
             "type": "origins:and",
@@ -63,7 +63,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],Tags:[imp_trident,lvl2],HideFlags:3} 1",
+                    "command": "give @s trident{display:{Name:'[\"\",{\"text\":\"Sharpened Fork\",\"italic\":false,\"color\":\"dark_red\"},{\"text\":\"☆☆\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"6 Attack Damage\",\"italic\":false,\"color\":\"dark_gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{lvl:1,id:loyalty},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:[imp_trident,lvl2],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-124516,48340,23928,-96680]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-124516,48640,23928,-97280]}],HideFlags:2} 1",
                     "permission_level": 4
                 },
                 {
@@ -99,7 +99,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:2}],Tags:[imp_trident,lvl3],HideFlags:3} 1",
+                    "command": "give @s trident{display:{Name:'[\"\",{\"text\":\"Diamond Devil\",\"italic\":false,\"color\":\"dark_red\"},{\"text\":\"☆☆☆\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"8 Attack Damage\",\"italic\":false,\"color\":\"dark_gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{lvl:2,id:loyalty},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:[imp_trident,lvl3],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-124516,48340,23928,-96680]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-124516,48640,23928,-97280]}],HideFlags:2} 1",
                     "permission_level": 4
                 },
                 {
@@ -135,7 +135,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Netherite Fright.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:3}],Tags:[imp_trident,lvl4],HideFlags:3} 1",
+                    "command": "give @s trident{display:{Name:'[\"\",{\"text\":\"Imp\\'s Inferno\",\"italic\":false,\"color\":\"dark_red\"},{\"text\":\"☆☆☆☆\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"10 Attack Damage\",\"italic\":false,\"color\":\"dark_gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{lvl:3,id:loyalty},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:[imp_trident,lvl4],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-124516,48340,23928,-96680]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-124516,48640,23928,-97280]}],HideFlags:2} 1",
                     "permission_level": 4
                 },
                 {

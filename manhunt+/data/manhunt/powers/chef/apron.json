@@ -50,7 +50,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "minecraft:textures/item/leather_chestplate.png",
             "text": "You cannot wear chestplates and are forced to have the Fiery Apron.\nThe fiery apron only provides 1 armor but reduces fire-related damage by 35%."
         }
     ]
