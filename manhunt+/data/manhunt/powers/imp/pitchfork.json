@@ -22,7 +22,7 @@
         "recipe": "manhunt:flint_trident",
         "result": {
             "item": "minecraft:trident",
-            "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+            "tag": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],Tags:[imp_trident,lvl1],HideFlags:3}"
         },
         "entity_action": {
             "type": "origins:and",
@@ -38,31 +38,11 @@
             ]
         }
     },
-    "damage_projectile": {
-        "type": "origins:modify_projectile_damage",
-        "damage_condition": {
-            "type": "origins:projectile",
-            "projectile": "minecraft:trident"
-        },
-        "modifier": {
-            "operation": "addition",
-            "value": -1
-        }
-    },
-    "levels": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 3,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        }
-    },
     "iron": {
         "type": "origins:item_on_item",
         "on_item_condition": {
             "type": "origins:nbt",
-            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Dull Flint.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+            "nbt": "{Tags:[\"imp_trident\",\"lvl1\"]}"
         },
         "using_item_condition": {
             "type": "origins:ingredient",
@@ -83,7 +63,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3} 1",
+                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],Tags:[imp_trident,lvl2],HideFlags:3} 1",
                     "permission_level": 4
                 },
                 {
@@ -98,7 +78,7 @@
         "type": "origins:item_on_item",
         "on_item_condition": {
             "type": "origins:nbt",
-            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:6,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Sharpened Iron.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:1}],HideFlags:3}"
+            "nbt": "{Tags:[\"imp_trident\",\"lvl2\"]}"
         },
         "using_item_condition": {
             "type": "origins:ingredient",
@@ -119,7 +99,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:2}],HideFlags:3} 1",
+                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:2}],Tags:[imp_trident,lvl3],HideFlags:3} 1",
                     "permission_level": 4
                 },
                 {
@@ -134,7 +114,7 @@
         "type": "origins:item_on_item",
         "on_item_condition": {
             "type": "origins:nbt",
-            "nbt": "{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:8,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Diamond Perfection.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:2}],HideFlags:3}"
+            "nbt": "{Tags:[\"imp_trident\",\"lvl3\"]}"
         },
         "using_item_condition": {
             "type": "origins:ingredient",
@@ -155,7 +135,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Netherite Fright.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:3}],HideFlags:3} 1",
+                    "command": "give @s trident{Unbreakable:1,AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:10,Name:\"generic.attack_damage\",UUID:[I;-12241,37572,231927,-75144]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-122416,19396,185458,-38792]}],display:{Name:'[{\"text\":\"Ol\\'reliable ☆☆☆☆\",\"bold\":true,\"color\":\"dark_red\"}]',Lore:['[{\"text\":\"Netherite Fright.\",\"italic\":false,\"color\":\"red\"}]']},Enchantments:[{id:vanishing_curse,lvl:1},{id:loyalty,lvl:3}],Tags:[imp_trident,lvl4],HideFlags:3} 1",
                     "permission_level": 4
                 },
                 {
@@ -256,7 +236,7 @@
             "compare_to": 1
         }
     },
-    "held_item":{
+    "held_item": {
         "type": "origins:prevent_feature_render",
         "features": [
             "armor",
@@ -269,7 +249,7 @@
             "compare_to": 1
         }
     },
-    "immunity":{
+    "immunity": {
         "type": "origins:invulnerability",
         "damage_condition": {
             "type": "origins:name",
@@ -438,76 +418,69 @@
     "flint_projectile_dmg": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:projectile",
-                    "projectile": "minecraft:trident"
-                },
-                {
-                    "type": "origins:attacker",
-                    "entity_condition": {
-                        "type": "origins:resource",
-                        "resource": "manhunt:imp/pitchfork_levels",
-                        "comparison": "==",
-                        "compare_to": 0
-                    }
-                }
-            ]
+            "type": "origins:projectile",
+            "projectile": "minecraft:trident"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_levels",
+            "comparison": "==",
+            "compare_to": 0
         },
         "modifier": {
             "operation": "addition",
-            "value": -3.0
+            "value": -4.0
         }
     },
-    "diamond_projectile_dmg": {
+    "iron_projectile_dmg": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:projectile",
-                    "projectile": "minecraft:trident"
-                },
-                {
-                    "type": "origins:attacker",
-                    "entity_condition": {
-                        "type": "origins:resource",
-                        "resource": "manhunt:imp/pitchfork_levels",
-                        "comparison": "==",
-                        "compare_to": 2
-                    }
-                }
-            ]
+            "type": "origins:projectile",
+            "projectile": "minecraft:trident"
         },
         "modifier": {
             "operation": "addition",
-            "value": 3.0
+            "value": -1.0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_levels",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "dia_projectile_dmg": {
+        "type": "origins:modify_projectile_damage",
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "minecraft:trident"
+        },
+        "modifier": {
+            "operation": "addition",
+            "value": 1.0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_levels",
+            "comparison": "==",
+            "compare_to": 2
         }
     },
     "netherite_projectile_dmg": {
         "type": "origins:modify_projectile_damage",
         "damage_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:projectile",
-                    "projectile": "minecraft:trident"
-                },
-                {
-                    "type": "origins:attacker",
-                    "entity_condition": {
-                        "type": "origins:resource",
-                        "resource": "manhunt:imp/pitchfork_levels",
-                        "comparison": "==",
-                        "compare_to": 3
-                    }
-                }
-            ]
+            "type": "origins:projectile",
+            "projectile": "minecraft:trident"
         },
         "modifier": {
             "operation": "addition",
-            "value": 5.0
+            "value": 4.0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_levels",
+            "comparison": "==",
+            "compare_to": 3
         }
     },
     "scoreboard": {
@@ -557,6 +530,78 @@
                 }
             ]
         }
+    },
+    "tooltip_flint": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"imp_trident\",\"lvl1\"]}"
+        },
+        "texts": [
+            [
+                "Whilst preparing your trident, press \"",
+                {
+                    "keybind": "key.origins.primary_active",
+                    "color": "dark_purple"
+                },
+                "\" to incarnate!"
+            ],
+            "(Ranged DMG: 4)"
+        ]
+    },
+    "tooltip_iron": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"imp_trident\",\"lvl2\"]}"
+        },
+        "texts": [
+            [
+                "Whilst preparing your trident, press \"",
+                {
+                    "keybind": "key.origins.primary_active",
+                    "color": "dark_purple"
+                },
+                "\" to incarnate!"
+            ],
+            "(Ranged DMG: 7)"
+        ]
+    },
+    "tooltip_diamond": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"imp_trident\",\"lvl3\"]}"
+        },
+        "texts": [
+            [
+                "Whilst preparing your trident, press \"",
+                {
+                    "keybind": "key.origins.primary_active",
+                    "color": "dark_purple"
+                },
+                "\" to incarnate!"
+            ],
+            "(Ranged DMG: 9)"
+        ]
+    },
+    "tooltip_netherite": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"imp_trident\",\"lvl4\"]}"
+        },
+        "texts": [
+            [
+                "Whilst preparing your trident, press \"",
+                {
+                    "keybind": "key.origins.primary_active",
+                    "color": "dark_purple"
+                },
+                "\" to incarnate!"
+            ],
+            "(Ranged DMG: 11)"
+        ]
     },
     "name": "Imp's Recipe",
     "description": "Craft a trident by putting a flint, and two sticks underneath in a crafting table's grid. This pitchfork can be upgraded with resources and be incarnated. (see badges)",
