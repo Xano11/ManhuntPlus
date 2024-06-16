@@ -114,6 +114,37 @@
             "comparison": "=="
         }
     },
+    "boomring": {
+        "type": "origins:action_on_item_use",
+        "trigger": "stop",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s positioned ^ ^1.8 ^1.5 run function manhunt:abilities/whisper_boomring",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.shoot player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:bow"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:damned/bow/bow_windup",
+            "compare_to": 40,
+            "comparison": "=="
+        }
+    },
     "tag_arrow": {
         "type": "apugli:projectile_action_over_time",
         "rising_action": {
@@ -245,7 +276,7 @@
     },
     "disable": {
         "type": "origins:modify_projectile_damage",
-        "self_action":  {
+        "self_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:damned/bow/bow_power_check",
             "change": -1
