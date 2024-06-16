@@ -75,7 +75,7 @@
                                     "action": {
                                         "type": "origins:add_velocity",
                                         "z": 1,
-                                        "space": "velocity"
+                                        "space": "velocity_horizontal_normalized"
                                     }
                                 },
                                 {
