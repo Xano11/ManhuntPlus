@@ -45,7 +45,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/community/silent/badge/math/expression_multiply_alt.png",
             "text": "Fishlover: Fish gives slightly more food but anything else offers half the food and saturation.\nAdditionally, pufferfish doesn't poison you."
         }
     ]
