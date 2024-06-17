@@ -4,24 +4,13 @@
         "type": "origins:action_when_damage_taken",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "power grant @s manhunt:celeritas/feeble",
+            "command": "power grant @s manhunt:celeritas/frames",
             "permission_level": 4
         },
         "damage_condition": {
             "type": "origins:attacker",
             "entity_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "apoli:entity_type",
-                        "entity_type": "minecraft:player"
-                    },
-                    {
-                        "type": "origins:origin",
-                        "origin": "manhunt:hunter",
-                        "layer": "origins:origin"
-                    }
-                ]
+                "type": "origins:exists"
             }
         },
         "cooldown": 1
@@ -40,7 +29,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Feeble: §c-2§r §l§c❤§r\nWhen taking damage from a Hunter, you lose §c-25%§r Invincibility Frames for 10s."
+            "text": "Feeble: §c-2§r §l§c❤§r\nWhen taking damage from an entity, you lose §c-25%§r Invincibility Frames for 10s."
         }
     ]
 }

@@ -173,17 +173,6 @@
             ]
         }
     },
-    "crit": {
-        "type": "eggolib:action_on_critical_hit",
-        "bientity_action": {
-            "type": "apoli:actor_action",
-            "action": {
-                "type": "origins:change_resource",
-                "resource": "manhunt:celeritas/boots/boots_energy",
-                "change": 10
-            }
-        }
-    },
     "speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -544,7 +533,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Gain §l§a+80%§r Speed & §l§a+45%§r Air Speed while active.\nYou can even walk on air while holding right-click! Air Walking reduces your air speed when used.\nThere's a few ways to recharge:\nStand still: 28%/1s Recharge\nWalk: 5%/1s Recharge\nDeal a critical hit: 7% Recharge"
+            "text": "Gain §l§a+80%§r Speed & §l§a+45%§r Air Speed while active.\nYou can even walk on air while holding right-click! Air Walking reduces your air speed when used.\nThere's a few ways to recharge:\nStand still: 28%/1s Recharge\nWalk: 5%/1s Recharge"
         },
         {
             "type": "origins:keybind",
