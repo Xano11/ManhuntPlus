@@ -25,6 +25,14 @@
             ]
         }
     },
+    "apron_remove":{
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:air"
+        },
+        "execute_chosen_when_orb": true
+    },
     "fire_mitigation": {
         "type": "origins:modify_damage_taken",
         "damage_condition": {
@@ -42,7 +50,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "minecraft:textures/item/leather_chestplate.png",
             "text": "You cannot wear chestplates and are forced to have the Fiery Apron.\nThe fiery apron only provides 1 armor but reduces fire-related damage by 35%."
         }
     ]

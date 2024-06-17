@@ -58,19 +58,23 @@
             "key": "key.origins.primary_active"
         },
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
                         "type": "origins:ingredient",
                         "ingredient": {
                             "item": "minecraft:compass"
                         }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:\"manhunt_compass\"}"
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "duration": {
@@ -81,9 +85,10 @@
         "hud_render": {
             "should_render": false
         },
-        "min_action":{
+        "min_action": {
             "type": "origins:and",
-            "actions": [{
+            "actions": [
+                {
                     "type": "origins:execute_command",
                     "command": "summon minecraft:armor_stand ~ ~ ~ {Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:[\"switchtp\"]}",
                     "permission_level": 4
@@ -133,6 +138,31 @@
             "change": -1
         },
         "interval": 1
+    },
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:\"manhunt_compass\"}"
+        },
+        "texts": [
+            [
+                "Cycle between hunters with \"",
+                {
+                    "keybind": "key.use",
+                    "color": "red"
+                },
+                "\""
+            ],
+            [
+                "Press \"",
+                {
+                    "keybind": "key.origins.primary_active",
+                    "color": "red"
+                },
+                "\"to switch!"
+            ]
+        ]
     },
     "name": "Switch",
     "description": "Use hunter compasses to switch position with a hunter at your desire.",

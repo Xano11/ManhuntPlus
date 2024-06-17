@@ -2,6 +2,7 @@
     "type": "origins:multiple",
     "prevent_item": {
         "type": "origins:prevent_item_use",
+        "name":"🚫",
         "item_condition": {
             "type": "origins:ingredient",
             "ingredient": {

@@ -545,7 +545,7 @@
         "max": 45,
         "start_value": 0
     },
-    "falling":{
+    "falling": {
         "type": "origins:modify_falling",
         "velocity": 0.004,
         "take_fall_damage": false,
@@ -639,21 +639,22 @@
     "land": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type":"origins:and",
-            "actions":[{
-            "type": "origins:change_resource",
-            "resource": "manhunt:falconer/falcon/forth_lend_land",
-            "change": 0,
-            "operation": "set"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:falconer/falcon/forth_lend_land",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:falconer/falcon/forth_slow_fall",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
         },
-        {
-            "type": "origins:change_resource",
-            "resource": "manhunt:falconer/falcon/forth_slow_fall",
-            "change": 0,
-            "operation": "set"
-        }
-    ]
-},
         "interval": 1,
         "condition": {
             "type": "origins:and",

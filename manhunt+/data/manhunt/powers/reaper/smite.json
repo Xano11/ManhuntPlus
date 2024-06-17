@@ -1,0 +1,103 @@
+{
+	"type": "origins:multiple",
+	"weakness": {
+		"type": "origins:entity_group",
+		"group": "undead"
+	},
+	"curse": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:modify_inventory",
+					"inventory_type": "inventory",
+					"item_condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "head"
+							},
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "chest"
+							},
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "legs"
+							},
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "feet"
+							}
+						]
+					},
+					"item_action": {
+						"type": "origins:modify",
+						"modifier": "manhunt:reaper/reaper_curse"
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:sculk_soul ~ ~1 ~ 0.1 0.1 0.1 0.05 10"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:particle.soul_escape player @a ~ ~ ~ 1 0.5"
+				}
+			]
+		},
+		"interval": 20,
+		"condition": {
+			"type": "origins:inventory",
+			"item_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "head"
+							},
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "chest"
+							},
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "legs"
+							},
+							{
+								"type": "origins:is_equippable",
+								"equipment_slot": "feet"
+							}
+						]
+					},
+					{
+						"type": "origins:nbt",
+						"nbt": "{Tags:[\"cursed\"]}",
+						"inverted": true
+					}
+				]
+			},
+			"comparison": ">=",
+			"compare_to": 1
+		}
+	},
+	"name": "Soul-Based",
+	"description": "Your soul's essence fears enchantments and curses all armor it touches.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "All armor in your inventory is cursed with Curse of Vanishing.\nITEMS CURSED LOSE ALL OTHER ENCHANTMENTS."
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "(Smite deals §l§c2.5§r extra damage per level)"
+		}
+	]
+}

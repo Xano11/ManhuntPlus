@@ -21,6 +21,16 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:step_height 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale add pehkui:step_height -1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 0 0.06 0.2 1 0 0.3 0.7 ~ ~1 ~ 0.3 0.3 0.3 1 100"
                 },
                 {
@@ -65,7 +75,7 @@
                         "comparison": "<=",
                         "compare_to": 7
                     },
-                    "count": 10,
+                    "count": 7,
                     "speed": 0.0,
                     "force": true,
                     "spread": {
@@ -76,7 +86,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.4 0.7"
+                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.3 0.7"
                 }
             ]
         },
@@ -153,6 +163,16 @@
                     "resource": "manhunt:sicarius/cloak_duration",
                     "change": 140,
                     "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:step_height 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale add pehkui:step_height 1",
+                    "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",

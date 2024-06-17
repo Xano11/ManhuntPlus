@@ -381,14 +381,14 @@
           },
           {
             "type": "origins:resource",
-            "resource": "manhunt:ban_ritualist",
+            "resource": "manhunt:ban_reaper",
             "comparison": "==",
             "compare_to": 0
           }
         ]
       },
       "origins": [
-        "manhunt:hunters/ritualist"
+        "manhunt:hunters/reaper"
       ]
     },
     {

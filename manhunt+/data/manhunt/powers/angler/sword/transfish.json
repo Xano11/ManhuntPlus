@@ -54,7 +54,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "item replace entity @s weapon.mainhand with iron_sword{Enchantments:[{}],RepairCost:9999,CustomModelData:1,Tags:[\"swordfish\"],display:{Name:'[{\"text\":\"Sword\",\"italic\":false,\"color\":\"white\"},{\"text\":\"Fish\",\"color\":\"blue\"}]'}} 1"
+                    "command": "item replace entity @s weapon.mainhand with iron_sword{display:{Name:'[\"\",{\"text\":\"Sword\",\"italic\":false},{\"text\":\"Fish\",\"italic\":false,\"color\":\"blue\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"3 Attack Damage\",\"italic\":false,\"color\":\"aqua\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"aqua\"}]']},Enchantments:[{}],RepairCost:9999,CustomModelData:1,Tags:[\"swordfish\"],HideFlags:2} 1"
                 },
                 {
                     "type": "origins:change_resource",
@@ -316,7 +316,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "manhunt:textures/item/swordfish.png",
             "text": "The Swordfish deals 3 damage per hit outside of water. Whilst submerged in water, you deal 5 instead.\nCan also be used for \"Fierce Fish Dash\" (see badge)\nAny other weapon than the swordfish deals -1 damage."
         },
         {

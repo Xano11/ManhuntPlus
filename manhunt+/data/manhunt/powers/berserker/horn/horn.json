@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "horn":{
+    "horn": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
@@ -16,16 +16,14 @@
         },
         "execute_chosen_when_orb": false
     },
-
     "craft_berserker_horn": {
         "type": "origins:modify_crafting",
         "recipe": "manhunt:berserker_horn",
         "result": {
             "item": "minecraft:goat_horn",
-            "tag": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
+            "tag": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},instrument:\"minecraft:sing_goat_horn\",CustomModelData:1,Tags:berserker_horn}"
         }
     },
-
     "using": {
         "type": "origins:active_self",
         "entity_action": {
@@ -48,40 +46,40 @@
                     "command": "power grant @s manhunt:berserker/horn/horn_effects_self"
                 },
                 {
-					"type": "origins:spawn_entity",
-					"entity_type": "minecraft:armor_stand",
-					"tag": "{Marker:1b,Invisible:1b,Tags:[\"horn_effect\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"horn_effect\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:music_disc_pigstep\",Count:1b,tag:{CustomModelData:1}}}]}",
-					"entity_action": {
-						"type": "origins:and",
-						"actions": [
-							{
-								"type": "origins:execute_command",
-								"command": "tp @s ~ ~1.8 ~",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "power grant @s manhunt:berserker/horn/anim",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
-								"permission_level": 4
-							},
-							{
-								"type": "origins:execute_command",
-								"command": "execute on passengers run data modify entity @s transformation.scale set value [5f,5f,1f]",
-								"permission_level": 4
-							}
-						]
-					}
-				}
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Marker:1b,Invisible:1b,Tags:[\"horn_effect\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:-3,interpolation_duration:0,Tags:[\"horn_effect\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:music_disc_pigstep\",Count:1b,tag:{CustomModelData:1}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~1.8 ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:berserker/horn/anim",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [5f,5f,1f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "condition": {
@@ -89,7 +87,7 @@
             "equipment_slot": "mainhand",
             "item_condition": {
                 "type": "origins:nbt",
-                "nbt": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
+                "nbt": "{Tags:berserker_horn}"
             }
         },
         "hud_render": {
@@ -103,14 +101,28 @@
         },
         "cooldown": 900
     },
-
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:berserker_horn}"
+        },
+        "text": [
+            "Blow the horn with \"",
+            {
+                "keybind": "key.use",
+                "color": "gold"
+            },
+            "\"!"
+        ]
+    },
     "name": "Horny (Wait-)",
     "description": "Craft your signiture berserker Horn, which when blown will grant a boon to your fellow hunters.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "grant all nearby hunters (24 block radius) 15s of §e'💬 §nInspire'§r\n§e'💬 §nInspire'§r: 30% more movement and +0.3 attack speed.\nThe Berserker using the horn, gains §4'😡 §nFury of The Hunt'§r for 20s\n§4'😡 §nFury of The Hunt'§r: When being hit by a runner heal 3hp over 3s"
+            "text": "Grant all nearby hunters (24 block radius) 15s of §e'💬 §nInspire'§r\n§e'💬 §nInspire'§r: 30% more movement and +0.3 attack speed.\nThe Berserker using the horn, gains §4'😡 §nFury of The Hunt'§r for 20s\n§4'😡 §nFury of The Hunt'§r: When being hit by a runner heal 3hp over 3s"
         },
         {
             "type": "origins:tooltip",

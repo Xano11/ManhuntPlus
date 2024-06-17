@@ -75,7 +75,7 @@
                                     "action": {
                                         "type": "origins:add_velocity",
                                         "z": 1,
-                                        "space": "velocity"
+                                        "space": "velocity_horizontal_normalized"
                                     }
                                 },
                                 {
@@ -254,7 +254,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/toggle.png",
+            "sprite": "minecraft:textures/item/fishing_rod.png",
             "text": [
                 "Hold \"",
                 {

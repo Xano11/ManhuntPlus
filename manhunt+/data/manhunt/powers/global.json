@@ -65,33 +65,6 @@
         "green": 1.0,
         "blue": 0.7
     },
-    "prevent_soul_pickup": {
-        "type": "eggolib:prevent_item_pickup",
-        "bientity_condition": {
-            "type": "origins:target_condition",
-            "condition": {
-                "type": "origins:origin",
-                "origin": "manhunt:hunters/ritualist",
-                "layer": "manhunt:hunters",
-                "inverted": true
-            }
-        },
-        "item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{CustomModelData:1}"
-                },
-                {
-                    "type": "origins:ingredient",
-                    "ingredient": {
-                        "item": "minecraft:cyan_dye"
-                    }
-                }
-            ]
-        }
-    },
     "bonk": {
         "type": "origins:action_on_hit",
         "bientity_action": {
@@ -146,6 +119,12 @@
                 "origin": "manhunt:runners/deleo",
                 "layer": "manhunt:runners"
             }
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/relentless",
+            "layer": "manhunt:hunters",
+            "inverted": true
         }
     },
     "prevent_other_paranoias": {
@@ -246,13 +225,13 @@
             "value": -0.9
         }
     },
-    "crit_ritualist": {
+    "crit_reaper": {
         "type": "eggolib:action_on_critical_hit",
         "bientity_action": {
             "type": "apoli:target_action",
             "action": {
                 "type": "origins:change_resource",
-                "resource": "manhunt:ritualist/sacrifice_souls",
+                "resource": "manhunt:reaper/sacrifice_souls",
                 "change": -1
             }
         },
@@ -260,7 +239,7 @@
             "type": "origins:target_condition",
             "condition": {
                 "type": "origins:origin",
-                "origin": "manhunt:hunters/ritualist",
+                "origin": "manhunt:hunters/reaper",
                 "layer": "manhunt:hunters"
             }
         }
@@ -296,10 +275,20 @@
                 }
             ]
         },
-        "text": {
-            "text": "Curse of Deterioration",
-            "color": "red"
-        }
+        "texts": [
+            [
+                {
+                    "text": "Curse of Deterioration",
+                    "color": "red"
+                }
+            ],
+            [
+                "Deleo's curse is destroying this item."
+            ],
+            [
+                "(5 durability lost per 2s whilst equipped)"
+            ]
+        ]
     },
     "tooltip_glass_shield": {
         "type": "origins:tooltip",
@@ -367,7 +356,7 @@
             "color": "gray"
         }
     },
-    "particles":{
+    "particles": {
         "type": "origins:particle",
         "particle": "minecraft:enchant",
         "frequency": 6,
@@ -376,13 +365,13 @@
             "process_mode": "items",
             "comparison": ">=",
             "compare_to": 1,
-            "item_condition": { 
+            "item_condition": {
                 "type": "origins:has_power",
                 "power": "manhunt:enchanter/recall/enchanted"
             }
         }
     },
-    "lodestone_fortuna":{
+    "lodestone_fortuna": {
         "type": "origins:prevent_entity_render",
         "bientity_condition": {
             "type": "origins:and",
@@ -402,7 +391,7 @@
             ]
         }
     },
-    "oneshot_prot":{
+    "oneshot_prot": {
         "type": "origins:prevent_death",
         "damage_condition": {
             "type": "origins:attacker",
@@ -414,7 +403,7 @@
             }
         }
     },
-    "chef_food":{
+    "chef_food": {
         "type": "origins:edible_item",
         "item_condition": {
             "type": "origins:nbt",
@@ -424,12 +413,43 @@
             "hunger": 3,
             "saturation": 0.3
         },
-        "consuming_time_modifier":{
+        "consuming_time_modifier": {
             "operation": "multiply_total",
             "value": -0.25
         },
         "consume_sound": "minecraft:entity.generic.eat",
         "use_action": "eat"
+    },
+    "imp_trident": {
+        "type": "origins:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"imp_trident\"]}"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "imp_trident_inv": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:drop_inventory",
+            "retain_ownership": false,
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"imp_trident\"]}"
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
     },
     "hidden": true
 }

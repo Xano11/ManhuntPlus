@@ -124,7 +124,8 @@
         "shader": "minecraft:shaders/post/phosphor.json"
     },
     "prevent_item": {
-        "type": "origins:prevent_item_use"
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
     },
     "prevent_block": {
         "type": "origins:prevent_block_use"

@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "atk_speed2": {
+    "sneak_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "name": "Increase sneak speed",

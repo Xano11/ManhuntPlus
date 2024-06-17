@@ -11,11 +11,11 @@
                 "sprite_location": "manhunt:textures/bars/deleo/deleo.png",
                 "bar_index": 0,
                 "icon_index": 0,
-                "condition":{
+                "condition": {
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/disable/disable_energy",
-                    "comparison": "==",
-                    "compare_to": 100
+                    "comparison": ">=",
+                    "compare_to": 60
                 }
             },
             {
@@ -23,11 +23,11 @@
                 "sprite_location": "manhunt:textures/bars/deleo/deleo.png",
                 "bar_index": 0,
                 "icon_index": 1,
-                "condition":{
+                "condition": {
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/disable/disable_energy",
                     "comparison": "<",
-                    "compare_to": 100
+                    "compare_to": 60
                 }
             }
         ]
@@ -39,7 +39,24 @@
             "resource": "manhunt:deleo/disable/disable_energy",
             "change": 1
         },
-        "interval": 10
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "<",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disable_windup",
+                    "comparison": "<",
+                    "compare_to": 15
+                }
+            ]
+        }
     },
     "key_check": {
         "type": "origins:resource",

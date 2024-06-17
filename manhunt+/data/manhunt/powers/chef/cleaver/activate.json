@@ -178,14 +178,29 @@
             "duration": 3
         }
     },  
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:has_power",
+            "power": "manhunt:chef/cleaver/cleaver"
+        },
+        "text": [
+            "Hold \"",
+            {
+                "keybind": "key.origins.primary_active",
+                "color": "dark_red"
+            },
+            "\" and attack to launch yourself upwards!"
+        ]
+    },
     "name": "Chef's Flambée",
     "description": "A true chef is always best equipped to cook a five-star meal...",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "manhunt:textures/item/netherite_cleaver.png",
             "text": [
-                "Your sword can be transformed into a fiery cleaver for 10s.\nWhilst transformed, your next hit deals 20% crit damage and lights up the target for 3s.\nWhilst holding \"",
+                "Your sword can be transformed into a fiery cleaver for 10s.\n\n§l§4CLEAVER🔪§r\nWhilst transformed, your next hit deals 20% crit damage and lights up the target for 3s.\nWhilst holding \"",
                 {
                     "keybind": "key.origins.primary_active"
                 },

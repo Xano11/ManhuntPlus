@@ -1,0 +1,45 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 120,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:reaper/soulstruck/struck"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:reaper/soulstruck/struck_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "glow":{
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0,
+        "green": 0.15,
+        "blue": 0.2,
+        "bientity_condition": {
+            "type": "origins:can_see"
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 0 0.2 0.4 1 0 0.8 1 ~ ~1 ~ 0.4 0.5 0.4 0.1 10",
+            "permission_level": 4
+        },
+        "interval": 2
+    },
+    "hidden": true
+}

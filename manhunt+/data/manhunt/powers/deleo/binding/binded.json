@@ -390,7 +390,8 @@
         }
     },
     "prevent_item": {
-        "type": "origins:prevent_item_use"
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
     },
     "no_exhaust": {
         "type": "origins:modify_exhaustion",
@@ -401,10 +402,7 @@
         }
     },
     "no_pickup": {
-        "type": "eggolib:prevent_item_pickup",
-        "item_condition": {
-            "type": "eggolib:block_item"
-        }
+        "type": "origins:prevent_item_pickup"
     },
     "mobs_ignore": {
         "type": "apugli:mobs_ignore"

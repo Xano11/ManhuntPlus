@@ -24,6 +24,7 @@
         "interval": 1
     },
     "unable": {
+        "name":"🚫",
         "type": "origins:prevent_item_use",
         "item_condition": {
             "type": "origins:ingredient",

@@ -118,6 +118,7 @@
         }
     },
     "prevent_item": {
+        "name":"🚫",
         "type": "origins:prevent_item_use"
     },
     "no_exhaust": {
@@ -137,10 +138,7 @@
         ]
     },
     "no_pickup": {
-        "type": "eggolib:prevent_item_pickup",
-        "item_condition": {
-            "type": "eggolib:block_item"
-        }
+        "type": "origins:prevent_item_pickup"
     },
     "mobs_ignore": {
         "type": "apugli:mobs_ignore"

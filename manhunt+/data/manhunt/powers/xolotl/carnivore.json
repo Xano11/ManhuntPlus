@@ -2,6 +2,7 @@
     "type": "origins:multiple",
     "carnivore": {
         "type": "origins:prevent_item_use",
+        "name":"🚫",
         "item_condition": {
             "type": "origins:and",
             "conditions": [

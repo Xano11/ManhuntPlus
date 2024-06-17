@@ -227,8 +227,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Whilst your fishing hook is in water, you can activate the ability.\nIt will allow one hunter to teleport to you after a short duration."
+            "sprite": "minecraft:textures/item/cod.png",
+            "text": "Whilst your fishing hook is in water, you can activate §2§lFISH OUT🐟§r!.\n§2§lFISH OUT🐟§r\nSends a teleport request to all hunters.\nOnly one hunter can accept the notification."
         },
         {
             "type": "origins:keybind",

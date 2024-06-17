@@ -206,7 +206,8 @@
         }
     },
     "prevent_item": {
-        "type": "origins:prevent_item_use"
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
     },
     "prevent_block": {
         "type": "origins:prevent_block_use"
@@ -228,7 +229,7 @@
         }
     },
     "item_pickup": {
-        "type": "eggolib:prevent_item_pickup"
+        "type": "origins:prevent_item_pickup"
     },
     "no_break": {
         "type": "origins:modify_break_speed",

@@ -12,6 +12,110 @@
             "should_render": false
         }
     },
+    "crosshair_hunter": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:scanner/crosshair_hunter"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "compare_to": 40,
+                    "comparison": ">",
+                    "resource": "manhunt:scanner/solar_battery_energy"
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 50,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    },
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "crosshair_runner": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:scanner/crosshair_runner"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "compare_to": 40,
+                    "comparison": ">",
+                    "resource": "manhunt:scanner/solar_battery_energy"
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle"
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 50,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runner",
+                            "layer": "origins:origin"
+                        }
+                    },
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:runner",
+                            "layer": "origins:origin"
+                        }
+                    }
+                }
+            ]
+        }
+    },
     "overlay1": {
         "type": "origins:overlay",
         "texture": "manhunt:textures/gui/overlays/scanner_scan1.png",
@@ -73,7 +177,7 @@
             "actions": [
                 {
                     "type": "origins:raycast",
-                    "distance": 50,
+                    "distance": 51,
                     "block": false,
                     "entity": true,
                     "shape_type": "outline",
@@ -124,15 +228,6 @@
                                             {
                                                 "type": "origins:add_to_set",
                                                 "set": "manhunt:scanner/laser/laser_pointer_tracked"
-                                            },
-                                            {
-                                                "type": "origins:actor_action",
-                                                "action": {
-                                                    "type": "origins:change_resource",
-                                                    "resource": "manhunt:scanner/laser/laser_pointer_scanned",
-                                                    "change": 1,
-                                                    "operation": "set"
-                                                }
                                             }
                                         ]
                                     }
@@ -277,6 +372,28 @@
                     "key": {
                         "key": "key.origins.primary_active",
                         "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 50,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "match_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        }
+                    },
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        }
                     }
                 }
             ]

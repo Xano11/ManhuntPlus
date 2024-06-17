@@ -1,0 +1,16 @@
+{
+	"powers": [
+		"manhunt:reaper/soul_teleport",
+		"manhunt:reaper/soulfeed",
+		"manhunt:reaper/smite",
+		"origins:nine_lives"
+	],
+	"icon": {
+		"item": "minecraft:cyan_dye",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Reaper",
+	"description": "          [§cRIVALS ✘§r]\nWith an inner connection to the deceased, the Reaper swoops in to harvest the souls of the unfortunate."
+}

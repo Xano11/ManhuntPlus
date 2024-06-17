@@ -76,25 +76,8 @@
                                 }
                             },
                             {
-                                "type": "origins:or",
-                                "conditions": [
-                                    {
-                                        "type": "origins:nbt",
-                                        "nbt": "{CustomPotionColor:9004728,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Concoction\",\"italic\":false,\"color\":\"dark_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
-                                    },
-                                    {
-                                        "type": "origins:nbt",
-                                        "nbt": "{CustomPotionColor:13061821,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Volatile Mixture\",\"italic\":false,\"color\":\"light_purple\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:alchimia}"
-                                    },
-                                    {
-                                        "type": "origins:nbt",
-                                        "nbt": "{CustomPotionColor:16706109,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Awakened Eyes\",\"italic\":false,\"color\":\"yellow\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
-                                    },
-                                    {
-                                        "type": "origins:nbt",
-                                        "nbt": "{CustomPotionColor:11546150,display:{Name:'[\"\",{\"text\":\"Alchimia\\'s Boiling Strength\",\"italic\":false,\"color\":\"dark_red\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:alchimia}"
-                                    }
-                                ]
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:\"alchimia\"}"
                             }
                         ]
                     },
