@@ -13,8 +13,8 @@
         "condition": {
             "type": "origins:fluid_height",
             "fluid": "minecraft:water",
-            "comparison": ">=",
-            "compare_to": 1
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "sink":{
@@ -37,8 +37,8 @@
         "condition": {
             "type": "origins:fluid_height",
             "fluid": "minecraft:water",
-            "comparison": ">=",
-            "compare_to": 1
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "slow_swim":{

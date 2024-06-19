@@ -136,11 +136,24 @@
             "minecraft:hud/crosshair": "manhunt:deleo/crosshair"
         },
         "condition": {
+            "type":"origins:and",
+            "conditions":[{
             "type": "origins:resource",
             "resource": "manhunt:deleo/frozen/active_windup",
             "comparison": "==",
             "compare_to": 15
+        },
+        {
+            "type": "origins:raycast",
+            "block": true,
+            "entity": true,
+            "distance": 24,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "command_step": 1
         }
+    ]
+}
     },
     "glow": {
         "type": "origins:entity_glow",
@@ -174,6 +187,26 @@
             "compare_to": 15
         }
     },
+    "aiming": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:raycast",
+            "block": true,
+            "entity": true,
+            "distance": 24,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "command_step": 1,
+            "command_at_hit": "particle minecraft:dust_color_transition 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.05 0.05 0.05 1 2 force @a[tag=runner]"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/frozen/active_windup",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
     "invoke": {
         "type": "origins:active_self",
         "entity_action": {
@@ -186,46 +219,68 @@
                     "distance": 24,
                     "shape_type": "collider",
                     "fluid_handling": "none",
+                    "hit_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:deleo/disable/disable_energy",
+                        "change": -50
+                    },
                     "bientity_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:target_action",
-                                "action": {
-                                    "type": "origins:spawn_entity",
-                                    "entity_type": "minecraft:armor_stand",
-                                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"deleo_area\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"deleo_area\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,-0.5f],scale:[16f,16f,0.1f]},item:{id:\"minecraft:ender_pearl\",Count:1b,tag:{CustomModelData:2}}}]}",
-                                    "entity_action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:execute_command",
-                                                "command": "power grant @s manhunt:deleo/frozen/area",
-                                                "permission_level": 4
-                                            },
-                                            {
-                                                "type": "origins:execute_command",
-                                                "command": "data modify entity @s Rotation set value [0f,0f]",
-                                                "permission_level": 4
-                                            },
-                                            {
-                                                "type": "origins:execute_command",
-                                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
-                                                "permission_level": 4
-                                            }
-                                        ]
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:armor_stand",
+                            "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"deleo_area\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"deleo_area\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,-0.5f],scale:[14f,14f,0.1f]},item:{id:\"minecraft:ender_pearl\",Count:1b,tag:{CustomModelData:2}}}]}",
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:deleo/frozen/area",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s Rotation set value [0f,0f]",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
+                                        "permission_level": 4
                                     }
-                                }
-                            },
-                            {
-                                "type": "origins:actor_action",
-                                "action": {
-                                    "type": "origins:change_resource",
-                                    "resource": "manhunt:deleo/disable/disable_energy",
-                                    "change": -50
-                                }
+                                ]
                             }
-                        ]
+                        }
+                    },
+                    "block_action": {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:armor_stand",
+                        "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"deleo_area\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"deleo_area\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,-0.05f],scale:[14f,14f,0.1f]},item:{id:\"minecraft:ender_pearl\",Count:1b,tag:{CustomModelData:2}}}]}",
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s ~ ~0.51 ~",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:deleo/frozen/area",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "data modify entity @s Rotation set value [0f,0f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
                     },
                     "bientity_condition": {
                         "type": "origins:target_condition",

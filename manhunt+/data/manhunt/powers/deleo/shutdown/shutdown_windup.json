@@ -33,17 +33,8 @@
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power grant @s manhunt:deleo/shutdown/shutdown_effects"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power grant @s manhunt:deleo/disable/disabled"
-                                }
-                            ]
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:deleo/frozen/frozen"
                         }
                     },
                     "bientity_condition": {
@@ -66,17 +57,8 @@
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power grant @s manhunt:deleo/shutdown/shutdown_effects"
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "power grant @s manhunt:deleo/disable/disabled"
-                                }
-                            ]
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:deleo/frozen/frozen"
                         }
                     },
                     "bientity_condition": {
