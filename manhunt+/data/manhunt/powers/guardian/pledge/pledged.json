@@ -420,11 +420,19 @@
                 {
                     "type": "apugli:entity_in_radius",
                     "bientity_condition": {
-                        "type": "origins:invert",
-                        "condition": {
-                            "type": "origins:in_set",
-                            "set": "manhunt:guardian/pledge/protector_pledged"
-                        }
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:invert",
+                                "condition": {
+                                    "type": "origins:in_set",
+                                    "set": "manhunt:guardian/pledge/protector_pledged"
+                                }
+                            },
+                            {
+                                "type": "origins:can_see"
+                            }
+                        ]
                     },
                     "radius": 32.0,
                     "comparison": ">=",
@@ -498,7 +506,10 @@
                                 {
                                     "type": "origins:distance",
                                     "comparison": "<=",
-                                    "compare_to": 30
+                                    "compare_to": 32
+                                },
+                                {
+                                    "type": "origins:can_see"
                                 }
                             ]
                         }
@@ -524,11 +535,19 @@
                 {
                     "type": "apugli:entity_in_radius",
                     "bientity_condition": {
-                        "type": "origins:invert",
-                        "condition": {
-                            "type": "origins:in_set",
-                            "set": "manhunt:guardian/pledge/protector_pledged"
-                        }
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:invert",
+                                "condition": {
+                                    "type": "origins:in_set",
+                                    "set": "manhunt:guardian/pledge/protector_pledged"
+                                }
+                            },
+                            {
+                                "type": "origins:can_see"
+                            }
+                        ]
                     },
                     "radius": 32.0,
                     "comparison": ">=",
