@@ -42,7 +42,8 @@
                     {
                         "type": "origins:change_resource",
                         "resource": "manhunt:bomber/kamikaze_cooldown",
-                        "change": 1800
+                        "change": 0,
+                        "operation": "set"
                     },
                     {
                         "type": "origins:change_resource",
