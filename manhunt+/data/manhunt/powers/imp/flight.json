@@ -63,7 +63,7 @@
                 },
                 {
                     "type": "origins:add_velocity",
-                    "z": 0.2,
+                    "z": 0.23,
                     "space": "local"
                 },
                 {
