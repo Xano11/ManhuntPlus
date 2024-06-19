@@ -15,7 +15,12 @@
     },
     "label":{
         "type": "eggolib:modify_label_render",
-        "render_mode": "hide_completely"
+        "render_mode": "hide_completely",
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:start",
+            "inverted": true
+        }
     },
     "name": "Sneaky Snitch",
     "description": "Your presence is not even felt by the most aware of beings in the world.",
