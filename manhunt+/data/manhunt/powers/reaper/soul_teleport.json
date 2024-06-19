@@ -11,6 +11,56 @@
 			"bar_index": 0
 		}
 	},
+	"key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:reaper/soul_teleport_key_check",
+                    "change": 3,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_charges",
+			"comparison": ">",
+			"compare_to": 0
+		}
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:reaper/soul_teleport_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
 	"recharge": {
 		"type": "origins:action_over_time",
 		"entity_action": {
@@ -59,7 +109,7 @@
 						]
 					},
 					"command_step": 0.1,
-					"command_along_ray": "function manhunt:abilities/reaper_tp",
+					"command_along_ray": "function manhunt:abilities/reaper/tp",
 					"miss_action": {
 						"type": "origins:and",
 						"actions": [
@@ -122,11 +172,10 @@
 					"compare_to": 0
 				},
 				{
-					"type": "apugli:key_pressed",
-					"key": {
-						"key": "key.origins.primary_active",
-						"continuous": true
-					}
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_key_check",
+					"comparison": ">",
+					"compare_to": 0
 				}
 			]
 		},
@@ -212,6 +261,35 @@
 			"name": "invuln",
 			"operation": "multiply_total",
 			"value": -1
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"speed":{
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "multiply_total",
+			"value": 0.35,
+			"name": "Increased speed"
+		},
+		"tick_rate": 2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"air_speed":{
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.2
 		},
 		"condition": {
 			"type": "origins:resource",
@@ -333,7 +411,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "manhunt:textures/icons/cooldown.png",
-			"text": "Max 3 charges\nCharge: 1 every 20s"
+			"text": "Max 3 charges\nCharge: 1 every 15s"
 		}
 	]
 }
