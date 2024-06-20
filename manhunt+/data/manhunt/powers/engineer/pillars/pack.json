@@ -43,7 +43,10 @@
             "resource": "manhunt:engineer/pillars/pack_duration",
             "change": -10
         },
-        "interval": 10
+        "interval": 10,
+        "condition": {
+            "type": "origins:on_block"
+        }
     },
     "construct": {
         "type": "origins:resource",
@@ -101,7 +104,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:engineer/pillars/pack_construct",
-                    "change": 1
+                    "change": 2
                 },
                 {
                     "type": "origins:execute_command",
@@ -118,7 +121,7 @@
         "type": "origins:resource",
         "min": 0,
         "max": 20,
-        "start_value": 0,
+        "start_value": 19,
         "hud_render": {
             "should_render": false
         },
