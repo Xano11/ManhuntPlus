@@ -42,8 +42,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "If your fists aren't imbued with curse energy (Primary), your mining speed is reduced by 50%.\nMining with imbued fists costs 5% energy per block broken."
+            "sprite": "origins:textures/gui/community/silent/badge/icons/pickaxe.png",
+            "text": "If your fists aren't imbued with curse energy (Primary), your mining speed is §nreduced by§r §n§c50%§r.\nMining with imbued fists costs 5% energy §nper block broken§r."
         }
     ]
 }

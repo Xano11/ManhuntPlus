@@ -6,12 +6,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hunters you kill have a §adelayed§r respawn but\nthey §ckeep§r their armors and tools/weapons.\nAdditionally, kept items have Curse of Deterioration applied."
+            "text": "Hunters you kill have a §adelayed§r respawn but\nthey §ckeep§r their armors and tools/weapons.\nAdditionally, kept items have §cCurse of Deterioration §rapplied."
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/icons/deleo_icon.png",
-            "text": "Curse of Deterioration: Items equipped/held lose durability over time and exhaust you."
+            "text": "§cCurse of Deterioration§r: Items equipped/held lose durability over time and exhaust you."
         }
     ]
 }

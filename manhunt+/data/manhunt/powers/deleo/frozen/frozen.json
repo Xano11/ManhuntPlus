@@ -9,9 +9,25 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "power remove @s manhunt:deleo/frozen/frozen",
-            "permission_level": 4
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "set": true
+                },
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:deleo/frozen/frozen",
+                    "permission_level": 4
+                }
+            ]
         }
     },
     "duration_down": {
