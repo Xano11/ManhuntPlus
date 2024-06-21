@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "manhunt:scout_spyglass",
+    "pattern": [
+        " p ",
+        " s ",
+        " s "
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:leather"
+        },
+        "p": {
+            "item": "minecraft:glass"
+        }
+    },
+    "result": {
+        "item": "minecraft:spyglass"
+    }
+}
