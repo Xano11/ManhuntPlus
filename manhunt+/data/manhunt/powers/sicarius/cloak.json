@@ -86,7 +86,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.3 0.7"
+                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.1 0.7"
                 }
             ]
         },
