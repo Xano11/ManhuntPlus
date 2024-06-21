@@ -3,8 +3,19 @@
     "blink_grant": {
         "type": "origins:action_when_damage_taken",
         "entity_action": {
-            "type": "origins:execute_command",
-            "command": "power grant @s manhunt:lurker/blink"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:lurker/blink"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "change": 50,
+                    "operation": "add"
+                }
+            ]
         },
         "cooldown": 30
     },
