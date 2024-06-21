@@ -84,7 +84,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
             "text": "Bloodlust: Strength I, Regeneration II and Saturation I for 7 seconds."
         }
     ]

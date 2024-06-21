@@ -11,10 +11,25 @@
             "bar_index": 5
         },
         "min_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
-            "change": 60,
-            "operation": "set"
+            "type": "origins:if_else",
+            "condition":  {
+                "type": "origins:resource",
+                "resource": "manhunt:sanguis/fury/fury_effects_kills",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+                "change": 1,
+                "operation": "set"
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
+                "change": 60,
+                "operation": "set"
+            }
         }
     },
     "duration_down": {
@@ -25,6 +40,12 @@
             "change": -10
         },
         "interval": 10
+    },
+    "kills": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
     },
     "weak_duration": {
         "type": "origins:resource",
@@ -44,9 +65,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:sanguis/fury/fury_effects_weak_duration",
-            "change": -10
+            "change": -1
         },
-        "interval": 10
+        "interval": 1
     },
     "less_speed": {
         "type": "origins:modify_attribute",
@@ -94,6 +115,12 @@
                     "type": "origins:change_resource",
                     "resource": "manhunt:sanguis/fury/fury_effects_duration",
                     "change": 300,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:sanguis/fury/fury_effects_kills",
+                    "change": 1,
                     "operation": "set"
                 },
                 {
