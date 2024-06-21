@@ -55,8 +55,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Fury: +0.3 attack speed and faster leap cooldown for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 3 seconds."
+            "sprite": "manhunt:textures/item/icons/sanguis_icon.png",
+            "text": "§4§l🗡FURY§r: +0.3 attack speed and faster leap cooldown for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 3 seconds."
         },
         {
             "type": "origins:keybind",

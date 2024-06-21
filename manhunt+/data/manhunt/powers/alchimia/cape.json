@@ -7,6 +7,8 @@
         "start_value": 600,
         "hud_render": {
             "should_render": true,
+            "bar_index": 5,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:alchimia/cape_cooldown",
@@ -52,7 +54,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:witch 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+                    "command": "function manhunt:abilities/alchimia/windup"
                 }
             ]
         },
@@ -129,6 +131,14 @@
                 {
                     "type": "origins:execute_command",
                     "command": "function manhunt:abilities/alchimia/cape"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "OFF_HAND"
                 },
                 {
                     "type": "origins:execute_command",

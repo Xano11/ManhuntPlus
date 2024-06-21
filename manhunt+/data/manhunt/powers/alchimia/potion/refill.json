@@ -82,7 +82,7 @@
                         ]
                     },
                     "comparison": "<",
-                    "compare_to": 5
+                    "compare_to": 3
                 },
                 {
                     "type": "origins:power",
@@ -98,7 +98,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You naturally generate special concoctions every 45 seconds.\nUsing those, you can craft extra potions with different materials! (See other badges)"
+            "text": "You naturally generate special concoctions every 45 seconds; up to 3 maximum at a time.\nUsing those, you can craft extra potions with different materials! (See other badges)"
         },
         {
             "type": "origins:tooltip",

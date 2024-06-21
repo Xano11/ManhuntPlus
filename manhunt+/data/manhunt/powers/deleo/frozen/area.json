@@ -40,12 +40,12 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^4.5 0 0 0 1 1",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^6.5 0 0 0 1 1",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^-4.5 0 0 0 1 1",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^-6.5 0 0 0 1 1",
                     "permission_level": 4
                 },
                 {
@@ -75,7 +75,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.bee.hurt player @a ~ ~ ~ 3 0.5",
+                    "command": "playsound minecraft:entity.warden.listening_angry player @a ~ ~ ~ 2 1.4",
                     "permission_level": 4
                 }
             ]
@@ -100,7 +100,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.bee.hurt player @a ~ ~ ~ 3 0.6",
+                    "command": "playsound minecraft:entity.warden.listening_angry player @a ~ ~ ~ 2 1.6",
                     "permission_level": 4
                 }
             ]
@@ -120,7 +120,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.camel.eat player @a ~ ~ ~ 3 0.8",
+                    "command": "playsound minecraft:entity.warden.sonic_boom player @a ~ ~ ~ 2 1.5",
                     "permission_level": 4
                 },
                 {
@@ -130,7 +130,7 @@
                 },
                 {
                     "type": "origins:area_of_effect",
-                    "radius": 7,
+                    "radius": 6,
                     "shape": "sphere",
                     "bientity_action": {
                         "type": "origins:target_action",
@@ -150,8 +150,8 @@
                                 },
                                 {
                                     "type": "origins:origin",
-                                    "origin": "manhunt:runner",
-                                    "layer": "origins:origin",
+                                    "origin": "manhunt:runners/deleo",
+                                    "layer": "manhunt:runners",
                                     "inverted": true
                                 }
                             ]
