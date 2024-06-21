@@ -1,0 +1,60 @@
+{
+    "type": "origins:multiple",
+    "remove_team": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6,
+        "start_value": 6,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "team leave @s",
+            "permission_level": 4
+        }
+    },
+    "remove_check": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin_neutrality_remove_team",
+            "change": -1
+        },
+        "interval": 5
+    },
+    "particles":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust 1 0 0 1.4 ~ ~1 ~ 0.3 0.3 0.3 1 4",
+            "permission_level": 4
+        },
+        "interval": 10,
+        "condition":  {
+            "type": "origins:command",
+            "command": "execute if entity @s[team=Hunters]",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "check": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a",
+            "bientity_action": {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:piglin_neutrality_remove_team",
+                    "change": 5,
+                    "operation": "set"
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:distance",
+                "comparison": "<=",
+                "compare_to": 64
+            },
+            "interval": 20
+        }
+    }
+}

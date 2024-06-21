@@ -1,0 +1,8 @@
+{
+    "entity_types": [
+        "minecraft:piglin"
+    ],
+    "powers": [
+        "manhunt:piglin_neutrality"
+    ]
+}
