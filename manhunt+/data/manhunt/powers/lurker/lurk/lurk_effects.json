@@ -392,7 +392,7 @@
             "key": "key.use"
         },
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
                     "type": "origins:resource",
@@ -407,32 +407,37 @@
                     "compare_to": 600
                 },
                 {
-                    "type": "apugli:entity_in_radius",
-                    "condition": {
-                        "type": "apoli:entity_type",
-                        "entity_type": "minecraft:player"
-                    },
-                    "radius": 30.0
-                },
-                {
-                    "type": "origins:block_in_radius",
-                    "block_condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:block",
-                                "block": "minecraft:nether_portal"
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "apugli:entity_in_radius",
+                            "condition": {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
                             },
-                            {
-                                "type": "origins:block",
-                                "block": "minecraft:end_portal"
-                            }
-                        ]
-                    },
-                    "radius": 5,
-                    "shape": "cube",
-                    "comparison": ">=",
-                    "compare_to": 1
+                            "radius": 30.0
+                        },
+                        {
+                            "type": "origins:block_in_radius",
+                            "block_condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:nether_portal"
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:end_portal"
+                                    }
+                                ]
+                            },
+                            "radius": 5,
+                            "shape": "cube",
+                            "comparison": ">=",
+                            "compare_to": 1
+                        }
+                    ]
                 }
             ]
         }
@@ -571,7 +576,7 @@
     },
     "prevent_item": {
         "type": "origins:prevent_item_use",
-        "name":"🚫"
+        "name": "🚫"
     },
     "prevent_block": {
         "type": "origins:prevent_block_use"
