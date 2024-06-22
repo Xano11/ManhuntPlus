@@ -149,10 +149,20 @@
                                     "type": "origins:living"
                                 },
                                 {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:runners/deleo",
-                                    "layer": "manhunt:runners",
-                                    "inverted": true
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:runner",
+                                            "layer": "origins:origin",
+                                            "inverted": true
+                                        },
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:runners/deleo",
+                                            "layer": "manhunt:runners"
+                                        }
+                                    ]
                                 }
                             ]
                         }

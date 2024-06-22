@@ -349,7 +349,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/deleo/breakdown.png",
-            "text": "Breakdown will invoke a 6 block radius AOE at the target/area selected which applies §3§l☈BREAK§r§b§lDOWN§r to all entities (Except §lother§r runners)\n\n§3§l☈BREAK§r§b§lDOWN§r: Freezes you in place, exhausts you massively and prevents actions.\n(They do not take damage whilst broken down)"
+            "text": "Breakdown will invoke a 6 block radius AOE at the target/area selected which applies §3§l☈BREAK§r§b§lDOWN§r to all entities (Except §lother§r runners)\n\n§3§l☈BREAK§r§b§lDOWN§r: Freezes you for 3.5s, exhausts you massively and prevents actions.\n(They do not take damage whilst broken down)"
         },
         {
             "type": "origins:tooltip",
