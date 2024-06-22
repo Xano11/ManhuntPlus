@@ -149,6 +149,28 @@
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.wither.shoot player @a ~ ~ ~ 1 2",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 1.5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 1,
+                        "y": 0.15
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "z": -1,
+                        "space": "local"
+                    }
                 }
             ]
         },
