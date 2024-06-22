@@ -984,7 +984,9 @@
     },
     "overlay": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/draco_crit.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:draco/crosshair"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1011,7 +1013,9 @@
     },
     "rage": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/draco_rage_crit.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:draco/crosshair_rage"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [

@@ -633,7 +633,9 @@
     },
     "overlay": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/grasp_overlay.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:shaman/crosshair"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [

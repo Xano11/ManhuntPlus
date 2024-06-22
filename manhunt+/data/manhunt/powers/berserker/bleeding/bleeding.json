@@ -342,7 +342,9 @@
     },
     "windup_indicator1": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/bleeding_axe1.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:berserker/crosshair"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -385,7 +387,9 @@
     },
     "windup_indicator2": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/bleeding_axe2.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:berserker/crosshair2"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -428,7 +432,9 @@
     },
     "windup_indicator3": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/bleeding_axe3.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:berserker/crosshair3"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [

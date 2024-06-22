@@ -609,7 +609,9 @@
     },
     "selecting_indicator": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/damned_teleport.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:damned/crosshair_hover"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
