@@ -1,9 +1,10 @@
 {
 	"powers": [
 		"manhunt:scout/speed",
-		"manhunt:scout/fall_reduction",
 		"manhunt:scout/dash",
 		"manhunt:scout/bouncepad/bouncepad",
+		"manhunt:scout/spyglass/spyglass",
+		"manhunt:scout/fall_reduction",
 		"manhunt:scout/weak",
 		"manhunt:scout/achilles"
 	],
