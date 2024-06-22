@@ -228,7 +228,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/cod.png",
-            "text": "Whilst your fishing hook is in water, you can activate §2§lFISH OUT🐟§r!.\n§2§lFISH OUT🐟§r\nSends a teleport request to all hunters.\nOnly one hunter can accept the notification."
+            "text": "Whilst your fishing hook is in water, you can activate §2§lFISH OUT🐟§r!\n\n§2§lFISH OUT🐟§r\nSends a teleport request to all hunters.\nOnly one hunter can accept the notification."
         },
         {
             "type": "origins:keybind",

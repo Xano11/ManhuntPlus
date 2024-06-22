@@ -30,7 +30,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
             "text": "Take §c2 Damage§r per 1.5s when submerged in water.\nYou also swim §c50%§r slower."
         }
     ]

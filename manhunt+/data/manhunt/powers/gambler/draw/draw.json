@@ -1080,7 +1080,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "manhunt:textures/item/icons/gambler_icon.png",
             "text": "Drawing the same suit multiplies the suits' effects. Cards can be maxed out up to three.\n§5Clubs§r: Speed§a↑§r\n§7Spades§r: Damage§a↑§r\n§cHearts§r: Regeneration§a↑§r\n§bDiamonds§r: Armor§a↑§r"
         },
         {
@@ -1090,7 +1090,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
                 "Hold \"",
                 {
@@ -1102,7 +1102,7 @@
                 },
                 "\" to draw a card with §6\"INFLUENCE\"§r!\n Press \"",
                 {
-                    "keybind": "key.origins.secondary_active"
+                    "keybind": "key.use"
                 },
                 "\" instead to pick a random card (or a golden card)!"
             ]
