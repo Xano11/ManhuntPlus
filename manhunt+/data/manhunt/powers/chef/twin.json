@@ -116,6 +116,7 @@
                 ]
             }
         },
+        "cooldown": 12,
         "damage_condition": {
             "type": "origins:type",
             "damage_type": "manhunt:twinstrike",
