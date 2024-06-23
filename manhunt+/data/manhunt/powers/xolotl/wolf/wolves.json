@@ -305,14 +305,39 @@
             "permission_level": 4
         }
     },
+    "offering_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[tag=hunter] if score @p hunters = @s xolotl_fetch run tp @s @p"
+                },
+                {
+                    "type": "origins:random_teleport",
+                    "area_width": 6,
+                    "area_height": 1,
+                    "success_action": {
+                        "type": "origins:spawn_particles",
+                        "particle": "minecraft:poof",
+                        "count": 8
+                    }
+                }
+            ]
+        }
+    },
     "offering_ticking": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:xolotl/wolf/wolves_life",
+            "resource": "manhunt:xolotl/wolf/wolves_offering_duration",
             "change": -10
         },
-        "interval": 20,
+        "interval": 10,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:xolotl/wolf/wolves_offering",
@@ -388,7 +413,7 @@
             ]
         }
     },
-    "bite_speed":{
+    "bite_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
