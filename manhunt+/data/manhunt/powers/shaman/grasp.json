@@ -253,9 +253,6 @@
                                             "layer": "origins:origin"
                                         },
                                         {
-                                            "type":"origins:on_block"
-                                        },
-                                        {
                                             "type": "apugli:entity_in_radius",
                                             "condition": {
                                                 "type": "origins:nbt",

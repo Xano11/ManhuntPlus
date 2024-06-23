@@ -134,6 +134,28 @@
             "projectile": "minecraft:arrow"
         }
     },
+    "stop_windup": {
+        "type": "origins:action_on_item_use",
+        "trigger": "stop",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:damned/bow/bow_windup",
+            "change": 0,
+            "operation": "set"
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:bow"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:damned/bow/bow_windup",
+            "compare_to": 40,
+            "comparison": "=="
+        }
+    },
     "boomring": {
         "type": "origins:action_on_item_use",
         "trigger": "stop",
