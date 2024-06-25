@@ -22,6 +22,19 @@
             }
         }
     },
+    "atk_speed":{
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.attack_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "value": 0,
+            "modifier": {
+                "operation": "multiply_total_multiplicative",
+                "value": -1.15
+            }
+        }
+    },
     "air_speed":{
         "type": "origins:modify_air_speed",
         "modifier": {
