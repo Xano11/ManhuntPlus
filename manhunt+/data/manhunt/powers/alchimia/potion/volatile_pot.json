@@ -76,10 +76,21 @@
                                         "resource": "manhunt:alchimia/potion/volatile_fall_res",
                                         "change": 1,
                                         "operation": "set"
+                                    },
+                                    "else_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:alchimia/potion/fall",
+                                        "permission_level": 4
                                     }
                                 }
                             }
                         ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                           "type": "origins:living"
+                        }
                     }
                 },
                 {

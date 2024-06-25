@@ -53,8 +53,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "As long as you have cursed energy, you will sink in water. Once out of energy, you will be able to swim but at -25% speed."
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "As long as you have cursed energy, you will sink in water. Once out of energy, you will be able to swim but at §c-25%§r speed."
         }
     ]
 }

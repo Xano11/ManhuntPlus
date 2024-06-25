@@ -47,60 +47,83 @@
 			"inverted": true
 		}
 	},
-	"more_exhaust":{
-        "type": "origins:modify_exhaustion",
-        "modifier": {
-            "name": "Increased exhaustion",
-            "operation": "multiply_base",
-            "value": 0.6
-        },
+	"more_exhaust": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"name": "Increased exhaustion",
+			"operation": "multiply_base",
+			"value": 0.6
+		},
 		"condition": {
 			"type": "origins:dimension",
 			"dimension": "minecraft:the_nether",
 			"inverted": true
 		}
-    },
+	},
 	"ignore": {
-		"type": "apugli:mobs_ignore",
-		"mob_condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "apoli:entity_type",
-					"entity_type": "minecraft:piglin"
-				},
-				{
-					"type": "apoli:entity_type",
-					"entity_type": "minecraft:piglin_brute"
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:selector_action",
+			"selector": "@e[type=piglin]",
+			"bientity_action": {
+				"type": "origins:target_action",
+				"action": {
+					"type": "origins:execute_command",
+					"command": "team join Hunters",
+					"permission_level": 4
 				}
-			]
+			},
+			"bientity_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:command",
+							"command": "execute if entity @s[team=!Hunters]",
+							"comparison": "==",
+							"compare_to": 1
+						}
+					},
+					{
+						"type": "origins:distance",
+						"comparison": "<=",
+						"compare_to": 64
+					}
+				]
+			},
+			"interval": 20,
+			"condition": {
+				"type": "origins:dimension",
+				"dimension": "minecraft:the_nether"
+			}
 		}
 	},
-	"speed":{
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "name": "More speed",
-            "attribute": "minecraft:generic.movement_speed",
-            "value": 0.20,
-            "operation": "multiply_total"
-        },
+	"speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "More speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": 0.20,
+			"operation": "multiply_total"
+		},
 		"tick_rate": 20,
 		"condition": {
 			"type": "origins:dimension",
 			"dimension": "minecraft:the_nether"
 		}
-    },
-    "air_speed":{
-        "type": "origins:modify_air_speed",
-        "modifier": {
-            "operation": "multiply_total",
-            "value": 0.20
-        },
+	},
+	"air_speed": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.20
+		},
 		"condition": {
 			"type": "origins:dimension",
 			"dimension": "minecraft:the_nether"
 		}
-    },
+	},
 	"name": "Piglin Flesh",
 	"description": "As you reside within different dimensions, your behavior changes.",
 	"badges": [
@@ -108,6 +131,11 @@
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/rotten_flesh.png",
 			"text": "You zombify when not in the nether, giving resistance to fire and becoming \"undead\", but also §l§c-30%§r Healing and §l§c+60%§r Exhaustion."
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/item/golden_axe.png",
+			"text": "Additionally, Piglins in a 64 block radius of you become passive to Hunters.\n(Except brutes, they bullied you as a child)"
 		},
 		{
 			"type": "origins:tooltip",

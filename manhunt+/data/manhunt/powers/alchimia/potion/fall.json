@@ -1,0 +1,53 @@
+{
+    "type": "origins:multiple",
+    "fall_particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.9 0 1 1.2 0.4 0 0.5 ~ ~0.1 ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~0.1 ~ 0.05 0 0.05 0.1 2"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "immune": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        }
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~0.05 ~ 0.2 0 0.2 0.3 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.witch.hurt player @a ~ ~ ~ 0.2 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:alchimia/potion/fall",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "hidden": true
+}

@@ -391,7 +391,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Use the potions to move at extreme speeds or push hunters away!"
+            "text": "Use the potions to move at extreme speeds or push hunters away!\nVolatile pots nullify the next instance of fall damage to any entity affected!"
         },
         {
             "type": "origins:tooltip",

@@ -74,17 +74,17 @@
         }
     },
     "name": "Shutdown.",
-    "description": "On the brink of defeat, unleash your last breath and conquer again",
+    "description": "On the brink of defeat, unleash the energy deep within your soul and conquer again",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Upon death, you instead trigger Shutdown.\n\nA shockwave is unleashed after a short while, disabling and pushing away all hunters close.\n(Works once per run)"
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "Upon death, you instead trigger §3§l┼SHUTDOWN§r.\n\nA shockwave is unleashed after a short while, freezing and pushing away all hunters close.\n(Works once per run)"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Disabled: No abilities, 35% Slowness, 75% Mitigation, Deafened."
+            "sprite": "manhunt:textures/icons/deleo/breakdown.png",
+            "text": "Effect is the same as §3§l☈BREAK§r§b§lDOWN§r.\n(Refer to Non-Emotional Breakdown's tooltips)"
         }
     ]
 }

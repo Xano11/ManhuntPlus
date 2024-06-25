@@ -79,8 +79,24 @@
                     "operation": "set"
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+                    "type": "origins:spawn_particles",
+                    "particle": {
+                        "type": "minecraft:dust_color_transition",
+                        "params": "0 0.4 0.2 1.2 0 0.5 0.6"
+                    },
+                    "count": 2,
+                    "speed": 1,
+                    "force": true,
+                    "offset_y": 1,
+                    "spread": {
+                        "x": 0.3,
+                        "y": 0.3,
+                        "z": 0.3
+                    },
+                    "bientity_condition":  {
+                        "type": "origins:equal",
+                        "inverted": true
+                    }
                 }
             ]
         },
@@ -297,6 +313,7 @@
                 "type": "origins:living"
             }
         },
+        "cooldown": 10,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -569,18 +586,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/unluck.png",
-            "text": "Your punches disable shields for an extra 10% energy cost!"
-        },
-        {
-            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
                 "Hold \"",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and punch an entity to build curse energy. Press \"",
+                "\" for 0.75s and then punch an entity to build curse energy. Press \"",
                 {
                     "keybind": "key.use"
                 },
@@ -589,13 +601,13 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Curse: No abilities for 7s, 20% more damage and slowed by 10%."
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "After three cursed hits, the target is affected with §3§l☒MALEDICTUM§r\n\n§3§l☒MALEDICTUM§r: No abilities for 7s, 20% more damage and slowed by 10%."
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Energy cost: Uses 10% per punch/dash"
+            "text": "Energy cost: Uses 10% per punch/dash\nYour punches disable shields for an extra 10% energy cost."
         }
     ]
 }

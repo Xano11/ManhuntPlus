@@ -51,6 +51,11 @@
                     "type": "origins:execute_command",
                     "command": "particle minecraft:dust_color_transition 0.6 0 0.5 0.9 0.4 0 0.4 ~ ~1 ~ 0.3 0.2 0.3 1 50",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:damned/bow/bow_power_check",
+                    "change": 1
                 }
             ]
         }
@@ -83,7 +88,7 @@
         "type": "origins:resource",
         "min": 0,
         "max": 1,
-        "start_value": 1,
+        "start_value": 0,
         "hud_render": {
             "should_render": false
         }
@@ -112,6 +117,21 @@
             "resource": "manhunt:damned/bow/bow_windup",
             "compare_to": 40,
             "comparison": "=="
+        }
+    },
+    "remove_power":{
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:damned/bow/bow_power_check",
+                "change": -1
+            }
+        },
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "minecraft:arrow"
         }
     },
     "boomring": {
@@ -196,34 +216,21 @@
                         }
                     },
                     "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:actor_action",
-                                "action": {
-                                    "type": "origins:change_resource",
-                                    "resource": "manhunt:damned/bow/bow_power_check",
-                                    "change": 1
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "data modify entity @s PierceLevel set value 1b",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add piercing_arrow"
                                 }
-                            },
-                            {
-                                "type": "origins:target_action",
-                                "action": {
-                                    "type": "origins:and",
-                                    "actions": [
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "data modify entity @s PierceLevel set value 1b",
-                                            "permission_level": 4
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "tag @s add piercing_arrow"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
+                            ]
+                        }
                     }
                 }
             ]
@@ -276,11 +283,6 @@
     },
     "disable": {
         "type": "origins:modify_projectile_damage",
-        "self_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:damned/bow/bow_power_check",
-            "change": -1
-        },
         "target_action": {
             "type": "origins:and",
             "actions": [
