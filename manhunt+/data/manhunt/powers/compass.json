@@ -66,33 +66,21 @@
                                 "compare_to": 3
                             },
                             "action": {
-                                "type": "origins:if_else_list",
-                                "actions": [
-                                    {
-                                        "condition": {
-                                            "type": "origins:command",
-                                            "command": "execute if score @s tracking matches 0..2",
-                                            "comparison": "==",
-                                            "compare_to": 1
-                                        },
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players add @s tracking 1"
-                                        }
-                                    },
-                                    {
-                                        "condition": {
-                                            "type": "origins:command",
-                                            "command": "execute if score @s tracking matches 3",
-                                            "comparison": "==",
-                                            "compare_to": 1
-                                        },
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players set @s tracking 1"
-                                        }
-                                    }
-                                ]
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 0..2",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s tracking 1"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
                             }
                         },
                         {
@@ -103,33 +91,21 @@
                                 "compare_to": 4
                             },
                             "action": {
-                                "type": "origins:if_else_list",
-                                "actions": [
-                                    {
-                                        "condition": {
-                                            "type": "origins:command",
-                                            "command": "execute if score @s tracking matches 0..3",
-                                            "comparison": "==",
-                                            "compare_to": 1
-                                        },
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players add @s tracking 1"
-                                        }
-                                    },
-                                    {
-                                        "condition": {
-                                            "type": "origins:command",
-                                            "command": "execute if score @s tracking matches 4",
-                                            "comparison": "==",
-                                            "compare_to": 1
-                                        },
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players set @s tracking 1"
-                                        }
-                                    }
-                                ]
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 0..3",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s tracking 1"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
                             }
                         },
                         {
@@ -140,33 +116,21 @@
                                 "compare_to": 5
                             },
                             "action": {
-                                "type": "origins:if_else_list",
-                                "actions": [
-                                    {
-                                        "condition": {
-                                            "type": "origins:command",
-                                            "command": "execute if score @s tracking matches 0..4",
-                                            "comparison": "==",
-                                            "compare_to": 1
-                                        },
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players add @s tracking 1"
-                                        }
-                                    },
-                                    {
-                                        "condition": {
-                                            "type": "origins:command",
-                                            "command": "execute if score @s tracking matches 5",
-                                            "comparison": "==",
-                                            "compare_to": 1
-                                        },
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players set @s tracking 1"
-                                        }
-                                    }
-                                ]
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 0..4",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s tracking 1"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
                             }
                         }
                     ]

@@ -4,7 +4,7 @@
     "modifiers": [
         {
             "operation": "add_base_early",
-            "value": -2
+            "value": -1
         },
         {
             "operation": "min_total",
@@ -17,7 +17,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§l§c-2§r Damage."
+            "text": "§l§c-1§r Damage."
         }
     ]
 }

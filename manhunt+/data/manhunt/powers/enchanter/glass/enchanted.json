@@ -41,8 +41,12 @@
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:heal",
-                                "amount": 4
+                                "type": "origins:delay",
+                                "ticks": 1,
+                                "action": {
+                                    "type": "origins:heal",
+                                    "amount": 4
+                                }
                             },
                             {
                                 "type": "origins:execute_command",
@@ -69,8 +73,12 @@
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:heal",
-                                "amount": 8
+                                "type": "origins:delay",
+                                "ticks": 1,
+                                "action":  {
+                                    "type": "origins:heal",
+                                    "amount": 8
+                                }
                             },
                             {
                                 "type": "origins:execute_command",

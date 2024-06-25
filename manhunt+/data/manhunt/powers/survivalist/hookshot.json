@@ -101,7 +101,9 @@
     },
     "overlay": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/hook_overlay.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:survivalist/crosshair"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [

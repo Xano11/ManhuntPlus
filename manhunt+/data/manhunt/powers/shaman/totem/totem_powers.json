@@ -1,5 +1,106 @@
 {
     "type": "origins:multiple",
+    "no_gravity": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:shaman/totem/totem_powers_emerge",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers on passengers run data modify entity @s item set value {id:\"minecraft:candle\",tag:{CustomModelData:1},Count:1b}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "data modify entity @s NoGravity set value 1b"
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute unless block ~ ~-0.05 ~ #minecraft:replaceable",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "gravity":{
+        "type": "origins:action_over_time",
+        "entity_action":{
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:shaman/totem/totem_powers_emerge",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers on passengers run data modify entity @s item set value {id:\"minecraft:air\",Count:1b}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "data modify entity @s NoGravity set value 0b"
+                    }
+                ]
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if block ~ ~-0.05 ~ #minecraft:replaceable",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "fall_quick": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": 1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/totem/totem_powers_emerge",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no_fall": {
+        "type": "origins:modify_falling",
+        "velocity": 0,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:shaman/totem/totem_powers_emerge",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "only_vert": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "z"
+        ]
+    },
     "emerge": {
         "type": "origins:resource",
         "min": 0,
@@ -11,6 +112,10 @@
         "min_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @s NoGravity set value 1b"
+                },
                 {
                     "type": "origins:execute_command",
                     "command": "execute on passengers if entity @s[tag=totem_lantern] run data modify entity @s block_state.Name set value \"minecraft:soul_lantern\""
@@ -69,7 +174,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tp @s ~ ~0.1 ~",
+                    "command": "tp @s ~ ~0.067 ~",
                     "permission_level": 4
                 },
                 {
@@ -137,7 +242,7 @@
                                         {
                                             "type": "origins:spawn_entity",
                                             "entity_type": "minecraft:armor_stand",
-                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"totem\",\"weak_totem\"],Passengers:[{id:\"minecraft:block_display\",view_range:100f,Tags:[\"totem\",\"totem_lantern\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,1.5f,-1f],scale:[2f,2f,2f]},block_state:{Name:\"minecraft:air\"}},{id:\"minecraft:block_display\",view_range:100f,shadow_radius:1f,shadow_strength:0.2f,Tags:[\"totem\",\"totem_base\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,90F],Tags:[\"totem\",\"totem_ring\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0.5f],scale:[15f,15f,0.1f]},item:{id:\"minecraft:air\",Count:1b,tag:{CustomModelData:1}}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.5f,-0.5f,-0.5f],scale:[1f,2f,1f]},block_state:{Name:\"minecraft:sculk_shrieker\"}}]}",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,Tags:[\"totem\",\"weak_totem\"],Passengers:[{id:\"minecraft:block_display\",view_range:100f,Tags:[\"totem\",\"totem_lantern\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,0f,-1f],scale:[2f,2f,2f]},block_state:{Name:\"minecraft:air\"}},{id:\"minecraft:block_display\",view_range:100f,shadow_radius:1f,shadow_strength:0.2f,Tags:[\"totem\",\"totem_base\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,90F],Tags:[\"totem\",\"totem_ring\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,1.95f],scale:[15f,15f,0.1f]},item:{id:\"minecraft:air\",Count:1b,tag:{CustomModelData:1}}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.5f,-2f,-0.5f],scale:[1f,2f,1f]},block_state:{Name:\"minecraft:sculk_shrieker\"}}]}",
                                             "entity_action": {
                                                 "type": "origins:and",
                                                 "actions": [
@@ -230,10 +335,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:shaman/totem/totem_powers_tunnel",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_tunnel",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute unless block ~ ~-0.05 ~ #minecraft:replaceable",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "duration": {
@@ -485,22 +601,33 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers on passengers run particle minecraft:sculk_soul ^ ^-0.4 ^7 0.05 0.05 0.05 0 1",
+                    "command": "execute on passengers on passengers run particle minecraft:sculk_soul ^ ^0.4 ^7 0.05 0.05 0.05 0 1",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers on passengers run particle minecraft:sculk_soul ^ ^-0.4 ^-7 0.05 0.05 0.05 0 1",
+                    "command": "execute on passengers on passengers run particle minecraft:sculk_soul ^ ^0.4 ^-7 0.05 0.05 0.05 0 1",
                     "permission_level": 4
                 }
             ]
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:shaman/totem/totem_powers_emerge",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/totem/totem_powers_emerge",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute unless block ~ ~-0.05 ~ #minecraft:replaceable",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "hidden": true

@@ -35,6 +35,7 @@ scoreboard objectives add totem_duration dummy
 scoreboard objectives add guardian_redirect minecraft.custom:minecraft.damage_taken
 scoreboard objectives add draco_scales minecraft.custom:minecraft.damage_taken
 scoreboard objectives add frog_own dummy
+scoreboard objectives add xolotl_fetch dummy
 #teams
 team add Runners ["",{"text":"RUNNER","bold":true,"color":"gold"}]
 team add Hunters ["",{"text":"HUNTER","bold":true,"color":"dark_red"}]

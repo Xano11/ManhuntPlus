@@ -253,9 +253,6 @@
                                             "layer": "origins:origin"
                                         },
                                         {
-                                            "type":"origins:on_block"
-                                        },
-                                        {
                                             "type": "apugli:entity_in_radius",
                                             "condition": {
                                                 "type": "origins:nbt",
@@ -633,7 +630,9 @@
     },
     "overlay": {
         "type": "origins:status_bar_texture",
-        "texture": "manhunt:textures/gui/grasp_overlay.png",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:shaman/crosshair"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [

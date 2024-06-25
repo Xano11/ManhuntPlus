@@ -57,7 +57,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "minecraft:textures/item/gold_nugget.png",
             "text": "Looting I + Fortune I\nAdditionally, Piglins and all Nether structure chests do +1 roll!\n(If you don't know how minecraft loot table rolls, look it up)"
         }
     ]

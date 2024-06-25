@@ -100,7 +100,7 @@
                                 "compare_to": 32
                             }
                         ]
-                    }     
+                    }
                 }
             ]
         },
@@ -227,15 +227,6 @@
                         }
                     ]
                 }
-            },
-            "else_action": {
-                "type": "origins:target_action",
-                "action": {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:xolotl/wolf/wolves_offering",
-                    "change": 0,
-                    "operation": "set"
-                }
             }
         },
         "bientity_condition": {
@@ -260,11 +251,201 @@
             ]
         },
         "item_condition": {
-            "type": "origins:empty"
+            "type": "origins:meat"
         },
         "hands": [
             "main_hand"
         ]
+    },
+    "choose_fetch": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add choosing_fetch"
+                },
+                {
+                    "type": "origins:raycast",
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:command",
+                                        "command": "execute if score @s xolotl_fetch matches 0..",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "scoreboard players set @s xolotl_fetch 1"
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @a[tag=hunter]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            },
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "scoreboard players set @s xolotl_fetch 1"
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @a[tag=hunter]",
+                                                "comparison": "==",
+                                                "compare_to": 2
+                                            },
+                                            "action": {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:command",
+                                                    "command": "execute if score @s xolotl_fetch matches 1",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players set @s xolotl_fetch 2"
+                                                },
+                                                "else_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players set @s xolotl_fetch 1"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @a[tag=hunter]",
+                                                "comparison": "==",
+                                                "compare_to": 3
+                                            },
+                                            "action": {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:command",
+                                                    "command": "execute if score @s xolotl_fetch matches 0..2",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players add @s xolotl_fetch 1"
+                                                },
+                                                "else_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players set @s xolotl_fetch 1"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @a[tag=hunter]",
+                                                "comparison": "==",
+                                                "compare_to": 4
+                                            },
+                                            "action": {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:command",
+                                                    "command": "execute if score @s xolotl_fetch matches 0..3",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players add @s xolotl_fetch 1"
+                                                },
+                                                "else_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players set @s xolotl_fetch 1"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @a[tag=hunter]",
+                                                "comparison": "==",
+                                                "compare_to": 5
+                                            },
+                                            "action": {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:command",
+                                                    "command": "execute if score @s xolotl_fetch matches 0..4",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players add @s xolotl_fetch 1"
+                                                },
+                                                "else_action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "scoreboard players set @s xolotl_fetch 1"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute at @a[tag=hunter] if score @p hunters = @s xolotl_fetch run title @a[tag=choosing_fetch] actionbar [\"\",\"🐺 You're targeting 「\",{\"selector\":\"@p\",\"color\":\"gold\"},\"」\"]"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:in_set",
+                                "set": "manhunt:xolotl/wolf/wolfpack_wolves"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:xolotl/wolf/wolves_offering",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            }
+                        ]
+                    },
+                    "command_step": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove choosing_fetch"
+                }
+            ]
+        },
+        "cooldown": 4,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
     },
     "name": "Pack Hunter",
     "description": "Dogs have souls and those souls reciprotate with yours.",
@@ -291,5 +472,4 @@
             ]
         }
     ]
-
 }

@@ -90,8 +90,12 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:heal",
-                    "amount": 20
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action":  {
+                        "type": "origins:heal",
+                        "amount": 20
+                    }
                 },
                 {
                     "type": "origins:execute_command",

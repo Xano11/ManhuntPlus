@@ -1,5 +1,6 @@
 {
     "type": "origins:multiple",
+
     "roar": {
         "type": "origins:resource",
         "min": 0,
@@ -9,6 +10,7 @@
             "should_render": false
         }
     },
+
     "roar_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -18,6 +20,7 @@
         },
         "interval": 10
     },
+
     "duration": {
         "type": "origins:resource",
         "min": 0,
@@ -54,6 +57,7 @@
             ]
         }
     },
+
     "duration_down": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -76,6 +80,7 @@
             "command": "power remove @s manhunt:berserker/beast/beast_effects"
         }
     },
+
     "cycle_anim": {
         "type": "origins:resource",
         "min": 0,
@@ -90,6 +95,7 @@
             "change": 3
         }
     },
+
     "cycle_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -105,6 +111,7 @@
             "compare_to": 0
         }
     },
+
     "weaker_display_bar": {
         "type": "origins:resource",
         "min": 0,
@@ -143,6 +150,7 @@
             }
         ]
     },
+
     "weaker_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -152,6 +160,7 @@
         },
         "interval": 10
     },
+
     "slower_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -167,6 +176,7 @@
             "compare_to": 0
         }
     },
+
     "slower_air": {
         "type": "origins:modify_air_speed",
         "modifier": {
@@ -180,6 +190,7 @@
             "compare_to": 0
         }
     },
+    
     "weak_particle": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -195,6 +206,7 @@
             "compare_to": 0
         }
     },
+
     "swirl": {
         "type": "apugli:energy_swirl",
         "texture_location": "manhunt:textures/swirls/berserker_weak.png",
@@ -206,6 +218,7 @@
             "compare_to": 0
         }
     },
+
     "hits": {
         "type": "origins:resource",
         "min": 0,
@@ -215,6 +228,7 @@
             "should_render": false
         }
     },
+
     "roar_immobile": {
         "type": "origins:modify_velocity",
         "axes": [
@@ -232,6 +246,7 @@
             "compare_to": 0
         }
     },
+
     "roar_camera": {
         "type": "eggolib:modify_mouse_sensitivity",
         "modifier": {
@@ -245,6 +260,7 @@
             "compare_to": 40
         }
     },
+
     "particle": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -281,6 +297,7 @@
             "compare_to": 0
         }
     },
+
     "roar_waves": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -321,6 +338,7 @@
             "compare_to": 0
         }
     },
+
     "roar_invincibility": {
         "type": "origins:modify_damage_taken",
         "modifier": {
@@ -335,6 +353,7 @@
             "compare_to": 0
         }
     },
+
     "faster_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -351,6 +370,7 @@
             "inverted": true
         }
     },
+
     "faster_air": {
         "type": "origins:modify_air_speed",
         "modifier": {
@@ -365,6 +385,7 @@
             "inverted": true
         }
     },
+
     "unstoppable_resource": {
         "type": "origins:resource",
         "min": 0,
@@ -379,6 +400,7 @@
             "permission_level": 4
         }
     },
+
     "unstoppable": {
         "type": "origins:prevent_death",
         "condition": {
@@ -393,9 +415,17 @@
             "change": -1
         }
     },
+
     "no_heal": {
-        "type": "origins:disable_regen"
+        "type": "origins:disable_regen",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "comparison": ">",
+            "compare_to": 0
+        }
     },
+
     "disable_shield": {
         "type": "origins:action_on_hit",
         "bientity_action": {
@@ -436,6 +466,41 @@
             "inverted": true
         }
     },
+
+    "hit_heal": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:heal",
+                                "amount": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:item.bottle.fill player @s ~ ~ ~ 10 2",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_weaker",
+            "comparison": ">",
+            "compare_to": 0,
+            "inverted": true
+        },
+        "cooldown": 5
+    },
+
     "crit_heal": {
         "type": "eggolib:action_on_critical_hit",
         "bientity_action": {
@@ -478,6 +543,7 @@
             "inverted": true
         }
     },
+
     "crit_heal_bleed": {
         "type": "eggolib:action_on_critical_hit",
         "bientity_action": {
@@ -517,6 +583,7 @@
             }
         }
     },
+
     "particle_active": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -542,5 +609,6 @@
             ]
         }
     },
+
     "hidden": true
 }

@@ -133,7 +133,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/badge/arrow_up.png",
             "text": "Immunity to lava damage for 7s at a time.\n+Additionally, you can see through lava."
         }
     ]
