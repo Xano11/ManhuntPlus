@@ -57,9 +57,6 @@
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 14,
             "should_render": true
-        },
-        "condition": {
-            "type":"origins:on_block"
         }
     },
     "name": "Totem of Life",

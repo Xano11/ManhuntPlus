@@ -113,7 +113,7 @@
         "texts": [
             [
                 {
-                    "text": "Left-Click to make "
+                    "text": "Left-Click on a book to make "
                 },
                 {
                     "text": "RECALLING",
@@ -122,11 +122,11 @@
             ],
             [
                 {
-                    "text": "Right-Click to make "
+                    "text": "Right-Click on a book to make "
                 },
                 {
                     "text": "GLASS SHIELD",
-                    "color": "light_purple"
+                    "color": "aqua"
                 }
             ]
         ]
@@ -361,18 +361,24 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Your arcane bar indicates whether you can use your special enchants!\n Additionally, you have 3x Experience Gain."
-        },
-        {
-            "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone.png",
-            "text": "You have access to a special relic: The Enchanter's Stone.\nUsing this relic, you can create two special books: Recalling and Glass Shield.\n\nUsing your abilities will require Experience.\n(2% per second)"
+            "text": "You have access to a special relic: The §1Encha§r§9nter§r§d's St§r§5one§r.\n\nUsing this relic, you can create two special books: §dRecalling§r and §bGlass Shield§r at the cost of 55 experience(~5 lvls).\n\nThese enchanted books can be sheared in your inventory to collect their pages.(6 Paper and 1 Leather)"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/shears.png",
-            "text": "Using shears on one of your special books, you are able to collect its many pages.\n(Six paper and one leather)"
+            "sprite": "manhunt:textures/item/enchanter_stone_broken.png",
+            "text": [
+                "Whilst holding the Enchanter's Stone, press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" to shatter the stone.\nUpon shattering, you will be granted Absorption II Crystal Hearts for 20s.\n\nConsequentially, the stone will §5§lᚾ§r§5Fracture§r for 30s, disabling the stone's §d🜍Arcane Power§r."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Your §d🜍Arcane Power§r must be full to enchant books.\n(Regain 2% per second.)\nAdditionally, you have 3x Experience Gain passively."
         }
     ]
 }

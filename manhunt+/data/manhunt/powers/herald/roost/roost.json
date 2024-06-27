@@ -97,25 +97,25 @@
 			]
 		},
 		"cooldown": 1200,
-		"key": "key.origins.secondary_active",
+		"key": "key.origins.primary_active",
 		"hud_render": {
 			"should_render": true,
 			"sprite_location": "manhunt:textures/bars/herald/boost.png",
 			"bar_index": 0
 		}
 	},
-	"name": "Encouraging Aura",
+	"name": "Roost",
 	"description": "Channeling your inner powers, you release a powerful aura to buff you and allies.",
 	"badges": [
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Aura: Food/Saturation overtime for 10 seconds. If full food, Absorption I is given.\nRadius: 10 blocks."
+			"text": "Charge up for 1.75s and release an instant 3 §l§c❤§r heal that gives §l§a✿§r§aFlower Power§r for 10s.\n§l§a✿§r§aFlower Power§r: §a+10%§r Overall Speed, grants buffs to allies based on your Flower Crown.\nRadius: 10 blocks."
 		},
 		{
 			"type": "origins:keybind",
 			"sprite": "origins:textures/gui/badge/toggle.png",
-			"text": "Release aura with \"%s\"!"
+			"text": "Charge and Release with \"%s\"!"
 		},
 		{
 			"type": "origins:tooltip",

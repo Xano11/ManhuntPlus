@@ -245,7 +245,7 @@
         }
     },
     "name": "Arcane: Recall",
-    "description": "\"Resonance... Is it that... that I feel?\"\n Using the Enchanter's stone, you can summon all enchanted hunters.",
+    "description": "\"Resonance... Is it that... that I feel?\"\nUsing the Enchanter's stone, you can summon those who hold a book of recalling.",
     "badges": [
         {
             "type": "origins:tooltip",
@@ -266,7 +266,7 @@
                 {
                     "keybind": "key.origins.secondary_active"
                 },
-                "\" whilst on full energy to Recall anyone with your book in their inventory!\n(Your stone must be intact)"
+                "\" whilst on full energy to Recall anyone with your book in their inventory!\n(Your stone must be intact.)"
             ]
         }
     ]
