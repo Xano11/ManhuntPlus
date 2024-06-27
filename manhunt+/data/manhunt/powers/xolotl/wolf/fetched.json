@@ -1,0 +1,206 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:xolotl/wolf/fetched",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/fetched_duration",
+                    "change": -5
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wolf.step player @a ~ ~ ~ 1 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 5
+    },
+    "overlay1":{
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "manhunt:xolotl/wolf/fetched_duration",
+            "compare_to": 60,
+            "comparison": ">"
+        }
+    },
+    "overlay2":{
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "manhunt:xolotl/wolf/fetched_duration",
+            "compare_to": 40,
+            "comparison": ">"
+        }
+    },
+    "overlay3":{
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.8,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "manhunt:xolotl/wolf/fetched_duration",
+            "compare_to": 20,
+            "comparison": ">"
+        }
+    },
+    "overlay4":{
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.4,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "manhunt:xolotl/wolf/fetched_duration",
+            "compare_to": 10,
+            "comparison": ">"
+        }
+    },
+    "overlay5":{
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.2,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "manhunt:xolotl/wolf/fetched_duration",
+            "compare_to": 5,
+            "comparison": ">"
+        }
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -3,
+            "operation": "multiply_total"
+        }
+    },
+    "no_collision": {
+        "type": "origins:prevent_entity_collision"
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "phase": {
+        "type": "origins:phasing",
+        "blacklist": false,
+        "render_type": "blindness",
+        "view_distance": 12,
+        "phase_down_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:creative_flying"
+                }
+            ]
+        }
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use",
+        "name": "🚫"
+    },
+    "prevent_block": {
+        "type": "origins:prevent_block_use"
+    },
+    "no_ability": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.attack",
+            "key.sneak",
+            "key.origins.primary_active",
+            "key.origins.secondary_active"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_effects_laser",
+            "comparison": "<",
+            "compare_to": 20
+        }
+    },
+    "item_pickup": {
+        "type": "origins:prevent_item_pickup"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "hidden": true
+}

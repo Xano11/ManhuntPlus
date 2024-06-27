@@ -47,6 +47,31 @@
             "compare_to": 0
         }
     },
+    "remove":{
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:action_on_set",
+            "set": "manhunt:xolotl/wolf/wolfpack_wolves",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:xolotl/wolf/wolves_life",
+                            "change": 0,
+                            "operation": "set"
+                        }
+                    },
+                    {
+                        "type": "origins:remove_from_set",
+                        "set": "manhunt:xolotl/wolf/wolfpack_wolves"
+                    }
+                ]
+            }
+        }
+    },
     "on_death":{
         "type": "origins:action_on_death",
         "bientity_action": {
@@ -259,8 +284,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Wolves summoned have 4 lesser hearts and deal 40% less damage.\nIf killed, the wolves will howl; buffing all hunters with 15% extra movement and attack speed."
+            "sprite": "manhunt:textures/item/icons/xolotl_icon.png",
+            "text": "§l§6🐾Wolves§r summoned have §c-4§r lesser §l§c❤§r and deal §c-40%§r damage.\nIf killed, the wolves will howl; buffing all hunters with §n15% extra movement and attack speed§r."
         },
         {
             "type": "origins:tooltip",

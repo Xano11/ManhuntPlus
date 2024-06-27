@@ -1,5 +1,14 @@
 {
     "type": "origins:multiple",
+    "health":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -2,
+            "operation": "addition"
+        }
+    },
     "helmet": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -12,24 +21,6 @@
         "condition": {
             "type": "origins:equipped_item",
             "equipment_slot": "head",
-            "item_condition": {
-                "type": "origins:empty"
-            },
-            "inverted": true
-        }
-    },
-    "chestplate": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "attribute": "minecraft:generic.armor",
-            "operation": "addition",
-            "value": -2,
-            "name": "Increased armor"
-        },
-        "tick_rate": 20,
-        "condition": {
-            "type": "origins:equipped_item",
-            "equipment_slot": "chest",
             "item_condition": {
                 "type": "origins:empty"
             },
@@ -78,7 +69,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/leather_chestplate.png",
-            "text": "Helmets and leggings have 1 lesser armor.\nChestplates and leggings have -2 lesser armor"
+            "text": "Helmets and boots have 1 lesser armor.\nLeggings have -2 lesser armor\n(Chestplates are unaffected)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "-1 §l§c❤§r"
         }
     ]
 }

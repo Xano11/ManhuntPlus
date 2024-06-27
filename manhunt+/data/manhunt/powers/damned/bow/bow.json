@@ -180,6 +180,12 @@
                         "type": "origins:add_velocity",
                         "z": 1,
                         "y": 0.15
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                           "type": "origins:living"
+                        }
                     }
                 },
                 {
