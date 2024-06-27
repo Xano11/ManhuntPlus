@@ -31,9 +31,9 @@
                 },
                 {
                     "type": "origins:command",
-                    "command": "execute if entity @s[tag=!hunter_joinup]",
-                    "comparison": ">=",
-                    "compare_to": 1
+                    "command": "execute if entity @s[tag=hunter_joinup]",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
@@ -62,6 +62,23 @@
                 {
                     "type": "origins:execute_command",
                     "command": "execute as @a[tag=!playing,tag=!spectating] run tag @s add playing"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=glow]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action":  {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a[tag=hunter] run resource set @s manhunt:hunter_effects_glow 1"
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a[tag=hunter] run resource set @s manhunt:hunter_effects_glow 0"
+                    }
                 }
             ]
         },

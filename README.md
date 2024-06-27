@@ -28,6 +28,11 @@ Artists:
 // - Sobek500
 // - Bonlo
 
+Use of External Textures:
+
+// - Scarecrow01 for the Flintlock model used on Captain! https://www.planetminecraft.com/texture-pack/pillager-to-pirate-1-14/
+// - AstromPlays for the demonic wings used on Imp! https://www.planetminecraft.com/texture-pack/demon-wings-elytra-texture-pack/
+
 Special thanks to Jitter for helping me with using Unsup!
 
 With the colossal help of the Manhunt+ community!

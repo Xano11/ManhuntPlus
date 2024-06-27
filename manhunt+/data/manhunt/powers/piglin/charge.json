@@ -10,7 +10,7 @@
         },
         "min_action": {
             "type": "origins:execute_command",
-            "command": "scale add pehkui:step_height -1",
+            "command": "execute if entity @s[pehkui.scale_type=pehkui:step_height,pehkui.scale=2..] run scale add pehkui:step_height -1",
             "permission_level": 4
         }
     },

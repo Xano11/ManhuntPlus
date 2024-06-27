@@ -643,12 +643,12 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
             "text": "To upgrade, simply right click with the material while hovering on the trident in your inventory.\n§7Iron Upgrade: 1 Iron Ingot\n§3Diamond Upgrade: 1 Diamond\n§6Netherite Upgrade: 1 Netherite Scrap§r\nUpgrades increase the damage of the trident."
         },
         {
             "type": "origins:crafting_recipe",
-            "sprite": "minecraft:textures/item/trident.png",
+            "sprite": "manhunt:textures/item/icons/imp_trident.png",
             "recipe": {
                 "id": "manhunt:flint_trident",
                 "type": "minecraft:crafting_shaped",
