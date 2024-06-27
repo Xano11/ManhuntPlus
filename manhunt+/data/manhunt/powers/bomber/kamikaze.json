@@ -84,7 +84,7 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
-                                "change": 1800
+                                "change": 1200
                             }
                         ]
                     }
@@ -107,7 +107,7 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
-                                "change": 1800
+                                "change": 1400
                             }
                         ]
                     }
@@ -130,7 +130,7 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:bomber/kamikaze_cooldown",
-                                "change": 1800
+                                "change": 1600
                             }
                         ]
                     }
@@ -904,7 +904,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3m"
+            "text": "Cooldown: 1m30s"
         }
     ]
 }
