@@ -37,4 +37,12 @@ Special thanks to Jitter for helping me with using Unsup!
 
 With the colossal help of the Manhunt+ community!
 
+> [!NOTE]
+> QUICK USE GUIDE:
+```
+Use /function manhunt:setup/start to start the game
+Use /function manhunt:options/menu to change the options
+The rest is quite straigthforward :D
+```
+
 - ItsYoBoi
