@@ -31,7 +31,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "-1 damage and -25% crit multiplier"
+            "text": "§c-1§r Attack Damage and §c-25%§r Crit Multiplier"
         }
     ]
 }

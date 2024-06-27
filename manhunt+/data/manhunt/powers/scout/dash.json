@@ -7,7 +7,7 @@
 			"actions": [
 				{
 					"type": "origins:add_velocity",
-					"z": 0.45,
+					"z": 0.42,
 					"space": "local"
 				},
 				{
@@ -59,7 +59,7 @@
 				}
 			]
 		},
-		"cooldown": 60,
+		"cooldown": 70,
 		"hud_render": {
 			"should_render": true,
 			"sprite_location": "manhunt:textures/bars/scout/scout.png",

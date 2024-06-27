@@ -979,7 +979,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Osha is your trusted companion! On your shoulder, he can be ordered to do two things:\n\n§l§eLEND§r will send Osha forward. After a short while, he will stop and let you grapple to him with a 50% fall damage reduction when you land! Pressing the same key will grapple.\n\n§l§6SCOUT§r will send Osha to find the closest runner and reveal their position to you."
+            "text": "Osha is your trusted companion! On your shoulder, he can be ordered to do two things:\n\n§l§eLEND§r will send Osha forward. After a short while, he will stop and let you grapple to him with fall damage negation when you land! Pressing the same key will grapple.\n\n§l§6SCOUT§r will send Osha to find the closest runner and reveal their position to you."
         },
         {
             "type": "origins:tooltip",

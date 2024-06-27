@@ -57,5 +57,6 @@
             "operation": "multiply_total",
             "value": 0.15
         }
-    }
+    },
+    "hidden": true
 }

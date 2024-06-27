@@ -391,7 +391,7 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
             "text": [
-                "Hunters with this book can survive a fatal hit at the cost of the chestplate's durability.\nThe Glass Shield book can be leveled up at the cost of 55 experience orb (~5 lvls).\n\nTaking a fatal hit removes the enchantment.\nLevel I: No healing\nLevel II: 2 hearts restored on fatal hit\nLevel III: 4 hearts restored on fatal hit"
+                "Hunters with §bGlass Shield§r can survive a fatal hit at the cost of the chestplate's durability.\nThe Glass Shield book can be leveled up at the cost of 55 experience(~5 lvls).\n\nTaking a fatal hit removes the enchantment.\nLevel I: No healing\nLevel II: 2 hearts restored on fatal hit\nLevel III: 4 hearts restored on fatal hit"
             ]
         }
     ]

@@ -1,0 +1,30 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -2,
+            "operation": "addition"
+        }
+    },
+    "less_crit":{
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "additionalentityattributes:critical_bonus_damage",
+            "operation": "addition",
+            "value": -0.4,
+            "name": "Decreased crit multiplier"
+        }
+    }, 
+    "name": "Pacifist",
+    "description": "As a peaceful upholder of nature, you have little combat experience.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-1 §l§c❤§r and -40% Crit Multiplier."
+        }
+    ]
+}

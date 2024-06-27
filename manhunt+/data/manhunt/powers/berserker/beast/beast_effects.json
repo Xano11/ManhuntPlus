@@ -498,7 +498,7 @@
             "compare_to": 0,
             "inverted": true
         },
-        "cooldown": 5
+        "cooldown": 10
     },
 
     "crit_heal": {
@@ -513,7 +513,7 @@
                         "actions": [
                             {
                                 "type": "origins:heal",
-                                "amount": 2
+                                "amount": 1
                             },
                             {
                                 "type": "origins:execute_command",
