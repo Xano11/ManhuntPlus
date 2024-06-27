@@ -1,9 +1,9 @@
 {
 	"powers": [
+		"manhunt:enchanter/arcane",
 		"manhunt:enchanter/recall/book",
 		"manhunt:enchanter/glass/book",
 		"manhunt:enchanter/vanish/activate",
-        "manhunt:enchanter/arcane",
 		"manhunt:enchanter/fragile",
 		"manhunt:enchanter/minmax"
 

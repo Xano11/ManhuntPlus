@@ -20,17 +20,6 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
             "text": "-3 §l§c❤§r overall."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/enchanter_stone.png",
-            "text": [
-                "Whilst holding the Enchanter's Stone, press \"",
-                {
-                    "keybind": "key.use"
-                },
-                "\" to shatter the stone.\nUpon shattering, you will be granted Absorption II crystal hearts.\n\nConsequentially, the stone will go on a 30s cooldown."
-            ]
         }
     ]
 }

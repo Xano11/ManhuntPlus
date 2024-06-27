@@ -32,6 +32,14 @@
                                     "command": "tp @p[tag=slash_tp] @s",
                                     "permission_level": 4
                                 }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action":  {
+                                    "type": "origins:execute_command",
+                                    "command": "effect give @s minecraft:slow_falling 1 0 true",
+                                    "permission_level": 4
+                                }
                             }
                         ]
                     },

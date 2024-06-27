@@ -1,0 +1,764 @@
+{
+    "type": "origins:multiple",
+    "dandelion": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:dandelion"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:dandelion"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:happy_villager ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:dandelion"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:dandelion",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "poppy": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:poppy"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:poppy"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:happy_villager ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:poppy"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:poppy",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "blue_orchid": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:blue_orchid"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:blue_orchid"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:happy_villager ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:blue_orchid"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:blue_orchid",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "allium": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:allium"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:allium"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:happy_villager ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:allium"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:allium",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "cornflower": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:cornflower"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:cornflower"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:happy_villager ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:cornflower"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:cornflower",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "oxeye": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:oxeye_daisy"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:oxeye_daisy"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:happy_villager ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:oxeye_daisy"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:oxeye_daisy",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "dead_bush": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:dead_bush"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "head",
+                                "item_condition": {
+                                    "type": "origins:empty"
+                                }
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "item replace entity @s armor.head with minecraft:dead_bush"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.fill_success player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle block spruce_planks ~ ~2 ~ 0.1 0 0.1 0 5"
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "head",
+                        "item_condition": {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:dead_bush"
+                            }
+                        }
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "head",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run playsound minecraft:block.composter.empty player @a ~ ~ ~ 1 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block dirt ~ ~2 ~ 0.1 0 0.1 0 10"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute at @s run particle minecraft:block bone_block ~ ~2 ~ 0.2 0.1 0.2 0 5"
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:dead_bush",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "name": "Flower Crown",
+    "description": "Some flowers can be worn on your head in place of a helmet. Depending on the flower, you gain and grant different buffs.",
+    "badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/block/torchflower.png",
+			"text": "Passives:\n§eDandelion§r: §a+1§r Food to non-meat.\n§bBlue Orchid§r: §a+1§r Food to meat.\n§cPoppy§r: §a+10%§r Overall Speed.\n§dAllium§r: §a-40%§r Fire Damage\n§9Cornflower§r: §a+1§r Step Height\n§6Deadbush§r: §e-100%§r Exhaustion & Healing."
+		},
+        {
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/block/cherry_sapling.png",
+			"text": "Roost Effects:\n§eDandelion§r: §a+2§r Hunger\n§bBlue Orchid§r: §a+4§r Hunger overtime\n§cPoppy§r: Increase Speed by §a10%§r\n§dAllium§r: Grant §aFire Resistance§r\n§9Cornflower§r: §a+1§r Step Height\n§6Deadbush§r: §a-100%§r Exhaustion"
+		},
+        {
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": "Equip/Remove flowers with \"%s\"."
+		}
+    ]
+}

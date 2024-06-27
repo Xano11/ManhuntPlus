@@ -1,11 +1,9 @@
 {
 	"powers": [
-		"manhunt:herald/boost/boost",
-		"manhunt:herald/bark/bark_shield",
-		"manhunt:herald/cleric",
-		"origins:more_exhaustion",
-		"origins:nine_lives",
-		"manhunt:herald/fire_weak"
+		"manhunt:herald/flower_crown/equip",
+		"manhunt:herald/flower_crown/passives",
+		"manhunt:herald/roost/roost",
+		"manhunt:herald/pacifist"
 	],
 	"icon": {
 		"item": "minecraft:wild_armor_trim_smithing_template",
@@ -14,5 +12,5 @@
 	"order": 10,
 	"impact": 1,
 	"name": "Herald",
-	"description": "       [§eASSISTANCE ✦§r]\nAs the supportive hand in any group, the Herald taps into life essence to give it's allies the advantage in combat."
+	"description": "       [§eASSISTANCE ✦§r]\n§c§lUnder Maintenance!!§r\nAs the supportive hand in any group, the Herald taps into life essence to give it's allies the advantage in combat."
 }
