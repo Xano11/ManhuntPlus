@@ -113,7 +113,7 @@
                 {
                     "type": "origins:damage",
                     "amount": 1,
-                    "damage_type": "manhunt:bleeding"
+                    "damage_type": "manhunt:bleeding_true"
                 },
                 {
                     "type": "origins:swing_hand",

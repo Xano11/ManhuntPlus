@@ -71,7 +71,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You are a §l§cCarnivore§r but meat gives +1 food.\nAdditionally animals drop more meat! (fish aren't affected)."
+            "text": "You are a §l§cCarnivore§r but meat gives §n+1§r food.\nAdditionally animals drop more meat! (fish aren't affected)."
         }
     ]
 }

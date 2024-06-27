@@ -34,7 +34,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "scale set pehkui:base 1.5 @s",
+                                "command": "scale set pehkui:base 1.3 @s",
                                 "permission_level": 4
                             },
                             {
@@ -79,7 +79,7 @@
                     {
                         "type": "origins:change_resource",
                         "resource": "manhunt:xolotl/dog/doggo_duration",
-                        "change": -2
+                        "change": -1
                     },
                     {
                         "type": "origins:execute_command",
@@ -87,7 +87,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "particle minecraft:dust_color_transition 0.7 0.5 0 1.5 0.8 0.55 0 ^ ^1 ^ 0.7 0.5 0.7 1 10"
+                        "command": "particle minecraft:dust_color_transition 0.7 0.5 0 1.5 0.8 0.55 0 ^ ^1 ^ 0.4 0.3 0.4 1 3"
                     },
                     {
                         "type": "origins:if_else",
@@ -96,7 +96,7 @@
                         },
                         "if_action": {
                             "type": "origins:add_velocity",
-                            "z": 0.2,
+                            "z": 0.18,
                             "space": "local_horizontal_normalized"
                         }
                     }
@@ -173,7 +173,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Summon a large wolf that grants great movement for 10s! Sneak to cancel early."
+            "text": "Summon a large wolf that grants extra movement for 6s! Sneak to cancel early."
         },
         {
             "type": "origins:tooltip",
