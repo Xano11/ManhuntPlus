@@ -58,13 +58,6 @@
     "collision": {
         "type": "origins:prevent_entity_collision"
     },
-    "pos": {
-        "type": "eggolib:modify_riding_position",
-        "y_modifier": {
-            "operation": "addition",
-            "value": 0.25
-        }
-    },
     "invis": {
         "type": "origins:invisibility",
         "render_armor": false,

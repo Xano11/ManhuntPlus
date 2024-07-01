@@ -12,9 +12,9 @@
     "damage": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
-            "name": "Less damage",
-            "operation": "multiply_total",
-            "value": -0.4
+            "name": "One damage",
+            "operation": "set_total",
+            "value": 1
         }
     },
     "death": {
@@ -522,7 +522,8 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
-                    "change": 0
+                    "change": 0,
+                    "operation": "set"
                 }
             ]
         }
@@ -558,7 +559,7 @@
         "type": "origins:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
-            "operation": "addition",
+            "operation": "multiply_total",
             "value": 0.4,
             "name": "Increased speed"
         },
@@ -619,7 +620,8 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "manhunt:xolotl/wolf/wolves_bite_ready",
-                                "change": 0
+                                "change": 0,
+                                "operation": "set"
                             },
                             {
                                 "type": "origins:execute_command",

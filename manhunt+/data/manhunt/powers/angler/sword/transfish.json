@@ -317,12 +317,24 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/swordfish.png",
-            "text": "The Swordfish deals 3 damage per hit outside of water. Whilst submerged in water, you deal 5 instead.\nCan also be used for \"Fierce Fish Dash\" (see badge)\nAny other weapon than the swordfish deals -1 damage."
+            "text": [
+                "Any held fish can be turned into a §l§9🦈SWORDFISH§r.\n\n§l§9🦈SWORDFISH§r\nThis weapon deals 3 damage on land and 5 whilst submerged underwater. Hitting the entity whilst dashing simultaneously will deal 6 on hit instead.\n§l§b🐬DASH§r\nDashing costs 1/3 of the durability of the weapon and has a short windup. If an entity is hit by the dash, the dash can be recast. If not, you must wait 5s."
+            ] 
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Turn any fish into a weapon of war with \"%s\"!"
+            "text": [
+                "Turn any fish into a weapon of war with \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\"!\nHolding the same key and pressing \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" will dash!"
+            ]
         },
         {
             "type": "origins:tooltip",

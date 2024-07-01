@@ -7,3 +7,5 @@ time set day
 gamerule doLimitedCrafting true
 recipe give @a *
 recipe take @a[tag=!imp] manhunt:flint_trident
+resource set @s manhunt:scout/bouncepad/bouncepad_perform 0
+resource set @s manhunt:engineer/portal/activate_activate 0

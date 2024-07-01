@@ -67,8 +67,8 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:command",
-                        "command": "execute if entity @s[tag=glow]",
-                        "comparison": "==",
+                        "command": "execute if entity @s[tag=glow_enabled]",
+                        "comparison": ">=",
                         "compare_to": 1
                     },
                     "if_action":  {

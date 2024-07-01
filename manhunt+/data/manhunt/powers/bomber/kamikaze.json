@@ -41,12 +41,6 @@
                     },
                     {
                         "type": "origins:change_resource",
-                        "resource": "manhunt:bomber/kamikaze_cooldown",
-                        "change": 0,
-                        "operation": "set"
-                    },
-                    {
-                        "type": "origins:change_resource",
                         "resource": "manhunt:bomber/kamikaze_timer",
                         "change": 0,
                         "operation": "set"

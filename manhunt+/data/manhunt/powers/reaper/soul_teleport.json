@@ -64,14 +64,9 @@
 	"recharge": {
 		"type": "origins:action_over_time",
 		"entity_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:change_resource",
-					"resource": "manhunt:reaper/soul_teleport_charges",
-					"change": 1
-				}
-			]
+			"type": "origins:change_resource",
+			"resource": "manhunt:reaper/soul_teleport_charges",
+			"change": 1
 		},
 		"interval": 300,
 		"condition": {
@@ -386,12 +381,12 @@
         }
     },
 	"name": "Instant Transmission",
-	"description": "Teleport yourself forward at the cost of three souls.",
+	"description": "Teleport yourself forward at the cost of souls.",
 	"badges": [
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "Teleport distance: 6 blocks."
+			"text": "Consume a soul to teleport!\nTeleport distance: 6 blocks."
 		},
 		{
 			"type": "origins:tooltip",
@@ -411,7 +406,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "manhunt:textures/icons/cooldown.png",
-			"text": "Max 3 charges\nCharge: 1 every 15s"
+			"text": "Max 3 souls\nSoul: 1 every 15s"
 		}
 	]
 }

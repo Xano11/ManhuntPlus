@@ -326,24 +326,9 @@
         "bientity_condition": {
             "type": "origins:actor_condition",
             "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:runner",
-                                "layer": "origins:origin"
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:hunter",
-                                "layer": "origins:origin"
-                            }
-                        ]
-                    }
-                ]
+                "type": "origins:origin",
+                "origin": "manhunt:hunter",
+                "layer": "origins:origin"
             }
         },
         "condition": {
@@ -369,138 +354,23 @@
                 {
                     "type": "origins:actor_condition",
                     "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:hunter",
-                                "layer": "origins:origin"
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:jester/madness/mad_windup",
-                                "comparison": "==",
-                                "compare_to": 0
-                            }
-                        ]
+                        "type": "origins:resource",
+                        "resource": "manhunt:jester/madness/mad_windup",
+                        "comparison": "==",
+                        "compare_to": 0
                     }
                 },
                 {
                     "type": "origins:target_condition",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:runner",
-                                "layer": "origins:origin"
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:hunter",
-                                "layer": "origins:origin"
-                            }
-                        ]
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:player"
                     }
                 }
             ]
         },
         "use_teams": false,
         "red": 0.0,
-        "green": 0.0,
-        "blue": 0.0
-    },
-    "glow_hunters2": {
-        "type": "origins:entity_glow",
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:can_see"
-                },
-                {
-                    "type": "origins:distance",
-                    "comparison": "<=",
-                    "compare_to": 32
-                },
-                {
-                    "type": "origins:actor_condition",
-                    "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:runner",
-                                "layer": "origins:origin"
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:jester/madness/mad_windup",
-                                "comparison": "==",
-                                "compare_to": 0
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:origin",
-                        "origin": "manhunt:hunter",
-                        "layer": "origins:origin"
-                    }
-                }
-            ]
-        },
-        "use_teams": false,
-        "red": 0.0,
-        "green": 0.0,
-        "blue": 0.0
-    },
-    "glow_runners": {
-        "type": "origins:entity_glow",
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:can_see"
-                },
-                {
-                    "type": "origins:distance",
-                    "comparison": "<=",
-                    "compare_to": 32
-                },
-                {
-                    "type": "origins:actor_condition",
-                    "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "manhunt:runner",
-                                "layer": "origins:origin"
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "manhunt:jester/madness/mad_windup",
-                                "comparison": "==",
-                                "compare_to": 0
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:origin",
-                        "origin": "manhunt:runner",
-                        "layer": "origins:origin"
-                    }
-                }
-            ]
-        },
-        "use_teams": false,
-        "red": 1.0,
         "green": 0.0,
         "blue": 0.0
     },

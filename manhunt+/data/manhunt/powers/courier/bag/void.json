@@ -27,6 +27,16 @@
                                                 "command": "tp @s @p[tag=kick_bundle]"
                                             },
                                             {
+                                                "type": "origins:random_teleport",
+                                                "area_width": 5,
+                                                "area_height": 1,
+                                                "success_action": {
+                                                    "type": "origins:spawn_particles",
+                                                    "particle": "minecraft:witch",
+                                                    "count": 8
+                                                }
+                                            },
+                                            {
                                                 "type": "origins:execute_command",
                                                 "command": "power remove @s manhunt:courier/bag/bundled"
                                             }
@@ -108,6 +118,24 @@
                     "permission_level": 4
                 }
             ]
+        }
+    },
+    "delay_windup":{
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:courier/bag/void_windup",
+                "change": 20
+            }
+        },
+        "cooldown": 7,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:courier/bag/void_windup",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "windup_ticking": {
@@ -284,6 +312,16 @@
                                             "command": "tp @s @p[tag=kick_bundle]"
                                         },
                                         {
+                                            "type": "origins:random_teleport",
+                                            "area_width": 5,
+                                            "area_height": 1,
+                                            "success_action": {
+                                                "type": "origins:spawn_particles",
+                                                "particle": "minecraft:witch",
+                                                "count": 8
+                                            }
+                                        },
+                                        {
                                             "type": "origins:execute_command",
                                             "command": "power remove @s manhunt:courier/bag/bundled"
                                         }
@@ -412,7 +450,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have your own dimension where you can safely live in.\nYou cannot use abilities or items but you can use and put blocks down."
+            "text": "You have your own dimension where you can safely live in.\nYou cannot use abilities or items but you can use and put blocks down.\nBeing hit increases by 1s the time it takes to enter THE BAG™"
         },
         {
             "type": "origins:tooltip",

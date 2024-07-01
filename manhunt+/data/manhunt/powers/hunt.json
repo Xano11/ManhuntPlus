@@ -600,6 +600,19 @@
                     }
                 },
                 {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=catchup]",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @a[tag=hunter] manhunt:catchup"
+                    }
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "tag @a[tag=hunter] remove countdowned"
                 },
@@ -1142,7 +1155,7 @@
             "type": "origins:if_else",
             "condition": {
                 "type": "origins:command",
-                "command": "execute if entity @s[tag=glow]",
+                "command": "execute if entity @s[tag=glow_enabled]",
                 "comparison": "==",
                 "compare_to": 1
             },
@@ -1163,7 +1176,7 @@
             "type": "origins:if_else",
             "condition": {
                 "type": "origins:command",
-                "command": "execute if entity @s[tag=glow]",
+                "command": "execute if entity @s[tag=glow_enabled]",
                 "comparison": "==",
                 "compare_to": 1
             },

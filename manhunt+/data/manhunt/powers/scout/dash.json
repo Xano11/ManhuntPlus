@@ -59,7 +59,7 @@
 				}
 			]
 		},
-		"cooldown": 70,
+		"cooldown": 80,
 		"hud_render": {
 			"should_render": true,
 			"sprite_location": "manhunt:textures/bars/scout/scout.png",
@@ -190,7 +190,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3s"
+            "text": "Cooldown: 4s"
         }
     ]
 }

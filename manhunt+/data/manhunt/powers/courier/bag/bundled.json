@@ -82,6 +82,16 @@
                                     "type": "origins:and",
                                     "actions": [
                                         {
+                                            "type": "origins:random_teleport",
+                                            "area_width": 5,
+                                            "area_height": 1,
+                                            "success_action": {
+                                                "type": "origins:spawn_particles",
+                                                "particle": "minecraft:witch",
+                                                "count": 8
+                                            }
+                                        },
+                                        {
                                             "type": "origins:execute_command",
                                             "command": "tag @s remove tp_bundle"
                                         },

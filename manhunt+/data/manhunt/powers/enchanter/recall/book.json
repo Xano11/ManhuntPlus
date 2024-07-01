@@ -101,61 +101,34 @@
         "green": 0.0,
         "blue": 1.0
     },
+    "recall_pos": {
+        "type": "origins:entity_set"
+    },
     "recalling": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "tag @s add enchanted_recall"
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"recall_pos\"]}",
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:enchanter/recall/book_recall_pos"
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:enchanter/recall/book_delay",
+                    "change": 30,
+                    "operation": "set"
                 },
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:enchanter/arcane_energy",
                     "change": 0,
                     "operation": "set"
-                },
-                {
-                    "type": "origins:selector_action",
-                    "selector": "@e",
-                    "bientity_action": {
-                        "type": "origins:target_action",
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "tp @s @p[tag=enchanted_recall]"
-                        }
-                    },
-                    "bientity_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "eggolib:equal",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:and",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:living"
-                                        },
-                                        {
-                                            "type": "origins:inventory",
-                                            "process_mode": "items",
-                                            "comparison": ">=",
-                                            "compare_to": 1,
-                                            "item_condition": {
-                                                "type": "origins:has_power",
-                                                "power": "manhunt:enchanter/recall/enchanted"
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
                 },
                 {
                     "type": "origins:spawn_entity",
@@ -191,10 +164,6 @@
                             }
                         ]
                     }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @s remove enchanted_recall"
                 },
                 {
                     "type": "origins:execute_command",
@@ -242,6 +211,95 @@
                     "compare_to": 0
                 }
             ]
+        }
+    },
+    "delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:action_on_set",
+            "set": "manhunt:enchanter/recall/book_recall_pos",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add recall_check"
+                        },
+                        {
+                            "type": "origins:selector_action",
+                            "selector": "@e",
+                            "bientity_action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s @e[limit=1,sort=nearest,type=armor_stand,tag=recall_check]"
+                                }
+                            },
+                            "bientity_condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:invert",
+                                        "condition": {
+                                            "type": "origins:in_set",
+                                            "set": "manhunt:enchanter/recall/book_recall_pos",
+                                            "inverted": true
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:living"
+                                                },
+                                                {
+                                                    "type": "origins:inventory",
+                                                    "process_mode": "items",
+                                                    "comparison": ">=",
+                                                    "compare_to": 1,
+                                                    "item_condition": {
+                                                        "type": "origins:has_power",
+                                                        "power": "manhunt:enchanter/recall/enchanted"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "delay_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/recall/book_delay",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:enchanter/recall/book_delay",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "name": "Arcane: Recall",

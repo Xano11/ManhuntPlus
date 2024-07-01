@@ -111,7 +111,7 @@
                                             "bientity_condition": {
                                                 "type": "origins:and",
                                                 "conditions": [
-                                                    { 
+                                                    {
                                                         "type": "origins:target_condition",
                                                         "condition": {
                                                             "type": "origins:origin",
@@ -134,10 +134,22 @@
                     "bientity_condition": {
                         "type": "origins:target_condition",
                         "condition": {
-                            "type": "origins:fluid_height",
-                            "fluid": "minecraft:water",
-                            "comparison": ">",
-                            "compare_to": 0
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:fluid_height",
+                                    "fluid": "minecraft:water",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:in_block",
+                                    "block_condition": {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water_cauldron"
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
@@ -228,7 +240,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/cod.png",
-            "text": "Whilst your fishing hook is in water, you can activate §2§lFISH OUT🐟§r!\n\n§2§lFISH OUT🐟§r\nSends a teleport request to all hunters.\nOnly one hunter can accept the notification."
+            "text": "Whilst your fishing hook is in water, you can activate §3§lHUNTER BAIT🎣§r!\n\n§3§lHUNTER BAIT🎣§r\nSends a teleport request to all hunters.\nOnly one hunter can accept the notification."
         },
         {
             "type": "origins:keybind",

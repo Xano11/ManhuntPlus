@@ -2,53 +2,93 @@
     "type": "origins:multiple",
     "use": {
         "type": "origins:active_self",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "forceload add ~ ~ ~ ~",
-                    "permission_level": 4
+        "entity_action":  {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "apugli:entity_in_radius",
+                "bientity_condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "eggolib:compare_score",
+                            "actor_objective": "tracking",
+                            "target_objective": "hunters",
+                            "comparison": "=="
+                        },
+                        {
+                            "type": "origins:distance",
+                            "comparison": "<=",
+                            "compare_to": 128
+                        }
+                    ]
                 },
-                {
-                    "type": "origins:equipped_item_action",
-                    "equipment_slot": "mainhand",
-                    "action": {
-                        "type": "origins:consume",
-                        "amount": 1
+                "radius": 128,
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "forceload add ~ ~ ~ ~",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:consume",
+                            "amount": 1
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:instant_effect ~ ~1 ~ 0.3 0.3 0.3 0.1 100",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:dust_color_transition 1 1 0 1 0 1 1 ~ ~1 ~ 0.3 0.3 0.3 0.1 100",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:item.lodestone_compass.lock player @a ~ ~ ~ 1 0.5",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.bone_block.break player @a ~ ~ ~ 1 0.5",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a[tag=hunter] if score @s hunters = @p tracking run power grant @s manhunt:jester/switch/switch_effects",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:jester/switch/switch_duration",
+                        "change": 60
                     }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:instant_effect ~ ~1 ~ 0.3 0.3 0.3 0.1 100",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 1 1 0 1 0 1 1 ~ ~1 ~ 0.3 0.3 0.3 0.1 100",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.lodestone_compass.lock player @a ~ ~ ~ 1 0.5",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.bone_block.break player @a ~ ~ ~ 1 0.5",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute as @a[tag=hunter] if score @s hunters = @p tracking run power grant @s manhunt:jester/switch/switch_effects",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:jester/switch/switch_duration",
-                    "change": 60
-                }
-            ]
+                ]
+            },
+            "else_action":  {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"The target is not in range!\"",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "resource set @s manhunt:jester/switch/switch_use 64",
+                        "permission_level": 4
+                    }
+                ]
+            }
         },
         "cooldown": 65,
         "hud_render": {

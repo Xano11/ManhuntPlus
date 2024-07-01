@@ -73,7 +73,7 @@
                     "bientity_condition": {
                         "type": "origins:distance",
                         "comparison": "<=",
-                        "compare_to": 7
+                        "compare_to": 2
                     },
                     "count": 7,
                     "speed": 0.0,
@@ -90,7 +90,7 @@
                 }
             ]
         },
-        "interval": 20,
+        "interval": 30,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:sicarius/cloak_duration",

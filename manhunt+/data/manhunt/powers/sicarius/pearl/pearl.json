@@ -59,7 +59,7 @@
                 },
                 {
                     "type": "origins:fire_projectile",
-                    "entity_type": "minecraft:ender_pearl",
+                    "entity_type": "origins:enderian_pearl",
                     "speed": 1.5,
                     "divergence": 1,
                     "tag": "{Item:{id:\"minecraft:ender_pearl\",Count:1b,tag:{CustomModelData:4}}}",
@@ -186,7 +186,7 @@
                         "type": "origins:target_condition",
                         "condition": {
                             "type": "origins:entity_type",
-                            "entity_type": "minecraft:ender_pearl"
+                            "entity_type": "origins:enderian_pearl"
                         }
                     }
                 },

@@ -189,7 +189,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Overclocked: Movement speed decreased per 15% for every wave hit (max of 45%)"
+            "text": "Overclocked: Movement speed decreased per 15% and Attack speed decreased by 10% for every wave hit (max of 45%)"
         },
         {
             "type": "origins:tooltip",

@@ -185,6 +185,10 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
+                                    "command": "execute on passengers run resource set @s manhunt:courier/bag/bundle_glow 100"
+                                },
+                                {
+                                    "type": "origins:execute_command",
                                     "command": "tellraw @a[tag=!snatch_request,tag=hunter] [\"\",\"Join The Bag™ from \",{\"selector\":\"@p[tag=snatch_request]\",\"bold\":true,\"color\":\"gold\"},\"?    \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.saveToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
                                 },
                                 {
@@ -312,6 +316,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power remove @a[tag=snatched] manhunt:courier/snatch/snatching"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove snatch_request"
                 }
             ]
         }

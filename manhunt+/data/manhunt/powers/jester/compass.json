@@ -1,5 +1,8 @@
 {
     "type": "origins:multiple",
+    "selected":{
+        "type": "origins:entity_set"
+    },
     "switch": {
         "type": "origins:active_self",
         "entity_action": {
@@ -148,6 +151,28 @@
                     ]
                 },
                 {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:jester/compass_selected",
+                    "bientity_action":  {
+                        "type": "origins:remove_from_set",
+                        "set": "manhunt:jester/compass_selected"
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:jester/compass_selected"
+                    },
+                    "bientity_condition": {
+                        "type": "eggolib:compare_score",
+                        "actor_objective": "tracking",
+                        "target_objective": "hunters",
+                        "comparison": "=="
+                    }
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "execute at @a[tag=hunter] if score @p hunters = @s tracking run title @s actionbar [\"\",\"◎ The lost compass is linking to 「\",{\"selector\":\"@p\",\"color\":\"dark_purple\"},\"」\"]"
                 }
@@ -181,6 +206,46 @@
                     "compare_to": 0
                 }
             ]
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "use_teams": false,
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_set",
+                    "set": "manhunt:jester/compass_selected"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 128
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:compass"
+                        }
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:\"manhunt_compass\"}"
+                    }
+                ]
+            }
         }
     },
     "hidden": true

@@ -479,6 +479,7 @@
             "\" to Dash!"
         ]
     },
+    "hidden": true,
     "name": "Fierce Fish Dash",
     "description": "One swift swing of the SwordFish is enough to cut the howling wind around you.",
     "badges": [

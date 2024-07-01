@@ -3,7 +3,12 @@
     "less_food":{
         "type": "origins:modify_food",
         "food_modifier": {
-            "name": "Increased food points",
+            "name": "Decreased food points",
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+		"saturation_modifier":{
+            "name": "Decreased food points",
             "operation": "multiply_total",
             "value": -0.5
         }
@@ -14,7 +19,7 @@
 		{
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "All food gives §l§chalf§r the expected amount of sustenance.\n(Saturation is NOT affected)"
+			"text": "All food gives §l§chalf§r the expected amount of sustenance.\n(Saturation is affected)"
 		}
 	]
 }
