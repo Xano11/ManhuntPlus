@@ -59,19 +59,152 @@
             },
             "model": "item/crossbow_firework"
         },
+
+
+        {
+            "predicate": {
+                "custom_model_data": 1
+            },
+            "model": "item/flintlock/flintlock_idle"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "custom_model_data": 1
+            },
+            "model": "item/flintlock/flintlock_loading_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "custom_model_data": 1,
+                "pull": 0.167
+            },
+            "model": "item/flintlock/flintlock_loading_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "custom_model_data": 1,
+                "pull": 0.5
+            },
+            "model": "item/flintlock/flintlock_loading_2"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "custom_model_data": 1,
+                "pull": 0.7
+            },
+            "model": "item/flintlock/flintlock_loading_3"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "custom_model_data": 1,
+                "pull": 0.8
+            },
+            "model": "item/flintlock/flintlock_loading_4"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "custom_model_data": 1,
+                "pull": 0.9
+            },
+            "model": "item/flintlock/flintlock_loading_5"
+        },
         {
             "predicate": {
                 "charged": 1,
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/crossbow_charged"
+            "model": "item/flintlock/flintlock_primed"
+        },
+		{
+            "predicate": {
+                "charged": 1,
+                "custom_model_data": 1,
+                "firework": 1
+            },
+            "model": "item/flintlock/flintlock_firework"
+        },
+
+
+        {
+            "predicate": {
+                "custom_model_data": 2
+            },
+            "model": "item/flintlock/flintlock_idle"
         },
         {
             "predicate": {
                 "charged": 1,
                 "custom_model_data": 2
             },
-            "model": "item/crossbow_arrow"
+            "model": "manhunt:item/crossbow_charged"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+				"custom_model_data": 2
+            },
+            "model": "item/flintlock/flintlock_loading_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+				"custom_model_data": 2,
+                "pull": 0.167
+            },
+            "model": "item/flintlock/flintlock_loading_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+				"custom_model_data": 2,
+                "pull": 0.5
+            },
+            "model": "item/flintlock/flintlock_loading_2"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+				"custom_model_data": 2,
+                "pull": 0.7
+            },
+            "model": "item/flintlock/flintlock_loading_3"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+				"custom_model_data": 2,
+                "pull": 0.8
+            },
+            "model": "item/flintlock/flintlock_loading_4"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+				"custom_model_data": 2,
+                "pull": 0.9
+            },
+            "model": "item/flintlock/flintlock_loading_5"
+        },
+        {
+            "predicate": {
+                "charged": 1,
+				"custom_model_data": 2
+            },
+            "model": "item/flintlock/flintlock_primed"
+        },
+		{
+            "predicate": {
+                "charged": 1,
+                "firework": 1,
+		        "custom_model_data": 2
+            },
+            "model": "item/flintlock/flintlock_firework"
         }
     ]
 }

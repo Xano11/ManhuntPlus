@@ -17,7 +17,7 @@
             "conditions": [
                 {
                     "type": "origins:power",
-                    "power": "manhunt:jester/madness/mad",
+                    "power": "manhunt:jester/madness/mad_runners",
                     "inverted": true
                 },
                 {
@@ -32,6 +32,13 @@
         "green": 0.0,
         "blue": 0.0
     },
-    "name": "Dynamic Aura",
-    "description": "Hunters in a 48 block radius of the Balatro will be able to see you glowing through walls, revealing your current position."
+    "name": "Chaotic Aura",
+    "description": "Your overwhelming presence manifests itself in such a blatant manner.",
+    "badges": [
+        {
+          "type": "origins:tooltip",
+          "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+          "text": "Chaotic Aura: You glow red to all players in a 48 block radius."
+        }
+    ]
 }

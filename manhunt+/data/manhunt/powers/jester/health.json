@@ -1,14 +1,21 @@
 {
-    "type": "origins:multiple",
-    "health": {
-      "type": "origins:attribute",
-      "modifier": {
-        "name": "Max health decrease",
-        "attribute": "minecraft:generic.max_health",
-        "value": -4,
-        "operation": "addition"
-      }
-    },
-    "name": "Jester's soul",
-    "description": "Balatro lost two of their hearts because... they misplaced them? I don't know, ask them."
-  }
+  "type": "origins:multiple",
+  "health": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Max health decrease",
+      "attribute": "minecraft:generic.max_health",
+      "value": -4,
+      "operation": "addition"
+    }
+  },
+  "name": "Jester's soul",
+  "description": "Balatro lost two of their hearts because... they misplaced them? I don't know, ask them.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+      "text": "-2 §l§c❤§r"
+    }
+  ]
+}

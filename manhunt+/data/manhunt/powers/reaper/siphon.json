@@ -65,8 +65,8 @@
                         "actions": [
                             {
                                 "type": "origins:add_velocity",
-                                "z": -2,
-                                "y": 0.2,
+                                "z": -1.4,
+                                "y": 0.15,
                                 "set": true
                             },
                             {

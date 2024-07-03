@@ -18,15 +18,10 @@
         "type": "origins:action_over_time",
         "interval": 2,
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:lurker/blink_duration",
-                    "change": -1,
-                    "operation": "add"
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/blink_duration",
+            "change": -1,
+            "operation": "add"
         }
     },
     "atk_speed": {
@@ -81,14 +76,9 @@
         "green": 0,
         "blue": 1.0,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:origin",
-                    "origin": "manhunt:runner",
-                    "layer": "origins:origin"
-                }
-            ]
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
         }
     },
     "overlay": {
@@ -161,30 +151,18 @@
         "hide_with_hud": false,
         "visible_in_third_person": true,
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:lurker/blink_duration",
-                    "comparison": "==",
+                    "comparison": "<=",
                     "compare_to": 48
                 },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:lurker/blink_duration",
-                    "comparison": "==",
-                    "compare_to": 47
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:lurker/blink_duration",
-                    "comparison": "==",
-                    "compare_to": 46
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:lurker/blink_duration",
-                    "comparison": "==",
+                    "comparison": ">=",
                     "compare_to": 45
                 }
             ]

@@ -60,6 +60,26 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_width 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_height 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_width 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "scale set pehkui:eye_height 1",
                     "permission_level": 4
                 },

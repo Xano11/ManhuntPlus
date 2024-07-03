@@ -1630,7 +1630,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @s [\"\",{\"text\":\"reaper \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                    "command": "tellraw @s [\"\",{\"text\":\"Reaper \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
                 },
                 {
                     "type": "origins:if_else",

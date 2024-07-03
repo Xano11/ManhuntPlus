@@ -37,6 +37,32 @@
             "compare_to": 2
         }
     },
+    "uncraftable_imp_trident": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flint_trident",
+        "result": {
+            "item": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "uncraftable_flintlock": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flintlock",
+        "result": {
+            "item": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
     "glow_lurker_eye": {
         "type": "origins:entity_glow",
         "entity_condition": {
@@ -502,6 +528,32 @@
         },
         "use_teams": false,
         "red": 0.8,
+        "green": 0,
+        "blue": 0.9
+    },
+    "glow_enchanter_stone": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item_display"
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "manhunt:enchanter/recall/anim"
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.3,
         "green": 0,
         "blue": 0.9
     },

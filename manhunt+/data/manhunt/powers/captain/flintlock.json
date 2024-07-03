@@ -1,0 +1,250 @@
+{
+    "name": "Flimsy Flintlock",
+    "description": "The ol' flintlock pistol is not one to underestimate when in the hands of a true sea dog.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": "Shooting your flintlock will push you backwards and knockback entities in front of you.",
+            "sprite": "origins:textures/gui/badge/star.png"
+        },
+        {
+            "type": "origins:keybind",
+            "text": "Arm yourself with a flintlock by pressing \"%s\"!",
+            "sprite": "origins:textures/gui/badge/toggle.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": "Cooldown: 30s",
+            "sprite": "manhunt:textures/icons/cooldown.png"
+        }
+    ],
+    "type": "origins:multiple",
+    "craftable": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "re_enable": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:captain/flintlock_craftable 1",
+            "permission_level": 4
+        }
+    },
+    "craft_enabled": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flintlock",
+        "result": {
+            "item": "minecraft:crossbow",
+            "tag": "{display:{Name:'[\"\",{\"text\":\"Flintlock\",\"italic\":false}]',Lore:['[\"\",{\"text\":\"Captain\\'s Pride and Glory\",\"italic\":false,\"color\":\"gold\"}]']},Unbreakable:1,CustomModelData:1,Tags:flintlock,HideFlags:4}"
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:captain/flintlock_craftable 0",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:captain/flintlock_craftable",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "craft_disabled": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flintlock",
+        "result": {
+            "item": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:captain/flintlock_craftable",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no_use": {
+        "name": "🚫 Not loaded!",
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:flintlock}"
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 400,
+        "start_value": 400,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:captain/flintlock_charges",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:captain/flintlock_cooldown",
+                    "change": 400,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "charges": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/engineer/engineer_packs.png",
+            "bar_index": 0
+        }
+    },
+    "recharge": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/flintlock_cooldown",
+            "change": -20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:captain/flintlock_charges",
+            "comparison": "<",
+            "compare_to": 2
+        }
+    },
+    "crosshair_texture": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:captain/crosshair"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"flintlock\",\"loaded\"]}"
+            }
+        }
+    },
+    "load": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function manhunt:abilities/captain/load_flintlock",
+            "permission_level": 4
+        },
+        "cooldown": 2,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:flintlock}"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:captain/flintlock_charges",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "shoot": {
+        "type": "origins:active_self",
+        "key": "key.use",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/captain/shoot_flintlock",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=armor_stand,tag=flintlock_kb]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:area_of_effect",
+                            "radius": 3,
+                            "shape": "sphere",
+                            "bientity_action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add flintlocked"
+                                }
+                            },
+                            "bientity_condition": {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:living"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[tag=flintlocked]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 1.4,
+                                "y": 0.5,
+                                "set": true
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove alchimia_kb"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": -1,
+                    "y": 0.1,
+                    "space": "local"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"flintlock\",\"loaded\"]}"
+            }
+        }
+    }
+}

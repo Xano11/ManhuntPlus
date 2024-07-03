@@ -198,7 +198,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Numb: Launch your skull forward to grant yourself extra speed (60%) but lose part of your field of vision.\nIf you do not pick it up in under 10 secs, you get \"killed\". If you do pick it up, you can recover half a heart you lost from dying."
+            "text": "Launching your skull causes you to be §l§7☠Numb§r\n\n§l§7☠Numb§r\n Grants extra speed (60%) but lose part of your field of vision.\nIf you do not pick it up in under 7s, you get \"killed\". If you do pick it up, you can recover half a heart of maximum health."
         },
         {
             "type": "origins:keybind",

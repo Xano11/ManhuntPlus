@@ -11,6 +11,11 @@
                     "compare_to": 48
                 },
                 {
+                    "type": "origins:in_set",
+                    "set": "manhunt:jester/compass_selected",
+                    "inverted": true
+                },
+                {
                     "type": "origins:target_condition",
                     "condition": {
                         "type": "origins:and",

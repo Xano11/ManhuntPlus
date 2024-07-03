@@ -209,8 +209,23 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Right-click with a compass to select a hunter."
+            "sprite": "minecraft:textures/item/compass_16.png",
+            "text": "Switching has a slight windup and impairs the target's vision.\nTargets must be §nin a 128 block radius§r to be selected."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Select a Hunter with \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" and press \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" to switch!"
+            ]
         },
         {
             "type": "origins:keybind",

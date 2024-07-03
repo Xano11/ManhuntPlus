@@ -182,7 +182,27 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_width 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_height 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "scale delay set pehkui:eye_height 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_width 1",
                     "permission_level": 4
                 },
                 {
@@ -334,12 +354,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will lose a heart of permanent health to as low as 4 hearts.\nYour respawn speed is faster with lower health.\nAdditionally, you keep your hotbar on death."
+            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will §nlose a heart of permanent health§r to as low as 4 hearts.\nYour respawn speed §nis faster with lower health§r.\nAdditionally, you keep your hotbar on death."
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Rugged Bones: You start the game with 8 hearts. Every death additionally grants you more speed."
+            "text": "Rugged Bones: You start the game with 8 §l§c❤§r. Every death additionally grants you §nmore speed§r."
         }
     ]
 }

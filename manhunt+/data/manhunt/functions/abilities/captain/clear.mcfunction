@@ -1,0 +1,1 @@
+execute as @e[type=armor_stand,tag=flintlock_kb] run kill @s

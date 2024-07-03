@@ -101,6 +101,10 @@
                                 },
                                 {
                                     "type": "origins:execute_command",
+                                    "command": "tag @s add soulstruck"
+                                },
+                                {
+                                    "type": "origins:execute_command",
                                     "command": "playsound minecraft:entity.ender_dragon.hurt player @a ~ ~ ~ 2 0.6"
                                 },
                                 {

@@ -31,6 +31,12 @@
         },
         "interval": 10
     },
+    "done": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
     "levels": {
         "type": "origins:resource",
         "min": 0,
@@ -40,13 +46,13 @@
             "should_render": false
         }
     },
-    "bounce":{
+    "bounce": {
         "type": "eggolib:modify_bounciness",
-        "modifier":{
+        "modifier": {
             "value": -0.5,
             "operation": "multiply_total"
         },
-        "entity_action":{
+        "entity_action": {
             "type": "origins:execute_command",
             "command": "playsound minecraft:entity.generic.small_fall player @a ~ ~ ~ 3 0.6",
             "permission_level": 4
@@ -80,7 +86,7 @@
                     "type": "origins:if_else_list",
                     "actions": [
                         {
-                            "condition":  {
+                            "condition": {
                                 "type": "origins:resource",
                                 "resource": "manhunt:survivalist/supply/drop_levels",
                                 "comparison": "==",
@@ -93,7 +99,7 @@
                             }
                         },
                         {
-                            "condition":  {
+                            "condition": {
                                 "type": "origins:resource",
                                 "resource": "manhunt:survivalist/supply/drop_levels",
                                 "comparison": "==",
@@ -106,7 +112,7 @@
                             }
                         },
                         {
-                            "condition":  {
+                            "condition": {
                                 "type": "origins:resource",
                                 "resource": "manhunt:survivalist/supply/drop_levels",
                                 "comparison": "==",
@@ -123,6 +129,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "resource set @s manhunt:survivalist/supply/drop_duration 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:survivalist/supply/drop_done 1",
                     "permission_level": 4
                 }
             ]
@@ -160,7 +171,18 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:on_block"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:survivalist/supply/drop_done",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "hidden": true

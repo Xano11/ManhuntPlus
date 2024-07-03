@@ -11,6 +11,11 @@
                     "permission_level": 4
                 },
                 {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=runner] manhunt:jester/madness/mad_runners",
+                    "permission_level": 4
+                },
+                {
                     "type": "origins:selector_action",
                     "selector": "@a[tag=hunter]",
                     "bientity_action": {

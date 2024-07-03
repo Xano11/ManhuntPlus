@@ -1,23 +1,23 @@
 {
     "type": "origins:multiple",
-    "craft1": {
-        "type": "origins:action_on_callback",
-        "entity_action_added": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "recipe give @s manhunt:flint_trident",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:imp/pitchfork_craft1"
-                }
-            ]
+    "craftable": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
         }
     },
-    "craft2": {
+    "re_enable": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:imp/pitchfork_craftable 1",
+            "permission_level": 4
+        }
+    },
+    "craft_enabled": {
         "type": "origins:modify_crafting",
         "recipe": "manhunt:flint_trident",
         "result": {
@@ -25,17 +25,28 @@
             "tag": "{display:{Name:'[\"\",{\"text\":\"Ol Reliable\\'\",\"italic\":false,\"color\":\"dark_red\"},{\"text\":\"☆\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"4 Attack Damage\",\"italic\":false,\"color\":\"dark_gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{lvl:1,id:loyalty},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:[imp_trident,lvl1],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:4,Name:\"generic.attack_damage\",UUID:[I;-124516,48340,23928,-96680]},{AttributeName:\"generic.attack_speed\",Amount:-2.9,Name:\"generic.attack_speed\",UUID:[I;-124516,48640,23928,-97280]}],HideFlags:2}"
         },
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "recipe take @s manhunt:flint_trident"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:imp/pitchfork_craft2"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:imp/pitchfork_craftable 0",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_craftable",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "craft_disabled": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flint_trident",
+        "result": {
+            "item": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:imp/pitchfork_craftable",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "iron": {
