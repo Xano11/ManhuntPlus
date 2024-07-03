@@ -1,7 +1,8 @@
 {
 	"powers": [
 		"manhunt:captain/flintlock",
-		"manhunt:captain/boat/boat",
+		"manhunt:captain/bubble/activate",
+		"manhunt:captain/boat",
 		"manhunt:captain/craft",
 		"manhunt:captain/nether",
 		"manhunt:captain/rascal"

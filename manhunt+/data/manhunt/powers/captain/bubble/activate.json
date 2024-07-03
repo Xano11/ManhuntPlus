@@ -1,0 +1,127 @@
+{
+    "type": "origins:multiple",
+    "craftable": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 12,
+                    "shape": "sphere",
+                    "include_actor": true,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:spawn_entity",
+                                    "entity_type": "minecraft:item_display",
+                                    "tag": "{Tags:[\"captain_bubble\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.7f,0f],scale:[1f,2.2f,1f]},item:{id:\"minecraft:glass\",Count:1b,tag:{Enchantments:[{}]}}}",
+                                    "bientity_action": {
+                                        "type": "origins:invert",
+                                        "action": {
+                                            "type": "origins:mount"
+                                        }
+                                    },
+                                    "entity_action":{
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s Rotation set value [0f,0f]"
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:captain/bubble/bubbled"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:falling_dust minecraft:light_blue_concrete ~ ~1 ~ 0.2 0.35 0.2 0 30 force"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.axolotl.swim player @a ~ ~ ~ 1 0.7"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/captain.png",
+            "bar_index": 1
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+    "name": "Bubbling Bullocks",
+    "description": "The ol' flintlock pistol is not one to underestimate when in the hands of a true sea dog.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": "Shooting your flintlock will push you backwards and knockback entities in front of you.",
+            "sprite": "origins:textures/gui/badge/star.png"
+        },
+        {
+            "type": "origins:keybind",
+            "text": "Arm yourself with a flintlock by pressing \"%s\"!",
+            "sprite": "origins:textures/gui/badge/toggle.png"
+        },
+        {
+            "type": "origins:tooltip",
+            "text": "Cooldown: 30s",
+            "sprite": "manhunt:textures/icons/cooldown.png"
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "manhunt:textures/item/flintlock.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:flintlock",
+                "pattern": [
+                    " $ ",
+                    "%@ ",
+                    " # "
+                ],
+                "key": {
+                    "$": {
+                        "item": "minecraft:flint"
+                    },
+                    "@": {
+                        "item": "minecraft:cobblestone"
+                    },
+                    "%": {
+                        "item": "minecraft:iron_ingot"
+                    },
+                    "#": {
+                        "item": "minecraft:stick"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:crossbow"
+                }
+            }
+        }
+    ]
+}

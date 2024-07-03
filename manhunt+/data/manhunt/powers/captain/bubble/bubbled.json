@@ -1,0 +1,142 @@
+{
+    "type": "origins:multiple",
+    "float": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -4,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ],
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0.4
+        }
+    },
+    "walk": {
+        "type": "origins:walk_on_fluid",
+        "fluid": "minecraft:water",
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "<=",
+            "compare_to": 0.4
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=captain_bubble] run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:captain/bubble/bubbled"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "leaving": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "execute on passengers unless entity @s[tag=captain_bubble]",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:spawn_entity",
+                "entity_type": "minecraft:item_display",
+                "tag": "{Tags:[\"captain_bubble\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,2f,1f]},item:{id:\"minecraft:glass\",Count:1b,tag:{Enchantments:[{}]}}}",
+                "bientity_action": {
+                    "type": "origins:invert",
+                    "action": {
+                        "type": "origins:mount"
+                    }
+                },
+                "entity_action":{
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @s Rotation set value [0f,0f]"
+                }
+            }
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "execute on passengers if entity @s[tag=captain_bubble] run kill @s",
+            "permission_level": 4
+        },
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=captain_bubble] run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:captain/bubble/bubbled"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": false
+    },
+    "bubble_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 10
+        },
+        "interval": 2
+    },
+    "swirl": {
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/particle/bubble.png",
+        "speed": 0.03
+    },
+    "more_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Bubble",
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+    "main_overlay": {
+        "type": "apoli:overlay",
+        "texture": "minecraft:textures/block/glass.png",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "strength": 0.3,
+        "draw_mode": "nausea",
+        "draw_phase": "above_hud",
+        "visible_in_third_person": true,
+        "hide_with_hud": true
+    },
+    "hidden": true
+}

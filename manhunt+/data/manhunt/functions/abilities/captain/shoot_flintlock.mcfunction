@@ -1,6 +1,6 @@
 item replace entity @s weapon.mainhand with crossbow{display:{Name:'["",{"text":"Flintlock","italic":false}]',Lore:['["",{"text":"Captain\'s Pride and Glory","italic":false,"color":"gold"}]']},Unbreakable:1,CustomModelData:1,Tags:flintlock,HideFlags:4} 1
-playsound minecraft:item.flintandsteel.use player @a ~ ~ ~ 2 0.5
-playsound minecraft:entity.tnt.primed player @a ~ ~ ~ 2 2
+playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1 2
+playsound minecraft:item.firecharge.use player @a ~ ~ ~ 1 0.8
 execute positioned ~ ~1 ~ run summon armor_stand ^ ^1 ^1 {Marker:1b,Invisible:1b,Tags:["flintlock_kb"]}
 execute positioned ~ ~1 ~ run summon armor_stand ^1 ^1 ^1 {Marker:1b,Invisible:1b,Tags:["flintlock_kb"]}
 execute positioned ~ ~1 ~ run summon armor_stand ^-1 ^1 ^1 {Marker:1b,Invisible:1b,Tags:["flintlock_kb"]}
