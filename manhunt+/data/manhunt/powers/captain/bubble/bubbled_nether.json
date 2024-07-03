@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "float_water": {
+    "float_lava": {
         "type": "origins:modify_velocity",
         "modifier": {
             "value": -4,
@@ -17,14 +17,9 @@
         }
     },
     "float": {
-        "type": "origins:modify_velocity",
-        "modifier": {
-            "value": -0.6,
-            "operation": "multiply_total"
-        },
-        "axes": [
-            "y"
-        ],
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false,
         "condition": {
             "type": "origins:fluid_height",
             "fluid": "minecraft:lava",
@@ -34,7 +29,7 @@
     },
     "walk": {
         "type": "origins:walk_on_fluid",
-        "fluid": "minecraft:water",
+        "fluid": "minecraft:lava",
         "condition": {
             "type": "origins:fluid_height",
             "fluid": "minecraft:lava",
@@ -47,7 +42,7 @@
         "modifier": {
             "name": "Speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.6,
+            "value": 0.8,
             "operation": "multiply_total"
         },
         "condition": {
@@ -92,6 +87,14 @@
             "change": -10
         },
         "interval": 10
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 30
     },
     "leaving": {
         "type": "origins:action_on_callback",
@@ -152,7 +155,7 @@
         "type": "origins:modify_damage_taken",
         "bientity_action": {
             "type": "origins:add_velocity",
-            "z": 0.8,
+            "z": 1.4,
             "y": 0.1
         },
         "damage_condition": {

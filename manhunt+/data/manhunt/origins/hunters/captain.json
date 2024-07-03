@@ -3,7 +3,7 @@
 		"manhunt:captain/flintlock",
 		"manhunt:captain/bubble/activate",
 		"manhunt:captain/boat",
-		"manhunt:captain/craft",
+		"manhunt:captain/seadog",
 		"manhunt:captain/nether",
 		"manhunt:captain/rascal"
 	],
@@ -14,5 +14,5 @@
 	"order": 10,
 	"impact": 2,
 	"name": "Captain",
-	"description": "       [§eASSISTANCE ✦§r]\n§c§lUnder Maintenance!!§r\nA pirate made for the sea, trained to the point of leadership... also known as leader of the ship."
+	"description": "       [§eASSISTANCE ✦§r]\nCap'n back t' aid ye out thar, swimmin' or nah!"
 }

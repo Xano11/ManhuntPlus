@@ -19,7 +19,7 @@
             },
             "if_action": {
                 "type": "origins:area_of_effect",
-                "radius": 12,
+                "radius": 48,
                 "shape": "sphere",
                 "include_actor": true,
                 "bientity_action": {
@@ -37,7 +37,7 @@
                                         "type": "origins:mount"
                                     }
                                 },
-                                "entity_action":{
+                                "entity_action": {
                                     "type": "origins:execute_command",
                                     "command": "data modify entity @s Rotation set value [0f,0f]"
                                 }
@@ -68,7 +68,7 @@
             },
             "else_action": {
                 "type": "origins:area_of_effect",
-                "radius": 12,
+                "radius": 48,
                 "shape": "sphere",
                 "include_actor": true,
                 "bientity_action": {
@@ -86,7 +86,7 @@
                                         "type": "origins:mount"
                                     }
                                 },
-                                "entity_action":{
+                                "entity_action": {
                                     "type": "origins:execute_command",
                                     "command": "data modify entity @s Rotation set value [0f,0f]"
                                 }
@@ -117,62 +117,48 @@
             }
         },
         "cooldown": 1800,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "manhunt:textures/bars/captain.png",
-            "bar_index": 1
-        },
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/captain/captain.png",
+                "bar_index": 1,
+                "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/captain/captain.png",
+                "bar_index": 2,
+                "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+            }
+        ],
         "key": {
             "key": "key.origins.secondary_active"
         }
     },
     "name": "Bubbling Bullocks",
-    "description": "The ol' flintlock pistol is not one to underestimate when in the hands of a true sea dog.",
+    "description": "The seas are meant for all; Even yer' disabled ones!",
     "badges": [
         {
             "type": "origins:tooltip",
-            "text": "Shooting your flintlock will push you backwards and knockback entities in front of you.",
-            "sprite": "origins:textures/gui/badge/star.png"
+            "text": "This ability envelops all hunters in a 48 block radius with a §b§l⭘Bubble§r for 15s.\n\n§b§l⭘Bubble§r\n- You have infinite air, can walk on water and float upwards whilst submerged.\n- You take increased knockback and have slow falling\n- You heal 1/2 §l§c❤§r every 1.5s\n\nIn the Nether, you have fire immunity instead of infinite air.",
+            "sprite": "minecraft:textures/particle/bubble.png"
         },
         {
             "type": "origins:keybind",
-            "text": "Arm yourself with a flintlock by pressing \"%s\"!",
+            "text": "Envelop those around you in bubbles with \"%s\"!",
             "sprite": "origins:textures/gui/badge/toggle.png"
         },
         {
             "type": "origins:tooltip",
-            "text": "Cooldown: 30s",
+            "text": "Cooldown: 1m30s",
             "sprite": "manhunt:textures/icons/cooldown.png"
-        },
-        {
-            "type": "origins:crafting_recipe",
-            "sprite": "manhunt:textures/item/flintlock.png",
-            "recipe": {
-                "type": "minecraft:crafting_shaped",
-                "id": "manhunt:flintlock",
-                "pattern": [
-                    " $ ",
-                    "%@ ",
-                    " # "
-                ],
-                "key": {
-                    "$": {
-                        "item": "minecraft:flint"
-                    },
-                    "@": {
-                        "item": "minecraft:cobblestone"
-                    },
-                    "%": {
-                        "item": "minecraft:iron_ingot"
-                    },
-                    "#": {
-                        "item": "minecraft:stick"
-                    }
-                },
-                "result": {
-                    "item": "minecraft:crossbow"
-                }
-            }
         }
     ]
 }
