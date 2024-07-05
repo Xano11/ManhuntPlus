@@ -17,9 +17,13 @@
             "compare_to": 1
         }
     },
-    "sink":
-    {
-        "type": "origins:ignore_water"
+    "sink":{
+        "type": "origins:ignore_water",
+        "condition":  {
+            "type": "origins:power",
+            "power": "manhunt:captain/bubble/bubbled",
+            "inverted": true
+        }
     },
     "no_jump":{
         "type": "origins:modify_jump",
