@@ -109,15 +109,15 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 16,
-        "start_value": 16,
+        "max": 160,
+        "start_value": 160,
         "hud_render": {
             "should_render": false
         },
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "kill @s",
-            "permission_level": 4
+            "type": "origins:damage",
+            "amount": 9999,
+            "damage_type": "manhunt:curse"
         }
     },
     "duration_down": {
@@ -127,7 +127,7 @@
             "resource": "manhunt:deleo/binding/binded_duration",
             "change": -1
         },
-        "interval": 10
+        "interval": 1
     },
     "label1": {
         "type": "eggolib:modify_label_render",
@@ -140,15 +140,10 @@
         ],
         "tick_rate": 1,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:deleo/binding/binded_duration",
-                    "comparison": ">",
-                    "compare_to": 12
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/binding/binded_duration",
+            "comparison": ">",
+            "compare_to": 120
         }
     },
     "label2": {
@@ -181,13 +176,13 @@
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": "<=",
-                    "compare_to": 12
+                    "compare_to": 120
                 },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": ">",
-                    "compare_to": 8
+                    "compare_to": 80
                 }
             ]
         }
@@ -222,13 +217,13 @@
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": "<=",
-                    "compare_to": 8
+                    "compare_to": 80
                 },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": ">",
-                    "compare_to": 1
+                    "compare_to": 10
                 }
             ]
         }
@@ -245,30 +240,20 @@
         ],
         "tick_rate": 1,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:deleo/binding/binded_duration",
-                    "comparison": "<=",
-                    "compare_to": 1
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/binding/binded_duration",
+            "comparison": "<=",
+            "compare_to": 10
         }
     },
     "model1": {
         "type": "origins:model_color",
         "alpha": 0.75,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:deleo/binding/binded_duration",
-                    "comparison": ">",
-                    "compare_to": 12
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/binding/binded_duration",
+            "comparison": ">",
+            "compare_to": 120
         }
     },
     "model2": {
@@ -281,13 +266,13 @@
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": ">",
-                    "compare_to": 8
+                    "compare_to": 80
                 },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": "<=",
-                    "compare_to": 12
+                    "compare_to": 120
                 }
             ]
         }
@@ -302,13 +287,13 @@
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": ">",
-                    "compare_to": 1
+                    "compare_to": 10
                 },
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:deleo/binding/binded_duration",
                     "comparison": "<=",
-                    "compare_to": 8
+                    "compare_to": 80
                 }
             ]
         }
@@ -317,15 +302,10 @@
         "type": "origins:model_color",
         "alpha": 0.30,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:deleo/binding/binded_duration",
-                    "comparison": "<=",
-                    "compare_to": 1
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/binding/binded_duration",
+            "comparison": "<=",
+            "compare_to": 10
         }
     },
     "levitate": {
