@@ -477,6 +477,55 @@
             "inverted": true
         }
     },
+    "flintlock_prevent": {
+        "type": "origins:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"flintlock\",\"loaded\"]}"
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:flintlock}"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "flintlock_drop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:drop_inventory",
+            "retain_ownership": false,
+            "item_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"flintlock\",\"loaded\"]}"
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:flintlock}"
+                    }
+                ]
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
     "glow_angler_cod": {
         "type": "origins:entity_glow",
         "entity_condition": {
