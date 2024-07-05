@@ -73,7 +73,7 @@
                     "bientity_condition": {
                         "type": "origins:distance",
                         "comparison": "<=",
-                        "compare_to": 2
+                        "compare_to": 4
                     },
                     "count": 7,
                     "speed": 0.0,
