@@ -1,5 +1,5 @@
 {
-    "type":"origins:multiple",
+    "type": "origins:multiple",
     "duration": {
         "type": "origins:resource",
         "min": 0,
@@ -9,8 +9,17 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "power remove @s manhunt:angler/sword/hit"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:angler/sword/hit"
+                }
+            ]
         }
     },
     "duration_down": {
@@ -31,7 +40,7 @@
                     "type": "origins:damage",
                     "amount": 1,
                     "damage_type": "minecraft:generic"
-                },
+                }, 
                 {
                     "type": "origins:add_velocity",
                     "y": 1.5
@@ -79,14 +88,9 @@
         }
     },
     "slow_fall": {
-        "type": "origins:modify_velocity",
-        "modifier": {
-            "value": -0.4,
-            "operation": "multiply_total"
-        },
-        "axes": [
-            "y"
-        ]
+        "type": "origins:modify_falling",
+        "velocity": 0.04,
+        "take_fall_damage": false
     },
     "hidden": true
 }
