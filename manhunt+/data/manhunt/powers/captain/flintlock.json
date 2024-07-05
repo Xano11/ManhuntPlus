@@ -224,6 +224,10 @@
                     "permission_level": 4
                 },
                 {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
                     "type": "origins:selector_action",
                     "selector": "@e[type=armor_stand,tag=flintlock_kb]",
                     "bientity_action": {
@@ -256,15 +260,14 @@
                         "actions": [
                             {
                                 "type": "origins:add_velocity",
-                                "z": 1.4,
-                                "y": 0.5,
-                                "set": true
+                                "z": 2,
+                                "y": 0.5
                             },
                             {
                                 "type": "origins:target_action",
                                 "action": {
                                     "type": "origins:execute_command",
-                                    "command": "tag @s remove alchimia_kb"
+                                    "command": "tag @s remove flintlocked"
                                 }
                             }
                         ]
@@ -272,7 +275,7 @@
                 },
                 {
                     "type": "origins:add_velocity",
-                    "z": -1.1,
+                    "z": -1.3,
                     "y": 0.1,
                     "space": "local"
                 }

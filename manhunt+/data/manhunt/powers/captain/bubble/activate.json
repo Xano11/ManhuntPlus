@@ -147,7 +147,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "text": "This ability envelops all hunters in a 48 block radius with a §b§l⭘Bubble§r for 15s.\n\n§b§l⭘Bubble§r\n- You have infinite air, can walk on water and float upwards whilst submerged.\n- You take increased knockback and have slow falling\n- You heal 1/2 §l§c❤§r every 1.5s\n\nIn the Nether, you have fire immunity instead of infinite air.",
+            "text": "This ability envelops all hunters in a 48 block radius with a §b§l⭘Bubble§r for 15s.\n\n§b§l⭘Bubble§r\n- You have infinite air, can walk on water and float quickly upwards whilst holding the jump key.\n- You take increased knockback and have slow falling\n- You heal 1/2 §l§c❤§r every 1.5s\n\nIn the Nether, you have fire immunity instead of infinite air.",
             "sprite": "minecraft:textures/particle/bubble.png"
         },
         {

@@ -1,19 +1,60 @@
 {
     "type": "origins:multiple",
+    "key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_key_check",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.jump",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0.4
+        }
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
     "float_water": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -4,
+            "value": 5,
             "operation": "multiply_total"
         },
         "axes": [
             "y"
         ],
         "condition": {
-            "type": "origins:fluid_height",
-            "fluid": "minecraft:water",
+            "type": "origins:resource",
+            "resource": "manhunt:captain/bubble/bubbled_key_check",
             "comparison": ">",
-            "compare_to": 0.4
+            "compare_to": 0
         }
     },
     "float": {
@@ -31,13 +72,22 @@
         "type": "origins:walk_on_fluid",
         "fluid": "minecraft:water",
         "condition": {
-            "type": "origins:fluid_height",
-            "fluid": "minecraft:water",
-            "comparison": "<=",
-            "compare_to": 0.4
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "<=",
+                    "compare_to": 0.4
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
         }
     },
-    "speed":{
+    "speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "name": "Speed increase",
@@ -116,7 +166,7 @@
                         "type": "origins:mount"
                     }
                 },
-                "entity_action":{
+                "entity_action": {
                     "type": "origins:execute_command",
                     "command": "data modify entity @s Rotation set value [0f,0f]"
                 }
@@ -156,7 +206,7 @@
         "texture_location": "minecraft:textures/particle/bubble.png",
         "speed": 0.03
     },
-    "kb":{
+    "kb": {
         "type": "origins:modify_damage_taken",
         "bientity_action": {
             "type": "origins:add_velocity",
