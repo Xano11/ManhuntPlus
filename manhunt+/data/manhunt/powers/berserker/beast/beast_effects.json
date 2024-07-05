@@ -455,36 +455,71 @@
         }
     },
     "disable_shield": {
-        "type": "origins:action_on_hit",
-        "bientity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:target_action",
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "block": true,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tag @s add shield_disable",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:vex",
+                            "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                            "entity_action": {
                                 "type": "origins:execute_command",
-                                "command": "power grant @s manhunt:berserker/beast/disabled"
-                            },
-                            {
-                                "type": "origins:modify_inventory",
-                                "item_condition": {
-                                    "type": "origins:ingredient",
-                                    "ingredient": {
-                                        "item": "minecraft:shield"
-                                    }
-                                },
-                                "item_action": {
-                                    "type": "apugli:cooldown",
-                                    "ticks": 100
+                                "command": "power grant @s manhunt:berserker/disable/shield",
+                                "permission_level": 4
+                            }
+                        }
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:living"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        },
+                        {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shield"
                                 }
                             }
-                        ]
-                    }
+                        }
+                    ]
                 }
-            ]
+            },
+            "command_step": 0.5
+        },
+        "cooldown": 4,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.attack"
         },
         "condition": {
             "type": "origins:resource",

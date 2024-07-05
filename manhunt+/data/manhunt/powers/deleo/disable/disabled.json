@@ -59,7 +59,7 @@
     "velocity_decay": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -0.5,
+            "value": -0.2,
             "operation": "multiply_total"
         },
         "axes": [

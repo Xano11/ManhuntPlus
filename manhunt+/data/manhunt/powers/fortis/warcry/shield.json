@@ -1,19 +1,11 @@
 {
     "type": "origins:multiple",
-    "invis": {
-        "type": "origins:invisibility",
-        "render_armor": false
-    },
-    "held_item":{
-        "type": "origins:prevent_feature_render",
-        "features": [
-            "armor",
-            "held_item"
-        ]
-    },
-    "disable": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
+    "delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "min_action": {
             "type": "origins:and",
             "actions": [
                 {
@@ -22,7 +14,7 @@
                     "shape": "sphere",
                     "bientity_action": {
                         "type": "origins:damage",
-                        "amount": 1,
+                        "amount": 0.01,
                         "damage_type": "minecraft:player_attack"
                     },
                     "bientity_condition": {
@@ -44,10 +36,42 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "tp @s ~ 319 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "kill @s",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:modify_death_ticks",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 20
+                    }
                 }
             ]
         }
+    },
+    "delay_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/warcry/shield_delay",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "held_item":{
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ]
     }
 }

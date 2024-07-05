@@ -43,18 +43,8 @@
                     },
                     "bientity_condition": {
                         "type": "origins:target_condition",
-                        "condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:living"
-                                },
-                                {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                }
-                            ]
+                        "condition":  {
+                            "type": "origins:living"
                         }
                     }
                 },
@@ -82,7 +72,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:deleo/disable/shield_delay",
+            "resource": "manhunt:berserker/beast/shield_delay",
             "change": -1
         },
         "interval": 1
