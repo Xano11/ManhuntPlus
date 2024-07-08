@@ -2,7 +2,7 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:boat",
+		"item": "minecraft:oak_boat",
 		"tag": "{Enchantments:[{}]}"
 	},
 	"order": 10,

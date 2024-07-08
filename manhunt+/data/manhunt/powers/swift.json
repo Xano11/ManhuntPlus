@@ -30,5 +30,12 @@
             "value": 0.5
         }
     },
+    "mining_speed":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        }
+    },
     "hidden": true
 }

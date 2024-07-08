@@ -1,0 +1,33 @@
+{
+    "type": "origins:multiple",
+    "mining": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.15
+        }
+    },
+    "less_atkspeed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Less Attack Speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -0.15,
+            "operation": "addition"
+        }
+    },
+    "name": "§e            [✦]§r",
+    "description": "",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/pickaxe.png",
+            "text": "§a+15%§r Mining Speed."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
+            "text": "§c-0.15§r Attack Speed."
+        }
+    ]
+}

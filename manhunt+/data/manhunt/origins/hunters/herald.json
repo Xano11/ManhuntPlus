@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:roles/assistance",
 		"manhunt:herald/flower_crown/equip",
 		"manhunt:herald/flower_crown/passives",
 		"manhunt:herald/roost/roost",

@@ -1,7 +1,5 @@
 gamerule sendCommandFeedback false
 power grant @a manhunt:ban
-origin set @a[tag=hunter] manhunt:hunters manhunt:none
-origin set @a[tag=runner] manhunt:runners manhunt:none
 origin gui @p[tag=ban_pick] manhunt:bans_runners
 origin gui @a[tag=runner] manhunt:bans_hunters
 power grant @s manhunt:ban

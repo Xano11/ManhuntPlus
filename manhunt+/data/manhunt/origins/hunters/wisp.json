@@ -1,11 +1,13 @@
 {
 	"powers": [
+		"manhunt:roles/assistance",
 		"manhunt:guardian/hungry"
 	],
 	"icon": {
 		"item": "minecraft:tide_armor_trim_smithing_template",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
+	"unchoosable": true,
 	"order": 10,
 	"impact": 2,
 	"name": "Wisp",

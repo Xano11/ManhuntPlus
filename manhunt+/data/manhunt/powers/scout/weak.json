@@ -5,7 +5,7 @@
         "modifier": {
         "name": "less health",
         "attribute": "minecraft:generic.max_health",
-        "value": -4,
+        "value": -2,
         "operation": "addition"
         }
     },
@@ -22,7 +22,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Frail: §l§c25%§r Less damage dealt and §l§c-2§r Hearts."
+            "text": "Frail: §l§c25%§r Less damage dealt and §l§c-1§r Hearts."
         }
     ]
 }

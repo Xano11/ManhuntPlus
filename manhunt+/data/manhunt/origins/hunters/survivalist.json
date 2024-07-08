@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:roles/assistance",
 		"manhunt:survivalist/hookshot",
 		"manhunt:survivalist/pouch",
 		"manhunt:survivalist/bomb/throw",

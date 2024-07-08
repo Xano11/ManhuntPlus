@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:roles/rivals",
 		"manhunt:firestarter/burn_hit",
 		"manhunt:firestarter/invigorate",
 		"manhunt:firestarter/fourthmatchflame",

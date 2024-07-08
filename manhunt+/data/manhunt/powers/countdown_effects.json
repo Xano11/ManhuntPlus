@@ -2,23 +2,16 @@
     "type": "origins:multiple",
     "timer": {
         "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 300,
+        "min": -1,
+        "max": 35,
+        "start_value": 15,
         "hud_render": {
-            "should_render": false,
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 2
+            "should_render": false
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:countdown_effects",
-                    "permission_level": 4
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:countdown_effects",
+            "permission_level": 4
         }
     },
     "timer_tick": {
@@ -26,9 +19,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:countdown_effects_timer",
-            "change": -10
+            "change": -1
         },
-        "interval": 10
+        "interval": 20
     },
     "no_move": {
         "type": "origins:modify_velocity",
@@ -47,7 +40,7 @@
         "modifier": {
             "name": "Decrease speed",
             "attribute": "minecraft:generic.attack_speed",
-            "value": -3,
+            "value": -1,
             "operation": "multiply_total"
         }
     },
@@ -89,28 +82,6 @@
             "key.origins.primary_active",
             "key.origins.secondary_active"
         ]
-    },
-    "trigger_cooldowns":{
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:trigger_cooldown",
-                    "power": "manhunt:imp/portal/portal_activate"
-                },
-                {
-                    "type": "origins:trigger_cooldown",
-                    "power": "manhunt:engineer/bacont/bacont_activate"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:angler/sword/transfish",
-                    "change": -900
-                }
-            ]
-        },
-        "execute_chosen_when_orb": true
     },
     "hidden": true
 }

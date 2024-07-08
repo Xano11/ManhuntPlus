@@ -48,24 +48,37 @@
         },
         "interval": 1,
         "condition": {
-            "type": "apugli:entity_in_radius",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "apoli:entity_type",
-                        "entity_type": "minecraft:player"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:runner",
+                                "layer": "origins:origin"
+                            }
+                        ]
                     },
-                    {
-                        "type": "origins:origin",
-                        "origin": "manhunt:runner",
-                        "layer": "origins:origin"
+                    "radius": 256.0,
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:height",
+                        "comparison": ">=",
+                        "compare_to": 48
                     }
-                ]
-            },
-            "radius": 256.0,
-            "comparison": "==",
-            "compare_to": 0
+                }
+            ]
         }
     },
     "charging_down": {
@@ -77,24 +90,37 @@
         },
         "interval": 1,
         "condition": {
-            "type": "apugli:entity_in_radius",
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "apoli:entity_type",
-                        "entity_type": "minecraft:player"
-                    },
-                    {
-                        "type": "origins:origin",
-                        "origin": "manhunt:runner",
-                        "layer": "origins:origin"
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:height",
+                        "comparison": "<=",
+                        "compare_to": 48
                     }
-                ]
-            },
-            "radius": 256.0,
-            "comparison": ">=",
-            "compare_to": 1
+                },
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:runner",
+                                "layer": "origins:origin"
+                            }
+                        ]
+                    },
+                    "radius": 256.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
         }
     },
     "more_speed": {

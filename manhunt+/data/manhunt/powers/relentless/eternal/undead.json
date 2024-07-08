@@ -359,7 +359,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Rugged Bones: You start the game with 8 §l§c❤§r. Every death additionally grants you §nmore speed§r."
+            "text": "Rugged Bones: You start the game with -1 §l§c❤§r. Every death additionally grants you §nmore speed§r."
         }
     ]
 }

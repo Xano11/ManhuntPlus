@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:roles/assistance",
 		"manhunt:captain/flintlock",
 		"manhunt:captain/bubble/activate",
 		"manhunt:captain/boat",
