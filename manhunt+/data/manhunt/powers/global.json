@@ -37,6 +37,30 @@
             "compare_to": 2
         }
     },
+    "diamond_block_nuggets":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:blocks/diamond_ore": "manhunt:blocks/diamond_ore"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:global_difficulty",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "deepslate_diamond_block_nuggets":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:blocks/deepslate_diamond_ore": "manhunt:blocks/deepslate_diamond_ore"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:global_difficulty",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
     "uncraftable_imp_trident": {
         "type": "origins:modify_crafting",
         "recipe": "manhunt:flint_trident",

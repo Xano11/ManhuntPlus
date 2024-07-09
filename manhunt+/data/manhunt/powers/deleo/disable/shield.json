@@ -4,7 +4,7 @@
         "type": "origins:invisibility",
         "render_armor": false
     },
-    "held_item":{
+    "held_item": {
         "type": "origins:prevent_feature_render",
         "features": [
             "armor",
@@ -20,11 +20,26 @@
                     "type": "origins:selector_action",
                     "selector": "@p[tag=shield_disable]",
                     "bientity_action": {
-                        "type": "origins:damage",
-                        "amount": 1,
-                        "damage_type": "minecraft:player_attack"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:damage",
+                                "amount": 0.001,
+                                "damage_type": "minecraft:player_attack"
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0,
+                                    "space": "velocity_horizontal"
+                                }
+                            }
+                        ]
                     },
-                    "bientity_condition":{
+                    "bientity_condition": {
                         "type": "origins:target_condition",
                         "condition": {
                             "type": "origins:and",

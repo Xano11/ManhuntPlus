@@ -93,7 +93,7 @@
                         "y": 0.3,
                         "z": 0.3
                     },
-                    "bientity_condition":  {
+                    "bientity_condition": {
                         "type": "origins:equal",
                         "inverted": true
                     }
@@ -254,14 +254,25 @@
                     "set": "manhunt:deleo/disable/disable_target"
                 },
                 {
-                    "type": "origins:add_velocity",
-                    "z": 1,
-                    "y": 0.1
-                },
-                {
-                    "type": "origins:damage",
-                    "amount": 1,
-                    "damage_type": "manhunt:curse"
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:using_item",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:shield"
+                                }
+                            },
+                            "inverted": true
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:add_velocity",
+                        "z": 1,
+                        "y": 0.1
+                    }
                 },
                 {
                     "type": "origins:target_action",
