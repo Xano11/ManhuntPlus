@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:roles/rivals",
 		"manhunt:reaper/soul_teleport",
 		"manhunt:reaper/siphon",
 		"manhunt:reaper/echo",

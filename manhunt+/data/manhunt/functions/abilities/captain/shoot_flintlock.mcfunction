@@ -18,5 +18,4 @@ execute positioned ~ ~1 ~ run summon armor_stand ^3 ^1 ^3 {Marker:1b,Invisible:1
 execute positioned ~ ~1 ~ run summon armor_stand ^-3 ^1 ^3 {Marker:1b,Invisible:1b,Tags:["flintlock_kb"]}
 execute as @e[tag=flintlock_kb] run data modify entity @s Rotation set from entity @p Rotation
 execute as @e[tag=flintlock_kb] at @s run function manhunt:abilities/captain/flintlock_particles
-resource change @s manhunt:captain/flintlock_charges -1
 schedule function manhunt:abilities/captain/clear 2t append

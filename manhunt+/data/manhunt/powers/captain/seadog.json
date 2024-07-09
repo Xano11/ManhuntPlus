@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "dolphin": {
+        "type": "origins:entity_glow",
+        "red": 0,
+        "green": 0.7,
+        "blue": 1,
+        "entity_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:dolphin"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 48
+        }
+    },
+    "vision": {
+        "type": "origins:night_vision",
+        "strength": 0.5,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        }
+    },
+    "name": "Ocean Eyes",
+    "description": "Your eyes have adapted to the marvels of the Ocean.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Ocean Eyes: Dolphins in a 48 block radius glow and you have better underwater vision"
+        }
+    ]
+}

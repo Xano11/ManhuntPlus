@@ -217,12 +217,22 @@
                                             {
                                                 "type": "origins:actor_action",
                                                 "action": {
-                                                    "type": "origins:action_on_set",
-                                                    "set": "manhunt:scanner/laser/laser_pointer_tracked",
-                                                    "bientity_action": {
-                                                        "type": "origins:remove_from_set",
-                                                        "set": "manhunt:scanner/laser/laser_pointer_tracked"
-                                                    }
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:action_on_set",
+                                                            "set": "manhunt:scanner/laser/laser_pointer_tracked",
+                                                            "bientity_action": {
+                                                                "type": "origins:remove_from_set",
+                                                                "set": "manhunt:scanner/laser/laser_pointer_tracked"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:change_resource",
+                                                            "resource": "manhunt:scanner/laser/laser_pointer_scanned",
+                                                            "change": 1
+                                                        }
+                                                    ]
                                                 }
                                             },
                                             {

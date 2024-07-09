@@ -2,11 +2,11 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:crossbow",
-		"tag": "{Enchantments:[{}],Charged:1b,CustomModelData:1}"
+		"item": "minecraft:oak_boat",
+		"tag": "{Enchantments:[{}]}"
 	},
 	"order": 10,
 	"impact": 2,
 	"name": "Captain",
-	"description": "       [§eASSISTANCE ✦§r]\nA pirate made for the sea, trained to the point of leadership... also known as leader of the ship."
+	"description": "       [§eASSISTANCE ✦§r]\nCap'n back t' aid ye out thar, swimmin' or nah!"
 }

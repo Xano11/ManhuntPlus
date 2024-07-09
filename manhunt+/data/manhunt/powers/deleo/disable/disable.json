@@ -255,7 +255,7 @@
                 },
                 {
                     "type": "origins:if_else",
-                    "condition": {
+                    "condition":  {
                         "type": "origins:target_condition",
                         "condition": {
                             "type": "origins:using_item",
@@ -270,9 +270,14 @@
                     },
                     "if_action": {
                         "type": "origins:add_velocity",
-                        "z": 1,
+                        "z": 0.4,
                         "y": 0.1
                     }
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "manhunt:curse"
                 },
                 {
                     "type": "origins:target_action",
@@ -387,14 +392,6 @@
                                         }
                                     ]
                                 }
-                            },
-                            {
-                                "type": "origins:target_action",
-                                "action": {
-                                    "type": "origins:execute_command",
-                                    "command": "tag @s remove shield_disable",
-                                    "permission_level": 4
-                                }
                             }
                         ]
                     },
@@ -427,7 +424,7 @@
                 }
             ]
         },
-        "cooldown": 1,
+        "cooldown": 4,
         "hud_render": {
             "should_render": false
         },
@@ -549,7 +546,7 @@
                         "type": "origins:invert",
                         "action": {
                             "type": "origins:add_velocity",
-                            "z": -0.8
+                            "z": -0.45
                         }
                     }
                 }

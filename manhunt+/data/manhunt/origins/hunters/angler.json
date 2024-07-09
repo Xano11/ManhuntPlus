@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:roles/rivals",
 		"manhunt:angler/fishing/throw",
 		"manhunt:angler/fishing/fishout",
         "manhunt:angler/sword/dash",

@@ -16,7 +16,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_alchimia",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -37,7 +38,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_celeritas",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -58,7 +60,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_damned",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -79,7 +82,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_deleo",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -100,7 +104,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_draco",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -121,7 +126,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_fortis",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -142,7 +148,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_gambler",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -163,7 +170,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_jester",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -184,7 +192,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_sanguis",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },
@@ -205,7 +214,8 @@
             "type": "origins:resource",
             "resource": "manhunt:ban_sicarius",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1,
+            "inverted": true
           }
         ]
       },

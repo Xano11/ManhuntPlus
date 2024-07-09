@@ -80,48 +80,19 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/alchimia",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "eggolib:close_screen"
-                                    },
-                                    {
-                                        "type": "origins:if_else",
-                                        "condition": {
-                                            "type": "origins:origin",
-                                            "origin": "manhunt:hunter",
-                                            "layer": "origins:origin"
-                                        },
-                                        "if_action": {
-                                            "type": "origins:execute_command",
-                                            "command": "origin gui @s manhunt:hunters"
-                                        },
-                                        "else_action": {
-                                            "type": "origins:execute_command",
-                                            "command": "origin gui @s manhunt:runners"
-                                        }
-                                    }
-                                ]
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -147,21 +118,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/angler",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -170,20 +129,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -209,21 +156,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/berserker",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -232,20 +167,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -271,21 +194,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/bomber",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -294,20 +205,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -333,21 +232,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/captain",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -356,20 +243,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -395,21 +270,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/imp",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -418,20 +281,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -457,21 +308,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/chef",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -480,20 +319,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -519,21 +346,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/courier",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -542,20 +357,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -581,21 +384,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/damned",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -604,20 +395,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -643,21 +422,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/deleo",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -666,20 +433,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -705,21 +460,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/draco",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -728,20 +471,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -767,21 +498,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/enchanter",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -790,20 +509,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -829,21 +536,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/engineer",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -852,20 +547,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -891,21 +574,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/falconer",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -914,20 +585,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -953,21 +612,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/firestarter",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -976,20 +623,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1015,21 +650,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/fortis",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1038,20 +661,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -1077,21 +688,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/gambler",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1100,20 +699,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -1139,21 +726,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/geologist",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1162,20 +737,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1201,21 +764,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/guardian",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1224,20 +775,46 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "hecatomb": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.guitar player @s ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",{\"text\":\"Hecatomb \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/hecatomb",
+                        "layer": "manhunt:hunters"
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "eggolib:close_screen"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1263,21 +840,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/herald",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1286,20 +851,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1325,21 +878,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/imp",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1348,20 +889,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1387,21 +916,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/jester",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1410,20 +927,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -1449,21 +954,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/lurker",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1472,20 +965,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1511,21 +992,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/piglin",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1534,20 +1003,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1573,21 +1030,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/relentless",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1596,20 +1041,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1635,21 +1068,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/reaper",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1658,20 +1079,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1697,21 +1106,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/sanguis",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1720,20 +1117,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -1759,21 +1144,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/scanner",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1782,20 +1155,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1821,21 +1182,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/scout",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1844,20 +1193,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1883,21 +1220,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/shaman",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1906,20 +1231,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -1945,21 +1258,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:runners/sicarius",
+                        "layer": "manhunt:runners"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -1968,20 +1269,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:runners"
                             }
                         ]
                     }
@@ -2007,21 +1296,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/survivalist",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -2030,20 +1307,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }
@@ -2069,21 +1334,9 @@
                 {
                     "type": "origins:if_else",
                     "condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_hunters",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:origin",
-                                "origin": "origins:empty",
-                                "layer": "manhunt:bans_runners",
-                                "inverted": true
-                            }
-                        ]
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/xolotl",
+                        "layer": "manhunt:hunters"
                     },
                     "if_action": {
                         "type": "origins:and",
@@ -2092,20 +1345,8 @@
                                 "type": "eggolib:close_screen"
                             },
                             {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:origin",
-                                    "origin": "manhunt:hunter",
-                                    "layer": "origins:origin"
-                                },
-                                "if_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:hunters"
-                                },
-                                "else_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "origin gui @s manhunt:runners"
-                                }
+                                "type": "origins:execute_command",
+                                "command": "origin gui @s manhunt:hunters"
                             }
                         ]
                     }

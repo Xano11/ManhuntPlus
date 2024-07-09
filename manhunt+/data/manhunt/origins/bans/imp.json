@@ -3,7 +3,7 @@
     ],
     "icon": {
 		"item": "minecraft:purple_dye",
-		"tag": "{Enchantments:[{}],CustomModelData:2}"
+		"tag": "{Enchantments:[{}],CustomModelData:5}"
 	},
     "impact": 3,
     "name": "Imp",
