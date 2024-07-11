@@ -72,6 +72,10 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "scale set pehkui:visibility 0 @s"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power grant @s manhunt:lurker/shadow/shadow_effects"
                 },
                 {

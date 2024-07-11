@@ -35,6 +35,10 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "scale set pehkui:visibility 1 @s"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "power remove @s manhunt:lurker/shadow/shadow_effects"
                 }
             ]
