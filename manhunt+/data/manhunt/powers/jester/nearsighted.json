@@ -27,6 +27,12 @@
                                 "inverted": true
                             },
                             {
+                                "type": "origins:resource",
+                                "resource": "manhunt:hunter_effects_shattered_duration",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
                                 "type": "origins:living"
                             }                            
                         ]

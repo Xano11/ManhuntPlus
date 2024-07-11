@@ -387,5 +387,8 @@
         "type": "eggolib:modify_label_render",
         "render_mode": "hide_completely"
     },
+    "deaf":{
+        "type": "apugli:prevent_sound"
+    },
     "hidden": true
 }
