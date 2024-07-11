@@ -702,17 +702,8 @@
                     }
                 },
                 {
-                    "type": "origins:modify_resource",
-                    "modifier": {
-                        "operation": "set_total",
-                        "value": 0,
-                        "resource": "manhunt:hunt_countdown",
-                        "modifier": {
-                            "operation": "multiply_total_multiplicative",
-                            "value": 20
-                        }
-                    },
-                    "resource": "manhunt:countdown_effects_timer"
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=hunter] run resource operation @s manhunt:countdown_effects_timer = @e[limit=1,sort=nearest,tag=setup] timer"
                 },
                 {
                     "type": "origins:execute_command",
