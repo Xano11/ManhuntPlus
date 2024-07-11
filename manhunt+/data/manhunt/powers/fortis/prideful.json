@@ -8,17 +8,17 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:fortis/warcry/war_unleash",
-                    "change": -100
+                    "change": -40
                 },
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:fortis/shield/shield_cooldown",
-                    "change": -100
+                    "change": -40
                 },
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:fortis/heal_flash",
-                    "change": -100
+                    "change": -40
                 },
                 {
                     "type": "origins:change_resource",
@@ -63,7 +63,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/absorption.png",
-            "text": "Taking damage from hunters or hitting a damage cap from Majestic Guard:\n\nAbility cooldowns: -5s\n+30% Stamina meter"
+            "text": "Taking damage from hunters or hitting a damage cap from Majestic Guard:\n\nAbility cooldowns: -2s\n+30% Stamina meter"
         },
         {
             "type": "origins:tooltip",

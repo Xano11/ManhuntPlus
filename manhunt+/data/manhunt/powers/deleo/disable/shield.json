@@ -1,30 +1,47 @@
 {
     "type": "origins:multiple",
-    "invis": {
-        "type": "origins:invisibility",
-        "render_armor": false
-    },
-    "held_item":{
-        "type": "origins:prevent_feature_render",
-        "features": [
-            "armor",
-            "held_item"
-        ]
-    },
-    "disable": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
+    "delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "min_action": {
             "type": "origins:and",
             "actions": [
                 {
                     "type": "origins:selector_action",
                     "selector": "@p[tag=shield_disable]",
                     "bientity_action": {
-                        "type": "origins:damage",
-                        "amount": 1,
-                        "damage_type": "minecraft:player_attack"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:damage",
+                                "amount": 0.01,
+                                "damage_type": "minecraft:player_attack"
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove shield_disable",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 0,
+                                            "set": true
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     },
-                    "bientity_condition":{
+                    "bientity_condition": {
                         "type": "origins:target_condition",
                         "condition": {
                             "type": "origins:and",

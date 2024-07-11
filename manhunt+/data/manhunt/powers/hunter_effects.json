@@ -128,6 +128,27 @@
         "green": 1.0,
         "blue": 1.0
     },
+    "shattered_duration":  {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0
+    },
+    "shattered_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunter_effects_shattered_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_shattered_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "shaman": {
         "type": "origins:action_on_death",
         "bientity_action": {
@@ -252,7 +273,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "scale set pehkui:motion 1.4 @s"
+                                "command": "scale set pehkui:motion 1.25 @s"
                             }
                         ]
                     },
@@ -354,7 +375,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:command",
-            "command": "execute on vehicle if entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.399999976158142]",
+            "command": "execute on vehicle if entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.25]",
             "comparison": ">=",
             "compare_to": 1
         }

@@ -38,11 +38,86 @@
     "owner": {
         "type": "origins:entity_set"
     },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 800,
+        "start_value": 800,
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
+                "bar_index": 0,
+                "icon_index": 0,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:set_size",
+                            "set": "manhunt:sicarius/pearl/pearl_owner",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                            "comparison": "<",
+                            "compare_to": 800
+                        }
+                    ]
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
+                "bar_index": 0,
+                "icon_index": 1,
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:set_size",
+                            "set": "manhunt:sicarius/pearl/pearl_owner",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                            "comparison": "<",
+                            "compare_to": 800
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+            "change": 5
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+            "comparison": "<",
+            "compare_to": 800
+        }
+    },
     "shoot": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                    "change": 0,
+                    "operation": "set"
+                },
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:sicarius/pearl/pearl_key_check",
@@ -117,41 +192,29 @@
                 }
             ]
         },
-        "cooldown": 900,
-        "hud_render": [
-            {
-                "should_render": true,
-                "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
-                "bar_index": 0,
-                "icon_index": 0,
-                "condition": {
-                    "type": "origins:set_size",
-                    "set": "manhunt:sicarius/pearl/pearl_owner",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            },
-            {
-                "should_render": true,
-                "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
-                "bar_index": 0,
-                "icon_index": 1,
-                "condition":  {
-                    "type": "origins:set_size",
-                    "set": "manhunt:sicarius/pearl/pearl_owner",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            }
-        ],
+        "cooldown": 2,
+        "hud_render": {
+            "should_render": false
+        },
         "key": {
             "key": "key.attack"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:sicarius/pearl/pearl_key_check",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                    "comparison": "==",
+                    "compare_to": 800
+                }
+            ]
         }
     },
     "teleport": {
@@ -235,6 +298,12 @@
                     "set": "manhunt:sicarius/pearl/pearl_owner",
                     "comparison": ">",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                    "comparison": "<",
+                    "compare_to": 800
                 }
             ]
         }
@@ -265,7 +334,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s"
+            "text": "Shared Cooldown with \"Disimulad\" : 40s"
         }
     ]
 }

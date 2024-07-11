@@ -60,7 +60,7 @@
                         "actions": [
                             {
                                 "type": "origins:add_velocity",
-                                "z": 3
+                                "z": 4
                             },
                             {
                                 "type": "origins:target_action",

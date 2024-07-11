@@ -19,10 +19,33 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 45,
+        "max": 900,
         "start_value": 0,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 3,
+            "condition": {
+                "type": "origins:inventory",
+                "process_mode": "items",
+                "item_condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "minecraft:potion"
+                            }
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:\"alchimia\"}"
+                        }
+                    ]
+                },
+                "comparison": "<",
+                "compare_to": 3
+            }
         },
         "max_action": {
             "type": "origins:and",
@@ -37,7 +60,8 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:alchimia/potion/refill_cooldown",
-                    "change": -45
+                    "change": 0,
+                    "operation": "set"
                 },
                 {
                     "type": "origins:execute_command",
@@ -57,9 +81,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:alchimia/potion/refill_cooldown",
-            "change": 1
+            "change": 5
         },
-        "interval": 20,
+        "interval": 5,
         "condition": {
             "type": "origins:and",
             "conditions": [

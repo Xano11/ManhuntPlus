@@ -26,7 +26,12 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "scale add pehkui:step_height -1",
+                    "command": "scale set pehkui:step_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:visibility 1",
                     "permission_level": 4
                 },
                 {
@@ -159,9 +164,20 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:visibility 0",
+                    "permission_level": 4
+                },
+                {
                     "type": "origins:change_resource",
                     "resource": "manhunt:sicarius/cloak_duration",
                     "change": 140,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                    "change": 0,
                     "operation": "set"
                 },
                 {
@@ -171,7 +187,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "scale add pehkui:step_height 1",
+                    "command": "scale set pehkui:step_height 2",
                     "permission_level": 4
                 },
                 {
@@ -188,7 +204,7 @@
                 }
             ]
         },
-        "cooldown": 900,
+        "cooldown": 2,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
@@ -204,10 +220,21 @@
             "key": "key.use"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:sicarius/pearl/pearl_key_check",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                    "comparison": "==",
+                    "compare_to": 800
+                }
+            ]
         }
     },
     "cancel_cloak": {
@@ -465,7 +492,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m\nDuration: 7s"
+            "text": "Shared Cooldown with \"Perla de Sombra\" : 40s\nDuration: 7s"
         }
     ]
 }
