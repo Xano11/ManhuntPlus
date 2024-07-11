@@ -32,8 +32,11 @@
               "name": "minecraft:light_blue_dye",
               "functions": [
                 {
-                  "function": "minecraft:set_nbt",
-                  "tag": "{display:{Name:'[\"\",{\"text\":\"Diamond nugget\",\"italic\":false}]'},Tags:diamond_nugget}"
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "min": 4,
+                    "max": 5
+                  }
                 },
                 {
                   "function": "minecraft:apply_bonus",
@@ -42,6 +45,10 @@
                 },
                 {
                   "function": "minecraft:explosion_decay"
+                },
+                {
+                  "function": "minecraft:set_nbt",
+                  "tag": "{display:{Name:'[\"\",{\"text\":\"Diamond nugget\",\"italic\":false}]'},Tags:diamond_nugget}"
                 }
               ]
             }

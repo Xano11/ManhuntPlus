@@ -37,7 +37,7 @@
             "compare_to": 2
         }
     },
-    "diamond_block_nuggets":{
+    "diamond_block_nuggets": {
         "type": "origins:replace_loot_table",
         "replace": {
             "minecraft:blocks/diamond_ore": "manhunt:blocks/diamond_ore"
@@ -49,7 +49,7 @@
             "compare_to": 0
         }
     },
-    "deepslate_diamond_block_nuggets":{
+    "deepslate_diamond_block_nuggets": {
         "type": "origins:replace_loot_table",
         "replace": {
             "minecraft:blocks/deepslate_diamond_ore": "manhunt:blocks/deepslate_diamond_ore"
@@ -60,6 +60,39 @@
             "comparison": "==",
             "compare_to": 0
         }
+    },
+    "make_diamond": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "entity_action": {
+                "type": "origins:give",
+                "stack": {
+                    "item": "minecraft:diamond",
+                    "amount": 1
+                }
+            },
+            "item_action": {
+                "type": "origins:consume",
+                "amount": 9
+            },
+            "process_mode": "stacks",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:diamond_nugget}"
+                    },
+                    {
+                        "type": "origins:amount",
+                        "comparison": ">=",
+                        "compare_to": 9
+                    }
+                ]
+            }
+        },
+        "interval": 5
     },
     "uncraftable_imp_trident": {
         "type": "origins:modify_crafting",

@@ -29,8 +29,15 @@
               },
               {
                 "type": "minecraft:item",
-                "name": "minecraft:diamond",
+                "name": "minecraft:light_blue_dye",
                 "functions": [
+                  {
+                    "function": "minecraft:set_count",
+                    "count": {
+                      "min": 4,
+                      "max": 5
+                    }
+                  },
                   {
                     "function": "minecraft:apply_bonus",
                     "enchantment": "minecraft:fortune",
