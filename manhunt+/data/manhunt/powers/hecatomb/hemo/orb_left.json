@@ -1,0 +1,107 @@
+{
+    "type": "origins:multiple",
+    "no_player": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "no_player_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/orb_left_no_player",
+            "change": -1
+        },
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "execute on passengers run item replace entity @s container.0 with minecraft:air"
+        },
+        "falling_action": {
+            "type": "origins:execute_command",
+            "command": "execute on passengers run item replace entity @s container.0 with minecraft:redstone_block"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    },
+    "rotation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/orb_left_rotation",
+            "change": -360
+        }
+    },
+    "rotate": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:hecatomb/hemo/orb_left_rotation",
+                    "change": 8
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=armor_stand] manhunt:hecatomb/hemo/orb_left_rotation"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1 0.3 0 0 ~ ~ ~ 0.05 0.05 0.05 0.05 1 force @a"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding"
+        }
+    },
+    "rejoin": {
+        "type": "origins:action_over_time",
+        "entity_action":  {
+            "type": "origins:selector_action",
+            "selector": "@a[tag=hunter]",
+            "bientity_action": {
+                "type": "origins:mount"
+            },
+            "bientity_condition": {
+                "type": "origins:invert",
+                "condition": {
+                    "type": "origins:in_set",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb"
+                }
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    }
+}

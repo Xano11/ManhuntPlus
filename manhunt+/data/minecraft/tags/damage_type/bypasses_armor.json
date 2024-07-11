@@ -2,6 +2,7 @@
     "values": [
         "manhunt:redirect_true",
         "manhunt:curse",
-        "manhunt:bleeding_true"
+        "manhunt:bleeding_true",
+        "manhunt:hemomagic"
     ]
 }

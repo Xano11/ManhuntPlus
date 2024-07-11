@@ -1,0 +1,337 @@
+{
+    "type": "origins:multiple",
+    "left_orb": {
+        "type": "origins:entity_set"
+    },
+    "right_orb": {
+        "type": "origins:entity_set"
+    },
+    "pos_left": {
+        "type": "eggolib:modify_passenger_position",
+        "y_modifier": {
+            "operation": "addition",
+            "value": -0.25
+        },
+        "x_modifier": {
+            "operation": "addition",
+            "value": 0.6
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:hecatomb/hemo/orb_left"
+            }
+        }
+    },
+    "pos_right": {
+        "type": "eggolib:modify_passenger_position",
+        "y_modifier": {
+            "operation": "addition",
+            "value": -0.25
+        },
+        "x_modifier": {
+            "operation": "addition",
+            "value": -0.6
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:hecatomb/hemo/orb_right"
+            }
+        }
+    },
+    "holding_key": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
+    "key_release": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "create_left": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"blood_orb_left\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"blood_orb_left\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.35f,0.35f,0.35f]},item:{id:\"minecraft:redstone_block\",Count:1b}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:hecatomb/hemo/surge_left_orb"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:hecatomb/hemo/orb_left",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^-0.25 ^ ^ 0 0 0 0 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "create_right": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"blood_orb_right\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"blood_orb_right\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.35f,0.35f,0.35f]},item:{id:\"minecraft:redstone_block\",Count:1b}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:hecatomb/hemo/surge_right_orb"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:hecatomb/hemo/orb_right",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^-0.25 ^ ^ 0 0 0 0 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "crosshair_left": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:hecatomb/crosshair_left_orb"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "crosshair_right": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:hecatomb/crosshair_right_orb"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "crosshair_full": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:hecatomb/crosshair_full"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "name": "Hemomagic",
+    "description": "Fly at high speeds in the direction you are looking.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/imp_wings_item.png",
+            "text": "The ability can be used to negate fall damage."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Fly with \"%s\"!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/icons/cooldown.png",
+            "text": "8.5%/sec energy recharge whilst on the ground."
+        }
+    ]
+}
