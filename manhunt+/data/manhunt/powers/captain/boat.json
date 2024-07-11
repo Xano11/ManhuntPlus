@@ -34,7 +34,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "scale set pehkui:motion 1.4 @s"
+                                "command": "scale set pehkui:motion 1.25 @s"
                             }
                         ]
                     },
@@ -62,7 +62,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:command",
-            "command": "execute on vehicle unless entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.399999976158142]",
+            "command": "execute on vehicle unless entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.25]",
             "comparison": ">=",
             "compare_to": 1
         }
@@ -154,7 +154,7 @@
         "interval": 1,
         "condition": {
             "type": "origins:command",
-            "command": "execute on vehicle if entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.399999976158142]",
+            "command": "execute on vehicle if entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.25]",
             "comparison": ">=",
             "compare_to": 1
         }
@@ -170,7 +170,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§6§l⚐Sea Skipper§r\n +40% boat speed."
+            "text": "§6§l⚐Sea Skipper§r\n +25% boat speed."
         }
     ]
 }

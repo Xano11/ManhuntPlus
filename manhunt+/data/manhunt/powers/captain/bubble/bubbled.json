@@ -102,6 +102,14 @@
             "compare_to": 0
         }
     },
+    "damage":{
+        "type": "origins:modify_damage_taken",
+        "self_action":  {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_duration",
+            "change": -150
+        }
+    },
     "duration": {
         "type": "origins:resource",
         "min": 0,
@@ -113,6 +121,11 @@
         "min_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:ambient.underwater.exit player @a ~ ~ ~ 1 1.5",
+                    "permission_level": 4
+                },
                 {
                     "type": "origins:set_fall_distance",
                     "fall_distance": 0

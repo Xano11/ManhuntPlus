@@ -4,7 +4,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "text": "Your flintlock requires §8§l🔥Gunpowder§r to be fired.\nShooting your flintlock will push you backwards and knockback entities in front of you.",
+            "text": "Your flintlock requires §8§l🔥Gunpowder§r to be fired.\nShooting your flintlock will push you backwards and knockback entities in front of you.\nThis also deals light damage and breaks shield.",
             "sprite": "origins:textures/gui/badge/star.png"
         },
         {
@@ -72,7 +72,7 @@
         "type": "origins:action_on_callback",
         "entity_action_respawned": {
             "type": "origins:execute_command",
-            "command": "resource set @s manhunt:captain/flintlock_craftable 1",
+            "command": "resource set @s manhunt:captain/flintlock/flintlock_craftable 1",
             "permission_level": 4
         }
     },
@@ -85,12 +85,12 @@
         },
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "resource set @s manhunt:captain/flintlock_craftable 0",
+            "command": "resource set @s manhunt:captain/flintlock/flintlock_craftable 0",
             "permission_level": 4
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:captain/flintlock_craftable",
+            "resource": "manhunt:captain/flintlock/flintlock_craftable",
             "comparison": "==",
             "compare_to": 1
         }
@@ -103,7 +103,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:captain/flintlock_craftable",
+            "resource": "manhunt:captain/flintlock/flintlock_craftable",
             "comparison": "==",
             "compare_to": 0
         }
@@ -126,12 +126,12 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:captain/flintlock_charges",
+                    "resource": "manhunt:captain/flintlock/flintlock_charges",
                     "change": 1
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "manhunt:captain/flintlock_cooldown",
+                    "resource": "manhunt:captain/flintlock/flintlock_cooldown",
                     "change": 500,
                     "operation": "set"
                 }
@@ -153,13 +153,13 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "manhunt:captain/flintlock_cooldown",
+            "resource": "manhunt:captain/flintlock/flintlock_cooldown",
             "change": -20
         },
         "interval": 20,
         "condition": {
             "type": "origins:resource",
-            "resource": "manhunt:captain/flintlock_charges",
+            "resource": "manhunt:captain/flintlock/flintlock_charges",
             "comparison": "<",
             "compare_to": 2
         }
@@ -205,7 +205,7 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "manhunt:captain/flintlock_charges",
+                    "resource": "manhunt:captain/flintlock/flintlock_charges",
                     "comparison": ">",
                     "compare_to": 0
                 }
@@ -253,11 +253,28 @@
                     }
                 },
                 {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove flintlocked"
+                },
+                {
                     "type": "origins:selector_action",
                     "selector": "@e[tag=flintlocked]",
                     "bientity_action": {
                         "type": "origins:and",
                         "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add shield_disable",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:damage",
+                                "amount": 2,
+                                "damage_type": "manhunt:flintlock"
+                            },
                             {
                                 "type": "origins:add_velocity",
                                 "z": 2,
@@ -271,6 +288,16 @@
                                 }
                             }
                         ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:vex",
+                    "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                    "entity_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:captain/flintlock/shield",
+                        "permission_level": 4
                     }
                 },
                 {

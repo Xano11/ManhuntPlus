@@ -52,6 +52,14 @@
             "compare_to": 0
         }
     },
+    "damage":{
+        "type": "origins:modify_damage_taken",
+        "self_action":  {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_nether_duration",
+            "change": -150
+        }
+    },
     "duration": {
         "type": "origins:resource",
         "min": 0,
