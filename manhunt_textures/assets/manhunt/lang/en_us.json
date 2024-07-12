@@ -13,6 +13,8 @@
     "death.attack.vanish.player": "%s vanished",
     "death.attack.twinstrike": "%s was twinstruck!",
     "death.attack.twinstrike.player": "%s was struck twice by %s",
+    "death.attack.hemomagic": "%s died to blood magic!",
+    "death.attack.hemomagic.player": "%s died to hemomagic!",
 
 
     "layer.manhunt.runners.name": "Runner",

@@ -1,8 +1,8 @@
 hash-format = "sha256"
 
 [[files]]
-file = "config/openloader/resources/manhunt42.zip"
-hash = "1f2359cf2ad6866e8fcf4382597d197716cb152720b54e9bad53c1ba800dacdd"
+file = "config/openloader/resources/manhunt43.zip"
+hash = "d51352acbac7a21ab631661fe4ca25d6851d427f1feda588518348755a93b836"
 
 [[files]]
 file = "mods/CITResewnJSONLagPatch-1.1.3.2+1.20.jar"
