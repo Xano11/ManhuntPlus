@@ -36,12 +36,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/fishing_rod.png",
-            "text": "You spawn in with an unbreakable fishing rod."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have 4x yield for any type of fish you catch whilst fishing."
+            "text": "§3§lAngler's Rod 🎣§r\n§7You spawn in with an §r§aUnbreakable§r\n§7fishing rod that even returns on death.\n§7When catching fish, you have §r§a4x§r§7 the normal yield.\n\n§7§lPassive Ability"
         }
     ]
 }

@@ -240,17 +240,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/cod.png",
-            "text": "Whilst your fishing hook is in water, you can activate §3§lHUNTER BAIT🎣§r!\n\n§3§lHUNTER BAIT🎣§r\nSends a teleport request to all hunters.\nOnly one hunter can accept the notification."
+            "text": "§9§lHunter Bait 🐟§r\n§7Whilst your fishing hook is in water, you can send a §r§ateleport request§r§7 to all hunters.\n§7Only §r§7§oone Hunter§r§7 can accept the notification.\n\n§6🕒§r§7 Windup: §r§f8s\n§e⌛§r§7 Cooldown: §r§f5m\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hook a teammate with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 5m\nWindup: 8s"
+            "text": "§7Hook a teammate with \"%s\"!"
         }
     ]
 }

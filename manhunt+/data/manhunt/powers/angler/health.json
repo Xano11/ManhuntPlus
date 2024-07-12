@@ -1,21 +1,31 @@
 {
-    "type": "origins:multiple",
-    "health": {
-      "type": "origins:attribute",
-      "modifier": {
-        "name": "Max health decrease",
-        "attribute": "minecraft:generic.max_health",
-        "value": -4,
-        "operation": "addition"
+  "type": "origins:multiple",
+  "health": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Max health decrease",
+      "attribute": "minecraft:generic.max_health",
+      "value": -4,
+      "operation": "addition"
+    }
+  },
+  "items": {
+    "type": "origins:prevent_item_use",
+    "name": "🚫",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:shield"
       }
-    },
-    "name": "Hearts at Sea",
-    "description": "Two of your hearts belong to the unrelenting waves of the sea.",
-    "badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
-            "text": "Hearts at Sea: -2 §l§c❤§r"
-        }
-    ]
-  }
+    }
+  },
+  "name": "Sea Scurvy",
+  "description": "An unavoidable cost, your health belongs to the unrelenting waves of the sea.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+      "text": "§c§lSea Scurvy 💔§r\n§7Your Health is reduced by -2 §l§c❤§r\n§7Shields cannot be used.\n\n§7§lPassive Ability"
+    }
+  ]
+}

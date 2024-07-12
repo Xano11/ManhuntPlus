@@ -311,35 +311,25 @@
             ]
         }
     },
-    "name": "EvoFish",
+    "name": "Profishiency",
     "description": "With enough energy, any fish can become a fierce weapon of war in your hands.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/swordfish.png",
             "text": [
-                "Any held fish can be turned into a §l§9🦈SWORDFISH§r.\n\n§l§9🦈SWORDFISH§r\nThis weapon deals 3 damage on land and 5 whilst submerged underwater. Hitting the entity whilst dashing simultaneously will deal 6 on hit instead.\n§l§b🐬DASH§r\nDashing costs 1/3 of the durability of the weapon and has a short windup. If an entity is hit by the dash, the dash can be recast. If not, you must wait 5s."
+                "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7 on a cooldown.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3§r§8 (+2 in Water)\n§e⌛§r§7 Cooldown: §r§f45s\n\n§7§lActive Ability"
             ] 
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Turn any fish into a weapon of war with \"",
+                "§7Turn any fish into a weapon of war with \"",
                 {
                     "keybind": "key.origins.primary_active"
-                },
-                "\"!\nHolding the same key and pressing \"",
-                {
-                    "keybind": "key.attack"
-                },
-                "\" will dash!"
+                }
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Transform a fish every 45s.\n(You can only have one in your inventory at a time)"
         }
     ]
 }

@@ -56,27 +56,17 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Sacrifice the ability to regenerate to become enraged, increasing your speed.\nAfter 10 seconds, you will become weakened (see \"weakened\" badge)."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
-            "text": "Weakened: 7s of 40% less speed and remain unable to heal."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/arrow_up.png",
-            "text": "Unstoppable: +10% Movement Speed & +5% Air Speed. Heal 1 Heart on crit, doubles to 2 Hearts if target is Wounded.\nAdditionally, you can use wounding axe without being slowed down."
+            "text": "§c§lBEAST WITHIN 🞽§r\n§7Become enraged temporarily, increasing overall speed by §r§a10%§r§7.\n§7When attacking, you always break Shields.\n§aHeal§r§7 1/2 §l§c❤§r§7 on Crit. Doubles to 1 §l§c❤§r§7 if target is §r§cBleeding§r§7.\n§7In this state, you §r§ccannot heal§r§7 otherwise and passively take §r§c1 Damage§r§7 every 1.5s.\n§7Once it ends you become weakened, reducing speed by §r§c-40%§r§7.\n\n§6🕒§r§7 Windup: §r§f3s\n§c🕕§r§7 Duration: §r§f12s§r§8 (Enraged)\n§c🕕§r§7 Duration: §r§f7s§r§8 (Weakened)\n§e⌛§r§7 Cooldown: §r§f45s§r§8 (After Enraged)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Unleash with \"",
+                "§7Unleash with \"",
                 {
                     "keybind": "key.origins.secondary_active"
                 },
-                "\"!\n(If you are above 75% upon activation, your health is reduced by 50%)"
+                "\"§7!\n"
             ]
         }
     ]

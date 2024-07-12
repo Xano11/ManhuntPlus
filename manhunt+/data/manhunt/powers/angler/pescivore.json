@@ -46,7 +46,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/math/expression_multiply_alt.png",
-            "text": "Fishlover: Fish gives slightly more food but anything else offers half the food and saturation.\nAdditionally, pufferfish doesn't poison you."
+            "text": "§e§lPescivore 🍴§r\n§7Fish gives §r§a+2§r§7 Food and §r§a+0.4§r§7 Saturation when eaten.\n§7Pufferfish does §r§anot§r§7 poison you when consumed.\nAll other forms of food give §r§c-50%§r§7 Hunger and Saturation.\n\n§7§lPassive Ability"
         }
     ]
 }

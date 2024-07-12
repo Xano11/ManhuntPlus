@@ -38,12 +38,12 @@
         "blue": 1.0
     },
     "name": "Visions",
-    "description": "Close-by runners are revealed through walls.",
+    "description": "You're not sure if Runners are just bad at hiding, or if the fog is coming..",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(16 block radius)"
+            "text": "§a§lAll-Seeing 🔎§r\n§7Runners within range of you can be seen through walls.\n§8(16 Block Range)\n\n§7§lPassive Ability"
         }
     ]
 }
