@@ -25,7 +25,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Taking damage causes blind spots in your eyes and reduces attack speed for a brief moment.\n(1.5 Second Cooldown)"
+            "text": "§c§lDisturbed Vision '.'§r\n§7When taking damage you subconsciously Blink, briefly §r§cpreventing§r§7 vision and attacking.\n§8(1.5s Cooldown)\n\n§7§lPassive Ability"
         }
     ]
 }

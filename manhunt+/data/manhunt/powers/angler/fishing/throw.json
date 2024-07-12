@@ -250,27 +250,22 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(You will not take fall damage until you've hit the ground once.)"
+            "text": "§b§lHook Surf ↪§r\n§7Send out and §r§aride§r§7 your fishing bobber, dashing forward.\n§aNegates§r§7 fall damage when you land.\n\n§e⌛§r§7 Cooldown: §r§f35s§r§8 (After landing.)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/fishing_rod.png",
             "text": [
-                "Hold \"",
+                "§7Hold \"",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and \"",
+                "\" §7and \"",
                 {
                     "keybind": "key.use"
                 },
-                "\" to become one with the fishing bobber!\nRequires a fishing rod in hand."
+                "\" §7to become one with the fishing bobber!\nRequires a fishing rod in hand."
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 35s"
         }
     ]
 }

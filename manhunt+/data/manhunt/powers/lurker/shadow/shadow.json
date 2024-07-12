@@ -213,17 +213,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Shifting to the void has a 0.75s startup time and grants §d§l⭕§r§dVoid-Step§r for 4 seconds.\n§d§l⭕§r§dVoid-Step§r Increases Speed by §a60%§r, Air Speed by §a30%§r, and §adoubles§r your jump height.\nYou become intangible to the rest of the world, turning invisible but unable to interact or see any entities."
+            "text": "§d§lVoid-Shift ⭕§r\n§7Enter a plane of non-existence, becoming §r§eunable§r§7 to interact or be seen by other entities.\n§7In this state, you gain §r§a+60%§r§7 overall Speed, §r§adoubled§r§7 Jump Height, and §r§aimmunity§r§7 to fall damage.\n\n§6🕒§r§7 Windup: §r§f1.2s\n§c🕕§r§7 Duration: §r§f4s\n§e⌛§r§7 Cooldown: §r§f20s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Step into the Void with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 25s"
+            "text": "§7Step into the Void with \"%s\"!"
         }
     ]
 }

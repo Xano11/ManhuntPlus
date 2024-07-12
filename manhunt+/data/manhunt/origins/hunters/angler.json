@@ -1,14 +1,13 @@
 {
 	"powers": [
 		"manhunt:roles/rivals",
+		"manhunt:angler/fishing/fishloot",
 		"manhunt:angler/fishing/throw",
 		"manhunt:angler/fishing/fishout",
-        "manhunt:angler/sword/dash",
         "manhunt:angler/sword/transfish",
+		"manhunt:angler/sword/dash",
         "manhunt:angler/pescivore",
-		"manhunt:angler/fishing/fishloot",
-		"manhunt:angler/health",
-        "origins:no_shield"
+		"manhunt:angler/health"
 	],
 	"icon": {
 		"item": "minecraft:iron_sword",

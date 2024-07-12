@@ -70,13 +70,13 @@
             "compare_to": 1
         }
     },
-    "name": "BERSERK MINDSET",
+    "name": "UNTAMED MINDSET",
     "description": "You gain more attack speed proportial to missing health.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Berserk : §a+0.1§r Attack Speed per 2 missing Hearts."
+            "text": "§c§lUNTAMED ⚔§r\n§7Gain §r§a+0.1§r§7 Attack Speed for every 2 missing §l§c❤§r§7\n\n§7§lPassive Ability"
         }
     ]
 }

@@ -117,17 +117,12 @@
         ]
     },
     "name": "Horny (Wait-)",
-    "description": "Craft your signiture berserker Horn, which when blown will grant a boon to your fellow hunters.",
+    "description": "Craft your signiture berserker Horn, which when blown will grant a boon to you and fellow hunters.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Grant all nearby hunters (24 block radius) 15s of §e'💬 §nInspire'§r\n§e'💬 §nInspire'§r: 30% more movement and +0.3 attack speed.\nThe Berserker using the horn, gains §4'😡 §nFury of The Hunt'§r for 20s\n§4'😡 §nFury of The Hunt'§r: When being hit by a runner heal 3hp over 3s"
-        },
-        {
-            "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s"
+            "text": "§e§lInspire 💬§r\n§7When blown, grant nearby allies §r§a+30%§r§7 Movement Speed and §r§a+0.3§r§7 Attack Speed.\n§7During Inspire, you Heal §r§a3 HP§r§7 over 3s after taking damage from a §r§cRunner§r§7.\n\n§a⇶ §r§7 Range: §r§f24 Blocks§r§8 (Inspire)\n§c🕕§r§7 Duration: §r§f15s\n§e⌛§r§7 Cooldown: §r§f30s§r§8 (After Inspire)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:crafting_recipe",
