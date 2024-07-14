@@ -149,6 +149,11 @@
                                     "type": "origins:living"
                                 },
                                 {
+                                    "type": "origins:nbt",
+                                    "nbt": "{NoAI:1b}",
+                                    "inverted": true
+                                },
+                                {
                                     "type": "origins:or",
                                     "conditions": [
                                         {
