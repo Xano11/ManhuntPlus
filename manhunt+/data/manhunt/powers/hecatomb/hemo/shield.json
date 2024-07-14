@@ -1,0 +1,91 @@
+{
+    "type": "origins:multiple",
+    "delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@p[tag=shield_disable]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:damage",
+                                "amount": 0.01,
+                                "damage_type": "minecraft:player_attack"
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove shield_disable",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 0,
+                                            "set": true
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition":  {
+                            "type": "origins:living"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ 319 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:modify_death_ticks",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 20
+                    }
+                }
+            ]
+        }
+    },
+    "delay_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/shield_delay",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "held_item": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ]
+    }
+}
