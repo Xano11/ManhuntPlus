@@ -1,6 +1,6 @@
 {
 	"powers": [
-		"manhunt:roles/assistance",
+		"manhunt:roles/pillar",
 		"manhunt:guardian/pledge/protector",
         "manhunt:guardian/bulwark/active",
 		"manhunt:guardian/meteor/active",
@@ -15,5 +15,5 @@
 	"order": 10,
 	"impact": 3,
 	"name": "Guardian",
-	"description": "       [§eASSISTANCE ✦§r]\nThe Guardian can use their abilities to keep their teammates alive and ready for combat at any time."
+	"description": "         [§7PILLAR 回§r]\nThe Guardian can use their abilities to keep their teammates alive and ready for combat at any time."
 }
