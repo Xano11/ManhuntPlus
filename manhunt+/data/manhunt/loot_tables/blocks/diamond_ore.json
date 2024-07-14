@@ -48,7 +48,7 @@
                 },
                 {
                   "function": "minecraft:set_nbt",
-                  "tag": "{display:{Name:'[\"\",{\"text\":\"Diamond nugget\",\"italic\":false}]'},Tags:diamond_nugget}"
+                  "tag": "{display:{Name:'[\"\",{\"text\":\"Diamond nugget\",\"italic\":false}]'},CustomModelData:1,Tags:diamond_nugget}"
                 }
               ]
             }

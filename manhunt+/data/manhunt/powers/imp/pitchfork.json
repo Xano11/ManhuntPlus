@@ -675,11 +675,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
-            "text": "To upgrade, simply right click with the material while hovering on the trident in your inventory.\n§7Iron Upgrade: 3 Iron Ingots\n§3Diamond Upgrade: 3 Diamonds\n§6Netherite Upgrade: 1 Netherite Scrap§r\nUpgrades increase the damage of the trident."
+            "text": "§7Iron Upgrade: 3 Iron Ingots\n§3Diamond Upgrade: 3 Diamonds\n§6Netherite Upgrade: 1 Netherite Scrap§r\n(Upgrades increase the damage of the trident.)"
         },
         {
             "type": "origins:crafting_recipe",
             "sprite": "manhunt:textures/item/icons/imp_trident.png",
+            "prefix": "The Pitchfork is an upgradeable weapon!",
             "recipe": {
                 "id": "manhunt:flint_trident",
                 "type": "minecraft:crafting_shaped",
@@ -699,7 +700,10 @@
                 "result": {
                     "item": "minecraft:trident"
                 }
-            }
+            },
+            "suffix": [
+                "Once crafted, it's upgrades can be applied by opening the inventory, hovering with the materials and right-clicking on the trident."
+            ]
         }
     ]
 }

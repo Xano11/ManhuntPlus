@@ -1,7 +1,7 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "minecraft:item/lapis_lazuli"
+        "layer0": "minecraft:item/light_blue_dye"
     },
     "overrides": [
         {

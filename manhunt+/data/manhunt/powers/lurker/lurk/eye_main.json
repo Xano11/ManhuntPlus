@@ -34,7 +34,7 @@
                 "actions": [
                     {
                         "type": "origins:execute_command",
-                        "command": "kill @e[type=armor_stand,tag=bug_fix,limit=1m,sort=nearest]",
+                        "command": "kill @e[type=armor_stand,tag=bug_fix,limit=1,sort=nearest]",
                         "permission_level": 4
                     },
                     {
