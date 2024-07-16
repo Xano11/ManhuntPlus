@@ -29,13 +29,22 @@
     "disable_regen": {
         "type": "origins:disable_regen"
     },
+    "less_health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.max_health",
+            "value": -4,
+            "operation": "addition"
+        }
+    },
     "name": "Absorbed",
     "description": "Being granted those abilities has weakened your body and its regeneration ability. You can't heal without letting your body rest.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You do not regenerate outside of Cursed Link.\nTotem of Life can still be used to heal."
+            "text": "§c§lAbsorbed ✗§r\n§7Natural healing and healing abilities are §r§ccompletely inaffective§r§7 on you.\n§8(Excluding your Abilities.)\n§7You have -2 §l§c❤§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }

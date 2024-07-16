@@ -317,19 +317,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/swordfish.png",
-            "text": [
-                "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7 on a cooldown.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3§r§8 (+2 in Water)\n§e⌛§r§7 Cooldown: §r§f45s\n\n§7§lActive Ability"
-            ] 
+            "text": "§9§lSWORDFISH 🦈§r\n§7Held fish can be turned into a §r§9Swordfish§r§7 on a cooldown.\n§7The §r§9Swordfish§r§7 is a unique Sword that deals increased damage in water.\n\n§c⚔§r§7 Attack Damage: §r§f3§r§8 (+2 in Water)\n§e⌛§r§7 Cooldown: §r§f45s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": [
-                "§7Turn any fish into a weapon of war with \"",
-                {
-                    "keybind": "key.origins.primary_active"
-                }
-            ]
+            "text": "§7Turn any fish into a weapon of war with %s §7!"
         }
     ]
 }

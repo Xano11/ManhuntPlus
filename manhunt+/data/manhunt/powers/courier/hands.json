@@ -23,7 +23,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§c-0.5§r Block Reach, §c-0.3§r Attack Speed"
+            "text": "§c§lFulfilled Hands ✊§r\n§7Attack Speed is reduced by §r§c-0.3§r§7.\n§7Block Reach is reduced by §r§c-0.5§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }

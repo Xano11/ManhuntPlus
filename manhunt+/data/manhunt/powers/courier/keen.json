@@ -49,7 +49,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/glowing.png",
-            "text": "All items and Hunters glow when within 25 blocks of you."
+            "text": "§e§lKeen Eye 👁§r\n§7Items and Hunters glow §r§eyellow§r§7 within range.\n§8(25 Block Range)\n\n§7§lPassive Ability"
         }
     ]
 }

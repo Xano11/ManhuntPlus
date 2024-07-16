@@ -4,8 +4,7 @@
 		"manhunt:shaman/totem/totem",
 		"manhunt:shaman/grasp",
 		"manhunt:shaman/regenerate",
-		"manhunt:shaman/absorbed",
-		"manhunt:shaman/sculk"
+		"manhunt:shaman/absorbed"
 	],
 	"icon": {
 		"item": "minecraft:echo_shard",

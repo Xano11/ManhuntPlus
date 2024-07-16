@@ -24,7 +24,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/bundle.png",
-            "text": "You can craft bundles with 2 leather."
+            "text": "§e§lSack Crafter 👜§r\n§7You can craft Bundles with 2 Leather.\n§8(Shapeless Recipe)\n\n§7§lPassive Ability"
         }
     ]
 }

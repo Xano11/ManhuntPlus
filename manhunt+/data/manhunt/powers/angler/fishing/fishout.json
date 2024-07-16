@@ -245,7 +245,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "§7Hook a teammate with \"%s\"!"
+            "text": "§7Hook a teammate with %s§7 !"
         }
     ]
 }
