@@ -491,15 +491,15 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "§7Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" §7and \"",
+                "]§7 and §r[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" §7with the SwordFish in hand to Dash!"
+                "]§7 with the Swordfish in hand to Dash!"
             ]
         }
     ]

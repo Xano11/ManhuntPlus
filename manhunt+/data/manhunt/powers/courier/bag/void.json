@@ -450,31 +450,26 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have your own dimension where you can safely live in.\nYou cannot use abilities or items but you can use and put blocks down.\nBeing hit increases by 1s the time it takes to enter THE BAG™"
+            "text": "§d§lBag of Holding 🎒§r\n§7Enter your bag, containing a small pocket dimension.\n§7The pocket dimension is a safe-space that cannot be accessed by Runners. Your bag can be physically seen while inside of it, in place of where you entered.\n§7You can also interact with other Hunters to put them in your bag.\nIf you take damage while entering, the windup is §r§cdelayed§r§7.\n\n§6🕒§r§7 Windup: §r§f5s§r§8 (+1s per hit)\n§e⌛§r§7 Cooldown: §r§f3.5s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Enter (or leave) the Bag™ with \"",
+                "§7Enter (or leave) the Bag™ with §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\"\nTo kidnap others, sneak and \"",
+                "]\n§7To kidnap others, sneak and §r[",
                 {
                     "keybind": "key.use"
                 },
-                "\"\nWhilst sneaking, press \"",
+                "]\n§7Whilst sneaking, press §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" to kick everyone out the backpack."
+                "] §7to kick everyone out the backpack."
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s"
         }
     ]
 }

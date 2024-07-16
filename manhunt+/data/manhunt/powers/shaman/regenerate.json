@@ -223,12 +223,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Cursed Link: Heal for half a heart every 0.5s\nWhilst resting, you take double damage, cannot move, and have hindered vision.\nTakes 1s to start healing."
+            "text": "§3§lCursed Link ⤯§r\n§7Rest into the sculk and heal §r§a1 HP§r§7 every §r§e0.5s§r§7.\n§7While resting, you take §r§cdouble§r§7 damage, §r§ccannot§r§7 move, and have §r§chindered vision§r§7.\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold \"%s\" to let your body rest."
+            "text": "§7Hold %s §7to let your body rest."
         }
     ]
 }

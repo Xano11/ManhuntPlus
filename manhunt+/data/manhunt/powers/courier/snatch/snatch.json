@@ -339,23 +339,18 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Whilst outside your backpack, Snatch™ will grab all hunters/items in a 25 block radius. (If you sneak, only items are affected by snatch)\n\nWhilst inside your backpack, Snatch™ will send a request to all hunters to teleport inside the Bag™.\n(Request only send to those in the same dimension. Additionally, if they died 5 or less minutes ago, they cannot teleport)"
+            "text": "§9§lSnatch 👋§r\n§7Grab all items and Hunters in a nearby radius.\nIf you sneak, you §r§eonly§r§7 snatch items.\nWhile in your bag, instead send a §r§ateleport request§r§7 to all hunters.\n§7The request can only be accepted by Hunters that have §r§cnot died§r§7 in the last 5 minutes.\n\n§6🕒§r§7 Windup: §r§f5s\n§e⌛§r§7 Cooldown: §r§f30s§r§8 (Outside Bag)\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8 (Inside Bag)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Snatch with \"",
+                "§7Snatch with §r[",
                 {
                     "keybind": "key.origins.secondary_active"
                 },
-                "\""
+                "]"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 30s (Outside the Bag™)\nCooldown: 1m30s (Inside the Bag™)"
         }
     ]
 }

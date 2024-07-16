@@ -474,12 +474,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§4§lBleed 🩸§r\n§7Take §r§c3 Self-Damage§r§7 to inflict §r§4Bleed§r§7 on your next attack.\n§4Bleed§r§7 causes §r§eovertime damage§r§7 to targets and §r§ereduces§r§7 their immunity frames by §r§e25%§r§7.\nThe overtime damage cannot kill.\nWhile Enraged, you do not take Self-Damage to use this ability.\n\n§6🕒§r§7 Windup: §r§f1.5s\n§c🕕§r§7 Duration: §r§f3s\n\n§7§lActive Ability"
+            "text": "§4§lBleed 🩸§r\n§7Take §r§c3 Self-Damage§r§7 to inflict §r§4Bleed§r§7 on your next attack.\n§4Bleed§r§7 causes §r§eovertime damage§r§7 to targets and §r§ereduces§r§7 their immunity frames by §r§e25%§r§7.\nThe overtime damage cannot kill.\nWhile Enraged, you do not take Self-Damage to use this ability.\n\n§c⚔§r§7 Overtime Damage: §r§f1§r§8 (Per 1s)\n§6🕒§r§7 Windup: §r§f1.5s\n§c🕕§r§7 Duration: §r§f3s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "§7Hold \"%s\" §7to charge your blade! (Axes or Swords)"
+            "text": "§7Hold %s §7to charge your blade! (Axes or Swords)"
         }
     ]
 }
