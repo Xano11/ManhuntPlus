@@ -165,12 +165,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/oak_boat.png",
-            "text": "You have 50% damage mitigation whilst in a boat.\nAdditionally, Your presence grants you and all other hunters in a 24 block radius §6§l⚐Sea Skipper§r"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§6§l⚐Sea Skipper§r\n +25% boat speed."
+            "text": "§7You have §r§e50%§r§7 damage mitigation whilst in a boat.\nAdditionally, your presence grants you and all other hunters in a §r§e24§r§7 block radius §6§lSea Skipper ⚐§r\n\n§6§l§nSea Skipper ⚐§r\n§r§a+25%§r§7 boat speed.\n\n§7§lPassive Ability"
         }
     ]
 }

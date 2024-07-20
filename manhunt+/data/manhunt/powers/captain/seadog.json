@@ -28,8 +28,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Ocean Eyes: Dolphins in a 48 block radius glow and you have better underwater vision"
+            "sprite": "minecraft:textures/mob_effect/dolphins_grace.png",
+            "text": "§b§lOcean Eyes 👁§r§7\nDolphins in a §r§e48§r§7 block radius glow and you have better underwater vision.\n\n§7§lPassive Ability"
         }
     ]
 }

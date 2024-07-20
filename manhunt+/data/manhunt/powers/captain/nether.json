@@ -31,8 +31,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Nether-sick: §l§c-1§r heart and §l§c3x§r Exhaustion."
+            "sprite": "minecraft:textures/mob_effect/nausea.png",
+            "text": "§c§lNether-Sick 🥵§r§7\nWhilst in the Nether, you have §c-1§r§7 maximum health §l§c❤§r§7 and §r§c3x§r§7 exhaustion.\n\n§7§lPassive Ability"
         }
     ]
 }

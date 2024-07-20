@@ -147,18 +147,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "text": "This ability envelops all hunters in a 24 block radius with a §b§l⭘Bubble§r for 15s.\n\n§b§l⭘Bubble§r\n- You have infinite air, can walk on water and float quickly upwards whilst holding the jump key.\n- You take increased knockback and have slow falling\n- You heal 1/2 §l§c❤§r every 1.5s\n\nIn the Nether, you have fire immunity instead of infinite air\n(Taking damage reduces duration by half.)",
+            "text": "§b§lBubble ⭘§r§7\nThis ability envelops all hunters in a §r§e24§r§7 block radius with a §r§b§lBubble ⭘§r§7.\nThose affected have §r§einfinite air§r§7, can §r§ewalk on water§r§7 and float quickly upwards whilst holding the jump key.\n\nKnockback is also §r§eincreased§r§7 and fall speed §nis reduced§r§7\n\nEvery 1.5s, they heal 1/2 §l§c❤§r\n\n(§r§8In the Nether, you have fire immunity instead of infinite air§r§7)\n\n§c🕕§r§7 Duration: §r§f12s§r§8 (taking damage reduces duration by half)§r\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8 (Upon Activation)\n\n§7§lActive Ability",
             "sprite": "minecraft:textures/particle/bubble.png"
         },
         {
             "type": "origins:keybind",
-            "text": "Envelop those around you in bubbles with \"%s\"!",
+            "text": "§7Envelop those around you in bubbles with §r%s§7!",
             "sprite": "origins:textures/gui/badge/toggle.png"
-        },
-        {
-            "type": "origins:tooltip",
-            "text": "Cooldown: 1m30s",
-            "sprite": "manhunt:textures/icons/cooldown.png"
         }
     ]
 }
