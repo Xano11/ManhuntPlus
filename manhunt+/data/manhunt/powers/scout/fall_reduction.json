@@ -39,8 +39,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Fall damage from falls 8 blocks or less is negated.\nPowder Snow can be walked on.\nSoul Sand doesn't slow you down."
+            "sprite": "minecraft:textures/mob_effect/levitation.png",
+            "text": "§l§aKeen Strider ☁§r§7\nFall damage from falls §r§e8§r§7 blocks or less is §nnegated§r§7.\n§r§ePowder Snow§r§7 can be walked on.\n§r§eSoul Sand§r§7 doesn't slow you down.\n\n§7§lPassive Ability"
         }
     ]
 }

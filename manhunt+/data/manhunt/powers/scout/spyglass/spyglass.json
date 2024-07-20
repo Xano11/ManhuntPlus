@@ -222,18 +222,14 @@
     "description": "With a spyglass in hand, those you percieve are never too far..",
     "badges": [
         {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Entities you can see through a spyglass will glow within 96 blocks of you.\nWhen looking through a spyglass, left click on glowing Runners to apply §3§l❗§r§3Marked§r for 10s.\n§3§l❗§r§3Marked§r will cause glowing and §c+25%§r damage intake, but is removed when the target is hit."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
-        },
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/mob_effect/glowing.png",
+			"text": "§l§fSpyglass 🔍§r§7\nEntities you can see through a spyglass will glow within §r§e96§r§7 blocks of you.\nWhen looking through a spyglass, you can apply §3Marked ❗§r§7 on §nglowing runners§r§7 by pressing left-click!\n\n§3Marked ❗§r§7\n Runner glows and takes §c+25%§r§7 more damage on next hit. §r§8(Effect removed on hit)§r\n\n§r§c🕕§r§7 Duration: §r§f10s§r§8 (Marked Runner)\n§e⌛§r§7 Cooldown: §r§f1m§r\n\n§7§lActive Ability"
+		},
         {
             "type": "origins:crafting_recipe",
             "sprite": "minecraft:textures/item/spyglass.png",
+            "prefix": "§7You can craft spyglasses this way!",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:scout_spyglass",

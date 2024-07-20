@@ -21,8 +21,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Frail: §l§c25%§r Less damage dealt and §l§c-1§r Hearts."
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "§l§cFrail ✊§r§7\n§c-25%§r damage dealt and -1 §l§c❤§r§7 of maximum health.\n\n§7§lPassive Ability"
         }
     ]
 }

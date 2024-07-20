@@ -59,19 +59,14 @@
     "description": "Deploy a launchpad to propel your team to victory.",
     "badges": [
         {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Bouncepad: Launches players forward.\n(Bouncepads last for 15 seconds.)\nAdditionally, using the bouncepad will negate the next instance of fall damage."
-        },
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/mob_effect/jump_boost.png",
+			"text": "§l§bBouncepad ⬆§r§7\nDeploy a launch pad that launches entities forward.\n§r§8(Launchpad negates fall damage on next landing)§r\n\n§r§c🕕§r§7 Duration: §r§f15s§r§8\n§e⌛§r§7 Cooldown: §r§f45s§r\n\n§7§lActive Ability"
+		},
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Deploy with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s"
+            "text": "Deploy with §r%s§r§7!"
         }
     ]
 }

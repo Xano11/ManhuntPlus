@@ -25,8 +25,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Bouncepad cooldown is increased by §l§c+6s§r when hit."
+            "sprite": "minecraft:textures/item/clock_00.png",
+            "text": "§l§cAchille's Heel 🦶§r§7\nBouncepad cooldown is increased by §c+6s§r§7 when hit.\n\n§7§lPassive Ability"
         }
     ]
 }

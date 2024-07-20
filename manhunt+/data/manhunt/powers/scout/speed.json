@@ -367,8 +367,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§l§a+15%§r Speed and §l§a+5%§r Velocity passively.\nWhen over 32 blocks away from a Runner, you gain §b§l↑§r§bPursuit§r.\n§b§l↑§r§bPursuit§r gives an additional §l§a+15%§r Speed and §l§a+5%§r Velocity bonus.\nWhile you have §b§l↑§r§bPursuit§r, Hunters in a 32 block radius of you also gain §b§l↑§r§bPursuit§r. (Except for other Scouts.)\n(Icon over hotbar shows when active.)"
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§l§bSpeed Specialist 🏃§r§7\n§a+15%§r§7 Speed and §a+5%§r§7 Air Speed passively.\nWhen over §r§e32§r§7 blocks away from a §nRunner§r§7, you gain §bPursuit ↑§r§7.\n\n§bPursuit ↑§r§7 gives an additional §a+15%§r§7 Speed and §l§a+5%§r§7 Air Speed bonus.\nWhile you have §bPursuit ↑§r§7, Hunters in a §r§e32§r§7 block radius of you §nalso§r§7 gain §bPursuit ↑§r§7. (Except for other Scouts.)\n§r§8(Icon over hotbar shows when active.)§r\n\n§7§lPassive Ability"
         }
     ]
 }

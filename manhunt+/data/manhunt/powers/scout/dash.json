@@ -167,30 +167,25 @@
     "name": "Light Dash",
     "description": "At small intervals, you can perform a light dash.",
 	"badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "(Can be used to negate fall damage when used near the ground.)\n(Also doesn't work in water/lava)"
-        },
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/mob_effect/slow_falling.png",
+			"text": "§l§fLight Dash 🪶§r§7\nYou can execute a small dash in the direction you're looking. Whilst in the air, you can execute a smaller §r§esecond dash§r§7.\n§r§8(The dash resets fall distance)§r\n\n§e⌛§r§7 Cooldown: §r§f4s§r\n\n§7§lActive Ability"
+		},
 		{
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Dash with \"",
+                "§7Dash with §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\"\nPress \"",
+                "]§r\nPress §r[",
                 {
                     "keybind": "key.jump"
                 },
-                "\" in the air to do a second dash before hitting the ground!"
+                "]§7 in the air to do a second dash before hitting the ground!"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 4s"
         }
     ]
 }
