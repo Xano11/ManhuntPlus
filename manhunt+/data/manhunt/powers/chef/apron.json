@@ -1,10 +1,28 @@
 {
     "type": "origins:multiple",
+    "reset": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:chef/apron_levels",
+                "change": 0,
+                "operation": "set"
+            }
+        }
+    },
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
     "render_apron": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "item replace entity @s armor.chest with minecraft:leather_chestplate{Trim:{pattern:vex,material:redstone},display:{color:16383998,Name:'[\"\",{\"text\":\"Chef\\'s Apron\",\"italic\":false,\"color\":\"white\"}]'},Enchantments:[{lvl:1,id:binding_curse},{lvl:1,id:vanishing_curse}],Unbreakable:1,Tags:chef_apron,AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:1,Slot:chest,Name:\"generic.armor\",UUID:[I;-12455,24926,22310,-49852]}]}"
+            "command": "function manhunt:abilities/chef/base_apron"
         },
         "interval": 5,
         "condition": {
@@ -21,6 +39,174 @@
                     "type": "origins:power",
                     "power": "manhunt:start",
                     "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:chef/apron_levels",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "iron": {
+        "type": "origins:item_on_item",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/apron_levels",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+        },
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:chef_apron}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 6
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 6
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "click_type": "primary",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/chef/iron_apron",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:chef/apron_levels 1",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "diamond": {
+        "type": "origins:item_on_item",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/apron_levels",
+            "comparison": "==",
+            "compare_to": 2,
+            "inverted": true
+        },
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:chef_apron}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:diamond"
+                    }
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 6
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 6
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "click_type": "primary",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/chef/diamond_apron",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:chef/apron_levels 2",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "netherite": {
+        "type": "origins:item_on_item",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:chef/apron_levels",
+            "comparison": "==",
+            "compare_to": 3,
+            "inverted": true
+        },
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:chef_apron}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:netherite_ingot"
+                    }
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "click_type": "primary",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/chef/netherite_apron",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:chef/apron_levels 3",
+                    "permission_level": 4
                 }
             ]
         }
@@ -51,7 +237,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/leather_chestplate.png",
-            "text": "You cannot wear chestplates and are forced to have the Fiery Apron.\nThe fiery apron only provides 1 armor but reduces fire-related damage by 35%."
+            "text": "§4§lFiery Apron §r§4🔥§r§7\nYou can §r§eonly§r§7 wear your trusty apron.\nThis apron comes with the following base stats:\n\n(§r§9+1 Armor§r§7)\n§r§8(Can be upgraded)§r§7\n\n(§r§9-35% Fire Damage§r§7)\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "§6§lUPGRADEABLE ⬆§r§7\n\nThe Apron can be upgraded using regular materials and §r§eleft clicking§r the Apron with it.\n\n§r§fIRON UPGRADE§r§7: 6 Iron Ingots §r§9(+3 Armor)§r\n§r§bDIAMOND UPGRADE§r§7: 6 Diamond §r§9(+5 armor, +1 Armor Toughness)§r\n§r§5NETHERITE UPGRADE§r§7: 1 Netherite Ingot §r§9(+6 Armor, +1.5 Armor Toughness, +0.5 Knockback Resistance)§r"
         }
     ]
 }

@@ -81,17 +81,6 @@
             "type": "origins:riding"
         }
     },
-    "exhaust": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:riding_action",
-            "action": {
-                "type": "origins:exhaust",
-                "amount": 0.03
-            }
-        },
-        "interval": 2
-    },
     "death": {
         "type": "origins:action_on_death",
         "bientity_action": {

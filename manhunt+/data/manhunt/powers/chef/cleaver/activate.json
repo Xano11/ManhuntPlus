@@ -200,22 +200,23 @@
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/netherite_cleaver.png",
             "text": [
-                "Your sword can be transformed into a fiery cleaver for 10s.\n\n§l§4CLEAVER🔪§r\nWhilst transformed, your next hit deals 20% crit damage and lights up the target for 3s.\nWhilst holding \"",
+                "§4§lCleaver🔪§r§7\nYou can temporarily turn your sword into a §4Cleaver🔪§r§8.\n(After one hit, the cleaver will revert into it's original form)§r§7\n\nCleaver's next hit deals §r§a+20%§r§7 crit damage, §r§ebreaks§r§7 shields and lights up the target on fire for §r§e3s§r§7.\n\nWhilst holding §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\", your next hit will make you bounce upward slightly. (This allows for hit combos)"
+                "]§7, your next hit will make you bounce upward slightly.\n\n§c🕕§r§7 Duration: §r§f10s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f30s§r§8\n(Killing an animal will refund the cooldown)\n\n§7§lActive Ability"
             ]
         },
         {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Turn your blade into a fiery cleaver with \"%s\"!\n(DOESN'T WORK ON WOODEN SWORD)"
-        },
-        {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Use your cleaver every 30s.\nThe sword remains as a cleaver for only 10s.\n\nKilling an entity with a cleaver will reset the 30s cooldown."
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Use §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to turn your blade into a cleaver!.\n§8(§4❌§r§8 Wooden Swords)"
+            ]
         }
     ]
 }

@@ -68,7 +68,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
-            "text": "Even if you are full hunger, regeneration is cut by 50% for 7s after taking damage from an entity.\nEating food will cut the 7s delay entirely"
+            "text": "§c§lThrilled ⏬§r§7\nRegeneration is cut by §c-50%§r§7 for after taking damage from an entity.\nEating food will cut the delay §nentirely§r.\n\n§c🕕§r§7 Duration: §r§f7s§r\n\n§7§lPassive Ability"
         }
     ]
 }
