@@ -105,7 +105,13 @@
             "resource": "manhunt:celeritas/boots/boots_energy",
             "change": 1
         },
-        "interval": 10
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:celeritas/frames_duration",
+            "compare_to": 100,
+            "comparison": ">"
+        }
     },
     "replenish": {
         "type": "origins:action_over_time",
@@ -178,7 +184,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 1,
+            "value": 0.80,
             "operation": "multiply_base"
         },
         "tick_rate": 1,
@@ -206,7 +212,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.8,
+            "value": 0.6,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
@@ -240,7 +246,7 @@
         "modifier": {
             "name": "Movement speed increase",
             "attribute": "minecraft:generic.movement_speed",
-            "value": 0.8,
+            "value": 0.6,
             "operation": "multiply_base"
         },
         "tick_rate": 4,
@@ -273,7 +279,7 @@
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
-            "value": 0.55
+            "value": 0.50
         },
         "condition": {
             "type": "origins:and",
@@ -533,7 +539,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Gain §l§a+80%§r Speed & §l§a+45%§r Air Speed while active.\nYou can even walk on air while holding right-click! Air Walking reduces your air speed when used.\nThere's a few ways to recharge:\nStand still: 28%/1s Recharge\nWalk: 5%/1s Recharge"
+            "text": "Gain §l§a+80%§r Speed & §l§a+50%§r Air Speed while active.\nYou can even walk on air while holding right-click! Air Walking reduces your air speed when used.\nThere's a few ways to recharge:\nStand still: 28%/1s Recharge\nWalk: 5%/1s Recharge"
         },
         {
             "type": "origins:keybind",
