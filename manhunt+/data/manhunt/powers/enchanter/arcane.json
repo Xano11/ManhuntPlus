@@ -362,23 +362,18 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone.png",
-            "text": "You have access to a special relic: The §1Encha§r§9nter§r§d's St§r§5one§r.\n\nUsing this relic, you can create two special books: §dRecalling§r and §bGlass Shield§r at the cost of 55 experience(~5 lvls).\n\nThese enchanted books can be sheared in your inventory to collect their pages.(6 Paper and 1 Leather)"
+            "text": "§1Encha§r§9nter§r§d's St§r§5one 💎§r§7\nUsing this relic, you can create two special books: §dRecalling§r§7 and §bGlass Shield§r§7 at the cost of §r§e55§r§7 experience\n§r§8(~5 lvls)§r§7.\n\nThese enchanted books can be sheared in your inventory to collect their pages.\n§r§8(6 Paper and 1 Leather)"
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone_broken.png",
             "text": [
-                "Whilst holding the Enchanter's Stone, press \"",
+                "§l§dArcane Power 🜍§r§7\nYou require Arcane Power to enchant unique books.\nWhilst holding the Enchanter's Stone, press §r[",
                 {
                     "keybind": "key.use"
                 },
-                "\" to shatter the stone.\nUpon shattering, you will be granted Absorption II Crystal Hearts for 20s.\n\nConsequentially, the stone will §5§lᚾ§r§5Fracture§r for 30s, disabling the stone's §d🜍Arcane Power§r."
+                "]§7 to shatter the stone.\nUpon shattering, you will be granted §r§eAbsorption II§r§7 Crystal Hearts for §r§e20s§r§7.\n\nConsequentially, the stone will §r§5Fracture §lᚾ§r§7 for §r§e30s§r§7, disabling §dArcane Power's 🜍§r§7 recharge.\n§r§8(Finally, you have §r§e3x§r§8 Experience Gain passively)\n\n§r§c🕕§r§7 Arcane Power: §r§f2% per second§r\n\n§7§lPassive Ability"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Your §d🜍Arcane Power§r must be full to enchant books.\n(Regain 2% per second.)\nAdditionally, you have 3x Experience Gain passively."
         }
     ]
 }

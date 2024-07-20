@@ -324,22 +324,22 @@
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_book.png",
             "text": [
-                "Whilst in your inventory, hover with the stone and press \"",
+                "§9§lArcane: Recall ✡§r§7\nWhilst in your inventory, §nhover§r§7 with the stone and press §r[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" to create a Recalling book."
+                "]§7 to create a §r§9Recalling§r§7 book.\n\n§7§lPassive Ability"
             ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Press \"",
+                "Press §r[",
                 {
                     "keybind": "key.origins.secondary_active"
                 },
-                "\" whilst on full energy to Recall anyone with your book in their inventory!\n(Your stone must be intact.)"
+                "]§7 whilst on full energy to Recall anyone with your book in their inventory!\n§r§8(Your stone must be intact.)"
             ]
         }
     ]

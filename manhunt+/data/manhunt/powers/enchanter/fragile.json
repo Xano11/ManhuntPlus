@@ -17,9 +17,9 @@
     "description": "\"Urgh... I should maybe go to the gym soon...\"",
     "badges": [
         {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "-3 §l§c❤§r overall."
-        }
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+			"text": "§c§lReality Check ✗§r§7\n-3 §l§c❤§r of maximum health overall.\n\n§7§lPassive Ability"
+		}
     ]
 }
