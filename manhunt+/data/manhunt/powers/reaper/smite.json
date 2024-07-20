@@ -90,14 +90,14 @@
 	"description": "Your soul's essence fears enchantments and curses all armor it touches.",
 	"badges": [
 		{
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "All armor in your inventory is cursed with Curse of Vanishing.\nITEMS CURSED LOSE ALL OTHER ENCHANTMENTS."
-		},
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "§c§lUndead ☠§r§7\nSmite deals §c2.5§r§7 extra damage per level.\n\n§7§lPassive Ability"
+        },
 		{
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "(Smite deals §l§c2.5§r extra damage per level)"
-		}
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/enchanted_book.png",
+            "text": "§c§lGhoul 🩻§r§7\nAll armor in your inventory is imbued with §cCurse of Vanishing§r§7 and loses §nall other enchantments§r§7.\n\n§7§lPassive Ability"
+        }
 	]
 }

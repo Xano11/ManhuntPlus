@@ -5,8 +5,7 @@
 		"manhunt:reaper/siphon",
 		"manhunt:reaper/echo",
 		"manhunt:reaper/smite",
-		"manhunt:reaper/soulfeed",
-		"origins:nine_lives"
+		"manhunt:reaper/soulfeed"
 	],
 	"icon": {
 		"item": "minecraft:cyan_dye",

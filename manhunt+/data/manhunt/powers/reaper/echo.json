@@ -31,6 +31,12 @@
             ]
         },
         "cooldown": 1800,
+        "condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_charges",
+			"comparison": "<",
+			"compare_to": 3
+		},
         "hud_render": {
             "should_render": true,
             "bar_index": 17,
@@ -89,7 +95,7 @@
                 },
                 {
                     "type": "origins:exhaust",
-                    "amount": 30
+                    "amount": 40
                 },
                 {
                     "type": "origins:execute_command",
@@ -180,17 +186,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Using the ability triggers §l§8▽Misery§r\n\n§l§8▽Misery§r grants §n3 instant souls§r on use.\nAfter 5s of the usage, your speed is decreased by §c35%§r for 4s and you are §nheavily exhausted§r."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s"
+            "text": "§l§8Echoing Misery ▽§r§7\nGrants §r§a3§r§7 instant souls on use.\nAfter §r§e5s§r§7 of the usage, your speed is decreased by §r§c35%§r§7 for §r§e4s§r§7 and you are §nheavily exhausted§r§7\n\n§r§c🕕§r§7 Duration: §r§f5s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Press \"%s\" to let them aid!"
+            "text": "§7Press §r%s§7 to let them aid!"
         }
     ]
 }
