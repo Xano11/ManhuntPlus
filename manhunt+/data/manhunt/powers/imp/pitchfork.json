@@ -49,6 +49,12 @@
             "compare_to": 0
         }
     },
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
     "iron": {
         "type": "origins:item_on_item",
         "on_item_condition": {
