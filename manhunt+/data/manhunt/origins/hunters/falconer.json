@@ -3,10 +3,10 @@
 		"manhunt:roles/intelligence",
 		"manhunt:falconer/falcon/forth",
 		"manhunt:falconer/sneaky",
+		"manhunt:falconer/bow",
 		"manhunt:falconer/handy",
 		"manhunt:falconer/tax",
-		"manhunt:falconer/vulnerable",
-		"manhunt:falconer/bow"
+		"manhunt:falconer/vulnerable"
 	],
 	"icon": {
 		"item": "minecraft:wheat_seeds",
