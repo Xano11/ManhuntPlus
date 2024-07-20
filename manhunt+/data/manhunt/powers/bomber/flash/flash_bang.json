@@ -3,8 +3,8 @@
     "flash": {
         "type": "origins:resource",
         "min": 0,
-        "max": 30,
-        "start_value": 30,
+        "max": 32,
+        "start_value": 32,
         "hud_render": {
             "should_render": false
         },
@@ -13,12 +13,54 @@
             "actions": [
                 {
                     "type": "origins:area_of_effect",
-                    "radius": 32,
+                    "radius": 5,
                     "bientity_action": {
                         "type": "origins:target_action",
                         "action": {
                             "type": "origins:execute_command",
                             "command": "power grant @s manhunt:bomber/flash/flash_effects"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:can_see"
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 32,
+                    "bientity_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:relative_rotation",
+                            "actor_rotation": "body",
+                            "target_rotation": "head",
+                            "comparison": ">=",
+                            "compare_to": -0.6
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:bomber/flash/flash_effects"
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:bomber/flash/flash_effects"
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:bomber/flash/flash_effects_duration",
+                                        "change": 42,
+                                        "operation": "set"
+                                    }
+                                ]
+                            }
                         }
                     },
                     "bientity_condition": {
@@ -31,8 +73,9 @@
                                 "type": "origins:target_condition",
                                 "condition": {
                                     "type": "origins:origin",
-                                    "origin": "manhunt:runner",
-                                    "layer": "origins:origin"
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin",
+                                    "inverted": true
                                 }
                             }
                         ]
@@ -84,10 +127,25 @@
     "ticking": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:bomber/flash/flash_bang_flash",
-            "change": -10
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomber/flash/flash_bang_flash",
+                    "change": -8
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~ ~ 0.05 0.05 0.05 0.01 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.snare player @a ~ ~ ~ 2 1",
+                    "permission_level": 4
+                }
+            ]
         },
-        "interval": 10
+        "interval": 8
     }
 }

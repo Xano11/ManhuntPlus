@@ -36,7 +36,7 @@
                         "entity_type": "minecraft:armor_stand",
                         "divergence": 0,
                         "count": 1,
-                        "speed": 2,
+                        "speed": 2.5,
                         "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"flashbang\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"center\",Tags:[\"flashbang\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-2f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:1}}}]}",
                         "projectile_action": {
                             "type": "origins:and",
@@ -79,32 +79,27 @@
         }
     },
     "name": "Flashbang",
-    "description": "Throw a flash bang that blinds enemies.",
+    "description": "THINK FAST, CHUCKLENUTS!",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Flashbang: 32 block radius. You and other Hunters are immune to the effect."
+            "sprite": "manhunt:textures/item/flashbang.png",
+            "text": "§e§lFlashbang ✨§r§7\nYou can throw a flashbang that flashes §nall runners§r§7 in a §r§e32§r§7 block radius.\nLooking the opposite way will reduce the duration by §r§e0.9s§r§7.\n§r§8(Being too close will flash anyone, even hunters)§r\n\n§e⌛§r§7 Cooldown: §r§f1m§r§8\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and press \"",
+                "]§7 and press §r[",
                 {
                     "keybind": "key.use"
                 },
-                "\" to throw!"
+                "]§7 to throw!"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
         }
     ]
 }

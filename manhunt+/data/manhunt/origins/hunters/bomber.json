@@ -4,8 +4,8 @@
 		"manhunt:bomber/kamikaze",
 		"manhunt:bomber/flash/flash",
 		"manhunt:bomber/boom/boom",
-		"manhunt:bomber/heavy",
 		"manhunt:bomber/explode_armor",
+		"manhunt:bomber/heavy",
 		"manhunt:bomber/break_speed"
 	],
 	"icon": {

@@ -187,28 +187,23 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Boompacks detonate by themselves after 3 seconds."
+            "sprite": "minecraft:textures/item/tnt_minecart.png",
+            "text": "§4§lBOOM Packs 🧨§r§7\nUsing the ability will initially throw a BOOM pack in front of you.\nAfter a short duration (§r§e3s§r§7), it will detonate and deal great knockback.\n\nUsing the ability key again will detonate a BOOM pack instantly.\n\n§6🏷§r§7 Charges: §r§f2§r§8 (max)§r\n§e⌛§r§7 Cooldown: §r§f45s§r§8 (per charge)§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and \"",
+                "]§7 and §r[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" to throw a boompack!\nTo detonate, press the same keys."
+                "]§7 to throw a boompack!\n\nTo detonate, press the same keys again."
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Max 2 charges\nCharge: 1 every 45s"
         }
     ]
 }

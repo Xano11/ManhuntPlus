@@ -12,8 +12,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Heavy: §l§c-60%§r Swim speed"
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c§lHeavy ⬇§r§7\nYou swim §c-60%§r§7 slower underwater.\n\n§7§lPassive Ability"
         }
     ]
 }
