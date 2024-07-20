@@ -481,7 +481,7 @@
                             "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
                             "entity_action": {
                                 "type": "origins:execute_command",
-                                "command": "power grant @s manhunt:berserker/disable/shield",
+                                "command": "power grant @s manhunt:berserker/beast/shield",
                                 "permission_level": 4
                             }
                         }
