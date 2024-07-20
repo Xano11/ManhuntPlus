@@ -44,7 +44,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§c§lAbsorbed ✗§r\n§7Natural healing and healing abilities are §r§ccompletely inaffective§r§7 on you.\n§8(Excluding your Abilities.)\n§7You have -2 §l§c❤§r§7.\n\n§7§lPassive Ability"
+            "text": "§c§lAbsorbed ✗§r\n§7Natural healing and healing abilities are §r§ccompletely ineffective§r§7 on you.\n§8(Excluding your Abilities.)\n§7You have -2 §l§c❤§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }
