@@ -189,6 +189,10 @@
                     }
                 },
                 {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:sneaking",
