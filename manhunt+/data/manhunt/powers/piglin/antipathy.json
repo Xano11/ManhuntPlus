@@ -142,7 +142,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/golden_chestplate.png",
-            "text": "All Armor that isn't Gold is reduced by §c-1§r."
+            "text": "§e§lNon-Gilded 💰§r§7\nAll armor that §cisn't§r§7 §r§egold§r§7 is reduced by §c-1§r.\n\n§7§lPassive Ability"
         }
     ]
 }

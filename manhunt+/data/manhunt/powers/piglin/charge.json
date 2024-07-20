@@ -136,18 +136,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/poison.png",
-            "text": "§b💨Charging§r: 200% Speed for 3.5s\nWhile §b💨Charging§r, you can walk up full blocks and fall quicker, but cannot jump and deal §c-2§r less damage. (+1 Block Step Height)"
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§l§b💨Charging§r§7\nCharging grants §r§a200%§r§7 Speed for a short duration.\nWhilst §b💨Charging§r§7, you can walk up full blocks and fall quicker, but cannot jump and deal §c-2§r§7 less damage.\n§r§8(+1 Block Step Height)\n\n§r§c🕕§r§7 Charge Duration: §r§f3.5s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f25s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Charge with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 25s"
+            "text": "§7Charge with §r%s§7!"
         }
     ]
 }

@@ -129,13 +129,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Hitting a runner will inflict §2🥫Famished§r for 30 seconds."
-        },
-        {
-            "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/hunger.png",
-            "text": "§2🥫Famished§r: Sprinting and taking damage causes extra exhaustion.\n\nTo remove the effect, it must be either waited out or dealt by eating food. Eaten food will grant §c-25%§r less food value than usual and applies §4💢Frustrated§r to the piglin.\n§4💢Frustrated§r makes you §a20%§r quicker for 10 seconds."
+            "text": "§7Hitting a runner will inflict §2🥫Famished§r§7 for §r§e30§r§7 seconds.\n\n§l§2🥫Famished§r§7\nSprinting and taking damage causes extra exhaustion.\n\nTo remove the effect, it must be either waited out or dealt by §neating food§r§7. Eaten food will grant §c-25%§r§7 less food value than usual and applies §4💢Frustrated§r§7 to the piglin.\n\n§4💢Frustrated§r\n§a+20%§r§r quicker for §r§e10§r§7 seconds.\n\n§7§lPassive Ability"
         }
     ]
 }

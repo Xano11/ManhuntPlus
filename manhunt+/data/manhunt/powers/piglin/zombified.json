@@ -128,19 +128,14 @@
 	"description": "As you reside within different dimensions, your behavior changes.",
 	"badges": [
 		{
-			"type": "origins:tooltip",
-			"sprite": "minecraft:textures/item/rotten_flesh.png",
-			"text": "You zombify when not in the nether, giving resistance to fire and becoming \"undead\", but also §l§c-30%§r Healing and §l§c+60%§r Exhaustion."
-		},
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/piglin_icon.png",
+            "text": "§c§lPiglin Duality 🐽§r§7\nWhilst §noutside the Nether§r§7, you zombify §r§8(fire resistance and undead status)§r§7 and lose §r§c-30%§r§7 healing and exhaust §r§c60%§r§7 quicker.\n\nWhilst §nin the Nether§r§7, you lose -1 §l§c❤§r of maximum health but gain §r§a+20%§r§7 passive speed.\n\n§7§lPassive Ability"
+        },
 		{
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/item/golden_axe.png",
-			"text": "Additionally, Piglins in a 64 block radius of you become passive to Hunters.\n(Except brutes, they bullied you as a child)"
-		},
-		{
-			"type": "origins:tooltip",
-			"sprite": "minecraft:textures/item/porkchop.png",
-			"text": "In the Nether, you have -1 §l§c❤§r but you are §a20%§r quicker."
+			"text": "§a§lThe Piglins we Made along the Way 🐽§r§7\nAdditionally, Piglins in a §r§e64§r§7 block radius of you become §r§apassive§r§7 to Hunters.\n§r§8(Except brutes; they bullied you as a child)\n\n§7§lPassive Ability"
 		}
 	]
 }

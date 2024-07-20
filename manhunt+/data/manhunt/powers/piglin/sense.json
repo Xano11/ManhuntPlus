@@ -85,11 +85,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Right click a bell in the Nether to find the closest bastion.\n(You can additionally craft bells!)"
+            "text": "§e§lSense of Belonging 🔔§r§7\nRight click a bell in the Nether to find the §nclosest§r§7 bastion.\n\n§7§lPassive Ability"
         },
         {
             "type": "origins:crafting_recipe",
             "sprite": "minecraft:textures/item/bell.png",
+            "prefix": "§7You can additionally craft bells!",
             "recipe":  {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:bell",

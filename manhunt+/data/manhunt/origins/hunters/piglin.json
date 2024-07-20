@@ -3,9 +3,9 @@
         "manhunt:roles/pacekeeper",
         "manhunt:piglin/aura/use",
         "manhunt:piglin/charge",
-        "manhunt:piglin/gold",
         "manhunt:piglin/zombified",
         "manhunt:piglin/rotten/rot",
+        "manhunt:piglin/gold",
         "manhunt:piglin/sense",
         "manhunt:piglin/antipathy"
     ],

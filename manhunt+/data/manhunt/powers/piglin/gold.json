@@ -259,14 +259,9 @@
     "description": "To you, there's nothing shinier and better than gold.",
     "badges": [
         {
-            "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/golden_chestplate.png",
-            "text": "Gold Armor gives you additional armor.\n(§a+1§r armor from boots and helmets)\n(§a+2§r armor from chestplate and leggings)"
-        },
-        {
-            "type": "origins:keybind",
-            "sprite": "minecraft:textures/item/gold_ingot.png",
-            "text": "While in the Nether, Barter with yourself by holding a gold ingot and pressing \"%s\"!"
-        }
+			"type": "origins:keybind",
+			"sprite": "minecraft:textures/item/gold_ingot.png",
+			"text": "§e§l24K Magic 🪙§r§7\n§r§eGold Armor§r§7 gives you additional armor.\n§8(§a+1§r§7 armor from boots and helmets)\n(§a+2§r§7 armor from chestplate and leggings)§r§7\n\nWhile §nin the Nether§r§7, Barter with yourself by holding a §r§6gold ingot§r§7 and pressing §r%s§r§7!\n\n§7§lPassive Ability"
+		}
     ]
 }
