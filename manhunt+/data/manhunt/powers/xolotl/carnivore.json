@@ -16,25 +16,6 @@
             ]
         }
     },
-    "meat":{
-        "type": "origins:modify_food",
-        "item_condition":  {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "tag": "origins:meat"
-            }
-        },
-        "food_modifier": {
-            "name": "Increased food points",
-            "operation": "addition",
-            "value": 1.0
-        },
-        "saturation_modifier": {
-            "name": "Increased saturation points",
-            "operation": "addition",
-            "value": 0.1
-        }
-    },
     "cow":{
         "type": "origins:replace_loot_table",
         "replace": {
@@ -66,12 +47,12 @@
         }
     },
     "name": "carnivore :3",
-    "description": "you only meat but meat better",
+    "description": "you only meat :<",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You are a §l§cCarnivore§r but meat gives §n+1§r food.\nAdditionally animals drop more meat! (fish aren't affected)."
+            "sprite": "minecraft:textures/item/beef.png",
+            "text": "§c§lCarnivorous 🍖§r§7\nYou can only eat meat.\n§r§8(Fish is not affected)§r§7\n\nAdditionally animals drop §r§emore§r§7 meat.\n\n§7§lPassive Ability"
         }
     ]
 }

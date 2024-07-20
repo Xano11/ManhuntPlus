@@ -50,27 +50,22 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/item/bone.png",
-            "text": "Using the ability makes all your wolves 40% quicker and have an empowered bite for the next 10s.\n\n§l§8🦷Bite§r: -50% healing and 25% more damage from Xolotl's attacks"
+            "text": "§l§6Empowered Bite 🦷§r§7\nUsing this ability makes all wolves §r§a+40%§r§7 quicker and able to deal a §r§estronger§r§7 bite on their next hit for a short duration.\n\nEntities bitten by an empowered bite heal §r§c50%§r§7 less and take §r§e25%§r§7 more damage from Xolotl's attacks.\n\n§c🕕§r§7 Duration: §r§f10s§r§8 (Upon hitting the target)\n§e⌛§r§7 Cooldown: §r§f45s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and press \"",
+                "]§7 and press §r[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" to empower your wolf's bite!"
+                "]§7 to empower your wolves next bite!"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s"
         }
     ]
 }

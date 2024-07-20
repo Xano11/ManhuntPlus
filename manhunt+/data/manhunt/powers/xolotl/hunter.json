@@ -480,24 +480,24 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "minecraft:textures/item/cooked_beef.png",
+            "sprite": "origins:textures/gui/badge/star.png",
             "text": [
-                "If there is no hunter or wolf in a 32 block radius, your speed is reduced by 30%.\nAdditionally, killing an entity will heal all wolves for a heart.\n\n§6§l🦴Fetch§r\nWhen using \"",
-                {
-                    "keybind": "key.origins.primary_active"
-                },
-                "\" whilst looking at a wolf, you can choose a hunter to fetch.\nOnce selected, interact with the sitting wolf whilst holding a piece of meat to send the wolf fetching.\nAs another hunter, simply right-click the wolf to teleport to the Xolotl!"
+                "§c§lNot So Alpha 🐌§r§7\nYour speed is reduced by §r§c-30%§r§7 whilst not close to a hunter or wolf.\n\n§e§lFetch 🦴§r§7\nOffering a §r§epiece of meat§r§7 to a §r§esitting§r§7 dog will fetch one hunter of your choosing to your position.\n§8(Hunters have to right-click the dog to accept the Fetch§r)\n\n§7§lPassive Ability"
             ]
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Whilst holding meat, press \"",
+                "§7Whilst looking at a dog, press §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to select a fetchable hunter!\n\nWhilst holding meat, press §r[",
                 {
                     "keybind": "key.use"
                 },
-                "\" to send the wolf fetching!"
+                "]§7 to send the dog fetching."
             ]
         }
     ]

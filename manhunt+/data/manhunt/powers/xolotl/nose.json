@@ -31,5 +31,12 @@
         }
     },
     "name": "Nose-Follower",
-    "description": "You can only see entities that are §nat most 32 blocks away§r from you. "
+    "description": "ADHD courses through your veins.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/blindness.png",
+            "text": "§c§lBlind as a Dog 👁§r§7\nYou can only see entities that are at most §r§e32§r§7 blocks away from you\n\n§7§lPassive Ability"
+        }
+    ]
 }
