@@ -397,9 +397,7 @@
                                         "operation": "set"
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "ride @s dismount",
-                                        "permission_level": 4
+                                        "type": "origins:dismount"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -425,9 +423,7 @@
                                         "operation": "set"
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "ride @s dismount",
-                                        "permission_level": 4
+                                        "type": "origins:dismount"
                                     },
                                     {
                                         "type": "origins:execute_command",

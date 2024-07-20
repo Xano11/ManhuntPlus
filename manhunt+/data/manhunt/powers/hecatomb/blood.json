@@ -176,7 +176,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§4§lBlood Orbs ⭕§r\n§7Concentrate your blood into two §r§emagic orbs§r§7 that are used to cast your magic.\nConjuring those blood orbs cost 2 §l§c❤§r§7 each and §cprevent healing§r§7 for 10s.\nWhilst the orbs §naren't§r§7 active, you exhaust §r§a50%§r§7 less.\nBeing attacked will consume a orb and deal 1 §l§c❤§r§7 of damage to the attacker.\n\n§e⌛§r§7 Cooldown: §r§f30s\n§c🕕§r§7 Duration: §r§f20s\n\n\n§7§lActive Ability"
+            "text": "§4§lBlood Orbs ⭕§r\n§7Concentrate your blood into two §r§emagic orbs§r§7 that are used to cast your magic.\nConjuring those blood orbs cost 2 §l§c❤§r§7 each and §cprevent healing§r§7 for 10s.\nWhilst the orbs §naren't§r§7 active, you exhaust §r§a50%§r§7 less.\nBeing attacked will consume a orb and deal 1 §l§c❤§r§7 of damage to the attacker.\n\n§e⌛§r§7 Cooldown: §r§f30s\n§c🕕§r§7 Duration: §r§f20s\n\n§7§lActive Ability"
         },
         {
 			"type": "origins:tooltip",
