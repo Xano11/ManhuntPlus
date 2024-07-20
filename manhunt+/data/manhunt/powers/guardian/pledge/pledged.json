@@ -459,7 +459,7 @@
         "modifier": {
             "name": "Mitigation",
             "operation": "multiply_base",
-            "value": -0.6
+            "value": -0.4
         },
         "bientity_action": {
             "type": "origins:target_action",
