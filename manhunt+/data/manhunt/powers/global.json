@@ -376,66 +376,11 @@
     "tooltip_glass_shield": {
         "type": "origins:tooltip",
         "item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:has_power",
-                    "power": "manhunt:enchanter/glass/enchanted"
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"glass_shield_level2\"]}",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"glass_shield_level3\"]}",
-                    "inverted": true
-                }
-            ]
+            "type": "origins:has_power",
+            "power": "manhunt:enchanter/glass/enchanted"
         },
         "text": {
             "text": "Glass Shield I",
-            "color": "gray"
-        }
-    },
-    "tooltip_glass_shield2": {
-        "type": "origins:tooltip",
-        "item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:has_power",
-                    "power": "manhunt:enchanter/glass/enchanted"
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"glass_shield_level2\"]}"
-                }
-            ]
-        },
-        "text": {
-            "text": "Glass Shield II",
-            "color": "gray"
-        }
-    },
-    "tooltip_glass_shield3": {
-        "type": "origins:tooltip",
-        "item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:has_power",
-                    "power": "manhunt:enchanter/glass/enchanted"
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"glass_shield_level3\"]}"
-                }
-            ]
-        },
-        "text": {
-            "text": "Glass Shield III",
             "color": "gray"
         }
     },

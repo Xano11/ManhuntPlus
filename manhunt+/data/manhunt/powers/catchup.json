@@ -46,7 +46,7 @@
             "resource": "manhunt:catchup_charging",
             "change": 1
         },
-        "interval": 1,
+        "interval": 15,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -75,7 +75,7 @@
                     "block_condition": {
                         "type": "origins:height",
                         "comparison": ">=",
-                        "compare_to": 48
+                        "compare_to": 24
                     }
                 }
             ]
@@ -88,7 +88,7 @@
             "resource": "manhunt:catchup_charging",
             "change": -1
         },
-        "interval": 1,
+        "interval": 15,
         "condition": {
             "type": "origins:or",
             "conditions": [
@@ -97,7 +97,7 @@
                     "block_condition": {
                         "type": "origins:height",
                         "comparison": "<=",
-                        "compare_to": 48
+                        "compare_to": 24
                     }
                 },
                 {
