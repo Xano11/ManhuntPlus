@@ -33,8 +33,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "-2 §l§c❤§r overall.\n-50% Health regeneration whilst Osha isn't on your shoulder."
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "§c§lDependent 💔§r§7\n-2 §l§c❤§r§7 of maximum health overall\n§r§c-50%§r§7 Health regeneration whilst Osha §nisn't§r§7 on your shoulder.\n\n§7§lPassive Ability"
         }
     ]
 }

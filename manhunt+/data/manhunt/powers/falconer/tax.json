@@ -12,9 +12,9 @@
 	"description": "Osha is hungry too, ya know?",
 	"badges": [
 		{
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "All food gives -35% the expected amount of sustenance.\n(Saturation is NOT affected)"
-		}
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c§lTaxed 🍕§r§7\nAll food gives §r§c-35%§r§7 the expected amount of sustenance.\n§r§8(Saturation is NOT affected)§r§7\n\n§7§lPassive Ability"
+        }
 	]
 }

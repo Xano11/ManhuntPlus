@@ -3,19 +3,34 @@
     "change": {
         "type": "origins:action_on_callback",
         "entity_action_lost": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute as @e[tag=osha] if score @s osha_owner = @p osha_owner run ride @s dismount",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute as @e[tag=osha] if score @s osha_owner = @p osha_owner run kill @s",
-                    "permission_level": 4
+            "type": "origins:action_on_set",
+            "set": "manhunt:falconer/falcon/forth_osha",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:dismount"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tp @s ~ 320 ~"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        },
+                        {
+                            "type": "origins:modify_death_ticks",
+                            "modifier": {
+                                "operation": "set_total",
+                                "value": 20
+                            }
+                        }
+                    ]
                 }
-            ]
+            }
         },
         "execute_chosen_when_orb": true
     },
@@ -40,55 +55,30 @@
                 "type": "origins:action_on_set",
                 "set": "manhunt:falconer/falcon/forth_osha",
                 "bientity_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:target_action",
-                            "action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:dismount"
+                            },
+                            {
                                 "type": "origins:execute_command",
-                                "command": "execute as @e[tag=osha_target,type=armor_stand] if score @s osha_target = @e[limit=1,sort=nearest,type=parrot] osha_target run resource set @s manhunt:falconer/falcon/target_duration 0",
-                                "permission_level": 4
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 5,
-                            "action": {
-                                "type": "origins:invert",
-                                "action": {
-                                    "type": "origins:mount"
+                                "command": "tp @s ~ 320 ~"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @s"
+                            },
+                            {
+                                "type": "origins:modify_death_ticks",
+                                "modifier": {
+                                    "operation": "set_total",
+                                    "value": 20
                                 }
                             }
-                        },
-                        {
-                            "type": "origins:target_action",
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "manhunt:falconer/falcon/osha_scout",
-                                        "change": -900
-                                    },
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "manhunt:falconer/falcon/osha_fly",
-                                        "change": -15
-                                    },
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "manhunt:falconer/falcon/osha_lend",
-                                        "change": -600
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "data modify entity @s NoAI set value 1b",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                        ]
+                    }
                 }
             }
         }
@@ -834,11 +824,6 @@
                     },
                     "compare_to": 1,
                     "comparison": "=="
-                },
-                {
-                    "type": "origins:dimension",
-                    "dimension": "minecraft:the_nether",
-                    "inverted": true
                 }
             ]
         }
@@ -978,36 +963,31 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Osha is your trusted companion! On your shoulder, he can be ordered to do two things:\n\n§l§eLEND§r will send Osha forward. After a short while, he will stop and let you grapple to him with fall damage negation when you land! Pressing the same key will grapple.\n\n§l§6SCOUT§r will send Osha to find the closest runner and reveal their position to you."
+            "sprite": "manhunt:textures/item/icons/falconer_icon.png",
+            "text": "§e§lOSHA 🐦§r§7\nOsha is your trusted companion!\nOn your shoulder, he can be ordered to do §r§etwo§r§7 things:\n\n§l§eLEND 🕊§r§7\nSends Osha forward.\nAfter a short while, cast the ability again to §r§egrapple§r§7 to him §r§8(fall damage is negated)§r\n\n§l§6SCOUT 📌§r§7\n Send Osha to find the §nclosest§r§7 runner and §r§ereveal§r§7 their position to you.\n\n§r§c🕕§r§7 Lend Duration: §r§f7s§r§8 (Upon activation)\n§r§c🕕§r§7 Scout Duration: §r§f45s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f15s§r§8 (Taking fatal damage puts Osha on a 1m cooldown)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §7[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" to summon Osha to your shoulder!\n\"",
+                "]§7 to summon Osha to your shoulder!\n§r[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" to use §l§eLEND§r\n\"",
+                "]§7 to use §l§eLEND 🕊§r\n§r[",
                 {
                     "keybind": "key.use"
                 },
-                "\" to use §l§6SCOUT§r\n(Press \"",
+                "]§7 to use §l§6SCOUT 📌§r\n§8(Press §r[",
                 {
                     "keybind": "key.sneak"
                 },
-                "\" twice to recall Osha!)\n(Osha can't be sent to scout in the Nether)"
+                "]§8 twice quickly to recall Osha!)"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 15s per Osha Order\nIf Osha takes near fatal damage, he will come back to you and take a full minute to come back."
         }
     ]
 }

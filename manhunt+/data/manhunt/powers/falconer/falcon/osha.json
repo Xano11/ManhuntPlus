@@ -113,6 +113,9 @@
             }
         }
     },
+    "fire_immune":{
+        "type": "origins:fire_immunity"
+    },
     "pos": {
         "type": "eggolib:modify_riding_position",
         "y_modifier": {

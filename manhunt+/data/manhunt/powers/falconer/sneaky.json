@@ -28,9 +28,9 @@
             "compare_to": 0
         }
     },
-    "model": {
-        "type": "origins:model_color",
-        "alpha": 0.1,
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:falconer/sneaky_duration",
@@ -38,43 +38,44 @@
             "compare_to": 0
         }
     },
-    "label": {
-        "type": "eggolib:modify_label_render",
-        "render_mode": "hide_completely",
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:falconer/sneaky_duration",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
-    "speed": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "attribute": "minecraft:generic.movement_speed",
-            "operation": "multiply_base",
-            "value": 0.25,
-            "name": "Increased sprinting speed"
+    "cancel": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:falconer/sneaky_duration",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.5 0.5 0.5 3 0.1 0.1 0.1 ~ ~1 ~ 0.4 0.4 0.4 0 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:large_smoke ~ ~1 ~ 0 0 0 0.2 40",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.mirror_move player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                }
+            ]
         },
-        "tick_rate": 5,
+        "cooldown": 4,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:falconer/sneaky_duration",
             "comparison": ">",
             "compare_to": 0
-        }
-    },
-    "air_speed": {
-        "type": "origins:modify_air_speed",
-        "modifier": {
-            "operation": "multiply_base",
-            "value": 0.25
         },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:falconer/sneaky_duration",
-            "comparison": ">",
-            "compare_to": 0
+        "key": "key.origins.secondary_active",
+        "hud_render": {
+            "should_render": false
         }
     },
     "use": {
@@ -104,7 +105,7 @@
                 }
             ]
         },
-        "cooldown": 1200,
+        "cooldown": 1800,
         "key": "key.origins.secondary_active",
         "hud_render": {
             "should_render": true,
@@ -113,7 +114,13 @@
         }
     },
     "hit": {
-        "type": "origins:action_on_hit",
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:falconer/sneaky_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
         "bientity_action": {
             "type": "origins:actor_action",
             "action": {
@@ -121,6 +128,11 @@
                 "resource": "manhunt:falconer/sneaky_duration",
                 "change": -300
             }
+        },
+        "modifier": {
+            "name": "Less damage",
+            "operation": "multiply_base",
+            "value": -0.5
         }
     },
     "name": "Sneaky Steps",
@@ -128,18 +140,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Sneaky: Your footsteps are completely muted and you're quasi-invisible.\nYou are also slightly quicker."
+            "sprite": "minecraft:textures/item/feather.png",
+            "text": "§8§lSneaky Steps 🥷§r§7\nUsing the ability makes you §r§efully invisible§r§7 and §r§emutes§r§7 your footsteps.\n§r§8(Dealing melee damage cancels the ability and the hit itself does -50% damage)§r\n\n§r§c🕕§r§7 Duration: §r§f15s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Go sneaky with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "§7Go sneaky with §r%s§7!"
         }
     ]
 }

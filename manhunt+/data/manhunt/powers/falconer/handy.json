@@ -1,6 +1,6 @@
 {
-	"type": "origins:multiple",
-    "drop_fiber":{
+    "type": "origins:multiple",
+    "drop_fiber": {
         "type": "origins:replace_loot_table",
         "replace": {
             "minecraft:blocks/grass": "manhunt:blocks/falconer_grass"
@@ -16,7 +16,7 @@
             }
         }
     },
-    "arrows":{
+    "arrows": {
         "type": "origins:modify_crafting",
         "recipe": "minecraft:arrow",
         "result": {
@@ -24,18 +24,42 @@
             "amount": 12
         }
     },
-	"name": "Handy",
-	"description": "Your time spent in the wilds has attuned you further with it's resources.",
-	"badges": [
-		{
-			"type": "origins:tooltip",
-			"sprite": "minecraft:textures/item/arrow.png",
-			"text": "Crafting arrows grant you 3x the regular amount!"
-		},
+    "name": "Handy",
+    "description": "Your time spent in the wilds has attuned you further with it's resources.",
+    "badges": [
         {
-			"type": "origins:tooltip",
-			"sprite": "manhunt:textures/item/plant_fiber.png",
-			"text": "Breaking grass with a sword may drop plant fiber.\nPlant fiber can be used as string for any recipe."
-		}
-	]
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/arrow.png",
+            "prefix": "§f§lProductive 🧵§r§7\n\nCrafting arrows grants you §r§e3x§r§7 the yield.",
+            "recipe": {
+                "id": "minecraft:arrow",
+                "type": "minecraft:crafting_shaped",
+                "key": {
+                    "x": {
+                        "item": "minecraft:flint"
+                    },
+                    "i": {
+                        "item": "minecraft:stick"
+                    },
+                    "m": {
+                        "item": "minecraft:feather"
+                    }
+                },
+                "pattern": [
+                    " x ",
+                    " i ",
+                    " m "
+                ],
+                "result": {
+                    "item": "minecraft:arrow"
+                }
+            },
+            "suffix": "§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/plant_fiber.png",
+            "text": "§a§lHandy 🌿§r§7\nBreaking grass with a sword may drop §r§eplant fiber§r§7.\nPlant fiber can be used as §nstring§r§7 for any recipe.\n\n§7§lPassive Ability"
+        }
+    ]
 }

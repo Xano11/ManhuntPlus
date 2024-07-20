@@ -1,20 +1,51 @@
 {
 	"type": "origins:multiple",
-    "power":{
-        "type": "origins:modify_enchantment_level",
-        "enchantment": "minecraft:power",
-        "modifier": {
-            "operation": "addition",
-            "value": 1
-        }
-    },
-	"name": "True Weapon of a Hunter",
+	"projectiles": {
+		"type": "origins:modify_projectile_damage",
+		"damage_condition": {
+			"type": "origins:projectile",
+			"projectile_condition": {
+				"type": "origins:or",
+				"conditions": [
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:arrow"
+					},
+					{
+						"type": "origins:entity_type",
+						"entity_type": "minecraft:spectral_arrow"
+					}
+				]
+			}
+		},
+		"target_action": {
+			"type": "origins:apply_effect",
+			"effects": [
+				{
+					"effect": "minecraft:glowing",
+					"duration": 120,
+					"is_ambient": false,
+					"show_particles": false,
+					"show_icon": true
+				},
+				{
+					"effect": "minecraft:slowness",
+					"duration": 120,
+					"amplifier": 1,
+					"is_ambient": false,
+					"show_particles": false,
+					"show_icon": true
+				}
+			]
+		}
+	},
+	"name": "Hunter's Prowess",
 	"description": "Your affinity with bows allow you to pull the most out of every shot.",
 	"badges": [
 		{
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "You have Power I by default."
-		}
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/arrow_up.png",
+            "text": "§e§lProwess 🏹§r§7\nLanding a shot with a bow will apply §r§eGlowing§r§7 and §r§eSlowness II§r§7 for §r§e6s§r§7.\n\n§7§lPassive Ability"
+        }
 	]
 }
