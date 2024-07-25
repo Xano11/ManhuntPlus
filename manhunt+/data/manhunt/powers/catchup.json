@@ -46,7 +46,7 @@
             "resource": "manhunt:catchup_charging",
             "change": 1
         },
-        "interval": 15,
+        "interval": 5,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -88,7 +88,7 @@
             "resource": "manhunt:catchup_charging",
             "change": -1
         },
-        "interval": 15,
+        "interval": 1,
         "condition": {
             "type": "origins:or",
             "conditions": [
