@@ -372,15 +372,15 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                            "type": "apugli:explode",
-                                            "power": 2,
-                                            "destruction_type": "break",
-                                            "damage_self": true,
-                                            "create_fire": false,
-                                            "damage_modifier" : {
-                                                "operation": "multiply_total",
-                                                "value": -1
-                                            }
+                                        "type": "apugli:explode",
+                                        "power": 2,
+                                        "destruction_type": "break",
+                                        "damage_self": true,
+                                        "create_fire": false,
+                                        "damage_modifier": {
+                                            "operation": "multiply_total",
+                                            "value": -1
+                                        }
                                     },
                                     {
                                         "type": "origins:area_of_effect",
@@ -460,15 +460,15 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                            "type": "apugli:explode",
-                                            "power": 3,
-                                            "destruction_type": "break",
-                                            "damage_self": true,
-                                            "create_fire": false,
-                                            "damage_modifier" : {
-                                                "operation": "multiply_total",
-                                                "value": -1
-                                            }
+                                        "type": "apugli:explode",
+                                        "power": 3,
+                                        "destruction_type": "break",
+                                        "damage_self": true,
+                                        "create_fire": false,
+                                        "damage_modifier": {
+                                            "operation": "multiply_total",
+                                            "value": -1
+                                        }
                                     },
                                     {
                                         "type": "origins:area_of_effect",
@@ -548,15 +548,15 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                            "type": "apugli:explode",
-                                            "power": 4,
-                                            "destruction_type": "break",
-                                            "damage_self": true,
-                                            "create_fire": false,
-                                            "damage_modifier" : {
-                                                "operation": "multiply_total",
-                                                "value": -1
-                                            }
+                                        "type": "apugli:explode",
+                                        "power": 4,
+                                        "destruction_type": "break",
+                                        "damage_self": true,
+                                        "create_fire": false,
+                                        "damage_modifier": {
+                                            "operation": "multiply_total",
+                                            "value": -1
+                                        }
                                     },
                                     {
                                         "type": "origins:area_of_effect",
@@ -636,15 +636,15 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                            "type": "apugli:explode",
-                                            "power": 6,
-                                            "destruction_type": "break",
-                                            "damage_self": true,
-                                            "create_fire": false,
-                                            "damage_modifier" : {
-                                                "operation": "multiply_total",
-                                                "value": -1
-                                            }
+                                        "type": "apugli:explode",
+                                        "power": 6,
+                                        "destruction_type": "break",
+                                        "damage_self": true,
+                                        "create_fire": false,
+                                        "damage_modifier": {
+                                            "operation": "multiply_total",
+                                            "value": -1
+                                        }
                                     },
                                     {
                                         "type": "origins:area_of_effect",
@@ -1091,6 +1091,306 @@
             ]
         }
     },
+    "t1_orange_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0.5,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:can_see"
+                }
+            ]
+        }
+    },
+    "t1_red_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 1
+        }
+    },
+    "t2_orange_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0.5,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:can_see"
+                }
+            ]
+        }
+    },
+    "t2_red_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 2
+        }
+    },
+    "t3_orange_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0.5,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:can_see"
+                }
+            ]
+        }
+    },
+    "t3_red_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 3
+        }
+    },
+    "t4_orange_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0.5,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 4
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">=",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:can_see"
+                }
+            ]
+        }
+    },
+    "t4_red_glow": {
+        "type": "origins:entity_glow",
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:bomber/kamikaze_strength",
+                    "comparison": "==",
+                    "compare_to": 4
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:living"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 4
+        }
+    },
     "name": "Kamikaze",
     "description": "Charging up your kamikaze will cause an explosion, charging longer will cause a stronger explosion.",
     "badges": [
@@ -1102,12 +1402,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Charge by pressing \"%s\"!\nAfter clicking, you have 1.5s to click again and increase the tier of the explosion."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s"
+            "text": "§7Charge by pressing §r%s§r§7!\nAfter clicking, you have §r§e1.5s§r§7 to click again and increase the tier of the explosion."
         }
     ]
 }

@@ -76,7 +76,7 @@
             "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
             "text": [
                 {
-                    "text": "§c§lDog Built 💔§r§7\nYou have -1 maximum §l§c❤§r overall\n\n§7§lPassive Ability"
+                    "text": "§c§lDog Built 💔§r§7\nYou have -1 maximum §l§c❤§r§7 overall\n\n§7§lPassive Ability"
                 }
             ]
         }

@@ -398,6 +398,7 @@
                 {
                     "type": "origins:area_of_effect",
                     "radius": 8,
+                    "shape": "sphere",
                     "bientity_action": {
                         "type": "origins:and",
                         "actions": [
