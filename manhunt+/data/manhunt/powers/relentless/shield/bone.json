@@ -255,17 +255,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§l⛨Bone Shield§r: 40% damage mitigation on the next two hits you take. (Lasts for 7 seconds.)"
+            "text": "§l§f⛨Bone Shield§r§7\n§r§a+40%§r§7 damage mitigation on the next §r§etwo§r§7 hits you take for a short duration.\n\n§c🕕§r§7 Duration: §r§f7s§r\n§e⌛§r§7 Cooldown: §r§f1m§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Trigger shield with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "§7Trigger shield with §r%s§7!"
         }
     ]
 }

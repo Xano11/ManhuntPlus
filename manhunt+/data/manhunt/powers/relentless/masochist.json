@@ -26,8 +26,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You have §l§c-25%§r less invincibility frames and take more knockback from hits."
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "§c§lMasochism 💦§r§7\nYou have §c-25%§r§7 less invincibility frames and take §r§cmore knockback§r§7 from hits.\n\n§7§lPassive Ability"
         }
     ]
 }

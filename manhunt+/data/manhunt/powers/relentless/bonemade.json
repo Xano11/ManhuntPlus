@@ -57,13 +57,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You do not require food and cannot heal naturally. Instead, you passively regenerate half a heart every 2 seconds."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You are classified as an undead.\n(No drowning, extra smite damage, etc)"
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "§a§lMade in Bones 💀§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate half a heart every §r§e2s§r§7.\n\nAlso, you are classified as an §r§eundead§r§7.§r§8\n(No drowning, extra smite damage, etc)§r\n\n§7§lPassive Ability"
         }
     ]
 }

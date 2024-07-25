@@ -198,17 +198,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Launching your skull causes you to be §l§7☠Numb§r\n\n§l§7☠Numb§r\n Grants extra speed (60%) but lose part of your field of vision.\nIf you do not pick it up in under 7s, you get \"killed\". If you do pick it up, you can recover half a heart of maximum health."
+            "text": "§l§fNumb ☠§r§7\nThrow your skull forward and become §fNumb ☠§r§7.\nGrants extra speed §r§a+60%§r§7 but lose part of your §r§efield of vision§r§7.\nIf you do not pick it up quick enough, you get turned into bones.\n\nIf you do pick it up, you can recover §r§ahalf a heart§r§7 of maximum health.\n\n§c🕕§r§7 Duration: §r§f7s§r§8 (Before skull expires)\n§e⌛§r§7 Cooldown: §r§f45s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Launch your empty head with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 45s"
+            "text": "§7Launch your empty head with §r%s§7!"
         }
     ]
 }

@@ -329,7 +329,7 @@
                 "value": 0,
                 "modifier": {
                     "operation": "multiply_total",
-                    "value": -0.999
+                    "value": -0.9989 
                 }
             }
         ]
@@ -353,13 +353,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Undead: Dying will turn you into a useless pile of bones.\nEvery death, you will §nlose a heart of permanent health§r to as low as 4 hearts.\nYour respawn speed §nis faster with lower health§r.\nAdditionally, you keep your hotbar on death."
+            "sprite": "minecraft:textures/item/bone.png",
+            "text": "§f§lBite the Dust ☠§r§7\nDying will turn you into a useless pile of bones.\nEvery death, you will lose 1 §l§c❤§r§7 of permanent health to as low as 4 hearts.\nYour respawn speed is faster with lower health.\n\nAdditionally, you keep your hotbar on death.§r\n\n§7§lPassive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Rugged Bones: You start the game with -1 §l§c❤§r. Every death additionally grants you §nmore speed§r."
+            "text": "§8§lRugged Bones ☠§r§7\nYou start the game with -1 §l§c❤§r§7.\nEvery death additionally grants you §nmore speed§r§7."
         }
     ]
 }
