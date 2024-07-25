@@ -41,15 +41,33 @@
                             "bientity_condition": {
                                 "type": "origins:target_condition",
                                 "condition": {
-                                    "type": "origins:and",
+                                    "type": "origins:or",
                                     "conditions": [
                                         {
-                                            "type": "origins:living"
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:living"
+                                                },
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:armor_stand",
+                                                    "inverted": true
+                                                }
+                                            ]
                                         },
                                         {
-                                            "type": "origins:entity_type",
-                                            "entity_type": "minecraft:armor_stand",
-                                            "inverted": true
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:armor_stand"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "manhunt:reaper/soulstruck/soul"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -206,19 +224,19 @@
             "text": "§l§3Soul Siphon 🌀§r§7\nPull nearby entities in a §r§e5§r§7 block §nfrontal§r§7 cone AOE.\nIf you pull a soulstruck entity, you will consume it for §r§eAbsorption I§r§7\n\n§e🧬§r§7 Cost: §r§f1 §r§bSoul§r§8\n\n§7§lActive Ability"
         },
         {
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/toggle.png",
-			"text": [
-				"§7Hold §r[",
-				{
-					"keybind": "key.origins.primary_active"
-				},
-				"]§7 and §r[",
-				{
-					"keybind": "key.use"
-				},
-				"]§7 to siphon!"
-			]
-		}
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to siphon!"
+            ]
+        }
     ]
 }
