@@ -13,6 +13,10 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "execute on passengers run kill @s"
                 },
                 {
@@ -30,6 +34,11 @@
             "change": -10
         },
         "interval": 10
+    },
+    "instant": {
+        "type": "origins:modify_falling",
+        "velocity": 100.0,
+        "take_fall_damage": false
     },
     "grow1": {
         "type": "origins:action_over_time",
