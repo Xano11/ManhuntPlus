@@ -3,10 +3,10 @@
 	"description": "The Geologist is a descendant of dwarves, born for the mines. Dwarves stand at a sturdy 5'9\"",
 	"badges": [
 		{
-			"type": "origins:tooltip",
-			"sprite": "origins:textures/gui/badge/star.png",
-			"text": "3 less §l§c❤§r, 15% less movement speed."
-		}
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "§c§lDwarfism 🍻§r§7\nDue to Dwarfism, you are §r§esmaller§r§7 than the average player.\nAdditionally, you have -3 §l§c❤§r and §r§c-15%§r§7 movement speed passively.\n\n§7§lPassive Ability"
+        }
 	],
 	"type": "origins:multiple",
 	"size": {

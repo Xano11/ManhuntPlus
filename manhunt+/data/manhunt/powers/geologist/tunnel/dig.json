@@ -543,43 +543,27 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "After activating the ability, hunters in a 144 block radius will be selectable for your target destination.\nAfter a short duration, a tunnel opens and can be used for 30s by all Hunters.\nAlternatively, you can dig a tunnel upwards to return to the surface.\n(You must be below Y level 40 to use either ability.)"
+            "sprite": "minecraft:textures/item/raw_gold.png",
+            "text": "§l§8Tunnel Trouble 🧗§r§7\nAfter activating the ability, Hunters in a §r§e144§r§7 block radius will be §nselectable§r§7 for your target destination.\nAfter a short duration, a tunnel opens and can be used for §r§e30s§r§7 by all Hunters.\nAlternatively, you can dig a tunnel upwards to return to the surface.\n§r§8(You must be below Y=40 to use either ability.)§r\n\n§a§l⇶ §r§7Range: §r§f96 Blocks§r\n§c🕕§r§7 Duration: §r§f30s§r§8 (Tunnel duration)\n§e⌛§r§7 Cooldown: §r§f3m§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.secondary_active"
                 },
-                "\" and \"",
+                "]§7 and §7[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" to dig while holding a Pickaxe!"
-            ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": [
-                "Hold \"",
-                {
-                    "keybind": "key.origins.secondary_active"
-                },
-                "\" and \"",
+                "]§7 to dig while holding a Pickaxe!\nPress §r[",
                 {
                     "keybind": "key.use"
                 },
-                "\" to return to the surface."
+                "]§7 instead to return to the surface."
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3m"
         }
     ]
 }

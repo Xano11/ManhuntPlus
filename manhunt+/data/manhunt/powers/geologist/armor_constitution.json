@@ -4,8 +4,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Wearing full Iron Armor gives you +1 §l§c❤§r but §c-0.15§r Attack Speed.\nWearing full Diamond gives you +2 §l§c❤§r but §c-0.3§r Attack Speed."
+            "sprite": "minecraft:textures/item/enchanted_book.png",
+            "text": "§e§lArmored Consitution ❤§r§7\nWearing full §r§fIron§r§7 Armor gives you +1 §l§c❤§r§7 but §c-0.15§r§7 Attack Speed.\nWearing full §r§bDiamond§r§7 gives you +2 §l§c❤§r§7 but §c-0.3§r§7 Attack Speed.\n\n§7§lPassive Ability"
         }
     ],
     "type": "origins:multiple",
