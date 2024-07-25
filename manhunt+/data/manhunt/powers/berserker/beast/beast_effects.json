@@ -3,8 +3,8 @@
     "roar": {
         "type": "origins:resource",
         "min": 0,
-        "max": 60,
-        "start_value": 60,
+        "max": 35,
+        "start_value": 35,
         "hud_render": {
             "should_render": false
         }
@@ -14,9 +14,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:berserker/beast/beast_effects_roar",
-            "change": -10
+            "change": -5
         },
-        "interval": 10
+        "interval": 5
     },
     "duration": {
         "type": "origins:resource",
@@ -283,7 +283,7 @@
             "type": "origins:resource",
             "resource": "manhunt:berserker/beast/beast_effects_roar",
             "comparison": ">=",
-            "compare_to": 40
+            "compare_to": 20
         }
     },
     "particle": {
