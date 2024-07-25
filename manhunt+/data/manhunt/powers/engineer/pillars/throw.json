@@ -183,33 +183,28 @@
             ]
         }
     },
-    "name": "STOP\n(Staming Tiring Overclock Pillar)",
+    "name": "STOP",
     "description": "Self-constructing machine that overclocks people's fatigue.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Overclocked: Movement speed decreased per 15% and Attack speed decreased by 10% for every wave hit (max of 45%)"
+            "sprite": "minecraft:textures/mob_effect/slowness.png",
+            "text": "§b§lSTOP ⚠§r§7\nThrow your Stamina Tiring Overclock Pillar to slow down entities in it's radius.\nAll entities hit by it's waves get §r§c-15%§r§7 movement speed and §r§c-10%§r§7 attack speed per wave §r§8(Max of 3)§r\n\n§c🕕§r§7 Duration: §r§f10s§r§8 (Pack duration)\n§6🏷§r§7 Charges: §r§f2§r§8 (max)§r\n§e⌛§r§7 Cooldown: §r§f1m§r§8 (per charge)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and press \"",
+                "]§7 and press §r[",
                 {
-                    "keybind": "key.attack"
+                    "keybind": "key.use"
                 },
-                "\" to throw the pillar down!"
+                "]§7 to throw the pillar down!"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m per pillar\nPillar stock: 2 pillars."
         }
     ]
 }

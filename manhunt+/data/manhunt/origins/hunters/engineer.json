@@ -4,8 +4,9 @@
 		"manhunt:engineer/pillars/throw",
 		"manhunt:engineer/portal/activate",
 		"manhunt:engineer/scan/scan",
-		"manhunt:engineer/armor",
-		"origins:vegetarian"
+		"manhunt:engineer/chainmail",
+		"manhunt:engineer/restrict",
+		"manhunt:engineer/vegetarian"
 	],
 	"icon": {
 		"item": "minecraft:redstone_torch",

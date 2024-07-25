@@ -1,13 +1,38 @@
 {
     "type": "origins:multiple",
+    "targets":{
+        "type": "origins:entity_set"
+    },
     "activate": {
         "type": "origins:active_self",
         "entity_action": {
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=runner] manhunt:engineer/scan/scanning"
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=runner]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:engineer/scan/scanning"
+                                }
+                            },
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:engineer/scan/scan_targets",
+                                "time_limit": 200
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/scan/scan_upload",
+                    "change": 1
                 }
             ]
         },
@@ -28,33 +53,272 @@
             }
         }
     },
-    "name": "SEE\n(Sight Electro Enhancer)",
+    "upload": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 11,
+        "start_value": -1,
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/scan/scan_upload",
+            "change": -1,
+            "operation": "set"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "uploading": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scan_upload",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @a actionbar [\"\",{\"text\":\"Starting scan.\",\"italic\":true,\"color\":\"white\"},{\"text\":\" (┇ ┇ 16.7%  ┇ ┇)\",\"bold\":true,\"color\":\"blue\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.5"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scan_upload",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @a actionbar [\"\",{\"text\":\"Starting scan..\",\"italic\":true,\"color\":\"white\"},{\"text\":\" (┇ ┇ 33.3%  ┇ ┇)\",\"bold\":true,\"color\":\"blue\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.6"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scan_upload",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @a actionbar [\"\",{\"text\":\"Starting scan...\",\"italic\":true,\"color\":\"white\"},{\"text\":\" (┇ ┇ 50%  ┇ ┇)\",\"bold\":true,\"color\":\"blue\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.7"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scan_upload",
+                                "comparison": "==",
+                                "compare_to": 6
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @a actionbar [\"\",{\"text\":\"Starting scan.\",\"italic\":true,\"color\":\"white\"},{\"text\":\" (┇ ┇ 66.7%  ┇ ┇)\",\"bold\":true,\"color\":\"blue\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.8"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scan_upload",
+                                "comparison": "==",
+                                "compare_to": 8
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @a actionbar [\"\",{\"text\":\"Starting scan..\",\"italic\":true,\"color\":\"white\"},{\"text\":\" (┇ ┇ 83.3%  ┇ ┇)\",\"bold\":true,\"color\":\"blue\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 1.9"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:engineer/scan/scan_upload",
+                                "comparison": "==",
+                                "compare_to": 10
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "title @a actionbar [\"\",{\"text\":\"Scan completed!\",\"italic\":true,\"color\":\"white\"},{\"text\":\" (┇ ┇ 100%  ┇ ┇)\",\"bold\":true,\"color\":\"blue\"}]"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.note_block.bit player @s ~ ~ ~ 2 2"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/scan/scan_upload",
+                    "change": 1
+                }
+            ]
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/scan/scan_upload",
+            "comparison": ">=",
+            "compare_to": 0
+        }
+    },
+    "tier": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
+    "tier_0":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier0.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/scan/scan_tier",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "tier_1":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier1.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/scan/scan_tier",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "tier_2":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier2.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/scan/scan_tier",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "tier_3":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier3.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/scan/scan_tier",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "name": "SEE",
     "description": "Use your Tectonic Scan to upload the location of moving runners.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "The scan lasts a few seconds and will signal any moving runners' location."
+            "sprite": "minecraft:textures/item/ender_eye.png",
+            "text": "§b§lSEE 🔉§r§7\nUsing your Sight Electro Scanner, all moving runners get pinged overtime for a few seconds.\nYou additionally increase your §3SCAN 📡§r§7 tier by +1 for every runner scanned.\n\n§l§3SCAN 📡§r§7\nOn top of your level, you can see a new icon displaying your current Scan level.\nReaching max allows the usage of VIP.\n\n§c🕕§r§7 Duration: §r§f10s§r§8 (Scan duration)\n§c🕕§r§7 Duration: §r§f5s§r§8 (Ping duration)\n§e⌛§r§7 Cooldown: §r§f1m§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Hold \"",
+                "§7Hold §r[",
                 {
                     "keybind": "key.origins.primary_active"
                 },
-                "\" and press \"",
+                "]§7 and press §r[",
                 {
                     "keybind": "key.attack"
                 },
-                "\" to deploy the scan!"
+                "]§7 to deploy the scan!"
             ]
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
         }
     ]
 }

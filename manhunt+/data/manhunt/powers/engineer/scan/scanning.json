@@ -51,7 +51,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "title @s actionbar [\"\",{\"text\":\"┇\",\"bold\":true,\"color\":\"dark_purple\"},\"┇ ┇ 16.7%  ┇ ┇ ┇\"]"
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇\",\"bold\":true,\"color\":\"dark_blue\"},\"┇ ┇ 16.7%  ┇ ┇ ┇\"]"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -72,7 +72,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇\",\"bold\":true,\"color\":\"dark_purple\"},\"┇ 33.3%  ┇ ┇ ┇\"]"
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇\",\"bold\":true,\"color\":\"dark_blue\"},\"┇ 33.3%  ┇ ┇ ┇\"]"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -93,7 +93,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 5\",\"bold\":true,\"color\":\"dark_purple\"},\"0%  ┇ ┇ ┇\"]"
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 5\",\"bold\":true,\"color\":\"dark_blue\"},\"0%  ┇ ┇ ┇\"]"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -114,7 +114,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 66.67%  ┇\",\"bold\":true,\"color\":\"dark_purple\"},\" ┇ ┇\"]"
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 66.67%  ┇\",\"bold\":true,\"color\":\"dark_blue\"},\" ┇ ┇\"]"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -135,7 +135,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 83.33%  ┇ ┇\",\"bold\":true,\"color\":\"dark_purple\"},\" ┇\"]"
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 83.33%  ┇ ┇\",\"bold\":true,\"color\":\"dark_blue\"},\" ┇\"]"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -156,7 +156,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 100%  ┇ ┇ ┇\",\"bold\":true,\"color\":\"dark_purple\"}]"
+                                        "command": "title @s actionbar [\"\",{\"text\":\"┇ ┇ ┇ 100%  ┇ ┇ ┇\",\"bold\":true,\"color\":\"dark_blue\"}]"
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -184,6 +184,25 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power grant @s manhunt:engineer/scan/pinged"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:engineer/scan/scan_tier",
+                            "change": 1
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:engineer/scan/scan_targets"
+                        }
+                    }
                 },
                 {
                     "type": "origins:execute_command",

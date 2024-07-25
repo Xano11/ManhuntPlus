@@ -1,0 +1,36 @@
+{
+    "type": "origins:multiple",
+    "restrict":{
+        "type": "origins:conditioned_restrict_armor",
+        "head": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 2
+        },
+        "chest": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 5
+        },
+        "legs": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 4
+        },
+        "feet": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 1
+        },
+        "tick_rate": 20
+    },
+    "name": "RPG standards",
+    "description": "Enchanter said that in DND, you'd be more of a \"mad scientist\" than anything else (-100 aura)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/icons/armor.png",
+            "text": "§c§lRPG Standards 🤓§r§7\nYou cannot wear any armor beyond §r§echainmail§r§7 value.\n\n§7§lPassive Ability"
+        }
+    ]
+}

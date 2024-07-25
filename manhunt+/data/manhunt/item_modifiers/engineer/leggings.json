@@ -1,0 +1,7 @@
+[
+    {
+      "function": "minecraft:set_nbt",
+      "tag": "{display:{Lore:['[\"\"]','[\"\",{\"text\":\"When on Legs:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"+5 armor \",\"italic\":false,\"color\":\"blue\"}]']},Tags:special_chainmail,AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:5,Slot:legs,UUID:[I;-124623,34723,161845,-69446],Name:1721766521244}],HideFlags:2}"
+    }
+  ]
+  

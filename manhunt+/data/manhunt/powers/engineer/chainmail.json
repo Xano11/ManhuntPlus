@@ -1,29 +1,5 @@
 {
     "type": "origins:multiple",
-    "restrict":{
-        "type": "origins:conditioned_restrict_armor",
-        "head": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 2
-        },
-        "chest": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 5
-        },
-        "legs": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 4
-        },
-        "feet": {
-            "type": "origins:armor_value",
-            "comparison": ">",
-            "compare_to": 1
-        },
-        "tick_rate": 20
-    },
     "craft_helmet": {
         "type": "origins:recipe",
         "recipe":{
@@ -114,12 +90,45 @@
             }
         }
     },
-    "name": "Chainmail Favoritism",
-    "description": "When it comes to armor, you are restrained to wearing §clighter§r armors.\nIn return, you've engineered how to craft chainmail by yourself.",
+    "helmet":{
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:chainmail_helmet",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:engineer/helmet"
+        }
+    },
+    "chestplate":{
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:chainmail_chestplate",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:engineer/chestplate"
+        }
+    },
+    "leggings":{
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:chainmail_leggings",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:engineer/leggings"
+        }
+    },
+    "boots":{
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:chainmail_boots",
+        "item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:engineer/boots"
+        }
+    },
+    "name": "Engineering",
+    "description": "You've engineered ways to make special chainmail",
     "badges": [
         {
             "type": "origins:crafting_recipe",
             "sprite": "minecraft:textures/item/chainmail_helmet.png",
+            "prefix": "§9+0.5 Armor§r§7 on helmet.",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:chainmail_helmet",
@@ -143,6 +152,7 @@
         {
             "type": "origins:crafting_recipe",
             "sprite": "minecraft:textures/item/chainmail_chestplate.png",
+            "prefix": "§9+1 Armor§r§7 on chestplate.",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:chainmail_chestplate",
@@ -167,6 +177,7 @@
         {
             "type": "origins:crafting_recipe",
             "sprite": "minecraft:textures/item/chainmail_leggings.png",
+            "prefix": "§9+1 Armor§r§7 on leggings.",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:chainmail_leggings",
@@ -191,6 +202,7 @@
         {
             "type": "origins:crafting_recipe",
             "sprite": "minecraft:textures/item/chainmail_boots.png",
+            "prefix": "§9+0.5 Armor§r§7 on boots.",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:chainmail_boots",
