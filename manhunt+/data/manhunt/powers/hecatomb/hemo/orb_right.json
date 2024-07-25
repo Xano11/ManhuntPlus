@@ -213,7 +213,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "scale set pehkui:hitbox_width 4"
+                        "command": "scale set pehkui:hitbox_width 5.5"
                     },
                     {
                         "type": "origins:execute_command",

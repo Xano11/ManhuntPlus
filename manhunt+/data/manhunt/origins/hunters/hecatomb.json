@@ -2,7 +2,8 @@
 	"powers": [
 		"manhunt:roles/rivals",
 		"manhunt:hecatomb/blood",
-		"manhunt:hecatomb/hemo/surge"
+		"manhunt:hecatomb/hemo/surge",
+		"manhunt:hecatomb/brimstone/brimstone"
 	],
 	"icon": {
 		"item": "minecraft:redstone",

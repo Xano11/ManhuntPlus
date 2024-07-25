@@ -32,7 +32,7 @@
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:execute_command",
-            "command": "particle minecraft:dust_color_transition 1 0 0 2 0.3 0 0 ~ ~ ~ 0.3 1.2 0.3 1 20"
+            "command": "particle minecraft:dust_color_transition 1 0 0 2 0.3 0 0 ~ ~ ~ 0.4 1.2 0.4 1 20"
         },
         "interval": 1,
         "condition": {
@@ -53,7 +53,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2f,5f,2f]",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2.75f,5f,2.75f]",
                     "permission_level": 4
                 },
                 {
@@ -88,7 +88,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 1 0 0 1.4 0.3 0 0 ~ ~ ~ 0.6 1.5 0.6 1 100"
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1.4 0.3 0 0 ~ ~ ~ 0.8 1.5 0.8 1 100"
                 },
                 {
                     "type": "origins:selector_action",
