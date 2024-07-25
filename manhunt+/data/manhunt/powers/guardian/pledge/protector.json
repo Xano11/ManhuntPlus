@@ -189,17 +189,17 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/icons/guardian_icon.png",
-            "text": "Pledge: You grant 25%(+1) of your own armor to your pledged ally.\nAdditionally, let's you use all your abilities onto that ally."
+            "text": "§l§bProtector's Pledge 👼§r§7\nYou grant §r§a25%§r§8(+1)§r§7 of your own armor to your §r§bPledge'd§r§7 ally.\nAdditionally, your abilities now target onto that ally.\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/toggle.png",
             "text": [
-                "Sneak and press \"",
+                "§7Sneak and press §r[",
                 {
                     "keybind": "key.use"
                 },
-                "\"\n to forge a pledge with somebody."
+                "]§7 to forge a pledge with somebody."
             ]
         }
     ]

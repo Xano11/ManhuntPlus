@@ -4,8 +4,8 @@
 		"manhunt:guardian/pledge/protector",
         "manhunt:guardian/bulwark/active",
 		"manhunt:guardian/meteor/active",
-		"manhunt:guardian/slow",
 		"manhunt:guardian/savior",
+		"manhunt:guardian/slow",
 		"manhunt:guardian/hungry"
 	],
 	"icon": {

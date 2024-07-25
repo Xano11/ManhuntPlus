@@ -386,18 +386,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You can teleport to your Pledge'd ally! There's a small windup and upon landing onto your teammate, you will push entities away."
+            "sprite": "minecraft:textures/mob_effect/levitation.png",
+            "text": "§l§bAngelic Swoop 🦢§r§7\nYou can teleport to your §r§bPledge'd§r§7 ally! There's a small windup and upon landing onto your teammate, you will push entities away.\n\n§6🕒§r§7 Windup: §r§f2.5s\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8 (Upon Activation)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Press \"%s\" to fly away!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m30s"
+            "text": "§7Press §r%s§7 to fly away!"
         }
     ]
 }

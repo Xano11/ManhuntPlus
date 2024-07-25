@@ -515,23 +515,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Bulwarked: You are granted +4 armor and additional knockback resistance.\nIn return, your movement speed is reduced by 40% and your atttack speed is reduced proportional to how long Bulwark is active."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/icons/guardian_icon.png",
-            "text": "Pledged: The Pledge'd ally is reduced by 20% and 40% of the damage is redirected to you.\nIf they die, you will take 3 hearts of true damage.\n\n(This only works in a 32 block radius)"
+            "sprite": "minecraft:textures/mob_effect/resistance.png",
+            "text": "§l§fBulwark ⛨§r§7\nYou are granted §r§a+4§r§7 armor and additional knockback resistance.\nIn return, your movement speed is reduced by §r§c40%§r§7 and your attack speed is reduced §nproportional§r§7 to how long §r§fBulwark ⛨§r§7 is active.\n\n§r§bPledge'd 👼§r§7\nThe Pledge'd ally takes -40% damage and redirects the same percentage back to you.\nIf they die, you will take 3 §l§c❤§r§7 of true damage.\n\n§r§8(This only works in a §r§e32§r§8 block radius)§r\n\n§e⌛§r§7 Cooldown: §r§f1m§r§8 (Upon Deactivation)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Toggle Bulwark with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Ability lasts indefinitely but toggling it off has a 1m cooldown."
+            "text": "§7Toggle Bulwark with §r%s§7!"
         }
     ]
 }

@@ -21,8 +21,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Low Stamina: §l§c2x§r Exhaustion"
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c§lLow Stamina 🌬§r§7\n§c2x§r§7 Exhaustion for any action executed\n\n§7§lPassive Ability"
         }
     ]
 }

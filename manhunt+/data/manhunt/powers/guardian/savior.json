@@ -75,8 +75,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "If your Pledge'd ally is hurt by a runner, you are granted 25% additional movement speed.\n(Doesn't work when using Bulwark)"
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§f§lLook Here 🗣§r§7\nIf your §r§bPledge'd§r§7 ally is hurt by a §r§cRunner§r§7, you are granted §r§a+25%§r§7 additional movement speed.\n§r§8(Doesn't work when using §r§fBulwark ⛨§r§8)§r\n\n§7§lPassive Ability"
         }
     ]
 }

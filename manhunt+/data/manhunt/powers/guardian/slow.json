@@ -27,8 +27,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Steady: §l§c-0.15§r Attack Speed value.\n§l§c-45%§r Mining Speed."
+            "sprite": "minecraft:textures/mob_effect/slowness.png",
+            "text": "§c§lSteady and Slow 💪§r§7\n§c-0.15§r§7 Attack Speed value.\n§c-45%§r§7 Mining Speed.\n\n§7§lPassive Ability"
         }
     ]
 }
