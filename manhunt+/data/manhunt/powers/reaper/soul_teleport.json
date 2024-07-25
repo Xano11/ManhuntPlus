@@ -73,6 +73,29 @@
 			"compare_to": 3
 		}
 	},
+	"crosshair": {
+		"type": "origins:status_bar_texture",
+		"texture_map": {
+			"minecraft:hud/crosshair": "manhunt:ritualist/crosshair"
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_charges",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_key_check",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
 	"use": {
 		"type": "origins:active_self",
 		"entity_action": {
