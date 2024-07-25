@@ -152,13 +152,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Passively gain 1% of your Battery every 0.5s\nGain +20% Healing while power is >80%.\nLose -50% Healing & -15% Velocity while power is <50%"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Gain +1% Battery per 0.5s from sun exposure.\nGain +1% Battery per 0.5s when in the nether.\nGain +2% Battery per 0.5s while on fire."
+            "sprite": "minecraft:textures/item/glowstone_dust.png",
+            "text": "§e§lS0L4R-B4TT3RY 🔋§r§7\nYou can store up to 100% worth of §r§eB4TT3RY 🔋§r§7.\nHaving §r§e>80%§r§7 grants §r§a+20%§r§7 healing.\nIn the contrary at §r§e<50%§r§7, you have §r§c-50%§r§7 healing and §r§c-15%§r§7 velocity.\n\n§e§lRECHARGING ⬆§r§7\n- Recharge §r§a1%§r§7 every 0.5s passively\n- Recharge §r§a+1%§r§7 passively whilst exposed to the sun §r§8(or in the Nether)§r§7\n- Recharge §r§a+2%§r§7 passively whilst on §r§efire§r§7\n\n§7§lPassive Ability"
         }
     ]
 }

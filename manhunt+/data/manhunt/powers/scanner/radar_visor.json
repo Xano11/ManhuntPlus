@@ -310,17 +310,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Grants partial night & water vision, Applies glowing to all entities in a 100 block radius.\nHunters glow green when within 50 blocks of you.\nRunners glow red when within 50 blocks of you.\nToggling the visor consumes a small burst of power, and cannot be used at below 10% power."
+            "text": "§l§aR4D4R-V1S0R 🧿§r§7\nGrants partial night & water vision + applies glowing to all entities in a §r§e100§r§7 block radius.\nHunters glow §r§agreen§r§7 when within §r§e50§r§7 blocks of you.\nRunners glow §r§cred§r§7 when within §r§e50§r§7 blocks of you.\n\nToggling the visor consumes a small burst of power, and cannot be used at §r§ebelow 10%§r§7 power.\n\n§r§eB4TT3RY 🔋§r§7 Cost: §r§f~4%/1s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Toggle with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Consumes ~4% Battery every second."
+            "text": "§7Toggle with §r%s§7!"
         }
     ]
 }

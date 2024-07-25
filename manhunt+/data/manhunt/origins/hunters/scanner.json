@@ -6,7 +6,8 @@
 		"manhunt:scanner/laser/laser_pointer",
 		"manhunt:scanner/tungsten",
 		"manhunt:scanner/occupied_oculars",
-		"manhunt:scanner/reboot_sequence"
+		"manhunt:scanner/reboot_sequence",
+		"manhunt:scanner/rod"
 	],
 	"icon": {
 		"item": "minecraft:emerald",
