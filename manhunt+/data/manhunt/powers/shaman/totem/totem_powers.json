@@ -423,8 +423,8 @@
                                         },
                                         {
                                             "type": "origins:feed",
-                                            "food": 2,
-                                            "saturation": 1
+                                            "food": 1,
+                                            "saturation": 0.5
                                         }
                                     ]
                                 }

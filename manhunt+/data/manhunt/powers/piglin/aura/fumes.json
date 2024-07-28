@@ -12,16 +12,24 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:set_on_fire",
-                    "duration": 4
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:poison",
+                        "duration": 100,
+                        "amplifier": 0
+                    }
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.ghast.shoot player @a ~ ~ ~ 1 1"
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 2"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:flame ~ ~1 ~ 0 0 0 0.1 40"
+                    "command": "playsound minecraft:entity.squid.squirt player @a ~ ~ ~ 1 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sneeze ~ ~1 ~ 0.3 0.4 0.3 0.1 70"
                 },
                 {
                     "type": "origins:execute_command",
@@ -41,11 +49,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 0.7"
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 1.5"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 1 0.5 0 1.4 0 0 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
+                    "command": "particle dust_color_transition 0.4 1 0 1 0.3 0.45 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
                 }
             ]
         },
@@ -64,11 +72,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 0.8"
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 1"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 1 0.5 0 1.4 0 0 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
+                    "command": "particle dust_color_transition 0.4 1 0 1 0.3 0.45 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
                 }
             ]
         },
@@ -87,11 +95,11 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 0.9"
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 0.5"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 1 0.5 0 1.4 0 0 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
+                    "command": "particle dust_color_transition 0.4 1 0 1 0.3 0.45 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
                 }
             ]
         },

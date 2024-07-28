@@ -5,8 +5,7 @@
 		"manhunt:sanguis/sense",
 		"manhunt:sanguis/bloodlust",
         "manhunt:sanguis/awful",
-		"manhunt:sanguis/unusable",
-		"origins:carnivore"
+		"manhunt:sanguis/carnage"
 	],
 	"icon": {
 		"item": "minecraft:netherite_axe",

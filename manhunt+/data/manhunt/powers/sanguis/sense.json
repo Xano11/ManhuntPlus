@@ -30,7 +30,7 @@
             ]
         },
         "use_teams": false,
-        "red": 1.0,
+        "red": 0.5,
         "green": 0.0,
         "blue": 0.0
     },
@@ -40,7 +40,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/glowing.png",
-            "text": "The Voices reveal all hunters in a 10 block radius."
+            "text": "§f§lThe Voices 🗣§r\n§7All Hunters in a §r§e10 block§r§7 radius of you §r§fglow§r§7 dark red.\n\n§7§lPassive Ability"
         }
     ]
 }

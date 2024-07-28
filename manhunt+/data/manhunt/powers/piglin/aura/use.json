@@ -34,26 +34,6 @@
                             {
                                 "type": "origins:execute_command",
                                 "command": "power grant @s manhunt:piglin/aura/fumes"
-                            },
-                            {
-                                "type": "origins:area_of_effect",
-                                "radius": 16,
-                                "shape": "sphere",
-                                "bientity_action": {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "power grant @s manhunt:piglin/aura/fumes"
-                                    }
-                                },
-                                "bientity_condition": {
-                                    "type": "origins:target_condition",
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:hunter",
-                                        "layer": "origins:origin"
-                                    }
-                                }
                             }
                         ]
                     },
@@ -232,7 +212,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/poison.png",
-            "text": "§l§2Rotten Fumes 🫁§r§7 / §l§eRally 🎌§r§7\nIn the Overworld, spread §r§2Rotten Fumes 🫁§r§7 to all hunters in a §r§e16§r§7 block radius that inflicts §c🧨Flammable§r§7.\n§r§c🧨Flammable§r§7 transfers to other targets when attacking them.\nAfter §r§e10s§r§7, §c🧨Flammable§r§7 targets will §nlight on fire§r§7.\n\nIn the Nether, all hunters (and piglins) in a §r§e16§r§7 block radius will gain §e🎌Rallied§r§7.\n§e🎌Rallied§r§7 increases speed by §a30%§r§7 for §r§e20§r§7s.\nAdditionally, all piglins will target the §nclosest§r§7 runner.\n\n§r§c🕕§r§7 Fumes Duration: §r§f10s§r§8 (Upon activation)\n§r§c🕕§r§7 Rally Duration: §r§f20s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f1m30s§r\n\n§7§lActive Ability"
+            "text": "§2§lRotten Fumes 🫁§r§8 / §r§e§lRally 🎌§r§7\nOutside the Nether, give yourself the §2☢Plagued§r§7 effect.\n§r§2☢Plagued§r§7 transfers to other targets when attacking them (similar to hot potato).\nAfter §r§e10s§r§7, the §2☢Plagued§r§7 target will §nbe poisoned§r§7 for §r§e5§r§7s.\n\nIn the Nether, all hunters (and piglins) in a §r§e16§r§7 block radius will gain §e🎌Rallied§r§7.\n§e🎌Rallied§r§7 increases speed by §a30%§r§7 for §r§e20§r§7s.\nAdditionally, all piglins will target the §nclosest§r§7 runner.\n\n§r§c🕕§r§7 Fumes Duration: §r§f10s§r§8 (Upon activation)\n§r§c🕕§r§7 Rally Duration: §r§f20s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f1m30s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",

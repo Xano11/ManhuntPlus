@@ -197,17 +197,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/icons/sword.png",
-            "text": "Your crit modifier is increased by 20% during the leap.\nAdditionally, the hit will knock close entities.\n§4§l🗡FURY§r: During Fury, Leap cooldown is reset upon landing the crit hit."
+            "text": "§b§lLeap ᧞§r\n§7Perform a short lunge, increasing your Critical Damage Multiplier by §r§a+20%§r§7 during the leap.\n§7Landing a hit will §r§eknockback§r§7 close entities.\n§7During §4§lFURY 🗡§r§7, Leap's cooldown is §r§areset§r§7 when landing a Critical hit.\n\n§e⌛§r§7 Cooldown: §r§f15s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Leap with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 15s"
+            "text": "§7Leap with %s §7!"
         }
     ]
 }

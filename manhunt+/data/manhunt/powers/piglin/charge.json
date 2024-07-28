@@ -39,6 +39,96 @@
             "compare_to": 0
         }
     },
+    "charge_sound1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.piglin.step player @a ~ ~ ~ 1 1.5",
+            "permission_level": 4
+        },
+        "interval": 3,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/charge_charging",
+                    "comparison": ">",
+                    "compare_to": 40
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/charge_charging",
+                    "comparison": "<=",
+                    "compare_to": 70
+                },
+                {
+                    "type": "origins:moving",
+                    "vertically": false
+                }
+            ]
+        }
+    },
+    "charge_sound2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.piglin.step player @a ~ ~ ~ 1 1.1",
+            "permission_level": 4
+        },
+        "interval": 3,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/charge_charging",
+                    "comparison": ">",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/charge_charging",
+                    "comparison": "<=",
+                    "compare_to": 42
+                },
+                {
+                    "type": "origins:moving",
+                    "vertically": false
+                }
+            ]
+        }
+    },
+    "charge_sound3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.piglin.step player @a ~ ~ ~ 1 0.8",
+            "permission_level": 4
+        },
+        "interval": 4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/charge_charging",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:piglin/charge_charging",
+                    "comparison": "<=",
+                    "compare_to": 25
+                },
+                {
+                    "type": "origins:moving",
+                    "vertically": false
+                }
+            ]
+        }
+    },
     "speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
@@ -137,7 +227,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§l§b💨Charging§r§7\nCharging grants §r§a200%§r§7 Speed for a short duration.\nWhilst §b💨Charging§r§7, you can walk up full blocks and fall quicker, but cannot jump and deal §c-2§r§7 less damage.\n§r§8(+1 Block Step Height)\n\n§r§c🕕§r§7 Charge Duration: §r§f3.5s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f25s§r\n\n§7§lActive Ability"
+            "text": "§b§lCHARGE 💨§r§7\nCharge grants §r§a200%§r§7 Speed for a short duration.\nWhilst §b💨Charging§r§7, you can walk up full blocks and fall quicker, but cannot jump and deal §c-2§r§7 less damage.\n§r§8(+1 Block Step Height)\n\n§r§c🕕§r§7 Charge Duration: §r§f3.5s\n§e⌛§r§7 Cooldown: §r§f25s§r§8 (Upon Activation)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",

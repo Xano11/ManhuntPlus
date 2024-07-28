@@ -85,7 +85,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
-            "text": "Bloodlust: Strength I, Regeneration II and Saturation I for 7 seconds."
+            "text": "§4§lBloodlust 🩸§r\n§7Gain Strength I, Regeneration II and Saturation I for \n§e7 seconds§r§7 on kill of a Hunter.\n\n§7§lPassive Ability"
         }
     ]
 }
