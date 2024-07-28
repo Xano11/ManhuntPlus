@@ -1,16 +1,29 @@
 {
-    "type": "origins:modify_projectile_damage",
-    "modifier": {
-        "operation": "multiply_total",
-        "value": -0.8
+    "type": "origins:multiple",
+    "projectile_damage": {
+        "type": "origins:modify_projectile_damage",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.8
+        }
     },
-"name": "Awful Archer",
-"description": "Any projectile you shoot or throw does next to little damage.",
-"badges": [
-    {
-        "type": "origins:tooltip",
-        "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
-        "text": "(§l§c-80%§r projectile damage)"
-    }
-]
+    "items": {
+        "type": "origins:prevent_item_use",
+        "name": "🚫",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:cant_use"
+            }
+        }
+    },
+    "name": "Awful Archer",
+    "description": "Utilizing projectiles as a method of combat is akin to mental gymnastics for you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c§lAwful Archer 🏹§r§7\n§c-80%§r§7 to all Projectile damage dealt.\n§7Most projectile items §r§ccannot§r§7 be used in your hands. §r§8(Bow, Snowballs, Eggs, Ender Pearls)\n\n\n§7§lPassive Ability"
+        }
+    ]
 }

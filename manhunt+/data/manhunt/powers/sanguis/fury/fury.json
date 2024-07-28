@@ -56,17 +56,12 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/icons/sanguis_icon.png",
-            "text": "§4§l🗡FURY§r: +0.3 attack speed and faster leap cooldown for 15 seconds.\nKilling a hunter will reset the duration of Fury.\nOnce Fury wears out, you move 60% slower for 3 seconds."
+            "text": "§4§lFURY 🗡§r§7\n§7Untether your physical limitations, gaining increased power temporarily.\n§7In this state, gain §r§a+0.3§r§7 Attack Speed and reduce Leap's cooldown by §r§a-10s§r§7.\nWhen killing a Hunter, the duration of §r§4Fury 🗡§r§7 is §r§arefreshed§r§7.\n\n§r§c🕕§r§7 Duration: §r§f15s\n§e⌛§r§7 Cooldown: §r§f1m§r§8 (Upon Activation)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Unleash your fury with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 1m"
+            "text": "§7Unleash your fury with %s§7 !"
         }
     ]
 }

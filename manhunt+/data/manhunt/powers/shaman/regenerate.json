@@ -73,9 +73,9 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:shaman/regenerate_windup",
-            "change": -5
+            "change": -2
         },
-        "interval": 5,
+        "interval": 2,
         "condition": {
             "type": "apugli:key_pressed",
             "key": {
@@ -169,7 +169,7 @@
             ]
         }
     },
-    "no_damage": {
+    "more_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
             "name": "More damage",
@@ -186,8 +186,8 @@
     "fog": {
         "type": "origins:stacking_status_effect",
         "min_stacks": -1,
-        "max_stacks": 8,
-        "duration_per_stack": 10,
+        "max_stacks": 2,
+        "duration_per_stack": 20,
         "effects": [
             {
                 "effect": "minecraft:darkness",
@@ -200,19 +200,17 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:on_block"
-                },
-                {
-                    "type": "origins:health",
-                    "comparison": "<",
-                    "compare_to": 20
-                },
-                {
                     "type": "apugli:key_pressed",
                     "key": {
                         "key": "key.origins.secondary_active",
                         "continuous": true
                     }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "comparison": ">",
+                    "compare_to": 10
                 }
             ]
         }

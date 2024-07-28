@@ -41,96 +41,13 @@
             }
         }
     },
-    "angry": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 200,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        },
-        "max_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.zombified_piglin.angry player @a ~ ~ ~ 2 0.7",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:crimson_spore ~ ~1 ~ 0 0 0 10 100",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0.3 0 0 1 0.7 0 0 ~ ~1 ~ 0.3 0.3 0.3 1 100",
-                    "permission_level": 4
-                }
-            ]
-        }
-    },
-    "angry_down": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:piglin/rotten/rot_angry",
-            "change": -10
-        },
-        "interval": 10
-    },
-    "speed": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "attribute": "minecraft:generic.movement_speed",
-            "operation": "multiply_base",
-            "value": 0.3,
-            "name": "Increased sprinting speed"
-        },
-        "tick_rate": 5,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:piglin/rotten/rot_angry",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
-    "air_speed": {
-        "type": "origins:modify_air_speed",
-        "modifier": {
-            "operation": "multiply_base",
-            "value": 0.3
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:piglin/rotten/rot_angry",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
-    "glow":{
-        "type": "origins:entity_glow",
-        "red": 0.5,
-        "green": 0,
-        "blue": 0,
-        "bientity_condition": {
-            "type": "origins:in_set",
-            "set": "manhunt:piglin/rotten/rot_rotted"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:piglin/rotten/rot_angry",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
-    "name": "Rotten Pork",
+    "name": "Decaying Pork",
     "description": "Your flesh wrecks immense famine to those that come in contact with you.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/hunger.png",
-            "text": "§7Hitting a runner will inflict §2🥫Famished§r§7 for §r§e30§r§7 seconds.\n\n§l§2🥫Famished§r§7\nSprinting and taking damage causes extra exhaustion.\n\nTo remove the effect, it must be either waited out or dealt by §neating food§r§7. Eaten food will grant §c-25%§r§7 less food value than usual and applies §4💢Frustrated§r§7 to the piglin.\n\n§4💢Frustrated§r\n§a+20%§r§r quicker for §r§e10§r§7 seconds.\n\n§7§lPassive Ability"
+            "text": "§a§lFamine 🥫\n§7Hitting a Runner will inflict §2Famished§r§7 for §r§e+10§r§7 seconds.§r\n§8(Duration can stack up to 60s)\n§7While Famished, Runners are inflicted with the Hunger effect. At Midgame and Endgame, the strength of the effect increases.\n\nThe effect can be cured by §neating food§r§7, but the food item will grant §c-50%§r§7 less food value than usual.\n\n§7§lPassive Ability"
         }
     ]
 }
