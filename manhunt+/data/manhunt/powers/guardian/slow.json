@@ -15,12 +15,11 @@
             "operation": "multiply_total",
             "value": -0.45
         },
-        "hardness_modifiers": [
-            {
-                "operation": "min_total",
-                "value": 0
-            }
-        ]
+        "block_condition": {
+            "type": "origins:hardness",
+            "comparison": ">=",
+            "compare_to": 1
+        }
     },
     "name": "Steady and Slow",
     "description": "More of a turtle type than a hare, but I will still always win the race",

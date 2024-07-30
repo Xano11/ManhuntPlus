@@ -3,12 +3,12 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 140,
+        "max": 160,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 5,
+            "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
+            "bar_index": 2,
             "condition": {
                 "type": "origins:resource",
                 "resource": "manhunt:sicarius/cloak_duration",
@@ -36,15 +36,30 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0.06 0.2 1 0 0.3 0.7 ~ ~1 ~ 0.3 0.3 0.3 1 100"
+                    "command": "particle minecraft:dust_color_transition 0 0.06 0.2 1 0 0.3 0.7 ~ ~0.4 ~ 0.3 0.3 0.3 1 100"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:poof ~ ~1 ~ 0.1 0.1 0.1 0.1 10"
+                    "command": "particle minecraft:large_smoke ~ ~0.4 ~ 0.1 0.1 0.1 0.1 5"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.5 0.7"
+                    "command": "execute positioned ~ ~0.4 ~ facing entity @s eyes run function manhunt:abilities/cloak_boomring",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.shoot player @a ~ ~ ~ 1 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.phantom.hurt player @a ~ ~ ~ 1 0"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
+                    "change": 0,
+                    "operation": "set"
                 }
             ]
         }
@@ -78,9 +93,9 @@
                     "bientity_condition": {
                         "type": "origins:distance",
                         "comparison": "<=",
-                        "compare_to": 4
+                        "compare_to": 7
                     },
-                    "count": 7,
+                    "count": 1,
                     "speed": 0.0,
                     "force": true,
                     "spread": {
@@ -88,14 +103,33 @@
                         "y": 0.2,
                         "z": 0.3
                     }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.death player @a ~ ~ ~ 0.1 0.7"
                 }
             ]
         },
-        "interval": 30,
+        "interval": 6,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:sicarius/cloak_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[distance=..8] run playsound minecraft:entity.warden.heartbeat player @s ~ ~ ~ 0.2 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[distance=..8] run playsound minecraft:entity.phantom.ambient player @s ~ ~ ~ 0.1 0"
+                }
+            ]
+        },
+        "interval": 20,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:sicarius/cloak_duration",
@@ -171,13 +205,7 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:sicarius/cloak_duration",
-                    "change": 140,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:sicarius/pearl/pearl_cooldown",
-                    "change": 0,
+                    "change": 160,
                     "operation": "set"
                 },
                 {
@@ -192,15 +220,38 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:dust_color_transition 0 0.06 0.2 1 0 0.3 0.7 ~ ~1 ~ 0.3 0.3 0.3 1 100"
+                    "command": "particle minecraft:dust_color_transition 0 0.06 0.2 1 0 0.3 0.7 ~ ~1 ~ 0.3 0.4 0.3 1 100"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:poof ~ ~1 ~ 0.1 0.1 0.1 0.1 10"
+                    "command": "particle minecraft:large_smoke ~ ~1 ~ 0.1 0.1 0.1 0.1 10"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.flap player @a ~ ~ ~ 4 1.6"
+                    "command": "execute positioned ~ ~0.5 ~ facing entity @s eyes run function manhunt:abilities/cloak_boomring",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~1 ~ facing entity @s eyes run function manhunt:abilities/cloak_boomring",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~1.5 ~ facing entity @s eyes run function manhunt:abilities/cloak_boomring",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[distance=..25] run playsound minecraft:item.armor.equip_leather player @s ~ ~ ~ 4 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[distance=..25] run playsound minecraft:entity.phantom.flap player @s ~ ~ ~ 4 1.6"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[distance=..25] run playsound minecraft:entity.blaze.shoot player @s ~ ~ ~ 0.3 1.3"
                 }
             ]
         },
@@ -233,6 +284,13 @@
                     "resource": "manhunt:sicarius/pearl/pearl_cooldown",
                     "comparison": "==",
                     "compare_to": 800
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/cloak_duration",
+                    "comparison": ">",
+                    "compare_to": 0,
+                    "inverted": true
                 }
             ]
         }
@@ -401,11 +459,19 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.phantom.bite player @a ~ ~ ~ 0.6 1.4"
+                    "command": "playsound minecraft:entity.phantom.bite player @a ~ ~ ~ 0.6 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.hurt player @a ~ ~ ~ 0.6 0"
                 },
                 {
                     "type": "origins:execute_command",
                     "command": "particle minecraft:enchanted_hit ~ ~1 ~ 0.2 0.1 0.2 0.4 30"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block redstone_block ~ ~1 ~ 0.2 0.35 0.2 0.4 40"
                 }
             ]
         }
