@@ -19,7 +19,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 900,
+        "max": 800,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -81,9 +81,93 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "manhunt:alchimia/potion/refill_cooldown",
-            "change": 5
+            "change": 3
         },
         "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:potion"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:\"alchimia\"}"
+                            }
+                        ]
+                    },
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "cooldown_up_fast": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/refill_cooldown",
+            "change": 2
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:potion"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:\"alchimia\"}"
+                            }
+                        ]
+                    },
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:sprinting",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "cooldown_hurt": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/refill_cooldown",
+            "change": -40
+        },
+        "cooldown": 5,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -122,7 +206,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You naturally generate special concoctions every 45 seconds; up to 3 maximum at a time.\nUsing those, you can craft extra potions with different materials! (See other badges)"
+            "text": "You naturally generate special concoctions every 40 seconds; up to 3 maximum at a time.\nWhen sprinting, your special potions regenerate 40% slower. Taking damage increases their recharge cooldown by +2s.\nUsing those, you can craft extra potions with different materials! (See other badges)"
         },
         {
             "type": "origins:tooltip",

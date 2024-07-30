@@ -83,23 +83,11 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 3600,
+        "cooldown": 1800,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 7,
             "should_render": true
-        }
-    },
-    "death":{
-        "type": "origins:action_on_death",
-        "bientity_action":  {
-            "type": "origins:target_action",
-            "action":  {
-                "type": "origins:change_resource",
-                "resource": "manhunt:imp/portal/portal_activate",
-                "change": 0,
-                "operation": "set"
-            }
         }
     },
     "name": "Imp's Gateway",
@@ -118,7 +106,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 3m"
+            "text": "Cooldown: 2m"
         }
     ]
 }
