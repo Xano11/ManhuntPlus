@@ -98,7 +98,59 @@
             "value": 0.05
         }
     },
-    "more_speed": {
+    "earlygame": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.05,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "midgame": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.1,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "endgame": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "name": "Increase speed",
@@ -107,23 +159,93 @@
             "operation": "multiply_total"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:scout/speed_charging",
-            "comparison": "==",
-            "compare_to": 9
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
         }
     },
-    "more_air_speed": {
+    "air_earlygame": {
         "type": "origins:modify_air_speed",
         "modifier": {
             "operation": "multiply_total",
             "value": 0.05
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "manhunt:scout/speed_charging",
-            "comparison": "==",
-            "compare_to": 9
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "air_midgame": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "air_endgame": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.15
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
         }
     },
     "particles": {
@@ -132,7 +254,12 @@
             "type": "origins:execute_command",
             "command": "particle minecraft:dust_color_transition 1 1 1 1 0.7 0.7 0.7 ~ ~1 ~ 0.2 0.2 0.2 1 1"
         },
-        "interval": 20
+        "interval": 20,
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:start",
+            "inverted": true
+        }
     },
     "ally_speed_grant": {
         "type": "origins:action_over_time",
@@ -368,7 +495,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/speed.png",
-            "text": "§l§bSpeed Specialist 🏃§r§7\n§a+15%§r§7 Speed and §a+5%§r§7 Air Speed passively.\nWhen over §r§e32§r§7 blocks away from a §nRunner§r§7, you gain §bPursuit ↑§r§7.\n\n§bPursuit ↑§r§7 gives an additional §a+15%§r§7 Speed and §l§a+5%§r§7 Air Speed bonus.\nWhile you have §bPursuit ↑§r§7, Hunters in a §r§e32§r§7 block radius of you §nalso§r§7 gain §bPursuit ↑§r§7. (Except for other Scouts.)\n§r§8(Icon over hotbar shows when active.)§r\n\n§7§lPassive Ability"
+            "text": "§b§lSpeed Specialist 🏃§r§7\n§a+5%§r§7 Speed and §a+5%§r§7 Air Speed passively.\nWhen over §r§e32§r§7 blocks away from a §nRunner§r§7, you gain §bPursuit ↑§r§7.\n\n§bPursuit ↑§r§7 gives an additional §a+5%§r§7 Speed and §l§a+5%§r§7 Air Speed bonus to you §r§aand allies§r§7 in a §r§e32§r§7 block radius of you.§r§8 (Excluding other Scouts.)\n\n§7At Midgame and Endgame, all of these speed boosts increase by an additional §r§a+5%§r§7.\n§r§8(Icon over hotbar shows when active.)§r\n\n§7§lPassive Ability"
         }
     ]
 }
