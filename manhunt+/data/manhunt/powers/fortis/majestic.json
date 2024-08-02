@@ -177,7 +177,7 @@
             "value": 2
         }
     },
-    "lava_except":{
+    "lava_except": {
         "type": "origins:action_when_damage_taken",
         "entity_action": {
             "type": "origins:and",
@@ -234,84 +234,6 @@
             ]
         },
         "cooldown": 10
-    },
-    "other": {
-        "type": "origins:modify_damage_taken",
-        "self_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:fortis/warcry/war_unleash",
-                    "change": -100
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:fortis/majestic_duration",
-                    "change": 10
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:fortis/shield/shield_cooldown",
-                    "change": -100
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:fortis/heal_flash",
-                    "change": -100
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:fortis/stamina_gauge",
-                    "change": 200
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "particle minecraft:glow ~ ~1 ~ 0.2 0.3 0.2 0.05 10",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 1 2",
-                    "permission_level": 4
-                }
-            ]
-        },
-        "damage_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:in_tag",
-                    "tag": "minecraft:is_fire",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:in_tag",
-                    "tag": "minecraft:is_fall",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:in_tag",
-                    "tag": "minecraft:is_explosion",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:in_tag",
-                    "tag": "minecraft:bypasses_resistance",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:amount",
-                    "comparison": ">",
-                    "compare_to": 8
-                }
-            ]
-        },
-        "modifier": {
-            "name": "Max damage",
-            "operation": "set_total",
-            "value": 10
-        }
     },
     "immunity":{
         "type": "origins:effect_immunity",

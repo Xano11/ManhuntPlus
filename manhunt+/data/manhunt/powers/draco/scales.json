@@ -29,6 +29,7 @@
             "value": 3,
             "name": "Increased armor"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:resource",
@@ -45,6 +46,7 @@
             "value": 5,
             "name": "Increased armor"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:resource",
@@ -61,6 +63,7 @@
             "value": 6,
             "name": "Increased armor"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:resource",
@@ -86,6 +89,7 @@
             }
         ],
         "tick_rate": 20,
+        "update_health": false,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:draco/scales_scale_level",
@@ -116,6 +120,7 @@
             }
         ],
         "tick_rate": 20,
+        "update_health": false,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:draco/scales_scale_level",

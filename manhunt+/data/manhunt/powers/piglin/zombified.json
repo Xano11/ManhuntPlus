@@ -29,6 +29,7 @@
 			"value": -2,
 			"name": "Decreased health"
 		},
+		"update_health": true,
 		"tick_rate": 20,
 		"condition": {
 			"type": "origins:dimension",
@@ -107,6 +108,7 @@
 			"value": 0.20,
 			"operation": "multiply_total"
 		},
+		"update_health": false,
 		"tick_rate": 20,
 		"condition": {
 			"type": "origins:dimension",

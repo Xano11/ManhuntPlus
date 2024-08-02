@@ -179,6 +179,7 @@
             "name": "armor",
             "value": 3
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:resource",

@@ -20,6 +20,7 @@
             "value": -2,
             "name": "Decreased health."
         },
+        "update_health": true,
         "tick_rate": 20,
         "condition":  {
             "type": "origins:dimension",

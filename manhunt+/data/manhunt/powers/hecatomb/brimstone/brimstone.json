@@ -426,6 +426,7 @@
             "value": -0.35,
             "name": "Decreased speed"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:resource",
@@ -480,6 +481,7 @@
             "name": "Decreased speed"
         },
         "tick_rate": 1,
+        "update_health": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -514,13 +516,13 @@
             "comparison": "=="
         }
     },
-    "name": "Pillars of Blood",
+    "name": "Brimstone",
     "description": "The ground shakes as the blood emerges and leaves those to bleed.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§4§lPillars of Blood ♮§r\n§7Send a blood orb forward 22 blocks; invoking blood pillars in it's path.\nAfter a short delay, pillars emerge and deal 1.5 §l§c❤§r§7 of §r§etrue damage§r§7 to those hit.\n(If a target is using a shield, it instead breaks it)\n\n§6🕒§r§7 Windup: §r§f1.25s\n\n§7§lActive Ability"
+            "text": "§4§lBrimstone ♮§r\n§7Send a blood orb forward 22 blocks; invoking blood pillars in it's path.\nAfter a short delay, pillars emerge and deal 1.5 §l§c❤§r§7 of §r§etrue damage§r§7 to those hit.\n(If a target is using a shield, it instead breaks it)\n\n§6🕒§r§7 Windup: §r§f1.25s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:tooltip",

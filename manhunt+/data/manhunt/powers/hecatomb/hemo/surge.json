@@ -577,15 +577,15 @@
 			"type": "origins:tooltip",
 			"sprite": "origins:textures/gui/badge/toggle.png",
 			"text": [
-				"§7Hold \"",
+				"§7Hold §r[",
 				{
 					"keybind": "key.origins.primary_active"
 				},
-				"\" and press \"",
+				"]§7 and press §r[",
                 {
 					"keybind": "key.use"
 				},
-                "\" to send a wave of blood forward."
+                "]§7 to send a wave of blood forward."
 			]
 		}
     ]

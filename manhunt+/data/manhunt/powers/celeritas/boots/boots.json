@@ -217,6 +217,7 @@
             "value": 0.80,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:and",
@@ -245,6 +246,7 @@
             "value": 0.6,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "tick_rate": 4,
         "condition": {
             "type": "origins:and",
@@ -279,6 +281,7 @@
             "value": 0.6,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "tick_rate": 4,
         "condition": {
             "type": "origins:and",
@@ -428,6 +431,7 @@
             "value": -0.6,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:and",

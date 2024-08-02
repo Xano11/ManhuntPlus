@@ -329,24 +329,20 @@
                 "value": 0,
                 "modifier": {
                     "operation": "multiply_total",
-                    "value": -0.9989 
+                    "value": -0.999
                 }
+            },
+            {
+                "operation": "min_total",
+                "value": 0.10000000149011612
             }
         ]
     },
     "air_speed": {
-        "type": "origins:modify_air_speed",
-        "modifiers": [
-            {
-                "operation": "multiply_total",
-                "resource": "manhunt:relentless/eternal/undead_max_speed",
-                "value": 0,
-                "modifier": {
-                    "operation": "multiply_total",
-                    "value": -0.998
-                }
-            }
-        ]
+        "type": "origins:attribute_modify_transfer",
+        "class": "modify_air_speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "multiplier": 1
     },
     "name": "Bite the Dust",
     "description": "You never truly die. The flame might get dimmer but it will never ever be extinguished.",

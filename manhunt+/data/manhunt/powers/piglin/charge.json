@@ -137,6 +137,7 @@
             "value": 1,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:resource",
@@ -173,6 +174,7 @@
             "value": -2,
             "operation": "addition"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:resource",

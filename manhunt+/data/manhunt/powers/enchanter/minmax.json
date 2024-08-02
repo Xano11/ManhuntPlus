@@ -8,6 +8,7 @@
             "value": -1,
             "name": "Decreased attack damage"
         },
+        "update_health": false,
         "tick_rate": 5,
         "condition": {
             "type": "origins:attribute",

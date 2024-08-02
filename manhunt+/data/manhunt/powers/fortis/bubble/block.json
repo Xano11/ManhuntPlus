@@ -1,0 +1,135 @@
+{
+    "type": "origins:multiple",
+    "invuln": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:attacker",
+                    "inverted": true,
+                    "entity_condition": {
+                        "type": "origins:living"
+                    }
+                },
+                {
+                    "type": "origins:type",
+                    "inverted": true,
+                    "damage_type": "minecraft:out_of_world"
+                },
+                {
+                    "type": "origins:type",
+                    "inverted": true,
+                    "damage_type": "minecraft:generic_kill"
+                }
+            ]
+        }
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ 320 ~"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run kill @s"
+                    }
+                ]
+            }
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                },
+                {
+                    "type": "origins:modify_death_ticks",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 20
+                    }
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/bubble/block_duration",
+            "change": -20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/bubble/block_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "coll_duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 5,
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/bubble/block_duration",
+            "change": 140
+        }
+    },
+    "coll_duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/bubble/block_coll_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/bubble/block_coll_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "collision": {
+        "type": "origins:prevent_entity_collision",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/bubble/block_coll_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false
+    },
+    "shulker_head": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "shulker_head"
+        ]
+    },
+    "hidden": true
+}

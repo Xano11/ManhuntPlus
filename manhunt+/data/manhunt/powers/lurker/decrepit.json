@@ -8,6 +8,7 @@
             "value": 0.5,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:sneaking"
         },

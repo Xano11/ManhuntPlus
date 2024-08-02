@@ -6,13 +6,7 @@
         "entries": [
           {
             "type": "minecraft:loot_table",
-            "weight": 5,
-            "quality": 2,
-            "name": "minecraft:gameplay/fishing/treasure"
-          },
-          {
-            "type": "minecraft:loot_table",
-            "weight": 95,
+            "weight": 100,
             "quality": -1,
             "name": "manhunt:gameplay/angler_fish"
           }

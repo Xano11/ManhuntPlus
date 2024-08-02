@@ -24,6 +24,7 @@
             "value": -2,
             "operation": "addition"
         },
+        "update_health": true,
         "tick_rate": 1,
         "condition":  {
             "type": "origins:origin",

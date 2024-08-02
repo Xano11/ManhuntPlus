@@ -131,6 +131,7 @@
             "value": 0.25,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:catchup_charging",

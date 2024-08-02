@@ -17,6 +17,7 @@
             "value": 2,
             "name": "Increased Health"
         },
+        "update_health": true,
         "tick_rate": 20,
         "condition": {
             "type": "origins:and",
@@ -72,6 +73,7 @@
             "value": 4,
             "name": "Increased Health"
         },
+        "update_health": true,
         "tick_rate": 20,
         "condition": {
             "type": "origins:and",
@@ -127,6 +129,7 @@
             "value": -0.15,
             "name": "Decreased Attack Speed"
         },
+        "update_health": true,
         "tick_rate": 20,
         "condition": {
             "type": "origins:and",
@@ -182,6 +185,7 @@
             "value": -0.3,
             "name": "Decreased Attack Speed"
         },
+        "update_health": true,
         "tick_rate": 20,
         "condition": {
             "type": "origins:and",

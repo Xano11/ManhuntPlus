@@ -93,6 +93,7 @@
             "value": -1,
             "name": "Increased sprinting speed"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:and",

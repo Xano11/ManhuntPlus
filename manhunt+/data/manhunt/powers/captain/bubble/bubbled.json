@@ -95,6 +95,7 @@
             "value": 0.8,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:fluid_height",
             "fluid": "minecraft:water",
