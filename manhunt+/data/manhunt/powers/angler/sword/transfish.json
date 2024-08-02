@@ -1,5 +1,103 @@
 {
     "type": "origins:multiple",
+    "angler_drop": {
+        "type": "origins:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"swordfish\"]}"
+        },
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "comparison": ">",
+            "compare_to": 1,
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"swordfish\"]}"
+            }
+        }
+    },
+    "angler_inv": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:drop_inventory",
+            "retain_ownership": true,
+            "amount": 1,
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"swordfish\"]}"
+            }
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "comparison": ">",
+            "compare_to": 1,
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"swordfish\"]}"
+            }
+        }
+    },
+    "upgrade_tier2": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:angler/sword/swordtier2",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:angler/sword/swordtier3",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"swordfish\"]}"
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:treasure_angler}"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{Damage:0}"
+                },
+                {
+                    "type": "origins:modify",
+                    "modifier": "manhunt:angler/swordfish_tier2"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+        }
+    },
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
@@ -54,7 +152,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "item replace entity @s weapon.mainhand with iron_sword{display:{Name:'[\"\",{\"text\":\"Sword\",\"italic\":false},{\"text\":\"Fish\",\"italic\":false,\"color\":\"blue\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"3 Attack Damage\",\"italic\":false,\"color\":\"aqua\"}]','[\"\",{\"text\":\" \",\"italic\":false},{\"text\":\"1.1 Attack Speed\",\"italic\":false,\"color\":\"aqua\"}]']},Enchantments:[{}],RepairCost:9999,CustomModelData:1,Tags:[\"swordfish\"],HideFlags:2} 1"
+                    "command": "function manhunt:abilities/angler/transfish"
                 },
                 {
                     "type": "origins:change_resource",

@@ -985,6 +985,7 @@
             "value": 0.6,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1005,6 +1006,7 @@
             "value": 0.4,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1031,6 +1033,7 @@
             "value": -0.2,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1114,7 +1117,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:and",
@@ -1158,7 +1171,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:distance",
@@ -1189,7 +1212,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:and",
@@ -1233,7 +1266,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:distance",
@@ -1264,7 +1307,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:and",
@@ -1308,7 +1361,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:distance",
@@ -1339,7 +1402,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:and",
@@ -1383,7 +1456,17 @@
             ]
         },
         "entity_condition": {
-            "type": "origins:living"
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:armor_stand",
+                    "inverted": true
+                }
+            ]
         },
         "bientity_condition": {
             "type": "origins:distance",

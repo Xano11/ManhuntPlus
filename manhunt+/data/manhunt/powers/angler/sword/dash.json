@@ -40,6 +40,59 @@
         }
     },
 
+    "repair":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:iron_sword"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"swordfish\"]}"
+                },
+                {
+                    "type": "origins:durability",
+                    "comparison": "<",
+                    "compare_to": 250
+                }
+            ]
+        },
+        "using_item_condition":{
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "manhunt:fish"
+                    }
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:merge_nbt",
+            "nbt": "{Damage:0}"
+        },
+        "entity_action":  {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.anvil.use player @a ~ ~ ~ 1 1.2"
+        }
+    },
+    
     "cooldown_crosshair_texture": {
         "type": "origins:status_bar_texture",
         "texture_map": {
@@ -359,11 +412,6 @@
                                 "command": "tag @s remove dashing"
                             },
                             {
-                                "type": "origins:add_velocity",
-                                "space": "local",
-                                "z": 0.02
-                            },
-                            {
                                 "type": "origins:execute_command",
                                 "command": "playsound minecraft:entity.evoker_fangs.attack player @a ~ ~ ~ 1 2",
                                 "permission_level": 4
@@ -373,11 +421,6 @@
                     "hit_action": {
                         "type": "origins:and",
                         "actions": [
-                            {
-                                "type": "origins:add_velocity",
-                                "space": "local",
-                                "y": 0.01
-                            },
                             {
                                 "type": "origins:execute_command",
                                 "command": "tag @s remove dashing"
@@ -393,7 +436,7 @@
                 {
                     "type": "origins:add_velocity",
                     "space": "local",
-                    "z": 0.2
+                    "z": 0.1
                 }
             ]
         },

@@ -201,6 +201,7 @@
             "value": -0.4,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:berserker/beast/beast_effects_weaker",
@@ -384,6 +385,7 @@
             "value": 0.1,
             "operation": "multiply_total"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:resource",
             "resource": "manhunt:berserker/beast/beast_effects_weaker",

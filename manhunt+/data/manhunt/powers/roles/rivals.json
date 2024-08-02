@@ -8,6 +8,7 @@
             "value": -0.05,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "apugli:entity_in_radius",

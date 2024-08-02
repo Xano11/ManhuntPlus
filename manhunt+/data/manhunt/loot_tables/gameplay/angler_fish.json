@@ -12,7 +12,7 @@
                   "count": 2
                 }
             ],
-            "weight": 60,
+            "weight": 40,
             "name": "minecraft:cod"
           },
           {
@@ -23,7 +23,7 @@
                   "count": 2
                 }
             ],
-            "weight": 25,
+            "weight": 35,
             "name": "minecraft:salmon"
           },
           {
@@ -34,7 +34,7 @@
                   "count": 2
                 }
             ],
-            "weight": 2,
+            "weight": 10,
             "name": "minecraft:tropical_fish"
           },
           {
@@ -45,8 +45,19 @@
                   "count": 2
                 }
             ],
-            "weight": 13,
+            "weight": 10,
             "name": "minecraft:pufferfish"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "function": "minecraft:set_nbt",
+                "tag": "{display:{Name:'[\"\",{\"text\":\"Angler\\'s Treasure\",\"italic\":false,\"color\":\"dark_aqua\"}]',Lore:['[\"\",{\"text\":\"A truly rare item only real fishermen can use...\",\"italic\":false,\"color\":\"aqua\"}]']},Enchantments:[{}],CustomModelData:1,Tags:treasure_angler,HideFlags:2}"
+              }
+            ],
+            "weight": 5,
+            "name": "minecraft:lime_dye"
           }
         ]
       }

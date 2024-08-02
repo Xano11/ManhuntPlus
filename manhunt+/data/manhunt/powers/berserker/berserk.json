@@ -8,6 +8,7 @@
             "value": 0.1,
             "operation": "addition"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:health",
             "comparison": "<=",
@@ -22,6 +23,7 @@
             "value": 0.1,
             "operation": "addition"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:health",
             "comparison": "<=",
@@ -36,6 +38,7 @@
             "value": 0.1,
             "operation": "addition"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:health",
             "comparison": "<=",
@@ -50,6 +53,7 @@
             "value": 0.1,
             "operation": "addition"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:health",
             "comparison": "<=",
@@ -64,6 +68,7 @@
             "value": 0.1,
             "operation": "addition"
         },
+        "update_health": false,
         "condition": {
             "type": "origins:health",
             "comparison": "<=",

@@ -10,7 +10,7 @@
 	],
 	"icon": {
 		"item": "minecraft:oak_boat",
-		"tag": "{Enchantments:[{}]}"
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
 	"impact": 2,

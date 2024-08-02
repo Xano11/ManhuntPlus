@@ -33,6 +33,7 @@
             "value": -0.05,
             "name": "Decreased speed"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:set_size",
@@ -62,6 +63,7 @@
             "value": -0.1,
             "name": "Decreased speed"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:set_size",
@@ -91,6 +93,7 @@
             "value": -0.2,
             "name": "Decreased speed"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:set_size",

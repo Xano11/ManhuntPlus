@@ -43,6 +43,7 @@
             "value": -0.10,
             "operation": "multiply_base"
         },
+        "update_health": false,
         "condition":  {
             "type": "origins:resource",
             "resource": "manhunt:lurker/lurk/lurked_stacks",

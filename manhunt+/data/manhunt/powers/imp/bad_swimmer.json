@@ -9,6 +9,7 @@
             "value": -0.8,
             "name": "Decreased movement"
         },
+        "update_health": false,
         "tick_rate": 20,
         "condition": {
             "type": "origins:fluid_height",

@@ -172,6 +172,11 @@
                                     "type": "origins:living"
                                 },
                                 {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand",
+                                    "inverted": true
+                                },
+                                {
                                     "type": "origins:origin",
                                     "origin": "manhunt:hunter",
                                     "layer": "origins:origin",

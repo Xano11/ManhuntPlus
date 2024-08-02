@@ -284,6 +284,7 @@
 			"value": 0.35,
 			"name": "Increased speed"
 		},
+		"update_health": false,
 		"tick_rate": 2,
 		"condition": {
 			"type": "origins:resource",

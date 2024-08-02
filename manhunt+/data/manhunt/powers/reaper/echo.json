@@ -159,6 +159,7 @@
             "value": -0.35,
             "name": "Decreased speed"
         },
+        "update_health": false,
         "tick_rate": 1,
         "condition": {
             "type": "origins:resource",

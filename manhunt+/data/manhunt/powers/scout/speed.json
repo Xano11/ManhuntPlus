@@ -83,7 +83,7 @@
         }
     },
     "passive_speed": {
-        "type": "origins:conditioned_attribute",
+        "type": "origins:attribute",
         "modifier": {
             "name": "Increase speed",
             "attribute": "minecraft:generic.movement_speed",
