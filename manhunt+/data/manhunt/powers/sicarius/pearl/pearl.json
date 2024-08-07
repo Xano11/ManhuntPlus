@@ -213,6 +213,12 @@
                     "resource": "manhunt:sicarius/pearl/pearl_cooldown",
                     "comparison": "==",
                     "compare_to": 800
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:sicarius/cloak_duration",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }

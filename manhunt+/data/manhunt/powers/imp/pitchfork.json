@@ -671,22 +671,12 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Whilst holding your trident, press \"%s\" to incarnate your next trident throw!]\n(Doesn't work whilst sneaking)"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Whilst holding a trident in your mainhand, your offhand is unusable."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/community/silent/badge/shapes/triangle_up.png",
-            "text": "§7Iron Upgrade: 3 Iron Ingots\n§3Diamond Upgrade: 3 Diamonds\n§6Netherite Upgrade: 1 Netherite Scrap§r\n(Upgrades increase the damage of the trident.)"
+            "text": "§5§lImp's Recipe §r§5🔱§r\n§7Whilst holding your trident, press §r%s§7 to incarnate your next trident throw; following your trident's trajectory.\n§r§8(Doesn't work whilst sneaking)§r§7\n\nWhilst holding a trident in your mainhand, your offhand is unusable.\n\n§e⌛§r§7 Cooldown: §r§f1m30s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:crafting_recipe",
             "sprite": "manhunt:textures/item/icons/imp_trident.png",
-            "prefix": "The Pitchfork is an upgradeable weapon!",
+            "prefix": "§7The Pitchfork is an §r§eupgradeable§r§7 weapon!",
             "recipe": {
                 "id": "manhunt:flint_trident",
                 "type": "minecraft:crafting_shaped",
@@ -708,8 +698,13 @@
                 }
             },
             "suffix": [
-                "Once crafted, it's upgrades can be applied by opening the inventory, hovering with the materials and right-clicking on the trident."
+                "§7Once crafted, it's upgrades can be applied by opening the inventory, §r§ehovering§r§7 with the materials and §r§eright-clicking§r§7 on the trident."
             ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "§6§lUPGRADEABLE ⬆§r§7\n§7Iron Upgrade §r§f♦§r§7: §r§f3 Iron Ingots§r\n§7Diamond Upgrade §r§b♦§r§7: §r§f3 Diamonds§r\n§7Netherite Upgrade §r§5♦§r§7: §r§f1 Netherite Scrap§r\n§8(Upgrades increase the §r§edamage§r§8 of the trident)"
         }
     ]
 }

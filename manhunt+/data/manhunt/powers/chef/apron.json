@@ -242,7 +242,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "minecraft:textures/mob_effect/jump_boost.png",
-            "text": "§6§lUPGRADEABLE ⬆§r§7\n\nThe Apron can be upgraded using regular materials and §r§eleft clicking§r the Apron with it.\n\n§r§fIRON UPGRADE§r§7: 6 Iron Ingots §r§9(+3 Armor)§r\n§r§bDIAMOND UPGRADE§r§7: 6 Diamond §r§9(+5 armor, +1 Armor Toughness)§r\n§r§5NETHERITE UPGRADE§r§7: 1 Netherite Ingot §r§9(+6 Armor, +1.5 Armor Toughness, +0.5 Knockback Resistance)§r"
+            "text": "§6§lUPGRADEABLE ⬆§r§7\nThe Apron can be upgraded using regular materials and §r§eleft clicking§r the Apron with it.\n\n§r§fIRON UPGRADE§r§7: 6 Iron Ingots §r§9(+3 Armor)§r\n§r§bDIAMOND UPGRADE§r§7: 6 Diamond §r§9(+5 armor, +1 Armor Toughness)§r\n§r§5NETHERITE UPGRADE§r§7: 1 Netherite Ingot §r§9(+6 Armor, +1.5 Armor Toughness, +0.5 Knockback Resistance)§r"
         }
     ]
 }
