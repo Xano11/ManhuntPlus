@@ -50,6 +50,26 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^6 ^6.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^6 ^-6.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ^ ^2 ^6.5 0 0 0 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ^ ^5 ^-6.5 0 0 0 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "tp @s ~ ~ ~ ~8 ~",
                     "permission_level": 4
                 }
@@ -77,6 +97,11 @@
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.warden.listening_angry player @a ~ ~ ~ 2 1.4",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_2 player @a ~ ~ ~ 2 0.75",
+                    "permission_level": 4
                 }
             ]
         },
@@ -102,6 +127,11 @@
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.warden.listening_angry player @a ~ ~ ~ 2 1.6",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_2 player @a ~ ~ ~ 2 0.9",
+                    "permission_level": 4
                 }
             ]
         },
@@ -120,12 +150,37 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.warden.sonic_boom player @a ~ ~ ~ 2 1.5",
+                    "command": "playsound minecraft:entity.warden.sonic_boom player @a ~ ~ ~ 2 1.8",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "particle minecraft:enchanted_hit ~ ~0.5 ~ 0 0 0 3 300",
+                    "command": "playsound minecraft:entity.elder_guardian.curse player @a ~ ~ ~ 0.5 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.prepare_mirror player @a ~ ~ ~ 2 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 2 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 2 0.3 2 2 250",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:warped_spore ~ ~0.5 ~ 3 0.3 3 0 150",
                     "permission_level": 4
                 },
                 {
