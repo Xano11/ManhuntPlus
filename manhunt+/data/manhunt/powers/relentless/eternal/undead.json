@@ -20,6 +20,11 @@
                     "change": -2
                 },
                 {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_damage_stat",
+                    "change": 10
+                },
+                {
                     "type": "origins:execute_command",
                     "command": "playsound manhunt:relentless player @a ~ ~ ~ 1.5 1",
                     "permission_level": 4
@@ -310,6 +315,15 @@
             "value": 0
         }
     },
+    "damage_stat": {
+        "type": "origins:resource",
+        "min": 20,
+        "max": 60,
+        "start_value": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
     "max_speed": {
         "type": "origins:resource",
         "min": 100,
@@ -344,6 +358,24 @@
         "attribute": "minecraft:generic.movement_speed",
         "multiplier": 1
     },
+    "damage": {
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "multiply_base",
+                "value": 0,
+                "resource": "manhunt:relentless/eternal/undead_damage_stat",
+                "modifier": {
+                    "operation": "multiply_total",
+                    "value": -1.01
+                }
+            },
+            {
+                "operation": "min_total",
+                "value": 1
+            }
+        ]
+    },
     "name": "Bite the Dust",
     "description": "You never truly die. The flame might get dimmer but it will never ever be extinguished.",
     "badges": [
@@ -355,7 +387,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§8§lRugged Bones ☠§r§7\nYou start the game with -1 §l§c❤§r§7.\nEvery death additionally grants you §nmore speed§r§7."
+            "text": "§8§lRugged Bones ☠§r§7\nYou start the game with -1 §l§c❤§r§7 and §c-20%§r§7 damage.\nEvery death additionally grants you §nmore speed§r§7 but less §r§cdamage§r§7.\n§r§8(10% less damage per missing §l§c❤§r§7)§r\n\n§7§lPassive Ability"
         }
     ]
 }

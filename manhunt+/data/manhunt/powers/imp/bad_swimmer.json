@@ -45,7 +45,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
-            "text": "You sink and cannot move underwater.\nYou can still use your flight, however."
+            "text": "§c§lBad Swimmer 💧§r\n§7You §r§esink§r§7 and §r§ecannot move§r§7 underwater.\n§r§8(You can still use your flight, however)§r\n\n§7§lPassive Ability"
         }
     ]
 }

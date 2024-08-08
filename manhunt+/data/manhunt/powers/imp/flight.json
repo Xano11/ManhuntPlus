@@ -175,22 +175,17 @@
         }
     },
     "name": "Infernal Flight",
-    "description": "Fly at high speeds in the direction you are looking.",
+    "description": "Devilish wings for Demon movement.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/imp_wings_item.png",
-            "text": "The ability can be used to negate fall damage."
+            "text": "§4§lInfernal Flight §r§4🔥§r\n§7This ability allows you to fly in the direction you're looking!\nTo recharge, simply remain grounded (i.e: on a block)\n§r§8Using Flight will reset fall distance§r\n\n§e⌛§r§7 Recharge: §r§f8.5%/s§r\n§4🕕§r§7 Cost: §r§f10%/0.1s§r\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Fly with \"%s\"!"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "8.5%/sec energy recharge whilst on the ground."
+            "text": "§7Fly with §r%s§7!"
         }
     ]
 }

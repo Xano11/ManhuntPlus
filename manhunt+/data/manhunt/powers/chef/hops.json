@@ -40,7 +40,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_triangle.png",
-            "text": "§a§lLeap Frog 🐸§r§7\n\nWhilst §a§lFroggy🐸§r§7 is §r§eactivated§r§7, your jump height is increased by §r§a+2§r§7 blocks.\n\n§7§lPassive Ability"
+            "text": "§a§lLeap Frog 🐸§r§7\nWhilst §a§lFroggy🐸§r§7 is §r§eactivated§r§7, your jump height is increased by §r§a+2§r§7 blocks.\n\n§7§lPassive Ability"
         }
     ]
 }
