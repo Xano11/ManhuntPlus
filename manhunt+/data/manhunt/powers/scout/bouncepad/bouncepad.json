@@ -55,13 +55,35 @@
             "continuous": false
         }
     },
+    "cooldown_start": {
+        "type": "origins:action_over_time",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:scout/bouncepad/bouncepad_perform",
+                        "change": 900
+                    }
+                ]
+            }
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:start",
+            "inverted": true
+        }
+    },
     "name": "Bouncepad",
     "description": "Deploy a launchpad to propel your team to victory.",
     "badges": [
         {
 			"type": "origins:tooltip",
 			"sprite": "minecraft:textures/mob_effect/jump_boost.png",
-			"text": "§l§bBouncepad ⬆§r§7\nDeploy a launch pad that launches entities forward.\n§r§8(Launchpad negates fall damage on next landing)§r\n\n§r§c🕕§r§7 Duration: §r§f15s§r§8\n§e⌛§r§7 Cooldown: §r§f45s§r\n\n§7§lActive Ability"
+			"text": "§b§lBouncepad ⬆§r§7\nDeploy a launch pad that sends entities that step on it forward.\n§r§8(Launchpad negates fall damage on next landing and can \nbe used by Runners. It starts on cooldown until the game starts.)§r\n\n§r§c🕕§r§7 Duration: §r§f15s§r§8\n§e⌛§r§7 Cooldown: §r§f45s§r\n\n§7§lActive Ability"
 		},
         {
             "type": "origins:keybind",
