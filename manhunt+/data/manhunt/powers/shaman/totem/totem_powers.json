@@ -397,7 +397,7 @@
                 },
                 {
                     "type": "origins:area_of_effect",
-                    "radius": 8,
+                    "radius": 6.8,
                     "shape": "sphere",
                     "bientity_action": {
                         "type": "origins:and",
@@ -493,7 +493,7 @@
                 },
                 {
                     "type": "origins:area_of_effect",
-                    "radius": 8,
+                    "radius": 6.8,
                     "bientity_action": {
                         "type": "origins:and",
                         "actions": [
@@ -510,6 +510,11 @@
                                         {
                                             "type": "origins:execute_command",
                                             "command": "execute as @a[tag=hunter] if score @s soul = @e[limit=1,sort=nearest,type=minecraft:armor_stand] soul run tp @s ~ ~ ~ ~ ~",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute at @a[tag=hunter] if score @s soul = @p soul on passengers run kill @s",
                                             "permission_level": 4
                                         },
                                         {

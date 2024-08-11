@@ -70,7 +70,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§b§lResurrection ⟡§r\n§7Hunters leave a part of their §r§bSoul§r§7 at their location on death.\nIf you summon your §r§3Totem§r§7 on a §r§bSoul§r§7, they will §r§ateleport§r§7 to your §r§3Totem§r§7 but §r§creduce§r§7 it's duration.\n\n§c🕕§r§7 Duration: §r§f-15s§r§8 (Totem)\n\n§7§lActive Ability"
+            "text": "§b§lResurrection ⟡§r\n§7Hunters leave a part of their §r§bSoul§r§7 at their location on death.\nIf you summon your §r§3Totem§r§7 on a §r§bSoul§r§7, they will §r§ateleport§r§7 to your §r§3Totem§r§7 but §r§creduce§r§7 it's duration.\nAll souls in a 16 block radius of the totem will slowly move towards the totem.\n\n§c🕕§r§7 Duration: §r§f-15s§r§8 (Totem)\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
