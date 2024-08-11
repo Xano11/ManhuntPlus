@@ -157,6 +157,131 @@
             ]
         }
     },
+    "tell_time": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "condition":{
+                "type": "origins:resource",
+                "resource": "manhunt:courier/snatch/snatch_tell_time",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "tell_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/snatch/snatch_tell_time",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "tell_second": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "change": 100,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add courier_tell"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_condition": {
+                        "type": "origins:equal",
+                        "inverted": true
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s divider 20"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s courier_result 300"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players operation @s courier_time = @s time_since_death"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players operation @s courier_time /= @s divider"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players operation @s courier_result -= @s courier_time"
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:scoreboard",
+                                        "objective": "time_since_death",
+                                        "comparison": ">=",
+                                        "compare_to": 6000
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a[tag=courier_tell] [\"\",{\"selector\":\"@s\",\"bold\":true},\" is \",{\"text\":\"Ready\",\"color\":\"green\"},\"!\"]"
+                                    },
+                                    "else_action":  {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a[tag=courier_tell] [\"\",{\"selector\":\"@s\",\"bold\":true},\" is not \",{\"text\":\"Ready\",\"color\":\"dark_red\"},\"!\",{\"text\":\" (\",\"color\":\"dark_gray\"},{\"score\":{\"name\":\"@s\",\"objective\":\"courier_result\"},\"color\":\"gold\"},{\"text\":\"s left\",\"color\":\"gold\"},{\"text\":\")\",\"color\":\"dark_gray\"}]"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_cooldown_second",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "manhunt:courier"
+                }
+            ]
+        }
+    },
     "activate_second": {
         "type": "origins:active_self",
         "entity_action": {
@@ -278,6 +403,18 @@
                     "resource": "manhunt:courier/snatch/snatch_cooldown_second",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "comparison": "<",
+                    "compare_to": 95
                 },
                 {
                     "type": "origins:dimension",

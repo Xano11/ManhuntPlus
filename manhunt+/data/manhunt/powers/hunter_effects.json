@@ -164,10 +164,18 @@
                             {
                                 "type": "origins:spawn_entity",
                                 "entity_type": "minecraft:armor_stand",
-                                "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"shaman_soul\"]}",
+                                "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"shaman_soul\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item\",Age:-32768,Health:99999,PickupDelay:32767,Invulnerable:1b,Tags:[\"shaman_soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
                                 "entity_action": {
                                     "type": "origins:and",
                                     "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:height 0 @s"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale set pehkui:height 0.75 @s"
+                                        },
                                         {
                                             "type": "origins:execute_command",
                                             "command": "execute store result score @p soul run data get entity @p UUID[0] 1"

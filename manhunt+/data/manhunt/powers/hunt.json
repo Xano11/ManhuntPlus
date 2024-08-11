@@ -301,6 +301,14 @@
                                 "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
                             },
                             {
+                                "type": "origins:execute_command",
+                                "command": "team modify Hunters prefix \"\""
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "team modify Runners prefix \"\""
+                            },
+                            {
                                 "type": "origins:if_else",
                                 "condition": {
                                     "type": "origins:command",
@@ -673,6 +681,14 @@
                 {
                     "type": "origins:execute_command",
                     "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify Hunters prefix \"\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team modify Runners prefix \"\""
                 },
                 {
                     "type": "origins:execute_command",

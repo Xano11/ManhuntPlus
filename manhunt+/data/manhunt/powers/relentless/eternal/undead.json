@@ -91,11 +91,6 @@
                     ]
                 },
                 {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:relentless/eternal/undead_max_speed",
-                    "change": 10
-                },
-                {
                     "type": "origins:execute_command",
                     "command": "power grant @s manhunt:relentless/eternal/limbo",
                     "permission_level": 4
@@ -324,39 +319,161 @@
             "should_render": false
         }
     },
-    "max_speed": {
-        "type": "origins:resource",
-        "min": 100,
-        "max": 140,
-        "start_value": 100,
-        "hud_render": {
-            "should_render": false
+    "speed1": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 17.0
         }
     },
-    "speed": {
-        "type": "origins:modify_attribute",
-        "attribute": "minecraft:generic.movement_speed",
-        "modifiers": [
-            {
-                "operation": "set_total",
-                "resource": "manhunt:relentless/eternal/undead_max_speed",
-                "value": 0,
-                "modifier": {
-                    "operation": "multiply_total",
-                    "value": -0.999
-                }
-            },
-            {
-                "operation": "min_total",
-                "value": 0.10000000149011612
-            }
-        ]
+    "speed2": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 16.0
+        }
+    },
+    "speed3": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 15.0
+        }
+    },
+    "speed4": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 14.0
+        }
+    },
+    "speed5": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 13.0
+        }
+    },
+    "speed6": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 12.0
+        }
+    },
+    "speed7": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 11.0
+        }
+    },
+    "speed8": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 10.0
+        }
+    },
+    "speed9": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 9.0
+        }
+    },
+    "speed10": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.001,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 8.0
+        }
     },
     "air_speed": {
         "type": "origins:attribute_modify_transfer",
         "class": "modify_air_speed",
         "attribute": "minecraft:generic.movement_speed",
-        "multiplier": 1
+        "multiplier": 0.1
     },
     "damage": {
         "type": "origins:modify_damage_dealt",

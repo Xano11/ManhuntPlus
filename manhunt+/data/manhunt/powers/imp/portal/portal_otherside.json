@@ -57,7 +57,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a ~ ~ ~ 3 0"
                 }
             ]
         },
@@ -91,7 +91,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a ~ ~ ~ 3 0"
                 }
             ]
         },
@@ -125,7 +125,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a ~ ~ ~ 3 0"
                 }
             ]
         },
@@ -154,7 +154,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.end_portal_frame.fill player @a[tag=runner] ~ ~ ~ 10 0"
+                    "command": "playsound minecraft:block.end_portal_frame.fill player @a ~ ~ ~ 3 0"
                 }
             ]
         },
@@ -183,22 +183,22 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 300 1",
+                    "command": "playsound minecraft:block.note_block.basedrum player @a ~ ~ ~ 3 1",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.respawn_anchor.set_spawn player @a ~ ~ ~ 300 0.5",
+                    "command": "playsound minecraft:block.respawn_anchor.set_spawn player @a ~ ~ ~ 3 0.5",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.iron_golem.damage player @a ~ ~ ~ 300 0.5",
+                    "command": "playsound minecraft:entity.iron_golem.damage player @a ~ ~ ~ 3 0.5",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.wither.break_block player @a ~ ~ ~ 300 0.5",
+                    "command": "playsound minecraft:entity.wither.break_block player @a ~ ~ ~ 3 0.5",
                     "permission_level": 4
                 },
                 {

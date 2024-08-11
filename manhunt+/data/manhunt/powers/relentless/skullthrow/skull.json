@@ -123,11 +123,6 @@
                                             "type": "origins:change_resource",
                                             "resource": "manhunt:relentless/eternal/undead_damage_stat",
                                             "change": -5
-                                        },
-                                        {
-                                            "type": "origins:change_resource",
-                                            "resource": "manhunt:relentless/eternal/undead_max_speed",
-                                            "change": -5
                                         }
                                     ]
                                 }

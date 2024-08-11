@@ -119,7 +119,7 @@
             "comparison": "=="
         }
     },
-    "remove_power":{
+    "remove_power": {
         "type": "origins:action_on_hit",
         "bientity_action": {
             "type": "origins:actor_action",
@@ -184,7 +184,17 @@
                     "bientity_condition": {
                         "type": "origins:target_condition",
                         "condition": {
-                           "type": "origins:living"
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:arrow",
+                                    "inverted": true
+                                }
+                            ]
                         }
                     }
                 },

@@ -3,7 +3,8 @@
 		"manhunt:roles/rivals",
 		"manhunt:hecatomb/blood",
 		"manhunt:hecatomb/hemo/surge",
-		"manhunt:hecatomb/brimstone/brimstone"
+		"manhunt:hecatomb/brimstone/brimstone",
+		"manhunt:hecatomb/flowing"
 	],
 	"icon": {
 		"item": "minecraft:redstone",

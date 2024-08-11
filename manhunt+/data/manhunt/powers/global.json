@@ -750,5 +750,21 @@
             ]
         }
     },
+    "fortis_bubble": {
+        "type": "origins:prevent_entity_render",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:shulker"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:fortis/bubble/block"
+                }
+            ]
+        }
+    },
     "hidden": true
 }
