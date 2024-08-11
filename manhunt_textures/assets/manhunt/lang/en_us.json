@@ -18,6 +18,7 @@
     "death.attack.kamikaze.player": "%s was KAMIKAZE'D by %s",
     "death.attack.kamikaze_true.player": "%s was KAMIKAZE'D by %s",
 
+    "chat.manhunt.runner": "\ueff9",
 
     "layer.manhunt.runners.name": "Runner",
     "layer.manhunt.hunters.name": "Hunter",

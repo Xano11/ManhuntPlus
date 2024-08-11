@@ -1,0 +1,521 @@
+{
+    "type": "origins:multiple",
+    "condition": {
+        "type": "origins:power",
+        "power": "manhunt:start",
+        "inverted": true
+    },
+    "alchimia": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa3"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/alchimia",
+            "layer": "manhunt:runners"
+        }
+    },
+    "balatro": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa4"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/balatro",
+            "layer": "manhunt:runners"
+        }
+    },
+    "bomber": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa5"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/bomber",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "captain": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa6"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "celeritas": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa7"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/celeritas",
+            "layer": "manhunt:runners"
+        }
+    },
+    "chef": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa8"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/chef",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "deleo": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefa9"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/deleo",
+            "layer": "manhunt:runners"
+        }
+    },
+    "enchanter": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb1"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/enchanter",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "engineer": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb2"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/engineer",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "falconer": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb3"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/falconer",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "fortis": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb4"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/fortis",
+            "layer": "manhunt:runners"
+        }
+    },
+    "gambler": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb5"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/gambler",
+            "layer": "manhunt:runners"
+        }
+    },
+    "geologist": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb6"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/geologist",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "guardian": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb7"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/guardian",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "imp": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb8"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "piglin": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefb9"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/piglin",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "relentless": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc1"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/relentless",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "sanguis": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc2"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/sanguis",
+            "layer": "manhunt:runners"
+        }
+    },
+    "scanner": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc3"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/scanner",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "scout": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc4"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/scout",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "shaman": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc5"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/shaman",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "sicarius": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc6"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/sicarius",
+            "layer": "manhunt:runners"
+        }
+    },
+    "reaper": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc7"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/reaper",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "survivalist": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc8"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/survivalist",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "wisp": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefc9"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/wisp",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "xolotl": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd1"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/xolotl",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "angler": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd2"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/angler",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "berserker": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd3"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/berserker",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "lurker": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd4"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/lurker",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "inmortuae": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd5"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/damned",
+            "layer": "manhunt:runners"
+        }
+    },
+    "courier": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd6"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/courier",
+            "layer": "manhunt:hunters"
+        }
+    },
+    "draco": {
+        "type": "eggolib:modify_label_render",
+        "text": [
+            {
+                "selector": "@s"
+            },
+            {
+                "text": " \uefd7"
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runners/draco",
+            "layer": "manhunt:runners"
+        }
+    },
+    "hidden": true
+}
