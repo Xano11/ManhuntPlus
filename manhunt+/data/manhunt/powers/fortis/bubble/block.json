@@ -33,14 +33,75 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
-                        "command": "tp @s ~ 320 ~"
+                        "type": "origins:modify_death_ticks",
+                        "modifier": {
+                            "operation": "set_total",
+                            "value": 20
+                        }
                     },
                     {
                         "type": "origins:execute_command",
                         "command": "execute on passengers run kill @s"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ 320 ~"
                     }
                 ]
+            }
+        }
+    },
+    "death_hit": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:selector_action",
+                "selector": "@e[tag=fortis_center]",
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:crit ~ ~1 ~ 0 0 0 6 300"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 2 0.5"
+                            },
+                            {
+                                "type": "origins:action_on_set",
+                                "set": "manhunt:fortis/bubble/center_blocks",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @s"
+                            }
+                        ]
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:invert",
+                    "condition": {
+                        "type": "origins:in_set",
+                        "set": "manhunt:fortis/bubble/center_blocks"
+                    }
+                }
+            }
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
             }
         }
     },
@@ -50,24 +111,8 @@
         "max": 140,
         "start_value": 0,
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute on passengers run kill @s"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "kill @s"
-                },
-                {
-                    "type": "origins:modify_death_ticks",
-                    "modifier": {
-                        "operation": "set_total",
-                        "value": 20
-                    }
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "kill @s"
         }
     },
     "duration_down": {

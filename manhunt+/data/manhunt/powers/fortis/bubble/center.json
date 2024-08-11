@@ -1,6 +1,6 @@
 {
     "type": "origins:multiple",
-    "blocks":{
+    "blocks": {
         "type": "origins:entity_set"
     },
     "delay": {
@@ -60,7 +60,34 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute positioned ~ ~0.5 ~ run kill @e[type=minecraft:shulker,tag=fortis_bubble,distance=..4]"
+                    "command": "execute positioned ~ ~0.5 ~ run tag @e[type=minecraft:shulker,tag=fortis_bubble,distance=..4] add remove_bubbles"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[tag=remove_bubbles]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:modify_death_ticks",
+                                    "modifier": {
+                                        "operation": "set_total",
+                                        "value": 20
+                                    }
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s ~ 320 ~"
+                                }
+                            ]
+                        }
+                    }
                 },
                 {
                     "type": "origins:execute_command",
@@ -138,8 +165,32 @@
         "max": 140,
         "start_value": 0,
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "kill @s"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:fortis/bubble/center_blocks",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crit ~ ~1 ~ 0 0 0 6 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 2 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
         }
     },
     "duration_down": {
@@ -155,23 +206,6 @@
             "resource": "manhunt:fortis/bubble/center_duration",
             "comparison": ">",
             "compare_to": 0
-        }
-    },
-    "damage": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 50,
-        "start_value": 0,
-        "min_action": {
-            "type": "origins:action_on_set",
-            "set": "manhunt:fortis/bubble/center_blocks",
-            "bientity_action": {
-                "type": "origins:target_action",
-                "action": {
-                    "type": "origins:execute_command",
-                    "command": "kill @s"
-                }
-            }
         }
     },
     "hidden": true
