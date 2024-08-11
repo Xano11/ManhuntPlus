@@ -5,6 +5,12 @@
         "replace": {
             "minecraft:gameplay/fishing": "manhunt:gameplay/angler_fishing"
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "<",
+            "compare_to": 2
+        },
         "bientity_condition": {
             "type": "origins:actor_condition",
             "condition": {
@@ -28,6 +34,70 @@
                     }
                 ]
             }
+        }
+    },
+    "luck_increase": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:gameplay/fishing": "manhunt:gameplay/angler_fishing_increase"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition":{
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"angler\"]}"
+                        }
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "offhand",
+                        "item_condition":{
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"angler\"]}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "lure1":{
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:lure",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "lure2":{
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:lure",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "==",
+            "compare_to": 2
         }
     },
     "name": "Fisher of Legends",

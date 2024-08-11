@@ -83,6 +83,36 @@
                                             "change": 6000
                                         },
                                         {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:resource",
+                                                "resource": "manhunt:angler/fishing/throw_fishing",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            },
+                                            "if_action": {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:angler/fishing/fishout_cooldown",
+                                                "change": 4800,
+                                                "operation": "set"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:resource",
+                                                "resource": "manhunt:angler/fishing/throw_fishing",
+                                                "comparison": "==",
+                                                "compare_to": 2
+                                            },
+                                            "if_action": {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:angler/fishing/fishout_cooldown",
+                                                "change": 3000,
+                                                "operation": "set"
+                                            }
+                                        },
+                                        {
                                             "type": "origins:execute_command",
                                             "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 2"
                                         },
@@ -163,7 +193,7 @@
                     "equipment_slot": "mainhand",
                     "item_condition": {
                         "type": "origins:nbt",
-                        "nbt": "{Unbreakable:1,CustomModelData:1,Tags:[\"angler\"],display:{Name:'[{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \"},{\"text\":\"Rod\",\"color\":\"aqua\"}]'},Enchantments:[{}]}"
+                        "nbt": "{Tags:[\"angler\"]}"
                     }
                 },
                 {

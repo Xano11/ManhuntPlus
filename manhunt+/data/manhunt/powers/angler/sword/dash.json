@@ -1,26 +1,21 @@
 {
     "type": "origins:multiple",
 
-    "tag": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "tag @s add angler"
-        },
-        "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "tag @s remove angler"
-        },
-        "execute_chosen_when_orb": true
-    },
-
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
         "max": 100,
         "start_value": 0,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "manhunt:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:angler/sword/dash_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
         }
     },
 
@@ -37,59 +32,6 @@
             "resource": "manhunt:angler/sword/dash_cooldown",
             "comparison": ">",
             "compare_to": 0
-        }
-    },
-
-    "repair":{
-        "type": "origins:item_on_item",
-        "on_item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:ingredient",
-                    "ingredient": {
-                        "item": "minecraft:iron_sword"
-                    }
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"swordfish\"]}"
-                },
-                {
-                    "type": "origins:durability",
-                    "comparison": "<",
-                    "compare_to": 250
-                }
-            ]
-        },
-        "using_item_condition":{
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:ingredient",
-                    "ingredient": {
-                        "tag": "manhunt:fish"
-                    }
-                },
-                {
-                    "type": "origins:amount",
-                    "comparison": ">=",
-                    "compare_to": 1
-                }
-            ]
-        },
-        "click_type": "primary",
-        "using_item_action": {
-            "type": "origins:consume",
-            "amount": 1
-        },
-        "on_item_action": {
-            "type": "origins:merge_nbt",
-            "nbt": "{Damage:0}"
-        },
-        "entity_action":  {
-            "type": "origins:execute_command",
-            "command": "playsound minecraft:block.anvil.use player @a ~ ~ ~ 1 1.2"
         }
     },
     
@@ -374,15 +316,37 @@
                 {
                     "type": "origins:change_resource",
                     "resource": "manhunt:angler/sword/dash_cooldown",
-                    "change": 100
+                    "change": 100,
+                    "operation": "set"
                 },
                 {
-                    "type": "origins:equipped_item_action",
-                    "equipment_slot": "mainhand",
-                    "action": {
-                        "type": "origins:damage",
-                        "amount": 84,
-                        "ignore_unbreaking": true
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:angler/sword/transfish_sword",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:angler/sword/dash_cooldown",
+                        "change": 70,
+                        "operation": "set"
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:angler/sword/transfish_sword",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:angler/sword/dash_cooldown",
+                        "change": 60,
+                        "operation": "set"
                     }
                 },
                 {
@@ -403,35 +367,51 @@
                         ]
                     },
                     "command_step": 0.5,
-                    "command_along_ray": "function manhunt:abilities/dashing",
-                    "miss_action": {
+                    "command_along_ray": "function manhunt:abilities/dashing"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e",
+                    "bientity_action": {
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:execute_command",
-                                "command": "tag @s remove dashing"
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:angler/sword/dash_cooldown",
+                                    "change": -20
+                                }
                             },
                             {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:entity.evoker_fangs.attack player @a ~ ~ ~ 1 2",
-                                "permission_level": 4
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "y": 0.25
+                                }
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 1
                             }
                         ]
                     },
-                    "hit_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "tag @s remove dashing"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:entity.evoker_fangs.attack player @a ~ ~ ~ 1 2",
-                                "permission_level": 4
-                            }
-                        ]
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition":  {
+                            "type": "origins:power",
+                            "power": "manhunt:angler/sword/hit"
+                        }
                     }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove dashing"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.evoker_fangs.attack player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
                 },
                 {
                     "type": "origins:add_velocity",
@@ -472,19 +452,8 @@
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:iron_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:[\"swordfish\"]}"
-                            }
-                        ]
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"swordfish\"]}"
                     }
                 }
             ]

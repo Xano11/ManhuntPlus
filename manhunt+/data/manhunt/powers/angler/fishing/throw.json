@@ -4,17 +4,158 @@
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
-            "command": "give @s fishing_rod{Unbreakable:1,CustomModelData:1,Tags:[\"angler\"],display:{Name:'[{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \"},{\"text\":\"Rod\",\"color\":\"aqua\"}]'},Enchantments:[{}]} 1"
-        },
-        "entity_action_respawned": {
-            "type": "origins:execute_command",
-            "command": "give @s fishing_rod{Unbreakable:1,CustomModelData:1,Tags:[\"angler\"],display:{Name:'[{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \"},{\"text\":\"Rod\",\"color\":\"aqua\"}]'},Enchantments:[{}]} 1"
+            "command": "give @s fishing_rod{display:{Name:'[\"\",{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \",\"color\":\"dark_aqua\"},{\"text\":\"Rod\",\"color\":\"aqua\"}]',Lore:['[\"\",{\"text\":\"(TIER 1)\",\"italic\":false,\"color\":\"aqua\"}]']},Enchantments:[{}],Unbreakable:1,CustomModelData:1,Tags:[\"angler\"]} 1"
         },
         "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "clear @s minecraft:fishing_rod"
         },
         "execute_chosen_when_orb": false
+    },
+    "fishing": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "keepitems": {
+        "type": "origins:keep_inventory",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"angler\"]}"
+        }
+    },
+    "upgrade_tier2": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"angler\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:treasure_angler}"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:angler/rod_tier2"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "change": 1
+                }
+            ]
+        }
+    },
+    "upgrade_tier3": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"angler\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:treasure_angler}"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:angler/rod_tier3"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "change": 1
+                }
+            ]
+        }
     },
     "cooldown": {
         "type": "origins:resource",
@@ -89,6 +230,36 @@
                                                 "change": 700
                                             },
                                             {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "manhunt:angler/fishing/throw_fishing",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "manhunt:angler/fishing/throw_cooldown",
+                                                    "change": 600,
+                                                    "operation": "set"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "manhunt:angler/fishing/throw_fishing",
+                                                    "comparison": "==",
+                                                    "compare_to": 2
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "manhunt:angler/fishing/throw_cooldown",
+                                                    "change": 400,
+                                                    "operation": "set"
+                                                }
+                                            },
+                                            {
                                                 "type": "origins:change_resource",
                                                 "resource": "manhunt:angler/fishing/throw_fall",
                                                 "change": 1
@@ -128,7 +299,7 @@
                     "equipment_slot": "mainhand",
                     "item_condition": {
                         "type": "origins:nbt",
-                        "nbt": "{Unbreakable:1,CustomModelData:1,Tags:[\"angler\"],display:{Name:'[{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \"},{\"text\":\"Rod\",\"color\":\"aqua\"}]'},Enchantments:[{}]}"
+                        "nbt": "{Tags:[\"angler\"]}"
                     }
                 },
                 {
@@ -157,7 +328,7 @@
             "should_render": false
         }
     },
-    "fall_immune":{
+    "fall_immune": {
         "type": "origins:invulnerability",
         "damage_condition": {
             "type": "origins:in_tag",
@@ -190,7 +361,18 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:on_block"
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0.05
+                }
+            ]
         }
     },
     "kill_bobber": {

@@ -20,33 +20,13 @@
             "value": -0.5
         }
     },
-    "fishful": {
-        "type": "origins:modify_food",
-        "item_condition": {
-            "type": "origins:ingredient",
-            "ingredient": {
-                "tag": "manhunt:eating_fish"
-            }
-        },
-        "food_modifier": {
-            "name": "Increased food points",
-            "operation": "addition",
-            "value": 2
-        },
-        "saturation_modifier": {
-            "name": "Increased saturation points",
-            "operation": "addition",
-            "value": 0.4
-        },
-        "prevent_effects": true
-    },    
     "name": "Pescivore",
     "description": "Your refined palette is exclusively used to fish. Anything else is not your cup of tea.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/community/silent/badge/math/expression_multiply_alt.png",
-            "text": "§e§lPescivore 🍴§r\n§7Fish gives §r§a+2§r§7 Food and §r§a+0.4§r§7 Saturation when eaten.\n§7Pufferfish does §r§anot§r§7 poison you when consumed.\nAll other forms of food give §r§c-50%§r§7 Hunger and Saturation.\n\n§7§lPassive Ability"
+            "text": "§c§lPescivore 🍴§r\n§7Anything else than §r§efish§r§7 gives §r§c-50%§r§7 Hunger and Saturation.\n\n§7§lPassive Ability"
         }
     ]
 }

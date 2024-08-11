@@ -1,5 +1,82 @@
 {
     "type": "origins:multiple",
+    "tier": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "sword": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "keepitems": {
+        "type": "origins:keep_inventory",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"swordfish\"]}"
+        }
+    },
+    "lose_stacks": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:angler/sword/transfish_tier",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:angler/sword/transfish_sword",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:angler/fishing/throw_fishing",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:modify_inventory",
+                                "inventory_type": "inventory",
+                                "item_action": {
+                                    "type": "origins:modify",
+                                    "modifier": "manhunt:angler/swordfish_tier1"
+                                },
+                                "item_condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"swordfish\"]}"
+                                }
+                            },
+                            {
+                                "type": "origins:modify_inventory",
+                                "inventory_type": "inventory",
+                                "item_action": {
+                                    "type": "origins:modify",
+                                    "modifier": "manhunt:angler/rod_tier1"
+                                },
+                                "item_condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"angler\"]}"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
     "angler_drop": {
         "type": "origins:prevent_item_pickup",
         "item_condition": {
@@ -43,23 +120,8 @@
     "upgrade_tier2": {
         "type": "origins:item_on_item",
         "on_item_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:has_power",
-                    "power": "manhunt:angler/sword/swordtier2",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:has_power",
-                    "power": "manhunt:angler/sword/swordtier3",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:nbt",
-                    "nbt": "{Tags:[\"swordfish\"]}"
-                }
-            ]
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"swordfish\"]}"
         },
         "using_item_condition": {
             "type": "origins:and",
@@ -93,56 +155,162 @@
                 }
             ]
         },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_sword",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_sword",
+                    "change": 1
+                }
+            ]
+        }
+    },
+    "upgrade_tier3": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"swordfish\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:treasure_angler}"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{Damage:0}"
+                },
+                {
+                    "type": "origins:modify",
+                    "modifier": "manhunt:angler/swordfish_tier3"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_sword",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_sword",
+                    "change": 1
+                }
+            ]
+        }
+    },
+    "repair": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"swordfish\"]}"
+                },
+                {
+                    "type": "origins:durability",
+                    "comparison": "<",
+                    "compare_to": 250
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "manhunt:fish"
+                    }
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:merge_nbt",
+            "nbt": "{Damage:0}"
+        },
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
-        }
-    },
-    "cooldown": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 900,
-        "start_value": 900,
-        "hud_render": {
-            "should_render": true,
-            "bar_index": 1,
-            "sprite_location": "manhunt:textures/bars/angler/angler.png",
-            "condition": {
-                "type": "origins:resource",
-                "resource": "manhunt:angler/sword/transfish_cooldown",
-                "comparison": "<",
-                "compare_to": 900
-            }
-        }
-    },
-    "cooldown_up": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "manhunt:angler/sword/transfish_cooldown",
-            "change": 1
-        },
-        "interval": 1,
-        "condition": {
-            "type": "origins:inventory",
-            "process_mode": "items",
-            "item_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "minecraft:iron_sword"
-                        }
-                    },
-                    {
-                        "type": "origins:nbt",
-                        "nbt": "{Tags:[\"swordfish\"]}"
-                    }
-                ]
-            },
-            "comparison": "<",
-            "compare_to": 1
+            "command": "playsound minecraft:block.anvil.use player @a ~ ~ ~ 1 1.2"
         }
     },
     "activate": {
@@ -153,11 +321,6 @@
                 {
                     "type": "origins:execute_command",
                     "command": "function manhunt:abilities/angler/transfish"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:angler/sword/transfish_cooldown",
-                    "change": -900
                 },
                 {
                     "type": "origins:execute_command",
@@ -176,12 +339,6 @@
         "condition": {
             "type": "origins:and",
             "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:angler/sword/transfish_cooldown",
-                    "comparison": "==",
-                    "compare_to": 900
-                },
                 {
                     "type": "origins:inventory",
                     "process_mode": "items",
@@ -232,53 +389,7 @@
             "key": "key.origins.primary_active",
             "continuous": false
         },
-        "cooldown": 1
-    },
-    "damage": {
-        "type": "origins:modify_damage_dealt",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    },
-                    "inverted": true
-                },
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:iron_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:[\"swordfish\"]}"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:fluid_height",
-                    "fluid": "minecraft:water",
-                    "comparison": "<=",
-                    "compare_to": 1
-                }
-            ]
-        },
-        "modifier": {
-            "name": "Less damage",
-            "operation": "addition",
-            "value": -3
-        }
+        "cooldown": 4
     },
     "less_damage": {
         "type": "origins:modify_damage_dealt",
@@ -320,14 +431,6 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "apugli:key_pressed",
-                    "key": {
-                        "key": "key.origins.primary_active",
-                        "continuous": true
-                    },
-                    "inverted": true
-                },
-                {
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
@@ -355,58 +458,9 @@
             ]
         },
         "modifier": {
-            "name": "Less damage",
+            "name": "More damage",
             "operation": "addition",
-            "value": -1
-        }
-    },
-    "limit": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "eggolib:drop_inventory",
-            "item_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:ingredient",
-                        "ingredient": {
-                            "item": "minecraft:iron_sword"
-                        }
-                    },
-                    {
-                        "type": "origins:nbt",
-                        "nbt": "{Tags:[\"swordfish\"]}"
-                    }
-                ]
-            },
-            "amount": 1
-        },
-        "interval": 5,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:inventory",
-                    "process_mode": "items",
-                    "item_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient": {
-                                    "item": "minecraft:iron_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:[\"swordfish\"]}"
-                            }
-                        ]
-                    },
-                    "comparison": ">",
-                    "compare_to": 1
-                }
-            ]
+            "value": 2
         }
     },
     "name": "Profishiency",
@@ -420,7 +474,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "§7Turn any fish into a weapon of war with %s §7!"
+            "text": "§7Turn any fish into a weapon of war with %s§7!"
         }
     ]
 }

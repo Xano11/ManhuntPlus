@@ -1,0 +1,6 @@
+[
+    {
+        "function": "minecraft:set_nbt",
+        "tag": "{display:{Name:'[\"\",{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \",\"color\":\"dark_aqua\"},{\"text\":\"Rod\",\"color\":\"aqua\"}]',Lore:['[\"\",{\"text\":\"(TIER 3)\",\"italic\":false,\"color\":\"aqua\"}]']},Enchantments:[{}],Unbreakable:1,CustomModelData:1,Tags:[\"angler\"]}"
+    }
+]
