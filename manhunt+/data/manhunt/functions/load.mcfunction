@@ -8,6 +8,9 @@ scoreboard objectives add hunters dummy
 scoreboard objectives add tracking dummy
 scoreboard objectives add lodestone dummy
 scoreboard objectives add time_since_death minecraft.custom:minecraft.time_since_death
+scoreboard objectives add courier_time dummy
+scoreboard objectives add courier_result dummy
+scoreboard objectives add divider dummy
 scoreboard objectives add simulation dummy
 scoreboard objectives add recall dummy
 scoreboard objectives add lurker dummy
@@ -42,6 +45,8 @@ team add Runners ["",{"text":"RUNNER","bold":true,"color":"gold"}]
 team add Hunters ["",{"text":"HUNTER","bold":true,"color":"dark_red"}]
 team modify Hunters seeFriendlyInvisibles false
 team modify Runners seeFriendlyInvisibles false
+team modify Hunters prefix "\uefa1 "
+team modify Runners prefix "\uefa2 "
 
 #weird glow bug
 scoreboard objectives setdisplay sidebar.team.yellow skull_uuid
