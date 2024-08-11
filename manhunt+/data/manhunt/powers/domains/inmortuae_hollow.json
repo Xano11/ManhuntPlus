@@ -1,0 +1,119 @@
+{
+    "type": "origins:multiple",
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.spyglass.use player @a ~ ~ ~ 2 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.bell player @a ~ ~ ~ 2 1.2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.6 0 0.5 0.9 0.4 0 0.4 ~ ~1 ~ 0.3 0.2 0.3 1 50",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "windup_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:domains/inmortuae_hollow_windup",
+            "change": 1
+        },
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:domains/inmortuae_hollow_windup",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:using_item",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:bow"
+                }
+            }
+        }
+    },
+    "shoot": {
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @a title {\"text\":\"HOLLOW ARROW\",\"bold\":true}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:raycast",
+                    "distance": 128,
+                    "block": false,
+                    "entity": false,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "command_along_ray": "summon armor_stand ~ ~ ~ {Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"domain_hollow\"]}",
+                    "command_step": 4,
+                    "command_along_ray_only_on_hit": false
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @e[type=armor_stand,tag=domain_hollow] manhunt:domains/inmortuae_arrow",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=arrow,limit=1,sort=nearest]",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "trigger": "stop",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:bow"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:domains/inmortuae_hollow_windup",
+            "comparison": "==",
+            "compare_to": 70
+        }
+    },
+    "tellraw": {
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "title @a title {\"text\":\"DOMAIN EXPANSION\",\"bold\":true}",
+            "permission_level": 4
+        },
+        "trigger": "start",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:bow"
+            }
+        }
+    },
+    "hidden": true
+}
