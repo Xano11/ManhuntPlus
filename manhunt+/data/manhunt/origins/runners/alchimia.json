@@ -1,20 +1,19 @@
 {
 	"powers": [
 		"manhunt:alchimia/potion/refill",
+		"manhunt:alchimia/potion/shake",
+		"manhunt:alchimia/potion/concoctions",
 		"manhunt:alchimia/potion/volatile",
-		"manhunt:alchimia/potion/heal",
-		"manhunt:alchimia/potion/eyes",
-		"manhunt:alchimia/potion/strength",
 		"manhunt:alchimia/cape",
-		"manhunt:alchimia/feeble",
-		"manhunt:alchimia/brewing"
+		"manhunt:alchimia/brewing",
+		"manhunt:alchimia/feeble"
 	],
 	"icon": {
 		"item": "minecraft:brewing_stand",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
 	"order": 10,
-	"impact": 2,
+	"impact": 1,
 	"name": "Alchimia 🧪",
 	"description": "The true nature of any element's mastery lies in research and vigor... Too bad that those hunters lack the eye of a true alchemist."
 }

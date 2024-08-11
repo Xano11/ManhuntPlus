@@ -21,8 +21,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Feeble: §l§c-75%§r natural regeneration and -2 §l§c❤§r.\nTo heal, it is suggested to §ndrink your regular concoctions§r."
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "§c§lFeeble 💔§r\n§c-75%§r§7 natural regeneration and -2 §l§c❤§r§7.\nTo heal, it is suggested to §ndrink your regular concoctions§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }

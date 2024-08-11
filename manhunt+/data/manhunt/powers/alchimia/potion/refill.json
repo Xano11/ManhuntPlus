@@ -38,8 +38,25 @@
                             }
                         },
                         {
-                            "type": "origins:nbt",
-                            "nbt": "{Tags:\"alchimia\"}"
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:\"alchimia\"}"
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"alchimia\",\"volatile\"]}"
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"alchimia\",\"eyes\"]}"
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"alchimia\",\"strength\"]}"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -100,8 +117,25 @@
                                 }
                             },
                             {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:\"alchimia\"}"
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:\"alchimia\"}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"volatile\"]}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"eyes\"]}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"strength\"]}"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -140,8 +174,25 @@
                                 }
                             },
                             {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:\"alchimia\"}"
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:\"alchimia\"}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"volatile\"]}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"eyes\"]}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"strength\"]}"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -184,8 +235,25 @@
                                 }
                             },
                             {
-                                "type": "origins:nbt",
-                                "nbt": "{Tags:\"alchimia\"}"
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:\"alchimia\"}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"volatile\"]}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"eyes\"]}"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"alchimia\",\"strength\"]}"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -205,18 +273,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "You naturally generate special concoctions every 40 seconds; up to 3 maximum at a time.\nWhen sprinting, your special potions regenerate 40% slower. Taking damage increases their recharge cooldown by +2s.\nUsing those, you can craft extra potions with different materials! (See other badges)"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/strength.png",
-            "text": "Using §6blaze powder§r you can make a strength potion. \n(+2 damage for 10 seconds)"
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "minecraft:textures/mob_effect/glowing.png",
-            "text": "Using §eglow berries§r you can make a glowing eyes potion. \n(See hunters through surfaces in a 24 block radius)"
+            "sprite": "minecraft:textures/item/brewing_stand.png",
+            "text": "§a§lExpert 🧪§r\n§7You naturally generate special concoctions every §r§e40§r§7 seconds; up to §n3 maximum§r§7 at a time.\n\nWhen sprinting, your special potions regenerate §r§c40%§r§7 slower. Taking damage increases their recharge cooldown by §r§e+2s§r§7.\n\n§7§lPassive Ability"
         }
     ]
 }

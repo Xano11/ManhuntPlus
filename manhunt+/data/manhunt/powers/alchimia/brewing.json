@@ -45,8 +45,8 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Brew-time: +40% duration on positive potion effects. (Strength, Speed, etc)\n-40% duration on negative potion effects (Weakness, poison, etc)"
+            "sprite": "origins:textures/gui/badge/arrow_up.png",
+            "text": "§a§lBrew-Time 🫧§r\n§r§a+40%§r§7 duration on positive potion effects.\n§r§8(Strength, Speed, etc)§r\n§r§a-40%§r§7 duration on negative potion effects\n§r§8(Weakness, poison, etc)§r\n\n§7§lPassive Ability"
         }
     ]
 }

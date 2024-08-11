@@ -255,18 +255,13 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Knockbacks entities in a short frontal cone AOE.\nAdditionally, it will implode volatile pots on impact."
-        },
-        {
-            "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
-            "text": "Cooldown: 30s.\nTakes 0.25s to windup on use!"
+            "sprite": "origins:textures/gui/community/silent/badge/math/expression_multiply_alt.png",
+            "text": "§f§lHowling Cape 💨§r\n§7Knockbacks entities in a short frontal cone AOE.\nAdditionally, it will implode volatile pots on impact.\n\n§6🕒§r§7 Windup: §r§f0.25s\n§e⌛§r§7 Cooldown: §r§f30s\n\n§7§lActive Ability"
         },
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/toggle.png",
-            "text": "Hold \"%s\" to deploy your cape!"
+            "text": "§7Hold §r%s§7 to deploy your cape!"
         }
     ]
 }

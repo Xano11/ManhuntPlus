@@ -1,0 +1,258 @@
+{
+    "type": "origins:multiple",
+    "drink_strength": {
+        "type": "origins:action_on_item_use",
+        "trigger": "finish",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_strength",
+            "change": 15
+        },
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"alchimia\",\"strength\"]}"
+        }
+    },
+    "duration_strength": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_strength",
+            "change": -1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_strength",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "damage": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "addition",
+            "value": 2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_strength",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "drink_heal": {
+        "type": "origins:action_on_item_use",
+        "trigger": "finish",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_heal",
+            "change": 10
+        },
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:alchimia}"
+        }
+    },
+    "duration_heal": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "regen": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/potion/concoctions_duration_heal",
+                    "change": -1
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:alchimia/potion/concoctions_fog_color",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:alchimia/potion/concoctions_fog_color",
+                        "change": 1,
+                        "operation": "set"
+                    },
+                    "else_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:alchimia/potion/concoctions_fog_color",
+                        "change": 0,
+                        "operation": "set"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.7 0 0.4 1 1 0 0.6 ~ ~1 ~ 0.3 0.2 0.3 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.allay.item_given player @a ~ ~ ~ 3 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 4
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_heal",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "fog_color": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "fog": {
+        "type": "moborigins:fog",
+        "red": 0.6,
+        "green": 0,
+        "blue": 0.5,
+        "start": -1,
+        "end": 8,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/concoctions_duration_heal",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/concoctions_fog_color",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "fog_tweak": {
+        "type": "moborigins:fog",
+        "red": 0.7,
+        "green": 0,
+        "blue": 0.8,
+        "start": -1,
+        "end": 8,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/concoctions_duration_heal",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/concoctions_fog_color",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "drink_eyes": {
+        "type": "origins:action_on_item_use",
+        "trigger": "finish",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_eyes",
+            "change": 15
+        },
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"alchimia\",\"eyes\"]}"
+        }
+    },
+    "duration_eyes": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "duration_down_eyes": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_eyes",
+            "change": -1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/concoctions_duration_eyes",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "glow_eyes": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 24
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter",
+                        "layer": "origins:origin"
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:alchimia/potion/concoctions_duration_eyes",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.9,
+        "green": 1.0,
+        "blue": 0.0
+    },
+    "hidden": true
+}
