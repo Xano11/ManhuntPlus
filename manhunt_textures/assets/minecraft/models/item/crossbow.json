@@ -139,13 +139,6 @@
         },
         {
             "predicate": {
-                "charged": 1,
-                "custom_model_data": 2
-            },
-            "model": "manhunt:item/crossbow_charged"
-        },
-        {
-            "predicate": {
                 "pulling": 1,
 				"custom_model_data": 2
             },

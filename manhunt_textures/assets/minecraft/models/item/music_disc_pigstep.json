@@ -8,7 +8,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/horn_sound"
+            "model": "manhunt:item/berserker/horn_sound"
         }
     ]
 }

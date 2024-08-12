@@ -298,7 +298,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
+            "sprite": "manhunt:textures/icons/misc/cooldown.png",
             "text": "The stamina meter lasts for about 20s when full, and takes about 4s to recharge."
         },
         {

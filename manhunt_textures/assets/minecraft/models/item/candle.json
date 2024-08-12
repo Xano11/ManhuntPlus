@@ -8,7 +8,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/shaman_circle"
+            "model": "manhunt:item/shaman/circle"
         }
     ]
 }

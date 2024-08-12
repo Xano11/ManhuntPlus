@@ -311,7 +311,7 @@
     },
     "overlay_inactive": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_inactive.png",
+        "texture": "manhunt:textures/gui/overlays/scout/inactive.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -329,7 +329,7 @@
     },
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim1.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim1.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -347,7 +347,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim2.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim2.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -365,7 +365,7 @@
     },
     "overlay3": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim3.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim3.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -383,7 +383,7 @@
     },
     "overlay4": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim4.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim4.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -401,7 +401,7 @@
     },
     "overlay5": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim5.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim5.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -419,7 +419,7 @@
     },
     "overlay6": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim6.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim6.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -437,7 +437,7 @@
     },
     "overlay7": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim7.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim7.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -455,7 +455,7 @@
     },
     "overlay8": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout_anim8.png",
+        "texture": "manhunt:textures/gui/overlays/scout/anim8.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -473,7 +473,7 @@
     },
     "overlay_active": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scout.png",
+        "texture": "manhunt:textures/gui/overlays/scout/active.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,

@@ -8,31 +8,31 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/heart_card"
+            "model": "manhunt:item/gambler/heart_card"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/club_card"
+            "model": "manhunt:item/gambler/club_card"
         },
         {
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/diamond_card"
+            "model": "manhunt:item/gambler/diamond_card"
         },
         {
             "predicate": {
                 "custom_model_data": 4
             },
-            "model": "manhunt:item/spade_card"
+            "model": "manhunt:item/gambler/spade_card"
         },
         {
             "predicate": {
                 "custom_model_data": 5
             },
-            "model": "manhunt:item/guardian_wings"
+            "model": "manhunt:item/guardian/wings"
         }
     ]
 }

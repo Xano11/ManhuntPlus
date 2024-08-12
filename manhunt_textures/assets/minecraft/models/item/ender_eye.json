@@ -8,31 +8,31 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/flashbang"
+            "model": "manhunt:item/bomber/flashbang"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/lurker_eye"
+            "model": "manhunt:item/lurker/eye"
         },
         {
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/jester_paranoia"
+            "model": "manhunt:item/jester/paranoia"
         },
         {
             "predicate": {
                 "custom_model_data": 4
             },
-            "model": "manhunt:item/jester_paranoia2"
+            "model": "manhunt:item/jester/paranoia2"
         },
         {
             "predicate": {
                 "custom_model_data": 99
             },
-            "model": "manhunt:item/dude_getting_flashbanged_like_3_times"
+            "model": "manhunt:item/misc/dude_getting_flashbanged_like_3_times"
         }
     ]
 }

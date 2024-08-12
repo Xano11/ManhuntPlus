@@ -14,7 +14,7 @@
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/pitbull"
+            "model": "manhunt:item/misc/pitbull"
         }
     ]
 }

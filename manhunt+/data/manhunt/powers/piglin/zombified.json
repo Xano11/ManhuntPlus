@@ -131,7 +131,7 @@
 	"badges": [
 		{
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/icons/piglin_icon.png",
+            "sprite": "manhunt:textures/icons/hunters/piglin.png",
             "text": "§c§lPiglin Duality 🐽§r§7\nWhilst §noutside the Nether§r§7, you zombify §r§8(fire resistance and undead status)§r§7 and lose §r§c-30%§r§7 healing and exhaust §r§c60%§r§7 quicker.\n\nWhilst §nin the Nether§r§7, you lose -1 §l§c❤§r§7 of maximum health but gain §r§a+20%§r§7 overall speed.\n\n§7§lPassive Ability"
         },
 		{

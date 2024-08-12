@@ -321,7 +321,7 @@
 	},
 	"swirl": {
 		"type": "apugli:energy_swirl",
-		"texture_location": "manhunt:textures/swirls/soul.png",
+		"texture_location": "manhunt:textures/swirls/reaper/soul.png",
 		"speed": 0.5,
 		"condition": {
 			"type": "origins:resource",

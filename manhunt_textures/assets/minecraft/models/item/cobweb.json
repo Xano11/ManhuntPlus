@@ -8,25 +8,25 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/snare"
+            "model": "manhunt:item/old/snare"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/snare1"
+            "model": "manhunt:item/old/snare1"
         },
         {
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/snare2"
+            "model": "manhunt:item/old/snare2"
         },
         {
             "predicate": {
                 "custom_model_data": 4
             },
-            "model": "manhunt:item/snare3"
+            "model": "manhunt:item/old/snare3"
         }
     ]
 }

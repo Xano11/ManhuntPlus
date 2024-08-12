@@ -104,7 +104,7 @@
     },
     "overlay": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/celeritas.png",
+        "texture": "manhunt:textures/gui/overlays/celeritas/torn.png",
         "strength": 0.6,
         "red": 1.0,
         "green": 1.0,
@@ -116,7 +116,7 @@
     },
     "swirl1":{
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/tearing.png",
+        "texture_location": "manhunt:textures/swirls/celeritas/tearing.png",
         "speed": 0.01,
         "condition": {
             "type": "origins:and",
@@ -138,7 +138,7 @@
     },
     "swirl2":{
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/tearing.png",
+        "texture_location": "manhunt:textures/swirls/celeritas/tearing.png",
         "speed": 0.02,
         "condition": {
             "type": "origins:and",
@@ -160,7 +160,7 @@
     },
     "swirl3":{
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/tearing.png",
+        "texture_location": "manhunt:textures/swirls/celeritas/tearing.png",
         "speed": 0.04,
         "condition": {
             "type": "origins:and",
@@ -182,7 +182,7 @@
     },
     "swirl4":{
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/tearing.png",
+        "texture_location": "manhunt:textures/swirls/celeritas/tearing.png",
         "speed": 0.08,
         "condition": {
             "type": "origins:and",
@@ -204,7 +204,7 @@
     },
     "swirl5":{
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/tearing.png",
+        "texture_location": "manhunt:textures/swirls/celeritas/tearing.png",
         "speed": 0.16,
         "condition": {
             "type": "origins:and",

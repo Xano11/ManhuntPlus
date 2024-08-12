@@ -8,19 +8,19 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/berserk_roar"
+            "model": "manhunt:item/berserker/roar"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/fortis_wave"
+            "model": "manhunt:item/fortis/wave"
         },
         {
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/laser_wave"
+            "model": "manhunt:item/scanner/laser_wave"
         }
     ]
 }

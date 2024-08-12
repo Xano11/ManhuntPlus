@@ -61,7 +61,7 @@
     },
     "swirl1": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/second_chance.png",
+        "texture_location": "manhunt:textures/swirls/misc/second_chance.png",
         "speed": 0.005,
         "condition": {
             "type": "origins:resource",

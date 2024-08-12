@@ -14,25 +14,25 @@
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/engineer_portal1"
+            "model": "manhunt:item/engineer/portal1"
         },
         {
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/engineer_portal2"
+            "model": "manhunt:item/engineer/portal2"
         },
         {
             "predicate": {
                 "custom_model_data": 4
             },
-            "model": "manhunt:item/engineer_portal3"
+            "model": "manhunt:item/engineer/portal3"
         },
         {
             "predicate": {
                 "custom_model_data": 5
             },
-            "model": "manhunt:item/engineer_portal4"
+            "model": "manhunt:item/engineer/portal4"
         }
     ]
 }

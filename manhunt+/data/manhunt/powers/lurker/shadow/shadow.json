@@ -99,7 +99,7 @@
     },
     "swirl1": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/shadow.png",
+        "texture_location": "manhunt:textures/swirls/lurker/shadow.png",
         "speed": 0.01,
         "condition": {
             "type": "origins:and",
@@ -121,7 +121,7 @@
     },
     "swirl2": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/shadow.png",
+        "texture_location": "manhunt:textures/swirls/lurker/shadow.png",
         "speed": 0.02,
         "condition": {
             "type": "origins:and",
@@ -143,7 +143,7 @@
     },
     "swirl3": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/shadow.png",
+        "texture_location": "manhunt:textures/swirls/lurker/shadow.png",
         "speed": 0.04,
         "condition": {
             "type": "origins:and",
@@ -165,7 +165,7 @@
     },
     "swirl4": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/shadow.png",
+        "texture_location": "manhunt:textures/swirls/lurker/shadow.png",
         "speed": 0.08,
         "condition": {
             "type": "origins:and",
@@ -187,7 +187,7 @@
     },
     "swirl5": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/shadow.png",
+        "texture_location": "manhunt:textures/swirls/lurker/shadow.png",
         "speed": 0.16,
         "condition": {
             "type": "origins:and",

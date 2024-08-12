@@ -4,7 +4,7 @@
     "badges": [
         {
 			"type": "origins:tooltip",
-			"sprite": "manhunt:textures/item/icons/geologist_icon.png",
+			"sprite": "manhunt:textures/icons/hunters/geologist.png",
 			"text": "§l§6Gold Rush 💰§r§7\nYour mining speed is increased by §r§e750%§r§7 for a short duration whilst holding a pickaxe.\n\nAdditionally, you cause §l§6SHATTER 🔨§r§7 on the next hit.\n§l§6SHATTER 🔨§r§7\nShattered entities take +15% damage\n\n§c🕕§r§7 Duration: §r§f5s§r\n§e⌛§r§7 Cooldown: §r§f30s§r\n\n§7§lActive Ability"
 		},
         {

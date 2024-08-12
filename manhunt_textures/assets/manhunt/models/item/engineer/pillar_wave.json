@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "manhunt:item/engineer/pillar_wave"
+    }
+}

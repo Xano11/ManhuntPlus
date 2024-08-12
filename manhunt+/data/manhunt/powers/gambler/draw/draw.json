@@ -116,7 +116,7 @@
     },
     "overlay_blank": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/gambler_blank.png",
+        "texture": "manhunt:textures/gui/overlays/gambler/blank.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -134,7 +134,7 @@
     },
     "overlay_heart": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/gambler_heart.png",
+        "texture": "manhunt:textures/gui/overlays/gambler/heart.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -152,7 +152,7 @@
     },
     "overlay_diamond": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/gambler_diamond.png",
+        "texture": "manhunt:textures/gui/overlays/gambler/diamond.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -170,7 +170,7 @@
     },
     "overlay_club": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/gambler_club.png",
+        "texture": "manhunt:textures/gui/overlays/gambler/club.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -188,7 +188,7 @@
     },
     "overlay_spade": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/gambler_spade.png",
+        "texture": "manhunt:textures/gui/overlays/gambler/spade.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -1080,7 +1080,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/icons/gambler_icon.png",
+            "sprite": "manhunt:textures/icons/runners/gambler.png",
             "text": "Drawing the same suit multiplies the suits' effects. Cards can be maxed out up to three.\n§5Clubs§r: Speed§a↑§r\n§7Spades§r: Damage§a↑§r\n§cHearts§r: Regeneration§a↑§r\n§bDiamonds§r: Armor§a↑§r"
         },
         {
@@ -1109,7 +1109,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
+            "sprite": "manhunt:textures/icons/misc/cooldown.png",
             "text": "Regain a Card every 45s"
         }
     ]

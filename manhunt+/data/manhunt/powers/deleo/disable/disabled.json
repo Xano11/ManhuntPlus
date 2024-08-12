@@ -192,7 +192,7 @@
     },
     "swirl": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/cursed.png",
+        "texture_location": "manhunt:textures/swirls/deleo/cursed.png",
         "speed": 0.03,
         "condition": {
             "type": "origins:resource",
@@ -342,7 +342,7 @@
     },
     "overlay0": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/deleo_effect0.png",
+        "texture": "manhunt:textures/gui/overlays/deleo/effect0.png",
         "strength": 0.9,
         "red": 1.0,
         "green": 1.0,
@@ -360,7 +360,7 @@
     },
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/deleo_effect1.png",
+        "texture": "manhunt:textures/gui/overlays/deleo/effect1.png",
         "strength": 0.9,
         "red": 1.0,
         "green": 1.0,
@@ -389,7 +389,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/deleo_effect2.png",
+        "texture": "manhunt:textures/gui/overlays/deleo/effect2.png",
         "strength": 0.9,
         "red": 1.0,
         "green": 1.0,

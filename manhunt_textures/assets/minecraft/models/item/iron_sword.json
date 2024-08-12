@@ -8,7 +8,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/swordfish"
+            "model": "manhunt:item/angler/swordfish"
         },
         {
             "predicate": {
@@ -20,7 +20,7 @@
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/iron_cleaver"
+            "model": "manhunt:item/chef/iron_cleaver"
         }
     ]
   }

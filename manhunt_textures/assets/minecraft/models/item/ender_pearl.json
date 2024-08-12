@@ -8,25 +8,25 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/deleo_area"
+            "model": "manhunt:item/deleo/area"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/deleo_area_weak"
+            "model": "manhunt:item/deleo/area_weak"
         },
         {
             "predicate": {
                 "custom_model_data": 3
             },
-            "model": "manhunt:item/deleo_area_charging"
+            "model": "manhunt:item/deleo/area_charging"
         },
         {
             "predicate": {
                 "custom_model_data": 4
             },
-            "model": "manhunt:item/sicarius_pearl"
+            "model": "manhunt:item/sicarius/pearl"
         }
     ]
 }

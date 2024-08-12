@@ -227,7 +227,7 @@
     },
     "tier_0":{
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier0.png",
+        "texture": "manhunt:textures/gui/overlays/engineer/scan_tier0.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -245,7 +245,7 @@
     },
     "tier_1":{
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier1.png",
+        "texture": "manhunt:textures/gui/overlays/engineer/scan_tier1.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -263,7 +263,7 @@
     },
     "tier_2":{
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier2.png",
+        "texture": "manhunt:textures/gui/overlays/engineer/scan_tier2.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -281,7 +281,7 @@
     },
     "tier_3":{
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/engineer_scan_tier3.png",
+        "texture": "manhunt:textures/gui/overlays/engineer/scan_tier3.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,

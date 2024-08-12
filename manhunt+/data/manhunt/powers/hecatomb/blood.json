@@ -152,7 +152,7 @@
                 {
                     "type": "origins:resource",
                     "resource": "manhunt:hecatomb/hemo/surge_cooldown",
-                    "compare_to": 600,
+                    "compare_to": 200,
                     "comparison": "=="
                 },
                 {

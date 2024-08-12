@@ -336,7 +336,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/icons/chef_icon.png",
+            "sprite": "manhunt:textures/icons/hunters/chef.png",
             "text": "§a§lFroggy 🐸§r§7\n§aFroggy 🐸§r§7 can be fed §r§e16§r§7 dirt to drop §r§2Chef's Fricassée§r§8.\n(To feed Froggy, simply right-click with dirt in your hand.)§r§7\n\nChef's Fricassée gives §r§e1.5§r§7 full hunger shanks and §r§e0.3§r§7 saturation and can be eaten by all.\n(Carnivore/Vegetarian).\n\nTaking damage will put §aFroggy 🐸§r§7 on a cooldown.§r\n\n§e⌛§r§7 Cooldown: §r§f30s§r§8 (When damaged)\n\n§7§lActive Ability"
         },
         {

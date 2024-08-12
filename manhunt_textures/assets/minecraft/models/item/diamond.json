@@ -8,13 +8,13 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/manhunt"
+            "model": "manhunt:item/misc/manhunt"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/guardian_halo"
+            "model": "manhunt:item/guardian/halo"
         }
     ]
 }

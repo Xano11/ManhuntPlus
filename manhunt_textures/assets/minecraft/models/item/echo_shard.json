@@ -8,13 +8,13 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/throwing_hatchet"
+            "model": "manhunt:item/old/throwing_hatchet"
         },
         {
             "predicate": {
                 "custom_model_data": 2
             },
-            "model": "manhunt:item/explosion_wave"
+            "model": "manhunt:item/deleo/explosion_wave"
         },
         {
             "predicate": {

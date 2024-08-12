@@ -50,14 +50,14 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/inmortuae_bow"
+            "model": "manhunt:item/inmortuae/bow"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/inmortuae_pulling_0"
+            "model": "manhunt:item/inmortuae/pulling_0"
         },
         {
             "predicate": {
@@ -65,7 +65,7 @@
                 "pull": 0.65,
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/inmortuae_pulling_1"
+            "model": "manhunt:item/inmortuae/pulling_1"
         },
         {
             "predicate": {
@@ -73,7 +73,7 @@
                 "pull": 0.9,
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/inmortuae_pulling_2"
+            "model": "manhunt:item/inmortuae/pulling_2"
         }
     ]
 }

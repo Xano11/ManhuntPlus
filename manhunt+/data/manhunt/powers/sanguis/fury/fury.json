@@ -55,7 +55,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/icons/sanguis_icon.png",
+            "sprite": "manhunt:textures/icons/runners/sanguis.png",
             "text": "§4§lFURY 🗡§r§7\n§7Untether your physical limitations, gaining increased power temporarily.\n§7In this state, gain §r§a+0.3§r§7 Attack Speed and reduce Leap's cooldown by §r§a-10s§r§7.\nWhen killing a Hunter, the duration of §r§4Fury 🗡§r§7 is §r§arefreshed§r§7.\n\n§r§c🕕§r§7 Duration: §r§f15s\n§e⌛§r§7 Cooldown: §r§f1m§r§8 (Upon Activation)\n\n§7§lActive Ability"
         },
         {

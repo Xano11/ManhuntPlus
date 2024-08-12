@@ -108,7 +108,7 @@
     },
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/xolotl_speed_active.png",
+        "texture": "manhunt:textures/gui/overlays/xolotl/active.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,
@@ -126,7 +126,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/xolotl_speed_inactive.png",
+        "texture": "manhunt:textures/gui/overlays/xolotl/inactive.png",
         "strength": 1.0,
         "red": 1.0,
         "green": 1.0,

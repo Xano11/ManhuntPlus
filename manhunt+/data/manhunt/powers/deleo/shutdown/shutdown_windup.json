@@ -446,7 +446,7 @@
     },
     "swirl": {
         "type": "apugli:energy_swirl",
-        "texture_location": "manhunt:textures/swirls/cursed.png",
+        "texture_location": "manhunt:textures/swirls/deleo/cursed.png",
         "speed": 0.2,
         "condition": {
             "type": "origins:resource",

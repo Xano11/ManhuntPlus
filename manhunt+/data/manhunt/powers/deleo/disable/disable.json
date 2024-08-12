@@ -614,7 +614,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/cooldown.png",
+            "sprite": "manhunt:textures/icons/misc/cooldown.png",
             "text": "Energy cost: Uses 10% per punch/dash\nYour punches disable shields for an extra 10% energy cost."
         }
     ]

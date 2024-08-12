@@ -8,7 +8,7 @@
             "predicate": {
                 "custom_model_data": 1
             },
-            "model": "manhunt:item/plant_fiber"
+            "model": "manhunt:item/falconer/plant_fiber"
         }
     ]
 }
