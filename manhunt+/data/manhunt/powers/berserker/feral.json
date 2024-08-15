@@ -32,7 +32,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§c§lFERAL 🍗§r\n§7You can §r§conly§r§7 eat meat.\nShields cannot be used.\n\n§7§lPassive Ability"
+            "text": "§c§lFERAL 🍗§r\n§7You can §r§conly§r§7 eat meat.\nShields §r§ccannot§r§7 be used.\n\n§7§lPassive Ability"
         }
     ]
 }
