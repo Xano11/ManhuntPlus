@@ -27,6 +27,17 @@
         "modifier": {
             "operation": "multiply_total",
             "value": -0.05
+        },
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:runner",
+                "layer": "origins:origin"
+            },
+            "radius": 24.0,
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "food": {
