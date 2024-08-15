@@ -1,87 +1,107 @@
 {
     "type": "origins:multiple",
-    "atk_speed1": {
+    "atk_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
             "name": "Increase attack speed",
             "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
+            "value": 0.3,
             "operation": "addition"
         },
         "update_health": false,
         "condition": {
-            "type": "origins:health",
-            "comparison": "<=",
-            "compare_to": 16
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:berserker/horn/horn_effects_self"
+                }
+            ]
         }
     },
-    "atk_speed2": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
-            "operation": "addition"
+    "kb": {
+        "type": "origins:modify_damage_dealt",
+        "bientity_action": {
+            "type": "origins:add_velocity",
+            "z": 1.0,
+            "y": 0.5
         },
-        "update_health": false,
-        "condition": {
-            "type": "origins:health",
-            "comparison": "<=",
-            "compare_to": 12
-        }
-    },
-    "atk_speed3": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
-            "operation": "addition"
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
         },
-        "update_health": false,
         "condition": {
-            "type": "origins:health",
-            "comparison": "<=",
-            "compare_to": 8
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:berserker/horn/horn_effects_self"
+                }
+            ]
         }
     },
-    "atk_speed4": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
-            "operation": "addition"
+    "heart": {
+        "type": "origins:modify_damage_dealt",
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:rivals_absorption",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bottle.fill_dragonbreath player @s ~ ~1 ~ 1 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:heart ~ ~2.3 ~ 0 0 0 0 1 force",
+                    "permission_level": 4
+                }
+            ]
         },
-        "update_health": false,
-        "condition": {
-            "type": "origins:health",
-            "comparison": "<=",
-            "compare_to": 4
-        }
-    },
-    "atk_speed5": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "name": "Increase attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.1,
-            "operation": "addition"
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
         },
-        "update_health": false,
         "condition": {
-            "type": "origins:health",
-            "comparison": "<=",
-            "compare_to": 1
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:berserker/horn/horn_effects_self"
+                }
+            ]
         }
     },
-    "name": "UNTAMED MINDSET",
+    "name": "BERSERK MINDSET",
     "description": "You live at your fullest when at the brink of death.",
     "badges": [
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "§c§lUNTAMED ⚔§r\n§7Gain §r§a+0.1§r§7 Attack Speed for every 2 missing §l§c❤§r§7\n\n§7§lPassive Ability"
+            "text": "§c§lBERSERK ⚔§r\n§7Become §r§cEnraged§r§7 while at or below §r§e50%§r§7 Health, gaining §r§a+0.3§r§7 Attack Speed.\nYou inflict §r§emore knockback§r§7 and gain a §cRival Heart ❤§r§e on attack§r§7 in this state.\n§8(Rival Hearts cannot be stacked,\n§8but duration is refreshed on hit.)\n\n§7§lPassive Ability"
         }
     ]
 }

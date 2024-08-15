@@ -1,0 +1,254 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:enchanter/vanish/fade",
+            "permission_level": 4
+        }
+    },
+    "drain": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/vanish/fade_duration",
+            "change": -1,
+            "operation": "add"
+        }
+    },
+    "model_0": {
+        "type": "origins:model_color",
+        "alpha": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 30
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 27
+                }
+            ]
+        }
+    },
+    "model_1": {
+        "type": "origins:model_color",
+        "alpha": 0.1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 27
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 24
+                }
+            ]
+        }
+    },
+    "model_2": {
+        "type": "origins:model_color",
+        "alpha": 0.2,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 24
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 21
+                }
+            ]
+        }
+    },
+    "model_3": {
+        "type": "origins:model_color",
+        "alpha": 0.3,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 21
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 18
+                }
+            ]
+        }
+    },
+    "model_4": {
+        "type": "origins:model_color",
+        "alpha": 0.4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 18
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 15
+                }
+            ]
+        }
+    },
+    "model_5": {
+        "type": "origins:model_color",
+        "alpha": 0.5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+    "model_6": {
+        "type": "origins:model_color",
+        "alpha": 0.6,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 12
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 9
+                }
+            ]
+        }
+    },
+    "model_7": {
+        "type": "origins:model_color",
+        "alpha": 0.7,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 6
+                }
+            ]
+        }
+    },
+    "model_8": {
+        "type": "origins:model_color",
+        "alpha": 0.8,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 3
+                }
+            ]
+        }
+    },
+    "model_9": {
+        "type": "origins:model_color",
+        "alpha": 0.9,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": "<=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/vanish/fade_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "lessdmgfall": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fall"
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

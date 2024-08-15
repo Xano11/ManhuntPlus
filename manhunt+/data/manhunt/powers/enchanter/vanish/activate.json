@@ -10,7 +10,12 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:ui.toast.in player @a ~ ~ ~ 2 1.5",
+                    "command": "playsound minecraft:entity.vex.hurt player @a ~ ~ ~ 2 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.bell.resonate player @a ~ ~ ~ 2 2",
                     "permission_level": 4
                 },
                 {
@@ -20,6 +25,11 @@
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.camel.dash_ready player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.throw player @a ~ ~ ~ 2 0.8",
                     "permission_level": 4
                 },
                 {
@@ -85,7 +95,7 @@
         {
 			"type": "origins:keybind",
 			"sprite": "minecraft:textures/mob_effect/weakness.png",
-			"text": "§5§lVanish ➖§r§7\nSend a wave forward.\nAfter §r§e2s§r§7 of travel time, you teleport to it's position.\nIf the wave §nhits a block§r§7, it will trigger the teleport as well.\n\n§e⌛§r§7 Cooldown: §r§f20s§r\n\n§7§lActive Ability"
+			"text": "§5§lVanish ➖§r§7\nEmit a vanishing wave that travels forward.\nAfter §r§e2s§r§7, you teleport to it's position and gain §r§dvanishing energy§r§7 for §r§e1.5s§r§7 that prevents fall damage.\nIf the wave §nhits a block§r§7, it will trigger the teleport early.\n\n§e⌛§r§7 Cooldown: §r§f20s§r\n\n§7§lActive Ability"
 		},
         {
             "type": "origins:keybind",

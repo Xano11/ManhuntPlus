@@ -3,8 +3,8 @@
     "duration": {
         "type": "origins:resource",
         "min": 0,
-        "max": 400,
-        "start_value": 400,
+        "max": 240,
+        "start_value": 240,
         "hud_render": {
             "should_render": true,
             "sprite_location": "manhunt:textures/bars/berserker/berserker.png",
@@ -75,15 +75,6 @@
             "change": -10
         },
         "interval": 10
-    },
-    "more_atk_speed": {
-        "type": "origins:attribute",
-        "modifier": {
-            "name": "Increased attack speed",
-            "attribute": "minecraft:generic.attack_speed",
-            "value": 0.15,
-            "operation": "addition"
-        }
     },
     "quick_regen_register": {
         "type": "origins:action_when_hit",

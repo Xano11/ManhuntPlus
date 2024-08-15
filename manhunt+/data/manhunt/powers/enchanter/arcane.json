@@ -312,11 +312,11 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 2 1.2"
+                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 0.5 1.2"
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.sculk_sensor.break player @a ~ ~ ~ 1 2"
+                    "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 0.5 2"
                 }
             ]
         },
@@ -362,13 +362,13 @@
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone.png",
-            "text": "§1Encha§r§9nter§r§d's St§r§5one 💎§r§7\nUsing this relic, you can create two special books: §dRecalling§r§7 and §bGlass Shield§r§7 at the cost of §r§e55§r§7 experience\n§r§8(~5 lvls)§r§7.\n\nThese enchanted books can be sheared in your inventory to collect their pages.\n§r§8(6 Paper and 1 Leather)"
+            "text": "§1§lEncha§r§9§lnter§r§d§l's St§r§5§lone 💎§r§7\nUsing this relic, you can create two special books: §dRecalling§r§7 and §bGlass Shield§r§7 at the cost of §r§e55§r§7 experience\n§r§8(~5 lvls)§r§7.\n\nThese enchanted books can be sheared in your inventory to collect their pages.\n§r§8(6 Paper and 1 Leather)"
         },
         {
             "type": "origins:tooltip",
             "sprite": "manhunt:textures/item/enchanter_stone_broken.png",
             "text": [
-                "§l§dArcane Power 🜍§r§7\nYou require Arcane Power to enchant unique books.\nWhilst holding the Enchanter's Stone, press §r[",
+                "§d§lArcane Power 🜍§r§7\nYou require Arcane Power to enchant unique books.\nWhilst holding the Enchanter's Stone, press §r[",
                 {
                     "keybind": "key.use"
                 },

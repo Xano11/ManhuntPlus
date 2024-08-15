@@ -8,10 +8,10 @@
     ],
     "key": {
         "b": {
-            "item": "minecraft:stone"
+            "item": "minecraft:cobblestone"
         },
         "e": {
-            "item": "minecraft:copper_ingot"
+            "item": "minecraft:flint"
         }
     },
     "result": {
