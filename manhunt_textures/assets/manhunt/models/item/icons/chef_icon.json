@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "manhunt:item/icons/chef_icon"
+        "layer0": "manhunt:item/icons/hunters/chef"
     }
 }

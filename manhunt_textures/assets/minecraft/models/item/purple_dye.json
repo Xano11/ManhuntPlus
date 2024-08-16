@@ -32,7 +32,7 @@
             "predicate": {
                 "custom_model_data": 5
             },
-            "model": "manhunt:item/icons/imp_trident"
+            "model": "manhunt:item/icons/imp_icon"
         }
     ]
 }
