@@ -361,12 +361,12 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/enchanter_stone.png",
+            "sprite": "manhunt:textures/item/enchanter/stone.png",
             "text": "§1§lEncha§r§9§lnter§r§d§l's St§r§5§lone 💎§r§7\nUsing this relic, you can create two special books: §dRecalling§r§7 and §bGlass Shield§r§7 at the cost of §r§e55§r§7 experience\n§r§8(~5 lvls)§r§7.\n\nThese enchanted books can be sheared in your inventory to collect their pages.\n§r§8(6 Paper and 1 Leather)"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/enchanter_stone_broken.png",
+            "sprite": "manhunt:textures/item/enchanter/stone_broken.png",
             "text": [
                 "§d§lArcane Power 🜍§r§7\nYou require Arcane Power to enchant unique books.\nWhilst holding the Enchanter's Stone, press §r[",
                 {

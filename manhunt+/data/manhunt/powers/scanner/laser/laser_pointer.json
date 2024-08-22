@@ -118,7 +118,7 @@
     },
     "overlay1": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scan1.png",
+        "texture": "manhunt:textures/gui/overlays/scanner/scan1.png",
         "strength": 1,
         "red": 1,
         "green": 1,
@@ -136,7 +136,7 @@
     },
     "overlay2": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/scan2.png",
+        "texture": "manhunt:textures/gui/overlays/scanner/scan2.png",
         "strength": 1,
         "red": 1,
         "green": 1,
@@ -154,7 +154,7 @@
     },
     "overlay3": {
         "type": "origins:overlay",
-        "texture": "manhunt:textures/gui/overlays/completed.png",
+        "texture": "manhunt:textures/gui/overlays/scanner/completed.png",
         "strength": 1,
         "red": 1,
         "green": 1,
@@ -603,7 +603,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/hunters/scanner.png",
+            "sprite": "manhunt:textures/item/icons/hunters/scanner_icon.png",
             "text": "§l§3PR0T0C0L 🌐§r§7\nUpon reaching §r§e3§r§7, you can deploy your \"T3rm1n4l Pr0t0c0l\"; nuking the runner's position in a small radius.\n\n§a§l⇶ §r§7Range: §r§f9x9 Blocks§r§8 (Area)\n§6🕒§r§7 Windup: §r§f7.5s§r§8 (Before the laser is shot)\n§r§c🕕§r§7 Duration: §r§f10s§r§8 (How long the laser lasts)\n§r§3PR0T0C0L 🌐§r§7: §r§f3 tiers§r\n\n\n§7§lActive Ability"
         },
         {

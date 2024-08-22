@@ -251,7 +251,7 @@
   "badges": [
     {
       "type": "origins:tooltip",
-      "sprite": "manhunt:textures/item/devil.png",
+      "sprite": "manhunt:textures/item/gambler/devil.png",
       "text": "Devil's Deal: §c-1§r heart\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
     }
   ]

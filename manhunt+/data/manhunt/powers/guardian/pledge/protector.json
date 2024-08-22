@@ -188,7 +188,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/hunters/guardian.png",
+            "sprite": "manhunt:textures/item/icons/hunters/guardian.png",
             "text": "§l§bProtector's Pledge 👼§r§7\nYou grant §r§a25%§r§8(+1)§r§7 of your own armor to your §r§bPledge'd§r§7 ally.\nAdditionally, your abilities now target onto that ally.\n\n§7§lActive Ability"
         },
         {

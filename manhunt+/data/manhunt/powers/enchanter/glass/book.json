@@ -110,7 +110,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/enchanter_book.png",
+            "sprite": "manhunt:textures/item/enchanter/book.png",
             "text": [
                 "§f§lArcane: Glass Shield ⛨§r§7\nWhilst in your inventory, §nhover§r§7 with the stone and press §r[",
                 {

@@ -57,7 +57,7 @@
     "wings": {
         "type": "origins:elytra_flight",
         "render_elytra": true,
-        "texture_location": "manhunt:textures/item/blood_wings.png",
+        "texture_location": "manhunt:textures/item/draco/blood_wings.png",
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -267,7 +267,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/misc/cooldown.png",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
             "text": "Cooldown: 2 mins 30s"
         }
 	]

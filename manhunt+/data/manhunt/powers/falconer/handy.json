@@ -58,7 +58,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/plant_fiber.png",
+            "sprite": "manhunt:textures/item/falconer/plant_fiber.png",
             "text": "§a§lHandy 🌿§r§7\nBreaking grass with a sword may drop §r§eplant fiber§r§7.\nPlant fiber can be used as §nstring§r§7 for any recipe.\n\n§7§lPassive Ability"
         }
     ]

@@ -40,7 +40,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/inmortuae_pulling_1.png",
+            "sprite": "manhunt:textures/item/inmortuae/pulling_1.png",
             "text": "After charging your bow for a full three seconds, your next shot is empowered, dealing close knockback and pushing you back (except if you are sneaking)\nAdditionally, the arrow will pierce, break shields and deal extra damage! (Power I equivalent)"
         }
     ]

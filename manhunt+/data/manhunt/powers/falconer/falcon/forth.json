@@ -963,7 +963,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/hunters/falconer.png",
+            "sprite": "manhunt:textures/item/icons/hunters/falconer.png",
             "text": "§e§lOSHA 🐦§r§7\nOsha is your trusted companion!\nOn your shoulder, he can be ordered to do §r§etwo§r§7 things:\n\n§l§eLEND 🕊§r§7\nSends Osha forward.\nAfter a short while, cast the ability again to §r§egrapple§r§7 to him §r§8(fall damage is negated)§r\n\n§l§6SCOUT 📌§r§7\n Send Osha to find the §nclosest§r§7 runner and §r§ereveal§r§7 their position to you.\n\n§r§c🕕§r§7 Lend Duration: §r§f7s§r§8 (Upon activation)\n§r§c🕕§r§7 Scout Duration: §r§f45s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f15s§r§8 (Taking fatal damage puts Osha on a 1m cooldown)\n\n§7§lActive Ability"
         },
         {

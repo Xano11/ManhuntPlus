@@ -557,7 +557,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/misc/cooldown.png",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
             "text": "Shared Cooldown with \"Perla de Sombra\" : 40s\nDuration: 7s"
         }
     ]

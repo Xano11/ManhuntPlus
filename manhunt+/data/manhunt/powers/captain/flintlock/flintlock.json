@@ -24,7 +24,7 @@
 		},
         {
             "type": "origins:crafting_recipe",
-            "sprite": "manhunt:textures/item/flintlock.png",
+            "sprite": "manhunt:textures/item/captain/flintlock.png",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:flintlock",

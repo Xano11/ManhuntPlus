@@ -126,7 +126,7 @@
         },
         {
             "type": "origins:crafting_recipe",
-            "sprite": "manhunt:textures/item/berserker_horn.png",
+            "sprite": "manhunt:textures/item/berserker/horn.png",
             "recipe": {
                 "type": "minecraft:crafting_shaped",
                 "id": "manhunt:berserker_horn",

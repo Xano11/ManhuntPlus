@@ -14,7 +14,7 @@
         },
 		{
 			"type": "origins:tooltip",
-			"sprite": "manhunt:textures/icons/misc/cooldown.png",
+			"sprite": "manhunt:textures/item/icons/misc/cooldown.png",
 			"text": "Cooldown: 5s"
 		}
     ],

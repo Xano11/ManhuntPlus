@@ -1080,7 +1080,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/runners/gambler.png",
+            "sprite": "manhunt:textures/item/icons/runners/gambler.png",
             "text": "Drawing the same suit multiplies the suits' effects. Cards can be maxed out up to three.\n§5Clubs§r: Speed§a↑§r\n§7Spades§r: Damage§a↑§r\n§cHearts§r: Regeneration§a↑§r\n§bDiamonds§r: Armor§a↑§r"
         },
         {
@@ -1109,7 +1109,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/misc/cooldown.png",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
             "text": "Regain a Card every 45s"
         }
     ]

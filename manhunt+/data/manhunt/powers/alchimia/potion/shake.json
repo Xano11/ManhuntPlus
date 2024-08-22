@@ -308,7 +308,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/runners/alchimia.png",
+            "sprite": "manhunt:textures/item/icons/runners/alchimia.png",
             "text": "§5§lAlchimical Knowledge 🧉§r§7\nWhilst holding your concoctions, you can shake them to transform them into newer potions.\nYou can choose between three pots: §r§fVolatile§r§7, §r§4Strength§r§7 and §r§eEyes§r§7\n\n§r§f§lVolatile 🪶§r§7\nCan be thrown, dealing heavy knockback on impact and providing all entities affected with fall damage nullification.\n\n§r§l§4Strength 🗡§r§7\nIncreases damage by +2 for 15s\n\n§r§l§eEyes 👁§r§7\nFor 15s, you can see all hunters through walls in a 24 block radius.\n\n§6🕒§r§7 Shaking: §r§f1.6s\n\n§7§lActive Ability"
         },
         {

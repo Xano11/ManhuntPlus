@@ -675,7 +675,7 @@
         },
         {
             "type": "origins:crafting_recipe",
-            "sprite": "manhunt:textures/icons/hunters/imp.png",
+            "sprite": "manhunt:textures/item/icons/hunters/imp.png",
             "prefix": "§7The Pitchfork is an §r§eupgradeable§r§7 weapon!",
             "recipe": {
                 "id": "manhunt:flint_trident",

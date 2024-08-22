@@ -83,7 +83,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/flashbang.png",
+            "sprite": "manhunt:textures/item/bomber/flashbang.png",
             "text": "§e§lFlashbang ✨§r§7\nYou can throw a flashbang that flashes §nall runners§r§7 in a §r§e32§r§7 block radius.\nLooking the opposite way will reduce the duration by §r§e0.9s§r§7.\n§r§8(Being too close will flash anyone, even hunters)§r\n\n§e⌛§r§7 Cooldown: §r§f1m§r§8\n\n§7§lActive Ability"
         },
         {

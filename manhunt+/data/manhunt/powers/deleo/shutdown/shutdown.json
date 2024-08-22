@@ -83,7 +83,7 @@
         },
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/tooltips/breakdown.png",
+            "sprite": "manhunt:textures/item/icons/tooltips/breakdown.png",
             "text": "Effect is the same as §3§l☈BREAK§r§b§lDOWN§r.\n(Refer to Non-Emotional Breakdown's tooltips)"
         }
     ]

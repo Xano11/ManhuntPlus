@@ -198,7 +198,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/item/netherite_cleaver.png",
+            "sprite": "manhunt:textures/item/chef/netherite_cleaver.png",
             "text": [
                 "§4§lCleaver🔪§r§7\nYou can temporarily turn your sword into a §4Cleaver🔪§r§8.\n(After one hit, the cleaver will revert into it's original form)§r§7\n\nCleaver's next hit deals §r§a+20%§r§7 crit damage, §r§ebreaks§r§7 shields and lights up the target on fire for §r§e3s§r§7.\n\nWhilst holding §r[",
                 {

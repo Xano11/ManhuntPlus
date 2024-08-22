@@ -284,7 +284,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "manhunt:textures/icons/hunters/xolotl.png",
+            "sprite": "manhunt:textures/item/icons/hunters/xolotl.png",
             "text": "§l§6Wolves 🐾§r§7\nYou can a wolf pack of §r§ethree§r§7 wolves on a cooldown.\nSummoned wolves have §r§c-4§r§7 lesser §l§c❤§r§7 and deal only §r§c1§r§7 damage per hit.\n\nIf killed, the wolves will howl; buffing all hunters with §r§a+15%§r§7 movement speed and §r§a+15%§r§7 attack speed.\n\n§c🕕§r§7 Duration: §r§f2m§r§8 (Upon summoning)\n§e⌛§r§7 Cooldown: §r§f3m§r\n\n§7§lActive Ability"
         },
         {
