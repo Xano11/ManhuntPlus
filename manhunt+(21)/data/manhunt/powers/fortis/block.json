@@ -1,0 +1,225 @@
+{
+    "type": "origins:multiple",
+    "unleash": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/block_duration",
+                    "change": 50,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.hurt player @a ~ ~ ~ 1.5 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~1 ~ 0 0 0 0.3 30",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 160,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/fortis/block.png"
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/block_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/block_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_kb": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.knockback_resistance",
+            "operation": "addition",
+            "value": 100,
+            "name": "No kb"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/block_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hit_countered": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
+        },
+        "bientity_action": {
+            "type": "origins:invert",
+            "action": {
+                "type": "origins:add_velocity",
+                "z": 0.5,
+                "y": 0.1
+            }
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/block_duration",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.death player @a ~ ~ ~ 1.5 2",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "modifier": {
+            "name": "50% mitigation",
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:fortis/block_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:fortis/block_duration",
+                    "comparison": "<=",
+                    "compare_to": 44
+                }
+            ]
+        }
+    },
+    "hit_null": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
+        },
+        "bientity_action": {
+            "type": "origins:invert",
+            "action": {
+                "type": "origins:add_velocity",
+                "z": 1,
+                "y": 0.1
+            }
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/block_duration",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:fortis/block_unleash",
+                    "change": -80,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.death player @a ~ ~ ~ 1.5 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.experience_orb.pickup player @a ~ ~ ~ 1 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "modifier": {
+            "name": "Full mitigation",
+            "operation": "multiply_total",
+            "value": -0.999
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/block_duration",
+            "comparison": ">",
+            "compare_to": 44
+        }
+    },
+    "swirl": {
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/entity/wither/wither_armor.png",
+        "speed": 0.01,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/block_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0.2,
+        "green": 0.2,
+        "blue": 0.8,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:fortis/block_duration",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "bientity_condition": {
+            "type": "origins:can_see"
+        }
+    },
+    "name": "Parry this, Parry that.",
+    "description": "You can harden the shell of your soul to defend yourself from incoming damage momentarily.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/diamond_chestplate.png",
+            "text": "§b§lPARRYING 🤺§r§7\nHarden your body momentarily to block the next instance of damage.\nIf the hit occurs within 0.25s of activation, the hit is §r§efully negated§r§7 and the ability's cooldown is reduced by half.\nIf the hit occurs after this short window, the damage is reduced by §r§e50%§r§7 instead.\n\n§r§c🕕§r§7 Duration: §r§f2.5s §r§8(Hardened Duration)§r\n§e⌛§r§7 Cooldown: §r§f8s§r§8 (Upon Activation)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Block with §r%s§7!"
+        }
+    ]
+}

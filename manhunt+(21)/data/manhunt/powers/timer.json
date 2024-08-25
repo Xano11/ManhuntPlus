@@ -1,0 +1,222 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tellraw @a {\"text\":\"10\",\"bold\":true}",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.note_block.bass player @a",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 20,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"9\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 40,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"8\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 60,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"7\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 80,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"6\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 100,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"5\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 120,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"4\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 140,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"3\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 160,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"2\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 180,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"1\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 200,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @a {\"text\":\"Go!\",\"bold\":true}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bell player @a",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 201,
+                "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:timer",
+                        "permission_level": 4
+                    }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,71 @@
+{
+    "type": "origins:multiple",
+    "command": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:xolotl/wolf/wolfpack_wolves",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:xolotl/wolf/wolves_bite",
+                                "change": 1,
+                                "operation": "set"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.wolf.ambient player @a ~ ~ ~ 2 0.5",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:xolotl/wolf/wolfpack_key_check",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "cooldown": 900,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 22,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png"
+        }
+    },
+    "name": "Rage Against the Runners",
+    "description": "Being bit by a wild wolf isn't necessarily the best idea...",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/bone.png",
+            "text": "§l§6Empowered Bite 🦷§r§7\nUsing this ability makes all wolves §r§a+40%§r§7 quicker and able to deal a §r§estronger§r§7 bite on their next hit for a short duration.\n\nEntities bitten by an empowered bite heal §r§c50%§r§7 less and take §r§e25%§r§7 more damage from Xolotl's attacks.\n\n§c🕕§r§7 Duration: §r§f10s§r§8 (Upon hitting the target)\n§e⌛§r§7 Cooldown: §r§f45s§r\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and press §r[",
+                {
+                    "keybind": "key.attack"
+                },
+                "]§7 to empower your wolves next bite!"
+            ]
+        }
+    ]
+}

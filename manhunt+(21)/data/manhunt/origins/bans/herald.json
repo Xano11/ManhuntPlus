@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:wild_armor_trim_smithing_template",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Herald",
+	"description": "       [§eASSISTANCE ✦§r]\nAs the supportive hand in any group, the Herald taps into life essence to give it's allies the advantage in combat."
+}

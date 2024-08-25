@@ -1,0 +1,63 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:berserker/beast/beast_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.hoglin.converted_to_zombified player @a ~ ~ ~ 5 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ender_dragon.growl player @a ~ ~ ~ 5 0.6"
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 1.5,
+                        "y": 0.5
+                    },
+                    "bientity_condition": {
+                        "type": "origins:can_see"
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 800,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1,
+            "should_render": true
+        },
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:berserker/beast/beast_effects",
+            "inverted": true
+        }
+    },
+    "name": "Battle Cry",
+    "description": "Unleash the demons within, causing a large explosive wave around you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§c§lBattle Cry 🞽§r\n§7Emits a roar that §r§epushes back§r§7 other entities around you.\n§7During the roar, you §r§atake no damage§r§7 but have §r§c-20%§r§7 Mouse Sensitivity and §r§c-80%§r§7 Velocity.\n\n§a§l⇶ §r§7Range: §r§f5 Blocks\n§c🕕§r§7 Duration: §r§f1.75s§r§8\n§e⌛§r§7 Cooldown: §r§f40s§r\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Unleash with %s§7 !"
+        }
+    ]
+}

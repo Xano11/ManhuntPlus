@@ -1,0 +1,141 @@
+{
+    "type": "origins:multiple",
+    "detonate": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.6 0.4 0 1.4 1 1 1 ~ ~ ~ 0.3 0.3 0.3 1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crit ~ ~ ~ 0 0 0 0.4 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 3 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~ ~ 0.3 0.3 0.3 1 5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flame ~ ~ ~ 0.3 0.3 0.3 0.1 20"
+                },
+                {
+                    "type": "origins:explode",
+                    "power": 1,
+                    "destruction_type": "none",
+                    "damage_self": false,
+                    "create_fire": false
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 4,
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 2
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "spin": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/cannon_packs.png",
+            "bar_index": 0
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/boom/boompack_spin",
+            "change": -360
+        }
+    },
+    "spinning": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:bomber/boom/boompack_spin",
+                    "change": 12
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=boompack] manhunt:bomber/boom/boompack_spin"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=boompack] manhunt:bomber/boom/boompack_spin"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block",
+            "inverted": true
+        }
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 1 2"
+        },
+        "interval": 20
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/boom/boompack_detonate",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "detonate_early": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/boom/boompack_detonate",
+            "change": -60
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:passenger",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}

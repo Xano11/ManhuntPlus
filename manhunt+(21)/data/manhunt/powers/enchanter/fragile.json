@@ -1,0 +1,25 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -6,
+            "operation": "addition"
+        }
+    },
+    "crystal_hearts":{
+        "type": "origins:status_bar_texture",
+        "texture": "manhunt:textures/gui/enchanter_hearts.png"
+    },
+    "name": "Fragile Reality",
+    "description": "\"Urgh... I should maybe go to the gym soon...\"",
+    "badges": [
+        {
+			"type": "origins:keybind",
+			"sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+			"text": "§c§lReality Check ✗§r§7\n-3 §l§c❤§r of maximum health overall.\n\n§7§lPassive Ability"
+		}
+    ]
+}

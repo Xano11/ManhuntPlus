@@ -1,0 +1,112 @@
+{
+    "type": "origins:multiple",
+    "luck": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:gameplay/fishing": "manhunt:gameplay/angler_fishing"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "<",
+            "compare_to": 2
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition":{
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"angler\"]}"
+                        }
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "offhand",
+                        "item_condition":{
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"angler\"]}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "luck_increase": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:gameplay/fishing": "manhunt:gameplay/angler_fishing_increase"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition":{
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"angler\"]}"
+                        }
+                    },
+                    {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "offhand",
+                        "item_condition":{
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"angler\"]}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "lure1":{
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:lure",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "lure2":{
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:lure",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fishing",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "name": "Fisher of Legends",
+    "description": "Legends say the Angler could feed an entire village by themselves...\nThey were right.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/fishing_rod.png",
+            "text": "§3§lAngler's Rod 🎣§r\n§7You spawn in with an §r§aUnbreakable§r\n§7fishing rod that even returns on death.\n§7When catching fish, you have §r§a4x§r§7 the normal yield.\n\n§7§lPassive Ability"
+        }
+    ]
+}

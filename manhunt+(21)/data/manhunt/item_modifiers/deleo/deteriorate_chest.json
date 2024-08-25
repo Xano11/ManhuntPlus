@@ -1,0 +1,7 @@
+{
+    "function": "apoli:add_power",
+    "power": "manhunt:deleo/binding/deteriorate/chest",
+    "slot": "chest",
+    "negative": false,
+    "hidden": true
+}

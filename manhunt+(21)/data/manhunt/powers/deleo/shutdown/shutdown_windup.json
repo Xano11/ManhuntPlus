@@ -1,0 +1,489 @@
+{
+    "type": "origins:multiple",
+    "winding": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 32,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 6
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:can_see"
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 20,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:deleo/frozen/frozen"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 128,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:deleo/frozen/frozen"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:can_see"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"explosion\"],Passengers:[{id:\"minecraft:item_display\",view_range:10f,shadow_radius:0f,shadow_strength:0f,start_interpolation:-1,interpolation_duration:15,Tags:[\"explosion\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:white_concrete\",Count:1b}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:deleo/shutdown/delete_explosion",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [100f,100f,100f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"explosion\"],Passengers:[{id:\"minecraft:item_display\",view_range:10f,shadow_radius:0f,shadow_strength:0f,start_interpolation:-1,interpolation_duration:15,Tags:[\"explosion\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.3f,0.8f,1.3f]},item:{id:\"minecraft:white_concrete\",Count:1b}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:deleo/shutdown/delete_explosion",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [130f,80f,130f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"explosion_shockwave\"],Passengers:[{id:\"minecraft:item_display\",view_range:0f,shadow_radius:0f,shadow_strength:15f,start_interpolation:-1,interpolation_duration:15,Tags:[\"explosion\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.3f,0.8f,1.3f]},item:{id:\"minecraft:echo_shard\",Count:1b,tag:{CustomModelData:2}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:deleo/shutdown/delete_explosion",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [220f,220f,0f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 12 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.firework_rocket.large_blast_far player @a ~ ~ ~ 12 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.sonic_boom player @a ~ ~ ~ 12 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 1 ~ ~1 ~ 1 0.5 1 1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~1 ~ 0 0 0 4 1000 force @a"
+                },
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "set": true
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
+                    "change": 30,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "invuln": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:deleo/shutdown/shutdown_windup"
+        }
+    },
+    "invuln_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_invuln",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "push": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 4,
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": 0.1
+            },
+            "bientity_condition": {
+                "type": "origins:can_see"
+            }
+        },
+        "interval": 1
+    },
+    "charge_windup": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+                    "change": 10
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 2
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "glowswitch1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "change": -1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "change": 1
+            }
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "<",
+            "compare_to": 30
+        }
+    },
+    "glowswitch2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "change": -1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "change": 1
+            }
+        },
+        "interval": 3,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+                    "comparison": ">=",
+                    "compare_to": 30
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+                    "comparison": "<",
+                    "compare_to": 60
+                }
+            ]
+        }
+    },
+    "glowswitch3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "change": -1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+                "change": 1
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": ">=",
+            "compare_to": 60
+        }
+    },
+    "particles_implosion": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 6 3000"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 3 0.5"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "==",
+            "compare_to": 15
+        }
+    },
+    "teleport": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "tp @s ~ ~0.15 ~"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "<",
+            "compare_to": 15
+        }
+    },
+    "immobile": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "<",
+            "compare_to": 70
+        }
+    },
+    "shaking": {
+        "type": "origins:shaking",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "<",
+            "compare_to": 70
+        }
+    },
+    "camera": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "<",
+            "compare_to": 70
+        }
+    },
+    "swirl": {
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/deleo/cursed.png",
+        "speed": 0.2,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_winding",
+            "comparison": "<",
+            "compare_to": 70
+        }
+    },
+    "glowtoggle": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0,
+        "green": 0.3,
+        "blue": 0.35,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/shutdown/shutdown_windup_glowtoggle",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "hidden": true
+}

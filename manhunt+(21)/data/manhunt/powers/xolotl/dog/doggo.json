@@ -1,0 +1,88 @@
+{
+    "type": "origins:multiple",
+    "invuln": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Invuln",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "comparison": ">",
+            "compare_to": 1
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 120,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run ride @s dismount"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @s Silent set value 1b",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~ ~ 0.2 0.2 0.2 0.1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.chicken.egg player @a ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 9999,
+                    "damage_type": "manhunt:vanish"
+                },
+                {
+                    "type": "origins:modify_death_ticks",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 20
+                    }
+                }
+            ]
+        }
+    },
+    "sneak": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:xolotl/dog/doggo_duration",
+            "change": 0,
+            "operation": "set"
+        },
+        "condition": {
+            "type": "origins:passenger",
+            "inverted": true
+        },
+        "interval": 1
+    },
+    "slipperiness":{
+        "type": "origins:modify_slipperiness",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.4
+        },
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:ice"
+        }
+    },
+    "hidden": true
+}

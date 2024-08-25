@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:berserker/horn/anim_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned as @p run tp @s ~ ~2.2 ~ ~20 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @e[limit=1,sort=nearest,type=minecraft:item_display,tag=horn_effect] Rotation[0] set from entity @s Rotation[0]",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1
+    }
+}

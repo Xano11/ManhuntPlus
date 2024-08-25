@@ -1,0 +1,44 @@
+{
+    "type": "origins:multiple",
+    "glow": {
+        "type": "origins:self_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 48
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:jester/madness/mad_runners",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 0.0
+    },
+    "name": "Chaotic Aura",
+    "description": "Your overwhelming presence manifests itself in such a blatant manner.",
+    "badges": [
+        {
+          "type": "origins:tooltip",
+          "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+          "text": "Chaotic Aura: You glow red to all players in a 48 block radius."
+        }
+    ]
+}

@@ -1,0 +1,761 @@
+{
+    "type": "origins:multiple",
+    "owner": {
+        "type": "origins:entity_set"
+    },
+    "pull": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s add sculk_tp"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.sculk_catalyst.bloom player @a ~ ~ ~ 3 2"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 1 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:dust_color_transition 0 1 1 1 1 1 1 ~ ~1 ~ 0.5 0.2 0.5 1 100"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @p[tag=sculk_tp] @s"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @p[tag=sculk_tp] remove sculk_tp"
+                                        },
+                                        {
+                                            "type": "origins:swing_hand",
+                                            "hand": "MAIN_HAND"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.allay.item_taken player @a ~ ~ ~ 3 2"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:hunter",
+                                            "layer": "origins:origin"
+                                        },
+                                        {
+                                            "type": "apugli:entity_in_radius",
+                                            "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags: ['totem']}"
+                                            },
+                                            "radius": 8.0,
+                                            "comparison": "==",
+                                            "compare_to": 0
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 96
+                            }
+                        ]
+                    },
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['totem']}"
+                    },
+                    "radius": 8.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "comparison": "==",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
+    "tunnel": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add owner_tunnel"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:armor_stand",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"totem_tunnel\"]}",
+                                            "entity_action": {
+                                                "type": "origins:selector_action",
+                                                "selector": "@a[tag=owner_tunnel]",
+                                                "bientity_action": {
+                                                    "type": "origins:invert",
+                                                    "action": {
+                                                        "type": "origins:add_to_set",
+                                                        "set": "manhunt:shaman/grasp_owner"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.sculk_catalyst.bloom player @a ~ ~ ~ 3 2"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 1 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:dust_color_transition 0 1 1 1 1 1 1 ~ ~1 ~ 0.5 0.2 0.5 1 100"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove owner_tunnel"
+                                        },
+                                        {
+                                            "type": "origins:action_on_set",
+                                            "set": "manhunt:shaman/totem/totem_owner",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:change_resource",
+                                                            "resource": "manhunt:shaman/totem/totem_powers_tunnel",
+                                                            "change": 15,
+                                                            "operation": "set"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "execute on passengers if entity @s[tag=totem_lantern] run data modify entity @s block_state.Name set value \"minecraft:air\""
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "execute on passengers on passengers run data modify entity @s item set value {id:\"minecraft:air\",Count:1b}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "miss_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:shaman/grasp_tunnel",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:hunter",
+                                            "layer": "origins:origin"
+                                        },
+                                        {
+                                            "type": "apugli:entity_in_radius",
+                                            "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags: ['totem']}"
+                                            },
+                                            "radius": 8.0,
+                                            "comparison": "==",
+                                            "compare_to": 0
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 96
+                            }
+                        ]
+                    },
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "cooldown": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['totem']}"
+                    },
+                    "radius": 8.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "comparison": "==",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
+    "glow_souls": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:item"
+                            },
+                            {
+                                "type": "origins:riding",
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "manhunt:shaman/totem/soul"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:shaman/regenerate_windup",
+                        "comparison": "==",
+                        "compare_to": 20
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 16
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.9,
+        "blue": 1.0
+    },
+    "glow_blue": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags: ['totem']}"
+                                },
+                                "radius": 8.0,
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:relative_health",
+                                "comparison": ">=",
+                                "compare_to": 0.75
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:shaman/regenerate_windup",
+                                "comparison": "==",
+                                "compare_to": 20
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
+                                        }
+                                    ]
+                                },
+                                "radius": 8.0,
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 96
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.9,
+        "blue": 1.0
+    },
+    "glow_green": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags: ['totem']}"
+                                },
+                                "radius": 8.0,
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:relative_health",
+                                "comparison": "<",
+                                "compare_to": 0.75
+                            },
+                            {
+                                "type": "origins:relative_health",
+                                "comparison": ">=",
+                                "compare_to": 0.5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:shaman/regenerate_windup",
+                                "comparison": "==",
+                                "compare_to": 20
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
+                                        }
+                                    ]
+                                },
+                                "radius": 8.0,
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 96
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.9,
+        "blue": 0.0
+    },
+    "glow_yellow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags: ['totem']}"
+                                },
+                                "radius": 8.0,
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:relative_health",
+                                "comparison": "<",
+                                "compare_to": 0.5
+                            },
+                            {
+                                "type": "origins:relative_health",
+                                "comparison": ">=",
+                                "compare_to": 0.25
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:shaman/regenerate_windup",
+                                "comparison": "==",
+                                "compare_to": 20
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
+                                        }
+                                    ]
+                                },
+                                "radius": 8.0,
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 96
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.0
+    },
+    "glow_red": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags: ['totem']}"
+                                },
+                                "radius": 8.0,
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:relative_health",
+                                "comparison": "<",
+                                "compare_to": 0.25
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:shaman/regenerate_windup",
+                                "comparison": "==",
+                                "compare_to": 20
+                            },
+                            {
+                                "type": "apugli:entity_in_radius",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:entity_type",
+                                            "entity_type": "minecraft:armor_stand"
+                                        },
+                                        {
+                                            "type": "origins:power",
+                                            "power": "manhunt:shaman/totem/totem_powers"
+                                        }
+                                    ]
+                                },
+                                "radius": 8.0,
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 96
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.5,
+        "green": 0,
+        "blue": 0
+    },
+    "overlay": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:shaman/crosshair"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "none",
+                    "hit_bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:hunter",
+                                            "layer": "origins:origin"
+                                        },
+                                        {
+                                            "type": "apugli:entity_in_radius",
+                                            "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags: ['totem']}"
+                                            },
+                                            "radius": 8.0,
+                                            "comparison": "==",
+                                            "compare_to": 0
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 96
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:shaman/regenerate_windup",
+                    "comparison": "==",
+                    "compare_to": 20
+                }
+            ]
+        }
+    },
+    "name": "Sculk's Grasp",
+    "description": "Whilst in the totem and fully reposed, you can teleport teammates to you or bring your totem to them.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§b§lHand of the Shaman ✋§r\n§7While resting from §r§3Cursed Link§r§7 in your §r§3Totem§r§7, allies within range will §r§fglow§r§7 to reflect their current §r§aHP§r§7.\n§7In this state, you can pull allies to you or send your §r§3Totem§r§7 to them but reduce it's duration.\n\n§a§l⇶ §r§7Range: §r§f96 Blocks\n§c🕕§r§7 Duration: §r§f-15s§r§8 (Totem Send)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Use §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to pull allies to you.\n§7Use §r[",
+                {
+                    "keybind": "key.attack"
+                },
+                "]§7 to send your Totem to allies."
+            ]
+        }
+    ]
+}

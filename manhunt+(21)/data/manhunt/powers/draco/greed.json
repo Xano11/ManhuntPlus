@@ -1,0 +1,41 @@
+{
+	"type": "origins:multiple",
+	"kill": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:draco/wings/fly_charges",
+            "change": 1
+        },
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "target_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:player"
+        }
+    },
+    "looting":{
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        }
+    },
+	"name": "Greedy",
+	"description": "Greed is at the core of what pushes you to win.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "Greedy: Passive Looting I"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "Additionally, every player kill grants you a Wing Charge."
+		}
+	]
+}

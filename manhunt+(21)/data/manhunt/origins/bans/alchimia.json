@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:brewing_stand",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Alchimia 🧪",
+	"description": "The true nature of any element's mastery lies in research and vigor... Too bad that those hunters lack the eye of a true alchemist."
+}

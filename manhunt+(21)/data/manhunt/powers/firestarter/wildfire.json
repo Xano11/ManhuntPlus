@@ -1,0 +1,153 @@
+{
+    "name": "Wildfire debuff",
+    "hidden": true,
+    "type": "origins:multiple",
+    "spread": {
+        "type": "apoli:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:area_of_effect",
+                "radius": 5,
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:health",
+                                "compare_to": 0,
+                                "comparison": ">"
+                            },
+                            {
+                                "type": "origins:exists"
+                            },
+                            {
+                                "type": "origins:living"
+                            }
+                        ]
+                    }
+                },
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[team=Hunters]",
+                            "compare_to": 0,
+                            "comparison": "!="
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:set_on_fire",
+                                    "duration": 6
+                                },
+                                {
+                                    "type": "origins:grant_power",
+                                    "power": "*:firestarter/wildfire",
+                                    "source": "manhunt:firestarter_burn_hit"
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:heal",
+                                    "amount": 2
+                                },
+                                {
+                                    "type": "origins:apply_effect",
+                                    "effect": {
+                                        "effect": "minecraft:strength",
+                                        "duration": 100,
+                                        "amplifier": 0,
+                                        "show_particles": true
+                                    }
+                                },
+                                {
+                                    "type": "origins:spawn_particles",
+                                    "particle": "minecraft:flame",
+                                    "spread": {
+                                        "x": 0.2,
+                                        "y": 0.8,
+                                        "z": 0.2
+                                    },
+                                    "count": 6,
+                                    "speed": 0.05
+                                },
+                                {
+                                    "type": "origins:play_sound",
+                                    "sound": "minecraft:block.fire.extinguish",
+                                    "pitch": 0.8,
+                                    "volume": 1,
+                                    "category": "players"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "nofireres": {
+        "type": "origins:action_over_time",
+        "interval": 4,
+        "entity_action": {
+            "type": "origins:clear_effect",
+            "effect": "fire_resistance"
+        }
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:smoke",
+        "frequency": 2,
+        "spread": {
+            "x": 0.2,
+            "y": 0.8,
+            "z": 0.2
+        },
+        "count": 4,
+        "speed": 0.05
+    },
+    "remove": {
+        "type": "origins:action_over_time",
+        "interval": 120,
+        "entity_action": {
+            "type": "origins:revoke_power",
+            "power": "*:*",
+            "source": "manhunt:firestarter_burn_hit"
+        }
+    },
+    "show": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:item.firecharge.use",
+                    "pitch": 1.2,
+                    "volume": 1,
+                    "category": "players"
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:lava",
+                    "count": 10,
+                    "offset_y": 1,
+                    "speed": 0.45,
+                    "spread": {
+                        "x": 0.25,
+                        "y": 0.25,
+                        "z": 0.25
+                    }
+                }
+            ]
+        }
+    }
+}

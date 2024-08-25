@@ -1,0 +1,19 @@
+{
+    "type": "origins:multiple",
+    "lightning": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "minecraft:lightning_bolt"
+        }
+    },
+    "redirect": {
+        "type": "apugli:redirect_lightning",
+        "chance": 0.8
+    },
+    "hidden": true
+}

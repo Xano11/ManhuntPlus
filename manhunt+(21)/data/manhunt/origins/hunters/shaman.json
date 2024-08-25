@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"manhunt:roles/pillar",
+		"manhunt:shaman/totem/totem",
+		"manhunt:shaman/grasp",
+		"manhunt:shaman/regenerate",
+		"manhunt:shaman/absorbed"
+	],
+	"icon": {
+		"item": "minecraft:echo_shard",
+		"tag": "{Enchantments:[{}],CustomModelData:4}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Shaman",
+	"description": "         [§7PILLAR 回§r]\nThe Shaman can use its supernatural powers to make sure their team is always on maximum shape."
+}

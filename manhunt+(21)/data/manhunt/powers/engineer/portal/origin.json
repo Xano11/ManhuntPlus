@@ -1,0 +1,533 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/portal/origin_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "uses": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "cooldown_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/portal/origin_cooldown",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/origin_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "portal": {
+        "type": "origins:entity_set"
+    },
+    "grow1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [0.8f,1.3f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a run playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 1 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "execute on passengers run data modify entity @s transformation.scale set value [30f,30f,1f]",
+                            "permission_level": 4
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/origin_duration",
+            "comparison": "==",
+            "compare_to": 560
+        }
+    },
+    "grow2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.1f,1.6f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a run playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 1 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [45f,45f,1f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/origin_duration",
+            "comparison": "==",
+            "compare_to": 520
+        }
+    },
+    "grow3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.5f,2.0f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a run playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 1 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [60f,60f,1f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 4",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/origin_duration",
+            "comparison": "==",
+            "compare_to": 480
+        }
+    },
+    "grow4": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [1.8f,2.3f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a run playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 1 0.9",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "execute on passengers run data modify entity @s transformation.scale set value [75f,75f,1f]",
+                            "permission_level": 4
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/origin_duration",
+            "comparison": "==",
+            "compare_to": 440
+        }
+    },
+    "grow5": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2.0f,2.5f,1.0f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0.6 0 1 ~ ~1.5 ~ 1 1 1 1 100 force @a",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dragon_breath ~ ~1.5 ~ 1 1 1 0.3 100 force @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a run playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:engineer/portal/origin_portal",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s transformation.scale set value [100f,100f,1f]",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 5",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/origin_duration",
+            "comparison": "==",
+            "compare_to": 400
+        }
+    },
+    "teleport": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@p",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:action_on_set",
+                                            "set": "manhunt:engineer/portal/origin_portal",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s add dropping"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:engineer/portal/origin_cooldown",
+                                            "change": 10,
+                                            "operation": "set"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:portal ~ ~1 ~ 0 0 0 1 30 force @a"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:engineer/portal/dropping"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s @e[limit=1,sort=nearest,tag=dropping,type=armor_stand]"
+                                        },
+                                        {
+                                            "type": "origins:random_teleport",
+                                            "area_width": 60,
+                                            "area_height": 1,
+                                            "landing_block_condition": {
+                                                "type": "origins:block",
+                                                "block": "minecraft:air"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.conduit.activate player @a ~ ~ ~ 2 0.5"
+                                        },
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:armor_stand",
+                                            "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"drop_pod\"],DisabledSlots:4144959}",
+                                            "entity_action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "data modify entity @s Rotation set value [0f,0f]"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s manhunt:engineer/portal/pod"
+                                                    },
+                                                    {
+                                                        "type": "origins:spawn_entity",
+                                                        "entity_type": "minecraft:block_display",
+                                                        "tag": "{Passengers:[{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:netherite_block\",Properties:{}},transformation:[1.0000f,0.0000f,0.0000f,0.0000f,0.0000f,2.0000f,0.0000f,0.0000f,0.0000f,0.0000f,0.5000f,-0.5000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:netherite_block\",Properties:{}},transformation:[1.0000f,0.0000f,0.0000f,0.0000f,0.0000f,2.0000f,0.0000f,0.0000f,0.0000f,0.0000f,0.5000f,1.0000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:netherite_block\",Properties:{}},transformation:[-0.0000f,0.0000f,0.5000f,1.0000f,0.0000f,2.0000f,0.0000f,0.0000f,-1.0000f,0.0000f,-0.0000f,1.0000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:netherite_block\",Properties:{}},transformation:[-0.0000f,0.0000f,0.5000f,-0.5000f,0.0000f,0.7500f,0.0000f,0.0000f,-1.0000f,0.0000f,-0.0000f,1.0000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:netherite_block\",Properties:{}},transformation:[-0.0000f,0.0000f,0.5000f,-0.5000f,0.0000f,0.4375f,0.0000f,1.5625f,-1.0000f,0.0000f,-0.0000f,1.0000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:tinted_glass\",Properties:{}},transformation:[0.4375f,0.0000f,0.0000f,-0.4375f,0.0000f,0.8750f,0.0000f,0.6875f,0.0000f,0.0000f,1.0000f,0.0000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:item_display\",item:{id:\"minecraft:netherite_scrap\",Count:1},item_display:\"none\",transformation:[0.0000f,-0.0000f,-1.0000f,-0.4740f,0.6782f,0.8314f,0.0000f,0.4562f,1.0146f,-0.5557f,0.0000f,0.5000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:netherite_block\",Properties:{}},transformation:[1.0000f,0.0000f,0.0000f,0.0000f,0.0000f,0.4375f,0.0000f,2.0000f,0.0000f,0.0000f,1.0000f,0.0000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:jigsaw\",Properties:{orientation:\"down_east\"}},transformation:[0.8750f,0.0000f,0.0000f,0.0625f,0.0000f,0.8750f,0.0000f,2.1250f,0.0000f,0.0000f,0.8750f,0.0625f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:item_display\",item:{id:\"minecraft:netherite_ingot\",Count:1},item_display:\"none\",transformation:[0.0000f,-0.0000f,-1.0000f,-0.4831f,-0.9159f,0.4015f,-0.0000f,2.2500f,0.4015f,0.9159f,-0.0000f,0.5000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:item_display\",item:{id:\"minecraft:netherite_ingot\",Count:1},item_display:\"none\",transformation:[-0.0000f,-0.0000f,-1.0000f,1.4694f,-0.9159f,0.4015f,0.0000f,2.2500f,0.4015f,0.9159f,-0.0000f,0.5000f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:item_display\",item:{id:\"minecraft:netherite_ingot\",Count:1},item_display:\"none\",transformation:[0.4015f,0.9159f,-0.0000f,0.5000f,-0.9159f,0.4015f,0.0000f,2.2500f,0.0000f,0.0000f,1.0000f,1.4767f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:item_display\",item:{id:\"minecraft:netherite_ingot\",Count:1},item_display:\"none\",transformation:[0.4015f,0.9159f,-0.0000f,0.5000f,-0.9159f,0.4015f,0.0000f,2.2500f,0.0000f,0.0000f,1.0000f,-0.4771f,0.0000f,0.0000f,0.0000f,1.0000f]},{id:\"minecraft:block_display\",block_state:{Name:\"minecraft:sculk_shrieker\",Properties:{can_summon:\"false\"}},transformation:[1.0000f,0.0000f,0.0000f,0.0000f,0.0000f,-0.8125f,-0.0000f,0.3750f,0.0000f,0.0000f,-1.0000f,1.0000f,0.0000f,0.0000f,0.0000f,1.0000f]}]}",
+                                                        "bientity_action": {
+                                                            "type": "origins:invert",
+                                                            "action": {
+                                                                "type": "origins:mount"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "bientity_action": {
+                                                "type": "origins:mount"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:action_on_set",
+                                            "set": "manhunt:engineer/portal/origin_portal",
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s remove dropping"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:engineer/portal/origin_uses",
+                                            "change": -1
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:distance",
+                        "comparison": "<=",
+                        "compare_to": 1.5
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~0.2 ~ 0.5 1 0.5 0.3 1 force @a"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0.7 0 0.8 ~ ~0.2 ~ 0.5 1 0.5 1 1 force @a"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:engineer/portal/origin_duration",
+                    "comparison": "<=",
+                    "compare_to": 400
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:engineer/portal/origin_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

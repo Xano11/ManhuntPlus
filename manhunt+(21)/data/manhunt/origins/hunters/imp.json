@@ -1,0 +1,18 @@
+{
+    "powers": [
+        "manhunt:roles/pacekeeper",
+        "manhunt:imp/pitchfork",
+        "manhunt:imp/flight",
+        "manhunt:imp/portal/portal",
+        "manhunt:imp/infernal",
+        "manhunt:imp/body",
+        "manhunt:imp/bad_swimmer"
+    ],
+    "icon": {
+		"item": "minecraft:purple_dye",
+		"tag": "{Enchantments:[{}],CustomModelData:5}"
+	},
+    "impact": 3,
+    "name": "Imp",
+    "description": "      [§bPACEKEEPER ╬§r]\nA natural fiend. The Imp serves as a constant threat to runners with their transportation abilities and pitchfork in hand."
+}

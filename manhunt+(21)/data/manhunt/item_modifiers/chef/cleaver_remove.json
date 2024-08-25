@@ -1,0 +1,5 @@
+{
+    "function": "apoli:remove_power",
+    "power": "manhunt:chef/cleaver/cleaver",
+    "slot": "mainhand"
+}

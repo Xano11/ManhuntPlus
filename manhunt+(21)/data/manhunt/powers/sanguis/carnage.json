@@ -1,0 +1,38 @@
+{
+    "type": "origins:multiple",
+    "food": {
+        "type": "origins:modify_food",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:carnage_food"
+            }
+        },
+        "prevent_effects": true
+    },
+    "carnivore": {
+        "type": "origins:prevent_item_use",
+        "name": "🚫",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "type": "origins:meat",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "name": "Carnage Feast",
+    "description": "What others consider rotten and horrid only quenches your hunger.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c§lTaste of Carnage 🥩§r§7\n§7Rotten Flesh, Spider Eyes, Pufferfish and Raw Chicken §r§acannot§r§7 inflict harmful effects when eaten.\n§7However, you can §r§conly§r§7 eat meat.\n\n§7§lPassive Ability"
+        }
+    ]
+}

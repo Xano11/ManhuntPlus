@@ -1,0 +1,104 @@
+{
+    "type": "origins:multiple",
+    "spectator": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing] run origin set @s origins:origin manhunt:spectator"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run tellraw @s \"A run is currently ongoing. Feel free to spectate!\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run tag @s add spectating"
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @a[tag=!playing,tag=!spectating]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=hunter_joinup]",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "hunter": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run origin set @s origins:origin manhunt:hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing] run origin gui @s manhunt:hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run recipe give @s *"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @a[tag=!playing,tag=!spectating] compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:1,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=!playing,tag=!spectating] run tag @s add playing"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=glow_enabled]",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action":  {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a[tag=hunter] run resource set @s manhunt:hunter_effects_glow 1"
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @a[tag=hunter] run resource set @s manhunt:hunter_effects_glow 0"
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @a[tag=!playing,tag=!spectating]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=hunter_joinup]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "type": "origins:multiple",
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -2,
+            "operation": "addition"
+        }
+    },
+    "helmet": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "leggings": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -2,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "legs",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "boots": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "feet",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": true
+        }
+    },
+    "name": "Thick Fur",
+    "description": "Your thick fur exposes more weak spots in your armor.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§f§lThick Coat 🗯§r§7\n\nYour armor as reduced value.\n\nLeggings: (§r§c-2 Armor§r§7)\n\nBoots/Helmets: (§r§c-1 Armor§r§7)\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": [
+                {
+                    "text": "§c§lDog Built 💔§r§7\nYou have -1 maximum §l§c❤§r§7 overall\n\n§7§lPassive Ability"
+                }
+            ]
+        }
+    ]
+}

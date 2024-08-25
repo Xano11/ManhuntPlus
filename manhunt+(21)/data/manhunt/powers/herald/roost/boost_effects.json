@@ -1,0 +1,58 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:herald/boost/boost_effects"
+        }
+    },
+    "remove_resource": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:herald/boost/boost_effects_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "feed": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:feed",
+            "food": 1,
+            "saturation": 0.1
+        },
+        "interval": 40
+    },
+    "absorption": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:absorption 10 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:herald/boost/boost_effects"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition":  {
+            "type": "origins:food_level",
+            "comparison": "==",
+            "compare_to": 20
+        }
+    },
+    "hidden": true
+}

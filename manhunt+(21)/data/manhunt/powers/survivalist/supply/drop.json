@@ -1,0 +1,189 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:survivalist/supply/drop_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "done": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "bounce": {
+        "type": "eggolib:modify_bounciness",
+        "modifier": {
+            "value": -0.5,
+            "operation": "multiply_total"
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.generic.small_fall player @a ~ ~ ~ 3 0.6",
+            "permission_level": 4
+        },
+        "block_condition": {
+            "type": "origins:movement_blocking"
+        }
+    },
+    "landed": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon armor_stand ~ 300 ~ {Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:block_display\",Tags:[\"drop\"],Passengers:[{id:\"minecraft:block_display\",Tags:[\"drop\"],Passengers:[{id:\"minecraft:block_display\",Tags:[\"drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1.55f,3f,-1.55f],scale:[4f,4f,4f]},block_state:{Name:\"minecraft:red_glazed_terracotta\"}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,-0.85f,-1f],scale:[3f,4f,3f]},block_state:{Name:\"minecraft:chain\",Properties:{axis:\"y\"}}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.5f,0f],scale:[1f,1f,1f]},block_state:{Name:\"minecraft:chest\",Properties:{type:\"single\"}}}]}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run power grant @s manhunt:survivalist/supply/loot",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/drop_levels",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 1",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/drop_levels",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 2",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/drop_levels",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute positioned ~ 300 ~ as @e[limit=1,sort=nearest,tag=drop,type=armor_stand] run resource set @s manhunt:survivalist/supply/loot_levels 3",
+                                "permission_level": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:survivalist/supply/drop_duration 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s manhunt:survivalist/supply/drop_done 1",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "in_air": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:survivalist/supply/drop_landed",
+            "change": -10
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block",
+            "inverted": true
+        }
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:smoke ~ ~ ~ 0.4 1 0.4 0 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:survivalist/supply/drop_landed",
+                    "change": 1
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:survivalist/supply/drop_done",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

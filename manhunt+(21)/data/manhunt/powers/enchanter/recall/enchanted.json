@@ -1,0 +1,9 @@
+{
+    "type": "origins:multiple",
+    "particles":{
+        "type": "origins:particle",
+        "particle": "minecraft:enchant",
+        "frequency": 6
+    },
+    "hidden": true
+}

@@ -96,5 +96,15 @@
       "sounds": [
         "misc/notlikeus"
       ]
+    },
+    "honored_one": {
+      "sounds": [
+        "misc/honored_one"
+      ]
+    },
+    "hollow_purple": {
+      "sounds": [
+        "misc/hollow_purple"
+      ]
     }
   }

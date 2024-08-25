@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:string",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "minecraft:set_nbt",
+                            "tag": "{CustomModelData:1,Tags:[\"plant_fiber\"],display:{Name:'[{\"text\":\"Plant Fiber\",\"italic\":false}]'}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:air",
+                    "weight": 9
+                }
+            ]
+        }
+    ]
+}

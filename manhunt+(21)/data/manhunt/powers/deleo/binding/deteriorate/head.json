@@ -1,0 +1,22 @@
+{
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:equipped_item_action",
+            "equipment_slot": "head",
+            "action": {
+                "type": "origins:damage",
+                "amount": 3,
+                "ignore_unbreaking": true
+            }
+        },
+        "interval": 40
+    },
+    "exhaust":{
+        "type": "origins:exhaust",
+        "interval": 40,
+        "exhaustion": 0.05
+    },
+    "hidden": true
+}

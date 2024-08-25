@@ -1,0 +1,379 @@
+{
+    "type": "origins:multiple",
+    "xp_gain": {
+        "type": "origins:modify_xp_gain",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 2.0
+        }
+    },
+    "enchant_stone": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "give @s amethyst_shard{CustomModelData:1,Tags:[\"enchanter_stone\"],display:{Name:'[{\"text\":\"Encha\",\"italic\":false,\"color\":\"dark_blue\"},{\"text\":\"nter\",\"color\":\"blue\"},{\"text\":\"\\'s St\",\"color\":\"light_purple\"},{\"text\":\"one\",\"color\":\"dark_purple\"}]',Lore:['[{\"text\":\"Only a few can read this.\",\"italic\":false,\"obfuscated\":true}]']},Enchantments:[{}]} 1"
+        },
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "give @s amethyst_shard{CustomModelData:1,Tags:[\"enchanter_stone\"],display:{Name:'[{\"text\":\"Encha\",\"italic\":false,\"color\":\"dark_blue\"},{\"text\":\"nter\",\"color\":\"blue\"},{\"text\":\"\\'s St\",\"color\":\"light_purple\"},{\"text\":\"one\",\"color\":\"dark_purple\"}]',Lore:['[{\"text\":\"Only a few can read this.\",\"italic\":false,\"obfuscated\":true}]']},Enchantments:[{}]} 1"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "clear @s minecraft:amethyst_shard{Tags:[\"enchanter_stone\"]}"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "energy": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "hud_render": [
+        {
+            "should_render": true,
+            "bar_index": 0,
+            "icon_index": 0,
+            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png",
+            "condition":{
+                "type": "origins:xp_points",
+                "comparison": "<",
+                "compare_to": 55
+            }
+        },
+        {
+            "should_render": true,
+            "bar_index": 0,
+            "icon_index": 1,
+            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png",
+            "condition":{
+                "type": "origins:xp_points",
+                "comparison": ">=",
+                "compare_to": 55
+            }
+        }
+        ]
+    },
+    "energy_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/arcane_energy",
+            "change": 1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/arcane_energy",
+                    "comparison": "<",
+                    "compare_to": 100
+                },
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone\"]}"
+                            }
+                        ]
+                    },
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "tooltip_stone": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:amethyst_shard"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"enchanter_stone\"]}"
+                }
+            ]
+        },
+        "texts": [
+            [
+                {
+                    "text": "Left-Click on a book to make "
+                },
+                {
+                    "text": "RECALLING",
+                    "color": "light_purple"
+                }
+            ],
+            [
+                {
+                    "text": "Right-Click on a book to make "
+                },
+                {
+                    "text": "GLASS SHIELD",
+                    "color": "aqua"
+                }
+            ]
+        ]
+    },
+    "shear_books": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:enchanted_book"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"recalling_book\"]}"
+                }
+            ]
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:shears"
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:leather 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:paper 6"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.book.page_turn player @a ~ ~ ~ 0.6 1.5"
+                }
+            ]
+        },
+        "click_type": "primary",
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
+    },
+    "repair": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:enchanter/arcane_repair",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:modify_inventory",
+                    "inventory_type": "inventory",
+                    "item_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{Tags:[\"enchanter_stone\"]}"
+                            },
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData:1}"
+                            }
+                        ]
+                    },
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone_broken\"]}"
+                            }
+                        ]
+                    },
+                    "process_mode": "items",
+                    "limit": 1
+                }
+            ]
+        }
+    },
+    "repair_stone": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:enchanter/arcane_repair",
+            "change": 1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:inventory",
+                    "process_mode": "items",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone_broken\"]}"
+                            }
+                        ]
+                    },
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "shatter_xp": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_xp",
+                    "points": 100
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:enchanter/arcane_energy",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:absorption",
+                        "duration": 600,
+                        "amplifier": 1,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{Tags:[\"enchanter_stone_broken\"]}"
+                            },
+                            {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData:2}"
+                            },
+                            {
+                                "type": "apugli:cooldown",
+                                "ticks": 600
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.enchantment_table.use player @a ~ ~ ~ 0.5 1.2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 0.5 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.use",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:enchanter/arcane_energy",
+                    "comparison": "==",
+                    "compare_to": 100
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:amethyst_shard"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"enchanter_stone\"]}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Grand Knowledge",
+    "description": "\"I never understood how others don't see the energy that inhabits the 'inanimate'...\nWhat a conundrum.\"",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/enchanter/stone.png",
+            "text": "§1§lEncha§r§9§lnter§r§d§l's St§r§5§lone 💎§r§7\nUsing this relic, you can create two special books: §dRecalling§r§7 and §bGlass Shield§r§7 at the cost of §r§e55§r§7 experience\n§r§8(~5 lvls)§r§7.\n\nThese enchanted books can be sheared in your inventory to collect their pages.\n§r§8(6 Paper and 1 Leather)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/enchanter/stone_broken.png",
+            "text": [
+                "§d§lArcane Power 🜍§r§7\nYou require Arcane Power to enchant unique books.\nWhilst holding the Enchanter's Stone, press §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to shatter the stone.\nUpon shattering, you will be granted §r§eAbsorption II§r§7 Crystal Hearts for §r§e20s§r§7.\n\nConsequentially, the stone will §r§5Fracture §lᚾ§r§7 for §r§e30s§r§7, disabling §dArcane Power's 🜍§r§7 recharge.\n§r§8(Finally, you have §r§e3x§r§8 Experience Gain passively)\n\n§r§c🕕§r§7 Arcane Power: §r§f2% per second§r\n\n§7§lPassive Ability"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,267 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 5,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:alchimia/cape_cooldown",
+                "comparison": "<",
+                "compare_to": 600
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_cooldown",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/cape_cooldown",
+            "comparison": "<",
+            "compare_to": 600
+        }
+    },
+    "key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/cape_key_check",
+                    "change": 3,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/alchimia/windup"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/cape_cooldown",
+            "comparison": "==",
+            "compare_to": 600
+        }
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "windup_up": {
+        "type": "origins:action_over_time",
+        "rising_action":  {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_leather player @a ~ ~ ~ 1 2"
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_windup",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/cape_key_check",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/cape_windup",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/cape_key_check",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/alchimia/cape"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "OFF_HAND"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_leather player @a ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=armor_stand,tag=alchimia_cape]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 2.2,
+                                    "shape": "sphere",
+                                    "bientity_action": {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "tag @s add alchimia_kb"
+                                                },
+                                                {
+                                                    "type": "origins:if_else",
+                                                    "condition": {
+                                                        "type": "origins:power",
+                                                        "power": "manhunt:alchimia/potion/volatile_pot"
+                                                    },
+                                                    "if_action": {
+                                                        "type": "origins:execute_command",
+                                                        "command": "execute on vehicle run kill @s"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:living"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[tag=alchimia_kb]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 2,
+                                "y": 1,
+                                "set": true
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s remove alchimia_kb"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/cape_cooldown",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "winding_movement": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.3,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/volatile_fall_res",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/cape_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "name": "Howling Cape",
+    "description": "A cape imbued with alchimical wind energy capable of keeping enemies at bay.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/math/expression_multiply_alt.png",
+            "text": "§f§lHowling Cape 💨§r\n§7Knockbacks entities in a short frontal cone AOE.\nAdditionally, it will implode volatile pots on impact.\n\n§6🕒§r§7 Windup: §r§f0.25s\n§e⌛§r§7 Cooldown: §r§f30s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Hold §r%s§7 to deploy your cape!"
+        }
+    ]
+}

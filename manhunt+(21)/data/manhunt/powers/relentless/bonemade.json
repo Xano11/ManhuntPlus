@@ -1,0 +1,64 @@
+{
+    "type": "origins:multiple",
+    "undead": {
+        "type": "origins:entity_group",
+        "group": "undead"
+    },
+    "natural_regen": {
+        "type": "origins:disable_regen"
+    },
+    "no_exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "No exhaustion",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "food": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:feed",
+            "food": 20,
+            "saturation": 20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:food_level",
+            "comparison": "<=",
+            "compare_to": 19
+        }
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 40,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:relative_health",
+                    "comparison": "<",
+                    "compare_to": 1
+                },
+                {
+                    "type":"origins:power",
+                    "power": "manhunt:relentless/eternal/limbo",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "name": "Made in Bones",
+    "description": "Bones do not require direct sustenance but your high calcium density is enough.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "§a§lMade in Bones 💀§r§7\nYou do not require food and cannot heal naturally. Instead, you passively regenerate half a heart every §r§e2s§r§7.\n\nAlso, you are classified as an §r§eundead§r§7.§r§8\n(No drowning, extra smite damage, etc)§r\n\n§7§lPassive Ability"
+        }
+    ]
+}

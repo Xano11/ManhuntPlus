@@ -1,0 +1,107 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:0b,Silent:1b,Invisible:1b,DisabledSlots:4144959,Tags:[\"imp_portal2\"],Passengers:[{id:\"minecraft:item_display\",view_range:1000f,billboard:\"vertical\",Tags:[\"imp_portal2\"],brightness:{sky:15,block:15},Rotation:[0f,0f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,1f,1.0f]},item:{id:\"minecraft:purple_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:imp/portal/portal_otherside",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute positioned ^ ^1.5 ^300 run forceload add ~ ~ ~ ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ^ ^1.5 ^300",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:dimension",
+                                    "dimension": "minecraft:the_nether",
+                                    "inverted": true
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s ~ 320 ~",
+                                    "permission_level": 4
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "spreadplayers ~ ~ 30 30 under 124 false @s",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Marker:1b,Silent:1b,Invisible:1b,Tags:[\"imp_portal1\"],Passengers:[{id:\"minecraft:item_display\",view_range:1000f,billboard:\"vertical\",Tags:[\"imp_portal1\"],brightness:{sky:15,block:15},Rotation:[0f,0f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,1.0f,1.0f]},item:{id:\"minecraft:purple_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~1.5 ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:imp/portal/portal_origin",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 7,
+            "should_render": true
+        }
+    },
+    "name": "Imp's Gateway",
+    "description": "Open a fracture that lets you teleport to the runner.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/block/respawn_anchor_top_off.png",
+            "text": "§5§lImp's Gateway ✴§r\n§7Opens a fracture §r§e300§r§7 blocks forward and turn yourself into a flying soul.\nYou fly wherever you look at and after a few seconds, you turn back to your normal self.\n\nIn the §r§4Nether§r§7, the portal always appear at a §r§ehigh altitude§r§7.\n\n§c🕕§r§7 Duration: §r§f5s\n§r§8(Flying Soul)§r\n§e⌛§r§7 Cooldown: §r§f1m30s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Open the portal with §r%s§7!"
+        }
+    ]
+}

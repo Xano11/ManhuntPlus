@@ -1,0 +1,175 @@
+{
+    "type": "origins:multiple",
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.anvil.land player @a ~ ~ ~ 2 1.2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~5 ~ 1 1 1 1 30",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:engineer/portal/pod_windup",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:small_flame ~0.2 ~4 ~0.4 0.2 0 0.2 0 4",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/pod_windup",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "ignore_water":{
+        "type": "origins:ignore_water"
+    },    
+    "dropped": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 1.5
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin",
+                                    "inverted": true
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~ ~ 1 1 1 1 30",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[type=player] run power remove @s manhunt:engineer/portal/dropping",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s[type=item_display]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s[type=block_display]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:firework ~0.2 ~4 ~0.4 0 0 0 0.1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:small_flame ~0.2 ~4 ~0.4 0.2 0 0.2 0 4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0.6 0 1 0 0 0 ~0.2 ~4 ~0.4 0.2 0 0.2 0 4",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/pod_windup",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "rev_engine": {
+        "type": "origins:modify_falling",
+        "velocity": 0.03,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/pod_windup",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "fall": {
+        "type": "origins:modify_falling",
+        "velocity": 0.5,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/portal/pod_windup",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}

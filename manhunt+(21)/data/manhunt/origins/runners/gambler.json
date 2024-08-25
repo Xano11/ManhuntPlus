@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:gambler/draw/draw",
+        "manhunt:gambler/deception/deception",
+		"manhunt:gambler/curse",
+		"manhunt:gambler/devil",
+		"manhunt:gambler/hydrophobe",
+		"manhunt:gambler/lucky"
+	],
+	"icon": {
+		"item": "minecraft:filled_map",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Fortuna 🃏",
+	"description": "To Fortuna, being lucky is a matter of taking good opportunities."
+}

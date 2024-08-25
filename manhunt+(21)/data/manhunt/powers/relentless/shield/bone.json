@@ -1,0 +1,266 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add ride_shield",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s boneshield_uuid run data get entity @s UUID[0] 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"boneshield\"]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@p[tag=ride_shield]",
+                                "bientity_action": {
+                                    "type": "origins:mount"
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s boneshield_uuid run data get entity @p[tag=ride_shield] UUID[0] 1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:relentless/shield/bones",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{NoGravity:1b,billboard:\"vertical\",Tags:[\"boneshield1\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s boneshield_uuid run data get entity @p[tag=ride_shield] UUID[0] 1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{NoGravity:1b,billboard:\"vertical\",Tags:[\"boneshield2\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s boneshield_uuid run data get entity @p[tag=ride_shield] UUID[0] 1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation[1] set value 0f",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/shield/bone_duration",
+                    "change": 140
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/shield/bone_hits",
+                    "change": 2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove ride_shield",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.shield.break player @a ~ ~ ~ 1 1.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 5
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.skeleton.death player @a ~ ~ ~ 1 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=boneshield] as @e[type=minecraft:item_display,tag=boneshield1] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=boneshield] as @e[type=minecraft:item_display,tag=boneshield2] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=boneshield] run kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:relentless/shield/bone_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "hits": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:relentless/shield/bone_duration",
+            "change": -140
+        }
+    },
+    "mitigation": {
+        "type": "origins:modify_damage_taken",
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/shield/bone_hits",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.skeleton.hurt player @a ~ ~ ~ 1 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:relentless/shield/bone_hits",
+                        "compare_to": 1,
+                        "comparison": "=="
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers if entity @s[tag=boneshield] as @e[type=minecraft:item_display,tag=boneshield1] if score @s boneshield_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand] boneshield_uuid run kill @s",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:attacker"
+        },
+        "modifier": {
+            "name": "Mitigation",
+            "operation": "multiply_base",
+            "value": -0.4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:relentless/shield/bone_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:relentless/shield/bone_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:relentless/shield/bone_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "name": "Bone Shield",
+    "description": "Use your own fortified bones to protect yourself for incoming damage.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§l§f⛨Bone Shield§r§7\n§r§a+40%§r§7 damage mitigation on the next §r§etwo§r§7 hits you take for a short duration.\n\n§c🕕§r§7 Duration: §r§f7s§r\n§e⌛§r§7 Cooldown: §r§f1m§r\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Trigger shield with §r%s§7!"
+        }
+    ]
+}

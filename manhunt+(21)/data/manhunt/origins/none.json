@@ -1,0 +1,11 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:barrier"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "None",
+	"description": "You do not have any powers, nor downsides."
+}

@@ -1,0 +1,30 @@
+{
+    "type": "origins:multiple",
+    "immune": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 1 1 1 0.7 0.7 0.7 ~ ~1 ~ 0.2 0.2 0.2 1 10"
+        },
+        "interval": 1
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:scout/bouncepad/fall_immune"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block"
+        }
+    },
+    "hidden": true
+}

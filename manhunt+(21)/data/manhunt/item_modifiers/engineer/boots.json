@@ -1,0 +1,7 @@
+[
+    {
+      "function": "minecraft:set_nbt",
+      "tag": "{display:{Lore:['[\"\"]','[\"\",{\"text\":\"When on Head:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"+1.5 armor \",\"italic\":false,\"color\":\"blue\"}]']},Tags:special_chainmail,AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:1.5,Slot:feet,UUID:[I;-124623,39823,161845,-79646],Name:1721766623379}],HideFlags:2}"
+    }
+  ]
+  

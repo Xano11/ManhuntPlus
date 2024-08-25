@@ -1,0 +1,193 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s skull_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=skull] skull_uuid run damage @s 99 minecraft:generic",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s skull_uuid = @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=skull] skull_uuid run resource set @s manhunt:relentless/skullthrow/throw_thrown 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:relentless/skullthrow/skull_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "invis": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false
+    },
+    "spin": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:relentless/skullthrow/skull_spin",
+            "change": -360
+        }
+    },
+    "spinning": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/skullthrow/skull_spin",
+                    "change": 18
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result entity @s Rotation[0] float 1 run resource get @s manhunt:relentless/skullthrow/skull_spin"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=armor_stand,tag=skull] manhunt:relentless/skullthrow/skull_spin"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block",
+            "inverted": true
+        }
+    },
+    "pickup": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 1.5,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:relentless/skullthrow/throw_thrown",
+                                            "change": -200
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:item minecraft:bone ~ ~1.5 ~ 0.2 0.2 0.2 0.15 20",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:relentless/eternal/undead_max_health",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:relentless/eternal/undead_damage_stat",
+                                            "change": -5
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.skeleton.death player @a ~ ~ ~ 1 2",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run kill @s",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "kill @s",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:compare_score",
+                                "actor_objective": "skull_uuid",
+                                "target_objective": "skull_uuid",
+                                "comparison": "=="
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:player"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

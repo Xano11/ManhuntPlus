@@ -1,0 +1,17 @@
+{
+  "type": "origins:restrict_armor",
+  "head": {
+    "type": "origins:armor_value",
+    "comparison": ">",
+    "compare_to": 0
+  },
+  "name": "0CCUP13D-0CUL4R5",
+  "description": "The Radar-Visor module prevents standard headgear from being equipped.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "minecraft:textures/item/iron_helmet.png",
+      "text": "§c§l0CCUP13D-0CUL4R5 🕶§r§7\nYou cannot wear §r§ehelmets§r§7 under any circumstance.\n\n§7§lPassive Ability"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": -6,
+        "operation": "addition"
+    },
+    "name": "Weak of Heart",
+    "description": "A non-chalant mind up to cold blooded atrocities but a weak broken heart lies within.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "-3 §l§c❤§r"
+        }
+    ]
+}

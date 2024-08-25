@@ -1,0 +1,223 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:dimension",
+                        "dimension": "minecraft:the_nether",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.bottle.fill_dragonbreath player @a ~ ~ ~ 3 1.3"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.squid.squirt player @a ~ ~ ~ 2 0.8"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:sneeze ~ ~1 ~ 0.3 0.3 0.3 0.3 40"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 0 0.5 0.2 1 0 0.3 0.05 ~ ~1 ~ 0.6 0.6 0.6 0.3 60"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:piglin/aura/fumes"
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:piglin/aura/use_rally",
+                                "change": 400
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.piglin.admiring_item player @a ~ ~ ~ 2 0.5",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:instant_effect ~ ~1 ~ 0.2 0.2 0.2 1 40",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:armor_stand",
+                                "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"rally\"],Passengers:[{id:\"minecraft:item_display\",start_interpolation:-1,interpolation_duration:30,Tags:[\"rally\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:skull_banner_pattern\",Count:1b,tag:{CustomModelData:1}}},{id:\"minecraft:item_display\",start_interpolation:-1,interpolation_duration:30,Tags:[\"rally\"],transformation:{left_rotation:[0f,0f,-0.25f,0.96f],right_rotation:[0f,0f,0f,1f],translation:[1f,-0.5f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:skull_banner_pattern\",Count:1b,tag:{CustomModelData:1}}},{id:\"minecraft:item_display\",start_interpolation:-1,interpolation_duration:30,Tags:[\"rally\"],transformation:{left_rotation:[0f,0f,0.25f,0.96f],right_rotation:[0f,0f,0f,1f],translation:[-1f,-0.5f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:skull_banner_pattern\",Count:1b,tag:{CustomModelData:1}}}]}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @s ~ ~1.5 ~",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:piglin/aura/anim",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run data modify entity @s interpolation_duration set value 30",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run data modify entity @s transformation.scale set value [1.5f,1.5f,1.5f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 1800,
+        "key": "key.origins.secondary_active",
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 21,
+                "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether",
+                    "inverted": true
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index": 5,
+                "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+            }
+        ]
+    },
+    "rally": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 400,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "rally_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:piglin/aura/use_rally",
+                    "change": -1
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 16,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:piglin/aura/rally"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:piglin/aura/rally_duration",
+                                    "change": 60
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:hunter",
+                                    "layer": "origins:origin"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:piglin"
+                                },
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:piglin_brute"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/aura/use_rally",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "banner": {
+        "type": "apugli:modify_equipped_item_render",
+        "slot": "HEAD",
+        "stack": {
+            "item": "minecraft:red_banner",
+            "tag": "{BlockEntityTag:{Base:14,Patterns:[{Pattern:gru,Color:4},{Pattern:pig,Color:4}]}}"
+        },
+        "scale": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/aura/use_rally",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "name": "Rotten Aura/Rally",
+    "description": "Spread your wretched presence or rally your friends to give the runner a run for their money.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/poison.png",
+            "text": "§2§lRotten Fumes 🫁§r§8 / §r§e§lRally 🎌§r§7\nOutside the Nether, give yourself the §2☢Plagued§r§7 effect.\n§r§2☢Plagued§r§7 transfers to other targets when attacking them (similar to hot potato).\nAfter §r§e10s§r§7, the §2☢Plagued§r§7 target will §nbe poisoned§r§7 for §r§e5§r§7s.\n\nIn the Nether, all hunters (and piglins) in a §r§e16§r§7 block radius will gain §e🎌Rallied§r§7.\n§e🎌Rallied§r§7 increases speed by §a30%§r§7 for §r§e20§r§7s.\nAdditionally, all piglins will target the §nclosest§r§7 runner.\n\n§r§c🕕§r§7 Fumes Duration: §r§f10s§r§8 (Upon activation)\n§r§c🕕§r§7 Rally Duration: §r§f20s§r§8 (Upon activation)\n§e⌛§r§7 Cooldown: §r§f1m30s§r\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Rally with §r%s§7!"
+        }
+    ]
+}

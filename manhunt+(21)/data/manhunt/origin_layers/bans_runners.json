@@ -1,0 +1,49 @@
+{
+  "order": 0,
+  "replace": false,
+  "allow_random": true,
+  "origins": [
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:power",
+            "power": "manhunt:start"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_banned",
+            "comparison": "==",
+            "compare_to": 0
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:bans/no_ban",
+        "manhunt:bans/alchimia",
+        "manhunt:bans/celeritas",
+        "manhunt:bans/sanguis",
+        "manhunt:bans/damned",
+        "manhunt:bans/gambler",
+        "manhunt:bans/deleo",
+        "manhunt:bans/jester",
+        "manhunt:bans/draco",
+        "manhunt:bans/fortis",
+        "manhunt:bans/chronos",
+        "manhunt:bans/sicarius"
+      ]
+    }
+  ],
+  "default_origin": "manhunt:bans/no_ban",
+  "name": "Bans",
+  "gui_title": {
+    "choose_origin": "Ban a Runner!",
+    "view_origin": "This is the runner you banned."
+  }
+}

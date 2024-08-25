@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "manhunt:chainmail_helmet",
+    "pattern": [
+        "###",
+        "y y"
+    ],
+    "key": {
+        "y": {
+            "item": "minecraft:iron_nugget"
+        },
+        "#": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "minecraft:chainmail_helmet"
+    }
+}

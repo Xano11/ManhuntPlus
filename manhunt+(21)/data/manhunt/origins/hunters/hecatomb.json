@@ -1,0 +1,17 @@
+ {
+	"powers": [
+		"manhunt:roles/rivals",
+		"manhunt:hecatomb/blood",
+		"manhunt:hecatomb/hemo/surge",
+		"manhunt:hecatomb/brimstone/brimstone",
+		"manhunt:hecatomb/flowing"
+	],
+	"icon": {
+		"item": "minecraft:redstone",
+		"tag": "{Enchantments:[{}]}"
+	},
+	"order": 10,
+	"impact": 3,
+	"name": "Hecatomb",
+	"description": "         [§cRIVALS ✘§r]\n§c§lUnder Maintenance!!§r\nSpilling blood is only a form of artistry to Hecatomb; A canvas can't stay blank, can it?"
+}

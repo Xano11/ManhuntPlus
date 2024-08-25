@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:roles/assistance",
+        "manhunt:geologist/rush/gold_rush",
+		"manhunt:geologist/tunnel/dig",
+		"manhunt:geologist/infernal_debut",
+		"manhunt:geologist/armor_constitution",
+		"manhunt:geologist/black_lung",
+		"manhunt:geologist/dwarfism"
+	],
+	"icon": {
+		"item": "minecraft:golden_pickaxe",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Geologist",
+	"description": "       [§eASSISTANCE ✦§r]\nROCK AND STONE! The Geologist has a keen eye for minerals, no matter the time, place, or situation it may be."
+}

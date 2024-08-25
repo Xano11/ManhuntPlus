@@ -1,0 +1,46 @@
+{
+    "type": "origins:multiple",
+    "hunter_glow":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:player"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.5,
+        "green": 0.0,
+        "blue": 0.0
+    },
+    "name": "The Voices.",
+    "description": "The Voices weep with words of revenge, hatred and blood thirst.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "§f§lThe Voices 🗣§r\n§7All Hunters in a §r§e10 block§r§7 radius of you §r§fglow§r§7 dark red.\n\n§7§lPassive Ability"
+        }
+    ]
+}

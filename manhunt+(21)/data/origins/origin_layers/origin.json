@@ -1,0 +1,17 @@
+{
+  "order": 1,
+  "replace": true,
+  "origins": [
+    "manhunt:hunter",
+    "manhunt:runner",
+    "manhunt:spectator",
+    "manhunt:start"
+  ],
+  "hidden": true,
+  "default_origin": "manhunt:start",
+  "name": "role",
+  "gui_title": {
+    "choose_origin": "Choose your role!",
+    "view_origin": "This is the role that you chose."
+  }
+}

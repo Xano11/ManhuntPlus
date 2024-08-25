@@ -1,0 +1,152 @@
+{
+    "type": "origins:multiple",
+    "helmet": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "head",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:golden_helmet"
+                        },
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "head",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "chestplate": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "chest",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:golden_chestplate"
+                        },
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "chest",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "leggings": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "legs",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:golden_leggings"
+                        },
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "legs",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "boots": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": -1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "feet",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:golden_boots"
+                        },
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "feet",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "name": "Non-Gold Antipathy",
+    "description": "Even the thought of not wearing gold disgusts you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/golden_chestplate.png",
+            "text": "§e§lNon-Gilded 💰§r§7\nAll armor that §cisn't§r§7 §r§egold§r§7 is reduced by §c-1§r.\n\n§7§lPassive Ability"
+        }
+    ]
+}

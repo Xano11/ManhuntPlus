@@ -1,0 +1,80 @@
+{
+    "type": "origins:multiple",
+    "tp_back": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a if score @s lurker = @p lurker run forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] lurker run power grant @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] manhunt:lurker/lurk/eye_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s lurker = @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] lurker run tp @s ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a if score @s lurker = @e[tag=lurk_eye,type=allay,limit=1,sort=nearest] lurker run power remove @s manhunt:lurker/lurk/lurk_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "generic",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:name",
+                    "name": "generic.player",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Invuln",
+            "operation": "set_total",
+            "value": 1
+        },
+        "damage_condition": {
+            "type": "origins:attacker"
+        }
+    },
+    "invuln": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Invuln",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute as @a[tag=hunter] if score @s lurker = @e[limit=1,sort=nearest] lurker",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no_item_give":{
+        "type": "origins:prevent_being_used"
+    },
+    "no_collision":{
+        "type": "origins:prevent_entity_collision"
+    },
+    "hidden": true
+}

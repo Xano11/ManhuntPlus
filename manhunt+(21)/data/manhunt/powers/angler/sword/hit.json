@@ -1,0 +1,40 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:angler/sword/hit"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:angler/sword/hit_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "slow_fall": {
+        "type": "origins:modify_falling",
+        "velocity": 0.04,
+        "take_fall_damage": false
+    },
+    "hidden": true
+}

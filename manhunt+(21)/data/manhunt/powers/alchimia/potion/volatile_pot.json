@@ -1,0 +1,130 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/volatile_pot_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:instant_effect ~ ~-0.7 ~ 0.2 0.2 0.2 1 5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "impact": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 7,
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 4
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:runners/alchimia",
+                                        "layer": "manhunt:runners"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:alchimia/potion/volatile_fall_res",
+                                        "change": 1,
+                                        "operation": "set"
+                                    },
+                                    "else_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:alchimia/potion/fall",
+                                        "permission_level": 4
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                           "type": "origins:living"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 0.4 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~-0.7 ~ 0 0 0 0.7 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~-0.7 ~ 0.7 0.7 0.7 1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    },
+    "hidden": true
+}

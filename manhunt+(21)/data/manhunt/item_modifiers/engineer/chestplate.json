@@ -1,0 +1,7 @@
+[
+    {
+      "function": "minecraft:set_nbt",
+      "tag": "{display:{Lore:['[\"\"]','[\"\",{\"text\":\"When on Body:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"+6 armor \",\"italic\":false,\"color\":\"blue\"}]']},Tags:special_chainmail,AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:6,Slot:chest,UUID:[I;-124623,32623,161845,-65246],Name:1721766479400}],HideFlags:2}"
+    }
+  ]
+  

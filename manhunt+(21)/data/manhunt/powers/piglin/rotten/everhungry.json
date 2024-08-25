@@ -1,0 +1,194 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:piglin/rotten/everhungry_immune",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:selector_action",
+                        "selector": "@a[tag=hunter]",
+                        "bientity_action": {
+                            "type": "origins:invert",
+                            "action": {
+                                "type": "origins:remove_from_set",
+                                "set": "manhunt:piglin/rotten/rot_rotted"
+                            }
+                        },
+                        "bientity_condition": {
+                            "type": "origins:invert",
+                            "condition": {
+                                "type": "origins:in_set",
+                                "set": "manhunt:piglin/rotten/rot_rotted"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:piglin/rotten/everhungry",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/rotten/everhungry_duration",
+            "change": -10
+        },
+        "interval": 20
+    },
+    "immune": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:remove_from_set",
+                            "set": "manhunt:piglin/rotten/rot_rotted"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:piglin/rotten/rot_rotted"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:piglin/rotten/everhungry",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "immune_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/rotten/everhungry_immune",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "famine_earlygame": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:hunger",
+                "duration": 40,
+                "amplifier": 0
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:difficulty_phase",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "famine_midgame": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:hunger",
+                "duration": 40,
+                "amplifier": 1
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:difficulty_phase",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "famine_lategame": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:hunger",
+                "duration": 40,
+                "amplifier": 2
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:difficulty_phase",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:sneeze",
+        "speed": 0.03,
+        "frequency": 4,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/rotten/everhungry_immune",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "weak_food": {
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Decreased food points",
+            "operation": "multiply_base",
+            "value": -0.5
+        },
+        "saturation_modifier": {
+            "name": "Increased saturation points",
+            "operation": "multiply_base",
+            "value": -0.5
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:piglin/rotten/everhungry_immune",
+                    "change": 200
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

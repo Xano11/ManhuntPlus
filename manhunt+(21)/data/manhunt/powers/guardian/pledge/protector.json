@@ -1,0 +1,206 @@
+{
+    "type": "origins:multiple",
+    "pledged": {
+        "type": "origins:entity_set"
+    },
+    "lost": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power remove @s manhunt:guardian/pledge/pledged"
+                                }
+                            },
+                            {
+                                "type": "origins:remove_from_set",
+                                "set": "manhunt:guardian/pledge/protector_pledged"
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:in_set",
+                        "set": "manhunt:guardian/pledge/protector_pledged"
+                    }
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+    "pledge": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add pledging",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s guardian_pledge run data get entity @s UUID[0]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@a[tag=hunter]",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "power remove @s manhunt:guardian/pledge/pledged"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:remove_from_set",
+                                            "set": "manhunt:guardian/pledge/protector_pledged"
+                                        }
+                                    ]
+                                },
+                                "bientity_condition": {
+                                    "type": "origins:in_set",
+                                    "set": "manhunt:guardian/pledge/protector_pledged"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:add_to_set",
+                    "set": "manhunt:guardian/pledge/protector_pledged"
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s guardian_pledge run data get entity @p[tag=pledging] UUID[0]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.allay.item_given player @a ~ ~ ~ 1 0.8",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:guardian/pledge/pledged",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove pledging",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunters/guardian",
+                                "layer": "manhunt:hunters",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:power",
+                                "power": "manhunt:guardian/pledge/pledged",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:in_set",
+                    "set": "manhunt:guardian/pledge/protector_pledged",
+                    "inverted": true
+                }
+            ]
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "condition": {
+            "type": "origins:sneaking"
+        }
+    },
+    "armor_score": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute store result score @s guardian_armor run attribute @s minecraft:generic.armor get",
+            "permission_level": 4
+        },
+        "interval": 10
+    },
+    "toughness_score": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute store result score @s guardian_toughness run attribute @s minecraft:generic.armor_toughness get",
+            "permission_level": 4
+        },
+        "interval": 10
+    },
+    "name": "Protector's Pledge",
+    "description": "Trained to protect, the Guardian has a sworn oath to protect their allies in battle",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/hunters/guardian.png",
+            "text": "§l§bProtector's Pledge 👼§r§7\nYou grant §r§a25%§r§8(+1)§r§7 of your own armor to your §r§bPledge'd§r§7 ally.\nAdditionally, your abilities now target onto that ally.\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Sneak and press §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to forge a pledge with somebody."
+            ]
+        }
+    ]
+}

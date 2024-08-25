@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:roles/rivals",
+		"manhunt:reaper/soul_teleport",
+		"manhunt:reaper/siphon",
+		"manhunt:reaper/echo",
+		"manhunt:reaper/smite",
+		"manhunt:reaper/soulfeed"
+	],
+	"icon": {
+		"item": "minecraft:cyan_dye",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Reaper",
+	"description": "          [§cRIVALS ✘§r]\nWith an inner connection to the deceased, the Reaper swoops in to harvest the souls of the unfortunate."
+}

@@ -1,0 +1,32 @@
+{
+    "type": "origins:multiple",
+    "hit": {
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:scout/bouncepad/bouncepad_perform",
+                        "change": 120
+                    }
+                ]
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Achilles' Heel",
+    "description": "Taking a hit of damage will delay your bouncepad cooldown.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/clock_00.png",
+            "text": "§l§cAchille's Heel 🦶§r§7\nBouncepad cooldown is increased by §c+6s§r§7 when hit.\n\n§7§lPassive Ability"
+        }
+    ]
+}

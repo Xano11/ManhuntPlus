@@ -1,0 +1,93 @@
+{
+    "type": "origins:multiple",
+    "flash": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 32,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[tag=!bomber,type=minecraft:player] manhunt:bomber/flash/special_flash_effects"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:can_see"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "manhunt:runner",
+                                    "layer": "origins:origin"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~ ~ 0.1 0.1 0.1 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flash ~ ~ ~ 0 0 0 1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound manhunt:flashbang player @a ~ ~ ~ 2 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "bounce":{
+        "type": "eggolib:modify_bounciness",
+        "modifier":{
+            "value": -0.3,
+            "operation": "multiply_total"
+        },
+        "entity_action":{
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.generic.small_fall player @a ~ ~ ~ 3 0.6",
+            "permission_level": 4
+        },
+        "block_condition": {
+            "type": "origins:movement_blocking"
+        }
+    },
+    "ticking":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:bomber/flash/special_flash_bang_flash",
+            "change": -10
+        },
+        "interval": 10
+    }
+}

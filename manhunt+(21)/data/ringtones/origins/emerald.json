@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:4}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Emerald Ringtone",
+	"description": "I offer : A cool ringtone    You receive : *villager noises*"
+}

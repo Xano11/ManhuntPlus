@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "manhunt:candle",
+    "pattern": [
+        "y",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:bone"
+        },
+        "y": {
+            "item": "minecraft:gunpowder"
+        }
+    },
+    "result": {
+        "item": "minecraft:gray_candle"
+    }
+}

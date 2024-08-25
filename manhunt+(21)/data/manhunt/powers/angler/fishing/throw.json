@@ -1,0 +1,453 @@
+{
+    "type": "origins:multiple",
+    "rod": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "give @s fishing_rod{display:{Name:'[\"\",{\"text\":\"Angler\\'s\",\"italic\":false,\"color\":\"dark_aqua\"},{\"text\":\" \",\"color\":\"dark_aqua\"},{\"text\":\"Rod\",\"color\":\"aqua\"}]',Lore:['[\"\",{\"text\":\"(TIER 1)\",\"italic\":false,\"color\":\"aqua\"}]']},Enchantments:[{}],Unbreakable:1,CustomModelData:1,Tags:[\"angler\"]} 1"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "clear @s minecraft:fishing_rod"
+        },
+        "execute_chosen_when_orb": false
+    },
+    "fishing": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "keepitems": {
+        "type": "origins:keep_inventory",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"angler\"]}"
+        }
+    },
+    "upgrade_tier2": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"angler\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:treasure_angler}"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:angler/rod_tier2"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "change": 1
+                }
+            ]
+        }
+    },
+    "upgrade_tier3": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"angler\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:treasure_angler}"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "click_type": "primary",
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:modify",
+            "modifier": "manhunt:angler/rod_tier3"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "comparison": "<",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/sword/transfish_tier",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/fishing/throw_fishing",
+                    "change": 1
+                }
+            ]
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 700,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 0,
+            "sprite_location": "manhunt:textures/bars/angler/angler.png",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:angler/fishing/throw_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:angler/fishing/throw_cooldown",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "use": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:selector_action",
+                        "selector": "@e[type=fishing_bobber,limit=1,sort=nearest]",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:mount"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:add_velocity",
+                                        "z": 1,
+                                        "space": "velocity_horizontal_normalized"
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:angler/fishing/throw_cooldown",
+                                                "change": 700
+                                            },
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "manhunt:angler/fishing/throw_fishing",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "manhunt:angler/fishing/throw_cooldown",
+                                                    "change": 600,
+                                                    "operation": "set"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "manhunt:angler/fishing/throw_fishing",
+                                                    "comparison": "==",
+                                                    "compare_to": 2
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "manhunt:angler/fishing/throw_cooldown",
+                                                    "change": 400,
+                                                    "operation": "set"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:angler/fishing/throw_fall",
+                                                "change": 1
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:block.conduit.attack.target player @a ~ ~ ~ 2 2"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:riding",
+                                "inverted": true
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"angler\"]}"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:angler/fishing/throw_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "cooldown": 1
+    },
+    "fall": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "fall_immune": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "fall_effect": {
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "stop_fall": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:angler/fishing/throw_fall",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0.05
+                }
+            ]
+        }
+    },
+    "kill_bobber": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "kill @s"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:fishing_bobber"
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{OnGround:1b}"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:riding_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:firework ~ ~ ~ 0.3 0.1 0.3 0.01 1"
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:fishing_bobber"
+                }
+            }
+        }
+    },
+    "name": "Hook Surfing",
+    "description": "You've learned all the tricks the fishing rod holds. The only thing holding you back is the brittle fishing rod's line.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§b§lHook Surf ↪§r\n§7Send out and §r§aride§r§7 your fishing bobber, dashing forward.\n§aNegates§r§7 fall damage when you land.\n\n§e⌛§r§7 Cooldown: §r§f35s§r§8 (After landing.)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/fishing_rod.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to become one with the fishing bobber!\nRequires a fishing rod in hand."
+            ]
+        }
+    ]
+}

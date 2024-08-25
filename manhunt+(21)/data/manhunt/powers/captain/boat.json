@@ -1,0 +1,171 @@
+{
+    "type": "origins:multiple",
+    "defence": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "boat bunker",
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:boat"
+                }
+            }
+        }
+    },
+    "speedboat": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add speedboat"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "scale set pehkui:motion 1.25 @s"
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:boat"
+                                },
+                                {
+                                    "type": "origins:fluid_height",
+                                    "fluid": "minecraft:water",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute on vehicle unless entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.25]",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "leaving":{
+        "type": "origins:action_on_callback",
+        "entity_action_removed": {
+            "type": "origins:selector_action",
+            "selector": "@e[limit=1,sort=nearest,type=boat,tag=speedboat]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove speedboat"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "scale set pehkui:motion 1 @s"
+                        }
+                    ]
+                }
+            }
+        },
+        "execute_chosen_when_orb": true
+    },
+    "speedboat_remove": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "origins:selector_action",
+            "selector": "@e[limit=1,sort=nearest,type=boat,tag=speedboat]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove speedboat"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "scale set pehkui:motion 1 @s"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:boat"
+                        },
+                        {
+                            "type": "origins:fluid_height",
+                            "fluid": "minecraft:water",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "speedboat_particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.2 1 1.4 1 1 1 ^0.5 ^0.2 ^-1 0 0 0 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.2 1 1.4 1 1 1 ^-0.5 ^0.2 ^-1 0 0 0 1 1"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute on vehicle if entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.25]",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "name": "Cap'ain of the Sea",
+    "description": "Boats that you ride offer protection and navigate quicker.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/oak_boat.png",
+            "text": "§7You have §r§e50%§r§7 damage mitigation whilst in a boat.\nAdditionally, your presence grants you and all other hunters in a §r§e24§r§7 block radius §6§lSea Skipper ⚐§r\n\n§6§l§nSea Skipper ⚐§r\n§r§a+25%§r§7 boat speed.\n\n§7§lPassive Ability"
+        }
+    ]
+}

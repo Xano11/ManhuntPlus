@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "manhunt:berserker_horn",
+    "pattern": [
+        "   ",
+        "be ",
+        "bbb"
+    ],
+    "key": {
+        "b": {
+            "item": "minecraft:cobblestone"
+        },
+        "e": {
+            "item": "minecraft:flint"
+        }
+    },
+    "result": {
+        "item": "minecraft:goat_horn"
+    }
+}

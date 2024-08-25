@@ -1,0 +1,116 @@
+{
+    "type": "origins:multiple",
+    "weakened": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0.5,
+        "green": 0.5,
+        "blue": 1.0
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~2.5 ~ 0 0 0 1 0 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~3 ~ 0 0 0 1 0 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~3.2 ~ 0 0 0 1 0 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~3.4 ~ 0 0 0 1 0 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~3.6 ~ 0 0 0 1 0 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~3.8 ~ 0 0 0 1 0 normal",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:scout/spyglass/marked",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scout/spyglass/marked_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "damage_remove": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:scout/spyglass/marked"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run playsound minecraft:block.glass.break player @a ~ ~ ~ 1 1.1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run playsound minecraft:entity.player.death player @a ~ ~ ~ 1 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run playsound minecraft:entity.firework_rocket.blast player @a ~ ~ ~ 1 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run playsound minecraft:entity.allay.death player @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:block redstone_block ~ ~0.8 ~ 0.3 0 0.3 0 30 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:firework ~ ~0.8 ~ 0.3 0 0.3 0.2 20 normal"
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

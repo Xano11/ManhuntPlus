@@ -1,0 +1,87 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=reaper_soul] run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:reaper/soulstruck/soul_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "entity_died": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:reaper/soulstruck/soul_duration",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    },
+    "rotation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:reaper/soulstruck/soul_rotation",
+            "change": -360
+        }
+    },
+    "rotate": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:reaper/soulstruck/soul_rotation",
+                    "change": 8
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers store result entity @s Rotation[0] float 1 run resource get @e[limit=1,sort=nearest,type=armor_stand] manhunt:reaper/soulstruck/soul_rotation"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul ~ ~0.25 ~ 0 0 0 0.05 1 force @a"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

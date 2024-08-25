@@ -1,0 +1,19 @@
+{
+    "type": "origins:multiple",
+    "glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.9,
+        "blue": 0,
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunters/falconer",
+                "layer": "manhunt:hunters"
+            }
+        }
+    },
+    "hidden": true
+}

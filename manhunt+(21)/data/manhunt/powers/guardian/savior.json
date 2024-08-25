@@ -1,0 +1,82 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/savior_duration",
+            "change": -5
+        },
+        "interval": 5
+    },
+    "speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": 0.25
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/savior_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/savior_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^0.25 ^ ^ 0 0 0 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ^-0.25 ^ ^ 0 0 0 0 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/savior_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "name": "Look Here",
+    "description": "Enemies try to ignore me in battle, guess I’ll make them fight me",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§f§lLook Here 🗣§r§7\nIf your §r§bPledge'd§r§7 ally is hurt by a §r§cRunner§r§7, you are granted §r§a+25%§r§7 additional movement speed.\n§r§8(Doesn't work when using §r§fBulwark ⛨§r§8)§r\n\n§7§lPassive Ability"
+        }
+    ]
+}

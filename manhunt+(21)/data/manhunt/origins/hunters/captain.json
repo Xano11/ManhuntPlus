@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:roles/assistance",
+		"manhunt:captain/flintlock/flintlock",
+		"manhunt:captain/bubble/activate",
+		"manhunt:captain/boat",
+		"manhunt:captain/seadog",
+		"manhunt:captain/nether",
+		"manhunt:captain/rascal"
+	],
+	"icon": {
+		"item": "minecraft:oak_boat",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Captain",
+	"description": "       [§eASSISTANCE ✦§r]\nCap'n back t' aid ye out thar, swimmin' or nah!"
+}

@@ -1,0 +1,159 @@
+{
+    "type": "origins:multiple",
+    "energy": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/scanner/scanner.png",
+            "bar_index": 0
+        }
+    },
+    "gain_energy_passive": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "change": 1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "gain_energy_sun": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "change": 1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:exposed_to_sun"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "gain_energy_nether": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "change": 1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "gain_energy_fire": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "change": 2
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_fire"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "manhunt:scanner/radar_visor_toggle",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "moreheal": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "comparison": ">",
+            "compare_to": 85
+        }
+    },
+    "lessheal": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "comparison": "<",
+            "compare_to": 30
+        }
+    },
+    "lessspeed": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.15,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/solar_battery_energy",
+            "comparison": "<",
+            "compare_to": 30
+        }
+    },
+    "name": "S0L4R-B4TT3RY",
+    "description": "A unit like yours requires fuel. Charge up while in sunlight or heat to exert your power.\nHeal more at high power, but heal less and move slower at low power.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/glowstone_dust.png",
+            "text": "§e§lS0L4R-B4TT3RY 🔋§r§7\nYou can store up to 100% worth of §r§eB4TT3RY 🔋§r§7.\nHaving §r§e>85%§r§7 grants §r§a+20%§r§7 healing.\nIn the contrary at §r§e<30%§r§7, you have §r§c-50%§r§7 healing and §r§c-15%§r§7 velocity.\n\n§e§lRECHARGING ⬆§r§7\n- Recharge §r§a1%§r§7 every 0.5s passively\n- Recharge §r§a+1%§r§7 passively whilst exposed to the sun §r§8(or in the Nether)§r§7\n- Recharge §r§a+2%§r§7 passively whilst on §r§efire§r§7\n\n§7§lPassive Ability"
+        }
+    ]
+}

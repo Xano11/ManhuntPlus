@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:roles/rivals",
+		"manhunt:berserker/berserk",
+		"manhunt:berserker/beast/beast",
+		"manhunt:berserker/bleeding/bleeding",
+		"manhunt:berserker/horn/horn",
+		"manhunt:berserker/feral"
+	],
+	"icon": {
+		"item": "minecraft:goat_horn",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Berserker",
+	"description": "         [§cRIVALS ✘§r]\nHOG RID- ... Ahem.\nBERSERKEERRRRRRRRRRR!!!\nThe Berserker is a knockback-heavy rage fighter that can provide a boon to it's fellow Hunters to keep up with it's fury."
+}

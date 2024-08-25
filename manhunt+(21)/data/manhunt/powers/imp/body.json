@@ -1,0 +1,39 @@
+{
+  "type": "origins:multiple",
+  "health": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Max health increase",
+      "attribute": "minecraft:generic.max_health",
+      "value": -8,
+      "operation": "addition"
+    }
+  },
+  "mining": {
+    "type": "origins:modify_break_speed",
+    "modifier": {
+      "operation": "multiply_total",
+      "value": -0.25
+    },
+    "hardness_modifiers": [
+      {
+        "operation": "min_total",
+        "value": 0
+      }
+    ],
+    "condition": {
+      "type": "origins:dimension",
+      "dimension": "minecraft:the_nether",
+      "inverted": true
+    }
+  },
+  "name": "Frail Shape",
+  "description": "Being part of the lowest class of hellbeings has it's downsides.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+      "text": "§c§lFrail Shape 🫠§r\n§7-3 §l§c❤§r§7 of maximum health.\nAdditionally, your mining speed is reduced by §r§c40%§r§7 whilst outside the Nether.\n\n§7§lPassive Ability"
+    }
+  ]
+}

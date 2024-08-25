@@ -1,0 +1,58 @@
+{
+    "type": "origins:multiple",
+    "carnivore": {
+        "type": "origins:prevent_item_use",
+        "name":"🚫",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food"
+                },
+                {
+                    "type": "origins:meat",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "cow":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/cow": "manhunt:entities/xolotl_cow"
+        }
+    },
+    "pig":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/pig": "manhunt:entities/xolotl_pig"
+        }
+    },
+    "sheep":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/sheep": "manhunt:entities/xolotl_sheep"
+        }
+    },
+    "chicken":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/chicken": "manhunt:entities/xolotl_chicken"
+        }
+    },
+    "rabbit":{
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:entities/rabbit": "manhunt:entities/xolotl_rabbit"
+        }
+    },
+    "name": "carnivore :3",
+    "description": "you only meat :<",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/beef.png",
+            "text": "§c§lCarnivorous 🍖§r§7\nYou can only eat meat.\n§r§8(Fish is not affected)§r§7\n\nAdditionally animals drop §r§emore§r§7 meat.\n\n§7§lPassive Ability"
+        }
+    ]
+}

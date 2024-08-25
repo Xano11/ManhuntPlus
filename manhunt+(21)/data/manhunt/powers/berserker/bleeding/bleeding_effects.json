@@ -1,0 +1,58 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 120,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 14
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:berserker/bleeding/bleeding_effects"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/bleeding/bleeding_effects_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "immunity_frames": {
+        "type": "eggolib:modify_hurt_ticks",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+    "bleed_recurrent": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:damage",
+            "amount": 1,
+            "damage_type": "manhunt:bleeding"
+        },
+        "interval": 30,
+        "condition":{
+            "type": "origins:health",
+            "comparison": ">",
+            "compare_to": 1
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 0 0 1 0.4 0 0 ~ ~1 ~ 0.4 0.5 0.4 0.1 10",
+            "permission_level": 4
+        },
+        "interval": 5
+    },
+    "hidden": true
+}

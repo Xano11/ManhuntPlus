@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:roles/pillar",
+		"manhunt:guardian/pledge/protector",
+        "manhunt:guardian/bulwark/active",
+		"manhunt:guardian/meteor/active",
+		"manhunt:guardian/savior",
+		"manhunt:guardian/slow",
+		"manhunt:guardian/hungry"
+	],
+	"icon": {
+		"item": "minecraft:tide_armor_trim_smithing_template",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 3,
+	"name": "Guardian",
+	"description": "         [§7PILLAR 回§r]\nThe Guardian can use their abilities to keep their teammates alive and ready for combat at any time."
+}

@@ -1,0 +1,19 @@
+{
+    "powers": [
+        "manhunt:roles/pacekeeper",
+        "manhunt:piglin/rotten/rot",
+        "manhunt:piglin/aura/use",
+        "manhunt:piglin/charge",
+        "manhunt:piglin/gold",
+        "manhunt:piglin/sense",
+        "manhunt:piglin/zombified",
+        "manhunt:piglin/antipathy"
+    ],
+    "icon": {
+		"item": "minecraft:gold_ingot",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+    "impact": 1,
+    "name": "Piglin",
+    "description": "      [§bPACEKEEPER ╬§r]\nA gold-addicted beast, the Piglin outshines it's competition in the Nether whilst rotting in it's antithesis."
+}

@@ -1,0 +1,33 @@
+{
+    "type": "origins:multiple",
+    "frames": {
+        "type": "eggolib:modify_hurt_ticks",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+    "kb":{
+        "type": "origins:modify_damage_taken",
+        "bientity_action": {
+            "type": "origins:add_velocity",
+            "z": 0.5,
+            "y": 0.1
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
+        }
+    },
+    "name": "Masochist",
+    "description": "You've suffered so much and yet still like it. Why not speed that process up?",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "§c§lMasochism 💦§r§7\nYou have §c-25%§r§7 less invincibility frames and take §r§cmore knockback§r§7 from hits.\n\n§7§lPassive Ability"
+        }
+    ]
+}

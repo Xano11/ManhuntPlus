@@ -1,0 +1,21 @@
+{
+    "type": "origins:multiple",
+    "shield": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:shield"
+            }
+        }
+    },
+    "name": "Shield-less",
+    "description": "Why use shields when you can dodge?",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You cannot use shields."
+        }
+    ]
+}

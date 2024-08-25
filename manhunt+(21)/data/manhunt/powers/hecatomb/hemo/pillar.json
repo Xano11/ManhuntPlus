@@ -1,0 +1,173 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 20,
+        "start_value": 20,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/pillar_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "indicator": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 0 0 2 0.3 0 0 ~ ~ ~ 0.4 1.2 0.4 1 20"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hecatomb/hemo/pillar_duration",
+            "compare_to": 10,
+            "comparison": ">="
+        }
+    },
+    "erupt": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run item replace entity @s container.0 with redstone_block"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s transformation.scale set value [2.75f,5f,2.75f]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s interpolation_duration set value 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell player @a ~ ~ ~ 1 1.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hecatomb/hemo/pillar_duration",
+            "compare_to": 10,
+            "comparison": "<="
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1.4 0.3 0 0 ~ ~ ~ 0.8 1.5 0.8 1 100"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[tag=!hunter]",
+                    "bientity_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:using_item",
+                                "item_condition": {
+                                    "type": "origins:ingredient",
+                                    "ingredient": {
+                                        "item": "minecraft:shield"
+                                    }
+                                }
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s add shield_disable",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:spawn_entity",
+                                        "entity_type": "minecraft:vex",
+                                        "tag": "{Invulnerable:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,HandItems:[{id:\"minecraft:wooden_axe\",Count:1b},{}],active_effects:[{id:\"minecraft:invisibility\",amplifier:1b,duration:200,show_particles:0b,show_icon:0b,ambient:0b}]}",
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "execute at @p run tp @s ^ ^ ^1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "execute facing entity @p eyes run tp @s ~ ~ ~ ~ ~",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s manhunt:hecatomb/hemo/shield",
+                                                    "permission_level": 4
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:damage",
+                            "amount": 3,
+                            "damage_type": "manhunt:hemomagic"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "eggolib:colliding"
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hecatomb/hemo/pillar_duration",
+            "compare_to": 8,
+            "comparison": "<="
+        }
+    },
+    "instant": {
+        "type": "origins:modify_falling",
+        "velocity": 100.0,
+        "take_fall_damage": false
+    }
+}

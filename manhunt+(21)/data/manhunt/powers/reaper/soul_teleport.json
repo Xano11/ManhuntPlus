@@ -1,0 +1,420 @@
+{
+	"type": "origins:multiple",
+	"charges": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 3,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "manhunt:textures/bars/reaper/reaper.png",
+			"bar_index": 0
+		}
+	},
+	"key_check": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 0
+	},
+	"key_held": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:reaper/soul_teleport_key_check",
+					"change": 3,
+					"operation": "set"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:soul 0 0.4 0.2 1.2 0 0.5 0.6 ~ ~1 ~ 0.3 0.3 0.3 1 2"
+				}
+			]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_charges",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+	"key_stop": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "manhunt:reaper/soul_teleport_key_check",
+			"change": -1
+		},
+		"interval": 1
+	},
+	"recharge": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "manhunt:reaper/soul_teleport_charges",
+			"change": 1
+		},
+		"interval": 300,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_charges",
+			"comparison": "<",
+			"compare_to": 3
+		}
+	},
+	"crosshair": {
+		"type": "origins:status_bar_texture",
+		"texture_map": {
+			"minecraft:hud/crosshair": "manhunt:ritualist/crosshair"
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_charges",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_key_check",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"use": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:reaper/soul_teleport_charges",
+					"change": -1
+				},
+				{
+					"type": "origins:raycast",
+					"distance": 6,
+					"entity": false,
+					"before_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s add tping"
+							},
+							{
+								"type": "origins:set_fall_distance",
+								"fall_distance": 0
+							}
+						]
+					},
+					"command_step": 0.1,
+					"command_along_ray": "function manhunt:abilities/reaper/tp",
+					"miss_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s remove tping"
+							},
+							{
+								"type": "origins:add_velocity",
+								"space": "local",
+								"z": 0.02
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "particle minecraft:soul ~ ~0.2 ~ 0.1 0.1 0.1 0.1 10",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "playsound minecraft:entity.enderman.teleport player @a ~ ~1 ~ 2 1.5",
+								"permission_level": 4
+							}
+						]
+					},
+					"hit_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:add_velocity",
+								"space": "local",
+								"y": 0.01
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "tag @s remove tping"
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:add_velocity",
+					"space": "local",
+					"z": 0.2
+				}
+			]
+		},
+		"key": {
+			"key": "key.attack"
+		},
+		"hud_render": {
+			"should_render": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_charges",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:reaper/soul_teleport_key_check",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		},
+		"cooldown": 4
+	},
+	"phase_duration": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 15,
+		"start_value": 0,
+		"min_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.5 0.9 ~ ~1 ~ 0.3 0.3 0.3 1 100"
+		}
+	},
+	"phase_usage": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:reaper/soul_teleport_phase_duration",
+					"change": -1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.5 0.9 ~ ~1 ~ 0.3 0.3 0.3 1 10"
+				}
+			]
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"shader": {
+		"type": "origins:shader",
+		"shader": "minecraft:shaders/post/desaturate.json",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"no_atk": {
+		"type": "eggolib:prevent_key_use",
+		"keys": [
+			"key.attack"
+		],
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"invisibility": {
+		"type": "origins:invisibility",
+		"render_armor": false,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"invuln": {
+		"type": "origins:modify_damage_taken",
+		"modifier": {
+			"name": "invuln",
+			"operation": "multiply_total",
+			"value": -1
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.movement_speed",
+			"operation": "multiply_total",
+			"value": 0.35,
+			"name": "Increased speed"
+		},
+		"update_health": false,
+		"tick_rate": 2,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"air_speed": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.2
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"held_item": {
+		"type": "origins:prevent_feature_render",
+		"features": [
+			"armor",
+			"held_item"
+		],
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"swirl": {
+		"type": "apugli:energy_swirl",
+		"texture_location": "manhunt:textures/swirls/reaper/soul.png",
+		"speed": 0.5,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"compare_to": 0,
+			"comparison": ">"
+		}
+	},
+	"phase": {
+		"type": "eggolib:action_on_critical_hit",
+		"bientity_action": {
+			"type": "apoli:actor_action",
+			"action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:change_resource",
+						"resource": "manhunt:reaper/soul_teleport_phase_duration",
+						"change": 15
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "particle minecraft:dust_color_transition 0 0 0 1 0 0.8 0.9 ~ ~1 ~ 0.2 0.2 0.2 1 10"
+					}
+				]
+			}
+		},
+		"bientity_condition": {
+			"type": "origins:target_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:living"
+					},
+					{
+						"type": "origins:power",
+						"power": "manhunt:reaper/soulstruck/struck"
+					}
+				]
+			}
+		}
+	},
+	"phase_out_1": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.stray.death player @a ~ ~ ~ 1 2"
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"comparison": "<=",
+			"compare_to": 2
+		}
+	},
+	"phase_out_2": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.stray.ambient player @a ~ ~ ~ 1 0.5"
+		},
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "manhunt:reaper/soul_teleport_phase_duration",
+			"comparison": "<=",
+			"compare_to": 8
+		}
+	},
+	"name": "Instant Transmission",
+	"description": "Disappear in the blink of an eye and strike their unsuspecting soul.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/star.png",
+			"text": "§l§3Instant Transmission 🌖§r§7\nTeleport §r§e6§r§7 blocks forward and expose any entities soul in the way.\nEntities exposed will grant you §r§einvulnerability§r§7 and §r§e+35%§r§7 speed when dealt §ncritical§r§7 damage for §r§e0.75s§r§7.\n\n§e🧬§r§7 Cost: §r§f1 §r§bSoul§r§8\n\n§l§bSouls ☀§r§7\n\nSouls are the main energy used by your abilities.\n\n§b☀§r§7 Souls: §r§f3§r§8 (max)§r\n§e⌛§r§7 Cooldown: §r§f15s§r§8 (per soul)§r\n\n§7§lActive Ability"
+		},
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": [
+				"§7Hold §r[",
+				{
+					"keybind": "key.origins.primary_active"
+				},
+				"]§7 and §r[",
+				{
+					"keybind": "key.attack"
+				},
+				"]§7 to teleport!"
+			]
+		}
+	]
+}

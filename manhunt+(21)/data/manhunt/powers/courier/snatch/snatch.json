@@ -1,0 +1,493 @@
+{
+    "type": "origins:multiple",
+    "cooldown_main": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 4,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:courier/snatch/snatch_cooldown_main",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_second": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1800,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 13,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:courier/snatch/snatch_cooldown_second",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_main_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/snatch/snatch_cooldown_main",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "cooldown_second_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/snatch/snatch_cooldown_second",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "activate_main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/snatch/snatch_cooldown_main",
+                    "change": 600
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add snatch"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.insert player @a ~ ~ ~ 1.5 0.7"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:selector_action",
+                        "selector": "@a[tag=hunter]",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:witch ~ ~1 ~ 0.1 0.1 0.1 0.4 70"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tp @s @p[tag=snatch]"
+                                    }
+                                ]
+                            }
+                        },
+                        "bientity_condition": {
+                            "type": "origins:distance",
+                            "comparison": "<=",
+                            "compare_to": 25
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=item]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:witch ~ ~ ~ 0.05 0.05 0.05 0.4 10"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @s @p[tag=snatch]"
+                                }
+                            ]
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:distance",
+                        "comparison": "<=",
+                        "compare_to": 25
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove snatch"
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_cooldown_main",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "manhunt:courier",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "tell_time": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "condition":{
+                "type": "origins:resource",
+                "resource": "manhunt:courier/snatch/snatch_tell_time",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "tell_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/snatch/snatch_tell_time",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "tell_second": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "change": 100,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add courier_tell"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_condition": {
+                        "type": "origins:equal",
+                        "inverted": true
+                    },
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s divider 20"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s courier_result 300"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players operation @s courier_time = @s time_since_death"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players operation @s courier_time /= @s divider"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players operation @s courier_result -= @s courier_time"
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:scoreboard",
+                                        "objective": "time_since_death",
+                                        "comparison": ">=",
+                                        "compare_to": 6000
+                                    },
+                                    "if_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a[tag=courier_tell] [\"\",{\"selector\":\"@s\",\"bold\":true},\" is \",{\"text\":\"Ready\",\"color\":\"green\"},\"!\"]"
+                                    },
+                                    "else_action":  {
+                                        "type": "origins:execute_command",
+                                        "command": "tellraw @a[tag=courier_tell] [\"\",{\"selector\":\"@s\",\"bold\":true},\" is not \",{\"text\":\"Ready\",\"color\":\"dark_red\"},\"!\",{\"text\":\" (\",\"color\":\"dark_gray\"},{\"score\":{\"name\":\"@s\",\"objective\":\"courier_result\"},\"color\":\"gold\"},{\"text\":\"s left\",\"color\":\"gold\"},{\"text\":\")\",\"color\":\"dark_gray\"}]"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_cooldown_second",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "manhunt:courier"
+                }
+            ]
+        }
+    },
+    "activate_second": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/snatch/snatch_cooldown_second",
+                    "change": 1800
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.insert player @a ~ ~ ~ 1.5 0.7"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add snatch_request"
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:courier/bag/void_bag_owner",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run resource set @s manhunt:courier/bag/bundle_glow 100"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "tellraw @a[tag=!snatch_request,tag=hunter] [\"\",\"Join The Bag™ from \",{\"selector\":\"@p[tag=snatch_request]\",\"bold\":true,\"color\":\"gold\"},\"?    \",{\"text\":\"[PRESS \",\"bold\":true,\"underlined\":true,\"color\":\"green\"},{\"keybind\":\"key.saveToolbarActivator\",\"bold\":true,\"color\":\"dark_green\"},{\"text\":\" TO ACCEPT]\",\"bold\":true,\"underlined\":true,\"color\":\"green\"}]"
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@a[tag=hunter]",
+                                    "bientity_action": {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:courier/snatch/snatching"
+                                        }
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:both",
+                                                        "condition": {
+                                                            "type": "origins:dimension",
+                                                            "dimension": "minecraft:overworld"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:both",
+                                                        "condition": {
+                                                            "type": "origins:dimension",
+                                                            "dimension": "minecraft:the_nether"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:both",
+                                                        "condition": {
+                                                            "type": "origins:dimension",
+                                                            "dimension": "minecraft:the_end"
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "origins:target_condition",
+                                                "condition": {
+                                                    "type": "origins:and",
+                                                    "conditions": [
+                                                        {
+                                                            "type": "origins:origin",
+                                                            "origin": "manhunt:hunter",
+                                                            "layer": "origins:origin"
+                                                        },
+                                                        {
+                                                            "type": "origins:scoreboard",
+                                                            "objective": "time_since_death",
+                                                            "comparison": ">=",
+                                                            "compare_to": 6000
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/snatch/snatch_timer",
+                    "change": 100
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_cooldown_second",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:courier/snatch/snatch_tell_time",
+                    "comparison": "<",
+                    "compare_to": 95
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "manhunt:courier"
+                }
+            ]
+        }
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=snatched]",
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:courier/bag/void_bag_contents"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @a[tag=snatched] manhunt:courier/bag/bundled"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute in manhunt:courier positioned 0 1 0 run tp @a[tag=snatched] ~ ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=snatched] manhunt:courier/snatch/snatching"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove snatch_request"
+                }
+            ]
+        }
+    },
+    "timer_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/snatch/snatch_timer",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "name": "The Snatch™",
+    "description": "SNATCH ITEMS AND HUNTERS AROUND LIKE IT'S DROPSHIPPING (NO TRIANGLE SHAPED BUSINESS HERE, ONLY DROPSHIP)",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§9§lSnatch 👋§r\n§7Grab all items and Hunters in a nearby radius.\nIf you sneak, you §r§eonly§r§7 snatch items.\nWhile in your bag, instead send a §r§ateleport request§r§7 to all hunters.\n§7The request can only be accepted by Hunters that have §r§cnot died§r§7 in the last 5 minutes.\n\n§6🕒§r§7 Windup: §r§f5s\n§e⌛§r§7 Cooldown: §r§f30s§r§8 (Outside Bag)\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8 (Inside Bag)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Snatch with §r[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]"
+            ]
+        }
+    ]
+}

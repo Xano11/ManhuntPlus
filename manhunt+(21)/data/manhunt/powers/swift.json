@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+    "end": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:swift"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=countdowned]",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Movement speed increase",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.5,
+            "operation": "multiply_base"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        }
+    },
+    "mining_speed":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        }
+    },
+    "hidden": true
+}

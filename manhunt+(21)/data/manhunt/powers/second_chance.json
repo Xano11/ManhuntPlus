@@ -1,0 +1,129 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3600,
+        "start_value": 3600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @s [\"\",\"[\",{\"text\":\"SECOND CHANCE\",\"bold\":true,\"color\":\"gold\"},\"] wore off!    \"]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:second_chance"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:second_chance_duration",
+            "change": -20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:second_chance_invincible",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "invincible": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:second_chance"
+        }
+    },
+    "invincible_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:second_chance_invincible",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "swirl1": {
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/misc/second_chance.png",
+        "speed": 0.005,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:second_chance_invincible",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:second_chance_invincible",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action":  {
+                        "type": "origins:heal",
+                        "amount": 20
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add second_chance"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=!second_chance] manhunt:second_chance"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove second_chance"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:second_chance_invincible",
+                    "change": 100
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.beacon.activate player @a ~ ~ ~ 10 0.5 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" triggered \",\"[\",{\"text\":\"SECOND CHANCE\",\"bold\":true,\"color\":\"gold\"},\"]!    \"]"
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

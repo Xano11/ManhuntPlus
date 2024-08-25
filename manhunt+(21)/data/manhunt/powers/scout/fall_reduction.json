@@ -1,0 +1,46 @@
+{
+    "type": "origins:multiple",
+    "short_fall": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:fall_distance",
+            "comparison": "<=",
+            "compare_to": 8
+        }
+    },
+    "walk_snow": {
+        "type": "moborigins:walk_on_powder_snow"
+    },
+    "walk_soul_sand": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "value": 0.7216
+        },
+        "condition": {
+            "type": "origins:on_block",
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:soul_sand"
+            }
+        }
+    },
+    "name": "Keen Strider",
+    "description": "You can fall a bit further before taking damage and can navigate harsh terrain easily.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/levitation.png",
+            "text": "§l§aKeen Strider ☁§r§7\nFall damage from falls §r§e8§r§7 blocks or less is §nnegated§r§7.\n§r§ePowder Snow§r§7 can be walked on.\n§r§eSoul Sand§r§7 doesn't slow you down.\n\n§7§lPassive Ability"
+        }
+    ]
+}

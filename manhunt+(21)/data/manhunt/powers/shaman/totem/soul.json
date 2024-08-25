@@ -1,0 +1,114 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:shaman/totem/soul_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~12 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_soul ^ ^1.5 ^-1 0 0 0 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_soul ^ ^1.5 ^1 0 0 0 0 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:shaman/totem/totem_powers"
+                    }
+                ]
+            },
+            "radius": 16.0,
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "move": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute facing entity @e[limit=1,sort=nearest,tag=totem] feet run tp @s ^ ^ ^0.05 ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:soul_fire_flame ~ ~1.5 ~ 0.05 0.05 0.05 0.01 1",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:shaman/totem/totem_powers"
+                    }
+                ]
+            },
+            "radius": 16.0,
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "hidden": true
+}

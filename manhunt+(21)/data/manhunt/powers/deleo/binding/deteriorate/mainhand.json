@@ -1,0 +1,38 @@
+{
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:equipped_item_action",
+            "equipment_slot": "mainhand",
+            "action": {
+                "type": "origins:damage",
+                "amount": 5,
+                "ignore_unbreaking": true
+            }
+        },
+        "interval": 40,
+        "condition": {
+            "type": "eggolib:breaking_block",
+            "inverted": true
+        }
+    },
+    "damage_block": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:equipped_item_action",
+            "equipment_slot": "mainhand",
+            "action": {
+                "type": "origins:damage",
+                "amount": 3,
+                "ignore_unbreaking": true
+            }
+        }
+    },
+    "exhaust": {
+        "type": "origins:exhaust",
+        "interval": 40,
+        "exhaustion": 0.05
+    },
+    "hidden": true
+}

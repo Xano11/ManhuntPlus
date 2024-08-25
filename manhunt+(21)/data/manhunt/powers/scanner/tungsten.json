@@ -1,0 +1,32 @@
+{
+    "type": "origins:multiple",
+    "lessdmgfirefall": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "value": -0.7,
+            "operation": "multiply_total"
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fire"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fall"
+                }
+            ]
+        }
+    },
+    "name": "TUNGST3N-UN1T",
+    "description": "You are supplied with a superior metallic form. Take heavily reduced damage from fire and falls.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/absorption.png",
+            "text": "§a§lTUNGST3N-UN1T 💪§r§7\n§r§eFire§r§7 Damage, §r§eLava§r§7 Damage, and §r§eFall§r§7 Damage are all reduced by §a70%§r.\n\n§7§lPassive Ability"
+        }
+    ]
+}

@@ -1,0 +1,179 @@
+{
+    "type": "origins:multiple",
+    "dandelion_food": {
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "addition",
+            "value": 1.0
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:meat"
+            },
+            "inverted": true
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:dandelion"
+                }
+            }
+        }
+    },
+    "blue_orchid_food": {
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Increased food points",
+            "operation": "addition",
+            "value": 1.0
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:meat"
+            }
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:blue_orchid"
+                }
+            }
+        }
+    },
+    "poppy_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.1,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:poppy"
+                }
+            }
+        }
+    },
+    "poppy_airspeed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:poppy"
+                }
+            }
+        }
+    },
+    "allium_firedmg": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "value": -0.4,
+            "operation": "multiply_total"
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fire"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:allium"
+                }
+            }
+        }
+    },
+    "cornflower_stepheight": {
+        "type": "apugli:step_height",
+        "lower_height": 1.0,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:cornflower"
+                }
+            }
+        }
+    },
+    "deadbush_exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Decreased exhaustion",
+            "operation": "multiply_base",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:dead_bush"
+                }
+            }
+        }
+    },
+    "deadbush_heal": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:dead_bush"
+                }
+            }
+        }
+    },
+    "deadbush_regen": {
+        "type": "origins:disable_regen",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "head",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:dead_bush"
+                }
+            }
+        }
+    },
+    "hidden": true
+}

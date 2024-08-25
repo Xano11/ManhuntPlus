@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:iron_sword",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+	"order": 10,
+	"impact": 3,
+	"name": "Sicarius 🔪",
+	"description": "Hunters can't even trust their shadows when Sicarius lurks around..."
+}

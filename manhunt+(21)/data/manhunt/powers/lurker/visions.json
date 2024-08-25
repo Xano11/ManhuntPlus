@@ -1,0 +1,49 @@
+{
+    "type": "origins:multiple",
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 16
+                },
+                {
+                    "type": "origins:can_see",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:living"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:runner",
+                                "layer": "origins:origin"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.0,
+        "blue": 1.0
+    },
+    "name": "Visions",
+    "description": "You're not sure if Runners are just bad at hiding, or if the fog is coming..",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§a§lAll-Seeing 🔎§r\n§7Runners within range of you can be seen through walls.\n§8(16 Block Range)\n\n§7§lPassive Ability"
+        }
+    ]
+}

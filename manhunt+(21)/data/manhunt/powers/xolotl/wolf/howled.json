@@ -1,0 +1,62 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 140,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:xolotl/wolf/howled",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:xolotl/wolf/howled_duration",
+                    "change": -2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.7 0.4 0 1.2 0.8 0.5 0 ~ ~1 ~ 0.4 0.4 0.4 1 4",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 2
+    },
+    "speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": 0.15,
+            "name": "Increased sprinting speed"
+        }
+    },
+    "atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_base",
+            "value": 0.15,
+            "name": "Increased attack speed"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.15
+        }
+    },
+    "hidden": true
+}

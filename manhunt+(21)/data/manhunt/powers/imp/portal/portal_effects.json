@@ -1,0 +1,95 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:imp/portal/portal_effects"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:imp/portal/portal_effects_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
+    },
+    "fly": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "z": 0.7,
+            "set": true,
+            "space": "local"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.forward",
+            "continuous": true
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_falling",
+        "velocity": 0.0001,
+        "take_fall_damage": false
+    },
+    "cant_dealdmg": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "cant_be_damaged": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "less_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Movement speed decrease",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -1,
+            "operation": "multiply_total"
+        }
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false
+    },
+    "held_item":{
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ]
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "particle minecraft:soul_fire_flame ~ ~1 ~ 0.1 0.1 0.1 0 1 force @a"
+        }
+    },
+    "hidden": true
+}

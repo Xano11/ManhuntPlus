@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "manhunt:flint_trident",
+    "pattern": [
+        "y",
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "y": {
+            "item": "minecraft:flint"
+        }
+    },
+    "result": {
+        "item": "minecraft:trident"
+    }
+}

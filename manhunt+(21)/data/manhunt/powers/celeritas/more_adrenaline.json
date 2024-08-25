@@ -1,0 +1,17 @@
+{
+    "type": "origins:modify_exhaustion",
+    "modifier": {
+        "name": "Decreased exhaustion",
+        "operation": "multiply_base",
+        "value": -0.5
+    },
+    "name":"Adrenaline",
+    "description":"You are used to running and exhaust less.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Adrenaline: §a-50%§r exhaustion"
+        }
+    ]
+}

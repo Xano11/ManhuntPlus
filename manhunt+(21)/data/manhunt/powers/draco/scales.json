@@ -1,0 +1,608 @@
+{
+    "type": "origins:multiple",
+    "start": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "scoreboard players set @s draco_scales 0"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:air"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "scale_level": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "leather_scales": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": 3,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale_level",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "chainmail_gold_scales": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": 5,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale_level",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "iron_scales": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": 6,
+            "name": "Increased armor"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale_level",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "diamond_scales": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.armor",
+                "operation": "addition",
+                "value": 8,
+                "name": "Increased armor"
+            },
+            {
+                "attribute": "minecraft:generic.armor_toughness",
+                "operation": "addition",
+                "value": 2,
+                "name": "Increased armor toughness"
+            }
+        ],
+        "tick_rate": 20,
+        "update_health": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale_level",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "netherite_scales": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.armor",
+                "operation": "addition",
+                "value": 8,
+                "name": "Increased armor"
+            },
+            {
+                "attribute": "minecraft:generic.armor_toughness",
+                "operation": "addition",
+                "value": 3,
+                "name": "Increased armor toughness"
+            },
+            {
+                "attribute": "minecraft:generic.knockback_resistance",
+                "operation": "addition",
+                "value": 1,
+                "name": "Increased kb resistance"
+            }
+        ],
+        "tick_rate": 20,
+        "update_health": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale_level",
+            "comparison": "==",
+            "compare_to": 5
+        }
+    },
+    "recharge": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 400,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_recharge",
+                    "change": 400
+                }
+            ]
+        }
+    },
+    "durability": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_recharge",
+                    "change": 400
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s draco_scales 0"
+                }
+            ]
+        }
+    },
+    "convert": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "resource operation @s manhunt:draco/scales_durability = @s draco_scales"
+        },
+        "interval": 1
+    },
+    "upgrade_leather": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"dragon\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:leather_chestplate"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale_level",
+                    "change": 1,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_netherite player @s ~ ~ ~ 3 1.5"
+                }
+            ]
+        },
+        "click_type": "primary"
+    },
+    "upgrade_chainmail_gold": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"dragon\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:golden_chestplate"
+                    }
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:chainmail_chestplate"
+                    }
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale_level",
+                    "change": 2,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_netherite player @s ~ ~ ~ 3 1.5"
+                }
+            ]
+        },
+        "click_type": "primary"
+    },
+    "upgrade_iron": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"dragon\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:iron_chestplate"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale_level",
+                    "change": 3,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_netherite player @s ~ ~ ~ 3 1.5"
+                }
+            ]
+        },
+        "click_type": "primary"
+    },
+    "upgrade_diamond": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"dragon\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:diamond_chestplate"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale_level",
+                    "change": 4,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_netherite player @s ~ ~ ~ 3 1.5"
+                }
+            ]
+        },
+        "click_type": "primary"
+    },
+    "upgrade_netherite": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"dragon\"]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_chestplate"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:draco/scales_scale_level",
+                    "change": 5,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_netherite player @s ~ ~ ~ 3 1.5"
+                }
+            ]
+        },
+        "click_type": "primary"
+    },
+    "scale": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:draco/scales_recharge",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale",
+            "comparison": "<",
+            "compare_to": 2
+        }
+    },
+    "mitigation": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:attacker"
+                },
+                {
+                    "type": "origins:projectile",
+                    "projectile": "minecraft:spectral_arrow",
+                    "inverted": true
+                }
+            ]
+        },
+        "modifier": {
+            "name": "scale",
+            "operation": "multiply_base_multiplicative",
+            "value": -0.3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "no_scales": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "scaleless",
+            "operation": "multiply_base_multiplicative",
+            "value": 0.3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "recharge_delay": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:draco/scales_recharge",
+            "change": 400
+        },
+        "cooldown": 1
+    },
+    "change_render1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:netherite_chestplate{Unbreakable:1,CustomModelData:1,Tags:[\"dragon\"],AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:0,Slot:chest,Name:\"generic.armor\",UUID:[I;-124128,6532,135319,-13064]}],display:{Name:'[{\"text\":\"Dragon Scales\",\"italic\":false,\"color\":\"aqua\"}]'},Enchantments:[{id:binding_curse,lvl:1}]}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/scales_scale",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/dragonblood/rage_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "change_render2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:netherite_chestplate{Unbreakable:1,CustomModelData:2,Tags:[\"dragon\"],AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:0,Slot:chest,Name:\"generic.armor\",UUID:[I;-124128,6532,135319,-13064]}],display:{Name:'[{\"text\":\"Dragon Scales\",\"italic\":false,\"color\":\"blue\"}]'},Enchantments:[{id:binding_curse,lvl:1}]}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/scales_scale",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/dragonblood/rage_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "change_render3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:netherite_chestplate{Unbreakable:1,CustomModelData:3,Tags:[\"dragon\"],AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:0,Slot:chest,Name:\"generic.armor\",UUID:[I;-124128,6532,135319,-13064]}],display:{Name:'[{\"text\":\"Dragon Scales\",\"italic\":false,\"color\":\"dark_red\"}]'},Enchantments:[{id:binding_curse,lvl:1}]}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/scales_scale",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/dragonblood/rage_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "change_render4": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:netherite_chestplate{Unbreakable:1,CustomModelData:4,Tags:[\"dragon\"],AttributeModifiers:[{AttributeName:\"generic.armor\",Amount:0,Slot:chest,Name:\"generic.armor\",UUID:[I;-124128,6532,135319,-13064]}],display:{Name:'[{\"text\":\"Dragon Scales\",\"italic\":false,\"color\":\"red\"}]'},Enchantments:[{id:binding_curse,lvl:1}]}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/scales_scale",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:draco/dragonblood/rage_duration",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:start",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "broke": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "item replace entity @s armor.chest with minecraft:air"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no_chestplate": {
+        "type": "origins:restrict_armor",
+        "chest": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:draco/scales_scale",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "name": "Dragon Scales",
+    "description": "Regenerative scales ornament and protect your chest from incoming damage.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/netherite_chestplate.png",
+            "text": "By using chestplates, you can transfer their attributes to your scales.\n(Left click chestplate on top of scales in your inventory)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Scales: Reduce incoming damage by §l§a30%§l§c when dealt by a mob or player.\nHaving no scales leaves you vulnerable and increases damage intake by §l§c25%§r"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
+            "text": "You have two scales with limited durability.\nScale Durability: 10 damage\nOne scale per 15s."
+        }
+    ]
+}

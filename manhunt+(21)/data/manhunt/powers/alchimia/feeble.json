@@ -1,0 +1,28 @@
+{
+    "type": "origins:multiple",
+    "bad_regen": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.75
+        }
+    },
+    "health":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.max_health",
+            "value": -4,
+            "operation": "addition"
+        }
+    },
+    "name": "Feeble",
+    "description": "You initially learned alchemy to rejuvenate your dying and feeble body.\nWithout them, your body struggles.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "§c§lFeeble 💔§r\n§c-75%§r§7 natural regeneration and -2 §l§c❤§r§7.\nTo heal, it is suggested to §ndrink your regular concoctions§r§7.\n\n§7§lPassive Ability"
+        }
+    ]
+}

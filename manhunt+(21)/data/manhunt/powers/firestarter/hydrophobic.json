@@ -1,0 +1,23 @@
+{
+    "hidden": true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:damage",
+        "amount": 2,
+        "damage_type": "minecraft:magic"
+    },
+    "interval": 21,
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">=",
+        "compare_to": 1
+    },
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "You take §c2 damage§r every second while submerged in water."
+        }
+    ]
+}

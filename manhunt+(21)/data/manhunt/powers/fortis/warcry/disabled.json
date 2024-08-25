@@ -1,0 +1,36 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:fortis/warcry/disabled",
+            "permission_level": 4
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:fortis/warcry/disabled_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "unable": {
+        "type": "origins:prevent_item_use",
+        "name":"🚫",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "tag": "manhunt:fortis_disable"
+            }
+        }
+    }
+}

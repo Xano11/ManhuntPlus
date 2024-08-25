@@ -1,0 +1,242 @@
+{
+    "type": "origins:multiple",
+    "active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:reaper/soul_teleport_charges",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add reaper"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/reaper/siphon"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.armor.equip_leather player @a ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=armor_stand,tag=reaper_siphon]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:area_of_effect",
+                            "radius": 2.2,
+                            "shape": "sphere",
+                            "bientity_action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add siphon"
+                                }
+                            },
+                            "bientity_condition": {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:living"
+                                                },
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:armor_stand",
+                                                    "inverted": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:armor_stand"
+                                                },
+                                                {
+                                                    "type": "origins:power",
+                                                    "power": "manhunt:reaper/soulstruck/soul"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[tag=siphon]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": -1.4,
+                                "y": 0.15,
+                                "set": true
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove siphon"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:sculk_charge_pop ~ ~1 ~ 0.2 0.2 0.2 0.05 100"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:entity_type",
+                                                "entity_type": "minecraft:armor_stand"
+                                            },
+                                            {
+                                                "type": "origins:power",
+                                                "power": "manhunt:reaper/soulstruck/soul"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:apply_effect",
+                                                "effect": {
+                                                    "effect": "minecraft:absorption",
+                                                    "duration": 100,
+                                                    "amplifier": 0
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:riding_action",
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "power grant @s manhunt:reaper/soulstruck/struck"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "playsound minecraft:entity.ender_dragon.hurt player @a ~ ~ ~ 2 0.6"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "particle minecraft:sculk_soul ~ ~1 ~ 0.3 0.2 0.3 0.03 20"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:dismount"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "tp @s ~ 300 ~",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "execute on passengers if entity @s[tag=reaper_soul] run kill @s",
+                                                        "permission_level": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "kill @s",
+                                                        "permission_level": 4
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:reaper/soul_teleport_charges",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:reaper/soul_teleport_key_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "name": "Soul Siphon",
+    "description": "A superior soul comes with immense control over the weaker ones",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§l§3Soul Siphon 🌀§r§7\nPull nearby entities in a §r§e5§r§7 block §nfrontal§r§7 cone AOE.\nIf you pull a soulstruck entity, you will consume it for §r§eAbsorption I§r§7\n\n§e🧬§r§7 Cost: §r§f1 §r§bSoul§r§8\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Hold §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 and §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to siphon!"
+            ]
+        }
+    ]
+}

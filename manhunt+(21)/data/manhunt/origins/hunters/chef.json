@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"manhunt:roles/rivals",
+		"manhunt:chef/cleaver/activate",
+        "manhunt:chef/frog/activate",
+		"manhunt:chef/apron",
+        "manhunt:chef/hops",
+		"manhunt:chef/thrill"
+	],
+	"icon": {
+		"item": "minecraft:bread",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Chef",
+	"description": "         [§cRIVALS ✘§r]\nHailing from the land of the frogs, the Chef is ready to cook the runner."
+}

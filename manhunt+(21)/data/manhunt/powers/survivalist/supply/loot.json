@@ -1,0 +1,185 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:survivalist/supply/loot_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "fall_slow": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.6,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ]
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:survivalist/supply/loot_levels",
+                        "comparison": ">=",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/spawn_bonus_chest",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:survivalist/supply/loot_levels",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/shipwreck_treasure",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:survivalist/supply/loot_levels",
+                        "comparison": ">=",
+                        "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/village/village_weaponsmith",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:survivalist/supply/loot_levels",
+                        "comparison": ">=",
+                        "compare_to": 3
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "loot spawn ~ ~ ~ loot minecraft:chests/buried_treasure",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.attack.knockback player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.wooden_door.open player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,limit=1,sort=nearest,tag=supply_drop] on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=armor_stand,limit=1,sort=nearest,tag=supply_drop]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~ ~ 0 0 0 0.3 30",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

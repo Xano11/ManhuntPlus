@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"manhunt:roles/intelligence",
+		"manhunt:lurker/lurk/lurk",
+		"manhunt:lurker/shadow/shadow",
+		"manhunt:lurker/visions",
+		"manhunt:lurker/decrepit",
+		"manhunt:lurker/sleepless",
+		"manhunt:lurker/myodesopsia"
+
+	],
+	"icon": {
+		"item": "minecraft:ender_eye",
+		"tag": "{Enchantments:[{}],CustomModelData:2}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Lurker",
+	"description": "     [§dINTELLIGENCE ₪§r]\n'A presence is felt, inflicting fear. You lurk within darkness, approach unclear.'\nThe Lurker seeps into the void or spectates from above.. always watching."
+}

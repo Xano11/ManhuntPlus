@@ -1,0 +1,392 @@
+{
+    "type": "origins:multiple",
+    "default": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join Hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s hunters run execute if entity @a[tag=hunter]"
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team leave Hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a[tag=hunter] if score @s hunters > @p hunters run scoreboard players remove @s hunters 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players reset @s hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players reset @s tracking"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+    "glow": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunter_effects_glow_check",
+            "change": 2,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.playerlist",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_glow",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "glow_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunter_effects_glow_check",
+            "change": -1,
+            "operation": "add"
+        },
+        "interval": 1
+    },
+    "glow_overlay": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunter",
+                "layer": "origins:origin"
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hunter_effects_glow_check",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:jester/madness/mad",
+                    "inverted": true
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0
+    },
+    "shattered_duration":  {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0
+    },
+    "shattered_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hunter_effects_shattered_duration",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hunter_effects_shattered_duration",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "shaman": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:selector_action",
+                "selector": "@a[tag = hunter]",
+                "bientity_action": {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:armor_stand",
+                                "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"shaman_soul\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item\",Age:-32768,Health:99999,PickupDelay:32767,Invulnerable:1b,Tags:[\"shaman_soul\"],Item:{id:\"minecraft:cyan_dye\",Count:1b,tag:{CustomModelData:1,Enchantments:[{}]}}}]}",
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale delay set pehkui:height 0 @s"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "scale set pehkui:height 0.75 @s"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @p soul run data get entity @p UUID[0] 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @s soul run data get entity @p UUID[0] 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:shaman/totem/soul"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "data modify entity @s Rotation set value [0f,0f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunters/shaman",
+                                "layer": "manhunt:hunters"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunters/shaman",
+                                "layer": "manhunt:hunters",
+                                "inverted": true
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:manhunt_compass}"
+        },
+        "text": [
+            "Cycle between runners with \"",
+            {
+                "keybind": "key.use",
+                "color": "gold"
+            },
+            "\"!"
+        ]
+    },
+    "skull_pickup": {
+        "type": "origins:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"inmortuae\"]}"
+        }
+    },
+    "drop_skull": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:spawn_entity",
+                "entity_type": "minecraft:item",
+                "tag": "{Item:{id:\"minecraft:skeleton_skull\",tag:{display:{Name:'[\"\",{\"text\":\"Hunter Skull\",\"italic\":false,\"color\":\"yellow\"}]'},Enchantments:[{}],Tags:inmortuae},Count:1}}"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:runners/damned",
+                "layer": "manhunt:runners"
+            }
+        }
+    },
+    "speedboat": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:riding_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add speedboat"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "scale set pehkui:motion 1.25 @s"
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:boat"
+                                },
+                                {
+                                    "type": "origins:fluid_height",
+                                    "fluid": "minecraft:water",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:selector_action",
+            "selector": "@e[limit=1,sort=nearest,type=boat,tag=speedboat]",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "tag @s remove speedboat"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "scale set pehkui:motion 1 @s"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:boat"
+                                },
+                                {
+                                    "type": "origins:fluid_height",
+                                    "fluid": "minecraft:water",
+                                    "comparison": ">",
+                                    "compare_to": 0
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "apugli:entity_in_radius",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunters/captain",
+                        "layer": "manhunt:hunters"
+                    },
+                    "radius": 24.0,
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "speedboat_particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.2 1 1.4 1 1 1 ^0.5 ^0.2 ^-1 0 0 0 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 0 0.2 1 1.4 1 1 1 ^-0.5 ^0.2 ^-1 0 0 0 1 1"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute on vehicle if entity @s[pehkui.scale_type=pehkui:motion,pehkui.scale=1.25]",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "hidden": true
+}

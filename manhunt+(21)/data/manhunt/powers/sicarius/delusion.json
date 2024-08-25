@@ -1,0 +1,75 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 300"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:modify_inventory",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:compass"
+                                }
+                            },
+                            "item_action":  {
+                                "type": "apugli:cooldown",
+                                "ticks": 600
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.mirror_move player @a ~ ~ ~ 100 0.5 1"
+                }
+            ]
+        },
+        "cooldown": 2400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "manhunt:textures/bars/sicarius/sicarius.png",
+            "bar_index": 1
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+    "name": "Ilusión",
+    "description": "Falsify your position and watch them wander clueless.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "\"Ilusión\" will disable all hunter compasses for 30s."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Cast the illusion with \"%s\"!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
+            "text": "Cooldown: 2m"
+        }
+    ]
+}

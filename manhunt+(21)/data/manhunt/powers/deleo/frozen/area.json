@@ -1,0 +1,241 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/frozen/area_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^6.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^1 ^-6.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^6 ^6.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0.4 0.3 2 0 0.9 0.8 ^ ^6 ^-6.5 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ^ ^2 ^6.5 0 0 0 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ^ ^5 ^-6.5 0 0 0 0 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~8 ~",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/frozen/area_duration",
+            "compare_to": 10,
+            "comparison": ">"
+        }
+    },
+    "texture_change": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.listening_angry player @a ~ ~ ~ 2 1.4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_2 player @a ~ ~ ~ 2 0.75",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/frozen/area_duration",
+            "compare_to": 30,
+            "comparison": "=="
+        }
+    },
+    "texture_change2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.listening_angry player @a ~ ~ ~ 2 1.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_2 player @a ~ ~ ~ 2 0.9",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/frozen/area_duration",
+            "compare_to": 20,
+            "comparison": "=="
+        }
+    },
+    "grant_effect": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.sonic_boom player @a ~ ~ ~ 2 1.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.elder_guardian.curse player @a ~ ~ ~ 0.5 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.prepare_mirror player @a ~ ~ ~ 2 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.riptide_3 player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.deplete player @a ~ ~ ~ 2 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:enchanted_hit ~ ~1 ~ 2 0.3 2 2 250",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:warped_spore ~ ~0.5 ~ 3 0.3 3 0 150",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 6,
+                    "shape": "sphere",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s manhunt:deleo/frozen/frozen",
+                            "permission_level": 4
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:nbt",
+                                    "nbt": "{NoAI:1b}",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:runner",
+                                            "layer": "origins:origin",
+                                            "inverted": true
+                                        },
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:runners/deleo",
+                                            "layer": "manhunt:runners"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/frozen/area_duration",
+            "compare_to": 10,
+            "comparison": "=="
+        }
+    }
+}

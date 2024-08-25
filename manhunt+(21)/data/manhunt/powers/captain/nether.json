@@ -1,0 +1,39 @@
+{
+    "type": "origins:multiple",
+    "food": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": 2.0
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
+    "health":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "operation": "addition",
+            "value": -2,
+            "name": "Decreased health."
+        },
+        "update_health": true,
+        "tick_rate": 20,
+        "condition":  {
+            "type": "origins:dimension",
+            "dimension": "minecraft:the_nether"
+        }
+    },
+    "name": "No Water, No Captain",
+    "description": "The lack of water in the Nether weakens your soul.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/nausea.png",
+            "text": "§c§lNether-Sick 🥵§r§7\nWhilst in the Nether, you have §c-1§r§7 maximum health §l§c❤§r§7 and §r§c3x§r§7 exhaustion.\n\n§7§lPassive Ability"
+        }
+    ]
+}

@@ -1,0 +1,394 @@
+{
+    "type": "origins:multiple",
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "stopsound @s player"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:falling_dust minecraft:redstone_block ~ ~1 ~ 0.5 0.3 0.5 10 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:falling_dust minecraft:white_concrete ~ ~1 ~ 0.5 0.3 0.5 10 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:darkness 15 0 true"
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "windup_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 350,
+        "start_value": 350,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:jester/madness/mad"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:jester/madness/mad_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "tp_laugh": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@e[tag=jester_paranoia,type=item_display]",
+            "bientity_action": {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s anchored eyes run tp @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=jester_paranoia] ^ ^ ^2"
+                }
+            },
+            "bientity_condition": {
+                "type": "eggolib:compare_score",
+                "actor_objective": "laugh",
+                "target_objective": "laugh",
+                "comparison": "=="
+            }
+        },
+        "interval": 1
+    },
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.99,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": ">=",
+                    "compare_to": 295
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": "<=",
+                    "compare_to": 300
+                }
+            ]
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.9,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": ">=",
+                    "compare_to": 290
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": "<",
+                    "compare_to": 295
+                }
+            ]
+        }
+    },
+    "overlay3": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.8,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": ">=",
+                    "compare_to": 285
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": "<",
+                    "compare_to": 290
+                }
+            ]
+        }
+    },
+    "overlay4": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.7,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": ">=",
+                    "compare_to": 280
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:jester/madness/mad_duration",
+                    "comparison": "<",
+                    "compare_to": 285
+                }
+            ]
+        }
+    },
+    "sound1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 1 2"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 50
+        }
+    },
+    "sound2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 1 2"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "sound3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 1.2 1.7"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 10
+        }
+    },
+    "sound4": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 1.4 1.6"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 8
+        }
+    },
+    "sound5": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 1.6 1.5"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 6
+        }
+    },
+    "sound6": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 1.8 1.4"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "sound7": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 2.1 1.3"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "sound8": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.vex.death player @s ~ ~ ~ 2.4 1.2"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": true,
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunter",
+                "layer": "origins:origin"
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "glow_hunters": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 32
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:jester/madness/mad_windup",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:player"
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:jester/madness/mad_windup",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "label": {
+        "type": "eggolib:modify_label_render",
+        "render_mode": "hide_completely"
+    },
+    "deaf":{
+        "type": "apugli:prevent_sound"
+    },
+    "hidden": true
+}

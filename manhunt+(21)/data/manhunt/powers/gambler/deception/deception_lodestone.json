@@ -1,0 +1,145 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 1200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell player @A ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 1 1 1 ~ ~1 ~ 1 1 1 1 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:ash ~ ~1 ~ 1 1 1 1 300 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:snowflake ~ ~1 ~ 1 0 1 0.1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/deception/deception_lodestone_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run tp @s ~ ~ ~ ~8 ~"
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": {
+                        "type": "minecraft:instant_effect"
+                    },
+                    "bientity_condition": {
+                        "type": "origins:distance",
+                        "comparison": "<=",
+                        "compare_to": 8
+                    },
+                    "count": 2,
+                    "speed": 0.0,
+                    "spread": {
+                        "x": 0.1,
+                        "y": 0.1,
+                        "z": 0.1
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "used": {
+        "type": "origins:action_on_being_used",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:gambler/deception/deception_lodestone_duration_down"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @a if score @s lodestone = @e[limit=1,sort=nearest,tag=deception] lodestone anchored eyes facing entity @s eyes run tp @e[limit=1,sort=nearest,tag=deception] ~ ~ ~ ~ ~"
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 2
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 0"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.illusioner.cast_spell player @s ~ ~ ~ 1 0.5"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 0 0 0 1 1 1 1 ~ ~1 ~ 1 1 1 1 300"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:ash ~ ~1 ~ 1 1 1 1 300 normal"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:snowflake ~ ~1 ~ 1 0 1 0.1 100"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @s"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:hunter_effects"
+            }
+        }
+    },
+    "invisible":{
+        "type": "origins:invisibility",
+        "render_armor": true
+    },
+    "hidden": true
+}

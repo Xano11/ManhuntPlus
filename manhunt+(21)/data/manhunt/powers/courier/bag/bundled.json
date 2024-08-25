@@ -1,0 +1,140 @@
+{
+    "type": "origins:multiple",
+    "prevent_item": {
+        "type": "origins:prevent_item_use",
+        "name":"🚫",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:ender_pearl"
+            }
+        }
+    },
+    "no_ability": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            {
+                "key": "key.origins.secondary_active",
+                "action": {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s add tp_bundle"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:witch ~ ~1 ~ 0.1 0.1 0.1 0.4 70"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 1.5 0.7"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:dimension",
+                                        "dimension": "manhunt:courier"
+                                    },
+                                    "if_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:selector_action",
+                                                "selector": "@e[type=item]",
+                                                "bientity_action": {
+                                                    "type": "origins:target_action",
+                                                    "action": {
+                                                        "type": "origins:execute_command",
+                                                        "command": "tp @p[tag=tp_bundle] @s"
+                                                    }
+                                                },
+                                                "bientity_condition": {
+                                                    "type": "origins:in_set",
+                                                    "set": "manhunt:courier/bag/void_bag_owner"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "else_action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tp @p[tag=tp_bundle] @s"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:random_teleport",
+                                            "area_width": 5,
+                                            "area_height": 1,
+                                            "success_action": {
+                                                "type": "origins:spawn_particles",
+                                                "particle": "minecraft:witch",
+                                                "count": 8
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s remove tp_bundle"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power remove @s manhunt:courier/bag/bundled"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:witch ~ ~1 ~ 0.1 0.1 0.1 0.4 70"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 1.5 0.7"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:remove_from_set",
+                                    "set": "manhunt:courier/bag/void_bag_contents"
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:courier/bag/void_bag_contents"
+                        }
+                    }
+                }
+            }
+        ],
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/courier",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "hidden": true
+}

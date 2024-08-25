@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"manhunt:roles/intelligence",
+		"manhunt:scanner/solar_battery",
+		"manhunt:scanner/radar_visor",
+		"manhunt:scanner/laser/laser_pointer",
+		"manhunt:scanner/tungsten",
+		"manhunt:scanner/occupied_oculars",
+		"manhunt:scanner/reboot_sequence",
+		"manhunt:scanner/rod"
+	],
+	"icon": {
+		"item": "minecraft:emerald",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "5C4NN3R",
+	"description": "     [§dINTELLIGENCE ₪§r]\nL0G: M4NHUNT.\nRobot partner 'Scanner' sucessfully deployed.\n- Prime Directive: Supply allied Hunter units with radar guidance. Conquer all Runner targets. "
+}

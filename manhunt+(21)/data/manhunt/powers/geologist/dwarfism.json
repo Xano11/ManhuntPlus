@@ -1,0 +1,72 @@
+{
+	"name": "Dwarfism",
+	"description": "The Geologist is a descendant of dwarves, born for the mines. Dwarves stand at a sturdy 5'9\"",
+	"badges": [
+		{
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "§c§lDwarfism 🍻§r§7\nDue to Dwarfism, you are §r§esmaller§r§7 than the average player.\nAdditionally, you have -3 §l§c❤§r and §r§c-15%§r§7 movement speed passively.\n\n§7§lPassive Ability"
+        }
+	],
+	"type": "origins:multiple",
+	"size": {
+		"type": "origins:action_on_callback",
+		"entity_action_respawned": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:width 1.1 @p"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:height 0.85 @p"
+				}
+			]
+		},
+		"entity_action_gained": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:width 1.1 @p"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:height 0.85 @p"
+				}
+			]
+		},
+		"entity_action_lost": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:width 1 @p"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:height 1 @p"
+				}
+			]
+		}
+	},
+	"health": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Lower health",
+			"attribute": "minecraft:generic.max_health",
+			"value": -6,
+			"operation": "addition"
+		}
+	},
+	"slowness": {
+		"type": "origins:attribute",
+		"modifier": {
+			"name": "Lower speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": -0.15,
+			"operation": "multiply_base"
+		}
+	}
+}

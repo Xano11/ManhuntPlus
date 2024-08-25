@@ -1,0 +1,33 @@
+{
+    "type": "origins:multiple",
+    "attack_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "addition",
+            "value": -0.15,
+            "name": "Decreased attack speed."
+        }
+    },
+    "break":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.45
+        },
+        "block_condition": {
+            "type": "origins:hardness",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "name": "Steady and Slow",
+    "description": "More of a turtle type than a hare, but I will still always win the race",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/slowness.png",
+            "text": "§c§lSteady and Slow 💪§r§7\n§c-0.15§r§7 Attack Speed value.\n§c-45%§r§7 Mining Speed.\n\n§7§lPassive Ability"
+        }
+    ]
+}

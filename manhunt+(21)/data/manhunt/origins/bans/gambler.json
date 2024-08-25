@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:filled_map",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Fortuna 🃏",
+	"description": "To Fortuna, being lucky is a matter of taking good opportunities."
+}

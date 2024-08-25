@@ -1,0 +1,501 @@
+{
+    "type": "origins:multiple",
+    "charging": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 9,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.phantom.flap player @s ~ ~ ~ 3 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 3 2",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "charging_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scout/speed_charging",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:entity_type",
+                        "entity_type": "minecraft:player"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "manhunt:runner",
+                        "layer": "origins:origin"
+                    }
+                ]
+            },
+            "radius": 32.0,
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "charging_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scout/speed_charging",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "apugli:entity_in_radius",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:entity_type",
+                        "entity_type": "minecraft:player"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "manhunt:runner",
+                        "layer": "origins:origin"
+                    }
+                ]
+            },
+            "radius": 32.0,
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "passive_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.15,
+            "operation": "multiply_total"
+        }
+    },
+    "passive_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.05
+        }
+    },
+    "earlygame": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.05,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "midgame": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.1,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "endgame": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.15,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+    "air_earlygame": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.05
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "air_midgame": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "air_endgame": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.15
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/speed_charging",
+                    "comparison": "==",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:difficulty_phase",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:dust_color_transition 1 1 1 1 0.7 0.7 0.7 ~ ~1 ~ 0.2 0.2 0.2 1 1"
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:power",
+            "power": "manhunt:start",
+            "inverted": true
+        }
+    },
+    "ally_speed_grant": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 32,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:scout/ally_speed",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:scout/ally_speed"
+                    },
+                    "else_action": {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:scout/ally_speed_duration",
+                        "change": 30
+                    }
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter/scout",
+                            "layer": "origins:origin",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "manhunt:hunter",
+                            "layer": "origins:origin"
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "overlay_inactive": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/inactive.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim1.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim2.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "overlay3": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim3.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "overlay4": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim4.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "overlay5": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim5.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 5
+        }
+    },
+    "overlay6": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim6.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 6
+        }
+    },
+    "overlay7": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim7.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 7
+        }
+    },
+    "overlay8": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/anim8.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 8
+        }
+    },
+    "overlay_active": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/scout/active.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scout/speed_charging",
+            "comparison": "==",
+            "compare_to": 9
+        }
+    },
+    "name": "COME BACK HERE",
+    "description": "Passively, you move a bit quicker. When not near a Runner, this bonus doubles and applies to nearby allies.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "§b§lSpeed Specialist 🏃§r§7\n§a+5%§r§7 Speed and §a+5%§r§7 Air Speed passively.\nWhen over §r§e32§r§7 blocks away from a §nRunner§r§7, you gain §bPursuit ↑§r§7.\n\n§bPursuit ↑§r§7 gives an additional §a+5%§r§7 Speed and §l§a+5%§r§7 Air Speed bonus to you §r§aand allies§r§7 in a §r§e32§r§7 block radius of you.§r§8 (Excluding other Scouts.)\n\n§7At Midgame and Endgame, all of these speed boosts increase by an additional §r§a+5%§r§7.\n§r§8(Icon over hotbar shows when active.)§r\n\n§7§lPassive Ability"
+        }
+    ]
+}

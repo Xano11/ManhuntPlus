@@ -1,0 +1,161 @@
+{
+    "type": "origins:multiple",
+    "volatile_throw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.witch.throw player @a ~ ~ ~ 2 0.7"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:potion",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 1,
+                    "tag": "{Passengers:[{id:\"minecraft:armor_stand\",Silent:1b,Invulnerable:1b,Small:1b,Marker:1b,Invisible:1b,Tags:[\"volatile\"]}],Item:{id:\"minecraft:splash_potion\",Count:1b,tag:{CustomPotionColor:16777215,Enchantments:[{}],CustomModelData:1}}}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run power grant @s manhunt:alchimia/potion/volatile_pot",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"alchimia\",\"volatile\"]}"
+            }
+        }
+    },
+    "fall_res": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "fall_particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.9 0 1 1.2 0.4 0 0.5 ~ ~0.1 ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~0.1 ~ 0.05 0 0.05 0.1 2"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/volatile_fall_res",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "immune": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/volatile_fall_res",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/potion/volatile_fall_res",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~0.05 ~ 0.2 0 0.2 0.3 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.witch.hurt player @a ~ ~ ~ 0.2 0.5"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/volatile_fall_res",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"alchimia\",\"volatile\"]}"
+        },
+        "texts": [
+            [
+                "Explosive and not to be confused with sparkling water."
+            ],
+            [
+                "Press \"",
+                {
+                    "keybind": "key.use",
+                    "color": "light_purple"
+                },
+                "\" to throw it!"
+            ]
+        ]
+    },
+    "hidden": true
+}

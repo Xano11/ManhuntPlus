@@ -1,0 +1,28 @@
+{
+    "type": "origins:multiple",
+    "lesshp": {
+        "type": "origins:attribute",
+        "modifier": {
+        "name": "less health",
+        "attribute": "minecraft:generic.max_health",
+        "value": -2,
+        "operation": "addition"
+        }
+    },
+    "weakened": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+    "name": "Frail Body",
+    "description": "Being so fast and lightweight doesn't make you that resistant and strong compared to your teammates.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "§l§cFrail ✊§r§7\n§c-25%§r damage dealt and -1 §l§c❤§r§7 of maximum health.\n\n§7§lPassive Ability"
+        }
+    ]
+}

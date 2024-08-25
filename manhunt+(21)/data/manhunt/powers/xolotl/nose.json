@@ -1,0 +1,42 @@
+{
+    "type": "origins:multiple",
+    "sight": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 32
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:living"
+                            }                            
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Nose-Follower",
+    "description": "ADHD courses through your veins.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/blindness.png",
+            "text": "§c§lBlind as a Dog 👁§r§7\nYou can only see entities that are at most §r§e32§r§7 blocks away from you\n\n§7§lPassive Ability"
+        }
+    ]
+}

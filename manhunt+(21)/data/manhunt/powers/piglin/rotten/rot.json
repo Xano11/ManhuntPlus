@@ -1,0 +1,53 @@
+{
+    "type": "origins:multiple",
+    "rotted": {
+        "type": "origins:entity_set"
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_to_set",
+                    "set": "manhunt:piglin/rotten/rot_rotted"
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:piglin/rotten/everhungry_duration",
+                                "change": 100
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:piglin/rotten/everhungry",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:runner",
+                "layer": "origins:origin"
+            }
+        }
+    },
+    "name": "Decaying Pork",
+    "description": "Your flesh wrecks immense famine to those that come in contact with you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "§a§lFamine 🥫\n§7Hitting a Runner will inflict §2Famished§r§7 for §r§e+10§r§7 seconds.§r\n§8(Duration can stack up to 60s)\n§7While Famished, Runners are inflicted with the Hunger effect. At Midgame and Endgame, the strength of the effect increases.\n\nThe effect can be cured by §neating food§r§7, but the food item will grant §c-50%§r§7 less food value than usual.\n\n§7§lPassive Ability"
+        }
+    ]
+}

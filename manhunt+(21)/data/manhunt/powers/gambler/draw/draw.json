@@ -1,0 +1,1116 @@
+{
+    "type": "origins:multiple",
+    "golden": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.player.levelup player @s ~ ~ ~ 1 2",
+            "permission_level": 4
+        }
+    },
+    "golden_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/draw/draw_golden",
+            "change": 1
+        },
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/draw/draw_golden",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 2,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_heart",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_diamond",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_club",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_spade",
+                            "comparison": "==",
+                            "compare_to": 3
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_influence",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "influence": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "heart": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "diamond": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "club": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "spade": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "overlay_blank": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/gambler/blank.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_influence",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "overlay_heart": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/gambler/heart.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_influence",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "overlay_diamond": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/gambler/diamond.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_influence",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "overlay_club": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/gambler/club.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_influence",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "overlay_spade": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/gambler/spade.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_influence",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "card": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:gambler/draw/draw_influence",
+                        "compare_to": 0,
+                        "comparison": ">"
+                    },
+                    "if_action": {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "compare_to": 1,
+                                    "comparison": "=="
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/heart",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_heart",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/heart_duration",
+                                            "change": 300,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "compare_to": 2,
+                                    "comparison": "=="
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/diamond",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_diamond",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/diamond_duration",
+                                            "change": 300,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "compare_to": 3,
+                                    "comparison": "=="
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/club",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_club",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/club_duration",
+                                            "change": 300,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "compare_to": 4,
+                                    "comparison": "=="
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/spade",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_spade",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/spade_duration",
+                                            "change": 300,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:choice",
+                        "actions": [
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_spade",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_influence",
+                                            "change": 4,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/spade",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_club",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_influence",
+                                            "change": 3,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/club",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_diamond",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_influence",
+                                            "change": 2,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/diamond",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                },
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_heart",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_influence",
+                                            "change": 1,
+                                            "operation": "set"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:gambler/draw/heart",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:gambler/draw/draw_deck",
+                                            "change": -1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                },
+                                "weight": 10
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 22,
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_deck",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "skip": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:choice",
+            "actions": [
+                {
+                    "element": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_influence",
+                            "comparison": "!=",
+                            "compare_to": 4
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_spade",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "change": 4,
+                                    "operation": "set"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:gambler/draw/spade",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_deck",
+                                    "change": -1
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_influence",
+                            "comparison": "!=",
+                            "compare_to": 3
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_club",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "change": 3,
+                                    "operation": "set"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:gambler/draw/club",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_deck",
+                                    "change": -1
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_influence",
+                            "comparison": "!=",
+                            "compare_to": 2
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_diamond",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "change": 2,
+                                    "operation": "set"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:gambler/draw/diamond",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_deck",
+                                    "change": -1
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    "weight": 10
+                },
+                {
+                    "element": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_influence",
+                            "comparison": "!=",
+                            "compare_to": 1
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_heart",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_influence",
+                                    "change": 1,
+                                    "operation": "set"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:gambler/draw/heart",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "manhunt:gambler/draw/draw_deck",
+                                    "change": -1
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    "weight": 10
+                }
+            ]
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 22,
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_deck",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_heart",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_diamond",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_club",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_spade",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "all_in": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_heart",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_diamond",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_club",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_spade",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_influence",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_golden",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/curse_hearts",
+                    "change": 2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:gambler/draw/heart",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:gambler/draw/diamond",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:gambler/draw/club",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:gambler/draw/spade",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.villager.work_cartographer player @s ~ ~ ~ 0.5 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.book.page_turn player @s ~ ~ ~ 1 1.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_heart",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_diamond",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_club",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "manhunt:gambler/draw/draw_spade",
+                            "comparison": "==",
+                            "compare_to": 3
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_golden",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:gambler/draw/draw_influence",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "deck": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 3,
+        "hud_render": [{
+            "sprite_location": "manhunt:textures/bars/gambler/draw.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        },
+        {
+            "sprite_location": "manhunt:textures/bars/gambler/draw_gold1.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        },
+        {
+            "sprite_location": "manhunt:textures/bars/gambler/draw_gold2.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 2
+            }
+        },
+        {
+            "sprite_location": "manhunt:textures/bars/gambler/draw_gold3.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 3
+            }
+        },
+        {
+            "sprite_location": "manhunt:textures/bars/gambler/draw_gold4.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 4
+            }
+        },
+        {
+            "sprite_location": "manhunt:textures/bars/gambler/draw_gold5.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 5
+            }
+        },
+        {
+            "sprite_location": "manhunt:textures/bars/gambler/draw_gold6.png",
+            "bar_index": 0,
+            "should_render": true,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:gambler/draw/draw_golden",
+                "comparison": "==",
+                "compare_to": 6
+            }
+        }
+    ]
+    },
+    "gain_cards": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/draw/draw_deck",
+            "change": 1
+        },
+        "interval": 900,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:gambler/draw/draw_deck",
+            "comparison": "<",
+            "compare_to": 3
+        }
+    },
+    "name": "Special Blind",
+    "description": "Draw cards to manifest their energy and influence the odds in your favor.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/runners/gambler.png",
+            "text": "Drawing the same suit multiplies the suits' effects. Cards can be maxed out up to three.\n§5Clubs§r: Speed§a↑§r\n§7Spades§r: Damage§a↑§r\n§cHearts§r: Regeneration§a↑§r\n§bDiamonds§r: Armor§a↑§r"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/luck.png",
+            "text": "§6\"INFLUENCE\"§r\n\nWhen drawing a card, §6INFLUENCE§r allows you to draw the same card again! (look at keybind badge on how to use)\n\nWhen a card is maxed, you can draw a golden card. A golden card will grant you +1 of all card types but in return, you will lose 2 permanent hearts and reset §6INFLUENCE§r.\n\nOne lost heart is regained every 1m30s."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Hold \"",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "\" and press \"",
+                {
+                    "keybind": "key.attack"
+                },
+                "\" to draw a card with §6\"INFLUENCE\"§r!\n Press \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\" instead to pick a random card (or a golden card)!"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
+            "text": "Regain a Card every 45s"
+        }
+    ]
+}

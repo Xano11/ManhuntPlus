@@ -1,0 +1,154 @@
+{
+    "type": "origins:multiple",
+    "text_anim": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:waiting_text_anim",
+            "change": -4
+        }
+    },
+    "tick_timer": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:waiting_text_anim",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar \"Waiting\""
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:waiting_text_anim",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar \"Waiting.\""
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:waiting_text_anim",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar \"Waiting..\""
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:waiting_text_anim",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar \"Waiting...\""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:waiting_text_anim",
+                    "change": 1
+                }
+            ]
+        },
+        "interval": 30
+    },
+    "no_move": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -1,
+            "operation": "multiply_total"
+        }
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "prevent_item": {
+        "name":"🚫",
+        "type": "origins:prevent_item_use"
+    },
+    "no_exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "No exhaustion",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            "key.origins.secondary_active",
+            "key.drop"
+        ]
+    },
+    "no_pickup": {
+        "type": "origins:prevent_item_pickup"
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "hidden": true
+}

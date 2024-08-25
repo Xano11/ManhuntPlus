@@ -1,0 +1,95 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 300,
+        "hud_render": {
+            "sprite_location": "manhunt:textures/bars/gambler/effects.png",
+            "bar_index": 1,
+            "should_render": true
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:gambler/draw/draw_club",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:gambler/draw/club"
+                }
+            ]
+        }
+    },
+    "message": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon item_display ~ ~5 ~ {Glowing:1b,glow_color_override:1b,billboard:\"vertical\",Tags:[\"club_card\",\"card\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:paper\",Count:1b,tag:{CustomModelData:2,Enchantments:[{}]}}}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Marker:1b,Invisible:1b,Tags:[\"card_delete\"]}",
+                    "entity_action":{
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:gambler/draw/card_delete",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        }
+    },
+    "speed":{
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.15,
+            "modifier":  {
+                "operation": "multiply_total",
+                "resource": "manhunt:gambler/draw/draw_club",
+                "value": 0
+            }
+        }
+    },
+    "more_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.15,
+            "modifier":  {
+                "operation": "multiply_total",
+                "resource": "manhunt:gambler/draw/draw_club",
+                "value": 0
+            }
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:firework ~ ~1 ~ 0.5 0.5 0.5 0.1 10"
+        },
+        "interval": 10
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:gambler/draw/club_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "hidden": true
+}

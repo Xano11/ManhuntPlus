@@ -1,0 +1,62 @@
+{
+    "order": 0,
+    "replace": false,
+    "allow_random": true,
+    "origins": [
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "manhunt:runner",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:start"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:ban_banned",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            },
+            "origins": [
+                "manhunt:bans/no_ban",
+                "manhunt:bans/lurker",
+                "manhunt:bans/herald",
+                "manhunt:bans/scout",
+                "manhunt:bans/bomber",
+                "manhunt:bans/survivalist",
+                "manhunt:bans/guardian",
+                "manhunt:bans/imp",
+                "manhunt:bans/captain",
+                "manhunt:bans/engineer",
+                "manhunt:bans/reaper",
+                "manhunt:bans/berserker",
+                "manhunt:bans/shaman",
+                "manhunt:bans/angler",
+                "manhunt:bans/scanner",
+                "manhunt:bans/relentless",
+                "manhunt:bans/geologist",
+                "manhunt:bans/falconer",
+                "manhunt:bans/piglin",
+                "manhunt:bans/enchanter",
+                "manhunt:bans/courier",
+                "manhunt:bans/xolotl",
+                "manhunt:bans/wisp",
+                "manhunt:bans/chef",
+                "manhunt:bans/firestarter"
+            ]
+        }
+    ],
+    "default_origin": "manhunt:bans/no_ban",
+    "name": "Bans",
+    "gui_title": {
+        "choose_origin": "Ban a Hunter!",
+        "view_origin": "This is the hunter you banned."
+    }
+}

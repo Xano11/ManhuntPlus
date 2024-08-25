@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:oak_boat",
+		"tag": "{Enchantments:[{}]}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Captain",
+	"description": "       [§eASSISTANCE ✦§r]\nCap'n back t' aid ye out thar, swimmin' or nah!"
+}

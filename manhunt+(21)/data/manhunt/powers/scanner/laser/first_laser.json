@@ -1,0 +1,152 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 70,
+        "start_value": 70,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 2 1 1 1 ~ ~ ~ 0.5 60 0.5 1 1000 force @a",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crimson_spore ~ ~ ~ 0.3 60 0.3 0 1000 force @a",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@p[tag=runner,tag=protocol_orbital]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:armor_stand",
+                            "tag": "{NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:[\"scanner_artillery\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,90F],Tags:[\"scanner_artillery\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,100f],scale:[60f,60f,60f]},item:{id:\"minecraft:emerald\",Count:1b,tag:{CustomModelData:2}}}]}",
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tp @s ~ -63 ~",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale delay set pehkui:hitbox_width 0 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale delay set pehkui:hitbox_height 0 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale set pehkui:hitbox_width 40 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale set pehkui:hitbox_height 250 @s",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on passengers run data modify entity @s Rotation set value [0f,90f]",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:scanner/laser/protocol_laser",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:dust_color_transition 1 0 0 3 1 1 1 ~ ~199 ~ 7 0.4 7 1 1000 force @a",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:block_marker minecraft:redstone_block ~ ~199 ~ 5 0.4 5 1 1000 force @a",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.beacon.power_select player @a ~ ~ ~ 3 0.8",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s remove protocol_orbital",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/laser/first_laser_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~20 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=armor_stand,tag=scanner_laser] Rotation[0]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute on passengers if entity @s[nbt={item:{id:\"minecraft:red_stained_glass\"}}]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run item replace entity @s container.0 with minecraft:red_stained_glass",
+                        "permission_level": 4
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run item replace entity @s container.0 with minecraft:redstone_block",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    }
+}

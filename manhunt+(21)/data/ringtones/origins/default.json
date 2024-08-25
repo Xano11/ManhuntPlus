@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon":  {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}]}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Default Ringtone",
+	"description": "The Default ding."
+}

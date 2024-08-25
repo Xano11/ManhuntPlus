@@ -1,0 +1,75 @@
+{
+    "type": "origins:multiple",
+    "explode": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apugli:explode",
+                    "power": 4,
+                    "destruction_type": "break",
+                    "create_fire": false,
+                    "knockback_modifier": {
+                        "value": 2,
+                        "operation": "multiply_total"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 3 1.2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:explosion ~ ~ ~ 0.5 0.5 0.5 1 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:passenger_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "kill @s",
+                        "permission_level": 4
+                    },
+                    "recursive": true
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "bounce": {
+        "type": "eggolib:modify_bounciness",
+        "modifier": {
+            "value": -0.5,
+            "operation": "multiply_total"
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.generic.small_fall player @a ~ ~ ~ 3 0.6",
+            "permission_level": 4
+        },
+        "block_condition": {
+            "type": "origins:movement_blocking"
+        }
+    },
+    "ticking": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:survivalist/bomb/bombing_explode",
+            "change": -10
+        },
+        "interval": 10
+    }
+}

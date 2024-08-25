@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"manhunt:hunter_effects",
+		"manhunt:global",
+		"manhunt:compass",
+		"manhunt:labels"
+	],
+	"icon": {
+		"item": "minecraft:netherite_sword"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Hunter",
+	"description": "Your goal is to defeat the runner before they can kill the Ender Dragon. You can use a special compass to track runners by pressing right-click!"
+}

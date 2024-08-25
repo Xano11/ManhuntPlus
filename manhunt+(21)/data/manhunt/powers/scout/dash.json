@@ -1,0 +1,191 @@
+{
+    "type": "origins:multiple",
+	"perform": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:add_velocity",
+					"z": 0.42,
+					"space": "local"
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:on_block",
+						"inverted": true
+					},
+					"if_action": {
+						"type": "origins:change_resource",
+						"resource": "manhunt:scout/dash_double",
+						"change": 1
+					}
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.ender_dragon.flap"
+				},
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:firework ~ ~ ~ 0.2 0.05 0.2 0.05 20 normal",
+                    "permission_level": 4
+                },
+				{
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:cloud ~ ~ ~ 0.2 0.05 0.2 0.05 10 normal",
+                    "permission_level": 4
+                },
+				{
+					"type": "origins:set_fall_distance",
+					"fall_distance": 0
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:fluid_height",
+					"fluid": "minecraft:water",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:fluid_height",
+					"fluid": "minecraft:lava",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"cooldown": 80,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "manhunt:textures/bars/scout/scout.png",
+			"bar_index": 0
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": false
+		}
+	},
+	"double": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "double_down": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scout/dash_double",
+            "change": -1
+        },
+        "interval": 1,
+		"condition":{
+			"type": "origins:on_block"
+		}
+    },
+	"double_jump":{
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "manhunt:scout/dash_double",
+					"change": -1
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 0.35,
+					"y": 0.20,
+					"space": "local"
+				},
+				{
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ender_dragon.flap player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:firework ~ ~ ~ 0.2 0.05 0.2 0.05 20 normal",
+                    "permission_level": 4
+                },
+				{
+                    "type": "origins:execute_command",
+                    "command": "execute at @s run particle minecraft:cloud ~ ~ ~ 0.2 0.05 0.2 0.05 10 normal",
+                    "permission_level": 4
+                },
+				{
+					"type": "origins:set_fall_distance",
+					"fall_distance": 0
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:fluid_height",
+					"fluid": "minecraft:water",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:fluid_height",
+					"fluid": "minecraft:lava",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "manhunt:scout/dash_double",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": false
+		}
+	},
+    "name": "Light Dash",
+    "description": "At small intervals, you can perform a light dash.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/mob_effect/slow_falling.png",
+			"text": "§f§lLight Dash 🪶§r§7\nPerform a small dash in the direction you're looking. Whilst in the air, you can execute a smaller §r§esecond dash§r§7.\n§r§8(The dash resets fall distance)§r\n\n§e⌛§r§7 Cooldown: §r§f4s§r\n\n§7§lActive Ability"
+		},
+		{
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Dash with §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§r\nPress §r[",
+                {
+                    "keybind": "key.jump"
+                },
+                "]§7 in the air to do a second dash before hitting the ground!"
+            ]
+        }
+    ]
+}

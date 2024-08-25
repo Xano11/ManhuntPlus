@@ -1,0 +1,132 @@
+{
+    "type": "origins:multiple",
+    "restrict":{
+        "type": "origins:conditioned_restrict_armor",
+        "chest": {
+            "type": "origins:armor_value",
+            "comparison": ">=",
+            "compare_to": 0
+        },
+        "tick_rate": 20
+    },
+    "encumbered":{
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": -0.05,
+            "name": "Decreased speed"
+        }
+    },
+    "encumbered_air":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.05
+        }
+    },
+    "encumbered_1":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": -0.05,
+            "name": "Decreased speed"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:set_size",
+            "set": "manhunt:courier/bag/void_bag_contents",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "encumbered_air_1":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.05
+        },
+        "condition": {
+            "type": "origins:set_size",
+            "set": "manhunt:courier/bag/void_bag_contents",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "encumbered_2":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": -0.1,
+            "name": "Decreased speed"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:set_size",
+            "set": "manhunt:courier/bag/void_bag_contents",
+            "comparison": ">=",
+            "compare_to": 2
+        }
+    },
+    "encumbered_air_2":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.1
+        },
+        "condition": {
+            "type": "origins:set_size",
+            "set": "manhunt:courier/bag/void_bag_contents",
+            "comparison": ">=",
+            "compare_to": 2
+        }
+    },
+    "encumbered_3":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_base",
+            "value": -0.2,
+            "name": "Decreased speed"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:set_size",
+            "set": "manhunt:courier/bag/void_bag_contents",
+            "comparison": ">=",
+            "compare_to": 3
+        }
+    },
+    "encumbered_air_3":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.2
+        },
+        "condition": {
+            "type": "origins:set_size",
+            "set": "manhunt:courier/bag/void_bag_contents",
+            "comparison": ">=",
+            "compare_to": 3
+        }
+    },
+    "name": "Weighted Backpack",
+    "description": "Your wonderful backpack is quite heavy and hard to deal with.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§c§lBackpacked ↓§r\n§7Chestplates §r§ccannot§r§7 be worn.\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/slowness.png",
+            "text": "§c§lHeavy Storage ↡§r\n§7Overall speed is reduced by §r§c-5%§r§7.\n§7For every Hunter in your bag, you are further §r§cslowed§r§7 by §r§c-10%§r§7.\n§8(Max -40%)\n\n§7§lPassive Ability"
+        }
+    ]
+}

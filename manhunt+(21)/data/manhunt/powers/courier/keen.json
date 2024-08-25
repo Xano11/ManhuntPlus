@@ -1,0 +1,55 @@
+{
+    "type": "origins:multiple",
+    "hunter_glow":{
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 25
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "apoli:entity_type",
+                                        "entity_type": "minecraft:player"
+                                    },
+                                    {
+                                        "type": "origins:origin",
+                                        "origin": "manhunt:hunter",
+                                        "layer": "origins:origin"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "apoli:entity_type",
+                                "entity_type": "minecraft:item"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.0
+    },
+    "name": "Keen Eye",
+    "description": "With a keen eye, you outclass others at locating items and other hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "§e§lKeen Eye 👁§r\n§7Items and Hunters glow §r§eyellow§r§7 within range.\n§8(25 Block Range)\n\n§7§lPassive Ability"
+        }
+    ]
+}

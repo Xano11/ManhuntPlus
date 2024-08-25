@@ -1,0 +1,72 @@
+{
+    "type": "origins:multiple",
+    "rotation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 360,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:courier/bag/bundle_rotation",
+            "change": -360
+        }
+    },
+    "rotate": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/bag/bundle_rotation",
+                    "change": 8
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result entity @s Rotation[0] float 1 run resource get @s manhunt:courier/bag/bundle_rotation"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ^ ^0.5 ^0.6 0 0 0 0 1"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "glow": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow_drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:courier/bag/bundle_glow",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~ ~ 0.1 0.05 0.1 0 2"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:courier/bag/bundle_glow",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    }
+}

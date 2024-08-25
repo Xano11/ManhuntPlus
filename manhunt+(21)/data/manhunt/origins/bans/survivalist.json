@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:brush",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Survivalist",
+	"description": "       [§eASSISTANCE ✦§r]\nYou are the most resourceful of the group. With your experience in the wild, you've mastered the abilty to gather and keep resources well."
+}

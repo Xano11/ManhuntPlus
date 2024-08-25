@@ -1,0 +1,171 @@
+{
+    "type": "origins:multiple",
+    "roar": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 35,
+        "start_value": 35,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:berserker/beast/beast_effects"
+        }
+    },
+    "roar_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "change": -5
+        },
+        "interval": 5
+    },
+    "roar_immobile": {
+        "type": "origins:modify_velocity",
+        "axes": [
+            "z",
+            "x"
+        ],
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.8
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "roar_camera": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "particle": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crimson_spore ~ ~1 ~ 0.1 0.1 0.1 1 10",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:poof ~ ~1 ~ 0.1 0.1 0.1 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 5,
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": 0.2
+                    },
+                    "bientity_condition": {
+                        "type": "origins:can_see"
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "roar_waves": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:spawn_entity",
+            "entity_type": "minecraft:armor_stand",
+            "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"roar\"],Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",start_interpolation:-1,Tags:[\"roar\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,2.4f,0f],scale:[0.5f,0.5f,1f]},item:{id:\"minecraft:redstone\",Count:1b,tag:{CustomModelData:1}}}]}",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:berserker/beast/delete_wave",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run data modify entity @s interpolation_duration set value 10",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run data modify entity @s transformation.scale set value [5f,5f,1f]",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        },
+        "interval": 4,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "roar_boomring": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.heartbeat player @a ~ ~ ~ 2 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~1 ~ facing entity @s eyes run function manhunt:abilities/whisper_boomring",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:berserker/beast/beast_effects_roar",
+                "comparison": ">",
+                "compare_to": 0
+        },
+        "interval": 5
+    },
+    "roar_invincibility": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Weak to cursed items",
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:berserker/beast/beast_effects_roar",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "hidden": true
+}

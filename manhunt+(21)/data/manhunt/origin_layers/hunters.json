@@ -1,0 +1,573 @@
+{
+  "order": 2,
+  "replace": false,
+  "allow_random": true,
+  "origins": [
+    {
+      "condition": {
+        "type": "origins:origin",
+        "origin": "manhunt:hunter",
+        "layer": "origins:origin"
+      },
+      "origins": [
+        "manhunt:none"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_angler",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/angler"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_berserker",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/berserker"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_bomber",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/bomber"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_captain",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/captain"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_chef",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/chef"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_courier",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/courier"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_enchanter",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/enchanter"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_engineer",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/engineer"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_falconer",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/falconer"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_firestarter",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/firestarter"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_geologist",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/geologist"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_guardian",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/guardian"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_hecatomb",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/hecatomb"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_herald",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/herald"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_imp",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/imp"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_lurker",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/lurker"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_piglin",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/piglin"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_relentless",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/relentless"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_reaper",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/reaper"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_scanner",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/scanner"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_scout",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/scout"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_shaman",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/shaman"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_survivalist",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/survivalist"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_xolotl",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/xolotl"
+      ]
+    },
+    {
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+          },
+          {
+            "type": "origins:resource",
+            "resource": "manhunt:ban_wisp",
+            "comparison": "==",
+            "compare_to": 1,
+            "inverted": true
+          }
+        ]
+      },
+      "origins": [
+        "manhunt:hunters/wisp"
+      ]
+    }
+  ],
+  "default_origin": "manhunt:none",
+  "name": "hunter",
+  "gui_title": {
+    "choose_origin": "Choose a hunter!",
+    "view_origin": "This is the hunter that you chose."
+  }
+}

@@ -1,0 +1,124 @@
+{
+    "type": "origins:multiple",
+    "switch": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:instant_effect ~ ~1 ~ 0.3 0.3 0.3 0.1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 1 0 1 0 1 1 ~ ~1 ~ 0.3 0.3 0.3 0.1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.lodestone_compass.lock player @a ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.bone_block.break player @a ~ ~ ~ 1 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "manhunt:hunter_effects_shattered_duration",
+                            "change": 200,
+                            "operation": "set"
+                        }
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:compass"
+                }
+            }
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "use_teams": false,
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:hunter_effects_shattered_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "tooltip": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:\"manhunt_compass\"}"
+        },
+        "texts": [
+            [
+                "Shatter the compass by pressing \"",
+                {
+                    "keybind": "key.use",
+                    "color": "red"
+                },
+                "\"!"
+            ]
+        ]
+    },
+    "name": "Shattered Hope",
+    "description": "Use hunter compasses to reveal their position.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/compass_16.png",
+            "text": "Makes all hunters glow for 10s."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "Shatter the compass by pressing \"",
+                {
+                    "keybind": "key.use"
+                },
+                "\"!"
+            ]
+        }
+    ]
+
+}

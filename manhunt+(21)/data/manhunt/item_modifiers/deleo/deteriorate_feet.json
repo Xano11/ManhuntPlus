@@ -1,0 +1,7 @@
+{
+    "function": "apoli:add_power",
+    "power": "manhunt:deleo/binding/deteriorate/feet",
+    "slot": "feet",
+    "negative": false,
+    "hidden": true
+}

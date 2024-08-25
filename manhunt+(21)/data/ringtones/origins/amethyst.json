@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Amethyst Ringtone",
+	"description": "The c l a s s y ding."
+}

@@ -1,0 +1,51 @@
+{
+    "type":"origins:multiple",
+
+    "permanent":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": -0.8,
+            "name": "Decreased movement"
+        },
+        "update_health": false,
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "sink":{
+        "type": "origins:ignore_water",
+        "condition":  {
+            "type": "origins:power",
+            "power": "manhunt:captain/bubble/bubbled",
+            "inverted": true
+        }
+    },
+    "no_jump":{
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "addition",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+    "name": "Bad Swimmer",
+    "description": "You were never taught how to swim.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c§lBad Swimmer 💧§r\n§7You §r§esink§r§7 and §r§ecannot move§r§7 underwater.\n§r§8(You can still use your flight, however)§r\n\n§7§lPassive Ability"
+        }
+    ]
+}

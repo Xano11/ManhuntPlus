@@ -1,0 +1,20 @@
+{
+	"powers": [
+		"manhunt:roles/rivals",
+		"manhunt:angler/fishing/fishloot",
+		"manhunt:angler/fishing/throw",
+		"manhunt:angler/fishing/fishout",
+        "manhunt:angler/sword/transfish",
+		"manhunt:angler/sword/dash",
+        "manhunt:angler/pescivore",
+		"manhunt:angler/health"
+	],
+	"icon": {
+		"item": "minecraft:iron_sword",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 3,
+	"name": "Angler",
+	"description": "         [§cRIVALS ✘§r]\nOh! Didn't see ya there ya ol' sea dog. I was too busy catching the runner lacking."
+}

@@ -1,0 +1,770 @@
+{
+    "type": "origins:multiple",
+    "difficulty": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "looting_normal": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:global_difficulty",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "looting_hard": {
+        "type": "origins:modify_enchantment_level",
+        "enchantment": "minecraft:looting",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 2
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:global_difficulty",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "diamond_block_nuggets": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:blocks/diamond_ore": "manhunt:blocks/diamond_ore"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:global_difficulty",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "manhunt:hunters/geologist",
+                    "layer": "manhunt:hunters",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "deepslate_diamond_block_nuggets": {
+        "type": "origins:replace_loot_table",
+        "replace": {
+            "minecraft:blocks/deepslate_diamond_ore": "manhunt:blocks/deepslate_diamond_ore"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:global_difficulty",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "manhunt:hunters/geologist",
+                    "layer": "manhunt:hunters",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "make_diamond": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:modify_inventory",
+            "entity_action": {
+                "type": "origins:give",
+                "stack": {
+                    "item": "minecraft:diamond",
+                    "amount": 1
+                }
+            },
+            "item_action": {
+                "type": "origins:consume",
+                "amount": 9
+            },
+            "process_mode": "stacks",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:diamond_nugget}"
+                    },
+                    {
+                        "type": "origins:amount",
+                        "comparison": ">=",
+                        "compare_to": 9
+                    }
+                ]
+            }
+        },
+        "interval": 5
+    },
+    "uncraftable_imp_trident": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flint_trident",
+        "result": {
+            "item": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "uncraftable_flintlock": {
+        "type": "origins:modify_crafting",
+        "recipe": "manhunt:flintlock",
+        "result": {
+            "item": "minecraft:air"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "glow_lurker_eye": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item_display"
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:lurker/lurk/eye_effects_teleporting",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 1.0,
+        "blue": 0.7
+    },
+    "bonk": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "playsound manhunt:bonk player @a ~ ~ ~ 2 1"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{display:{Name:'{\"text\":\"Berserker\\'s Horn\",\"color\":\"red\"}'},Enchantments:[{id:\"minecraft:vanishing_curse\",lvl:1s}],instrument:\"minecraft:sing_goat_horn\",CustomModelData:1}"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:living"
+                    }
+                }
+            ]
+        }
+    },
+    "deleo_death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:deleo/binding/binded",
+                    "permission_level": 4
+                },
+                {
+                    "type": "eggolib:close_screen"
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:runners/deleo",
+                "layer": "manhunt:runners"
+            }
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/relentless",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "prevent_other_paranoias": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "eggolib:compare_score",
+                    "actor_objective": "laugh",
+                    "target_objective": "laugh",
+                    "comparison": "!="
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:item_display"
+                            },
+                            {
+                                "type": "origins:riding",
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:power",
+                                        "power": "manhunt:jester/madness/icon"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "swordfish": {
+        "type": "origins:modify_damage_dealt",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"swordfish\"]}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:origin",
+                    "origin": "manhunt:hunters/angler",
+                    "layer": "manhunt:hunters",
+                    "inverted": true
+                }
+            ]
+        },
+        "modifier": {
+            "name": "Less damage",
+            "operation": "addition",
+            "value": -4
+        }
+    },
+    "survivalist_bomb_dmg": {
+        "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:entity_type",
+                        "entity_type": "minecraft:armor_stand"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:survivalist/bomb/bombing"
+                    }
+                ]
+            }
+        },
+        "modifier": {
+            "name": "Less bomb dmg",
+            "operation": "multiply_total",
+            "value": -0.9
+        }
+    },
+    "crit_reaper": {
+        "type": "eggolib:action_on_critical_hit",
+        "bientity_action": {
+            "type": "apoli:target_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:reaper/sacrifice_souls",
+                "change": -1
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:origin",
+                "origin": "manhunt:hunters/reaper",
+                "layer": "manhunt:hunters"
+            }
+        }
+    },
+    "tooltip_deteriorate": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/head"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/chest"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/legs"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/feet"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/mainhand"
+                },
+                {
+                    "type": "origins:has_power",
+                    "power": "manhunt:deleo/binding/deteriorate/offhand"
+                }
+            ]
+        },
+        "texts": [
+            [
+                {
+                    "text": "Curse of Deterioration",
+                    "color": "red"
+                }
+            ],
+            [
+                "Deleo's curse is destroying this item."
+            ],
+            [
+                "(5 durability lost per 2s whilst equipped)"
+            ]
+        ]
+    },
+    "tooltip_glass_shield": {
+        "type": "origins:tooltip",
+        "item_condition": {
+            "type": "origins:has_power",
+            "power": "manhunt:enchanter/glass/enchanted"
+        },
+        "text": {
+            "text": "Glass Shield I",
+            "color": "gray"
+        }
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:enchant",
+        "frequency": 6,
+        "condition": {
+            "type": "origins:inventory",
+            "process_mode": "items",
+            "comparison": ">=",
+            "compare_to": 1,
+            "item_condition": {
+                "type": "origins:has_power",
+                "power": "manhunt:enchanter/recall/enchanted"
+            }
+        }
+    },
+    "lodestone_fortuna": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "manhunt:gambler/deception/deception_lodestone"
+                    }
+                }
+            ]
+        }
+    },
+    "oneshot_prot": {
+        "type": "origins:prevent_death",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:sicarius/cloak_duration",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "chef_food": {
+        "type": "origins:edible_item",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:frog_food}"
+        },
+        "food_component": {
+            "hunger": 3,
+            "saturation": 0.3
+        },
+        "consuming_time_modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "consume_sound": "minecraft:entity.generic.eat",
+        "use_action": "eat"
+    },
+    "imp_trident": {
+        "type": "origins:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[\"imp_trident\"]}"
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "imp_trident_inv": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:drop_inventory",
+            "retain_ownership": false,
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[\"imp_trident\"]}"
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "flintlock_prevent": {
+        "type": "origins:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[\"flintlock\",\"loaded\"]}"
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:flintlock}"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "flintlock_drop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:drop_inventory",
+            "retain_ownership": false,
+            "item_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:[\"flintlock\",\"loaded\"]}"
+                    },
+                    {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:flintlock}"
+                    }
+                ]
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/captain",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "glow_angler_cod": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item_display"
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "manhunt:angler/fishing/cod"
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.0,
+        "green": 0.7,
+        "blue": 0.9
+    },
+    "glow_courier_bag": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item"
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "manhunt:courier/bag/bundle_glow",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.8,
+        "green": 0,
+        "blue": 0.9
+    },
+    "glow_enchanter_stone": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item_display"
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "manhunt:enchanter/recall/anim"
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.3,
+        "green": 0,
+        "blue": 0.9
+    },
+    "glow_flashbang": {
+        "type": "origins:entity_glow",
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin",
+            "inverted": true
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 32
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item_display"
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "manhunt:bomber/flash/flash_bang"
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 1,
+        "blue": 0
+    },
+    "glow_flashbang_hunter": {
+        "type": "origins:entity_glow",
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:hunter",
+            "layer": "origins:origin"
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 6
+                }
+            ]
+        },
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:item_display"
+                },
+                {
+                    "type": "origins:riding",
+                    "bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:power",
+                            "power": "manhunt:bomber/flash/flash_bang"
+                        }
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 1,
+        "blue": 0
+    },
+    "courier_leave": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove tp_bundle"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:courier/bag/bundled"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:dimension",
+                    "dimension": "manhunt:courier",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:courier/bag/bundled"
+                }
+            ]
+        }
+    },
+    "fortis_bubble": {
+        "type": "origins:prevent_entity_render",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:shulker"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "manhunt:fortis/bubble/block"
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

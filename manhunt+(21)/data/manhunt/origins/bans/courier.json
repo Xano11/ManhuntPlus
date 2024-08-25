@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:bundle",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Courier",
+	"description": "         [§7PILLAR 回§r]\n\"HAVE YOU EVER NEEDED TO TRANSPORT SOMETHING?\"\n\"LIKE YOUR FRIEND?\"\n\"WELL WAIT NO MORE!\"\n\"WITH THE BAG™, YOU CAN TURN YOUR DREAMS INTO BAGGED REALITIES!\"."
+}

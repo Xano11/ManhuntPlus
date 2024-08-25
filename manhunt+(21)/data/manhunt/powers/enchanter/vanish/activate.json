@@ -1,0 +1,106 @@
+{
+    "type": "origins:multiple",
+    "slash":{
+        "type":"origins:entity_set"
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.vex.hurt player @a ~ ~ ~ 2 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.bell.resonate player @a ~ ~ ~ 2 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.camel.dash_ready player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.throw player @a ~ ~ ~ 2 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"vanish\"],Passengers:[{id:\"minecraft:item_display\",view_range:5f,Tags:[\"vanish\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0.7f,0f,0f,0.71f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:lapis_lazuli\",Count:1b,tag:{CustomModelData:1}}}]}",
+                    "bientity_action":  {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:enchanter/vanish/activate_slash"
+                    },
+                    "entity_action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "power grant @s manhunt:enchanter/vanish/slash",
+								"permission_level": 4
+							},
+                            {
+								"type": "origins:execute_command",
+								"command": "tp @s ~ ~1 ~",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s interpolation_duration set value 20",
+								"permission_level": 4
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s transformation.scale set value [5f,5f,1.5f]",
+								"permission_level": 4
+							},
+                            {
+								"type": "origins:execute_command",
+								"command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+								"permission_level": 4
+							}
+						]
+					}
+                }
+            ]
+        },
+        "cooldown": 400,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "manhunt:textures/bars/enchanter/enchanter.png"
+        }
+    },
+    "name": "Grand Hex: Vanish",
+    "description": "\"Studying Curse of Vanishing has led to... interesting discoveries.\"\nSend forward a wave of vanishing energy to teleport yourself forward.",
+    "badges": [
+        {
+			"type": "origins:keybind",
+			"sprite": "minecraft:textures/mob_effect/weakness.png",
+			"text": "§5§lVanish ➖§r§7\nEmit a vanishing wave that travels forward.\nAfter §r§e2s§r§7, you teleport to it's position and gain §r§dvanishing energy§r§7 for §r§e1.5s§r§7 that prevents fall damage.\nIf the wave §nhits a block§r§7, it will trigger the teleport early.\n\n§e⌛§r§7 Cooldown: §r§f20s§r\n\n§7§lActive Ability"
+		},
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Call upon the vanishing wave with §r%s§7!"
+        }
+    ]
+}

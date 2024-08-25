@@ -1,0 +1,138 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "start_value": 40,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=hunter]",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tag @s add slash_tp",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:enchanter/vanish/fade",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:add_velocity",
+                                    "z": 0.4,
+                                    "y": 0.8,
+                                    "space": "local"
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "tp @p[tag=slash_tp] @s",
+                                    "permission_level": 4
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:enchanter/vanish/activate_slash"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @a remove slash_tp",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:glow ~ ~1 ~ 0.2 0.2 0.2 30 60",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~1.5 ~ run function manhunt:abilities/glow_ring",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.enderman.teleport player @a ~ ~ ~ 2 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.vex.ambient player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.vex.ambient player @a ~ ~ ~ 2 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:enchanter/vanish/slash_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:glow ^ ^0.5 ^ 1.3 0.05 1.3 30 4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute if block ^ ^1 ^0.8 #minecraft:replaceable run tp @s ^ ^ ^0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute unless block ^ ^1 ^0.8 #minecraft:replaceable run resource set @s manhunt:enchanter/vanish/slash_duration 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @e[limit=1,sort=nearest,type=minecraft:item_display,tag=vanish] Rotation set from entity @s Rotation",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1
+    }
+}

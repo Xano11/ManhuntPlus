@@ -1,0 +1,270 @@
+{
+    "type": "origins:multiple",
+    "repick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [\"\",\"Click [\",{\"keybind\":\"key.jump\",\"bold\":true,\"color\":\"gold\"},\"] to use the Last Pick.\"]"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "repick_key": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin gui @s manhunt:hunters"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add repick_hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @a[tag=hunter,tag=!repick_hunter] manhunt:repick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove repick_hunter"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:hunt_repick_timer_tick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:hunt_repick_timer_scoreboard"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.repair player @a ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:totem_of_undying ~ ~1 ~ 0 0 0 3 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add last_pick"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.jump"
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "timer":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=setup] manhunt:hunt_repick_timer 0"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove last_pick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:repick"
+                }
+            ]
+        }
+    },
+    "timer_tick":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:repick_timer",
+                    "change": -10
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "restart_timer": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:repick_repick_key"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:default",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:0,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:amethyst",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:1,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:slime",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:2,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:bomb",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:3,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:emerald",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:4,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:cod",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:5,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:shulker",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:6,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:origin",
+                                "origin": "ringtones:suspicious",
+                                "layer": "manhunt:ringtones"
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "give @s compass{display:{Name:'{\"text\":\"Tracking Compass\",\"bold\":true}'},CustomModelData:7,LodestoneDimension:\"minecraft:overworld\",LodestoneTracked:0b,LodestonePos:{X:0,Y:0,Z:0}} 1"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:repick_timer",
+                    "change": 60
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=last_pick]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {   
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "manhunt:runners",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "origins:empty",
+                            "layer": "manhunt:hunters",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "restart_msg1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @a \"Hunters have now used Repick! Runners, get ready!\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.note_block.pling player @a"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:repick_timer",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "hidden": true
+}

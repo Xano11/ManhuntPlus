@@ -1,0 +1,13 @@
+{
+	"powers": [
+        "manhunt:waiting"
+	],
+	"icon": {
+		"item": "minecraft:barrier"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Start",
+    "unchoosable": true,
+	"description": "Exists to start the game."
+}

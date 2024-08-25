@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:spectate",
+		"manhunt:global"
+	],
+	"icon": {
+		"item": "minecraft:spyglass"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Spectator",
+	"description": "You can spectate! (Don't forget to bring your popcorn!)"
+}

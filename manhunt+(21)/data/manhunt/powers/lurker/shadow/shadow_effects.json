@@ -1,0 +1,223 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 80,
+        "start_value": 80,
+        "hud_render": {
+            "should_render": false,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.attack_impact player @a ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:lurker/shadow/shadow_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:witch ~ ~1 ~ 0.5 0.5 0.5 0.1 15"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block crying_obsidian ~ ~1 ~ 0.3 0.4 0.3 0.1 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition 0.267 0.000 0.471 1 0.302 0.008 0.980 ~ ~1 ~ 0.4 0.4 0.4 0 100 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:visibility 1 @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:lurker/shadow/shadow_effects"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/shadow/shadow_effects_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "heartbeat_1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.heartbeat player @s ~ ~ ~ 3 1.2"
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/shadow/shadow_effects_duration",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "heartbeat_2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.heartbeat player @s ~ ~ ~ 3 1.6"
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/shadow/shadow_effects_duration",
+            "comparison": "==",
+            "compare_to": 20
+        }
+    },
+    "heartbeat_3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.heartbeat player @s ~ ~ ~ 3 2"
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/shadow/shadow_effects_duration",
+            "comparison": "==",
+            "compare_to": 10
+        }
+    },
+    "glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "manhunt:hunter",
+                        "layer": "origins:origin"
+                    }
+                }
+            ]
+        }
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/seagrass.png",
+        "strength": 0.2,
+        "red": 0.05,
+        "green": 0.05,
+        "blue": 0.4,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false
+    },
+    "prevent_entity_render": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:living"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "manhunt:lurker/lurk/lurked",
+                        "inverted": true
+                    }
+                ]
+            }
+        }
+    },
+    "more_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.6,
+            "operation": "multiply_total"
+        }
+    },
+    "more_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.6
+        }
+    },
+    "high_jump": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "addition",
+            "value": 0.15
+        }
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -3,
+            "operation": "multiply_total"
+        }
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": true
+    },
+    "held_item": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ]
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
+    },
+    "prevent_block": {
+        "type": "origins:prevent_block_use"
+    },
+    "prevent_collision": {
+        "type": "origins:prevent_entity_collision"
+    },
+    "shader": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/sobel.json"
+    },
+    "no_footstep": {
+        "type": "apugli:custom_footstep",
+        "muted": true
+    },
+    "hidden": true
+}

@@ -1,0 +1,510 @@
+{
+    "type": "origins:multiple",
+    "update_health": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:damage",
+            "amount": 0.01,
+            "damage_type": "manhunt:update_health"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_max_health",
+                    "change": -2
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/undead_damage_stat",
+                    "change": 10
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound manhunt:relentless player @a ~ ~ ~ 1.5 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:choice",
+                    "actions": [
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was turned into bones (:skull:)\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" got boned (damn)\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was too busy cosplaying Dry Bones\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" fell apart\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" was bad to the bone\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\" had a bone to pick in Hell\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        },
+                        {
+                            "element": {
+                                "type": "origins:execute_command",
+                                "command": "tellraw @a [\"\",{\"selector\":\"@s\"},\"... more like... uh... a pile of bones.\"]",
+                                "permission_level": 4
+                            },
+                            "weight": 5
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:relentless/eternal/limbo",
+                    "permission_level": 4
+                },
+                {
+                    "type": "eggolib:drop_inventory",
+                    "inventory_type": "inventory",
+                    "slots": [
+                        "container.9",
+                        "container.10",
+                        "container.11",
+                        "container.12",
+                        "container.13",
+                        "container.14",
+                        "container.15",
+                        "container.16",
+                        "container.17",
+                        "container.18",
+                        "container.19",
+                        "container.20",
+                        "container.21",
+                        "container.22",
+                        "container.23",
+                        "container.24",
+                        "container.25",
+                        "container.26",
+                        "container.27",
+                        "container.28",
+                        "container.29",
+                        "container.30",
+                        "container.31",
+                        "container.32",
+                        "container.33",
+                        "container.34",
+                        "container.35",
+                        "container.40"
+                    ],
+                    "item_condition": {
+                        "type": "origins:enchantment",
+                        "enchantment": "minecraft:binding_curse",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "head",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 130,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "chest",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 190,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "legs",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 190,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "feet",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 150,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 75,
+                        "ignore_unbreaking": true
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_width 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_height 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:eye_height 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_width 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:eye_height 0.2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add limbo_dead",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s relentless_uuid run data get entity @s UUID[0] 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"relentless\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"skull\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.2f,1.2f],scale:[1f,1f,1f]},item:{id:\"minecraft:skeleton_skull\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone1\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.2f,-0.5f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone2\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0.6f,-0.5f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone3\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.3f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:item_display\",Tags:[\"bone4\",\"relentless\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.1f,2f],scale:[1f,1f,1f]},item:{id:\"minecraft:bone\",Count:1b}},{id:\"minecraft:text_display\",view_range:10f,shadow_radius:1f,shadow_strength:1f,billboard:\"vertical\",Tags:[\"relentless\",\"text\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,1f,1f]},text:'{\"selector\":\"@p[tag=limbo_dead]\"}'},]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s relentless_uuid run data get entity @p[tag=limbo_dead] UUID[0] 1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:passenger_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute store result score @s relentless_uuid run data get entity @p[tag=limbo_dead] UUID[0] 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=skull] run data modify entity @s Rotation set value [0f,30f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone1] run data modify entity @s Rotation set value [40f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone2] run data modify entity @s Rotation set value [50f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone3] run data modify entity @s Rotation set value [70f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=bone4] run data modify entity @s Rotation set value [-60f,90f]",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute if entity @s[tag=text] run data modify entity @s Rotation[1] set value [0f]",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                },
+                                "recursive": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove limbo_dead",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "max_health": {
+        "type": "origins:resource",
+        "min": 8,
+        "max": 16,
+        "start_value": 16,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "health": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.max_health",
+        "modifier": {
+            "operation": "set_total",
+            "resource": "manhunt:relentless/eternal/undead_max_health",
+            "value": 0
+        }
+    },
+    "damage_stat": {
+        "type": "origins:resource",
+        "min": 20,
+        "max": 60,
+        "start_value": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "speed1": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 17.0
+        }
+    },
+    "speed2": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 16.0
+        }
+    },
+    "speed3": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 15.0
+        }
+    },
+    "speed4": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 14.0
+        }
+    },
+    "speed5": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 13.0
+        }
+    },
+    "speed6": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 12.0
+        }
+    },
+    "speed7": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 11.0
+        }
+    },
+    "speed8": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 10.0
+        }
+    },
+    "speed9": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.005,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 9.0
+        }
+    },
+    "speed10": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.001,
+            "name": "Increased sprinting speed"
+        },
+        "condition": {
+            "type": "origins:attribute",
+            "attribute": "minecraft:generic.max_health",
+            "comparison": "<=",
+            "compare_to": 8.0
+        }
+    },
+    "air_speed": {
+        "type": "origins:attribute_modify_transfer",
+        "class": "modify_air_speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "multiplier": 0.1
+    },
+    "damage": {
+        "type": "origins:modify_damage_dealt",
+        "modifiers": [
+            {
+                "operation": "multiply_base",
+                "value": 0,
+                "resource": "manhunt:relentless/eternal/undead_damage_stat",
+                "modifier": {
+                    "operation": "multiply_total",
+                    "value": -1.01
+                }
+            },
+            {
+                "operation": "min_total",
+                "value": 1
+            }
+        ]
+    },
+    "name": "Bite the Dust",
+    "description": "You never truly die. The flame might get dimmer but it will never ever be extinguished.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/bone.png",
+            "text": "§f§lBite the Dust ☠§r§7\nDying will turn you into a useless pile of bones.\nEvery death, you will lose 1 §l§c❤§r§7 of permanent health to as low as 4 hearts.\nYour respawn speed is faster with lower health.\n\nAdditionally, you keep your hotbar on death.§r\n\n§7§lPassive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§8§lRugged Bones ☠§r§7\nYou start the game with -1 §l§c❤§r§7 and §c-20%§r§7 damage.\nEvery death additionally grants you §nmore speed§r§7 but less §r§cdamage§r§7.\n§r§8(10% less damage per missing §l§c❤§r§7)§r\n\n§7§lPassive Ability"
+        }
+    ]
+}

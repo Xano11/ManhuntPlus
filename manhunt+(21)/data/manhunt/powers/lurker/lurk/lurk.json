@@ -1,0 +1,555 @@
+{
+    "type": "origins:multiple",
+    "eye_owner": {
+        "type": "origins:entity_set"
+    },
+    "toggle": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:lurker/lurk/lurk_effects",
+                "inverted": true
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "forceload add ~ ~ ~ ~",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:spawn_entity",
+                        "entity_type": "minecraft:wither_skeleton",
+                        "tag": "{NoGravity:1b,Silent:0b,DeathLootTable:\"minecraft:empty\",PersistenceRequired:1b,NoAI:1b,CanPickUpLoot:0b,Tags:[\"lurk\"]}",
+                        "entity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute store result score @p lurker run data get entity @p UUID[0] 1",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute store result score @s lurker run data get entity @p UUID[0] 1",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "power grant @s manhunt:lurker/lurk/body"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:command",
+                            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        "if_action": {
+                            "type": "origins:spawn_entity",
+                            "entity_type": "minecraft:allay",
+                            "tag": "{NoGravity:1b,Silent:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"lurk_eye\"],Passengers:[{id:\"minecraft:item_display\",NoGravity:1b,Silent:1b,Tags:[\"lurk_eye\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-0.7f,-0.4f],scale:[2f,2f,2f]},item:{id:\"minecraft:ender_eye\",Count:1b,tag:{CustomModelData:2}}}]}",
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "power grant @s manhunt:lurker/lurk/eye_main"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale set pehkui:height 2.2"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scale set pehkui:width 3"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on passengers store result score @p lurker run data get entity @p UUID[0] 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute on passengers store result score @s lurker run data get entity @p UUID[0] 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute store result score @p lurker run data get entity @p UUID[0] 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "execute store result score @s lurker run data get entity @p UUID[0] 1",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            },
+                            "bientity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:invert",
+                                        "action": {
+                                            "type": "origins:mount"
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:add_to_set",
+                                        "set": "manhunt:lurker/lurk/lurk_eye_owner"
+                                    }
+                                ]
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute at @e[tag=lurk_eye,type=item_display] if score @s lurker = @e[tag=lurk_eye,type=item_display,limit=1,sort=nearest] lurker run tp @s ~ ~ ~ ~ ~",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:selector_action",
+                                    "selector": "@e[type=allay,tag=lurk_eye]",
+                                    "bientity_action": {
+                                        "type": "origins:invert",
+                                        "action": {
+                                            "type": "origins:mount"
+                                        }
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:in_set",
+                                        "set": "manhunt:lurker/lurk/lurk_eye_owner"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:lurker/lurk/lurk_effects"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] manhunt:lurker/lurk/eye_effects"
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon armor_stand ~ ~ ~ {Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"bug_fix\"]}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:lurker/lurk/lurk_eye_owner",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "ride @s dismount",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "ride @s mount @e[limit=1,sort=nearest,tag=bug_fix]",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "forceload add ~ ~ ~ ~",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @e[limit=1,sort=nearest,tag=lurk_eye,type=allay] manhunt:lurker/lurk/eye_effects"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run tp @p @s"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute as @e[tag=lurk] if score @s lurker = @p lurker run kill @s"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power remove @s manhunt:lurker/lurk/lurk_effects"
+                    }
+                ]
+            }
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 60,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/lurk/lurk_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 7,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:lurker/lurk/lurk_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/lurk/lurk_cooldown",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "teleport": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk_eye,type=allay] if score @s lurker = @p lurker run tp @p @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk_eye,type=allay] if score @s lurker = @p lurker on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk_eye,type=allay] if score @s lurker = @p lurker run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal.spawn player @a ~ ~ ~ 0.5 1.4"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.death player @a ~ ~ ~ 1 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:flash ~ ~0.75 ~ 0 0 0 1 10"
+                }
+            ]
+        }
+    },
+    "teleport_tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/lurk/lurk_teleport",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_teleport",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "retrieve": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:lurker/lurk/lurk_retrieve_chargeup",
+                        "change": 1
+                    }
+                ]
+            }
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:sneaking"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "retrieve_stop": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/lurk/lurk_retrieve_chargeup",
+            "change": -30
+        },
+        "interval": 1,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.origins.secondary_active",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "retrieve_chargeup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=lurk_eye] if score @s lurker = @p lurker run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ender_eye.death player @s ~ ~ ~ 3 0.7"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:lurker/lurk/lurk_retrieve_chargeup",
+                    "change": -30
+                }
+            ]
+        }
+    },
+    "lurking": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.warden.nearby_closest player @s ~ ~ ~ 1 2"
+        }
+    },
+    "no_eye": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "resource set @s manhunt:lurker/lurk/lurk_lurking 0"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute as @e[tag=lurk_eye,type=item_display] if score @s lurker = @p lurker",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "more_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.4,
+            "operation": "multiply_total"
+        },
+        "update_health": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "more_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "overlay_inactive": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/lurker/inactive.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/lurker/lurking1.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/lurker/lurking2.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "overlay3": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/lurker/lurking3.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/lurk/lurk_lurking",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "name": "The Watching Eye",
+    "description": "Control your ever-so lurking presence through your all-seeing eye.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§5§lEye of the Overseer 👁§r\n§7Enter an omniscient form, seperating from your body.\nIn this form you can swiftly fly as an eyeball, even through walls, but cannot interact with the world.\n§7Exiting the eye will leave it in place. If Runners are within range of your stationary eye, they are given glowing and you gain a §r§a40%§r§7 Speed boost.\nThe eyeball can be shattered from incoming attacks or projectiles, temporarily disabling it.\n\n§a§l⇶ §r§7Range: §r§f24 Blocks§r§8 (Stationary Eye)\n§e⌛§r§7 Cooldown: §r§f20s§r§8 (Shattered)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": [
+                "§5§lBlackout ≡§r\n§7While in your eye, Hold §f[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "] §7to charge up. When charged, keep holding and press §f[",
+                {
+                    "keybind": "key.attack"
+                },
+                "] §7to make nearby Runners Blackout, causing a blinding animation that briefly prevents attacking.\n\n§e⌛§r§7 Cooldown: §r§f15s§r\n\n§5§lStalker 👁§r\n§7While near a Runner and 'charging', you fill a 'Stalker' meter. After 30s total Press §f[",
+                {
+                    "keybind": "key.use"
+                },
+                "] §7to teleport your body to your eye.\n§7In order to teleport, your eye must be within 30 blocks of another player."
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Summon or control your eye with §f[",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]\n[",
+                {
+                    "keybind": "key.sneak"
+                },
+                "]§7 and hold the former key to retrieve it!"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Black Lung",
+    "description": "Time in the caves have corrupted your lungs, making you exhaust faster and need much more air than most.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "§c§lBlack Lung 🪨§r§7\nYou exhaust §c2x§r§7 quicker and drown §c3x§r§7 quicker.\n\n§7§lPassive Ability"
+        } 
+    ],
+    "type": "origins:multiple",
+    "exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": 1.0
+        }
+    },
+    "oxygen": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": -20
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        }
+    }
+}

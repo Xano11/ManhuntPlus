@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:deleo/disable/disable",
+		"manhunt:deleo/frozen/active",
+		"manhunt:deleo/shutdown/shutdown",
+		"manhunt:deleo/binding/binding",
+		"manhunt:deleo/overflow",
+		"manhunt:deleo/cursed",
+		"manhunt:deleo/forbidden"
+	],
+	"icon": {
+		"item": "minecraft:echo_shard",
+		"tag": "{Enchantments:[{}],CustomModelData:3}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Deleo 🚫",
+	"description": "Those that think that they are so special crumble when they face Deleo's curses."
+}

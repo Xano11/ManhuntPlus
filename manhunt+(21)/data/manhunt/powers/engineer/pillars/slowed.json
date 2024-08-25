@@ -1,0 +1,125 @@
+{
+    "type": "origins:multiple",
+    "levels": {
+        "type": "origins:resource",
+        "min": 1,
+        "max": 3,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "speed":{
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "value": 0,
+            "modifier": {
+                "operation": "multiply_total_multiplicative",
+                "value": -1.15
+            }
+        }
+    },
+    "atk_speed":{
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.attack_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "value": 0,
+            "modifier": {
+                "operation": "multiply_total_multiplicative",
+                "value": -1.1
+            }
+        }
+    },
+    "air_speed":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "value": 0,
+            "modifier": {
+                "operation": "multiply_total_multiplicative",
+                "value": -1.15
+            }
+        }
+    },
+    "particles1":{
+        "type": "origins:particle",
+        "particle": "minecraft:scrape",
+        "count": 1,
+        "frequency": 4,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "particles2":{
+        "type": "origins:particle",
+        "particle": "minecraft:scrape",
+        "count": 2,
+        "frequency": 2,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "particles3":{
+        "type": "origins:particle",
+        "particle": "minecraft:scrape",
+        "count": 3,
+        "frequency": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/slowed_levels",
+            "comparison": "==",
+            "compare_to": 3
+        }
+    },
+    "glow":{
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0,
+        "green": 0.6,
+        "blue": 0.6,
+        "bientity_condition": {
+            "type": "origins:can_see"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:engineer/pillars/slowed_duration",
+            "comparison": ">=",
+            "compare_to": 45
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:engineer/pillars/slowed"
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:engineer/pillars/slowed_duration",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

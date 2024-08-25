@@ -1,0 +1,47 @@
+{
+    "type": "origins:multiple",
+    "bow": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:bow{Unbreakable:1,CustomModelData:1,display:{Name:'[{\"text\":\"The Whisper\",\"italic\":false,\"color\":\"dark_purple\"}]'},Enchantments:[{id:infinity,lvl:1},{id:vanishing_curse,lvl:1}]}"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "give @s minecraft:arrow 1"
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:bow"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:arrow"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": false
+    },
+    "name": "The Whisperer",
+    "description": "Spawn in with a bow that shoots special arrows.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/item/arrow.png",
+            "text": "The Whisperer's arrows allow you to use your abilities.\n(Arrows are tagged for 30s)"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/inmortuae/pulling_1.png",
+            "text": "After charging your bow for a full three seconds, your next shot is empowered, dealing close knockback and pushing you back (except if you are sneaking)\nAdditionally, the arrow will pierce, break shields and deal extra damage! (Power I equivalent)"
+        }
+    ]
+}

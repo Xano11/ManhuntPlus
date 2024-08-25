@@ -1,0 +1,169 @@
+{
+    "type": "origins:multiple",
+    "switch": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if score @s tracking matches 0..",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "scoreboard players set @s tracking 1"
+                    }
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @a[tag=runner]",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "scoreboard players set @s tracking 1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @a[tag=runner]",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 1",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 2"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @a[tag=runner]",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 0..2",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s tracking 1"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @a[tag=runner]",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 0..3",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s tracking 1"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @a[tag=runner]",
+                                "comparison": "==",
+                                "compare_to": 5
+                            },
+                            "action": {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if score @s tracking matches 0..4",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s tracking 1"
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s tracking 1"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @a[tag=runner] if score @p runners = @s tracking run title @s actionbar [\"\",\"◎ You're tracking 「\",{\"selector\":\"@p\",\"color\":\"dark_red\"},\"」\"]"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:compass"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

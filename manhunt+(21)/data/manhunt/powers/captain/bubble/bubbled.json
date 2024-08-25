@@ -1,0 +1,250 @@
+{
+    "type": "origins:multiple",
+    "key_check": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_key_check",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.jump",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0.4
+        }
+    },
+    "key_stop": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_key_check",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "float_water": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": 5,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:captain/bubble/bubbled_key_check",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "float": {
+        "type": "origins:modify_falling",
+        "velocity": 0.02,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "walk": {
+        "type": "origins:walk_on_fluid",
+        "fluid": "minecraft:water",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "<=",
+                    "compare_to": 0.4
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Speed increase",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.8,
+            "operation": "multiply_total"
+        },
+        "update_health": false,
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "damage":{
+        "type": "origins:modify_damage_taken",
+        "self_action":  {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_duration",
+            "change": -150
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 240,
+        "start_value": 240,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:ambient.underwater.exit player @a ~ ~ ~ 1 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=captain_bubble] run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:captain/bubble/bubbled"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:captain/bubble/bubbled_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 30
+    },
+    "leaving": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "execute on passengers unless entity @s[tag=captain_bubble]",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:spawn_entity",
+                "entity_type": "minecraft:item_display",
+                "tag": "{Tags:[\"captain_bubble\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1f,0f],scale:[1f,2f,1f]},item:{id:\"minecraft:glass\",Count:1b,tag:{Enchantments:[{}]}}}",
+                "bientity_action": {
+                    "type": "origins:invert",
+                    "action": {
+                        "type": "origins:mount"
+                    }
+                },
+                "entity_action": {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @s Rotation set value [0f,0f]"
+                }
+            }
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "execute on passengers if entity @s[tag=captain_bubble] run kill @s",
+            "permission_level": 4
+        },
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers if entity @s[tag=captain_bubble] run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:captain/bubble/bubbled"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": false
+    },
+    "bubble_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 10
+        },
+        "interval": 2
+    },
+    "swirl": {
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/particle/bubble.png",
+        "speed": 0.03
+    },
+    "kb": {
+        "type": "origins:modify_damage_taken",
+        "bientity_action": {
+            "type": "origins:add_velocity",
+            "z": 1.4,
+            "y": 0.1
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
+        }
+    },
+    "main_overlay": {
+        "type": "apoli:overlay",
+        "texture": "minecraft:textures/block/glass.png",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "strength": 0.3,
+        "draw_mode": "nausea",
+        "draw_phase": "above_hud",
+        "visible_in_third_person": true,
+        "hide_with_hud": true
+    },
+    "hidden": true
+}

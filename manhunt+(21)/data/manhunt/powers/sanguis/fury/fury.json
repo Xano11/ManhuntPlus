@@ -1,0 +1,67 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:sanguis/fury/fury_effects"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~1 ~ 0.3 0.3 0.3 0.5 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1.5 0.4 0 0 ~ ~1 ~ 0.4 0.1 0.4 0.1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crimson_spore ~ ~1 ~ 0.3 0.3 0.3 1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.beacon.power_select player @a ~ ~ ~ 2 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.axe.scrape player @a ~ ~ ~ 2 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.totem.use player @a ~ ~ ~ 2 1.7"
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1200,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "should_render": true,
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:sanguis/fury/fury_effects",
+                "inverted": true
+            }
+        }
+    },
+    "name": "Fury.",
+    "description": "Unleash your fury and hunt the hunters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/runners/sanguis.png",
+            "text": "§4§lFURY 🗡§r§7\n§7Untether your physical limitations, gaining increased power temporarily.\n§7In this state, gain §r§a+0.3§r§7 Attack Speed and reduce Leap's cooldown by §r§a-10s§r§7.\nWhen killing a Hunter, the duration of §r§4Fury 🗡§r§7 is §r§arefreshed§r§7.\n\n§r§c🕕§r§7 Duration: §r§f15s\n§e⌛§r§7 Cooldown: §r§f1m§r§8 (Upon Activation)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Unleash your fury with %s§7 !"
+        }
+    ]
+}

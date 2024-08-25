@@ -1,0 +1,409 @@
+{
+    "type": "origins:multiple",
+    "decay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:remove_from_set",
+                            "set": "manhunt:deleo/disable/disable_target"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:deleo/disable/disable_target"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:deleo/disable/disabled",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "decay_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_decay",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "velocity_decay": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.2,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "no_fall":{
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "hits": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:damage",
+                    "amount": 2,
+                    "damage_type": "manhunt:curse"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:deleo/disable/disabled_duration",
+                    "change": 140,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.sonic_boom player @a ~ ~ ~ 1.4 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:remove_from_set",
+                            "set": "manhunt:deleo/disable/disable_target"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:deleo/disable/disable_target"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 140,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "origins:remove_from_set",
+                            "set": "manhunt:deleo/disable/disable_target"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:invert",
+                        "condition": {
+                            "type": "origins:in_set",
+                            "set": "manhunt:deleo/disable/disable_target"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:deleo/disable/disabled",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "swirl": {
+        "type": "apugli:energy_swirl",
+        "texture_location": "manhunt:textures/swirls/deleo/cursed.png",
+        "speed": 0.03,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            {
+                "key": "key.origins.primary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"Curse energy prevents you from using abilities.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            },
+            {
+                "key": "key.origins.secondary_active",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "tellraw @s {\"text\":\"Curse energy prevents you from using abilities.\",\"color\":\"dark_red\"}"
+                        },
+                        {
+                            "type": "apoli:execute_command",
+                            "command": "playsound minecraft:block.respawn_anchor.deplete player @s ~ ~ ~ 3 2"
+                        }
+                    ]
+                }
+            }
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "more_damage":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Weakened",
+            "operation": "multiply_total",
+            "value": 0.20
+        }
+    },
+    "slowed": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.10,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "glitched": {
+        "type": "eggolib:modify_label_render",
+        "text": {
+            "text": "Impostor",
+            "bold": true,
+            "obfuscated": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "apoli:execute_command",
+            "command": "playsound minecraft:item.spyglass.use player @s ~ ~ ~ 3 0.5"
+        },
+        "interval": 7,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "animation": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": -1,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "change": 0,
+            "operation": "set"
+        }
+    },
+    "cycling_animation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "change": 1
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "main_overlay": {
+        "type": "apoli:overlay",
+        "texture": "minecraft:textures/misc/nausea.png",
+        "red": 0.1,
+        "green": 0.8,
+        "blue": 0.9,
+        "strength": 0.3,
+        "draw_mode": "nausea",
+        "draw_phase": "above_hud",
+        "visible_in_third_person": true,
+        "hide_with_hud": true
+    },
+    "overlay0": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/deleo/effect0.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 0,
+            "comparison": "=="
+        }
+    },
+    "overlay1": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/deleo/effect1.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disabled_animation",
+                    "compare_to": 1,
+                    "comparison": "=="
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:deleo/disable/disabled_animation",
+                    "compare_to": 3,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
+    "overlay2": {
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/deleo/effect2.png",
+        "strength": 0.9,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": true,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:deleo/disable/disabled_animation",
+            "compare_to": 2,
+            "comparison": "=="
+        }
+    },
+    "hidden": true
+}

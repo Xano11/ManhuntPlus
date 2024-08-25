@@ -1,0 +1,186 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 0
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:artisan/smoke/smoke_bomb_cooldown",
+            "change": -20
+        },
+        "interval": 20
+    },
+    "keybind": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "manhunt:artisan/smoke/smoke_bomb_keybind"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        }
+    },
+    "throw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 2,
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"smokebomb\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"smokebomb\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.23f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:light_gray_concrete_powder\",Count:1b}}]}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:artisan/smoke/projectile",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:artisan/smoke/smoke_bomb_cooldown",
+                    "change": 1200
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.candle.extinguish player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:artisan/smoke/smoke_bomb_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "small_throw": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:fire_projectile",
+                    "entity_type": "minecraft:armor_stand",
+                    "divergence": 0,
+                    "count": 1,
+                    "speed": 1,
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"smokebomb\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",Tags:[\"smokebomb\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.23f,0f],scale:[0.5f,0.5f,0.5f]},item:{id:\"minecraft:light_gray_concrete_powder\",Count:1b}}]}",
+                    "projectile_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:artisan/smoke/projectile",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:artisan/smoke/smoke_bomb_cooldown",
+                    "change": 1200
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.candle.extinguish player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:artisan/smoke/smoke_bomb_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Smoke Bomb",
+    "description": "Deploy a disruptive smoke bomb to sow seeds of chaos.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Smoked: Increased speed and invisibility. \n(Your armor is still rendered and you leave a smoke trace)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Hold %s and use left click to throw the smoke!\nPressing right click instead will throw it closer"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
+            "text": "Cooldown: 1m"
+        }
+    ]
+}

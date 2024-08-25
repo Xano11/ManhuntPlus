@@ -1,0 +1,191 @@
+{
+    "type": "origins:multiple",
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition":  {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/supply_levels",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:fire_projectile",
+                                "entity_type": "minecraft:armor_stand",
+                                "divergence": 0,
+                                "count": 1,
+                                "speed": 1,
+                                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"supply_drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",Tags:[\"supply_drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:firework_star\",Count:1b,tag:{CustomModelData:1,Explosion:{Type:0}}}}]}",
+                                "projectile_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:survivalist/supply/drop",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "condition":  {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/supply_levels",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:fire_projectile",
+                                "entity_type": "minecraft:armor_stand",
+                                "divergence": 0,
+                                "count": 1,
+                                "speed": 1,
+                                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"supply_drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",Tags:[\"supply_drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:firework_star\",Count:1b,tag:{CustomModelData:1,Explosion:{Type:0}}}}]}",
+                                "projectile_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:survivalist/supply/drop",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:survivalist/supply/drop_levels",
+                                            "change": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "condition":  {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/supply_levels",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:fire_projectile",
+                                "entity_type": "minecraft:armor_stand",
+                                "divergence": 0,
+                                "count": 1,
+                                "speed": 1,
+                                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"supply_drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",Tags:[\"supply_drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:firework_star\",Count:1b,tag:{CustomModelData:1,Explosion:{Type:0}}}}]}",
+                                "projectile_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:survivalist/supply/drop",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:survivalist/supply/drop_levels",
+                                            "change": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "condition":  {
+                                "type": "origins:resource",
+                                "resource": "manhunt:survivalist/supply/supply_levels",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:fire_projectile",
+                                "entity_type": "minecraft:armor_stand",
+                                "divergence": 0,
+                                "count": 1,
+                                "speed": 1,
+                                "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,Tags:[\"supply_drop\"],DisabledSlots:4144959,Passengers:[{id:\"minecraft:item_display\",billboard:\"vertical\",Tags:[\"supply_drop\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-1.1f,0f],scale:[1f,1f,1f]},item:{id:\"minecraft:firework_star\",Count:1b,tag:{CustomModelData:1,Explosion:{Type:0}}}}]}",
+                                "projectile_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:survivalist/supply/drop",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:survivalist/supply/drop_levels",
+                                            "change": 3
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:survivalist/supply/supply_levels",
+                    "change": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:ui.toast.in player @a ~ ~ ~ 3 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 3 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 7200,
+        "hud_render": {
+            "sprite_location": "manhunt:textures/bars/survivalist/survivalist.png",
+            "bar_index": 1,
+            "should_render": true
+        }
+    },
+    "levels": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Emergency Drop",
+    "description": "Deploy a flare that will summon a plentiful loot drop.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "After a short delay, a loot box will drop from the sky and drop its contents on impact.\n1st: Bonus Chest loot.\n2nd: Shipwreck treasure loot.\n3rd: Village Weaponsmith and previous loot.\n3rd+: All previous loot with buried treasure loot."
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Press \"%s\" to deploy the flare!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
+            "text": "Cooldown: 6m"
+        }
+    ]
+}

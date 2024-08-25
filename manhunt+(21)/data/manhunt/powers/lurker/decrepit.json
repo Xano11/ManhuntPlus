@@ -1,0 +1,35 @@
+{
+    "type": "origins:multiple",
+    "sneak_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Increase sneak speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.5,
+            "operation": "multiply_base"
+        },
+        "update_health": false,
+        "condition": {
+            "type": "origins:sneaking"
+        },
+        "tick_rate": 2
+    },
+    "less_health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health decrease",
+            "attribute": "minecraft:generic.max_health",
+            "value": -6,
+            "operation": "addition"
+        }
+    },
+    "name": "Decrepit Stalker",
+    "description": "The shadows prefer a light, stealthy body. You sneak faster than others, but you have reduced health.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§7§lDecrepit 🎿§r\n§7You sneak §r§a50%§r§7 quicker but have -3 §l§c❤§r\n\n§7§lPassive Ability"
+        }
+    ]
+}

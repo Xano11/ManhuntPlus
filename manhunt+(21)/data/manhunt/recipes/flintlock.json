@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "id": "manhunt:flintlock",
+    "pattern": [
+        " $ ",
+        "%@ ",
+        " # "
+    ],
+    "key": {
+        "$": {
+            "item": "minecraft:flint"
+        },
+        "@": {
+            "item": "minecraft:cobblestone"
+        },
+        "%": {
+            "item": "minecraft:iron_ingot"
+        },
+        "#": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "minecraft:crossbow"
+    }
+}

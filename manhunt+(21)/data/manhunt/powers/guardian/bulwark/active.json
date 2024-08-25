@@ -1,0 +1,527 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 1200,
+        "hud_render": [
+            {
+                "sprite_location": "manhunt:textures/bars/guardian/bulwark.png",
+                "bar_index": 0,
+                "icon_index": 0,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/bulwark/active_toggled",
+                    "compare_to": 0,
+                    "comparison": "=="
+                }
+            },
+            {
+                "sprite_location": "manhunt:textures/bars/guardian/bulwark.png",
+                "bar_index": 0,
+                "icon_index": 1,
+                "should_render": true,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/bulwark/active_toggled",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            }
+        ]
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/bulwark/active_cooldown",
+            "change": 10
+        },
+        "interval": 10
+    },
+    "toggled": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "toggled_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "shieldless": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"bulwark\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"bulwark\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1.3f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:air\",Count:1b,tag:{Enchantments:[{}]}}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:guardian/bulwark/active_shield_set"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:guardian/bulwark/shield_icon"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run item replace entity @s container.0 with minecraft:iron_chestplate{CustomModelData:1}"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/bulwark/active_shieldless",
+                    "change": -4
+                }
+            ]
+        }
+    },
+    "no_shield": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/bulwark/active_shieldless",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/bulwark/active_toggled",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:passenger",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:armor_stand"
+                                },
+                                {
+                                    "type": "origins:power",
+                                    "power": "manhunt:guardian/bulwark/shield_icon"
+                                }
+                            ]
+                        }
+                    },
+                    "compare_to": 0,
+                    "comparison": "=="
+                }
+            ]
+        }
+    },
+    "hunger": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:exhaust",
+            "amount": 0.2
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "slow": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "attack_speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.attack_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.3,
+            "modifier": {
+                "operation": "add_base_late",
+                "value": 0,
+                "resource": "manhunt:guardian/bulwark/active_toggled",
+                "modifier": {
+                    "operation": "multiply_total_multiplicative",
+                    "value": -1.0004
+                }
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "armor": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.armor",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "kb_resistance": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.knockback_resistance",
+        "modifier": {
+            "operation": "add_base_early",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/bulwark/active_toggled",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "shield_set": {
+        "type": "origins:entity_set"
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:guardian/bulwark/active_toggled",
+                        "compare_to": 0,
+                        "comparison": ">"
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:guardian/bulwark/active_toggled",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:guardian/bulwark/active_cooldown",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.beacon.deactivate player @a ~ ~ ~ 1 1.6"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 1 1 1 1 0.8 0.8 1 ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
+                            },
+                            {
+                                "type": "origins:action_on_set",
+                                "set": "manhunt:guardian/bulwark/active_shield_set",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute on passengers run kill @s"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "kill @s"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:action_on_set",
+                                "set": "manhunt:guardian/pledge/protector_pledged",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:guardian/pledge/pledged_bulwarked",
+                                                "change": -1
+                                            },
+                                            {
+                                                "type": "origins:action_on_set",
+                                                "set": "manhunt:guardian/pledge/pledged_halo",
+                                                "bientity_action": {
+                                                    "type": "origins:target_action",
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "execute on passengers run kill @s"
+                                                            },
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "kill @s"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:guardian/bulwark/active_toggled",
+                                "change": 1,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 1 1 1 1 0.8 0.8 1 ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.trident.riptide_1 player @a ~ ~ ~ 3 0.5"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.beacon.power_select player @a ~ ~ ~ 3 1.7"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.allay.death player @a ~ ~ ~ 3 1.5"
+                            },
+                            {
+                                "type": "origins:action_on_set",
+                                "set": "manhunt:guardian/pledge/protector_pledged",
+                                "bientity_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "manhunt:guardian/pledge/pledged_bulwarked",
+                                                "change": 1
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:entity.allay.ambient_without_item player @a ~ ~ ~ 1 1.6"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.2 50"
+                                            },
+                                            {
+                                                "type": "origins:spawn_entity",
+                                                "entity_type": "minecraft:armor_stand",
+                                                "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"bulwark_pledged\"],Passengers:[{id:\"minecraft:item_display\",billboard:\"fixed\",Tags:[\"bulwark_pledged\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,-0.2f],scale:[1f,1f,1f]},item:{id:\"minecraft:air\",Count:1b,tag:{Enchantments:[{}]}}}]}",
+                                                "bientity_action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:add_to_set",
+                                                            "set": "manhunt:guardian/pledge/pledged_halo"
+                                                        },
+                                                        {
+                                                            "type": "origins:invert",
+                                                            "action": {
+                                                                "type": "origins:mount"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "entity_action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "execute on passengers run data modify entity @s Rotation[1] set value 90f"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "power grant @s manhunt:guardian/pledge/halo"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "execute on passengers run item replace entity @s container.0 with minecraft:diamond{CustomModelData:2}"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:spawn_entity",
+                                "entity_type": "minecraft:armor_stand",
+                                "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"bulwark\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"bulwark\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1.3f,0f],scale:[3f,3f,3f]},item:{id:\"minecraft:air\",Count:1b,tag:{Enchantments:[{}]}}}]}",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_to_set",
+                                            "set": "manhunt:guardian/bulwark/active_shield_set"
+                                        },
+                                        {
+                                            "type": "origins:invert",
+                                            "action": {
+                                                "type": "origins:mount"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:guardian/bulwark/shield_icon"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute on passengers run item replace entity @s container.0 with minecraft:iron_chestplate{CustomModelData:1}"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/bulwark/active_cooldown",
+                    "compare_to": 1200,
+                    "comparison": "=="
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:guardian/pledge/protector_pledged",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "name": "Bulwark Fortress",
+    "description": "Every team needs a punching bag… and I think I found them…",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/resistance.png",
+            "text": "§l§fBulwark ⛨§r§7\nYou are granted §r§a+4§r§7 armor and additional knockback resistance.\nIn return, your movement speed is reduced by §r§c40%§r§7 and your attack speed is reduced §nproportional§r§7 to how long §r§fBulwark ⛨§r§7 is active.\n\n§r§bPledge'd 👼§r§7\nThe Pledge'd ally takes -40% damage and redirects the same percentage back to you.\nIf they die, you will take 3 §l§c❤§r§7 of true damage.\n\n§r§8(This only works in a §r§e32§r§8 block radius)§r\n\n§e⌛§r§7 Cooldown: §r§f1m§r§8 (Upon Deactivation)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Toggle Bulwark with §r%s§7!"
+        }
+    ]
+}

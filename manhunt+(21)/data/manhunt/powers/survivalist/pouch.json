@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "entity_action": {
+    "type": "origins:crafting_table"
+    },
+    "key": {
+        "key": "key.origins.primary_active"
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:sneaking"
+    },
+    "name":"Adventurer's Pouch",
+    "description":"You can access a pocket crafting table by sneaking and using your primary ability key."
+}

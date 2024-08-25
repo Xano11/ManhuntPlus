@@ -1,0 +1,211 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:poison",
+                        "duration": 100,
+                        "amplifier": 0
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.squid.squirt player @a ~ ~ ~ 1 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sneeze ~ ~1 ~ 0.3 0.4 0.3 0.1 70"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:smoke ~ ~1 ~ 0 0 0 0.3 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:piglin/aura/fumes"
+                }
+            ]
+        }
+    },
+    "fumes_off1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition 0.4 1 0 1 0.3 0.45 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/aura/fumes_duration",
+            "comparison": "==",
+            "compare_to": 30
+        }
+    },
+    "fumes_off2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition 0.4 1 0 1 0.3 0.45 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/aura/fumes_duration",
+            "comparison": "==",
+            "compare_to": 20
+        }
+    },
+    "fumes_off3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.squid.death player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust_color_transition 0.4 1 0 1 0.3 0.45 0 ~ ~1 ~ 0.3 0.1 0.3 1 20"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:piglin/aura/fumes_duration",
+            "comparison": "==",
+            "compare_to": 10
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:piglin/aura/fumes_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "particles": {
+        "type": "origins:particle",
+        "particle": "minecraft:smoke",
+        "frequency": 4,
+        "speed": 0.01,
+        "count": 2,
+        "spread": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 0.2
+        }
+    },
+    "particles2": {
+        "type": "origins:particle",
+        "particle": {
+            "type": "minecraft:falling_dust",
+            "params": "minecraft:gravel"
+        },
+        "frequency": 4,
+        "speed": 0.01,
+        "count": 2,
+        "spread": {
+            "x": 0.4,
+            "y": 0.4,
+            "z": 0.4
+        }
+    },
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute store result score @s piglin_fumes run resource get @s manhunt:piglin/aura/fumes_duration"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add fumes_duration"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:piglin/aura/fumes"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "resource operation @s manhunt:piglin/aura/fumes_duration = @p[tag=fumes_duration] piglin_fumes"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove fumes_duration"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "scoreboard players reset @s piglin_fumes"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power remove @s manhunt:piglin/aura/fumes"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

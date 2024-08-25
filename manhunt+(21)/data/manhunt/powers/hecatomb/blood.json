@@ -1,0 +1,193 @@
+{
+    "type": "origins:multiple",
+    "exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "create_orbs": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:damage",
+                    "amount": 8,
+                    "damage_type": "manhunt:hemomagic"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.evoker.prepare_summon player @a ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_cooldown",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_duration",
+                    "change": 400,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"blood_orb_left\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"blood_orb_left\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.35f,0.35f,0.35f]},item:{id:\"minecraft:redstone_block\",Count:1b}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:hecatomb/hemo/surge_left_orb"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:hecatomb/hemo/orb_left",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"blood_orb_right\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"blood_orb_right\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.35f,0.35f,0.35f]},item:{id:\"minecraft:redstone_block\",Count:1b}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:hecatomb/hemo/surge_right_orb"
+                            },
+                            {
+                                "type": "origins:invert",
+                                "action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:hecatomb/hemo/orb_right",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 2,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_cooldown",
+                    "compare_to": 200,
+                    "comparison": "=="
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "name": "Immaculate Bloodflow",
+    "description": "You've perfectly optimized the blood that flows through your body and reached limits unheard of.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§4§lBlood Orbs ⭕§r\n§7Concentrate your blood into two §r§emagic orbs§r§7 that are used to cast your magic.\nConjuring those blood orbs cost 2 §l§c❤§r§7 each and §cprevent healing§r§7 for 10s.\nWhilst the orbs §naren't§r§7 active, you exhaust §r§a50%§r§7 less.\nBeing attacked will consume a orb and deal 1 §l§c❤§r§7 of damage to the attacker.\n\n§e⌛§r§7 Cooldown: §r§f30s\n§c🕕§r§7 Duration: §r§f20s\n\n§7§lActive Ability"
+        },
+        {
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": [
+				"§7Summon two blood orbs with \"",
+				{
+					"keybind": "key.origins.primary_active"
+				},
+				"\"!"
+			]
+		}
+    ]
+}

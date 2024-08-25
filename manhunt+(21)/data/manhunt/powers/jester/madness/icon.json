@@ -1,0 +1,97 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "anim": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:jester/madness/icon_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "laughing": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:jester/madness/icon_anim",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 4",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.shulker.hurt_closed player @p ~ ~ ~ 2 0.5",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.bee.hurt player @p ~ ~ ~ 2 2",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:jester/madness/icon_anim",
+                        "change": 1
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers run data modify entity @s item.tag.CustomModelData set value 3",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "manhunt:jester/madness/icon_anim",
+                        "change": -1
+                    }
+                ]
+            }
+        },
+        "interval": 4
+    },
+    "hidden": true
+}

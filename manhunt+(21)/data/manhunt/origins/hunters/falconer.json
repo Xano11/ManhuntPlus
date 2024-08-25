@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:roles/intelligence",
+		"manhunt:falconer/falcon/forth",
+		"manhunt:falconer/sneaky",
+		"manhunt:falconer/bow",
+		"manhunt:falconer/handy",
+		"manhunt:falconer/tax",
+		"manhunt:falconer/vulnerable"
+	],
+	"icon": {
+		"item": "minecraft:wheat_seeds",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Falconer",
+	"description": "     [§dINTELLIGENCE ₪§r]\nOH WAIT- YOU DIDN'T MEET OSHA DID YOU?? OMG, *pulls a bird out of... nowhere?* HE'S SO CUTE!!!!!!."
+}

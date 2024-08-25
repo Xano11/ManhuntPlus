@@ -1,0 +1,398 @@
+{
+    "type": "origins:multiple",
+    "windup": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~ ~ 1 40 1 0 400 force @a"
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{NoGravity:1b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"jump_effect\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,start_interpolation:0,interpolation_duration:0,Tags:[\"jump_effect\"],brightness:{sky:10,block:10},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.1f,0.1f,0.1f]},item:{id:\"minecraft:snow_block\",Count:1b}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~-2 ~",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:guardian/meteor/jump",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s transformation.scale set value [1.5f,300f,1.5f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s interpolation_duration set value 20",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:guardian/meteor/landed"
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:guardian/meteor/active_wings",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:guardian/pledge/protector_pledged",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:end_rod ~ ~1 ~ 0.4 0 0.4 0.2 50"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tag @s add guardian_tp"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.allay.ambient_without_item player @a ~ ~5 ~ 3 2"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "tp @a[tag=guardian_tp] @s"
+                                        },
+                                        {
+                                            "type": "origins:spawn_entity",
+                                            "entity_type": "minecraft:armor_stand",
+                                            "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"landing_particles\"]}",
+                                            "entity_action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "data modify entity @s Rotation set value [0f,-90f]"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "function manhunt:abilities/landing_sphere"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "kill @s"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 6,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:add_velocity",
+                                                "z": 2,
+                                                "y": 0.3
+                                            },
+                                            "bientity_condition": {
+                                                "type": "origins:target_condition",
+                                                "condition": {
+                                                    "type": "origins:origin",
+                                                    "origin": "manhunt:hunter",
+                                                    "layer": "origins:origin",
+                                                    "inverted": true
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:poof ~ ~1 ~ 0.4 0 0.4 1 50"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/meteor/active_windup",
+                    "change": 0,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "jump": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.4 0 0.4 0.2 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bundle.drop_contents player @a ~ ~ ~ 3 1.2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.iron_golem.damage player @a ~ ~ ~ 0.5 0.7"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.ender_dragon.flap player @a ~ ~ ~ 3 1.3"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "y": 9,
+                    "set": true
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:guardian/meteor/active_windup",
+                    "compare_to": 43,
+                    "comparison": ">="
+                },
+                {
+                    "type": "origins:exposed_to_sky"
+                }
+            ]
+        }
+    },
+    "windup_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:guardian/meteor/active_windup",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/meteor/active_windup",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "slow": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/meteor/active_windup",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/meteor/active_windup",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "camera": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:guardian/meteor/active_windup",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "wings": {
+        "type": "origins:entity_set"
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:guardian/meteor/active_windup",
+                    "change": 1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~ -90"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.charge player @a ~ ~ ~ 1 0.8"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.beacon.activate player @a ~ ~ ~ 2 0.8"
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"meteor_particles\"]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:guardian/meteor/particles"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"wings\"],Passengers:[{id:\"minecraft:item_display\",Tags:[\"wings\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2f,1.5f,2f]},item:{id:\"minecraft:air\",Count:1b}}]}",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_to_set",
+                                "set": "manhunt:guardian/meteor/active_wings"
+                            }
+                        ]
+                    },
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ^ ^0.5 ^1 ~ ~"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=minecraft:armor_stand] Rotation[0]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation[1] set value 0f"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run item replace entity @s container.0 with minecraft:paper{CustomModelData:5}"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:guardian/pledge/protector_pledged",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4
+        }
+    },
+    "name": "Angelic Swoop",
+    "description": "I didn’t know it rained strong people, oh wait… Thats just me",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/levitation.png",
+            "text": "§l§bAngelic Swoop 🦢§r§7\nYou can teleport to your §r§bPledge'd§r§7 ally! There's a small windup and upon landing onto your teammate, you will push entities away.\n\n§6🕒§r§7 Windup: §r§f2.5s\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8 (Upon Activation)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Press §r%s§7 to fly away!"
+        }
+    ]
+}

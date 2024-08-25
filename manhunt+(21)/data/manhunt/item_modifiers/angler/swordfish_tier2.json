@@ -1,0 +1,6 @@
+[
+    {
+        "function": "minecraft:set_nbt",
+        "tag": "{display:{Name:'[\"\",{\"text\":\"Sword\",\"italic\":false},{\"text\":\"Fish\",\"italic\":false,\"color\":\"blue\"}]',Lore:['[\"\"]','[\"\",{\"text\":\"When in Main Hand:\",\"italic\":false,\"color\":\"gray\"}]','[\"\",{\"text\":\"4.5 Attack Damage\",\"italic\":false,\"color\":\"aqua\"}]','[\"\",{\"text\":\"1.4 Attack Speed\",\"italic\":false,\"color\":\"aqua\"}]','[\"\",{\"text\":\"(TIER 2)\",\"italic\":false,\"color\":\"dark_aqua\"}]']},Enchantments:[{}],RepairCost:9999,CustomModelData:1,Tags:[\"swordfish\"],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Amount:3.5,UUID:[I;-12477,12901,3057,-25802],Name:1723005234203},{AttributeName:\"generic.attack_speed\",Amount:-2.6,UUID:[I;-12477,13201,3057,-26402],Name:1723005234203}],HideFlags:2}"
+    }
+]

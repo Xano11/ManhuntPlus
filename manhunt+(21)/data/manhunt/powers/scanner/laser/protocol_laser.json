@@ -1,0 +1,480 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 280,
+        "start_value": 280,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 3 1 1 1 ~ ~199 ~ 7 0.4 7 1 1000 force @a",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:block_marker minecraft:redstone_block ~ ~199 ~ 5 0.4 5 1 1000 force @a",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:scanner/laser/protocol_laser_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ ~2 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=armor_stand,tag=scanner_artillery] Rotation[0]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute on passengers on passengers if entity @s[tag=scanner_shoot,nbt={item:{id:\"minecraft:red_glazed_terracotta\"}}]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers on passengers run item replace entity @s[tag=scanner_shoot] container.0 with minecraft:red_concrete_powder",
+                        "permission_level": 4
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute on passengers on passengers run item replace entity @s[tag=scanner_shoot] container.0 with minecraft:red_glazed_terracotta",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:scanner/laser/protocol_laser_duration",
+                        "compare_to": 260,
+                        "comparison": "<"
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~ ~ ~1 ~",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:scanner/laser/protocol_laser_duration",
+                        "compare_to": 240,
+                        "comparison": "<"
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~ ~ ~1 ~",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:scanner/laser/protocol_laser_duration",
+                        "compare_to": 220,
+                        "comparison": "<"
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~ ~ ~2 ~",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "manhunt:scanner/laser/protocol_laser_duration",
+                        "compare_to": 200,
+                        "comparison": "<"
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~ ~ ~2 ~",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "warning": {
+        "type": "origins:action_over_time",
+        "falling_action":{
+            "type": "origins:execute_command",
+            "command": "title @a reset"
+        },
+        "entity_action": {
+            "type": "origins:selector_action",
+            "selector": "@a",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "title @s times 3t 5t 2t"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "title @s title [\"\",\"/ \",{\"text\":\"// WARNING! //\",\"bold\":true,\"color\":\"gold\"},\" /\"]"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "title @a subtitle \"MOVE OUT!\""
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "eggolib:colliding"
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:living"
+                        }
+                    }
+                ]
+            }
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/protocol_laser_duration",
+            "compare_to": 200,
+            "comparison": ">"
+        }
+    },
+    "wave1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.charge player @a ~ ~ ~ 6 1.2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{NoGravity:1b,view_range:100f,Tags:[\"laser_wave\"],brightness:{sky:15,block:15},start_interpolation:-1,interpolation_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,110f],scale:[0.1f,0.1f,10f]},item:{id:\"minecraft:redstone\",Count:1b,tag:{CustomModelData:3}}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,90f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s transformation.scale set value [40f,40f,5f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s interpolation_duration set value 10",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@e[limit=1,sort=nearest,type=item_display,tag=scanner_artillery]",
+                                "bientity_action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/protocol_laser_duration",
+            "compare_to": 260,
+            "comparison": "<="
+        }
+    },
+    "wave2": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.charge player @a ~ ~ ~ 6 1.4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{NoGravity:1b,view_range:100f,Tags:[\"laser_wave2\"],brightness:{sky:15,block:15},start_interpolation:-1,interpolation_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,120f],scale:[0.1f,0.1f,10f]},item:{id:\"minecraft:redstone\",Count:1b,tag:{CustomModelData:3}}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,90f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s transformation.scale set value [35f,35f,5f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s interpolation_duration set value 10",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@e[limit=1,sort=nearest,type=item_display,tag=scanner_artillery]",
+                                "bientity_action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/protocol_laser_duration",
+            "compare_to": 240,
+            "comparison": "<="
+        }
+    },
+    "wave3": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.respawn_anchor.charge player @a ~ ~ ~ 6 1.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{NoGravity:1b,view_range:100f,Tags:[\"laser_wave3\"],brightness:{sky:15,block:15},start_interpolation:-1,interpolation_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,130f],scale:[0.1f,0.1f,10f]},item:{id:\"minecraft:redstone\",Count:1b,tag:{CustomModelData:3}}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,90f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s transformation.scale set value [30f,30f,5f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s interpolation_duration set value 10",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s start_interpolation set value -1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@e[limit=1,sort=nearest,type=item_display,tag=scanner_artillery]",
+                                "bientity_action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/protocol_laser_duration",
+            "compare_to": 220,
+            "comparison": "<="
+        }
+    },
+    "shoot_laser": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ -64 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.end_portal.spawn player @a ~ ~ ~ 3 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:item_display",
+                    "tag": "{NoGravity:1b,view_range:100f,Tags:[\"scanner_shoot\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,-300f,0f],scale:[20f,400f,20f]},item:{id:\"minecraft:red_glazed_terracotta\",Count:1b}}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:selector_action",
+                                "selector": "@e[limit=1,sort=nearest,type=item_display,tag=scanner_artillery]",
+                                "bientity_action": {
+                                    "type": "origins:mount"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/protocol_laser_duration",
+            "compare_to": 200,
+            "comparison": "<="
+        }
+    },
+    "damage": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.guardian.death player @a ~ ~ ~ 3 2 0.4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.evoker.prepare_attack player @a ~ ~ ~ 3 2 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.elder_guardian.hurt player @a ~ ~ ~ 3 1 0.6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 3 1 1 1 ~ ~ ~ 8 100 8 1 100 force @a",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 4,
+                            "damage_type": "manhunt:laser"
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "eggolib:colliding"
+                            },
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:living"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "interval": 3,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:scanner/laser/protocol_laser_duration",
+            "compare_to": 200,
+            "comparison": "<"
+        }
+    },
+    "phasing": {
+        "type": "origins:phasing",
+        "render_type": "blindness",
+        "view_distance": 12
+    },
+    "fire": {
+        "type": "origins:fire_immunity"
+    }
+}

@@ -1,0 +1,255 @@
+{
+    "type": "origins:multiple",
+    "spyglass": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "recipe give @s manhunt:scout_spyglass"
+        },
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "recipe give @s manhunt:scout_spyglass"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "recipe take @s manhunt:scout_spyglass"
+        },
+        "execute_chosen_when_orb": false
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 96
+                },
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:living"
+                            },
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:hunter",
+                                "layer": "origins:origin"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.8,
+        "green": 0.8,
+        "blue": 1.0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:spyglass"
+                        }
+                    }
+                },
+                {
+                    "type": "eggolib:perspective",
+                    "perspective": "first_person"
+                }
+            ]
+        }
+    },
+    "mark": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 96,
+                    "block": false,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s manhunt:scout/spyglass/marked"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.note_block.flute player @a ~ ~ ~ 3 2"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:sonic_boom ~ ~1 ~ 0 0 0 1 1"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle dust_color_transition 0.039 0.616 1.000 1 1.000 0.329 0.329 ~ ~1 ~ 0.5 0.2 0.5 1 100"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:swing_hand",
+                                            "hand": "MAIN_HAND"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.firework_rocket.launch player @a ~ ~ ~ 3 2"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "manhunt:scout/spyglass/spyglass_cooldown",
+                                            "change": -1200
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:and",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:origin",
+                                            "origin": "manhunt:runner",
+                                            "layer": "origins:origin"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:distance",
+                                "comparison": "<=",
+                                "compare_to": 96
+                            }
+                        ]
+                    },
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                }
+            ]
+        },
+        "key": {
+            "key": "key.attack"
+        },
+        "cooldown": 1,
+        "hud_render": {
+			"should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:spyglass"
+                        }
+                    }
+                },
+                {
+                    "type": "eggolib:perspective",
+                    "perspective": "first_person"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:scout/spyglass/spyglass_cooldown",
+                    "comparison": "==",
+                    "compare_to": 1200
+                }
+            ]
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 1200,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:scout/spyglass/spyglass_cooldown",
+                "comparison": "<",
+                "compare_to": 1200
+            }
+        }
+    },
+    "cooldown_up": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:scout/spyglass/spyglass_cooldown",
+            "change": 10
+        },
+        "interval": 10
+    },
+    "name": "Spotter's Spyglass",
+    "description": "With a spyglass in hand, those you percieve are never too far..",
+    "badges": [
+        {
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/mob_effect/glowing.png",
+			"text": "§l§fSpyglass 🔍§r§7\nEntities you can see through a spyglass will glow within §r§e96§r§7 blocks of you.\nWhen looking through a spyglass, you can apply §3Marked ❗§r§7 on §nglowing runners§r§7 by pressing left-click!\n\n§3Marked ❗§r§7\n Runner glows and takes §c+25%§r§7 more damage on next hit. §r§8(Effect removed on hit)§r\n\n§r§c🕕§r§7 Duration: §r§f10s§r§8 (Marked Runner)\n§e⌛§r§7 Cooldown: §r§f1m§r\n\n§7§lActive Ability"
+		},
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "minecraft:textures/item/spyglass.png",
+            "prefix": "§7You can craft spyglasses this way!",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "id": "manhunt:scout_spyglass",
+                "pattern": [
+                    " p ",
+                    " s ",
+                    " s "
+                ],
+                "key": {
+                    "s": {
+                        "item": "minecraft:leather"
+                    },
+                    "p": {
+                        "item": "minecraft:glass"
+                    }
+                },
+                "result": {
+                    "item": "minecraft:spyglass"
+                }
+            }
+        }
+    ]
+}

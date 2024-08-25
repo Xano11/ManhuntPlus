@@ -1,0 +1,485 @@
+{
+    "type": "origins:multiple",
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 20,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/bleeding/bleeding_cooldown",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "winding": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "winding_down": {
+        "type": "origins:action_over_time",
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:berserker/bleeding/bleeding_winding",
+            "change": -3
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "manhunt:axes"
+                        },
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "tag": "manhunt:swords"
+                        },
+                        "inverted": true
+                    }
+                ]
+            }
+        }
+    },
+    "windup": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.axe.wax_off player @a ~ ~ ~ 2 0.8"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.axe.wax_off player @a ~ ~ ~ 2 0.8"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.axe.wax_off player @a ~ ~ ~ 2 0.8"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                    "change": 1
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 1,
+                    "damage_type": "manhunt:bleeding_true"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+        },
+        "cooldown": 10,
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "winding_movement": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.3,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                    "comparison": "<",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:health",
+                            "comparison": ">",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:power",
+                            "power": "manhunt:berserker/beast/beast_effects"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "axe_hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                                "change": -3
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "manhunt:berserker/bleeding/bleeding_cooldown",
+                                "change": 20
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.4
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:berserker/bleeding/bleeding_effects"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust_color_transition 1 0 0 1 0.6 0 0 ~ ~1.3 ~ 0.3 0.2 0.3 1 100"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:item.trident.hit player @a ~ ~ ~ 2 0.5"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            {
+                                "type": "origins:equipped_item",
+                                "equipment_slot": "mainhand",
+                                "item_condition": {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:ingredient",
+                                            "ingredient": {
+                                                "tag": "manhunt:axes"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:ingredient",
+                                            "ingredient": {
+                                                "tag": "manhunt:swords"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:living"
+                    }
+                }
+            ]
+        }
+    },
+    "windup_indicator1": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:berserker/crosshair"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "windup_indicator2": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:berserker/crosshair2"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.origins.primary_active",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "windup_indicator3": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:berserker/crosshair3"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:berserker/bleeding/bleeding_winding",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:axes"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "manhunt:swords"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Wounding Blade",
+    "description": "Sacrifice your lifeforce to deliver a deep wound strike.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§4§lBleed 🩸§r\n§7Take §r§c3 Self-Damage§r§7 to inflict §r§4Bleed§r§7 on your next attack.\n§4Bleed§r§7 causes §r§eovertime damage§r§7 to targets and §r§ereduces§r§7 their immunity frames by §r§e25%§r§7.\nThe overtime damage cannot kill.\nWhile Enraged, you do not take Self-Damage to use this ability.\n\n§c⚔§r§7 Overtime Damage: §r§f1§r§8 (Per 1s)\n§6🕒§r§7 Windup: §r§f1.5s\n§c🕕§r§7 Duration: §r§f3s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Hold %s §7to charge your blade! (Axes or Swords)"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "type": "origins:multiple",
+    "speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Movement speed increase",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.05,
+            "operation": "multiply_base"
+        }
+    },
+    "air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.05
+        }
+    },
+    "lesshp": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "less health",
+            "attribute": "minecraft:generic.max_health",
+            "value": -2,
+            "operation": "addition"
+        },
+        "update_health": true,
+        "tick_rate": 1,
+        "condition":  {
+            "type": "origins:origin",
+            "origin": "manhunt:hunters/imp",
+            "layer": "manhunt:hunters",
+            "inverted": true
+        }
+    },
+    "name": "§b            [╬]§r",
+    "description": "",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/arrow_up.png",
+            "text": "§a+5%§r Passive speed."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/shape_heart.png",
+            "text": "-1 §l§c❤§r"
+        }
+    ]
+}

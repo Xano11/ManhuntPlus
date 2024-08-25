@@ -1,0 +1,46 @@
+{
+    "type": "origins:multiple",
+    "sight": {
+        "type": "origins:prevent_entity_render",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 48
+                },
+                {
+                    "type": "origins:in_set",
+                    "set": "manhunt:jester/compass_selected",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:origin",
+                                "origin": "manhunt:runner",
+                                "layer": "origins:origin",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "manhunt:hunter_effects_shattered_duration",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:living"
+                            }                            
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "name": "Nearsighted",
+    "description": "You can only see entities that are at most 48 blocks away from you."
+}

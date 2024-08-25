@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"manhunt:ringtones"
+	],
+	"icon": {
+		"item": "minecraft:compass",
+		"tag": "{Enchantments:[{}],CustomModelData:7}"
+	},
+	"order": 10,
+	"impact": 0,
+	"name": "Skeptical Ringtone",
+	"description": "Uhhhh..... It's just a normal compass, right?"
+}

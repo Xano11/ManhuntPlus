@@ -1,0 +1,105 @@
+{
+    "type": "origins:multiple",
+    "time": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "ticking":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:artisan/smoke/projectile_time",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "rotation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run data modify entity @s Rotation[0] set from entity @e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=smokebomb] Rotation[0]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.6 0.6 0.6 0.8 0 0 0 ~ ~ ~ 0.4 0.4 0.4 1 4",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "land": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Marker:1b,Invisible:1b,Tags:[\"smoke\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,shadow_radius:7f,shadow_strength:10f,Tags:[\"smoke1\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,shadow_radius:9f,shadow_strength:10f,Tags:[\"smoke2\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1.5f,0f],scale:[10f,6f,10f]},item:{id:\"minecraft:light_gray_concrete_powder\",Count:1b}}],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,2.5f,0f],scale:[8f,8f,8f]},item:{id:\"minecraft:light_gray_concrete_powder\",Count:1b}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:artisan/smoke/smoke_bombing",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on passengers run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:on_block",
+            "block_condition": {
+                "type": "origins:movement_blocking"
+            }
+        }
+    }
+}

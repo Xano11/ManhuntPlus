@@ -1,0 +1,143 @@
+{
+	"type": "origins:multiple",
+	"undead": {
+		"type": "origins:entity_group",
+		"group": "undead",
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether",
+			"inverted": true
+		}
+	},
+	"fire": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:in_tag",
+			"tag": "minecraft:is_fire"
+		},
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether",
+			"inverted": true
+		}
+	},
+	"health": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": -2,
+			"name": "Decreased health"
+		},
+		"update_health": true,
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether"
+		}
+	},
+	"healing": {
+		"type": "origins:modify_healing",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.3
+		},
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether",
+			"inverted": true
+		}
+	},
+	"more_exhaust": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"name": "Increased exhaustion",
+			"operation": "multiply_base",
+			"value": 0.6
+		},
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether",
+			"inverted": true
+		}
+	},
+	"ignore": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:selector_action",
+			"selector": "@e[type=piglin]",
+			"bientity_action": {
+				"type": "origins:target_action",
+				"action": {
+					"type": "origins:execute_command",
+					"command": "team join Hunters",
+					"permission_level": 4
+				}
+			},
+			"bientity_condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:target_condition",
+						"condition": {
+							"type": "origins:command",
+							"command": "execute if entity @s[team=!Hunters]",
+							"comparison": "==",
+							"compare_to": 1
+						}
+					},
+					{
+						"type": "origins:distance",
+						"comparison": "<=",
+						"compare_to": 64
+					}
+				]
+			},
+			"interval": 20,
+			"condition": {
+				"type": "origins:dimension",
+				"dimension": "minecraft:the_nether"
+			}
+		}
+	},
+	"speed": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"name": "More speed",
+			"attribute": "minecraft:generic.movement_speed",
+			"value": 0.20,
+			"operation": "multiply_total"
+		},
+		"update_health": false,
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether"
+		}
+	},
+	"air_speed": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.20
+		},
+		"condition": {
+			"type": "origins:dimension",
+			"dimension": "minecraft:the_nether"
+		}
+	},
+	"name": "Piglin Flesh",
+	"description": "As you reside within different dimensions, your behavior changes.",
+	"badges": [
+		{
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/hunters/piglin.png",
+            "text": "§c§lPiglin Duality 🐽§r§7\nWhilst §noutside the Nether§r§7, you zombify §r§8(fire resistance and undead status)§r§7 and lose §r§c-30%§r§7 healing and exhaust §r§c60%§r§7 quicker.\n\nWhilst §nin the Nether§r§7, you lose -1 §l§c❤§r§7 of maximum health but gain §r§a+20%§r§7 overall speed.\n\n§7§lPassive Ability"
+        },
+		{
+			"type": "origins:tooltip",
+			"sprite": "minecraft:textures/item/golden_axe.png",
+			"text": "§a§lThe Piglins we Made along the Way 🐽§r§7\nAdditionally, Piglins in a §r§e64§r§7 block radius of you become §r§apassive§r§7 to Hunters.\n§r§8(Except brutes; they bullied you as a child)\n\n§7§lPassive Ability"
+		}
+	]
+}

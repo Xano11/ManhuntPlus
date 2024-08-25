@@ -1,0 +1,24 @@
+{
+    "type": "origins:multiple",
+    "fall": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fall"
+        },
+        "modifier": {
+            "name": "Brittle bones",
+            "operation": "multiply_total",
+            "value": 0.5
+        }
+    },
+    "name": "Brittle Little Bones",
+    "description": "You hate being bludgeoned to death and falling is just glorified bludgeoning.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/slow_falling.png",
+            "text": "§c§lBrittle 🦴§r§7\nYou take §c50%§r§7 more fall damage.\n\n§7§lPassive Ability"
+        }
+    ]
+}

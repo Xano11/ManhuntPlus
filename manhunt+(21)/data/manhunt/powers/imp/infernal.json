@@ -1,0 +1,21 @@
+{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:in_tag",
+        "tag": "minecraft:is_fire"
+    },
+    "modifier": {
+        "name": "less fire dmg",
+        "operation": "multiply_total",
+        "value": -0.75
+    },
+    "name":"Infernal",
+    "description":"Born in the deepest pits of hell, fire is just like water... just a bit spicier.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "minecraft:textures/mob_effect/fire_resistance.png",
+            "text": "§a§lInfernal 🔥§r\n§7You take §a75%§r§7 less damage from fire and lava.\n\n§7§lPassive Ability"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "type": "origins:modify_damage_dealt",
+    "modifiers": [
+        {
+            "value": -3,
+            "operation": "add_base_early"
+        },
+        {
+            "value": 1,
+            "operation": "min_total"
+        }
+    ],
+    "name": "The Flame's Gone...",
+    "description": "With nothing to fan the flame, your passion falters.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/community/silent/badge/shapes/arrow_down.png",
+            "text": "§c↓ §nBroken Hope§r: You deal §c-3§r damage to entities that aren't burning, down to a minimum of §c1 damage§r."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§c↓ §nIt's All Pointless§r: You take §c2 damage§r every second while submerged in water."
+        }
+    ]
+}

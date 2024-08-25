@@ -1,0 +1,17 @@
+{
+	"powers": [
+		"manhunt:roles/assistance",
+		"manhunt:herald/flower_crown/equip",
+		"manhunt:herald/flower_crown/passives",
+		"manhunt:herald/roost/roost",
+		"manhunt:herald/pacifist"
+	],
+	"icon": {
+		"item": "minecraft:wild_armor_trim_smithing_template",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Herald",
+	"description": "       [§eASSISTANCE ✦§r]\n§c§lUnder Maintenance!!§r\nAs the supportive hand in any group, the Herald taps into life essence to give it's allies the advantage in combat."
+}

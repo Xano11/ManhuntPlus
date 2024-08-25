@@ -1,0 +1,330 @@
+{
+    "type": "origins:multiple",
+    "indicator_volatile": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/alchimia/volatile"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/shake_potion_type",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "indicator_eyes": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/alchimia/glow"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/shake_potion_type",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "indicator_strength": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:abilities/alchimia/strength"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/shake_potion_type",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "potion_type": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "choose": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "manhunt:alchimia/potion/shake_potion_type",
+                "comparison": "==",
+                "compare_to": 2
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:alchimia/potion/shake_potion_type",
+                "change": 0,
+                "operation": "set"
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "manhunt:alchimia/potion/shake_potion_type",
+                "change": 1
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:alchimia/potion/shake_shaking",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "cooldown": 2,
+        "key": "key.origins.primary_active",
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "shaking": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:alchimia/potion/shake_potion_type",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:merge_nbt",
+                                    "nbt": "{CustomPotionColor:16777214,display:{Name:'[\"\",{\"text\":\"Volatile Mixture 🪶\",\"italic\":false,\"color\":\"white\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:2,Tags:[\"alchimia\",\"volatile\"]}"
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:alchimia/potion/shake_potion_type",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:merge_nbt",
+                                    "nbt": "{CustomPotionColor:16706109,display:{Name:'[\"\",{\"text\":\"Awakened Eyes 👁\",\"italic\":false,\"color\":\"yellow\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:[\"alchimia\",\"eyes\"]}"
+                                }
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "manhunt:alchimia/potion/shake_potion_type",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:merge_nbt",
+                                    "nbt": "{CustomPotionColor:11546150,display:{Name:'[\"\",{\"text\":\"Boiling Strength 🗡\",\"italic\":false,\"color\":\"dark_red\",\"bold\":true}]'},Enchantments:[{}],CustomModelData:1,Tags:[\"alchimia\",\"strength\"]}"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 3 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/potion/shake_shaking",
+                    "change": -8
+                }
+            ]
+        }
+    },
+    "shaking_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:alchimia/potion/shake_shaking",
+            "change": -8
+        },
+        "interval": 4,
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.attack",
+                "continuous": true
+            },
+            "inverted": true
+        }
+    },
+    "shaking_active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.witch.throw player @a ~ ~ ~ 2 1.5"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:alchimia/potion/shake_shaking",
+                    "change": 1
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+        },
+        "cooldown": 4,
+        "key": {
+            "key": "key.attack",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/shake_shaking",
+                    "comparison": "<",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:alchimia}"
+                    }
+                }
+            ]
+        }
+    },
+    "shaking_movement": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -0.4,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apugli:key_pressed",
+                    "key": {
+                        "key": "key.attack",
+                        "continuous": true
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:alchimia/potion/shake_shaking",
+                    "comparison": "<",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:alchimia}"
+                    }
+                }
+            ]
+        }
+    },
+    "only_shake": {
+        "type": "origins:prevent_item_use",
+        "name": "🚫",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:alchimia}"
+        },
+        "condition": {
+            "type": "apugli:key_pressed",
+            "key": {
+                "key": "key.attack",
+                "continuous": true
+            }
+        }
+    },
+    "name": "Alchimical Knowledge",
+    "description": "Shaking your regular concoctions will turn them into special mixtures; powerful yet unstable.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/runners/alchimia.png",
+            "text": "§5§lAlchimical Knowledge 🧉§r§7\nWhilst holding your concoctions, you can shake them to transform them into newer potions.\nYou can choose between three pots: §r§fVolatile§r§7, §r§4Strength§r§7 and §r§eEyes§r§7\n\n§r§f§lVolatile 🪶§r§7\nCan be thrown, dealing heavy knockback on impact and providing all entities affected with fall damage nullification.\n\n§r§l§4Strength 🗡§r§7\nIncreases damage by +2 for 15s\n\n§r§l§eEyes 👁§r§7\nFor 15s, you can see all hunters through walls in a 24 block radius.\n\n§6🕒§r§7 Shaking: §r§f1.6s\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": [
+                "§7Press §r[",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]§7 to choose a potion type!\n\nFor volatile potions, press §r[",
+                {
+                    "keybind": "key.use"
+                },
+                "]§7 to throw the potion."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,265 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 32,
+        "start_value": 32,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload remove ~ ~ ~ ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:fire_resistance",
+                            "duration": 300,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:resistance",
+                            "duration": 60,
+                            "amplifier": 5,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:slowness",
+                            "duration": 60,
+                            "amplifier": 2,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.skeleton.converted_to_stray player @s ~ ~ ~ 3 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[tag=relentless] if score @s relentless_uuid = @p relentless_uuid run kill @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_width 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale delay set pehkui:hitbox_height 0 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:hitbox_width 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:eye_height 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:relentless/eternal/limbo",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "set_timer": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_resource",
+                    "modifier": {
+                        "operation": "set_total",
+                        "value": 0,
+                        "resource": "manhunt:relentless/eternal/undead_max_health",
+                        "modifier": {
+                            "operation": "multiply_total",
+                            "value": 1
+                        }
+                    },
+                    "resource": "manhunt:relentless/eternal/limbo_duration"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s relentless_death run resource get @s manhunt:relentless/eternal/limbo_duration",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "manhunt:relentless/eternal/limbo_duration",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players remove @s relentless_death 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s relentless_death run resource get @s manhunt:relentless/eternal/limbo_duration",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [\"\",\"Take control again in [\",{\"score\":{\"name\":\"@s\",\"objective\":\"relentless_death\"},\"bold\":true,\"color\":\"dark_red\"},\"s]\"]",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 20
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1
+        },
+        "interval": 40
+    },
+    "bones": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[type=minecraft:armor_stand,tag=relentless] if score @s relentless_uuid = @p relentless_uuid run tp @p @s",
+            "permission_level": 4
+        },
+        "interval": 1
+    },
+    "fog": {
+        "type": "moborigins:fog",
+        "red": 0,
+        "green": 0,
+        "blue": 0,
+        "start": -1,
+        "end": 14
+    },
+    "velocity": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "y",
+            "z"
+        ]
+    },
+    "no_atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Decrease speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -3,
+            "operation": "multiply_total"
+        }
+    },
+    "no_collision": {
+        "type": "origins:prevent_entity_collision"
+    },
+    "invisible": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false
+    },
+    "held_item":{
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "held_item"
+        ]
+    },
+    "no_attack": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "mobs_ignore": {
+        "type": "apugli:mobs_ignore"
+    },
+    "no_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "No damage",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "prevent_item": {
+        "type": "origins:prevent_item_use",
+        "name":"🚫"
+    },
+    "prevent_block": {
+        "type": "origins:prevent_block_use"
+    },
+    "no_ability": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            "key.origins.secondary_active",
+            "key.drop",
+            "key.inventory"
+        ]
+    },
+    "no_camera": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        }
+    },
+    "item_pickup": {
+        "type": "origins:prevent_item_pickup"
+    },
+    "no_break": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_regen": {
+        "type": "origins:disable_regen"
+    },
+    "hidden": true
+}

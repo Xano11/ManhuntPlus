@@ -1,0 +1,592 @@
+{
+    "type": "origins:multiple",
+    "switching": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+    "left_orb": {
+        "type": "origins:entity_set"
+    },
+    "right_orb": {
+        "type": "origins:entity_set"
+    },
+    "pos_left": {
+        "type": "eggolib:modify_passenger_position",
+        "y_modifier": {
+            "operation": "addition",
+            "value": -0.25
+        },
+        "x_modifier": {
+            "operation": "addition",
+            "value": 0.6
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:hecatomb/hemo/orb_left"
+            }
+        }
+    },
+    "pos_right": {
+        "type": "eggolib:modify_passenger_position",
+        "y_modifier": {
+            "operation": "addition",
+            "value": -0.25
+        },
+        "x_modifier": {
+            "operation": "addition",
+            "value": -0.6
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "manhunt:hecatomb/hemo/orb_right"
+            }
+        }
+    },
+    "regen":{
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hecatomb/hemo/surge_duration",
+            "compare_to": 200,
+            "comparison": ">"
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 400,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:action_on_set",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "execute on passengers run kill @s"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "kill @s"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/surge_duration",
+            "change": -10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:hecatomb/hemo/surge_duration",
+            "compare_to": 0,
+            "comparison": ">"
+        }
+    },
+    "thorns": {
+        "type": "origins:modify_damage_taken",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:living"
+            }
+        },
+        "bientity_action": {
+            "type": "origins:invert",
+            "action": {
+                "type": "origins:damage",
+                "amount": 2,
+                "damage_type": "manhunt:hemomagic"
+            }
+        },
+        "self_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:set_size",
+                "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:action_on_set",
+                "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run kill @s"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @s"
+                            }
+                        ]
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:action_on_set",
+                "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                "bientity_action":  {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run kill @s"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @s"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "holding_key": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0
+    },
+    "key_held": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+            "change": 3,
+            "operation": "set"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
+    "key_release": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+            "change": -1
+        },
+        "interval": 1
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 5,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:set_size",
+                        "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:set_size",
+                        "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "manhunt:hecatomb/hemo/surge_cooldown",
+                        "compare_to": 200,
+                        "comparison": "<"
+                    }
+                ]
+            }
+        }
+    },
+    "cooldown_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:hecatomb/hemo/surge_cooldown",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_cooldown",
+                    "compare_to": 200,
+                    "comparison": "<"
+                }
+            ]
+        }
+    },
+    "shoot_beam": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add rotate_blood_orb",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.prepare_mirror player @a ~ ~ ~ 2 1.3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "OFF_HAND"
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:set_size",
+                        "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:hecatomb/hemo/orb_left_shot",
+                                        "change": 1,
+                                        "operation": "set"
+                                    },
+                                    {
+                                        "type": "origins:dismount"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s Rotation[0] set from entity @p[tag=rotate_blood_orb] Rotation[0]",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:action_on_set",
+                        "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "manhunt:hecatomb/hemo/orb_right_shot",
+                                        "change": 1,
+                                        "operation": "set"
+                                    },
+                                    {
+                                        "type": "origins:dismount"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "data modify entity @s Rotation[0] set from entity @p[tag=rotate_blood_orb] Rotation[0]",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove rotate_blood_orb",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "cooldown": 4,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:set_size",
+                            "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:set_size",
+                            "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "crosshair_left": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:hecatomb/crosshair_left_orb"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "crosshair_right": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:hecatomb/crosshair_right_orb"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "crosshair_full": {
+        "type": "origins:status_bar_texture",
+        "texture_map": {
+            "minecraft:hud/crosshair": "manhunt:hecatomb/crosshair_full"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_right_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:set_size",
+                    "set": "manhunt:hecatomb/hemo/surge_left_orb",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:hecatomb/hemo/surge_holding_key",
+                    "compare_to": 0,
+                    "comparison": ">"
+                }
+            ]
+        }
+    },
+    "name": "Pillars of Blood",
+    "description": "The ground shakes as the blood emerges and leaves those to bleed.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§4§lPillars of Blood ♮§r\n§7Send a blood orb forward 22 blocks; invoking blood pillars in it's path.\nAfter a short delay, pillars emerge and deal 1.5 §l§c❤§r§7 of §r§etrue damage§r§7 to those hit.\n(If a target is using a shield, it instead breaks it)\n\n§e🧬§r§7 Cost: §r§f1 §r§4Blood Orb§r§8\n§6🕒§r§7 Windup: §r§f1.25s\n\n§7§lActive Ability"
+        },
+        {
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/toggle.png",
+			"text": [
+				"§7Hold §r[",
+				{
+					"keybind": "key.origins.primary_active"
+				},
+				"]§7 and press §r[",
+                {
+					"keybind": "key.use"
+				},
+                "]§7 to send a wave of blood forward."
+			]
+		}
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "type": "origins:multiple",
+    "velocity":{
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:add_velocity",
+            "y": 2,
+            "set": true
+        }
+    },
+    "shader":{
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/wobble.json"
+    },
+    "bounce":{
+        "type": "eggolib:modify_bounciness",
+        "block_action":  {
+            "type": "origins:area_of_effect",
+            "radius": 7,
+            "shape": "sphere",
+            "block_action": {
+                "type": "origins:set_block",
+                "block": "minecraft:magma_block"
+            },
+            "block_condition": {
+                "type": "origins:movement_blocking"
+            }
+        },
+        "entity_action":{
+            "type": "origins:area_of_effect",
+            "radius": 5,
+            "shape": "sphere",
+            "bientity_action": {
+                "type": "origins:add_velocity",
+                "z": 4
+            }
+        },
+        "modifier":{
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "block_condition": {
+            "type": "origins:movement_blocking"
+        }
+    },
+    "ignore_water":{
+        "type": "origins:ignore_water"
+    },
+    "invuln":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Weak to cursed items",
+            "operation": "multiply_total",
+            "value": -0.999
+        }
+    },
+    "fireproof":{
+        "type": "origins:fire_immunity"
+    },
+    "hidden": true
+}

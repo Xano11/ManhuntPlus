@@ -1,0 +1,81 @@
+{
+    "type": "origins:multiple",
+    "owner": {
+        "type": "origins:entity_set"
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:armor_stand",
+                    "tag": "{Silent:1b,Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,Tags:[\"totem\"],Passengers:[{id:\"minecraft:block_display\",view_range:100f,Tags:[\"totem\",\"totem_lantern\"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-1f,0f,-1f],scale:[2f,2f,2f]},block_state:{Name:\"minecraft:air\"}},{id:\"minecraft:block_display\",view_range:100f,shadow_radius:1f,shadow_strength:0.2f,Tags:[\"totem\",\"totem_base\"],Passengers:[{id:\"minecraft:item_display\",view_range:100f,Rotation:[0F,90F],Tags:[\"totem\",\"totem_ring\"],brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,1.95f],scale:[15f,15f,0.1f]},item:{id:\"minecraft:air\",Count:1b,tag:{CustomModelData:1}}}],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.5f,-2f,-0.5f],scale:[1f,2f,1f]},block_state:{Name:\"minecraft:sculk_shrieker\"}}]}",
+                    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute on passengers run data modify entity @s Rotation set value [0f,0f]",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s manhunt:shaman/totem/totem_powers",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "tp @s ~ ~-1 ~ ~ ~",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:add_to_set",
+                        "set": "manhunt:shaman/totem/totem_owner"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.warden.emerge player @a ~ ~ ~ 2 2",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 1800,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 14,
+            "should_render": true
+        }
+    },
+    "name": "Totem of Life",
+    "description": "Summon a totem that feeds the soul (and body) of nearby hunters, dead or alive.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§3§lTotem of Life 🌀§r\n§7Summon a §r§3Totem§r§7 at your location.\n§7Every §r§e0.5s§r§7, the Totem restores §r§a+1§r §l§c❤§r, §r§a+1§r§7 Food and §r§a+0.5§r§7 Saturation to all Hunters within range.\n\n§a§l⇶ §r§7Range: §r§f8 Blocks§r§8 (Radius)\n§6🕒§r§7 Windup: §r§f0.75s\n§c🕕§r§7 Duration: §r§f30s§r§8\n§e⌛§r§7 Cooldown: §r§f1m30s§r§8 (Upon Activation)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "§b§lResurrection ⟡§r\n§7Hunters leave a part of their §r§bSoul§r§7 at their location on death.\nIf you summon your §r§3Totem§r§7 on a §r§bSoul§r§7, they will §r§ateleport§r§7 to your §r§3Totem§r§7 but §r§creduce§r§7 it's duration.\nAll souls in a 16 block radius of the totem will slowly move towards the totem.\n\n§c🕕§r§7 Duration: §r§f-15s§r§8 (Totem)\n\n§7§lActive Ability"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "§7Summon with %s§7 !"
+        }
+    ]
+}

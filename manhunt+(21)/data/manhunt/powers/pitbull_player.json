@@ -1,0 +1,56 @@
+{
+    "type": "origins:multiple",
+    "invuln":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "invuln",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "invis":{
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false
+    },
+    "bars":{
+        "type": "origins:overlay",
+        "texture": "manhunt:textures/gui/overlays/misc/bars.png",
+        "strength": 1.0,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 1.0,
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": false
+    },
+    "no_abilities": {
+        "type": "eggolib:prevent_key_use",
+        "keys": [
+            "key.origins.primary_active",
+            "key.origins.secondary_active",
+            "key.sneak"
+        ]
+    },
+    "no_mouse":{
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        }
+    },
+    "velocity":{
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -1,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "x",
+          "y",
+          "z"
+        ]
+    },
+    "hidden": true
+}

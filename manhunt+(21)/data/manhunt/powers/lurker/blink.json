@@ -1,0 +1,172 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 50,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s manhunt:lurker/blink",
+            "permission_level": 4
+        }
+    },
+    "drain": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:lurker/blink_duration",
+            "change": -1,
+            "operation": "add"
+        }
+    },
+    "atk_speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Reduce attack speed",
+            "attribute": "minecraft:generic.attack_speed",
+            "value": -0.9,
+            "operation": "multiply_total"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/blink_duration",
+            "comparison": ">=",
+            "compare_to": 43
+        }
+    },
+    "sound_close": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.chorus_flower.grow player @s ~ ~ ~ 1 1.5",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/blink_duration",
+            "comparison": "==",
+            "compare_to": 50
+        }
+    },
+    "sound_open": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.chorus_flower.death player @s ~ ~ ~ 1 1.5",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "manhunt:lurker/blink_duration",
+            "comparison": "==",
+            "compare_to": 45
+        }
+    },
+    "glow_runners": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0,
+        "blue": 1.0,
+        "condition": {
+            "type": "origins:origin",
+            "origin": "manhunt:runner",
+            "layer": "origins:origin"
+        }
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/frogspawn.png",
+        "strength": 0.4,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "comparison": "==",
+                    "compare_to": 50
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "comparison": "==",
+                    "compare_to": 43
+                }
+            ]
+        }
+    },
+    "overlay_2": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/sculk_vein.png",
+        "strength": 0.8,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "comparison": "==",
+                    "compare_to": 49
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "comparison": "==",
+                    "compare_to": 44
+                }
+            ]
+        }
+    },
+    "overlay_3": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_concrete.png",
+        "strength": 0.99,
+        "red": 0.0,
+        "green": 0.0,
+        "blue": 0.0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "comparison": "<=",
+                    "compare_to": 48
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "manhunt:lurker/blink_duration",
+                    "comparison": ">=",
+                    "compare_to": 45
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

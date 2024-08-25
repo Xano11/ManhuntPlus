@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:feather",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Scout",
+	"description": "      [§bPACEKEEPER ╬§r]\nWhile not as formidable as the others, the Scout pursues runners at a constant pace with their athletics and lookout abilities for allies."
+}
