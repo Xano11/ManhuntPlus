@@ -118,7 +118,7 @@
                 },
                 {
                     "type": "origins:power",
-                    "power": "manhunt:jester/madness/mad",
+                    "power": "manhunt:balatro/madness/mad",
                     "inverted": true
                 }
             ]
@@ -260,7 +260,7 @@
             "type": "origins:actor_condition",
             "condition": {
                 "type": "origins:origin",
-                "origin": "manhunt:runners/damned",
+                "origin": "manhunt:runners/inmortuae",
                 "layer": "manhunt:runners"
             }
         }

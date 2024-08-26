@@ -84,8 +84,8 @@
     "no_move": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -1,
-            "operation": "multiply_total"
+            "amount": -1,
+            "operation": "multiply_total_multiplicative"
         },
         "axes": [
             "x",
@@ -96,25 +96,24 @@
     "no_atk_speed": {
         "type": "origins:attribute",
         "modifier": {
-            "name": "Decrease speed",
+            "id": "manhunt:waiting_atk_speed",
             "attribute": "minecraft:generic.attack_speed",
-            "value": -1,
-            "operation": "multiply_total"
+            "amount": -1,
+            "operation": "add_multiplied_total"
         }
     },
     "no_attack": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1
+            "amount": -1,
+            "operation": "multiply_total_multiplicative"
         }
     },
     "no_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
-            "name": "No damage",
-            "operation": "multiply_total",
-            "value": -1
+            "amount": -1,
+            "operation": "multiply_total_multiplicative"
         }
     },
     "prevent_item": {
@@ -124,9 +123,8 @@
     "no_exhaust": {
         "type": "origins:modify_exhaustion",
         "modifier": {
-            "name": "No exhaustion",
-            "operation": "multiply_total",
-            "value": -1
+            "amount": -1,
+            "operation": "multiply_total_multiplicative"
         }
     },
     "no_abilities": {
@@ -146,8 +144,8 @@
     "no_break": {
         "type": "origins:modify_break_speed",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1
+            "amount": -1,
+            "operation": "multiply_total_multiplicative"
         }
     },
     "hidden": true

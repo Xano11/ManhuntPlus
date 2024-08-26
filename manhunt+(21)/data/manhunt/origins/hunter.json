@@ -6,7 +6,10 @@
 		"manhunt:labels"
 	],
 	"icon": {
-		"item": "minecraft:netherite_sword"
+		"id": "minecraft:netherite_sword",
+		"components": {
+			"enchantment_glint_override": true
+		}
 	},
 	"order": 10,
 	"impact": 0,

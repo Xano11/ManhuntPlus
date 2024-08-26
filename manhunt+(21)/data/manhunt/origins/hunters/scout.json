@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pacekeeper",
+		"manhunt:scout/scout",
 		"manhunt:scout/speed",
 		"manhunt:scout/dash",
 		"manhunt:scout/bouncepad/bouncepad",

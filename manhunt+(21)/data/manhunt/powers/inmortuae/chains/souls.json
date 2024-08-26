@@ -1,0 +1,95 @@
+{
+    "type": "origins:multiple",
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 60,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "set": true
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power grant @s manhunt:inmortuae/chains/fall"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s manhunt:inmortuae/chains/souls"
+                }
+            ]
+        }
+    },
+    "floating": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1.07,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "y"
+        ]
+    },
+    "no_moving": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -1,
+            "operation": "multiply_total"
+        },
+        "axes": [
+            "x",
+            "z"
+        ]
+    },
+    "camera": {
+        "type": "eggolib:modify_mouse_sensitivity",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.5
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:inmortuae/chains/souls_duration",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "mitigation":{
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Mitigation",
+            "operation": "multiply_total",
+            "value": -0.4
+        }
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.4 0 0.6 1 0.6 0 0.9 ~ ~1 ~ 0.5 0.3 0.5 1 4"
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "hidden": true
+}

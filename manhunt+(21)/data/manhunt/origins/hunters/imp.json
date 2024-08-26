@@ -1,6 +1,7 @@
 {
     "powers": [
         "manhunt:roles/pacekeeper",
+        "manhunt:imp/imp",
         "manhunt:imp/pitchfork",
         "manhunt:imp/flight",
         "manhunt:imp/portal/portal",

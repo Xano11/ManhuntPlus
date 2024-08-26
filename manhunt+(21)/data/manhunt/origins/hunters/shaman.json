@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pillar",
+		"manhunt:shaman/shaman",
 		"manhunt:shaman/totem/totem",
 		"manhunt:shaman/grasp",
 		"manhunt:shaman/regenerate",

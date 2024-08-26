@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:alchimia/alchimia",
 		"manhunt:alchimia/potion/refill",
 		"manhunt:alchimia/potion/shake",
 		"manhunt:alchimia/potion/concoctions",

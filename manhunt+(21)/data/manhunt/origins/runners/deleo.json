@@ -1,5 +1,6 @@
 {
 	"powers": [
+		"manhunt:deleo/deleo",
 		"manhunt:deleo/disable/disable",
 		"manhunt:deleo/frozen/active",
 		"manhunt:deleo/shutdown/shutdown",

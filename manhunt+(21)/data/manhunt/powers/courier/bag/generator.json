@@ -111,7 +111,7 @@
         },
         "interval": 4
     },
-    "jester_check": {
+    "balatro_check": {
         "type": "origins:action_over_time",
         "rising_action": {
             "type": "origins:execute_command",

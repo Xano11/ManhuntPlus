@@ -2,20 +2,10 @@
     "type": "origins:multiple",
     "default": {
         "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "scoreboard players set @s timer 15"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "scoreboard players set @s ready_timer 10"
-                }
-            ]
-        },
-        "execute_chosen_when_orb": true
+        "entity_action_gained":{
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/default"
+        }
     },
     "joining": {
         "type": "origins:action_over_time",
@@ -54,25 +44,8 @@
             "bientity_action": {
                 "type": "origins:target_action",
                 "action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "power remove @s manhunt:waiting"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "origin set @s origins:origin manhunt:spectator"
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "tellraw @s \"A run is currently ongoing. Feel free to spectate!\""
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "tag @s add spectating"
-                        }
-                    ]
+                    "type": "origins:execute_command",
+                    "command": "function manhunt:main/joining_after_timer"
                 }
             },
             "bientity_condition": {
@@ -153,17 +126,8 @@
     "ban_msg1": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 10 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @a \"TIME FOR BANS!1!11!!\""
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/ban_msg1"
         },
         "interval": 1,
         "condition": {
@@ -176,21 +140,8 @@
     "ban_msg2": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 10 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @r[tag=hunter] add ban_pick"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @a \"All runners are given a ban vote...\""
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/ban_msg2"
         },
         "interval": 1,
         "condition": {
@@ -203,17 +154,8 @@
     "ban_msg3": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.bit player @a ~ ~ ~ 10 0.5"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @a [\"\",\".. AND \",{\"selector\":\"@p[tag=ban_pick]\",\"bold\":true},\" CAN BAN A RUNNER!!!!\"]"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/ban_msg3"
         },
         "interval": 1,
         "condition": {
@@ -232,198 +174,29 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "forceload add ~ ~ ~ ~"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @a add playing"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @a[tag=hunter] add countdowned"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:joining"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a manhunt:start_repick_key"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a manhunt:start_repick"
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=swift_enabled]",
-                        "comparison": ">=",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:execute_command",
-                        "command": "power grant @a[tag=runner] manhunt:swift"
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=repick_enabled]",
-                        "comparison": ">=",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:hunt_repick_timer",
-                                "change": 400
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "scoreboard players set @s repick_timer 20"
-                            }
-                        ]
-                    },
-                    "else_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "function manhunt:setup_border_timer"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "team modify Hunters prefix \"\""
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "team modify Runners prefix \"\""
-                            },
-                            {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:command",
-                                    "command": "execute if entity @a[tag=runner]",
-                                    "comparison": "==",
-                                    "compare_to": 1
-                                },
-                                "if_action": {
-                                    "type": "origins:and",
-                                    "actions": [
-                                        {
-                                            "type": "origins:change_resource",
-                                            "resource": "manhunt:hunt_countdown",
-                                            "change": 5
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "scoreboard players add @s timer 5"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "execute as @a[tag=hunter] run resource operation @s manhunt:countdown_effects_timer = @e[limit=1,sort=nearest,tag=setup] timer"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "function manhunt:countdown"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power remove @a manhunt:start"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "power remove @s manhunt:hunt_ready_timer_tick"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=convert_runners]",
-                        "comparison": ">=",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:execute_command",
-                        "command": "tag @a[tag=runner] add convert"
-                    }
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/ready_timer"
         }
     },
     "ready_timer_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "title @a actionbar [\"\",\"[\",{\"score\":{\"name\":\"@s\",\"objective\":\"ready_timer\"},\"bold\":true,\"color\":\"gold\"},\"] Game is starting! ⏱\"]"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:hunt_ready_timer",
-                    "change": -1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "scoreboard players remove @s ready_timer 1"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "execute unless entity @a[tag=!ready] run function manhunt:main/ready_timer_tick"
         },
         "interval": 20,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:command",
-                    "command": "execute unless entity @a[tag=!ready]",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:hunt_ready_timer",
-                    "comparison": ">",
-                    "compare_to": 0
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ready_timer",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "ready_timer_reset": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:hunt_ready_timer",
-                    "change": 10
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "scoreboard players set @s ready_timer 10"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/ready_timer_reset"
         },
         "interval": 1,
         "condition": {
@@ -442,229 +215,22 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=second_chance]",
-                        "comparison": ">=",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:execute_command",
-                        "command": "power grant @a[tag=runner] manhunt:second_chance"
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=catchup]",
-                        "comparison": ">=",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:execute_command",
-                        "command": "power grant @a[tag=hunter] manhunt:catchup"
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @a[tag=hunter] remove countdowned"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a[tag=hunter] manhunt:countdown_effects"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @a remove ready"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:celebration"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @s manhunt:ban"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute as @a[tag=runner] run scoreboard players add @e[limit=1,sort=nearest,type=minecraft:armor_stand] runners_alive 1"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:hunt"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/countdown"
         }
     },
     "timer_tick": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:if_else_list",
-                    "actions": [
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "manhunt:hunt_countdown",
-                                "comparison": ">",
-                                "compare_to": 5
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a title [\"\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a subtitle [\"\",\"[\",{\"score\":{\"name\":\"@s\",\"objective\":\"timer\"},\"bold\":true,\"color\":\"green\"},\"⏱]\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:block.note_block.hat player @a ~ ~ ~ 10 1 1"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "manhunt:hunt_countdown",
-                                        "comparison": "<=",
-                                        "compare_to": 5
-                                    },
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "manhunt:hunt_countdown",
-                                        "comparison": ">",
-                                        "compare_to": 2
-                                    }
-                                ]
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a title [\"\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a subtitle [\"\",\"[\",{\"score\":{\"name\":\"@s\",\"objective\":\"timer\"},\"bold\":true,\"color\":\"gold\"},\"⏱]\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:block.note_block.hat player @a ~ ~ ~ 10 1.2 1"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "manhunt:hunt_countdown",
-                                        "comparison": "<=",
-                                        "compare_to": 2
-                                    },
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "manhunt:hunt_countdown",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    }
-                                ]
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a title [\"\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a subtitle [\"\",\"[\",{\"score\":{\"name\":\"@s\",\"objective\":\"timer\"},\"bold\":true,\"color\":\"dark_red\"},\"⏱]\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:block.note_block.hat player @a ~ ~ ~ 10 1.5 1"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "manhunt:hunt_countdown",
-                                "comparison": "==",
-                                "compare_to": 0
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a title [\"\"]"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "title @a subtitle {\"text\":\"GO!\",\"bold\":true,\"color\":\"yellow\"}"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.wither.spawn player @a ~ ~ ~ 3 2"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "tag @s add started_game"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "scoreboard players remove @s timer 1"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:hunt_countdown",
-                    "change": -1
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "execute if entity @s[tag=!repick_enabled] run function manhunt:main/timer_tick_main"
         },
         "interval": 20,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "manhunt:hunt_ready_timer",
-                    "comparison": "==",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:command",
-                    "command": "execute if entity @s[tag=!repick_enabled]",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
-            ]
+            "type": "origins:resource",
+            "resource": "manhunt:hunt_ready_timer",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "repick_timer": {
@@ -676,72 +242,8 @@
             "should_render": false
         },
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "function manhunt:setup_border_timer"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a[tag=hunter] manhunt:repick"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter] manhunt:countdown_effects"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "team modify Hunters prefix \"\""
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "team modify Runners prefix \"\""
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @s remove repick_enabled"
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @a[tag=runner]",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:hunt_countdown",
-                                "change": 5
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "scoreboard players add @s timer 5"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "execute as @a[tag=hunter] run resource operation @s manhunt:countdown_effects_timer = @e[limit=1,sort=nearest,tag=setup] timer"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "function manhunt:countdown"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a manhunt:start"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @s manhunt:hunt_ready_timer_tick"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/repick_timer"
         }
     },
     "repick_timer_tick": {
@@ -777,21 +279,12 @@
                         "compare_to": 300
                     },
                     "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "title @a title [\"\"]"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "title @a[tag=hunter] subtitle [\"\",\"[\",{\"score\":{\"name\":\"@s\",\"objective\":\"repick_timer\"},\"bold\":true},\"⏱]\"]"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:block.note_block.hat player @a[tag=hunter] ~ ~ ~ 3 1"
-                            }
-                        ]
+                        "type": "origins:execute_command",
+                        "command": "function manhunt:main/repick_timer_scoreboard"
+                    },
+                    "else_action": { 
+                        "type": "origins:toggle",
+                        "power": "manhunt:hunt_repick_timer_scoreboard"
                     }
                 }
             ]
@@ -807,17 +300,8 @@
     "repick_msg1": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @a \"Now, time to reveal the runner(s)!\""
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @a"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/repick_msg1"
         },
         "interval": 1,
         "condition": {
@@ -830,135 +314,8 @@
     "repick_msg2": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:selector_action",
-                    "selector": "@a[tag = runner]",
-                    "bientity_action": {
-                        "type": "origins:target_action",
-                        "action": {
-                            "type": "origins:if_else_list",
-                            "actions": [
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/celeritas",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Celeritas!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/alchimia",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Alchimia!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/sanguis",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Sanguis Deus!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/damned",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Inmortuae!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/gambler",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Fortuna!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/jester",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Balatro!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/deleo",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Deleo!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/draco",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Draconis!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/fortis",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Fortis!\"]"
-                                    }
-                                },
-                                {
-                                    "condition": {
-                                        "type": "origins:origin",
-                                        "origin": "manhunt:runners/sicarius",
-                                        "layer": "manhunt:runners"
-                                    },
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "tellraw @a [\"\",{\"selector\":\"@s\",\"color\":\"gold\"},\" is playing Sicarius!\"]"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @a"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/repick_msg2"
         },
         "interval": 1,
         "condition": {
@@ -971,25 +328,8 @@
     "repick_msg3": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @a \"Time for the hunters to use their Last Pick!\""
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @a"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power grant @a[tag=hunter] manhunt:repick"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "power remove @a manhunt:start_ready_key"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/repick_msg3"
         },
         "interval": 1,
         "condition": {
@@ -999,45 +339,11 @@
             "compare_to": 320
         }
     },
-    "apply_hunter_glow": {
+    "apply_glow": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:command",
-                "command": "execute if entity @s[tag=glow_enabled]",
-                "comparison": "==",
-                "compare_to": 1
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "execute as @a[tag=hunter] run resource set @s manhunt:hunter_effects_glow 1"
-            },
-            "else_action": {
-                "type": "origins:execute_command",
-                "command": "execute as @a[tag=hunter] run resource set @s manhunt:hunter_effects_glow 0"
-            }
-        },
-        "interval": 20
-    },
-    "apply_runner_glow": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:command",
-                "command": "execute if entity @s[tag=glow_enabled]",
-                "comparison": "==",
-                "compare_to": 1
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "execute as @a[tag=runner] run resource set @s manhunt:runner_effects_glow 1"
-            },
-            "else_action": {
-                "type": "origins:execute_command",
-                "command": "execute as @a[tag=runner] run resource set @s manhunt:runner_effects_glow 0"
-            }
+            "type": "origins:execute_command",
+            "command": "function manhunt:main/apply_glow"
         },
         "interval": 20
     }

@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/intelligence",
+		"manhunt:lurker/lurker",
 		"manhunt:lurker/lurk/lurk",
 		"manhunt:lurker/shadow/shadow",
 		"manhunt:lurker/visions",

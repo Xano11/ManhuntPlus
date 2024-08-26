@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/intelligence",
+		"manhunt:scanner/scanner",
 		"manhunt:scanner/solar_battery",
 		"manhunt:scanner/radar_visor",
 		"manhunt:scanner/laser/laser_pointer",

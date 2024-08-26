@@ -1,0 +1,34 @@
+{
+    "type": "origins:multiple",
+    "storage_name": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify storage manhunt:character_name Name set value \"Angler\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add angler"
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify storage manhunt:character_name Name set value \"\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove angler"
+                }
+            ]
+        },
+        "execute_chosen_when_orb": false
+    },
+    "hidden": true
+}

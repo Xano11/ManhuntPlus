@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pillar",
+		"manhunt:xolotl/xolotl",
 		"manhunt:xolotl/wolf/wolfpack",
 		"manhunt:xolotl/bite/call",
 		"manhunt:xolotl/dog/mount",

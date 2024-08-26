@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/assistance",
+		"manhunt:geologist/geologist",
         "manhunt:geologist/rush/gold_rush",
 		"manhunt:geologist/tunnel/dig",
 		"manhunt:geologist/infernal_debut",

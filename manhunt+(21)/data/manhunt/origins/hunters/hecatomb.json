@@ -1,6 +1,7 @@
- {
+{
 	"powers": [
 		"manhunt:roles/rivals",
+		"manhunt:hecatomb/hecatomb",
 		"manhunt:hecatomb/blood",
 		"manhunt:hecatomb/hemo/surge",
 		"manhunt:hecatomb/brimstone/brimstone",

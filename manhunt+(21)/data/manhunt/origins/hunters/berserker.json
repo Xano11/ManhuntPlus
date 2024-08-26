@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/rivals",
+		"manhunt:berserker/berserker",
 		"manhunt:berserker/berserk",
 		"manhunt:berserker/beast/beast",
 		"manhunt:berserker/bleeding/bleeding",

@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/rivals",
+		"manhunt:angler/angler",
 		"manhunt:angler/fishing/fishloot",
 		"manhunt:angler/fishing/throw",
 		"manhunt:angler/fishing/fishout",
@@ -10,8 +11,11 @@
 		"manhunt:angler/health"
 	],
 	"icon": {
-		"item": "minecraft:iron_sword",
-		"tag": "{Enchantments:[{}],CustomModelData:1}"
+		"id": "minecraft:iron_sword",
+		"components": {
+			"enchantment_glint_override": true,
+			"custom_model_data": 1
+		}
 	},
 	"order": 10,
 	"impact": 3,

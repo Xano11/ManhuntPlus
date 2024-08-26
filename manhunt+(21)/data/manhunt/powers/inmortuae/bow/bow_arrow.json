@@ -1,0 +1,73 @@
+{
+    "type": "origins:multiple",
+    "check_arrow": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:inmortuae/bow/bow_arrow_duration",
+            "change": 0,
+            "operation": "set"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:riding",
+            "inverted": true
+        }
+    },
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle run kill @s"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s"
+                }
+            ]
+        }
+    },
+    "duration_down": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "manhunt:inmortuae/bow/bow_arrow_duration",
+            "change": -20
+        },
+        "interval": 20
+    },
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:witch ~ ~ ~ 0.1 0.1 0.1 1 20",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run particle minecraft:dust_color_transition 1 1 1 1 0.4 0 1 ~ ~ ~ 0.3 0.3 0.3 1 20",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute on vehicle at @s run playsound minecraft:block.amethyst_cluster.break player @a ~ ~ ~ 0.8 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "interval": 30
+    },
+    "hidden": true
+}

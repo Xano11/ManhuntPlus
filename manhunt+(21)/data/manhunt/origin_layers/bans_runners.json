@@ -25,14 +25,13 @@
         ]
       },
       "origins": [
-        "manhunt:bans/no_ban",
         "manhunt:bans/alchimia",
         "manhunt:bans/celeritas",
         "manhunt:bans/sanguis",
-        "manhunt:bans/damned",
-        "manhunt:bans/gambler",
+        "manhunt:bans/inmortuae",
+        "manhunt:bans/fortuna",
         "manhunt:bans/deleo",
-        "manhunt:bans/jester",
+        "manhunt:bans/balatro",
         "manhunt:bans/draco",
         "manhunt:bans/fortis",
         "manhunt:bans/chronos",

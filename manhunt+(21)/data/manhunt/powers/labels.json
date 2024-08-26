@@ -181,7 +181,7 @@
             "layer": "manhunt:runners"
         }
     },
-    "gambler": {
+    "fortuna": {
         "type": "eggolib:modify_label_render",
         "text": [
             {
@@ -193,7 +193,7 @@
         ],
         "condition": {
             "type": "origins:origin",
-            "origin": "manhunt:runners/gambler",
+            "origin": "manhunt:runners/fortuna",
             "layer": "manhunt:runners"
         }
     },
@@ -481,7 +481,7 @@
         ],
         "condition": {
             "type": "origins:origin",
-            "origin": "manhunt:runners/damned",
+            "origin": "manhunt:runners/inmortuae",
             "layer": "manhunt:runners"
         }
     },

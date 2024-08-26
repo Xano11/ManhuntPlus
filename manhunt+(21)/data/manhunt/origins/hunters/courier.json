@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pillar",
+		"manhunt:courier/courier",
 		"manhunt:courier/bag/void",
         "manhunt:courier/snatch/snatch",
         "manhunt:courier/crafter",

@@ -5,8 +5,10 @@
 		"manhunt:labels"
 	],
 	"icon": {
-		"item": "minecraft:ender_eye",
-		"tag": "{Enchantments:[{}]}"
+		"id": "minecraft:ender_eye",
+		"components": {
+			"enchantment_glint_override": true
+		}
 	},
 	"order": 10,
 	"impact": 0,

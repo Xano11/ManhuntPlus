@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pacekeeper",
+		"manhunt:relentless/relentless",
 		"manhunt:relentless/eternal/undead",
 		"manhunt:relentless/bonemade",
 		"manhunt:relentless/skullthrow/throw",

@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/intelligence",
+		"manhunt:falconer/falconer",
 		"manhunt:falconer/falcon/forth",
 		"manhunt:falconer/sneaky",
 		"manhunt:falconer/bow",

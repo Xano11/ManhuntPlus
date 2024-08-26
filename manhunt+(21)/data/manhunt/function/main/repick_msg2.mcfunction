@@ -1,0 +1,2 @@
+execute as @a[tag=runner] run tellraw @a ["",{"selector":"@s"}," is playing ",{"nbt":"Name","storage":"manhunt:character_name","color":"dark_red"},"!"]
+playsound minecraft:block.note_block.pling player @a

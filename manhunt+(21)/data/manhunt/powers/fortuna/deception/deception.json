@@ -1,0 +1,89 @@
+{
+    "type": "origins:multiple",
+    "cast": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:spawn_entity",
+                    "entity_type": "minecraft:zombie",
+                    "tag": "{NoGravity:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,DeathLootTable:\"minecraft:empty\",NoAI:1b,CanPickUpLoot:0b,Tags:[\"deception\"],ArmorItems:[{},{},{},{id:\"minecraft:lodestone\",Count:1b,tag:{Enchantments:[{}]}}]}",
+                    "entity_action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s manhunt:fortuna/deception/deception_lodestone"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_overworld] run resource set @s manhunt:overworld_track_disabled 1200"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_nether] run resource set @s manhunt:nether_track_disabled 1200"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @e[type=armor_stand,tag=tracking_end] run resource set @s manhunt:end_track_disabled 1200"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @s lodestone run data get entity @s UUID[0] 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute store result score @e[limit=1,sort=nearest,tag=deception] lodestone run data get entity @s UUID[0] 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 1 1 1 ~ ~1 ~ 1 1 1 1 300"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:ash ~ ~1 ~ 1 1 1 1 300 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:snowflake ~ ~1 ~ 1 0 1 0.1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell player @a ~ ~ ~ 3 0.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "forceload add ~ ~ ~ ~",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 3600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "should_render": true
+        }
+    },
+    "name": "The Fool's Deception",
+    "description": "Place a cursed lodestone, leading the hunters' compasses to it and therefore; preventing them from tracking you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "The lodestone lasts for 1m. Hunters can break the lodestone by right clicking!\n(The lodestone can only be seen within a 8 block radius)"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Place lodestone with \"%s\"!"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "manhunt:textures/item/icons/misc/cooldown.png",
+            "text": "Cooldown: 3ms"
+        }
+    ]
+}

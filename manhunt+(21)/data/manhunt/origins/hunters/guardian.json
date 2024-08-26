@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pillar",
+		"manhunt:guardian/guardian",
 		"manhunt:guardian/pledge/protector",
         "manhunt:guardian/bulwark/active",
 		"manhunt:guardian/meteor/active",

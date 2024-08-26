@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pacekeeper",
+		"manhunt:bomber/bomber",
 		"manhunt:bomber/kamikaze",
 		"manhunt:bomber/flash/flash",
 		"manhunt:bomber/boom/boom",

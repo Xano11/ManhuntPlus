@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"manhunt:balatro/balatro",
+		"manhunt:balatro/blink",
+		"manhunt:balatro/madness/madness",
+		"manhunt:balatro/compass",
+		"manhunt:balatro/glow",
+		"manhunt:balatro/health",
+		"manhunt:balatro/nearsighted"
+	],
+	"icon": {
+		"item": "minecraft:firework_rocket",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 10,
+	"impact": 2,
+	"name": "Balatro ⚜",
+	"description": "Fooling around might sound useless, but Balatro knows that why even bother if there is no fun to be had."
+}

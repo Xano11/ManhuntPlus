@@ -2,7 +2,7 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:barrier"
+		"id": "minecraft:barrier"
 	},
 	"order": 10,
 	"impact": 0,

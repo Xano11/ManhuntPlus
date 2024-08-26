@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/pillar",
+		"manhunt:enchanter/enchanter",
 		"manhunt:enchanter/arcane",
 		"manhunt:enchanter/recall/book",
 		"manhunt:enchanter/glass/book",

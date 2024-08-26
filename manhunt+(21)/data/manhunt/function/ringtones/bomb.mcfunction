@@ -1,0 +1,1 @@
+give @p compass[custom_name='"Tracking Compass 🧭"',rarity="epic",custom_model_data=3,custom_data={tracking_compass:1b},lodestone_tracker={target:{dimension:"minecraft:overworld",pos:[I;0,0,0]},tracked:false}] 1

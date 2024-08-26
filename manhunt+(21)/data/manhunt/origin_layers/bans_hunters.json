@@ -25,7 +25,6 @@
                 ]
             },
             "origins": [
-                "manhunt:bans/no_ban",
                 "manhunt:bans/lurker",
                 "manhunt:bans/herald",
                 "manhunt:bans/scout",

@@ -366,7 +366,7 @@
             ]
         }
     },
-    "damned": {
+    "inmortuae": {
         "type": "origins:resource",
         "min": 0,
         "max": 1,
@@ -385,7 +385,7 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:runners/damned",
+                        "origin": "manhunt:runners/inmortuae",
                         "layer": "manhunt:runners"
                     },
                     "if_action": {
@@ -670,7 +670,7 @@
             ]
         }
     },
-    "gambler": {
+    "fortuna": {
         "type": "origins:resource",
         "min": 0,
         "max": 1,
@@ -683,13 +683,13 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @s [\"\",{\"text\":\"Gambler \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                    "command": "tellraw @s [\"\",{\"text\":\"fortuna \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
                 },
                 {
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:runners/gambler",
+                        "origin": "manhunt:runners/fortuna",
                         "layer": "manhunt:runners"
                     },
                     "if_action": {
@@ -898,7 +898,7 @@
             ]
         }
     },
-    "jester": {
+    "balatro": {
         "type": "origins:resource",
         "min": 0,
         "max": 1,
@@ -911,13 +911,13 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "tellraw @s [\"\",{\"text\":\"Jester \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
+                    "command": "tellraw @s [\"\",{\"text\":\"Balatro \",\"bold\":true,\"color\":\"white\"},\"was banned!\"]"
                 },
                 {
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:runners/jester",
+                        "origin": "manhunt:runners/balatro",
                         "layer": "manhunt:runners"
                     },
                     "if_action": {
@@ -1450,12 +1450,12 @@
                 {
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:bans/damned",
+                        "origin": "manhunt:bans/inmortuae",
                         "layer": "manhunt:bans_runners"
                     },
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_damned 1"
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_inmortuae 1"
                     }
                 },
                 {
@@ -1538,12 +1538,12 @@
                 {
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:bans/gambler",
+                        "origin": "manhunt:bans/fortuna",
                         "layer": "manhunt:bans_runners"
                     },
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_gambler 1"
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_fortuna 1"
                     }
                 },
                 {
@@ -1593,12 +1593,12 @@
                 {
                     "condition": {
                         "type": "origins:origin",
-                        "origin": "manhunt:bans/jester",
+                        "origin": "manhunt:bans/balatro",
                         "layer": "manhunt:bans_runners"
                     },
                     "action": {
                         "type": "origins:execute_command",
-                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_jester 1"
+                        "command": "resource set @e[limit=1,sort=nearest,type=armor_stand,tag=setup] manhunt:ban_balatro 1"
                     }
                 },
                 {
@@ -1854,13 +1854,13 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:ban_damned",
+                        "resource": "manhunt:ban_inmortuae",
                         "comparison": "==",
                         "compare_to": 1
                     },
                     "if_action": {
                         "type": "origins:execute_command",
-                        "command": "execute as @a run resource set @s manhunt:ban_damned 1"
+                        "command": "execute as @a run resource set @s manhunt:ban_inmortuae 1"
                     }
                 },
                 {
@@ -1958,13 +1958,13 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:ban_gambler",
+                        "resource": "manhunt:ban_fortuna",
                         "comparison": "==",
                         "compare_to": 1
                     },
                     "if_action": {
                         "type": "origins:execute_command",
-                        "command": "execute as @a run resource set @s manhunt:ban_gambler 1"
+                        "command": "execute as @a run resource set @s manhunt:ban_fortuna 1"
                     }
                 },
                 {
@@ -2023,13 +2023,13 @@
                     "type": "origins:if_else",
                     "condition": {
                         "type": "origins:resource",
-                        "resource": "manhunt:ban_jester",
+                        "resource": "manhunt:ban_balatro",
                         "comparison": "==",
                         "compare_to": 1
                     },
                     "if_action": {
                         "type": "origins:execute_command",
-                        "command": "execute as @a run resource set @s manhunt:ban_jester 1"
+                        "command": "execute as @a run resource set @s manhunt:ban_balatro 1"
                     }
                 },
                 {

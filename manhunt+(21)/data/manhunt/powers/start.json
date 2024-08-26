@@ -63,17 +63,8 @@
     "msg1": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @s"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @s [\"\",\"Welcome to \",{\"text\":\"MANHUNT+\",\"bold\":true,\"color\":\"gold\"},\"!\"]"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:start/msg1"
         },
         "interval": 1,
         "condition": {
@@ -86,17 +77,8 @@
     "msg2": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @s"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @s \"Please select your role.\""
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:start/msg2"
         },
         "interval": 1,
         "condition": {
@@ -315,17 +297,8 @@
     "repick": {
         "type": "origins:action_over_time",
         "rising_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "tellraw @s [\"\",\"Click [\",{\"keybind\":\"key.jump\",\"bold\":true,\"color\":\"gold\"},\"] to repick your role.\"]"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @s"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:start/repick"
         },
         "interval": 1,
         "condition": {
@@ -359,14 +332,9 @@
     },
     "readyup": {
         "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "title @s actionbar [\"\",\"Click [\",{\"keybind\":\"key.swapOffhand\",\"bold\":true,\"color\":\"gold\"},\"] to ready up!\"]"
-                }
-            ]
+        "entity_action":{
+            "type": "origins:execute_command",
+            "command": "execute if entity @s[tag=!ready] run title @s actionbar [\"\",\"Click [\",{\"keybind\":\"key.swapOffhand\",\"bold\":true,\"color\":\"gold\"},\"] to ready up!\"]"
         },
         "interval": 10,
         "condition": {
@@ -394,12 +362,6 @@
                             "inverted": true
                         }
                     ]
-                },
-                {
-                    "type": "origins:command",
-                    "command": "execute if entity @s[tag=!ready]",
-                    "comparison": "==",
-                    "compare_to": 1
                 }
             ]
         }
@@ -407,26 +369,8 @@
     "repick_key": {
         "type": "origins:active_self",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "origin gui @s"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @s remove ready"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "manhunt:start_ready",
-                    "change": -1
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "clear @s minecraft:compass"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:start/repick_key"
         },
         "cooldown": 10,
         "key": {
@@ -445,50 +389,8 @@
     "ready_key": {
         "type": "origins:active_self",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=!ready]",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "tag @s add ready"
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:start_ready",
-                                "change": 1
-                            }
-                        ]
-                    },
-                    "else_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "tag @s remove ready"
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "manhunt:start_ready",
-                                "change": -1
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.note_block.pling player @s"
-                }
-            ]
+            "type": "origins:execute_command",
+            "command": "function manhunt:start/ready_key"
         },
         "cooldown": 10,
         "key": {
@@ -507,8 +409,8 @@
     "no_move": {
         "type": "origins:modify_velocity",
         "modifier": {
-            "value": -1,
-            "operation": "multiply_total"
+            "amount": -1,
+            "operation": "multiply_total_multiplicative"
         },
         "axes": [
             "x",
@@ -519,25 +421,24 @@
     "no_atk_speed": {
         "type": "origins:attribute",
         "modifier": {
-            "name": "Decrease speed",
+            "id": "manhunt:start_attack_speed",
             "attribute": "minecraft:generic.attack_speed",
-            "value": -1,
-            "operation": "multiply_total"
+            "amount": -1,
+            "operation": "add_multiplied_total"
         }
     },
     "no_attack": {
         "type": "origins:modify_damage_dealt",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
         }
     },
     "no_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
-            "name": "No damage",
-            "operation": "multiply_total",
-            "value": -1
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
         },
         "damage_condition": {
             "type": "origins:type",
@@ -552,9 +453,8 @@
     "no_exhaust": {
         "type": "origins:modify_exhaustion",
         "modifier": {
-            "name": "No exhaustion",
-            "operation": "multiply_total",
-            "value": -1
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
         }
     },
     "no_abilities": {
@@ -575,8 +475,8 @@
     "no_break": {
         "type": "origins:modify_break_speed",
         "modifier": {
-            "operation": "multiply_total",
-            "value": -1
+            "operation": "multiply_total_multiplicative",
+            "amount": -1
         }
     },
     "hidden": true

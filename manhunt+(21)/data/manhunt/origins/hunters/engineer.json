@@ -1,6 +1,7 @@
 {
 	"powers": [
 		"manhunt:roles/intelligence",
+		"manhunt:engineer/engineer",
 		"manhunt:engineer/pillars/throw",
 		"manhunt:engineer/portal/activate",
 		"manhunt:engineer/scan/scan",

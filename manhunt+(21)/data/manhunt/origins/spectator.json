@@ -4,7 +4,10 @@
 		"manhunt:global"
 	],
 	"icon": {
-		"item": "minecraft:spyglass"
+		"id": "minecraft:spyglass",
+		"components": {
+			"enchantment_glint_override": true
+		}
 	},
 	"order": 10,
 	"impact": 0,

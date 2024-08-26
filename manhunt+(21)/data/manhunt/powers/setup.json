@@ -22,6 +22,18 @@
                 }
             },
             {
+                "type": "origins:selector_action",
+                "selector": "@a",
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:grant_power",
+                        "power": "manhunt:start",
+                        "source": "manhunt:main_source"
+                    }
+                }
+            },
+            {
                 "type": "origins:execute_command",
                 "command": "forceload add ~ ~ ~ ~"
             },

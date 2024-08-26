@@ -258,7 +258,7 @@
                                     "type": "origins:target_condition",
                                     "condition": {
                                         "type": "origins:power",
-                                        "power": "manhunt:jester/madness/icon"
+                                        "power": "manhunt:balatro/madness/icon"
                                     }
                                 }
                             }
@@ -435,7 +435,7 @@
                     "type": "origins:target_condition",
                     "condition": {
                         "type": "origins:power",
-                        "power": "manhunt:gambler/deception/deception_lodestone"
+                        "power": "manhunt:fortuna/deception/deception_lodestone"
                     }
                 }
             ]

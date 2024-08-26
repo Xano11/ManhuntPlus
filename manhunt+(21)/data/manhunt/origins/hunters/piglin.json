@@ -1,6 +1,7 @@
 {
     "powers": [
         "manhunt:roles/pacekeeper",
+        "manhunt:piglin/piglin",
         "manhunt:piglin/rotten/rot",
         "manhunt:piglin/aura/use",
         "manhunt:piglin/charge",

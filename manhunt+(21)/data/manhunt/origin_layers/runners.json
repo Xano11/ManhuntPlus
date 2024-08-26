@@ -58,7 +58,7 @@
           },
           {
             "type": "origins:resource",
-            "resource": "manhunt:ban_damned",
+            "resource": "manhunt:ban_inmortuae",
             "comparison": "==",
             "compare_to": 1,
             "inverted": true
@@ -66,7 +66,7 @@
         ]
       },
       "origins": [
-        "manhunt:runners/damned"
+        "manhunt:runners/inmortuae"
       ]
     },
     {
@@ -146,7 +146,7 @@
           },
           {
             "type": "origins:resource",
-            "resource": "manhunt:ban_gambler",
+            "resource": "manhunt:ban_fortuna",
             "comparison": "==",
             "compare_to": 1,
             "inverted": true
@@ -154,7 +154,7 @@
         ]
       },
       "origins": [
-        "manhunt:runners/gambler"
+        "manhunt:runners/fortuna"
       ]
     },
     {
@@ -168,7 +168,7 @@
           },
           {
             "type": "origins:resource",
-            "resource": "manhunt:ban_jester",
+            "resource": "manhunt:ban_balatro",
             "comparison": "==",
             "compare_to": 1,
             "inverted": true
@@ -176,7 +176,7 @@
         ]
       },
       "origins": [
-        "manhunt:runners/jester"
+        "manhunt:runners/balatro"
       ]
     },
     {

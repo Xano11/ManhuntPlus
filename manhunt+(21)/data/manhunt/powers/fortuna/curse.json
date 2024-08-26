@@ -1,0 +1,258 @@
+{
+  "type": "origins:multiple",
+  "use": {
+    "type": "origins:resource",
+    "min": 0,
+    "max": 1,
+    "start_value": 1
+  },
+  "hearts": {
+    "type": "origins:resource",
+    "min": 0,
+    "max": 8,
+    "start_value": 0,
+    "hud_render": {
+      "should_render": false
+    }
+  },
+  "regain_heart": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:change_resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "change": -2
+    },
+    "interval": 1800,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">",
+      "compare_to": 1
+    }
+  },
+  "health": {
+    "type": "origins:attribute",
+    "modifier": {
+      "name": "Max health increase",
+      "attribute": "minecraft:generic.max_health",
+      "value": -2,
+      "operation": "addition"
+    }
+  },
+  "health1": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 1
+    }
+  },
+  "health2": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 2
+    }
+  },
+  "health3": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 3
+    }
+  },
+  "health4": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 4
+    }
+  },
+  "health5": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 5
+    }
+  },
+  "health6": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 6
+    }
+  },
+  "health7": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 7
+    }
+  },
+  "health8": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": -2,
+      "name": "Decreased health"
+    },
+    "tick_rate": 10,
+    "update_health": true,
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_hearts",
+      "comparison": ">=",
+      "compare_to": 8
+    }
+  },
+  "no_death": {
+    "type": "origins:prevent_death",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "moborigins:show_floating_item",
+          "item_stack": {
+            "item": "minecraft:totem_of_undying",
+            "tag": "{CustomModelData:1}"
+          }
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:entity.vex.charge player @s ~ ~ ~ 1 0.5"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "function manhunt:abilities/death_msg_fortuna"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust 0 0 0 1 ~ ~ ~ 2 1 2 1 400"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust 1 1 1 1 ~ ~ ~ 2 1 2 1 400"
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust 1 0 0 1 ~ ~ ~ 2 1 2 1 400"
+        },
+        {
+          "type": "origins:apply_effect",
+          "effect": {
+            "effect": "minecraft:weakness",
+            "duration": 100,
+            "amplifier": 0
+          }
+        },
+        {
+          "type": "origins:apply_effect",
+          "effect": {
+            "effect": "minecraft:instant_health",
+            "duration": 1,
+            "amplifier": 1
+          }
+        },
+        {
+          "type": "origins:apply_effect",
+          "effect": {
+            "effect": "minecraft:resistance",
+            "duration": 40,
+            "amplifier": 100
+          }
+        },
+        {
+          "type": "origins:change_resource",
+          "resource": "manhunt:fortuna/curse_use",
+          "change": 0,
+          "operation": "set"
+        }
+      ]
+    },
+    "condition": {
+      "type": "origins:resource",
+      "resource": "manhunt:fortuna/curse_use",
+      "comparison": "==",
+      "compare_to": 1
+    }
+  },
+  "name": "Devil's Deal",
+  "description": "You traded a heart of yours to the Devil in exchange for your special abilities.",
+  "badges": [
+    {
+      "type": "origins:tooltip",
+      "sprite": "manhunt:textures/item/fortuna/devil.png",
+      "text": "Devil's Deal: §c-1§r heart\nIn return, you will stay alive upon taking a fatal blow. (Applicable once per run)"
+    }
+  ]
+}

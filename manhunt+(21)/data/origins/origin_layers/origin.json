@@ -1,5 +1,6 @@
 {
   "order": 1,
+  "loading_priority": 1,
   "replace": true,
   "origins": [
     "manhunt:hunter",
